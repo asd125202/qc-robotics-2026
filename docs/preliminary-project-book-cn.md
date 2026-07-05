@@ -248,6 +248,7 @@ Qualcomm 可获得：
 - TeleopStudio 示教数据采集工位页：https://qc-robotics-2026.pages.dev/teleop-studio/
 - TrainRouter 双云 GPU 训练路由页：https://qc-robotics-2026.pages.dev/train-router/
 - EdgeRuntimeBench Qualcomm 运行证据页：https://qc-robotics-2026.pages.dev/edge-runtime-bench/
+- WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - PilotContractKit 商业试点合同页：https://qc-robotics-2026.pages.dev/pilot-contract-kit/
 - SkillCertKit 技能认证体系页：https://qc-robotics-2026.pages.dev/skill-cert-kit/
 - OpsConnector 企业集成桥页：https://qc-robotics-2026.pages.dev/ops-connector/

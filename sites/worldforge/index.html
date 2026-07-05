@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WorldForge | 机器人仿真数据工厂</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>WorldForge</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#research">研究</a>
+        <a href="#pipeline">流水线</a>
+        <a href="#factory">工厂</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-worldforge">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 28 · Simulation CI & Synthetic Data Factory</p>
+          <h1>WorldForge</h1>
+          <p class="hero-lede">仿真不是目的，规模化可验证机器人数据工厂才是产品。WorldForge 把真实示教、合成变体、失败挖掘、LeRobot 数据集、云训练和 Qualcomm edge validation 串成一条技能生产线。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#pipeline">查看生产线</a>
+            <a class="button" href="../data-flywheel/">连接 DataFlywheel</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">00 · Five-Thread Research</p>
+              <h2>具身智能的瓶颈，正在从模型参数转向数据、评测和端侧上线。</h2>
+            </div>
+            <p>五条并行研究线给出同一结论：NVIDIA、Google、Physical Intelligence、Skild、Covariant 和 Figure 都在建设数据飞轮；Isaac、MuJoCo、Gazebo、Genesis 已经足够强；真正的产品机会是把它们编排成可交付的 simulation CI。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Foundation Models</h3>
+              <p>GR00T、Gemini Robotics、OpenPI、Helix、RFM 都需要 post-training 和回归评测。</p>
+            </article>
+            <article class="card">
+              <h3>Sim Backends</h3>
+              <p>Isaac 做高保真，MuJoCo 做快速动力学，Gazebo 做 ROS 兼容，Genesis 做实验加速。</p>
+            </article>
+            <article class="card">
+              <h3>Data Flywheel</h3>
+              <p>LeRobotDataset、HIL correction、failure replay 和 benchmark 变成产品 rails。</p>
+            </article>
+            <article class="card">
+              <h3>Business</h3>
+              <p>仓库、工厂、实验室为更快切换 SKU / protocol / station 和更低失败率付费。</p>
+            </article>
+            <article class="card">
+              <h3>Qualcomm</h3>
+              <p>云端训练后必须经过 static export、AI Hub profile、QNN/ONNX 和真实板端验证。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/worldforge.png" alt="机器人仿真数据工厂和 Qualcomm 边缘验证概念图">
+          </div>
+        </div>
+      </section>
+
+      <section id="pipeline" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Skill Production Line</p>
+              <h2>从一条真实示教，到一套可以上线的机器人技能证据。</h2>
+            </div>
+            <p>WorldForge 不卖“一个仿真界面”，而卖从真实数据到合成数据、从评测到训练、从云端策略到 Qualcomm 本体运行的完整证据链。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Capture</h3>
+              <p>Teleop demo、ROS bag、camera、LiDAR、robot state、HIL takeover 和失败片段。</p>
+            </article>
+            <article class="step">
+              <h3>Forge</h3>
+              <p>real-to-sim 校准，生成位置、光照、遮挡、摩擦、相机和对象变体。</p>
+            </article>
+            <article class="step">
+              <h3>Validate</h3>
+              <p>标准 benchmark、行业 stress test、失败聚类和上线门禁。</p>
+            </article>
+            <article class="step">
+              <h3>Train</h3>
+              <p>导出 LeRobot 数据集，走中国 / 海外云 GPU 训练，保留 provenance。</p>
+            </article>
+            <article class="step">
+              <h3>Edge Gate</h3>
+              <p>AI Hub profile、QNN / ONNX / TFLite artifact、真实 Qualcomm 板端验证。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Backend Adapters</p>
+              <h2>不要重写物理引擎，要把现有工具变成客户能用的生产系统。</h2>
+            </div>
+            <p>WorldForge 的护城河是兼容性、数据契约、评测门禁和端侧部署，而不是声称自己比所有仿真器都强。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Isaac</h3>
+              <p>USD 场景、Replicator 标注、视觉传感器、trajectory expansion 和高保真评测。</p>
+            </article>
+            <article class="card">
+              <h3>MuJoCo</h3>
+              <p>快速 dynamics、system identification、RL rollout 和 contact stress test。</p>
+            </article>
+            <article class="card">
+              <h3>Gazebo</h3>
+              <p>ROS 2、SDF、Nav2、客户已有工程和低成本教育 / 比赛兼容。</p>
+            </article>
+            <article class="card">
+              <h3>Genesis</h3>
+              <p>新兴多物理后端，用于 deformable、tactile、contact-rich 和并行 rollout 探索。</p>
+            </article>
+            <article class="card">
+              <h3>Robo Packs</h3>
+              <p>robosuite、RoboCasa、RoboVerse 任务包，转成工业、实验室、物流变体。</p>
+            </article>
+            <article class="card">
+              <h3>LeRobot</h3>
+              <p>统一导出视频、状态、动作、语言、场景参数、失败标签和数据血缘。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="factory" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · Failure Factory</p>
+            <h2>失败不是事故，是下一轮训练最值钱的数据。</h2>
+            <p class="lead">企业机器人试点失败，通常不是因为 demo 不会跑，而是新 SKU、新光照、新摩擦、新容器、新遮挡把策略击穿。WorldForge 把这些失败变成可复现、可标注、可训练、可回归的任务。</p>
+            <ul class="list">
+              <li>Failure mining：grasp miss、slip、collision、occlusion、wrong object、timeout。</li>
+              <li>Synthetic variants：从少量真实轨迹扩展出可控场景组合。</li>
+              <li>Simulation CI：每次策略更新自动跑行业 benchmark 和 stress test。</li>
+              <li>Promotion gate：只放行干预率、复发率、cycle time、edge latency 达标的版本。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/worldforge.png" alt="失败挖掘、合成数据和仿真回归测试工厂图">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Qualcomm Edge Gate</p>
+              <h2>把 Qualcomm 从“硬件选择”变成“机器人技能上线门禁”。</h2>
+            </div>
+            <p>WorldForge 的最后一关不是云端 benchmark，而是真实 Qualcomm edge target。策略必须通过静态导出、量化校准、AI Hub profile、真实板端延迟 / 内存 / 功耗 / ROS 2 loop timing，才能进入 SafetyOps 和 EdgeFleet。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>RB3 Now</strong>
+              <span>用 RB3 Gen 2 / QCS6490 / QCS8550 做当前原型和复赛实测。</span>
+            </div>
+            <div class="stat">
+              <strong>IQ10 Ready</strong>
+              <span>长期路线对齐 Dragonwing IQ10 robotics reference design。</span>
+            </div>
+            <div class="stat">
+              <strong>AI Hub</strong>
+              <span>模型转换、profile、numerical check、runtime mapping 进入正式门禁。</span>
+            </div>
+            <div class="stat">
+              <strong>Canary</strong>
+              <span>部署包带 hash、calibration report、rollback 和现场失败回流。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">WorldForge 的目标不是让仿真取代真实世界，而是让每一次真实失败都能变成下一版技能的可验证训练资产。</p>
+          <div class="source-links">
+            <a href="https://developer.nvidia.com/isaac/gr00t">GR00T</a>
+            <a href="https://developer.nvidia.com/isaac/sim">Isaac Sim</a>
+            <a href="https://huggingface.co/docs/lerobot/en/index">LeRobot</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">Dataset v3</a>
+            <a href="https://robotics-transformer-x.github.io/">Open X</a>
+            <a href="https://droid-dataset.github.io/">DROID</a>
+            <a href="https://mujoco.readthedocs.io/en/latest/">MuJoCo</a>
+            <a href="https://gazebosim.org/docs/latest/releases/">Gazebo</a>
+            <a href="https://roboverseorg.github.io/">RoboVerse</a>
+            <a href="https://aihub.qualcomm.com/">AI Hub</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">IQ10 RRD</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
