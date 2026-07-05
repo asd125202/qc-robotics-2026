@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FleetConductor | 机器人塔台</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>FleetConductor</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#tower">塔台</a>
+        <a href="#adapters">适配器</a>
+        <a href="#map">地图</a>
+        <a href="#incident">异常</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-fleet-conductor">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 34 · Mixed Robot Fleet Orchestration</p>
+          <h1>FleetConductor</h1>
+          <p class="hero-lede">让工厂、仓库、医院和实验室里的每台机器人，遵守同一张地图、同一套交通规则、同一个任务节拍。Qualcomm 边缘塔台本地运行，云端只做训练和优化增强。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#tower">查看机器人塔台</a>
+            <a class="button" href="../ops-connector/">连接 OpsConnector</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="tower" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Edge Tower Runtime</p>
+              <h2>机器人越多，现场越需要一座本地塔台。</h2>
+            </div>
+            <p>FleetConductor 不是又一个远程 dashboard，而是现场边缘运行时：任务队列、交通调度、地图服务、fleet registry、incident manager 和 event log 都在本地保持在线。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Order</h3>
+              <p>WMS/MES/ERP/LIMS/HIS 任务进入统一队列。</p>
+            </article>
+            <article class="step">
+              <h3>Allocate</h3>
+              <p>按能力、位置、电量、payload、SLA 选择机器人。</p>
+            </article>
+            <article class="step">
+              <h3>Schedule</h3>
+              <p>走廊、门、电梯、充电桩和装卸位进入资源时刻表。</p>
+            </article>
+            <article class="step">
+              <h3>Operate</h3>
+              <p>本地边缘执行，云端断开也能继续运行和记录。</p>
+            </article>
+            <article class="step">
+              <h3>Learn</h3>
+              <p>成功、失败和人工接管进入 DataFlywheel。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/fleet-conductor.png" alt="机器人塔台、多楼层设施地图、混合车队和边缘运行时概念图">
+          </div>
+        </div>
+      </section>
+
+      <section id="adapters" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Adapter Hub</p>
+              <h2>不替代厂商大脑，连接所有车队系统。</h2>
+            </div>
+            <p>MassRobotics 适合共享状态，VDA 5050 适合 master-control 到 AGV/AMR 的订单和状态，Open-RMF 适合多车队与门梯充电等共享资源。FleetConductor 用 adapter 把这些接入企业流程。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>VDA 5050</h3>
+              <p>MQTT/JSON order、state、connection、factsheet、zone 和 map adapter。</p>
+            </article>
+            <article class="card">
+              <h3>Open-RMF</h3>
+              <p>fleet adapter、traffic schedule、door/lift/charger adapter 和 task bidding。</p>
+            </article>
+            <article class="card">
+              <h3>MassRobotics</h3>
+              <p>identity、location、speed、health、availability 和 shared awareness。</p>
+            </article>
+            <article class="card">
+              <h3>Facility API</h3>
+              <p>REST、MQTT、OPC-UA、BACnet、WMS、MES、ERP、BMS 和厂商 SDK。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="map" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Live Facility Map</p>
+              <h2>地图不是背景图，是可执行的交通规则。</h2>
+            </div>
+            <p>走廊、会车点、禁行区、门、电梯、装卸点、充电位和等待点都进入同一个资源模型。任务不只是派发，而是被安全编排、预约、冲突检测和可回放。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Lanes</h3>
+              <p>单向、双向、限速、会车和临时封控。</p>
+            </article>
+            <article class="card">
+              <h3>Doors</h3>
+              <p>通过授权设施系统请求开门和记录结果。</p>
+            </article>
+            <article class="card">
+              <h3>Elevators</h3>
+              <p>楼层、等待队列、占用窗口和失败回退。</p>
+            </article>
+            <article class="card">
+              <h3>Chargers</h3>
+              <p>低电任务插入、排队、兼容桩和充电窗口。</p>
+            </article>
+            <article class="card">
+              <h3>Zones</h3>
+              <p>禁区、慢行区、人机混行区和权限边界。</p>
+            </article>
+            <article class="card">
+              <h3>Replay</h3>
+              <p>事件日志、轨迹、视频快照和根因时间线。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="incident" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">04 · Incident Command</p>
+            <h2>异常不是弹窗，是处置流程。</h2>
+            <p class="lead">低电、堵塞、急停、传感器遮挡、门梯失败和任务超时自动进入事件时间线，触发重路由、隔离、人工接管、证据留存和复盘包。</p>
+            <ul class="list">
+              <li>定位为运营安全和可追溯层，不替代机器人本体安全控制器。</li>
+              <li>异常视频、状态、轨迹和人工接管片段默认留在现场边缘。</li>
+              <li>云端同步摘要、精选 incident clips、LeRobot 数据集和优化指标。</li>
+              <li>恢复后回灌 DataFlywheel，形成训练、仿真、评估和边缘部署闭环。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/fleet-conductor.png" alt="机器人异常处置、视频快照和事件复盘控制台">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Qualcomm Role</p>
+              <h2>从单机 edge AI，升级到设施级机器人操作系统。</h2>
+            </div>
+            <p>FleetConductor 把 Qualcomm 放在现场协同核心：多媒体、连接、边缘 AI、低云依赖、模型部署和本地事件闭环共同构成可交付的 factory edge tower appliance。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Edge</strong>
+              <span>本地任务、交通、地图、事件和日志运行，不依赖云端往返。</span>
+            </div>
+            <div class="stat">
+              <strong>Video</strong>
+              <span>现场视频、远程接管、异常快照和隐私边界在边缘处理。</span>
+            </div>
+            <div class="stat">
+              <strong>Network</strong>
+              <span>Wi-Fi、private 5G、VLAN、mTLS、DDS Security 和 OT 分段。</span>
+            </div>
+            <div class="stat">
+              <strong>Flywheel</strong>
+              <span>轨迹、失败、人工接管和复盘进入 LeRobot 数据飞轮。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">FleetConductor 不承诺“一键兼容所有机器人”，它卖的是一座现场塔台：连接现有机器人、设施系统和企业流程，让多品牌车队少堵车、少停机、更可追溯。</p>
+          <div class="source-links">
+            <a href="https://www.vda.de/en/topics/automotive-industry/vda-5050">VDA 5050</a>
+            <a href="https://www.open-rmf.org/">Open-RMF</a>
+            <a href="https://www.massrobotics.org/what-is-the-massrobotics-amr-interoperability-standard/">MassRobotics AMR</a>
+            <a href="https://osrf.github.io/ros2multirobotbook/integration_fleets_adapter_tutorial.html">RMF Fleet Adapter</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10 RRD</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
+            <a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">NIST OT Security</a>
+            <a href="https://www.iso.org/standard/83545.html">ISO 3691-4</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

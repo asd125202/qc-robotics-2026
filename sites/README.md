@@ -33,6 +33,7 @@ Current batch:
 - `integrator-forge/` — certified system integrator marketplace and deployment evidence system for RobotMac / Qualcomm edge projects.
 - `robot-lease-ops/` — RaaS, leasing, uptime SLA, service ledger, and subscription control plane for bankable robot capacity.
 - `scale-foundry/` — prototype-to-SKU hardware productization, certification evidence, manufacturing launch, and lifecycle assurance.
+- `fleet-conductor/` — local edge robot tower for mixed-vendor fleet orchestration, maps, traffic, doors, elevators, chargers, incidents, and LeRobot feedback.
 - `safety-ops/` — safety runtime, skill permissions, release gates, audit ledger, and compliance evidence.
 - `dual-cloud-ops/` — China/overseas GPU-cloud lanes behind one LeRobot training job contract.
 - `revenue-stack/` — pricing ladder, pilot contracts, recurring revenue lines, and ecosystem economics.
