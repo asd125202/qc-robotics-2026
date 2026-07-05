@@ -28,6 +28,7 @@ The current first-batch pitch directions are:
 - `DragonWorks`: Qualcomm-first robotics developer workbench for devices, datasets, training, deployment, and skills.
 - `EdgeFleet`: fleet operations layer for enterprise robot maintenance, logging, updates, and training feedback.
 - `EduForge`: education and developer kit for teaching the full LeRobot-to-Qualcomm edge deployment loop.
+- `JudgeDeck`: judge-facing scoring alignment and three-minute demo storyboard.
 
 ## Repo Layout
 

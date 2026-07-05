@@ -134,6 +134,10 @@ img {
   background-image: url("./assets/eduforge-kit.png");
 }
 
+.hero-judge {
+  background-image: url("./assets/judge-deck-hero.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;

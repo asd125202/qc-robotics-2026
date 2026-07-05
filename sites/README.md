@@ -15,5 +15,6 @@ Current batch:
 - `dragonworks/` — Qualcomm-first robotics developer workbench.
 - `edgefleet/` — fleet operations and maintenance platform.
 - `eduforge/` — education and developer learning kit.
+- `judge-deck/` — judge-facing scoring alignment and demo storyboard.
 
 Generated illustration assets are stored in `sites/assets/`.
