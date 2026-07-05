@@ -150,6 +150,10 @@ img {
   background-image: url("./assets/business-case-flywheel.png");
 }
 
+.hero-submission {
+  background-image: url("./assets/judge-deck-hero.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;

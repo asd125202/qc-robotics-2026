@@ -33,6 +33,7 @@ The current first-batch pitch directions are:
 - `CloudPlan`: provider execution and budget story for China and overseas cloud GPU training.
 - `HardwareMap`: physical product-line and BOM story for QCS6490, QCS8550, IQ-8275, and future IQ10.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
+- `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.
 
 ## Repo Layout
 

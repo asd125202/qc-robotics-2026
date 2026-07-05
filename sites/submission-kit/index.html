@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SubmissionKit | 初赛提交包</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-coral">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>SubmissionKit</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#deadline">截止</a>
+        <a href="#files">文件</a>
+        <a href="#proof">证据</a>
+        <a href="#review">检查</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-submission">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 12 · Preliminary Submission</p>
+          <h1>SubmissionKit</h1>
+          <p class="hero-lede">把初赛项目书、支撑材料、网站链接、上传限制和评委证据包整理成一个提交清单，目标是在 2026-07-20 11:59:59 前完成报名与项目书提交。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#files">提交文件</a>
+            <a class="button" href="../judge-deck/">查看评委版</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="deadline" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Official Constraints</p>
+              <h2>最重要的不是做更多材料，而是避免错过一次性上传。</h2>
+            </div>
+            <p>官方信息显示，初赛项目书提交截止为 2026-07-20 11:59:59，项目书格式为 .docx 或 .pdf。上传页面提示作品只能提交一次且不能修改，多文件应先打包。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>07/20</strong>
+              <span>初赛项目书截止日期。</span>
+            </div>
+            <div class="stat">
+              <strong>11:59:59</strong>
+              <span>官方模板中记录的截止时间。</span>
+            </div>
+            <div class="stat">
+              <strong>docx/pdf</strong>
+              <span>主项目书建议格式。</span>
+            </div>
+            <div class="stat">
+              <strong>一次</strong>
+              <span>上传后不可修改，提交前必须复核。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="files" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Package Files</p>
+              <h2>主文件讲清项目，支撑包证明执行力。</h2>
+            </div>
+            <p>建议主项目书从 `docs/preliminary-project-book-cn.md` 导出为 DOCX/PDF；支撑包包含研究、架构、评分对齐、网站截图和链接说明。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>主项目书</h3>
+              <p>`RobotMac Core + LeRobot CloudTwin-[团队名].docx` 或 `.pdf`，包含背景、方案、技术路线、商业价值、Qualcomm 支持价值和计划。</p>
+            </article>
+            <article class="card">
+              <h3>支撑材料包</h3>
+              <p>可选 zip：产品主张、评分对齐、云训练计划、硬件产品线、商业模式、研究笔记、网站截图。</p>
+            </article>
+            <article class="card">
+              <h3>在线证据</h3>
+              <p>Cloudflare Pages、GitHub repo、Prototype dashboard、JudgeDeck、BusinessCase、HardwareMap 等页面链接。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="proof" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Evidence Pack</p>
+              <h2>初赛重点是可行性和完整性，证据要围绕评分点组织。</h2>
+            </div>
+            <p>官方初赛评分里可行性占 50 分，完整性占 30 分。提交包应该突出：已经有可访问网站、清晰技术架构、云训练路径、硬件路线、商业飞轮和可交互 prototype。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>50</strong>
+              <span>可行性：硬件路线、fallback dashboard、云训练 adapter。</span>
+            </div>
+            <div class="stat">
+              <strong>30</strong>
+              <span>完整性：产品、技术、商业、进度和支撑材料齐备。</span>
+            </div>
+            <div class="stat">
+              <strong>20</strong>
+              <span>团队契合：需要在报名表中补齐成员与分工。</span>
+            </div>
+            <div class="stat">
+              <strong>URL</strong>
+              <span>线上页面证明项目不是单纯文字概念。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="review" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Final Review</p>
+              <h2>上传前最后检查，不要把可修正问题变成不可修改问题。</h2>
+            </div>
+            <p>提交前必须检查团队字段、联系方式、首选设备、文件格式、文件名、链接可访问性和敏感信息。Cloudflare/API/SSH/VPN 相关凭证不得进入任何提交文件。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>填写团队</h3>
+              <p>联系人、邮箱、电话、微信、团队名、成员分工。</p>
+            </article>
+            <article class="step">
+              <h3>导出项目书</h3>
+              <p>把 Markdown 草稿整理成 DOCX/PDF。</p>
+            </article>
+            <article class="step">
+              <h3>检查链接</h3>
+              <p>确认 GitHub、Pages、Prototype 页面可打开。</p>
+            </article>
+            <article class="step">
+              <h3>打包支撑</h3>
+              <p>多文件先 zip，避免上传页只收一个文件。</p>
+            </article>
+            <article class="step">
+              <h3>最终上传</h3>
+              <p>使用报名手机号和验证码，一次性提交。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">初赛提交的目标不是把所有代码做完，而是证明：方向重要、方案完整、技术可行、商业清楚、Qualcomm 支持有战略价值。</p>
+          <div class="source-links">
+            <a href="https://qc-robotics-dev.aidlux.com/2026/">比赛官网</a>
+            <a href="https://qc-robotics-2026.pages.dev/prototype/">Prototype</a>
+            <a href="https://qc-robotics-2026.pages.dev/judge-deck/">JudgeDeck</a>
+            <a href="https://github.com/asd125202/qc-robotics-2026">GitHub Repo</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
