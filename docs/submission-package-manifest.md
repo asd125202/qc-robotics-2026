@@ -39,6 +39,7 @@ Suggested contents:
 - `docs/research/competitor-landscape.md`
 - `docs/research/market-signals.md`
 - `docs/research/qualcomm-strategic-fit.md`
+- `docs/cert-forge.md`
 
 Screenshots or exported pages from:
 
@@ -56,6 +57,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/robot-lease-ops/
 - https://qc-robotics-2026.pages.dev/risk-ledger/
 - https://qc-robotics-2026.pages.dev/scale-foundry/
+- https://qc-robotics-2026.pages.dev/cert-forge/
 - https://qc-robotics-2026.pages.dev/fleet-conductor/
 - https://qc-robotics-2026.pages.dev/care-ops/
 - https://qc-robotics-2026.pages.dev/field-ops/
@@ -104,6 +106,7 @@ Suggested values to review:
 - RaaS subscription control page: `https://qc-robotics-2026.pages.dev/robot-lease-ops/`.
 - Robot risk evidence ledger page: `https://qc-robotics-2026.pages.dev/risk-ledger/`.
 - Hardware productization page: `https://qc-robotics-2026.pages.dev/scale-foundry/`.
+- Compliance evidence factory page: `https://qc-robotics-2026.pages.dev/cert-forge/`.
 - Mixed robot fleet tower page: `https://qc-robotics-2026.pages.dev/fleet-conductor/`.
 - Hospital operations robot workflow page: `https://qc-robotics-2026.pages.dev/care-ops/`.
 - Outdoor field robotics platform page: `https://qc-robotics-2026.pages.dev/field-ops/`.

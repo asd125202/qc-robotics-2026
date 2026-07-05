@@ -214,6 +214,10 @@ img {
   background-image: url("./assets/care-ops.png");
 }
 
+.hero-cert-forge {
+  background-image: url("./assets/cert-forge.png");
+}
+
 .hero-field-ops {
   background-image: url("./assets/field-ops.png");
 }

@@ -99,6 +99,7 @@ Qualcomm 可以通过该项目获得一个端到端机器人生态样板：
 - RobotLeaseOps RaaS 订阅控制面页：https://qc-robotics-2026.pages.dev/robot-lease-ops/
 - RiskLedger 机器人风险账本页：https://qc-robotics-2026.pages.dev/risk-ledger/
 - ScaleFoundry 硬件产品化工厂页：https://qc-robotics-2026.pages.dev/scale-foundry/
+- CertForge 机器人合规证据工厂页：https://qc-robotics-2026.pages.dev/cert-forge/
 - FleetConductor 机器人塔台页：https://qc-robotics-2026.pages.dev/fleet-conductor/
 - CareOps 院内智运平台页：https://qc-robotics-2026.pages.dev/care-ops/
 - FieldOps 野巡户外机器人平台页：https://qc-robotics-2026.pages.dev/field-ops/
