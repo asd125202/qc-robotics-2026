@@ -186,6 +186,10 @@ img {
   background-image: url("./assets/robot-lease-ops.png");
 }
 
+.hero-scale-foundry {
+  background-image: url("./assets/scale-foundry.png");
+}
+
 .hero-safetyops {
   background-image: url("./assets/safety-ops.png");
 }
