@@ -218,6 +218,10 @@ img {
   background-image: url("./assets/cert-forge.png");
 }
 
+.hero-uptime-os {
+  background-image: url("./assets/uptime-os.png");
+}
+
 .hero-field-ops {
   background-image: url("./assets/field-ops.png");
 }
