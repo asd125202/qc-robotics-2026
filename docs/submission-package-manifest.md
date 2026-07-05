@@ -50,6 +50,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/edge-runtime-bench/
 - https://qc-robotics-2026.pages.dev/worldforge/
 - https://qc-robotics-2026.pages.dev/integrator-forge/
+- https://qc-robotics-2026.pages.dev/robot-lease-ops/
 - https://qc-robotics-2026.pages.dev/pilot-contract-kit/
 - https://qc-robotics-2026.pages.dev/skill-cert-kit/
 - https://qc-robotics-2026.pages.dev/ops-connector/
@@ -89,6 +90,7 @@ Suggested values to review:
 - Qualcomm runtime evidence page: `https://qc-robotics-2026.pages.dev/edge-runtime-bench/`.
 - Simulation data factory page: `https://qc-robotics-2026.pages.dev/worldforge/`.
 - Certified integrator ecosystem page: `https://qc-robotics-2026.pages.dev/integrator-forge/`.
+- RaaS subscription control page: `https://qc-robotics-2026.pages.dev/robot-lease-ops/`.
 - Commercial pilot page: `https://qc-robotics-2026.pages.dev/pilot-contract-kit/`.
 - Skill certification page: `https://qc-robotics-2026.pages.dev/skill-cert-kit/`.
 - Enterprise integration page: `https://qc-robotics-2026.pages.dev/ops-connector/`.

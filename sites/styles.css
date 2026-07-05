@@ -182,6 +182,10 @@ img {
   background-image: url("./assets/integrator-forge.png");
 }
 
+.hero-robot-lease {
+  background-image: url("./assets/robot-lease-ops.png");
+}
+
 .hero-safetyops {
   background-image: url("./assets/safety-ops.png");
 }

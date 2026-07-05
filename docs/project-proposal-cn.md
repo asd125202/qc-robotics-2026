@@ -93,6 +93,7 @@ Qualcomm 可以通过该项目获得一个端到端机器人生态样板：
 - EdgeRuntimeBench Qualcomm 运行证据页：https://qc-robotics-2026.pages.dev/edge-runtime-bench/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - IntegratorForge 集成交付生态页：https://qc-robotics-2026.pages.dev/integrator-forge/
+- RobotLeaseOps RaaS 订阅控制面页：https://qc-robotics-2026.pages.dev/robot-lease-ops/
 - PilotContractKit 商业试点合同页：https://qc-robotics-2026.pages.dev/pilot-contract-kit/
 - SkillCertKit 技能认证体系页：https://qc-robotics-2026.pages.dev/skill-cert-kit/
 - OpsConnector 企业集成桥页：https://qc-robotics-2026.pages.dev/ops-connector/
