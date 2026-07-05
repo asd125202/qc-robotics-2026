@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TrainRouter | 双云 GPU 训练路由器</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>TrainRouter</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#router">路由</a>
+        <a href="#providers">供应商</a>
+        <a href="#guard">预算</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-train-router">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 25 · Dual-Cloud GPU Training Router</p>
+          <h1 class="long-word-title">TrainRouter</h1>
+          <p class="hero-lede">机器人团队不应该手动比较每家 GPU 云。TrainRouter 把 LeRobot job contract 路由到中国云或海外云，控制预算、数据边界和评估一致性，最后输出统一的 Qualcomm edge deployment package。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#router">查看训练路由</a>
+            <a class="button" href="../dual-cloud-ops/">连接 DualCloudOps</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="router" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Job Routing Contract</p>
+              <h2>卖点不是便宜 GPU，而是训练过程变得可控。</h2>
+            </div>
+            <p>用户提交数据集、策略类型、目标硬件、预算和数据地域，TrainRouter 负责选择 provider、启动训练、监控花费、统一评估，并把输出带回 Qualcomm 本体部署链路。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Contract</h3>
+              <p>LeRobot dataset、policy、target profile、budget 和 region。</p>
+            </article>
+            <article class="step">
+              <h3>Route</h3>
+              <p>根据中国版、海外版、预算、库存和数据边界选择训练 lane。</p>
+            </article>
+            <article class="step">
+              <h3>Train</h3>
+              <p>在 AutoDL、PAI、Runpod、Lambda 或 Modal 执行任务。</p>
+            </article>
+            <article class="step">
+              <h3>Eval</h3>
+              <p>同一套评估脚本比较成功率、失败类型和动作质量。</p>
+            </article>
+            <article class="step">
+              <h3>Export</h3>
+              <p>输出 Qualcomm edge package、回滚包和运行证据。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/train-router.png" alt="中国云和海外云 GPU 训练路由及 Qualcomm 边缘部署图">
+          </div>
+        </div>
+      </section>
+
+      <section id="providers" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Provider Matrix</p>
+              <h2>中国版和海外版可以不同，但训练合约必须相同。</h2>
+            </div>
+            <p>TrainRouter 把云厂商差异封装在 adapter 层。客户看到的是训练任务、预算、数据边界和 edge artifact，而不是每家云的控制台细节。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>AutoDL</h3>
+              <p>中国开发者快速试验，适合比赛阶段小规模 ACT 训练。</p>
+            </article>
+            <article class="card">
+              <h3>阿里云 PAI</h3>
+              <p>中国企业训练主路径，适合强调数据、训练、部署和审计。</p>
+            </article>
+            <article class="card">
+              <h3>腾讯云 GPU</h3>
+              <p>国内弹性 GPU 与 IaaS 训练资源，适合补充供应和价格弹性。</p>
+            </article>
+            <article class="card">
+              <h3>Runpod</h3>
+              <p>海外开发者快速启动，适合跑 LeRobot 原型和低摩擦实验。</p>
+            </article>
+            <article class="card">
+              <h3>Lambda</h3>
+              <p>海外团队训练和集群故事，适合强调透明 GPU 实例和规模。</p>
+            </article>
+            <article class="card">
+              <h3>Modal</h3>
+              <p>短任务、评估、导出和 serverless job，适合异步训练工具链。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="guard" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · Budget And Data Guard</p>
+            <h2>商业客户需要的是边界，不是无限试错。</h2>
+            <p class="lead">TrainRouter 把 GPU-hour、数据地域、私有存储、训练时长和失败重试写进任务合约。预算接近阈值时自动停机或请求确认，数据默认不跨区域。</p>
+            <ul class="list">
+              <li>中国客户数据默认进入 China lane，不跨境训练。</li>
+              <li>海外公开 demo 数据可以进入 Overseas lane 或 Auto route。</li>
+              <li>每个训练任务有 max GPU-hour、max cost 和 timeout。</li>
+              <li>每个 provider 输出的模型必须通过同一套 eval harness。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/train-router.png" alt="GPU 训练预算控制和数据边界路由图">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Qualcomm Edge Value</p>
+              <h2>云可以多变，机器人本体目标必须稳定。</h2>
+            </div>
+            <p>TrainRouter 把 GPU 云的不确定性压在 provider adapter 层，把稳定的部署目标留给 Qualcomm edge。无论模型在哪个云训练，最终都进入同一种 runtime、benchmark、认证和技能市场链路。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Any Cloud</strong>
+              <span>中国云和海外云都只是训练资源，产品接口保持一致。</span>
+            </div>
+            <div class="stat">
+              <strong>One Target</strong>
+              <span>训练结果导出到 QCS8550 / QCS6490 / IQ 系列 edge profile。</span>
+            </div>
+            <div class="stat">
+              <strong>Evidence</strong>
+              <span>模型进入 EdgeRuntimeBench，生成延迟、资源和部署证据。</span>
+            </div>
+            <div class="stat">
+              <strong>Marketplace</strong>
+              <span>通过 SkillCertKit 后，训练结果能成为 SkillDock 可售技能。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">TrainRouter 把“找一块云 GPU 跑训练”变成“提交机器人任务，按预算得到可部署的 Qualcomm edge artifact”。</p>
+          <div class="source-links">
+            <a href="https://www.runpod.io/pricing">Runpod</a>
+            <a href="https://lambda.ai/pricing">Lambda</a>
+            <a href="https://modal.com/pricing">Modal</a>
+            <a href="https://www.alibabacloud.com/product/machine-learning">阿里云 PAI</a>
+            <a href="https://www.tencentcloud.com/products/gpu">腾讯云 GPU</a>
+            <a href="https://www.huaweicloud.com/intl/en-us/product/modelarts.html">ModelArts</a>
+            <a href="https://huggingface.co/docs/lerobot/index">LeRobot</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

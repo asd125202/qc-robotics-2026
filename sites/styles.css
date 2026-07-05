@@ -114,6 +114,10 @@ img {
   background-image: url("./assets/cloud-training-loop.png");
 }
 
+.hero-train-router {
+  background-image: url("./assets/train-router.png");
+}
+
 .hero-teleop {
   background-image: url("./assets/teleop-studio.png");
 }
