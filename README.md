@@ -36,6 +36,7 @@ The current first-batch pitch directions are:
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.
 - `VerticalPlaybooks`: factory, logistics, lab, campus/service, and education market product packages.
 - `DataFlywheel`: teleoperation, dataset ledger, cloud training, edge deployment, and failure-mining loop.
+- `SafetyOps`: safety runtime, skill permissions, model release gates, audit ledger, and compliance evidence pack.
 
 ## Repo Layout
 

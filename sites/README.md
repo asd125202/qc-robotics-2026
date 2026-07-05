@@ -23,5 +23,6 @@ Current batch:
 - `submission-kit/` — preliminary project-book and upload-readiness page.
 - `vertical-playbooks/` — vertical market packaging for factory, logistics, lab, service, and education.
 - `data-flywheel/` — teleoperation, dataset, cloud training, edge deployment, and failure-mining loop.
+- `safety-ops/` — safety runtime, skill permissions, release gates, audit ledger, and compliance evidence.
 
 Generated illustration assets are stored in `sites/assets/`.

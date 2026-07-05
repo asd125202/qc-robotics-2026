@@ -162,6 +162,10 @@ img {
   background-image: url("./assets/data-flywheel.png");
 }
 
+.hero-safetyops {
+  background-image: url("./assets/safety-ops.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;
