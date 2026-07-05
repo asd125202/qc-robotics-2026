@@ -13,13 +13,18 @@ Official competition page: https://qc-robotics-dev.aidlux.com/2026/
 
 ## Project Direction
 
-This repository is prepared for an edge robotics project that can run perception, reasoning, and control loops on Qualcomm/AidLux-supported robot development hardware.
+This repository is prepared for a commercial-ready robotics platform concept for the 2026 Qualcomm Embodied Intelligence and Robotics Developer Competition.
 
 Working concept:
 
-> A multimodal edge robotics assistant that combines real-time perception, task planning, and human-friendly interaction for practical indoor service or inspection workflows.
+> An all-in-one robotics product platform that combines Qualcomm Dragonwing edge AI hardware, LeRobot-compatible real-world data workflows, and China/overseas cloud GPU training so users can build robot applications without starting from power supply, compute board, drivers, and training infrastructure.
 
-The exact hardware target and final demo scenario should be confirmed after registration and board allocation.
+The current first-batch pitch directions are:
+
+- `RobotMac Core`: all-in-one robotics compute, power, IO, safety, and runtime core.
+- `LeRobot CloudTwin`: real robot data collection, cloud GPU training, and Qualcomm edge deployment loop.
+- `SkillDock`: robot skill marketplace where trained skills can be installed, certified, and upgraded.
+- `Embodied Kit`: procurement-ready industry kit for factories, labs, education, and service robotics teams.
 
 ## Repo Layout
 
@@ -37,6 +42,7 @@ The exact hardware target and final demo scenario should be confirmed after regi
 
 - Finalize the project name and one-sentence value proposition.
 - Complete `docs/project-proposal.md` before the 2026-07-20 preliminary deadline.
+- Use `docs/product-thesis.md`, `docs/concept-portfolio.md`, and `sites/` as the first concept batch.
 - Use `docs/competition-info.md` as the local contest reference when shaping the proposal and demo plan.
 - Decide the target board and robot form factor.
 - Build a small browser-based demo page and deploy it through Cloudflare Pages for judges/reviewers.

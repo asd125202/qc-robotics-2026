@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LeRobot CloudTwin | 云训练双生</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-amber">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>LeRobot CloudTwin</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#loop">闭环</a>
+        <a href="#clouds">双云</a>
+        <a href="#moat">壁垒</a>
+        <a href="#demo">演示</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-cloud">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 02 · Training Flywheel</p>
+          <h1>LeRobot CloudTwin</h1>
+          <p class="hero-lede">让机器人把真实世界经验转化成可训练数据：本体采集，云端训练，边缘部署，人类纠错，再进入下一轮。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#clouds">中国版与海外版</a>
+            <a class="button" href="../robot-mac/">查看硬件核心版本</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="loop" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Learning Loop</p>
+              <h2>机器人最贵的不是训练一次模型，而是持续变聪明的系统。</h2>
+            </div>
+            <p>LeRobot 提供数据、模型和真实机器人工作流。CloudTwin 把这些能力产品化：用户不需要理解每个训练脚本，只需要选择任务、上传数据、等待评估、部署技能。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>记录</h3>
+              <p>摄像头、状态、动作、指令和人工接管被统一打包。</p>
+            </article>
+            <article class="step">
+              <h3>清洗</h3>
+              <p>数据集版本化，坏片段、成功片段、失败片段分层管理。</p>
+            </article>
+            <article class="step">
+              <h3>训练</h3>
+              <p>ACT 保底，SmolVLA / X-VLA 作为前沿升级路线。</p>
+            </article>
+            <article class="step">
+              <h3>评估</h3>
+              <p>回放成功率、动作平滑度、延迟预算和边缘资源需求。</p>
+            </article>
+            <article class="step">
+              <h3>发布</h3>
+              <p>生成 Qualcomm 边缘部署包，推送到机器人本体运行。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="clouds" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · China / Global</p>
+              <h2>同一套训练规范，两套云供应商组合。</h2>
+            </div>
+            <p>中国团队需要国内访问、中文服务、企业付款和合规；海外团队需要全球区域、快速租卡、容器体验和开发者 API。产品层保持统一，云 adapter 分市场部署。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <h3>中国版</h3>
+              <p>阿里云 PAI 做企业训练主路径，腾讯云 GPU 做弹性算力，华为 ModelArts 面向政企和工业客户，AutoDL 用于比赛和开发者快速实验。</p>
+            </article>
+            <article class="card">
+              <h3>海外版</h3>
+              <p>Runpod 做开发者默认 GPU，Lambda 做可信训练集群，Modal 做评估和异步 job，Paperspace 做 notebook 体验补充。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/cloud-training-loop.png" alt="LeRobot 云训练闭环图">
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Product Moat</p>
+              <h2>壁垒不是租 GPU，而是把训练结果稳定带回真实机器人。</h2>
+            </div>
+            <p>云厂商负责算力，LeRobot 负责开放工作流，Qualcomm 负责本体运行。CloudTwin 的价值在三者之间做稳定的工程桥梁和商业界面。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>数据契约</h3>
+              <p>每个机器人形态都有明确的观测、动作、频率、同步和安全边界，不让数据湖变成混乱文件夹。</p>
+            </article>
+            <article class="card">
+              <h3>训练模板</h3>
+              <p>把 ACT、SmolVLA、X-VLA 等策略固化为可复现 job，减少团队之间的环境差异。</p>
+            </article>
+            <article class="card">
+              <h3>边缘适配</h3>
+              <p>部署包面向 Qualcomm 设备做资源预算、回放验证、降级策略和本地安全约束。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">04 · Competition Demo</p>
+            <h2>3 分钟视频能讲清楚一个可扩张的训练飞轮。</h2>
+            <p class="lead">演示桌面机械臂完成一个可量化任务。视频中展示一次人类示教、一次云端训练任务、一次边缘部署、一次失败片段回收。评委看到的不是“会抓东西”，而是“每次抓失败都能变成下一轮训练数据”。</p>
+          </div>
+          <div class="grid two">
+            <div class="stat">
+              <strong>中国</strong>
+              <span>PAI / 腾讯云 / 华为云 / AutoDL adapter。</span>
+            </div>
+            <div class="stat">
+              <strong>海外</strong>
+              <span>Runpod / Lambda / Modal / Paperspace adapter。</span>
+            </div>
+            <div class="stat">
+              <strong>ACT</strong>
+              <span>比赛落地的低风险训练策略。</span>
+            </div>
+            <div class="stat">
+              <strong>VLA</strong>
+              <span>后续产品升级和前瞻性叙事。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">真正的云训练产品，不是把 notebook 放到云上，而是让机器人经验自动流向下一次更好的本体行为。</p>
+          <div class="source-links">
+            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
+            <a href="https://huggingface.co/docs/lerobot/act">ACT</a>
+            <a href="https://huggingface.co/docs/lerobot/smolvla">SmolVLA</a>
+            <a href="https://www.runpod.io/pricing">Runpod</a>
+            <a href="https://lambda.ai/pricing">Lambda</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
