@@ -26,5 +26,6 @@ Current batch:
 - `safety-ops/` — safety runtime, skill permissions, release gates, audit ledger, and compliance evidence.
 - `dual-cloud-ops/` — China/overseas GPU-cloud lanes behind one LeRobot training job contract.
 - `revenue-stack/` — pricing ladder, pilot contracts, recurring revenue lines, and ecosystem economics.
+- `robot-app-layer/` — stable application SDK above ROS 2, LeRobot, fleet operations, and Qualcomm edge deployment.
 
 Generated illustration assets are stored in `sites/assets/`.

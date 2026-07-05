@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RobotAppLayer | 机器人应用层</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>RobotAppLayer</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#layer">分层</a>
+        <a href="#api">API</a>
+        <a href="#demo">Demo</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-app-layer">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 18 · Robotics Application Layer</p>
+          <h1>RobotAppLayer</h1>
+          <p class="hero-lede">如果 RobotMac 是机器人硬件底座，RobotAppLayer 就是让开发者像写软件一样构建机器人应用的稳定 SDK：上层写任务，底层处理 ROS、数据、训练、部署和运维。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#layer">查看应用层</a>
+            <a class="button" href="../dragonworks/">连接 DragonWorks</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="layer" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Platform Layer</p>
+              <h2>真正的平台，不让每个应用都从驱动和 topic 开始。</h2>
+            </div>
+            <p>ROS 2、LeRobot、SkillDock、EdgeFleet 和 Qualcomm edge runtime 都很重要，但上层应用开发者需要的是稳定能力接口，而不是底层集成细节。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Hardware</h3>
+              <p>机械臂、底盘、相机、夹爪和 IO 能力抽象。</p>
+            </article>
+            <article class="card">
+              <h3>ROS Bridge</h3>
+              <p>保留 ROS 生态，不把 topic 细节暴露给每个应用。</p>
+            </article>
+            <article class="card">
+              <h3>Skill Runtime</h3>
+              <p>技能安装、权限、版本、部署和回滚。</p>
+            </article>
+            <article class="card">
+              <h3>Data API</h3>
+              <p>现场数据、失败片段和评估指标进入 DataFlywheel。</p>
+            </article>
+            <article class="card">
+              <h3>Fleet API</h3>
+              <p>设备状态、日志、更新和多机运维。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Target</h3>
+              <p>模型最终运行在 Qualcomm edge runtime。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/robot-app-layer.png" alt="机器人应用层 SDK 和底层系统架构图">
+          </div>
+        </div>
+      </section>
+
+      <section id="api" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Developer Surface</p>
+              <h2>让应用开发者调用能力，而不是重做系统集成。</h2>
+            </div>
+            <p>RobotAppLayer 的 API 不是替代 ROS，而是在产品层定义更稳定的任务接口。不同机器人形态可以映射到同一组高层能力。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>observe</h3>
+              <p>获取场景、物体、状态和传感器摘要。</p>
+            </article>
+            <article class="step">
+              <h3>move</h3>
+              <p>执行移动、定位、靠近和避障任务。</p>
+            </article>
+            <article class="step">
+              <h3>grasp</h3>
+              <p>执行抓取、放置、扫码和操作任务。</p>
+            </article>
+            <article class="step">
+              <h3>train</h3>
+              <p>把现场数据送入 LeRobot / CloudTwin。</p>
+            </article>
+            <article class="step">
+              <h3>monitor</h3>
+              <p>记录结果、失败、接管和下一轮训练任务。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · Demo Story</p>
+            <h2>从“机械臂脚本”升级成“应用平台”。</h2>
+            <p class="lead">比赛 demo 可以展示一个 LabForge 样品转移 app：上层调用 observe、grasp、train、deploy、monitor；中间层处理数据、技能、权限和日志；底层通过 ROS 2 与 Qualcomm edge runtime 执行。</p>
+            <ul class="list">
+              <li>演示应用层 API 调用，不只展示手写控制脚本。</li>
+              <li>展示失败片段进入 DataFlywheel。</li>
+              <li>展示技能部署经过 SafetyOps 门禁。</li>
+              <li>展示同一个 app 可以迁移到不同机器人形态。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/robot-app-layer.png" alt="机器人应用 SDK 与 Qualcomm 边缘部署图">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Qualcomm Ecosystem</p>
+              <h2>SDK 默认目标，比开发板曝光更有生态价值。</h2>
+            </div>
+            <p>如果应用开发者通过 RobotAppLayer 发布技能包，而技能包默认导向 Qualcomm edge target，那么 Qualcomm 会成为更多机器人应用的默认运行位置。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>SDK</strong>
+              <span>开发者面向任务能力编程。</span>
+            </div>
+            <div class="stat">
+              <strong>Runtime</strong>
+              <span>策略和技能在本体侧稳定运行。</span>
+            </div>
+            <div class="stat">
+              <strong>AI Hub</strong>
+              <span>模型优化和部署可进入标准工作流。</span>
+            </div>
+            <div class="stat">
+              <strong>Market</strong>
+              <span>应用、技能和硬件共同形成生态。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">RobotMac 解决“机器人怎么跑”，RobotAppLayer 解决“开发者怎么在机器人上做应用”。</p>
+          <div class="source-links">
+            <a href="https://docs.ros.org/">ROS 2 Docs</a>
+            <a href="https://osrf.github.io/ros2multirobotbook/">Open-RMF Book</a>
+            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
