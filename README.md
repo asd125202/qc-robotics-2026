@@ -40,6 +40,7 @@ The current first-batch pitch directions are:
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.
 - `VerticalPlaybooks`: factory, logistics, lab, campus/service, and education market product packages.
 - `DataFlywheel`: teleoperation, dataset ledger, cloud training, edge deployment, and failure-mining loop.
+- `RoboTrust`: robot data trust cloud for regional data planes, dataset rights, training authorization, and enterprise audit evidence.
 - `WorldForge`: simulation CI and synthetic-data factory for LeRobot datasets, failure mining, and Qualcomm edge validation.
 - `IntegratorForge`: certified system integrator marketplace and deployment evidence system for RobotMac / Qualcomm edge projects.
 - `RobotLeaseOps`: RaaS, leasing, uptime SLA, service ledger, and subscription control plane for bankable robot capacity.

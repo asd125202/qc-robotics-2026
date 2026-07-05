@@ -249,6 +249,7 @@ Qualcomm 可获得：
 - TrainRouter 双云 GPU 训练路由页：https://qc-robotics-2026.pages.dev/train-router/
 - EdgeRuntimeBench Qualcomm 运行证据页：https://qc-robotics-2026.pages.dev/edge-runtime-bench/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
+- RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - IntegratorForge 集成交付生态页：https://qc-robotics-2026.pages.dev/integrator-forge/
 - RobotLeaseOps RaaS 订阅控制面页：https://qc-robotics-2026.pages.dev/robot-lease-ops/
 - ScaleFoundry 硬件产品化工厂页：https://qc-robotics-2026.pages.dev/scale-foundry/

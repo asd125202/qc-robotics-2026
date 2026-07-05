@@ -27,6 +27,7 @@ Current batch:
 - `submission-kit/` — preliminary project-book and upload-readiness page.
 - `vertical-playbooks/` — vertical market packaging for factory, logistics, lab, service, and education.
 - `data-flywheel/` — teleoperation, dataset, cloud training, edge deployment, and failure-mining loop.
+- `robotrust/` — robot data trust cloud for regional data planes, dataset rights, training authorization, and enterprise audit evidence.
 - `worldforge/` — simulation CI and synthetic-data factory for LeRobot datasets, failure mining, and Qualcomm edge validation.
 - `integrator-forge/` — certified system integrator marketplace and deployment evidence system for RobotMac / Qualcomm edge projects.
 - `robot-lease-ops/` — RaaS, leasing, uptime SLA, service ledger, and subscription control plane for bankable robot capacity.

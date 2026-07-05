@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RoboTrust | 具身数信云</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-green">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>RoboTrust</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#chain">可信链</a>
+        <a href="#regions">双域</a>
+        <a href="#passport">护照</a>
+        <a href="#enterprise">采购</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-robotrust">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 32 · Robot Data Trust Cloud</p>
+          <h1>RoboTrust</h1>
+          <p class="hero-lede">让机器人训练数据敢采、敢训、敢采购：在 Qualcomm 边缘先脱敏、签名和加密，再把 LeRobot 数据、区域云训练、数据护照和审计证据变成企业可批准的产品。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#chain">查看可信链</a>
+            <a class="button" href="../dual-cloud-ops/">连接 DualCloudOps</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="chain" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Trust Chain</p>
+              <h2>机器人数据不是文件，是从边缘到云端的可信链。</h2>
+            </div>
+            <p>RoboTrust 把 Qualcomm edge robot、LeRobot-compatible Trust Vault、Policy Gateway、China / Global training cloud、Model Registry 和部署门禁串成一条可审计的数据生产线。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Edge Trust</h3>
+              <p>本体侧采集、脱敏、签名、加密和缓存。</p>
+            </article>
+            <article class="step">
+              <h3>Trust Vault</h3>
+              <p>LeRobot 数据包、metadata、data card 和血缘。</p>
+            </article>
+            <article class="step">
+              <h3>Policy Gate</h3>
+              <p>按地区、合同、敏感等级和授权路由训练。</p>
+            </article>
+            <article class="step">
+              <h3>Train</h3>
+              <p>中国云、海外云、客户 VPC 或私有云训练。</p>
+            </article>
+            <article class="step">
+              <h3>Deploy</h3>
+              <p>合格 policy 回到 Qualcomm edge runtime。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/robotrust.png" alt="机器人数据可信链、双域训练和审计控制台概念图">
+          </div>
+        </div>
+      </section>
+
+      <section id="regions" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Regional Data Planes</p>
+              <h2>双域训练不是复制两套系统，而是给数据设置边界。</h2>
+            </div>
+            <p>中国数据在中国云或客户私有环境训练，海外数据在海外云或客户 VPC 训练。跨域流动的是审批后的模型、指标、脱敏样本、adapter 或合成数据，而不是默认把原始敏感轨迹汇入一个全球 bucket。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>China Plane</h3>
+              <p>支持中国云、私有云、BYOC、数据分类、出境评估材料、敏感数据计数和本地日志留存。</p>
+            </article>
+            <article class="card">
+              <h3>Global Plane</h3>
+              <p>支持 EU / US / APAC 数据面、DPA、subprocessor、Data Act export、GDPR DPIA 和客户 VPC。</p>
+            </article>
+            <article class="card">
+              <h3>Policy Gateway</h3>
+              <p>训练任务必须携带地区、用途、许可、数据等级、预算和 Qualcomm edge target。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="passport" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Dataset Passport</p>
+              <h2>每一段示教，都应该有权属、同意与用途边界。</h2>
+            </div>
+            <p>LeRobot 让机器人数据更容易流通，RoboTrust 让这些 episode 能被商业使用：谁采集、在哪里采集、能训练什么、能否共享、何时删除、派生模型归谁，都进入数据护照。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Owner</h3>
+              <p>客户、场地、采集方、示教者和设备方。</p>
+            </article>
+            <article class="card">
+              <h3>License</h3>
+              <p>商业训练、研究、NC/SA、内部 benchmark。</p>
+            </article>
+            <article class="card">
+              <h3>Region</h3>
+              <p>中国、EU、US、客户 VPC、私有云。</p>
+            </article>
+            <article class="card">
+              <h3>Purpose</h3>
+              <p>私有模型、共享改进、合成派生、市场分成。</p>
+            </article>
+            <article class="card">
+              <h3>Retention</h3>
+              <p>到期删除、冻结、撤回和 legal hold。</p>
+            </article>
+            <article class="card">
+              <h3>Lineage</h3>
+              <p>raw episode 到模型、部署包和回滚包的哈希链。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="enterprise" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">04 · Enterprise Approval</p>
+            <h2>企业级机器人，不只会干活，还要能通过安全审查。</h2>
+            <p class="lead">RoboTrust 把法务、IT、安全、业务和采购关心的材料前置到产品里：DPA、subprocessor、SBOM、VEX、训练日志、导出审批、模型卡、数据卡和供应商安全问卷。</p>
+            <ul class="list">
+              <li>SAML / OIDC / SCIM、RBAC / ABAC、JIT support access 和高风险命令审批。</li>
+              <li>SBOM、VEX、signed artifact、SLSA provenance、secure OTA 和漏洞响应 SLA。</li>
+              <li>NIST CSF、SSDF、800-53、ISO 27001、CAIQ、SOC 2 roadmap 的证据映射。</li>
+              <li>机器人 command log、dataset export log、training job receipt 和 SIEM export。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/robotrust.png" alt="企业机器人数据安全和审计驾驶舱">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Qualcomm Role</p>
+              <h2>Qualcomm 不只是推理目标，也是可信采集端和部署门禁。</h2>
+            </div>
+            <p>如果机器人数据要变成企业资产，边缘设备必须承担隐私边界、设备身份、低延迟运行、失败回流和安全更新。RoboTrust 把 Qualcomm 放在每次采集、训练审批、部署和运维回路里。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Edge</strong>
+              <span>端侧采集、脱敏、签名、缓存和低延迟推理。</span>
+            </div>
+            <div class="stat">
+              <strong>Trust</strong>
+              <span>设备身份、secure OTA、policy gate 和审计日志。</span>
+            </div>
+            <div class="stat">
+              <strong>Training</strong>
+              <span>LeRobot 数据进入中国/海外训练网格，结果回到本体。</span>
+            </div>
+            <div class="stat">
+              <strong>Market</strong>
+              <span>企业采购包、数据授权和行业技能复用形成商业壁垒。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">RoboTrust 的商业价值不是“我们拥有所有数据”，而是让客户敢把真实机器人数据变成可授权、可训练、可审计、可采购的资产。</p>
+          <div class="source-links">
+            <a href="https://www.cac.gov.cn/2024-09/30/c_1729384452307680.htm">CAC Network Data</a>
+            <a href="https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm">China Data Export</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/data-act">EU Data Act</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act">EU CRA</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
+            <a href="https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20">NIST CSF 2.0</a>
+            <a href="https://www.cisa.gov/sbom">CISA SBOM</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
