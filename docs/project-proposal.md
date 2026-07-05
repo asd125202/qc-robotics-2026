@@ -1,6 +1,6 @@
 # Project Proposal Draft
 
-Use this as the source document for the preliminary submission before 2026-07-20.
+Use this as the source document for the preliminary submission before 2026-07-20. Competition facts extracted from the official page are in `docs/competition-info.md`.
 
 ## 1. Project Name
 
@@ -13,7 +13,7 @@ TBD: A concise description of the robot capability, target user, and measurable 
 ## 3. Competition Track / Hardware Target
 
 - Track: TBD
-- Candidate hardware: Qualcomm/AidLux-supported robotics development board, to be selected or confirmed after registration.
+- Candidate hardware: APLUX Rhino X1, Arduino VENTUNO Q, or Radxa Dragon Q6A, to be selected based on the final track and project direction.
 - Robot form factor: TBD, for example mobile base, arm, quadruped, or tabletop robot.
 
 ## 4. Problem Statement

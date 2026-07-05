@@ -37,6 +37,7 @@ The exact hardware target and final demo scenario should be confirmed after regi
 
 - Finalize the project name and one-sentence value proposition.
 - Complete `docs/project-proposal.md` before the 2026-07-20 preliminary deadline.
+- Use `docs/competition-info.md` as the local contest reference when shaping the proposal and demo plan.
 - Decide the target board and robot form factor.
 - Build a small browser-based demo page and deploy it through Cloudflare Pages for judges/reviewers.
 - Add the first runnable perception/control prototype under `src/`.
