@@ -39,17 +39,20 @@ Suggested contents:
 - `docs/research/competitor-landscape.md`
 - `docs/research/market-signals.md`
 - `docs/research/qualcomm-strategic-fit.md`
-- Screenshots or exported pages from:
-  - https://qc-robotics-2026.pages.dev/
-  - https://qc-robotics-2026.pages.dev/labforge-pilot/
-  - https://qc-robotics-2026.pages.dev/teleop-studio/
-  - https://qc-robotics-2026.pages.dev/train-router/
-  - https://qc-robotics-2026.pages.dev/edge-runtime-bench/
-  - https://qc-robotics-2026.pages.dev/pilot-contract-kit/
-  - https://qc-robotics-2026.pages.dev/skill-cert-kit/
-  - https://qc-robotics-2026.pages.dev/judge-deck/
-  - https://qc-robotics-2026.pages.dev/prototype/
-  - https://qc-robotics-2026.pages.dev/business-case/
+
+Screenshots or exported pages from:
+
+- https://qc-robotics-2026.pages.dev/
+- https://qc-robotics-2026.pages.dev/robot-core-os/
+- https://qc-robotics-2026.pages.dev/labforge-pilot/
+- https://qc-robotics-2026.pages.dev/teleop-studio/
+- https://qc-robotics-2026.pages.dev/train-router/
+- https://qc-robotics-2026.pages.dev/edge-runtime-bench/
+- https://qc-robotics-2026.pages.dev/pilot-contract-kit/
+- https://qc-robotics-2026.pages.dev/skill-cert-kit/
+- https://qc-robotics-2026.pages.dev/judge-deck/
+- https://qc-robotics-2026.pages.dev/prototype/
+- https://qc-robotics-2026.pages.dev/business-case/
 
 Do not include:
 
@@ -76,6 +79,7 @@ Suggested values to review:
 - Preferred device: `APLUX Rhino X1 / Qualcomm Dragonwing QCS8550`.
 - Project name: `RobotMac Core + LeRobot CloudTwin`.
 - Project page: `https://qc-robotics-2026.pages.dev/`.
+- Robot runtime image page: `https://qc-robotics-2026.pages.dev/robot-core-os/`.
 - Main demo page: `https://qc-robotics-2026.pages.dev/labforge-pilot/`.
 - Teleoperation data station page: `https://qc-robotics-2026.pages.dev/teleop-studio/`.
 - Dual-cloud training router page: `https://qc-robotics-2026.pages.dev/train-router/`.

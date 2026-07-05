@@ -110,6 +110,10 @@ img {
   background-image: url("./assets/robot-mac-core.png");
 }
 
+.hero-core-os {
+  background-image: url("./assets/robot-core-os.png");
+}
+
 .hero-cloud {
   background-image: url("./assets/cloud-training-loop.png");
 }

@@ -9,6 +9,7 @@ Published Pages URL: https://qc-robotics-2026.pages.dev/
 Current batch:
 
 - `robot-mac/` — all-in-one robotics compute and power core.
+- `robot-core-os/` — golden robot runtime image with ROS 2, LeRobot hooks, OTA, rollback, and fleet identity.
 - `cloud-training/` — LeRobot cloud-training loop.
 - `train-router/` — dual-cloud GPU training router for China/overseas provider selection, budget guards, and edge artifact export.
 - `teleop-studio/` — teleoperation and demonstration-data capture station for LeRobot datasets.
