@@ -38,6 +38,7 @@ The current first-batch pitch directions are:
 - `DataFlywheel`: teleoperation, dataset ledger, cloud training, edge deployment, and failure-mining loop.
 - `SafetyOps`: safety runtime, skill permissions, model release gates, audit ledger, and compliance evidence pack.
 - `DualCloudOps`: China/overseas GPU-cloud provider adapters behind one LeRobot training job contract.
+- `RevenueStack`: pricing ladder, pilot contracts, recurring revenue lines, and Qualcomm ecosystem economics.
 
 ## Repo Layout
 

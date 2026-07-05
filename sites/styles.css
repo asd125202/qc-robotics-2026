@@ -170,6 +170,10 @@ img {
   background-image: url("./assets/dual-cloud-ops.png");
 }
 
+.hero-revenuestack {
+  background-image: url("./assets/revenue-stack.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;
@@ -356,6 +360,10 @@ h2 {
 
 .grid.five {
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid.six {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .card {
@@ -629,6 +637,7 @@ h2 {
 
   .grid.four,
   .grid.five,
+  .grid.six,
   .deck-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -673,6 +682,7 @@ h2 {
   .grid.three,
   .grid.four,
   .grid.five,
+  .grid.six,
   .deck-grid,
   .pipeline {
     grid-template-columns: 1fr;
