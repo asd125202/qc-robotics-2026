@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RoboPort | 机器人模组港</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-coral">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>RoboPort</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#problem">问题</a>
+        <a href="#ports">端口</a>
+        <a href="#passport">护照</a>
+        <a href="#certlab">认证</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-roboport">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 33 · Certified Robot Module Ecosystem</p>
+          <h1>RoboPort</h1>
+          <p class="hero-lede">让机器人像电脑一样扩展：传感器、夹爪、伺服、安全 IO 和相机不再从零适配，而是带着模组护照、ROS 2 接口、LeRobot 元数据和兼容证据进入 Qualcomm edge 生态。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#ports">查看四类端口</a>
+            <a class="button" href="../board-bringup-kit/">连接 BoardBringup</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Integration Problem</p>
+              <h2>每一次集成，不该从零开始。</h2>
+            </div>
+            <p>线束、电源、驱动、ROS 节点、URDF、标定文件、LeRobot schema 和安全文档分散在供应商手册里。RoboPort 把这些隐性工作前置成一套可测试、可采购、可维护的机器人模组标准。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Power</h3>
+              <p>电压、电流、热插拔、e-fuse、接地、屏蔽和热设计边界。</p>
+            </article>
+            <article class="card">
+              <h3>Driver</h3>
+              <p>ROS 2 driver、controller、QoS、启动顺序和版本矩阵。</p>
+            </article>
+            <article class="card">
+              <h3>Geometry</h3>
+              <p>URDF/xacro、frame、payload、collision、标定和工具中心点。</p>
+            </article>
+            <article class="card">
+              <h3>Data</h3>
+              <p>LeRobot observation/action schema、timestamp、FPS、unit、dtype。</p>
+            </article>
+            <article class="card">
+              <h3>Safety</h3>
+              <p>急停、STO、安全 IO、风险 delta、故障注入和证据包。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/roboport.png" alt="机器人模组端口、边缘核心、模块护照和认证市场概念图">
+          </div>
+        </div>
+      </section>
+
+      <section id="ports" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Four Port Classes</p>
+              <h2>不是一个万能插头，而是四类清晰边界。</h2>
+            </div>
+            <p>机器人扩展不能把 USB-C 当成工业安全总线。RoboPort 把实时运动、智能工具、工业视觉和内部高速扩展分开定义，再用模块护照把它们接回统一的软件与训练工作流。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Motion / I/O</h3>
+              <p>EtherCAT、CANopen、24V industrial I/O、STO、安全控制器桥接和周期要求。</p>
+            </article>
+            <article class="card">
+              <h3>Smart Tool</h3>
+              <p>夹爪、吸盘、力控、IO-Link、RS-485/Modbus、工具供电和诊断。</p>
+            </article>
+            <article class="card">
+              <h3>Perception</h3>
+              <p>MIPI CSI-2、GMSL/FPD-Link、GigE Vision、PoE、trigger、PTP timestamp。</p>
+            </article>
+            <article class="card">
+              <h3>Expansion</h3>
+              <p>M.2、PCIe、USB、radio、storage、accelerator、capture card 和热边界。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="passport" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Module Passport</p>
+              <h2>插上模块，系统自动识别；开始采集，数据天然可训。</h2>
+            </div>
+            <p>每个模块都带签名 Manifest，声明硬件身份、驱动胶囊、URDF 坐标、ros2_control 接口、LeRobot features、功耗、固件 ABI、标定状态和安全边界。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Identify</h3>
+              <p>serial、EEPROM、USB/CAN/Ethernet match、firmware hash。</p>
+            </article>
+            <article class="step">
+              <h3>Model</h3>
+              <p>URDF/xacro、frame、payload、collision、MoveIt snippet。</p>
+            </article>
+            <article class="step">
+              <h3>Control</h3>
+              <p>ros2_control interfaces、QoS、lifecycle、diagnostics。</p>
+            </article>
+            <article class="step">
+              <h3>Record</h3>
+              <p>LeRobot action/state/image schema、timestamp、unit、FPS。</p>
+            </article>
+            <article class="step">
+              <h3>Gate</h3>
+              <p>安全边界、功耗、固件版本和兼容测试通过后激活。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="certlab" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">04 · CertLab + Marketplace</p>
+            <h2>兼容不是口号，是可测试、可追溯、可审计。</h2>
+            <p class="lead">RoboPort Certified 定位为兼容性与交付证据认证：它帮助企业进入系统级风险评估，但不替代 ISO、UL、CE 或功能安全认证。</p>
+            <ul class="list">
+              <li>测试电气、热、延迟、timestamp drift、QoS、驱动启动、掉线恢复和 24-72h soak。</li>
+              <li>输出 SBOM、签名驱动、固件回滚、兼容矩阵、功耗曲线和风险 delta。</li>
+              <li>市场按认证等级、总线、功耗、ROS 2、LeRobot schema 和交付周期筛选。</li>
+              <li>集成商可以采购 inspection kit、force-gripper kit、AMR safety kit 和 servo bridge。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/roboport.png" alt="机器人模组认证实验室和市场卡片">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Qualcomm Ecosystem</p>
+              <h2>从开发板到生态，缺的是可信模组港。</h2>
+            </div>
+            <p>Qualcomm 已经有边缘 AI、连接、多媒体和机器人 reference design。RoboPort 把每个相机、夹爪、驱动器、安全 IO 和应用套件都变成 Qualcomm edge 的可认证入口。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Core</strong>
+              <span>Qualcomm edge 负责模块发现、推理、诊断、数据采集和部署门禁。</span>
+            </div>
+            <div class="stat">
+              <strong>Driver</strong>
+              <span>ROS 2 driver capsule 让外设版本、QoS、资源和回滚可管理。</span>
+            </div>
+            <div class="stat">
+              <strong>Data</strong>
+              <span>LeRobot metadata 保证新模块采集的数据可以训练和复现。</span>
+            </div>
+            <div class="stat">
+              <strong>Market</strong>
+              <span>认证费、市场分成、支持订阅和联合营销构成生态收入。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">RoboPort 的目标不是发明更多接口，而是让每一个机器人外设都有清晰的兼容规则、软件说明书、训练数据边界和交付证据。</p>
+          <div class="source-links">
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10 RRD</a>
+            <a href="https://www.ethercat.org/en/technology.html">EtherCAT</a>
+            <a href="https://io-link.com/">IO-Link</a>
+            <a href="https://www.automate.org/vision/vision-standards/vision-standards-gige-vision">GigE Vision</a>
+            <a href="https://control.ros.org/rolling/doc/getting_started/getting_started.html">ros2_control</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
+            <a href="https://www.universal-robots.com/marketplace/">UR+ Marketplace</a>
+            <a href="https://www.iso.org/sectors/engineering/robotics">ISO Robotics</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

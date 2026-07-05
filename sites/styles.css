@@ -194,6 +194,10 @@ img {
   background-image: url("./assets/robotrust.png");
 }
 
+.hero-roboport {
+  background-image: url("./assets/roboport.png");
+}
+
 .hero-safetyops {
   background-image: url("./assets/safety-ops.png");
 }

@@ -250,6 +250,7 @@ Qualcomm 可获得：
 - EdgeRuntimeBench Qualcomm 运行证据页：https://qc-robotics-2026.pages.dev/edge-runtime-bench/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
+- RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/
 - IntegratorForge 集成交付生态页：https://qc-robotics-2026.pages.dev/integrator-forge/
 - RobotLeaseOps RaaS 订阅控制面页：https://qc-robotics-2026.pages.dev/robot-lease-ops/
 - ScaleFoundry 硬件产品化工厂页：https://qc-robotics-2026.pages.dev/scale-foundry/
@@ -260,6 +261,7 @@ Qualcomm 可获得：
 - JudgeDeck 评分对齐页：https://qc-robotics-2026.pages.dev/judge-deck/
 - BusinessCase 商业飞轮页：https://qc-robotics-2026.pages.dev/business-case/
 - HardwareMap 硬件产品线页：https://qc-robotics-2026.pages.dev/hardware-map/
+- RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/
 
 ## 13. 实施计划
 
