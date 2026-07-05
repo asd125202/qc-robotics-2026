@@ -17,5 +17,6 @@ Current batch:
 - `eduforge/` — education and developer learning kit.
 - `judge-deck/` — judge-facing scoring alignment and demo storyboard.
 - `prototype/` — interactive simulated training/deployment dashboard.
+- `cloud-plan/` — cloud GPU provider execution and budget story.
 
 Generated illustration assets are stored in `sites/assets/`.

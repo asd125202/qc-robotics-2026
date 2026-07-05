@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CloudPlan | 中国云与海外云训练执行计划</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-amber">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>CloudPlan</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#decision">选择</a>
+        <a href="#budget">预算</a>
+        <a href="#adapters">接口</a>
+        <a href="#stages">执行</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-cloudplan">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 09 · Cloud GPU Execution</p>
+          <h1>CloudPlan</h1>
+          <p class="hero-lede">中国版和海外版不应该争论谁唯一正确。产品层统一训练任务规范，供应商层按市场切换，让机器人训练成本、地域和合规变成可管理变量。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#decision">供应商路径</a>
+            <a class="button" href="../prototype/">打开控制台原型</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="decision" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Provider Roles</p>
+              <h2>双路径，单接口：训练规范统一，云供应商可替换。</h2>
+            </div>
+            <p>比赛阶段不需要绑定一家云。正确产品设计是：同一份 LeRobot 训练任务，可以在中国云和海外云分别执行，最终导出同一种 Qualcomm edge deployment package。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>中国快速实验</h3>
+              <p>AutoDL 或阿里云 PAI DSW，适合快速跑通 notebook、镜像和小规模 ACT 训练。</p>
+            </article>
+            <article class="card">
+              <h3>中国企业叙事</h3>
+              <p>阿里云 PAI / 华为 ModelArts / 腾讯云 GPU，适合讲合规、企业账号和资源治理。</p>
+            </article>
+            <article class="card">
+              <h3>海外开发者</h3>
+              <p>Runpod Pods 或 Lambda Instances，适合按小时租 A100/H100 并快速复现实验。</p>
+            </article>
+            <article class="card">
+              <h3>异步任务</h3>
+              <p>Modal 适合评估、导出、数据转换和短时 serverless job，不一定承担长训练。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="budget" class="slide tint">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">02 · Budget Story</p>
+            <h2>卖点不是“便宜 GPU”，而是让机器人训练预算可控。</h2>
+            <p class="lead">公开价格只能作为可行性锚点，正式训练前必须重新确认。项目书里应强调 GPU-hours 上限、任务模板、评估报告和边缘部署包，而不是承诺固定价格。</p>
+          </div>
+          <div class="grid two">
+            <div class="stat">
+              <strong>2-8h</strong>
+              <span>早期 demo：小数据集 ACT 训练与一次评估。</span>
+            </div>
+            <div class="stat">
+              <strong>8-40h</strong>
+              <span>复赛阶段：多轮失败回流与参数比较。</span>
+            </div>
+            <div class="stat">
+              <strong>A100</strong>
+              <span>优先作为可控训练锚点；H100/H200 用于前瞻故事。</span>
+            </div>
+            <div class="stat">
+              <strong>cap</strong>
+              <span>每个训练任务设置 GPU-hour 上限，防止预算失控。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="adapters" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Adapter Interface</p>
+              <h2>供应商不同，但训练 job spec 必须统一。</h2>
+            </div>
+            <p>CloudTwin 不应该把业务逻辑写死在某家云。产品层只认识数据集、策略、机器人 profile、GPU 预算和导出目标；adapter 负责把它翻译成 Runpod、Lambda、PAI、AutoDL 等具体任务。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Job spec</h3>
+              <p>dataset、policy、robot profile、GPU budget。</p>
+            </article>
+            <article class="step">
+              <h3>Provider</h3>
+              <p>China or global adapter selects concrete service。</p>
+            </article>
+            <article class="step">
+              <h3>Train</h3>
+              <p>Run ACT / VLA job with reproducible image。</p>
+            </article>
+            <article class="step">
+              <h3>Evaluate</h3>
+              <p>Generate success, latency, smoothness report。</p>
+            </article>
+            <article class="step">
+              <h3>Export</h3>
+              <p>Produce Qualcomm edge deployment package。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="stages" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Execution Stages</p>
+              <h2>先不依赖真实云账号，再逐步接入真实训练。</h2>
+            </div>
+            <p>这保证初赛材料可以马上展示，复赛阶段也能逐步替换成真实训练日志和边缘指标。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Stage 1</h3>
+              <p>静态 prototype dashboard，模拟训练任务和部署包。</p>
+            </article>
+            <article class="card">
+              <h3>Stage 2</h3>
+              <p>Runpod 或 Lambda 跑一次小型 LeRobot ACT 训练。</p>
+            </article>
+            <article class="card">
+              <h3>Stage 3</h3>
+              <p>AutoDL 或阿里云 PAI 复现同一 job spec。</p>
+            </article>
+            <article class="card">
+              <h3>Stage 4</h3>
+              <p>把 artifact manifest 接入 Prototype / DragonWorks 页面。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">云 GPU 是手段，真正的产品是：机器人训练从不可控工程，变成可预算、可复现、可部署的 job。</p>
+          <div class="source-links">
+            <a href="https://www.runpod.io/pricing">Runpod</a>
+            <a href="https://lambda.ai/pricing">Lambda</a>
+            <a href="https://modal.com/pricing">Modal</a>
+            <a href="https://www.aliyun.com/page-source/price/detail/machinelearning_price">阿里云 PAI</a>
+            <a href="https://buy.cloud.tencent.com/price/gpu">腾讯云 GPU</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

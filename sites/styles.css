@@ -138,6 +138,10 @@ img {
   background-image: url("./assets/judge-deck-hero.png");
 }
 
+.hero-cloudplan {
+  background-image: url("./assets/cloud-training-loop.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;

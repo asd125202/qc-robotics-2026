@@ -30,6 +30,7 @@ The current first-batch pitch directions are:
 - `EduForge`: education and developer kit for teaching the full LeRobot-to-Qualcomm edge deployment loop.
 - `JudgeDeck`: judge-facing scoring alignment and three-minute demo storyboard.
 - `Prototype`: interactive static dashboard that simulates devices, datasets, cloud training, model deployment, and skill packages.
+- `CloudPlan`: provider execution and budget story for China and overseas cloud GPU training.
 
 ## Repo Layout
 
