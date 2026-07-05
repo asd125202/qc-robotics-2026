@@ -23,6 +23,7 @@ The current first-batch pitch directions are:
 
 - `RobotMac Core`: all-in-one robotics compute, power, IO, safety, and runtime core.
 - `LeRobot CloudTwin`: real robot data collection, cloud GPU training, and Qualcomm edge deployment loop.
+- `TeleopStudio`: productized teleoperation and demonstration-data capture station with synchronized cameras, quality gates, LeRobot dataset export, and cloud handoff.
 - `SkillDock`: robot skill marketplace where trained skills can be installed, certified, and upgraded.
 - `SkillCertKit`: robot skill certification package for manifests, dataset lineage, hardware compatibility, edge benchmarks, safety gates, and marketplace publishing.
 - `Embodied Kit`: procurement-ready industry kit for factories, labs, education, and service robotics teams.

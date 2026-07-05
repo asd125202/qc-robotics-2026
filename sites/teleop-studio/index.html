@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TeleopStudio | 机器人示教数据采集工位</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>TeleopStudio</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#station">工位</a>
+        <a href="#quality">质检</a>
+        <a href="#contract">合约</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-teleop">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 24 · Demonstration Data Factory</p>
+          <h1 class="long-word-title">TeleopStudio</h1>
+          <p class="hero-lede">云训练之前，先要有可信数据。TeleopStudio 把遥操作、相机同步、episode 记录、数据质检、LeRobot dataset adapter 和云端交接做成可购买的数据采集工位。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#station">查看采集工位</a>
+            <a class="button" href="../data-flywheel/">连接 DataFlywheel</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="station" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Capture Station</p>
+              <h2>机器人平台的第一台机器，应该是数据生产机器。</h2>
+            </div>
+            <p>TeleopStudio 不是简单录屏工具，而是标准化采集工位：操作员输入、机器人执行、双相机同步、边缘缓存、episode 时间轴和云端上传都在同一张工作台上完成。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Operator</h3>
+              <p>手柄、leader arm、键鼠、手机或 3D mouse，优先选择比赛阶段最稳输入。</p>
+            </article>
+            <article class="card">
+              <h3>Capture Cell</h3>
+              <p>机械臂、托盘、固定光照、相机支架、标定板和 reset tray。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Recorder</h3>
+              <p>Qualcomm edge box 记录相机、动作、状态、时间戳和本地缓存。</p>
+            </article>
+            <article class="card">
+              <h3>Dataset</h3>
+              <p>自动生成 LeRobot-compatible episode、任务说明和 robot profile。</p>
+            </article>
+            <article class="card">
+              <h3>Cloud Handoff</h3>
+              <p>中国云或海外云 adapter 接收数据，启动 CloudTwin 训练队列。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/teleop-studio.png" alt="机器人遥操作示教数据采集工位概念图">
+          </div>
+        </div>
+      </section>
+
+      <section id="quality" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Data Quality Gates</p>
+              <h2>不是每条示教都应该进入训练集。</h2>
+            </div>
+            <p>商业客户不会接受“多录一点再说”。TeleopStudio 在采集时就检查画面、动作、结果、重置、接管和权限，让数据在进入 GPU 训练前先具备最低可信度。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Sync</h3>
+              <p>相机帧、关节状态、夹爪状态和 action stream 对齐。</p>
+            </article>
+            <article class="card">
+              <h3>Visibility</h3>
+              <p>检查样品、末端执行器、目标位和关键动作是否被遮挡。</p>
+            </article>
+            <article class="card">
+              <h3>Outcome</h3>
+              <p>每个 episode 标注成功、失败、接管、异常和重置原因。</p>
+            </article>
+            <article class="card">
+              <h3>Motion</h3>
+              <p>识别过度抖动、动作跳变、速度越界和非任务动作。</p>
+            </article>
+            <article class="card">
+              <h3>Lineage</h3>
+              <p>保留操作员、设备、任务、场景、版本和客户数据边界。</p>
+            </article>
+            <article class="card">
+              <h3>Privacy</h3>
+              <p>本地脱敏、私有数据隔离和企业项目权限管理。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contract" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · LeRobot Contract</p>
+            <h2>把人类示教转成云训练能直接消费的数据合约。</h2>
+            <p class="lead">TeleopStudio 的输出不是一堆视频文件，而是带 metadata、robot profile、任务描述、成功标签、失败样本和版本号的 LeRobot-compatible dataset。</p>
+            <ul class="list">
+              <li>每个 episode 绑定 robot profile、相机配置和 action schema。</li>
+              <li>每个任务绑定自然语言描述、起点、目标、重置协议和验收标准。</li>
+              <li>每个 dataset 绑定客户权限、版本记录、训练 job 和回滚路径。</li>
+              <li>失败片段自动回流，成为下一轮 DataFlywheel 的最高价值样本。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/teleop-studio.png" alt="LeRobot 示教数据采集和云训练交接图">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Qualcomm Edge Value</p>
+              <h2>数据采集工位也应该强化 Qualcomm 的必要性。</h2>
+            </div>
+            <p>TeleopStudio 让 Qualcomm 参与训练闭环的第一步：低延迟预览、相机同步、本地缓存、安全状态、边缘预处理和断网可运行，都发生在机器人本体侧。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Low Latency</strong>
+              <span>操作员需要稳定预览和即时反馈，不能把控制闭环交给不稳定公网。</span>
+            </div>
+            <div class="stat">
+              <strong>Sensor Sync</strong>
+              <span>多相机、关节状态、夹爪状态和动作流在边缘侧统一记录。</span>
+            </div>
+            <div class="stat">
+              <strong>Private Data</strong>
+              <span>企业客户可以先本地缓存、脱敏、筛选，再决定是否上云训练。</span>
+            </div>
+            <div class="stat">
+              <strong>Skill Path</strong>
+              <span>数据进入 CloudTwin、EdgeRuntimeBench、SkillCertKit 和 SkillDock。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">TeleopStudio 把“我们录了一些示教”变成“客户拥有一台持续生产机器人技能数据的机器”。</p>
+          <div class="source-links">
+            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobotDataset v3</a>
+            <a href="https://arxiv.org/abs/2304.13705">ACT / ALOHA</a>
+            <a href="https://arxiv.org/abs/2401.02117">Mobile ALOHA</a>
+            <a href="https://arxiv.org/abs/2605.19138">COBALT</a>
+            <a href="../cloud-training/">CloudTwin</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

@@ -87,6 +87,7 @@ Qualcomm 可以通过该项目获得一个端到端机器人生态样板：
 - GitHub repository。
 - Cloudflare Pages 中文路演网站：https://qc-robotics-2026.pages.dev/
 - LabForgePilot 比赛主 demo 页：https://qc-robotics-2026.pages.dev/labforge-pilot/
+- TeleopStudio 示教数据采集工位页：https://qc-robotics-2026.pages.dev/teleop-studio/
 - EdgeRuntimeBench Qualcomm 运行证据页：https://qc-robotics-2026.pages.dev/edge-runtime-bench/
 - PilotContractKit 商业试点合同页：https://qc-robotics-2026.pages.dev/pilot-contract-kit/
 - SkillCertKit 技能认证体系页：https://qc-robotics-2026.pages.dev/skill-cert-kit/

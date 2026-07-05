@@ -42,6 +42,7 @@ Suggested contents:
 - Screenshots or exported pages from:
   - https://qc-robotics-2026.pages.dev/
   - https://qc-robotics-2026.pages.dev/labforge-pilot/
+  - https://qc-robotics-2026.pages.dev/teleop-studio/
   - https://qc-robotics-2026.pages.dev/edge-runtime-bench/
   - https://qc-robotics-2026.pages.dev/pilot-contract-kit/
   - https://qc-robotics-2026.pages.dev/skill-cert-kit/
@@ -75,6 +76,7 @@ Suggested values to review:
 - Project name: `RobotMac Core + LeRobot CloudTwin`.
 - Project page: `https://qc-robotics-2026.pages.dev/`.
 - Main demo page: `https://qc-robotics-2026.pages.dev/labforge-pilot/`.
+- Teleoperation data station page: `https://qc-robotics-2026.pages.dev/teleop-studio/`.
 - Qualcomm runtime evidence page: `https://qc-robotics-2026.pages.dev/edge-runtime-bench/`.
 - Commercial pilot page: `https://qc-robotics-2026.pages.dev/pilot-contract-kit/`.
 - Skill certification page: `https://qc-robotics-2026.pages.dev/skill-cert-kit/`.
