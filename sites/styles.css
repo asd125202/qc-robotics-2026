@@ -166,6 +166,10 @@ img {
   background-image: url("./assets/safety-ops.png");
 }
 
+.hero-dualcloud {
+  background-image: url("./assets/dual-cloud-ops.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DualCloudOps | 双云训练执行层</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>DualCloudOps</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#contract">合约</a>
+        <a href="#lanes">双云</a>
+        <a href="#modules">模块</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-dualcloud">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 16 · China / Overseas Training Stack</p>
+          <h1>DualCloudOps</h1>
+          <p class="hero-lede">同一个机器人训练任务，可以在中国云或海外云执行；同一个部署包，最终回到 Qualcomm 本体运行。我们卖的不是某家云，而是跨云训练执行层。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#contract">查看 Job Contract</a>
+            <a class="button" href="../cloud-plan/">连接 CloudPlan</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contract" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Job Contract</p>
+              <h2>云可以换，训练任务和部署目标不能乱。</h2>
+            </div>
+            <p>DualCloudOps 用一份 LeRobot Job Contract 描述数据集、策略、预算、区域、评估和 Qualcomm edge target。底层 provider 变化被封装在 adapter 层。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Dataset</h3>
+              <p>LeRobot 数据集、版本、隐私等级。</p>
+            </article>
+            <article class="step">
+              <h3>Policy</h3>
+              <p>ACT、Diffusion Policy 或后续 VLA。</p>
+            </article>
+            <article class="step">
+              <h3>Budget</h3>
+              <p>最高费用、最长时长、GPU 偏好。</p>
+            </article>
+            <article class="step">
+              <h3>Eval</h3>
+              <p>成功率、延迟、失败类型和部署门禁。</p>
+            </article>
+            <article class="step">
+              <h3>Export</h3>
+              <p>Qualcomm edge policy package 和回滚包。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/dual-cloud-ops.png" alt="中国云和海外云双训练通道架构图">
+          </div>
+        </div>
+      </section>
+
+      <section id="lanes" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Two Market Lanes</p>
+              <h2>中国版和海外版要分开交付，但不要分裂成两套产品。</h2>
+            </div>
+            <p>客户关心账号、付款、数据边界、GPU 可用性和支持语言。平台关心任务合约、评估指标和边缘部署包保持一致。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <h3>China Lane</h3>
+              <p>面向国内高校、工厂、系统集成商和开发者。首批 adapter 可围绕 Alibaba Cloud 与 Tencent Cloud 设计，报告输出中文预算、训练时长、评估结果和部署摘要。</p>
+            </article>
+            <article class="card">
+              <h3>Overseas Lane</h3>
+              <p>面向海外开发者、开源社区和国际客户。首批 adapter 可围绕 RunPod 与 Lambda 设计，快速接入 LeRobot、GitHub 和 Hugging Face workflow。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="modules" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Product Modules</p>
+              <h2>把不稳定的 GPU 云，变成可控的训练执行层。</h2>
+            </div>
+            <p>价格和容量会变，任务合约和边缘部署目标不变。DualCloudOps 的价值是让客户能换 provider，而不重写机器人训练流程。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Contract Builder</h3>
+              <p>生成数据、策略、预算、区域和部署目标合约。</p>
+            </article>
+            <article class="card">
+              <h3>Provider Adapter</h3>
+              <p>封装账号、镜像、存储、GPU SKU、日志和计费差异。</p>
+            </article>
+            <article class="card">
+              <h3>Cost Guard</h3>
+              <p>训练前预估，训练中监控，超预算自动停机。</p>
+            </article>
+            <article class="card">
+              <h3>Eval Harness</h3>
+              <p>同一套指标比较不同 provider 训练结果。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Exporter</h3>
+              <p>输出统一 Qualcomm edge policy package。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">04 · Qualcomm Role</p>
+            <h2>云是可替换资源，Qualcomm 是稳定落地目标。</h2>
+            <p class="lead">训练可以在不同 GPU 云上完成，但部署目标应该稳定。DualCloudOps 让中国和海外开发者最终都把策略导向 Qualcomm edge runtime。</p>
+            <ul class="list">
+              <li>云端只做训练和资产管理，不做机器人实时控制。</li>
+              <li>本体执行策略、感知闭环和安全边界。</li>
+              <li>每个 provider adapter 都输出同一种 edge package。</li>
+              <li>这能扩大 Qualcomm 在具身智能开发者中的默认目标地位。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/dual-cloud-ops.png" alt="双云训练和 Qualcomm 边缘部署图">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">不要把机器人平台押注给某一家云；让云成为可替换资源，让 Qualcomm edge 成为稳定交付目标。</p>
+          <div class="source-links">
+            <a href="https://www.alibabacloud.com/product/gpu">Alibaba Cloud GPU</a>
+            <a href="https://www.tencentcloud.com/products/gpu">Tencent Cloud GPU</a>
+            <a href="https://www.runpod.io/pricing">RunPod Pricing</a>
+            <a href="https://lambda.ai/instances">Lambda Instances</a>
+            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

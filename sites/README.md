@@ -24,5 +24,6 @@ Current batch:
 - `vertical-playbooks/` — vertical market packaging for factory, logistics, lab, service, and education.
 - `data-flywheel/` — teleoperation, dataset, cloud training, edge deployment, and failure-mining loop.
 - `safety-ops/` — safety runtime, skill permissions, release gates, audit ledger, and compliance evidence.
+- `dual-cloud-ops/` — China/overseas GPU-cloud lanes behind one LeRobot training job contract.
 
 Generated illustration assets are stored in `sites/assets/`.
