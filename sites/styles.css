@@ -158,6 +158,10 @@ img {
   background-image: url("./assets/vertical-playbooks.png");
 }
 
+.hero-dataflywheel {
+  background-image: url("./assets/data-flywheel.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;

@@ -22,5 +22,6 @@ Current batch:
 - `business-case/` — commercialization, pricing package, and revenue flywheel story.
 - `submission-kit/` — preliminary project-book and upload-readiness page.
 - `vertical-playbooks/` — vertical market packaging for factory, logistics, lab, service, and education.
+- `data-flywheel/` — teleoperation, dataset, cloud training, edge deployment, and failure-mining loop.
 
 Generated illustration assets are stored in `sites/assets/`.

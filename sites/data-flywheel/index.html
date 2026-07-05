@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DataFlywheel | 机器人数据飞轮</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>DataFlywheel</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#loop">飞轮</a>
+        <a href="#modules">模块</a>
+        <a href="#demo">Demo</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-dataflywheel">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 14 · Robotics Data Flywheel</p>
+          <h1>DataFlywheel</h1>
+          <p class="hero-lede">真正可商业化的机器人平台，不只是把模型训练一次，而是把遥操作、数据集、云训练、边缘部署和失败回流变成一条可销售的数据生产线。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#loop">查看数据飞轮</a>
+            <a class="button" href="../cloud-training/">连接 CloudTwin</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="loop" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Product Loop</p>
+              <h2>硬件会被复制，数据飞轮才是长期壁垒。</h2>
+            </div>
+            <p>用户用遥操作采集真实任务，云端训练策略，Qualcomm 本体执行，失败片段再次回流。每一个行业客户都在为同一个底座积累数据资产和技能资产。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Teleop</h3>
+              <p>键鼠、手柄或示教器采集真实任务。</p>
+            </article>
+            <article class="step">
+              <h3>Dataset</h3>
+              <p>LeRobot 格式记录动作、相机、场景和失败标签。</p>
+            </article>
+            <article class="step">
+              <h3>Train</h3>
+              <p>中国版和海外版云 GPU 管线训练策略。</p>
+            </article>
+            <article class="step">
+              <h3>Deploy</h3>
+              <p>打包成 Qualcomm edge policy，本体低延迟执行。</p>
+            </article>
+            <article class="step">
+              <h3>Improve</h3>
+              <p>现场失败和人工接管进入下一轮训练。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/data-flywheel.png" alt="机器人遥操作数据采集云训练和边缘部署飞轮图">
+          </div>
+        </div>
+      </section>
+
+      <section id="modules" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Sellable Modules</p>
+              <h2>把研发流程拆成企业愿意采购的五个产品模块。</h2>
+            </div>
+            <p>每个模块都能单独定价，也能组合成完整平台包。这样项目不依赖一次性硬件利润，而是形成训练、数据、部署和运维订阅。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Teleop Studio</h3>
+              <p>遥操作、示教、相机同步和失败片段标记。</p>
+            </article>
+            <article class="card">
+              <h3>Dataset Ledger</h3>
+              <p>数据版本、设备版本、隐私等级和任务标签。</p>
+            </article>
+            <article class="card">
+              <h3>CloudTwin Trainer</h3>
+              <p>国内云与海外云 adapter，训练成本和评估结果可追踪。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Packager</h3>
+              <p>策略版本、输入输出契约、依赖包和回滚包。</p>
+            </article>
+            <article class="card">
+              <h3>Failure Mining</h3>
+              <p>低置信动作、人工接管和现场异常自动进入训练队列。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · Competition Demo</p>
+            <h2>比赛不需要做所有行业，只要展示一个完整闭环。</h2>
+            <p class="lead">最稳妥 demo 是 LabForge 桌面机械臂：采集 10-20 条示教，训练 ACT 策略，部署到 Qualcomm edge target，再把一次失败接管回流为新样本。</p>
+            <ul class="list">
+              <li>三分钟讲故事：示教、训练、部署、失败、再训练。</li>
+              <li>十分钟技术答辩：LeRobot 数据结构、云 GPU adapter、边缘部署边界。</li>
+              <li>商业化证明：同样的飞轮可复制到工厂巡检、物流和教育场景。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/data-flywheel.png" alt="机器人训练数据飞轮产品视觉">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Why Qualcomm</p>
+              <h2>让 Qualcomm 成为机器人策略的默认边缘运行目标。</h2>
+            </div>
+            <p>云端负责大规模训练和资产管理，本体负责实时感知、低延迟动作、隐私边界和现场安全。DataFlywheel 把 Qualcomm 放在每次部署、每次评估、每次产品交付的核心位置。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Edge first</strong>
+              <span>安全关键动作在本体执行，不把控制闭环交给公网延迟。</span>
+            </div>
+            <div class="stat">
+              <strong>Multi camera</strong>
+              <span>机器人数据采集天然需要多摄像头、多媒体和同步记录。</span>
+            </div>
+            <div class="stat">
+              <strong>Workflow</strong>
+              <span>开发板、AI Hub、模型部署和教育生态能被包装成统一工作流。</span>
+            </div>
+            <div class="stat">
+              <strong>Moat</strong>
+              <span>每个客户现场都会沉淀可复用的行业数据和技能资产。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">如果 RobotMac 是机器人硬件底座，DataFlywheel 就是让它越用越值钱的训练数据引擎。</p>
+          <div class="source-links">
+            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
+            <a href="https://droid-dataset.github.io/">DROID</a>
+            <a href="https://robotics-transformer-x.github.io/">Open X-Embodiment</a>
+            <a href="https://developer.nvidia.com/isaac/gr00t">NVIDIA Isaac GR00T</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

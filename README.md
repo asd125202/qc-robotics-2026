@@ -35,6 +35,7 @@ The current first-batch pitch directions are:
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.
 - `VerticalPlaybooks`: factory, logistics, lab, campus/service, and education market product packages.
+- `DataFlywheel`: teleoperation, dataset ledger, cloud training, edge deployment, and failure-mining loop.
 
 ## Repo Layout
 
