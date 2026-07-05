@@ -190,6 +190,10 @@ img {
   background-image: url("./assets/board-bringup-kit.png");
 }
 
+.hero-pilot-contract {
+  background-image: url("./assets/pilot-contract-kit.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;

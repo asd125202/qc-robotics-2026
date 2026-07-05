@@ -43,6 +43,7 @@ The current first-batch pitch directions are:
 - `LabForgePilot`: competition main-demo package for desktop arm sample transfer, training, edge deployment, and failure feedback.
 - `EdgeRuntimeBench`: Qualcomm edge compile/profile/deploy evidence chain for policy packages and runtime metrics.
 - `BoardBringupKit`: board-to-robot bring-up package for power, camera, IO, safety, runtime image, and validation gates.
+- `PilotContractKit`: 4-8 week enterprise pilot contract package with KPIs, acceptance criteria, training deliverables, and expansion path.
 
 ## Repo Layout
 

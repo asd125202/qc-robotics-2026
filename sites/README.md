@@ -30,5 +30,6 @@ Current batch:
 - `labforge-pilot/` — competition main-demo package for desktop arm sample transfer and training feedback.
 - `edge-runtime-bench/` — Qualcomm edge compile/profile/deploy evidence chain and runtime metrics.
 - `board-bringup-kit/` — board-to-robot bring-up package for power, camera, IO, safety, runtime, and validation.
+- `pilot-contract-kit/` — 4-8 week enterprise pilot contract package with KPIs, acceptance criteria, and expansion path.
 
 Generated illustration assets are stored in `sites/assets/`.

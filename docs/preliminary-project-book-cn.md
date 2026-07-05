@@ -245,6 +245,7 @@ Qualcomm 可获得：
 - Cloudflare Pages 中文路演网站：https://qc-robotics-2026.pages.dev/
 - LabForgePilot 比赛主 demo 页：https://qc-robotics-2026.pages.dev/labforge-pilot/
 - EdgeRuntimeBench Qualcomm 运行证据页：https://qc-robotics-2026.pages.dev/edge-runtime-bench/
+- PilotContractKit 商业试点合同页：https://qc-robotics-2026.pages.dev/pilot-contract-kit/
 - Prototype 可交互控制台：https://qc-robotics-2026.pages.dev/prototype/
 - JudgeDeck 评分对齐页：https://qc-robotics-2026.pages.dev/judge-deck/
 - BusinessCase 商业飞轮页：https://qc-robotics-2026.pages.dev/business-case/
