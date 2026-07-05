@@ -34,6 +34,7 @@ The current first-batch pitch directions are:
 - `HardwareMap`: physical product-line and BOM story for QCS6490, QCS8550, IQ-8275, and future IQ10.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.
+- `VerticalPlaybooks`: factory, logistics, lab, campus/service, and education market product packages.
 
 ## Repo Layout
 

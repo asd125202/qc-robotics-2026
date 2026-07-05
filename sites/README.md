@@ -21,5 +21,6 @@ Current batch:
 - `hardware-map/` — hardware SKU and BOM story.
 - `business-case/` — commercialization, pricing package, and revenue flywheel story.
 - `submission-kit/` — preliminary project-book and upload-readiness page.
+- `vertical-playbooks/` — vertical market packaging for factory, logistics, lab, service, and education.
 
 Generated illustration assets are stored in `sites/assets/`.
