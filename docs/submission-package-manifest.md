@@ -56,6 +56,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/scale-foundry/
 - https://qc-robotics-2026.pages.dev/fleet-conductor/
 - https://qc-robotics-2026.pages.dev/care-ops/
+- https://qc-robotics-2026.pages.dev/field-ops/
 - https://qc-robotics-2026.pages.dev/pilot-contract-kit/
 - https://qc-robotics-2026.pages.dev/skill-cert-kit/
 - https://qc-robotics-2026.pages.dev/ops-connector/
@@ -101,6 +102,7 @@ Suggested values to review:
 - Hardware productization page: `https://qc-robotics-2026.pages.dev/scale-foundry/`.
 - Mixed robot fleet tower page: `https://qc-robotics-2026.pages.dev/fleet-conductor/`.
 - Hospital operations robot workflow page: `https://qc-robotics-2026.pages.dev/care-ops/`.
+- Outdoor field robotics platform page: `https://qc-robotics-2026.pages.dev/field-ops/`.
 - Commercial pilot page: `https://qc-robotics-2026.pages.dev/pilot-contract-kit/`.
 - Skill certification page: `https://qc-robotics-2026.pages.dev/skill-cert-kit/`.
 - Enterprise integration page: `https://qc-robotics-2026.pages.dev/ops-connector/`.

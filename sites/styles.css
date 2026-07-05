@@ -206,6 +206,10 @@ img {
   background-image: url("./assets/care-ops.png");
 }
 
+.hero-field-ops {
+  background-image: url("./assets/field-ops.png");
+}
+
 .hero-safetyops {
   background-image: url("./assets/safety-ops.png");
 }

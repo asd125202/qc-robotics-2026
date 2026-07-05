@@ -99,6 +99,7 @@ Qualcomm 可以通过该项目获得一个端到端机器人生态样板：
 - ScaleFoundry 硬件产品化工厂页：https://qc-robotics-2026.pages.dev/scale-foundry/
 - FleetConductor 机器人塔台页：https://qc-robotics-2026.pages.dev/fleet-conductor/
 - CareOps 院内智运平台页：https://qc-robotics-2026.pages.dev/care-ops/
+- FieldOps 野巡户外机器人平台页：https://qc-robotics-2026.pages.dev/field-ops/
 - PilotContractKit 商业试点合同页：https://qc-robotics-2026.pages.dev/pilot-contract-kit/
 - SkillCertKit 技能认证体系页：https://qc-robotics-2026.pages.dev/skill-cert-kit/
 - OpsConnector 企业集成桥页：https://qc-robotics-2026.pages.dev/ops-connector/
