@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Robot Platform Prototype | 训练与部署控制台</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="./prototype.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="Prototype navigation">
+        <a class="brand compact" href="../index.html" aria-label="项目首页">
+          <span class="brand-mark"></span>
+          <span>Robot Platform</span>
+        </a>
+        <nav class="rail" aria-label="控制台导航">
+          <button class="rail-item active" data-view="overview" type="button">总览</button>
+          <button class="rail-item" data-view="devices" type="button">设备</button>
+          <button class="rail-item" data-view="datasets" type="button">数据</button>
+          <button class="rail-item" data-view="training" type="button">训练</button>
+          <button class="rail-item" data-view="deployment" type="button">部署</button>
+          <button class="rail-item" data-view="skills" type="button">技能</button>
+        </nav>
+        <a class="sidebar-link" href="../judge-deck/">评委版路演</a>
+      </aside>
+
+      <section class="console">
+        <header class="console-head">
+          <div>
+            <p class="eyebrow">Prototype · Simulated Loop</p>
+            <h1>机器人训练与边缘部署控制台</h1>
+            <p>模拟 RobotMac Core + LeRobot CloudTwin 的最小产品闭环：采集、训练、评估、部署、运行、失败回流。</p>
+          </div>
+          <div class="hero-thumb" aria-label="DragonWorks dashboard illustration"></div>
+        </header>
+
+        <section class="control-row" aria-label="控制区">
+          <div class="segmented" role="group" aria-label="云训练版本">
+            <button class="seg active" data-cloud="china" type="button">中国云</button>
+            <button class="seg" data-cloud="global" type="button">海外云</button>
+          </div>
+          <button class="advance" type="button">推进一次闭环</button>
+        </section>
+
+        <section class="metric-strip" aria-label="关键指标">
+          <article class="metric">
+            <span>活跃设备</span>
+            <strong id="metric-devices">3</strong>
+          </article>
+          <article class="metric">
+            <span>训练任务</span>
+            <strong id="metric-jobs">2</strong>
+          </article>
+          <article class="metric">
+            <span>当前成功率</span>
+            <strong id="metric-success">86%</strong>
+          </article>
+          <article class="metric">
+            <span>边缘延迟</span>
+            <strong id="metric-latency">34ms</strong>
+          </article>
+        </section>
+
+        <section class="stage-panel" aria-label="训练闭环阶段">
+          <div class="stage-track" id="stage-track"></div>
+        </section>
+
+        <section class="workspace-grid">
+          <article class="panel span-2" data-panel="overview">
+            <div class="panel-head">
+              <h2>项目状态</h2>
+              <span id="cloud-label">中国云版本</span>
+            </div>
+            <div class="project-summary">
+              <div>
+                <strong>RobotMac Core Demo</strong>
+                <span>桌面机械臂 · QCS8550 · ACT policy</span>
+              </div>
+              <p>当前目标是在拿到正式开发板前，用模拟数据展示完整产品闭环；拿到硬件后替换设备状态、边缘指标和真实 episode。</p>
+            </div>
+          </article>
+
+          <article class="panel" data-panel="devices">
+            <div class="panel-head">
+              <h2>设备</h2>
+              <span>Edge targets</span>
+            </div>
+            <div class="list-stack" id="device-list"></div>
+          </article>
+
+          <article class="panel" data-panel="datasets">
+            <div class="panel-head">
+              <h2>数据集</h2>
+              <span>LeRobot-compatible</span>
+            </div>
+            <div class="list-stack" id="dataset-list"></div>
+          </article>
+
+          <article class="panel" data-panel="training">
+            <div class="panel-head">
+              <h2>云训练</h2>
+              <span id="provider-label">PAI / AutoDL</span>
+            </div>
+            <div class="list-stack" id="job-list"></div>
+          </article>
+
+          <article class="panel" data-panel="deployment">
+            <div class="panel-head">
+              <h2>部署包</h2>
+              <span>Qualcomm edge</span>
+            </div>
+            <div class="list-stack" id="model-list"></div>
+          </article>
+
+          <article class="panel" data-panel="skills">
+            <div class="panel-head">
+              <h2>技能包</h2>
+              <span>SkillDock draft</span>
+            </div>
+            <div class="list-stack" id="skill-list"></div>
+          </article>
+
+          <article class="panel span-2">
+            <div class="panel-head">
+              <h2>三分钟演示轨道</h2>
+              <span>Judge-ready storyboard</span>
+            </div>
+            <div class="timeline" id="storyboard"></div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="./prototype.js"></script>
+  </body>
+</html>
