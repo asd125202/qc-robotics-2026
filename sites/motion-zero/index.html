@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>机御 Zero | 机器人动作级零信任</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>机御 Zero</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#research">研究</a>
+        <a href="#fabric">信任织网</a>
+        <a href="#motion">动作防火墙</a>
+        <a href="#china">中国</a>
+        <a href="#demo">演示</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-motion-zero">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 42 · Motion-Level Zero Trust</p>
+          <h1>机御 Zero</h1>
+          <p class="hero-lede">把零信任从“谁能访问系统”推进到“谁能让机器人动”。每台机器人有可信身份，每个 ROS/DDS 节点有最小权限，每条运动指令先验证、再执行、可追溯。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#motion">查看动作防火墙</a>
+            <a class="button" href="../safety-ops/">连接 SafetyOps</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">00 · Five-Thread Research</p>
+              <h2>机器人安全不能只停在网络边界，因为攻击目标最终是物理动作。</h2>
+            </div>
+            <p>五条研究线显示：CRA、NIST、CISA、IEC 62443 正在把安全变成采购与市场准入要求；OT 安全平台正在整合，但缺少 robot-native 动作语义；中国客户还会要求等保、数据不出境和远程运维审计。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>CRA Timeline</h3>
+              <p>EU CRA 已生效，漏洞/严重事件报告从 2026-09-11 开始，主要义务从 2027-12-11 开始。</p>
+            </article>
+            <article class="card">
+              <h3>ROS Reality</h3>
+              <p>ROS 2 / DDS 有安全机制，但不是默认自动安全；权限、证书和图谱检查必须产品化。</p>
+            </article>
+            <article class="card">
+              <h3>OT Market</h3>
+              <p>Claroty、Nozomi、Dragos、Armis 等做通用 OT；机御 Zero 做机器人动作语义。</p>
+            </article>
+            <article class="card">
+              <h3>China Trust</h3>
+              <p>等保、数据安全、个人信息、工业控制安全和远程运维审计进入客户采购问卷。</p>
+            </article>
+            <article class="card">
+              <h3>Motion ZTA</h3>
+              <p>谁能发命令、能动到哪里、在什么状态下能动、为什么被拒绝，都要可验证。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/motion-zero.png" alt="机器人动作级零信任、授权环、拦截路径和安全审计控制台图">
+          </div>
+        </div>
+      </section>
+
+      <section id="fabric" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Robot Trust Fabric</p>
+              <h2>机器人、节点、操作员、更新包和网络路径，都必须先证明自己。</h2>
+            </div>
+            <p>RobotCoreOS 提供启动测量和本体身份，CertForge 发短期证书，SafetyOps 做策略决策，RiskLedger 保存 SBOM/VEX 和事件证据，UptimeOS 管 signed OTA 和恢复。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Boot</h3>
+              <p>Qualcomm edge 启动链、rootfs、ROS graph、firmware 和模型 measurement。</p>
+            </article>
+            <article class="step">
+              <h3>Attest</h3>
+              <p>TrustAnchorAgent 输出 evidence，设备和 workload 必须有可信状态。</p>
+            </article>
+            <article class="step">
+              <h3>Issue</h3>
+              <p>CertForge 签发短期 device、SROS2 / DDS、operator session 证书。</p>
+            </article>
+            <article class="step">
+              <h3>Decide</h3>
+              <p>SafetyOps 评估身份、任务、现场状态、风险、审批和动作边界。</p>
+            </article>
+            <article class="step">
+              <h3>Record</h3>
+              <p>RiskLedger 记录授权、拒绝、远程访问、OTA、异常和恢复证据。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="motion" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">02 · Motion Firewall</p>
+            <h2>真正的机器人零信任，是在动作发生前完成授权。</h2>
+            <p class="lead">Motion Firewall 不替代 safety controller，也不把 AI 放进安全关键链路。它对远程控制、ROS topic、速度、抓取、升降、越区、靠近人和异常接管做策略检查，异常时限速、降级、拒绝高风险动作或进入隔离。</p>
+            <ul class="list">
+              <li>ROS / DDS least privilege：按 enclave 控 topic、service 和 action。</li>
+              <li>JIT remote access：限时证书、MFA、审批、录屏、命令 allowlist。</li>
+              <li>Signed OTA：TUF / Uptane 风格签名、canary、A/B rollback 和 SBOM/VEX。</li>
+              <li>SOC export：输出 attestation failed、DDS authz denied、unsafe motion blocked。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/motion-zero.png" alt="动作防火墙、ROS 权限和机器人指令拦截图">
+          </div>
+        </div>
+      </section>
+
+      <section id="china" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · China Lane / Overseas Lane</p>
+              <h2>中国版要把机器人当作联网设备、工业互联网节点和售后服务系统一起保护。</h2>
+            </div>
+            <p>海外版更容易用 CRA、NIST、IEC 62443、SOC 2 和 SIEM/SOC 语言；中国版必须加入 MLPS、PIPL/DSL 数据清单、国内云/私有化、远程运维审批、400/企微服务治理和数据驻留。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <h3>中国可信运营包</h3>
+              <p>等保支持、数据分类分级、地图/视频/语音/日志留存策略、远程维护审批、会话录屏、命令审计、客户一键断开、SRRC/CCC/NAL 准入判断。</p>
+            </article>
+            <article class="card">
+              <h3>海外安全证据包</h3>
+              <p>EU CRA readiness、NIST SSDF / OT、IEC 62443、SBOM/VEX、VDP/PSIRT、signed OTA、tenant isolation、Sentinel / Splunk / ServiceNow export。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Demo Attack Story</p>
+              <h2>不展示“黑客特效”，展示一个危险动作如何被验证、拦截和复盘。</h2>
+            </div>
+            <p>比赛 demo 可以用浏览器模拟两台机器人、一个正常 mission、一个被篡改节点和一次未授权 `/cmd_vel` 发布。评委能看到：证书被拒、动作被拦、机器人降级、证据可回放。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>01</strong>
+              <span>一台机器人 measurement 正常，另一台 rootfs / ROS graph 被篡改。</span>
+            </div>
+            <div class="stat">
+              <strong>02</strong>
+              <span>篡改机器人无法拿到短期 DDS 证书，被放入 quarantine。</span>
+            </div>
+            <div class="stat">
+              <strong>03</strong>
+              <span>未授权节点发布速度/抓取命令，Motion Firewall 拒绝高风险动作。</span>
+            </div>
+            <div class="stat">
+              <strong>04</strong>
+              <span>RiskLedger 回放证据，UptimeOS 用 signed OTA 恢复并重新入队。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Why Qualcomm</p>
+              <h2>信任必须从边缘硬件和实时本体状态开始，而不是事后看网络流量。</h2>
+            </div>
+            <p>机御 Zero 让 Qualcomm 的 secure boot、硬件身份、QTEE/SPU/crypto、边缘 AI、连接和 AI Hub profile 变成机器人可信运行时。通用 OT 平台看到的是流量；Qualcomm 可以证明是谁启动、谁发命令、谁让机器人动。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Root</h3>
+              <p>硬件根、启动链和设备身份建立机器人护照。</p>
+            </article>
+            <article class="step">
+              <h3>Graph</h3>
+              <p>ROS / DDS graph、topic 权限和 node certificate 进入运行策略。</p>
+            </article>
+            <article class="step">
+              <h3>Sense</h3>
+              <p>边缘 AI 检测命令/里程计不一致、异常接管和传感器异常。</p>
+            </article>
+            <article class="step">
+              <h3>Connect</h3>
+              <p>5G / Wi-Fi / 专网远程运维走短期证书和审计会话。</p>
+            </article>
+            <article class="step">
+              <h3>Prove</h3>
+              <p>RiskLedger 和 CertForge 输出采购、合规、事故复盘和 SOC 证据。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">机御 Zero 的核心不是“更安全的网络”，而是更可信的机器人动作。未来企业买机器人，会问的不只是能不能跑，还会问谁能让它动、为什么能动、出事后能不能证明。</p>
+          <div class="source-links">
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act">EU CRA</a>
+            <a href="https://csrc.nist.gov/pubs/sp/800/218/final">NIST SSDF</a>
+            <a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">NIST OT</a>
+            <a href="https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards">IEC 62443</a>
+            <a href="https://design.ros2.org/articles/ros2_dds_security.html">ROS 2 Security</a>
+            <a href="https://design.ros2.org/articles/ros2_threat_model.html">ROS Threat Model</a>
+            <a href="https://www.universal-robots.com/articles/ur/cybersecurity/cve-2026-8153-command-injection-in-the-polyscope-5-dashboard-server/">UR CVE</a>
+            <a href="https://claroty.com/">Claroty</a>
+            <a href="https://www.nozominetworks.com/platform">Nozomi</a>
+            <a href="https://aliasrobotics.com/">Alias Robotics</a>
+            <a href="https://theupdateframework.io/">TUF</a>
+            <a href="https://uptane.org/docs/latest/standard/uptane-standard">Uptane</a>
+            <a href="https://www.qualcomm.com/developer/blog/2024/12/secure-boot-as-part-of-platform-security-architecture-modern-system-on-chip">Qualcomm Secure Boot</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

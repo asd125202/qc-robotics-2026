@@ -41,6 +41,7 @@ Current batch:
 - `care-ops/` — hospital and lab operations robot workflow platform for non-clinical logistics, specimen chain-of-custody, privacy-first edge AI, and audit evidence.
 - `field-ops/` — outdoor inspection, agriculture, energy, and infrastructure robotics platform with rugged kits, sensor pods, resilient connectivity, teleoperation fallback, evidence packages, and a LeRobot field-data flywheel.
 - `safety-ops/` — safety runtime, skill permissions, release gates, audit ledger, and compliance evidence.
+- `motion-zero/` — motion-level zero trust fabric for robot identity, ROS/DDS least privilege, JIT remote access, signed OTA, SBOM/VEX, SOC export, and auditable motion command policy.
 - `dual-cloud-ops/` — China/overseas GPU-cloud lanes behind one LeRobot training job contract.
 - `revenue-stack/` — pricing ladder, pilot contracts, recurring revenue lines, and ecosystem economics.
 - `robot-app-layer/` — stable application SDK above ROS 2, LeRobot, fleet operations, and Qualcomm edge deployment.

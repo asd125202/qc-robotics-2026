@@ -222,6 +222,10 @@ img {
   background-image: url("./assets/uptime-os.png");
 }
 
+.hero-motion-zero {
+  background-image: url("./assets/motion-zero.png");
+}
+
 .hero-field-ops {
   background-image: url("./assets/field-ops.png");
 }
