@@ -50,6 +50,7 @@ The current first-batch pitch directions are:
 - `RiskLedger`: robot risk evidence ledger for black-box event capture, insurance underwriting data, finance diligence, warranty analytics, SLA evidence, and tamper-evident incident replay.
 - `ScaleFoundry`: prototype-to-SKU hardware productization, certification evidence, manufacturing launch, and lifecycle assurance.
 - `CertForge`: compliance evidence factory for Qualcomm-powered robots, covering standards mapping, safety cases, SBOM/VEX, CRA readiness, radio, battery, CE/FCC/CCC/SRRC workflow, and launch dossier exports.
+- `能栈 NengStack`: robot energy OS for fleet charging schedules, dock/charger mesh, battery passports, site power planning, Qualcomm power budgets, and RaaS energy evidence.
 - `FleetConductor`: local edge robot tower for mixed-vendor fleet orchestration, maps, traffic, doors, elevators, chargers, incidents, and LeRobot feedback.
 - `CareOps`: hospital and lab operations robot workflow platform for non-clinical logistics, specimen chain-of-custody, privacy-first edge AI, and audit evidence.
 - `FieldOps`: outdoor inspection, agriculture, energy, and infrastructure robotics platform with rugged kits, sensor pods, resilient connectivity, teleoperation fallback, evidence packages, and a LeRobot field-data flywheel.

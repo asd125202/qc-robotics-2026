@@ -226,6 +226,10 @@ img {
   background-image: url("./assets/motion-zero.png");
 }
 
+.hero-neng-stack {
+  background-image: url("./assets/neng-stack.png");
+}
+
 .hero-field-ops {
   background-image: url("./assets/field-ops.png");
 }

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>能栈 NengStack | 机器人补能操作系统</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>能栈 NengStack</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#research">研究</a>
+        <a href="#scheduler">调度</a>
+        <a href="#passport">护照</a>
+        <a href="#china">中国</a>
+        <a href="#demo">演示</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-neng-stack">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 43 · Robot Energy OS</p>
+          <h1>能栈 NengStack</h1>
+          <p class="hero-lede">机器人补能操作系统：连接机器人、充电桩、换电柜、无线补能点和园区电网，用 Qualcomm 边缘 AI 调度何时充、去哪充、充多少。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#scheduler">查看能源调度</a>
+            <a class="button" href="../uptime-os/">连接 UptimeOS</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">00 · Five-Thread Research</p>
+              <h2>机器人正在成群落地。下一个瓶颈不是算法，是补能。</h2>
+            </div>
+            <p>五条研究线显示：充电基础设施正在成为 AMR/AGV 独立市场；机会充电、自动对接、换电、SoH、热安全、站点峰值功率和 charger queue 会直接影响吞吐与 RaaS 毛利。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Energy ROI</h3>
+              <p>机器人 ROI 不只看续航，而看整支车队每天稳定完成多少任务。</p>
+            </article>
+            <article class="card">
+              <h3>Opportunity</h3>
+              <p>在装卸、排队、低峰和 staging 时补能，减少离线长充对吞吐的影响。</p>
+            </article>
+            <article class="card">
+              <h3>Dock Uptime</h3>
+              <p>对接成功率、握手失败、能量交付、接触电阻、热故障都要监控。</p>
+            </article>
+            <article class="card">
+              <h3>Battery Twin</h3>
+              <p>SOC、SOH、循环数、温度、内阻、异常、认证和更换窗口进入电池护照。</p>
+            </article>
+            <article class="card">
+              <h3>Site Power</h3>
+              <p>充电槽、峰值 kW、配电容量、换电柜、无线补能和园区电力策略联动。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/neng-stack.png" alt="机器人补能操作系统、充电调度、电池护照和园区电力控制台图">
+          </div>
+        </div>
+      </section>
+
+      <section id="scheduler" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Fleet Energy Scheduler</p>
+              <h2>把“低电量回桩”升级成车队级能源路由。</h2>
+            </div>
+            <p>能栈根据 SOC/SOH、任务优先级、充电桩可用性、队列、路线成本、热状态和园区峰值功率，决定哪台机器人该接任务、该补多少电、该去哪种补能点。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Measure</h3>
+              <p>BMS、dock、charger、ROS BatteryState、Qualcomm workload 和站点电力数据进入同一流。</p>
+            </article>
+            <article class="step">
+              <h3>Forecast</h3>
+              <p>预测任务能耗、回桩 reserve、热余量、充电队列和电池老化风险。</p>
+            </article>
+            <article class="step">
+              <h3>Reserve</h3>
+              <p>为导电桩、无线垫、换电柜和移动充电车预约补能槽。</p>
+            </article>
+            <article class="step">
+              <h3>Derate</h3>
+              <p>热或电量不足时降低非关键模型 FPS、切换 compute profile 或延后任务。</p>
+            </article>
+            <article class="step">
+              <h3>Prove</h3>
+              <p>输出 uptime、TCO、SLA、质保、认证和电池残值证据。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="passport" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">02 · Battery Passport + Dock Mesh</p>
+            <h2>电池和充电桩都必须变成可审计资产。</h2>
+            <p class="lead">能栈跟踪电池身份、化学体系、容量、UN38.3、循环数、SoH、温度异常、维修、复用和回收；同时把每个 dock 当作 fleet endpoint，监控对接、握手、热、接触和维护状态。</p>
+            <ul class="list">
+              <li>Battery Twin：SOC / SOH、cycle count、energy throughput、internal resistance、temperature。</li>
+              <li>Dock Mesh：导电、无线、换电、移动充电和小型机器人 USB-C PD 场景。</li>
+              <li>Safety：禁快充、禁放电、compute derate、return now、safe shutdown。</li>
+              <li>Evidence：连接 CertForge、RiskLedger、RobotLeaseOps 和 UptimeOS。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/neng-stack.png" alt="电池护照、充电桩网格和机器人能源安全控制台图">
+          </div>
+        </div>
+      </section>
+
+      <section id="china" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · China Lane / Overseas Lane</p>
+              <h2>中国版要把电池安全、充电区消防和本地运营讲清楚。</h2>
+            </div>
+            <p>中国客户会问：电池标准、UN38.3、CCC 适用性、充电区消防、漏保、急停、损坏电池隔离、换电责任和本地 fleet dispatch。海外客户更关注 OCPP-style charger management、EU Battery Regulation、UL battery safety 和 energy savings。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <h3>中国补能包</h3>
+              <p>GB 31241、SJ/T 11852、GB/T 40013、GB/T 41527、UN38.3、充电区 SOP、烟温监测、漏电保护、急停、损坏电池隔离和本地云。</p>
+            </article>
+            <article class="card">
+              <h3>海外能源包</h3>
+              <p>Battery passport、UL battery safety、EU Battery Regulation、OCPP-style charger management、demand response readiness 和 energy savings share。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Demo Flow</p>
+              <h2>同一批任务、同一组充电点，打开能栈后看吞吐和峰值怎么变化。</h2>
+            </div>
+            <p>比赛演示可以用浏览器模拟 10 台机器人、3 个补能点和一个峰值功率限制。关闭能栈时出现排队、低电任务失败和负载超限；打开后系统预约充电槽、安排机会充电、换电和延迟补能。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>SOC</strong>
+              <span>每台机器人有任务能耗、回桩 reserve、充电目标和热余量。</span>
+            </div>
+            <div class="stat">
+              <strong>Dock</strong>
+              <span>每个充电点有队列、可用性、握手、热和维护状态。</span>
+            </div>
+            <div class="stat">
+              <strong>Peak</strong>
+              <span>园区峰值 kW 不再被所有机器人同时快充推高。</span>
+            </div>
+            <div class="stat">
+              <strong>TCO</strong>
+              <span>输出 charger utilization、battery replacement window、SLA risk 和 RaaS margin。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Why Qualcomm</p>
+              <h2>Qualcomm 可以从机器人“大脑”，延伸到机器人能源基础设施“大脑”。</h2>
+            </div>
+            <p>能栈把 Qualcomm 的边缘 AI、低功耗 compute、5G / Wi-Fi / private network、安全身份和 AI Hub profile 引入补能系统：本体侧做 docking perception、热/电池异常检测和 joules/inference，云端做车队与园区调度。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Dock AI</h3>
+              <p>相机/标记对接、无线/导电对准、异常检测和充电桩健康。</p>
+            </article>
+            <article class="step">
+              <h3>Power</h3>
+              <p>按 mission reserve 切换 CPU/GPU/NPU profile，记录 joules/inference。</p>
+            </article>
+            <article class="step">
+              <h3>Network</h3>
+              <p>机器人、桩、换电柜和站点控制台通过专网/5G/Wi-Fi 同步。</p>
+            </article>
+            <article class="step">
+              <h3>Trust</h3>
+              <p>电池、dock、charger、机器人都有身份、签名 OTA 和审计证据。</p>
+            </article>
+            <article class="step">
+              <h3>Business</h3>
+              <p>RaaS 残值、SLA、质保、电池更换和能源节省进入商业闭环。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">能栈不承诺零停机，也不押注某一种充电方式。它让机器人车队把每一次任务、补能、电池老化、热事件和园区功率限制都变成可调度、可审计、可计费的运营数据。</p>
+          <div class="source-links">
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
+            <a href="https://interactanalysis.com/mobile-robots-market-outpaces-fixed-automation/">Interact Analysis</a>
+            <a href="https://www.futuremarketinsights.com/reports/amr-docking-and-charging-stations-market">AMR Docking Market</a>
+            <a href="https://onepointech.com/opportunity-charging-agv-amr/">Opportunity Charging</a>
+            <a href="https://mobile-industrial-robots.com/products/applications/mir-charge-48v">MiR Charge</a>
+            <a href="https://ottomotors.com/fleet-manager/">OTTO Fleet</a>
+            <a href="https://www.autostoresystem.com/news/autostore-launches-new-r5-pro-robot">AutoStore R5 Pro</a>
+            <a href="https://www.wibotic.com/">WiBotic</a>
+            <a href="https://openchargealliance.org/protocols/open-charge-point-protocol/">OCPP</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform">Qualcomm RB6</a>
+            <a href="https://docs.kernel.org/power/power_supply_class.html">Linux Power</a>
+            <a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/BatteryState.msg">ROS BatteryState</a>
+            <a href="https://eur-lex.europa.eu/eli/reg/2023/1542/oj/eng">EU Battery</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
