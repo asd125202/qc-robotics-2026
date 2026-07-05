@@ -178,6 +178,10 @@ img {
   background-image: url("./assets/worldforge.png");
 }
 
+.hero-integrator-forge {
+  background-image: url("./assets/integrator-forge.png");
+}
+
 .hero-safetyops {
   background-image: url("./assets/safety-ops.png");
 }

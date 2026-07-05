@@ -28,6 +28,7 @@ Current batch:
 - `vertical-playbooks/` — vertical market packaging for factory, logistics, lab, service, and education.
 - `data-flywheel/` — teleoperation, dataset, cloud training, edge deployment, and failure-mining loop.
 - `worldforge/` — simulation CI and synthetic-data factory for LeRobot datasets, failure mining, and Qualcomm edge validation.
+- `integrator-forge/` — certified system integrator marketplace and deployment evidence system for RobotMac / Qualcomm edge projects.
 - `safety-ops/` — safety runtime, skill permissions, release gates, audit ledger, and compliance evidence.
 - `dual-cloud-ops/` — China/overseas GPU-cloud lanes behind one LeRobot training job contract.
 - `revenue-stack/` — pricing ladder, pilot contracts, recurring revenue lines, and ecosystem economics.

@@ -41,6 +41,7 @@ The current first-batch pitch directions are:
 - `VerticalPlaybooks`: factory, logistics, lab, campus/service, and education market product packages.
 - `DataFlywheel`: teleoperation, dataset ledger, cloud training, edge deployment, and failure-mining loop.
 - `WorldForge`: simulation CI and synthetic-data factory for LeRobot datasets, failure mining, and Qualcomm edge validation.
+- `IntegratorForge`: certified system integrator marketplace and deployment evidence system for RobotMac / Qualcomm edge projects.
 - `SafetyOps`: safety runtime, skill permissions, model release gates, audit ledger, and compliance evidence pack.
 - `DualCloudOps`: China/overseas GPU-cloud provider adapters behind one LeRobot training job contract.
 - `RevenueStack`: pricing ladder, pilot contracts, recurring revenue lines, and Qualcomm ecosystem economics.
