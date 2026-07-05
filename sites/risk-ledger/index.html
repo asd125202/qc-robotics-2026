@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RiskLedger | 机器人风险账本</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>RiskLedger</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#why">为什么</a>
+        <a href="#shield">黑匣子</a>
+        <a href="#evidence">证据包</a>
+        <a href="#finance">金融</a>
+        <a href="#trust">安全</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-risk-ledger">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 37 · Robot Risk Evidence Ledger</p>
+          <h1>RiskLedger</h1>
+          <p class="hero-lede">机器人风险账本：让商业机器人可承保、可融资、可复盘。RobotShield 在本体侧记录黑匣子证据，RiskLedger 在云端生成事故、质保、SLA、保险和融资可用的可信证据包。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#shield">查看黑匣子模块</a>
+            <a class="button" href="../robot-lease-ops/">连接 RobotLeaseOps</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="why" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Risk Is The Next Platform Layer</p>
+              <h2>机器人要走向商业化，就必须回答“出事后谁相信数据”。</h2>
+            </div>
+            <p>企业、保险、融资、法务和运维不会只看 demo。它们要知道机器人运行了多久、维护是否按时、模型是否被篡改、事件发生前后机器人看到了什么、谁接管过、证据是否能复核。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Insurance</h3>
+              <p>保险和经纪需要结构化 exposure、incident、ODD、维护和使用数据，而不是静态申请表。</p>
+            </article>
+            <article class="card">
+              <h3>Finance</h3>
+              <p>租赁和 RaaS 需要残值、利用率、服务历史、可回收性和违约损失假设。</p>
+            </article>
+            <article class="card">
+              <h3>Warranty</h3>
+              <p>OEM 需要知道故障来自硬件、软件、站点、网络、维护还是客户误用。</p>
+            </article>
+            <article class="card">
+              <h3>SLA</h3>
+              <p>停机、例外、service credit、MTTR 和计划维护必须有可审计记录。</p>
+            </article>
+            <article class="card">
+              <h3>Liability</h3>
+              <p>责任归因涉及 OEM、集成商、软件、云、场地、操作员和维护方，必须先保全证据。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/risk-ledger.png" alt="机器人黑匣子、风险账本、事故回放、保险融资和可信证据控制台图">
+          </div>
+        </div>
+      </section>
+
+      <section id="shield" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · RobotShield</p>
+              <h2>本体侧黑匣子只做记录和风控动作，不干扰安全控制链。</h2>
+            </div>
+            <p>RobotShield 是被动记录器和风险状态模块：监听 ROS 2、CAN、EtherCAT、PLC、安全控制器、相机、LiDAR、IMU、关节、电机、地图和操作员输入；遇到关键事件时冻结环形缓冲并签名。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Capture</h3>
+              <p>多源传感、控制命令、模型版本、地图版本和人工输入同步记录。</p>
+            </article>
+            <article class="step">
+              <h3>Trigger</h3>
+              <p>急停、保护停、碰撞力峰、近失误、定位丢失、接管、通信故障和配置异常触发保全。</p>
+            </article>
+            <article class="step">
+              <h3>Sign</h3>
+              <p>安全启动状态、设备身份、模型哈希、计数器、时间戳和证据哈希链进入签名元数据。</p>
+            </article>
+            <article class="step">
+              <h3>Redact</h3>
+              <p>视频、人脸、工牌、地图和客户工艺信息按权限脱敏、留存或法律冻结。</p>
+            </article>
+            <article class="step">
+              <h3>Act</h3>
+              <p>信任状态异常时可进入限速、锁定高风险技能或要求人工审批。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="evidence" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · Evidence Capsule</p>
+            <h2>每一次事件，都变成可回放、可校验、可导出的证据包。</h2>
+            <p class="lead">RiskLedger 不用 AI 直接判定责任。它保留可防篡改的事实链：机器人状态、传感片段、控制命令、模型和软件版本、操作员接管、维护状态、场地图和证据保管链。</p>
+            <ul class="list">
+              <li>事件时间线：事件前后高频窗口 + 低频运营上下文。</li>
+              <li>数据载荷：MCAP / ROS bag / video / LiDAR slice / config hash / SBOM ref。</li>
+              <li>完整性：设备签名、hash chain、Merkle root、monotonic counter 和 custody log。</li>
+              <li>复盘：near-miss 聚类、纠正措施、测试场景 backlog 和 SafetyOps 门禁更新。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/risk-ledger.png" alt="RiskLedger 事件时间线、哈希链和证据包回放控制台">
+          </div>
+        </div>
+      </section>
+
+      <section id="finance" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Insurability &amp; Bankability</p>
+              <h2>不是卖保险，而是让机器人具备被承保和被融资的证据基础。</h2>
+            </div>
+            <p>RiskLedger 面向 OEM、RaaS 运营商、集成商、企业客户、保险伙伴和设备金融机构，输出 underwriting data pack、SLA evidence、warranty reserve、residual value 和 bankability score。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Uptime</strong>
+              <span>可用率、计划/非计划停机、MTBF、MTTR、远程修复率和 first-time-fix。</span>
+            </div>
+            <div class="stat">
+              <strong>Claims</strong>
+              <span>事件频率、严重度、near-miss、维修原因、证据状态和纠正措施。</span>
+            </div>
+            <div class="stat">
+              <strong>Residual</strong>
+              <span>电池、传感器、里程、循环、软件支持期、维修历史和再部署成本。</span>
+            </div>
+            <div class="stat">
+              <strong>Finance</strong>
+              <span>资产护照、LTV、服务合规、RaaS 毛利、SLA 例外和租赁审计数据。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="trust" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Procurement Trust Pack</p>
+              <h2>把安全问卷、SBOM、漏洞状态和日志出口做成采购包。</h2>
+            </div>
+            <p>机器人是联网设备，也是 OT 资产。RiskLedger 为客户安全团队提供 release-level SBOM、VEX、漏洞披露、签名 OTA、审计日志、SIEM export、远程支持记录、数据留存和分区部署指南。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>SBOM / VEX</h3>
+              <p>每个版本绑定组件清单、CVE/KEV 状态、affected / not affected 说明。</p>
+            </article>
+            <article class="card">
+              <h3>Audit Logs</h3>
+              <p>管理员访问、远程支持、机器人命令、固件更新、地图导出和风险模式变化。</p>
+            </article>
+            <article class="card">
+              <h3>OTA Evidence</h3>
+              <p>签名构建、灰度发布、回滚、支持期、EOL 和安全更新历史。</p>
+            </article>
+            <article class="card">
+              <h3>OT Guide</h3>
+              <p>网络分区、最小权限、VLAN、SIEM、site hardening 和 incident response playbook。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Why Qualcomm</p>
+              <h2>可信证据必须从边缘硬件开始，而不是事后补表格。</h2>
+            </div>
+            <p>RiskLedger 让 Qualcomm 的安全启动、硬件信任根、边缘多传感器采集、连接、AI Hub profile 和设备生命周期管理变成商业证据。Qualcomm 不只是运行模型，还能证明模型、固件和机器人状态没有被随意替换。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Boot</h3>
+              <p>安全启动、设备身份和 attestation 作为证据链起点。</p>
+            </article>
+            <article class="step">
+              <h3>Model</h3>
+              <p>AI Hub / QNN / runtime artifact 的哈希、profile 和验证记录进入模型护照。</p>
+            </article>
+            <article class="step">
+              <h3>Edge</h3>
+              <p>视频、LiDAR、IMU、控制和安全事件在本体侧低延迟采集。</p>
+            </article>
+            <article class="step">
+              <h3>Sync</h3>
+              <p>离线时本地排队签名，恢复 Wi-Fi/5G/专网后同步 RiskLedger。</p>
+            </article>
+            <article class="step">
+              <h3>Shield</h3>
+              <p>信任状态异常时自动降级高风险能力，等待人工审批。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">RiskLedger 不承诺机器人永不出事，也不替法务判定责任。它让每一次运行、维护、更新和事故都有可校验事实，机器人因此更容易被采购、承保、融资和规模化部署。</p>
+          <div class="source-links">
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Industrial Robots</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
+            <a href="https://www.osha.gov/robotics">OSHA Robotics</a>
+            <a href="https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-563">NHTSA EDR</a>
+            <a href="https://www.koop.ai/blog/api-underwriting-a-perfect-solution-for-avs-robotics-insurance">Koop Underwriting API</a>
+            <a href="https://www.thehartford.com/insights/technology/evaluating-autonomous-risk">The Hartford</a>
+            <a href="https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng">EU Product Liability</a>
+            <a href="https://csrc.nist.gov/pubs/sp/800/92/final">NIST Log Management</a>
+            <a href="https://csrc.nist.gov/pubs/sp/800/218/final">NIST SSDF</a>
+            <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng">EU CRA</a>
+            <a href="https://www.qualcomm.com/developer/blog/2024/12/secure-boot-as-part-of-platform-security-architecture-modern-system-on-chip">Qualcomm Secure Boot</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

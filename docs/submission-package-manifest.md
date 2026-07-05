@@ -53,6 +53,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/roboport/
 - https://qc-robotics-2026.pages.dev/integrator-forge/
 - https://qc-robotics-2026.pages.dev/robot-lease-ops/
+- https://qc-robotics-2026.pages.dev/risk-ledger/
 - https://qc-robotics-2026.pages.dev/scale-foundry/
 - https://qc-robotics-2026.pages.dev/fleet-conductor/
 - https://qc-robotics-2026.pages.dev/care-ops/
@@ -99,6 +100,7 @@ Suggested values to review:
 - Robot module port ecosystem page: `https://qc-robotics-2026.pages.dev/roboport/`.
 - Certified integrator ecosystem page: `https://qc-robotics-2026.pages.dev/integrator-forge/`.
 - RaaS subscription control page: `https://qc-robotics-2026.pages.dev/robot-lease-ops/`.
+- Robot risk evidence ledger page: `https://qc-robotics-2026.pages.dev/risk-ledger/`.
 - Hardware productization page: `https://qc-robotics-2026.pages.dev/scale-foundry/`.
 - Mixed robot fleet tower page: `https://qc-robotics-2026.pages.dev/fleet-conductor/`.
 - Hospital operations robot workflow page: `https://qc-robotics-2026.pages.dev/care-ops/`.

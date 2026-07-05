@@ -32,6 +32,7 @@ Current batch:
 - `worldforge/` — simulation CI and synthetic-data factory for LeRobot datasets, failure mining, and Qualcomm edge validation.
 - `integrator-forge/` — certified system integrator marketplace and deployment evidence system for RobotMac / Qualcomm edge projects.
 - `robot-lease-ops/` — RaaS, leasing, uptime SLA, service ledger, and subscription control plane for bankable robot capacity.
+- `risk-ledger/` — robot risk evidence ledger for black-box event capture, insurance underwriting data, finance diligence, warranty analytics, SLA evidence, and tamper-evident incident replay.
 - `scale-foundry/` — prototype-to-SKU hardware productization, certification evidence, manufacturing launch, and lifecycle assurance.
 - `fleet-conductor/` — local edge robot tower for mixed-vendor fleet orchestration, maps, traffic, doors, elevators, chargers, incidents, and LeRobot feedback.
 - `care-ops/` — hospital and lab operations robot workflow platform for non-clinical logistics, specimen chain-of-custody, privacy-first edge AI, and audit evidence.
