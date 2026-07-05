@@ -24,6 +24,7 @@ The current first-batch pitch directions are:
 - `RobotMac Core`: all-in-one robotics compute, power, IO, safety, and runtime core.
 - `LeRobot CloudTwin`: real robot data collection, cloud GPU training, and Qualcomm edge deployment loop.
 - `SkillDock`: robot skill marketplace where trained skills can be installed, certified, and upgraded.
+- `SkillCertKit`: robot skill certification package for manifests, dataset lineage, hardware compatibility, edge benchmarks, safety gates, and marketplace publishing.
 - `Embodied Kit`: procurement-ready industry kit for factories, labs, education, and service robotics teams.
 - `DragonWorks`: Qualcomm-first robotics developer workbench for devices, datasets, training, deployment, and skills.
 - `EdgeFleet`: fleet operations layer for enterprise robot maintenance, logging, updates, and training feedback.

@@ -11,6 +11,7 @@ Current batch:
 - `robot-mac/` — all-in-one robotics compute and power core.
 - `cloud-training/` — LeRobot cloud-training loop.
 - `skill-marketplace/` — robot skill marketplace.
+- `skill-cert-kit/` — robot skill certification workflow for manifests, dataset lineage, hardware compatibility, edge benchmarks, safety gates, and publishing.
 - `industry-kit/` — deployable industry kit.
 - `dragonworks/` — Qualcomm-first robotics developer workbench.
 - `edgefleet/` — fleet operations and maintenance platform.

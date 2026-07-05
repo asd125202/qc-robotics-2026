@@ -194,6 +194,10 @@ img {
   background-image: url("./assets/pilot-contract-kit.png");
 }
 
+.hero-skill-cert {
+  background-image: url("./assets/skill-cert-kit.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;

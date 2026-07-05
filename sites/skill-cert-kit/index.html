@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SkillCertKit | 机器人技能认证体系</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>SkillCertKit</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#pipeline">认证</a>
+        <a href="#evidence">证据</a>
+        <a href="#marketplace">上架</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-skill-cert">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 23 · Robot Skill Certification</p>
+          <h1 class="long-word-title">SkillCertKit</h1>
+          <p class="hero-lede">机器人技能不能像模型文件一样随便安装。SkillCertKit 把 manifest、数据来源、硬件兼容、边缘 benchmark、安全门禁、签名和回滚做成技能上架标准。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#pipeline">查看认证流水线</a>
+            <a class="button" href="../skill-marketplace/">连接 SkillDock</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="pipeline" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Certification Pipeline</p>
+              <h2>技能市场的关键不是“能上传”，而是“买家敢安装”。</h2>
+            </div>
+            <p>SkillCertKit 把机器人技能的提交、审查、边缘评测、安全门禁、签名上架和运行回滚做成一条产品化流水线。开发者负责技能创新，平台负责证据和可信交付。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Submit</h3>
+              <p>提交技能包、策略 artifact、运行依赖和目标任务说明。</p>
+            </article>
+            <article class="step">
+              <h3>Manifest</h3>
+              <p>检查输入输出、传感器、执行器、权限和目标硬件 profile。</p>
+            </article>
+            <article class="step">
+              <h3>Lineage</h3>
+              <p>记录数据集来源、episode 数量、失败样本和版本权限。</p>
+            </article>
+            <article class="step">
+              <h3>Bench</h3>
+              <p>生成 Qualcomm edge compile、profile、deploy 和运行指标。</p>
+            </article>
+            <article class="step">
+              <h3>Publish</h3>
+              <p>通过 SafetyOps 门禁后签名上架，并绑定 rollback package。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/skill-cert-kit.png" alt="机器人技能认证、硬件兼容和市场上架流程图">
+          </div>
+        </div>
+      </section>
+
+      <section id="evidence" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Evidence Pack</p>
+              <h2>每个机器人技能都应该带着证据，而不是只带着权重。</h2>
+            </div>
+            <p>认证包让企业客户、系统集成商和评委都能看到技能是否适配、是否安全、是否可回滚、是否真的运行在 Qualcomm edge target 上。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Manifest</h3>
+              <p>技能 ID、输入输出、权限、依赖和目标机器人 profile。</p>
+            </article>
+            <article class="card">
+              <h3>Dataset</h3>
+              <p>LeRobot 数据来源、版本、episode、失败样本和授权边界。</p>
+            </article>
+            <article class="card">
+              <h3>Hardware</h3>
+              <p>RobotMac profile、相机、执行器、IO、runtime 和固件版本。</p>
+            </article>
+            <article class="card">
+              <h3>Runtime</h3>
+              <p>边缘延迟、资源占用、稳定性、部署包和 profile 报告。</p>
+            </article>
+            <article class="card">
+              <h3>Safety</h3>
+              <p>工作空间、速度、急停、人工接管、审计日志和发布门禁。</p>
+            </article>
+            <article class="card">
+              <h3>Rollback</h3>
+              <p>上一稳定版本、回滚触发条件、恢复流程和现场支持策略。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="marketplace" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · Marketplace Rules</p>
+            <h2>SkillDock 不是模型仓库，而是机器人能力商店。</h2>
+            <p class="lead">普通 App 可以先安装再卸载，机器人技能必须先通过认证再触碰真实设备。SkillCertKit 定义 SkillDock 的上架规则，让技能成为可采购、可验收、可续费的商业产品。</p>
+            <ul class="list">
+              <li>未认证策略不能进入企业技能市场。</li>
+              <li>每个技能必须声明硬件 profile、传感器、执行器和权限。</li>
+              <li>每个技能必须附带 EdgeRuntimeBench 和 SafetyOps gate 结果。</li>
+              <li>每个技能必须有 rollback package 和版本签名。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/skill-cert-kit.png" alt="机器人技能市场认证规则和兼容性矩阵图">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Qualcomm Ecosystem Value</p>
+              <h2>让 Qualcomm 从硬件选择，变成机器人技能发布标准。</h2>
+            </div>
+            <p>如果每个技能包都需要声明 Qualcomm edge target、运行 benchmark 和兼容性证据，Qualcomm 就不只是比赛开发板，而是技能市场、企业部署和开发者生态的认证锚点。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Edge Target</strong>
+              <span>技能上架前必须声明 QCS8550 / QCS6490 / IQ 系列兼容 profile。</span>
+            </div>
+            <div class="stat">
+              <strong>AI Hub</strong>
+              <span>把模型优化、验证和部署证据接入 Qualcomm-first 开发路径。</span>
+            </div>
+            <div class="stat">
+              <strong>SkillDock</strong>
+              <span>开发者围绕 Qualcomm runtime 制作可售卖、可认证技能包。</span>
+            </div>
+            <div class="stat">
+              <strong>Enterprise</strong>
+              <span>企业购买的是带证据的机器人能力，而不是不可审计的 demo。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">SkillCertKit 把“机器人会越来越多技能”变成“每个技能都能被审查、购买、安装、运行和回滚”。</p>
+          <div class="source-links">
+            <a href="https://index.ros.org/">ROS Index</a>
+            <a href="https://docs.ros.org/en/rolling/How-To-Guides/Package-maintainer-guide.html">ROS Package Manifest</a>
+            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="../edge-runtime-bench/">EdgeRuntimeBench</a>
+            <a href="../safety-ops/">SafetyOps</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
