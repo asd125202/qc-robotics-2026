@@ -1,0 +1,1 @@
+"""Cloud training adapter interfaces."""
