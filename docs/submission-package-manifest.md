@@ -48,6 +48,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/teleop-studio/
 - https://qc-robotics-2026.pages.dev/train-router/
 - https://qc-robotics-2026.pages.dev/edge-runtime-bench/
+- https://qc-robotics-2026.pages.dev/home-core/
 - https://qc-robotics-2026.pages.dev/worldforge/
 - https://qc-robotics-2026.pages.dev/robotrust/
 - https://qc-robotics-2026.pages.dev/roboport/
@@ -95,6 +96,7 @@ Suggested values to review:
 - Teleoperation data station page: `https://qc-robotics-2026.pages.dev/teleop-studio/`.
 - Dual-cloud training router page: `https://qc-robotics-2026.pages.dev/train-router/`.
 - Qualcomm runtime evidence page: `https://qc-robotics-2026.pages.dev/edge-runtime-bench/`.
+- Home robot skill layer page: `https://qc-robotics-2026.pages.dev/home-core/`.
 - Simulation data factory page: `https://qc-robotics-2026.pages.dev/worldforge/`.
 - Robot data trust cloud page: `https://qc-robotics-2026.pages.dev/robotrust/`.
 - Robot module port ecosystem page: `https://qc-robotics-2026.pages.dev/roboport/`.

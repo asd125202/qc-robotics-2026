@@ -158,6 +158,10 @@ img {
   background-image: url("./assets/robot-mac-core.png");
 }
 
+.hero-home-core {
+  background-image: url("./assets/home-core.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }

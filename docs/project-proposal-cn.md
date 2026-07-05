@@ -91,6 +91,7 @@ Qualcomm 可以通过该项目获得一个端到端机器人生态样板：
 - TeleopStudio 示教数据采集工位页：https://qc-robotics-2026.pages.dev/teleop-studio/
 - TrainRouter 双云 GPU 训练路由页：https://qc-robotics-2026.pages.dev/train-router/
 - EdgeRuntimeBench Qualcomm 运行证据页：https://qc-robotics-2026.pages.dev/edge-runtime-bench/
+- HomeCore 家用机器人技能内核页：https://qc-robotics-2026.pages.dev/home-core/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/
