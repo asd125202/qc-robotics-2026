@@ -12,5 +12,8 @@ Current batch:
 - `cloud-training/` — LeRobot cloud-training loop.
 - `skill-marketplace/` — robot skill marketplace.
 - `industry-kit/` — deployable industry kit.
+- `dragonworks/` — Qualcomm-first robotics developer workbench.
+- `edgefleet/` — fleet operations and maintenance platform.
+- `eduforge/` — education and developer learning kit.
 
 Generated illustration assets are stored in `sites/assets/`.

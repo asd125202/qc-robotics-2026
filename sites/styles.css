@@ -122,6 +122,18 @@ img {
   background-image: url("./assets/industry-kit.png");
 }
 
+.hero-dragonworks {
+  background-image: url("./assets/dragonworks-dashboard.png");
+}
+
+.hero-edgefleet {
+  background-image: url("./assets/edgefleet-ops.png");
+}
+
+.hero-eduforge {
+  background-image: url("./assets/eduforge-kit.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;

@@ -25,6 +25,9 @@ The current first-batch pitch directions are:
 - `LeRobot CloudTwin`: real robot data collection, cloud GPU training, and Qualcomm edge deployment loop.
 - `SkillDock`: robot skill marketplace where trained skills can be installed, certified, and upgraded.
 - `Embodied Kit`: procurement-ready industry kit for factories, labs, education, and service robotics teams.
+- `DragonWorks`: Qualcomm-first robotics developer workbench for devices, datasets, training, deployment, and skills.
+- `EdgeFleet`: fleet operations layer for enterprise robot maintenance, logging, updates, and training feedback.
+- `EduForge`: education and developer kit for teaching the full LeRobot-to-Qualcomm edge deployment loop.
 
 ## Repo Layout
 

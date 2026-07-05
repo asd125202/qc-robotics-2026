@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DragonWorks | Qualcomm-first 机器人开发者工作台</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>DragonWorks</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#why">定位</a>
+        <a href="#workspace">工作台</a>
+        <a href="#qualcomm">Qualcomm</a>
+        <a href="#demo">演示</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-dragonworks">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 05 · Developer Workbench</p>
+          <h1>DragonWorks</h1>
+          <p class="hero-lede">一个 Qualcomm-first 机器人开发者工作台：设备、数据集、云训练、模型版本、边缘性能和技能发布不再分散在不同工具里。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#workspace">工作台结构</a>
+            <a class="button" href="../edgefleet/">查看队列运维版本</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="why" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Platform Gap</p>
+              <h2>Qualcomm 需要的不只是开发板页面，而是机器人开发者的默认入口。</h2>
+            </div>
+            <p>NVIDIA 已经把 Jetson + Isaac ROS 讲成了 physical AI 开发路径。DragonWorks 的目标，是把 Qualcomm Dragonwing、LeRobot、云 GPU、AI Hub 和技能发布组织成一条清晰的产品旅程。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>设备</h3>
+              <p>绑定 QCS6490、QCS8550、IQ-8275 等目标硬件，查看在线状态、资源占用和运行版本。</p>
+            </article>
+            <article class="card">
+              <h3>数据</h3>
+              <p>把真实机器人操作记录为 LeRobot-compatible 数据集，管理任务、版本和失败片段。</p>
+            </article>
+            <article class="card">
+              <h3>训练</h3>
+              <p>按中国版或海外版云供应商启动 GPU job，训练 ACT / VLA 策略并生成评估报告。</p>
+            </article>
+            <article class="card">
+              <h3>部署</h3>
+              <p>把模型转换为边缘部署包，回到 Qualcomm 设备进行本地低延迟运行。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="workspace" class="slide tint">
+        <div class="wrap split">
+          <div class="visual">
+            <img src="../assets/dragonworks-dashboard.png" alt="DragonWorks 机器人开发者工作台图">
+          </div>
+          <div>
+            <p class="kicker">02 · Workspace</p>
+            <h2>把研究工具变成产品界面，才可能让更多团队进入生态。</h2>
+            <ul class="list">
+              <li>项目视图：机器人形态、传感器、任务目标、目标硬件。</li>
+              <li>数据视图：数据集版本、示教片段、失败片段、标注状态。</li>
+              <li>训练视图：GPU provider、策略模板、训练日志、评估结果。</li>
+              <li>部署视图：模型包、硬件兼容、性能预算、回滚版本。</li>
+              <li>技能视图：发布、认证、权限、售价和行业模板。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Strategic Fit</p>
+              <h2>这页最适合讲“为什么 Qualcomm 应该支持”。</h2>
+            </div>
+            <p>如果比赛作品只展示一个任务，价值会停在 demo。DragonWorks 展示的是 Qualcomm 如何把开发板、AI 模型、机器人样例、训练工具和商业交付连接成一个可持续生态。</p>
+          </div>
+          <div class="grid three">
+            <div class="stat">
+              <strong>入口</strong>
+              <span>让开发者从 Dragonwing 设备开始创建机器人项目。</span>
+            </div>
+            <div class="stat">
+              <strong>迁移</strong>
+              <span>同一项目可在 QCS6490、QCS8550、IQ-8275 间定义迁移路线。</span>
+            </div>
+            <div class="stat">
+              <strong>生态</strong>
+              <span>训练、部署、技能和认证共同扩大 Qualcomm 机器人开发者生态。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Demo Story</p>
+              <h2>初赛先做静态工作台原型，复赛接入真实设备指标。</h2>
+            </div>
+            <p>现在即可展示一个中文工作台原型：设备列表、数据集版本、训练任务、模型包、边缘性能和技能发布。拿到开发板后，再把真实延迟、帧率、资源占用和任务成功率接入。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>创建项目</h3>
+              <p>选择机器人形态、目标硬件和任务模板。</p>
+            </article>
+            <article class="step">
+              <h3>上传数据</h3>
+              <p>数据集进入 LeRobot-compatible 版本管理。</p>
+            </article>
+            <article class="step">
+              <h3>启动训练</h3>
+              <p>按中国版或海外版云 GPU 路径启动 job。</p>
+            </article>
+            <article class="step">
+              <h3>边缘评估</h3>
+              <p>在 Qualcomm 设备上回放、测延迟和资源占用。</p>
+            </article>
+            <article class="step">
+              <h3>发布技能</h3>
+              <p>生成可安装、可回滚、可认证的技能包。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">DragonWorks 的意义，是把 Qualcomm 机器人生态从“硬件可用”推进到“产品可用”。</p>
+          <div class="source-links">
+            <a href="https://www.qualcomm.com/developer/blog/2026/03/what-qualcomm-dragonwing-robotics-hub-means-for-developers">Dragonwing Robotics Hub</a>
+            <a href="https://aihub.qualcomm.com/models">Qualcomm AI Hub</a>
+            <a href="https://developer.nvidia.com/isaac/ros">NVIDIA Isaac ROS</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

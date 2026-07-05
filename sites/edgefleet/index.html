@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EdgeFleet | 机器人队列运维平台</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-green">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>EdgeFleet</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#problem">问题</a>
+        <a href="#fleet">队列</a>
+        <a href="#safety">安全</a>
+        <a href="#value">商业</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-edgefleet">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 06 · Fleet Operations</p>
+          <h1>EdgeFleet</h1>
+          <p class="hero-lede">企业买机器人之后，真正的挑战才开始：谁在运行、哪个模型在跑、故障片段在哪里、下一次训练如何改进。EdgeFleet 把机器人队列变成可维护的边缘设备。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#fleet">队列能力</a>
+            <a class="button" href="../eduforge/">查看教育套件版本</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Enterprise Risk</p>
+              <h2>机器人商业化失败，常常不是因为模型不会跑，而是因为运维不可控。</h2>
+            </div>
+            <p>工厂、园区、学校和实验室不是买一台机器人拍视频，而是要让多台设备长期运行。EdgeFleet 把在线状态、日志、模型版本、技能版本、故障回放和训练回流放进同一个运维界面。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>运行不可见</h3>
+              <p>设备在线，但不知道当前技能版本、模型版本、资源占用和异常原因。</p>
+            </article>
+            <article class="card">
+              <h3>更新不可控</h3>
+              <p>模型更新后表现变差，缺少回滚、灰度、兼容性和边缘性能检查。</p>
+            </article>
+            <article class="card">
+              <h3>经验不回流</h3>
+              <p>失败片段没有进入下一轮训练，真实运行数据无法持续改善机器人能力。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="fleet" class="slide tint">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">02 · Fleet Loop</p>
+            <h2>监控不是目的，持续变好才是目的。</h2>
+            <p class="lead">EdgeFleet 的核心不是远程遥控机器人，而是让机器人运行状态变成可评估、可训练、可部署的产品数据。</p>
+            <ul class="list">
+              <li>设备视图：在线、温度、电量、算力占用、传感器状态。</li>
+              <li>技能视图：已安装技能、版本、目标硬件、评估报告。</li>
+              <li>事件视图：失败片段、人类接管、异常日志、视频回放。</li>
+              <li>更新视图：灰度部署、回滚、边缘性能验证。</li>
+              <li>训练视图：把运行数据送回 LeRobot CloudTwin。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/edgefleet-ops.png" alt="EdgeFleet 机器人队列运维图">
+          </div>
+        </div>
+      </section>
+
+      <section id="safety" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Safety Boundary</p>
+              <h2>可以云端管理，但不能公网闭环控制。</h2>
+            </div>
+            <p>这是比赛方案必须清楚写出的安全原则：云端负责监控、日志、训练、模型发布和远程演示；机器人本体的感知、策略、安全边界和运动控制必须在 Qualcomm 边缘设备本地运行。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>本地</strong>
+              <span>感知、策略、控制、急停和安全回退在本体运行。</span>
+            </div>
+            <div class="stat">
+              <strong>云端</strong>
+              <span>训练、评估、版本、日志和非安全关键监控。</span>
+            </div>
+            <div class="stat">
+              <strong>回滚</strong>
+              <span>每个技能更新都保留稳定版本和失败回退路径。</span>
+            </div>
+            <div class="stat">
+              <strong>审计</strong>
+              <span>企业客户可以追踪模型、数据、操作和运行结果。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="value" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Commercial Value</p>
+              <h2>这条叙事最适合说服企业客户和系统集成商。</h2>
+            </div>
+            <p>EdgeFleet 让机器人不只是卖出硬件，而是进入长期维护合同、云训练订阅、技能更新和行业服务。它把一次性项目变成持续收入。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>卖套件</h3>
+              <p>Embodied Kit 作为硬件进入客户现场。</p>
+            </article>
+            <article class="step">
+              <h3>跑任务</h3>
+              <p>技能在本体运行，云端只做非安全关键监控。</p>
+            </article>
+            <article class="step">
+              <h3>收数据</h3>
+              <p>失败、异常和接管片段进入训练回流。</p>
+            </article>
+            <article class="step">
+              <h3>发更新</h3>
+              <p>云训练生成新技能，边缘验证后灰度部署。</p>
+            </article>
+            <article class="step">
+              <h3>续收入</h3>
+              <p>运维、训练、技能和行业模板形成订阅。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">EdgeFleet 把机器人从“买回来的机器”变成“持续运营的边缘智能资产”。</p>
+          <div class="source-links">
+            <a href="https://ifr.org/worldrobotics/">IFR World Robotics</a>
+            <a href="https://www.qualcomm.com/developer/blog/2026/05/edge-ai-prototype-deployment-qualcomm-dragonwing-developer-ecosystem">Qualcomm Edge AI Deployment</a>
+            <a href="https://huggingface.co/docs/lerobot/index">LeRobot</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
