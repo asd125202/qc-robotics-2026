@@ -4,6 +4,8 @@ Static Chinese pitch-deck websites for the Qualcomm robotics competition concept
 
 Open `sites/index.html` in a browser, or deploy the whole `sites/` directory to Cloudflare Pages.
 
+Published Pages URL: https://qc-robotics-2026.pages.dev/
+
 Current batch:
 
 - `robot-mac/` — all-in-one robotics compute and power core.

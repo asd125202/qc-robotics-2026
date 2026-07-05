@@ -53,6 +53,7 @@ The current first-batch pitch directions are:
 This server has Wrangler and cloudflared configured for publishing demos.
 
 - Static demo site: deploy with Cloudflare Pages.
+- Current Chinese pitch site: https://qc-robotics-2026.pages.dev/
 - Temporary local preview: run `cf-local-tunnel <port>`.
 
 Do not commit Cloudflare credentials, model secrets, API keys, or private VPN/client config files.
