@@ -186,6 +186,10 @@ img {
   background-image: url("./assets/edge-runtime-bench.png");
 }
 
+.hero-board-bringup {
+  background-image: url("./assets/board-bringup-kit.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;

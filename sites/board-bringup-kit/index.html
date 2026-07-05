@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BoardBringupKit | 开发板机器人化交付包</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-amber">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>BoardBringupKit</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#kit">套件</a>
+        <a href="#stack">栈</a>
+        <a href="#plan">计划</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-board-bringup">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 21 · Board-to-Robot Bring-up Kit</p>
+          <h1 class="long-word-title">BoardBringupKit</h1>
+          <p class="hero-lede">开发板不是产品。BoardBringupKit 把 Rhino X1 / QCS8550 等比赛板卡接入电源、相机、IO、安全、运行时、部署 manifest 和 benchmark checklist，变成 RobotMac Core 的第一版工程样机。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#kit">查看 Bring-up 套件</a>
+            <a class="button" href="../edge-runtime-bench/">连接 EdgeRuntime</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="kit" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Board To Robot</p>
+              <h2>收到开发板只是开始，关键是把它变成可复现机器人核心。</h2>
+            </div>
+            <p>官方标准赛道强调系统级闭环、稳定运行和真实环境部署。BoardBringupKit 把裸板 bring-up 拆成电源、相机、IO、安全、runtime 和验证清单。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>Primary</h3>
+              <p>APLUX Rhino X1 / QCS8550：LabForgePilot 主 demo、RobotMac Core Pro 和 EdgeRuntimeBench profile。</p>
+            </article>
+            <article class="card">
+              <h3>Fallback</h3>
+              <p>Radxa Dragon Q6A / QCS6490：Core Lite、教育版和简化感知控制任务。</p>
+            </article>
+            <article class="card">
+              <h3>Pioneer</h3>
+              <p>Arduino VENTUNO Q / IQ-8275：工业控制、异构计算和未来 Industrial SKU。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/board-bringup-kit.png" alt="Qualcomm 开发板机器人化 bring-up 套件图">
+          </div>
+        </div>
+      </section>
+
+      <section id="stack" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Bring-up Stack</p>
+              <h2>每一块板都要经过同一套工程门禁。</h2>
+            </div>
+            <p>这不是临时接线，而是可复制交付流程。未来企业试点、教育套件和系统集成商都能复用同一套 bring-up checklist。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Power</h3>
+              <p>稳压、保险、状态灯、分路供电和故障重启。</p>
+            </article>
+            <article class="card">
+              <h3>Camera</h3>
+              <p>固定视角、标定、时间戳和 LabForge 视觉输入。</p>
+            </article>
+            <article class="card">
+              <h3>Robot IO</h3>
+              <p>机械臂、夹爪、急停、限位、CAN/UART/PWM/GPIO。</p>
+            </article>
+            <article class="card">
+              <h3>Safety</h3>
+              <p>物理急停、watchdog、软边界和失败接管日志。</p>
+            </article>
+            <article class="card">
+              <h3>Runtime</h3>
+              <p>系统镜像、ROS 2 bridge、LeRobot adapter 和 CloudTwin agent。</p>
+            </article>
+            <article class="card">
+              <h3>Validate</h3>
+              <p>摄像头、机械臂、episode、部署包、profile 和 rollback。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="plan" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · After Board Arrival</p>
+            <h2>把 8 月第一周做成确定性工程节奏。</h2>
+            <p class="lead">7 月底入围后开发板邮寄，最危险的是收到板子后才开始思考接线和运行时。BoardBringupKit 提前锁定硬件清单、bring-up 顺序和保底路径。</p>
+            <ul class="list">
+              <li>到货前：准备相机、机械臂、样品托盘、急停、线束和普通 Linux fallback。</li>
+              <li>第 1 周：启动、网络、存储、摄像头、runtime image。</li>
+              <li>第 2 周：机械臂、急停、遥操作采集和固定任务回放。</li>
+              <li>第 3-4 周：CloudTwin 输出、EdgeRuntimeBench profile、LabForgePilot 初版素材。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/board-bringup-kit.png" alt="比赛开发板 bring-up 工程计划图">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Why Qualcomm</p>
+              <h2>把开发板支持升级成机器人产品核心支持。</h2>
+            </div>
+            <p>开发者真正需要的不是一块裸板，而是板卡进入机器人系统的路径。BoardBringupKit 让 Qualcomm 的价值落在电源、IO、相机、AI runtime、安全和可复现部署上。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Board</h3>
+              <p>Rhino X1 / QCS8550 作为主目标。</p>
+            </article>
+            <article class="step">
+              <h3>Harness</h3>
+              <p>电源、相机、IO 和安全接入。</p>
+            </article>
+            <article class="step">
+              <h3>Runtime</h3>
+              <p>ROS 2、LeRobot、CloudTwin 和 EdgeRuntime。</p>
+            </article>
+            <article class="step">
+              <h3>Demo</h3>
+              <p>LabForgePilot 快速形成真实闭环素材。</p>
+            </article>
+            <article class="step">
+              <h3>Product</h3>
+              <p>沉淀为 RobotMac Core bring-up 标准。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">BoardBringupKit 的目标，是让“收到开发板”不再是风险点，而是 RobotMac Core 工程样机启动的第一天。</p>
+          <div class="source-links">
+            <a href="https://developer.aidlux.com/">APLUX Rhino X1</a>
+            <a href="https://rhinopi.docs.aidlux.com/rhino-x1-aidlux/">Rhino X1 Docs</a>
+            <a href="https://radxa.com/products/dragon/q6a/">Radxa Dragon Q6A</a>
+            <a href="https://www.arduino.cc/product-ventuno-q">Arduino VENTUNO Q</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

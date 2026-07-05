@@ -29,5 +29,6 @@ Current batch:
 - `robot-app-layer/` — stable application SDK above ROS 2, LeRobot, fleet operations, and Qualcomm edge deployment.
 - `labforge-pilot/` — competition main-demo package for desktop arm sample transfer and training feedback.
 - `edge-runtime-bench/` — Qualcomm edge compile/profile/deploy evidence chain and runtime metrics.
+- `board-bringup-kit/` — board-to-robot bring-up package for power, camera, IO, safety, runtime, and validation.
 
 Generated illustration assets are stored in `sites/assets/`.
