@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EdgeRuntimeBench | Qualcomm 边缘运行证据链</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-amber">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>EdgeRuntimeBench</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#pipeline">流程</a>
+        <a href="#metrics">指标</a>
+        <a href="#demo">Demo</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-edge-runtime">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 20 · Qualcomm Edge Runtime Evidence</p>
+          <h1 class="long-word-title">EdgeRuntimeBench</h1>
+          <p class="hero-lede">Qualcomm 价值不能只写在项目书里。训练出的机器人策略要经过编译、profile、打包、部署、监控和回滚，形成评委和企业都能检查的边缘运行证据链。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#pipeline">查看运行链路</a>
+            <a class="button" href="../labforge-pilot/">连接 LabForgePilot</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="pipeline" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Runtime Pipeline</p>
+              <h2>从云端策略到本体运行，中间必须有可验证的工程链路。</h2>
+            </div>
+            <p>CloudTwin 训练出的策略不是直接丢给机器人。它需要绑定设备 profile、评估延迟和资源占用、生成部署包，并通过 SafetyOps 发布门禁。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Artifact</h3>
+              <p>LeRobot / ACT 策略、数据集版本、训练配置和评估报告。</p>
+            </article>
+            <article class="step">
+              <h3>Compile</h3>
+              <p>面向 QCS8550 / QCS6490 / IQ-8275 profile 生成 runtime target。</p>
+            </article>
+            <article class="step">
+              <h3>Profile</h3>
+              <p>测量延迟、action rate、内存、温度、功耗和稳定性。</p>
+            </article>
+            <article class="step">
+              <h3>Package</h3>
+              <p>部署包、依赖 manifest、兼容性报告和回滚包。</p>
+            </article>
+            <article class="step">
+              <h3>Monitor</h3>
+              <p>运行日志、失败 episode、安全边界触发和回滚事件。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/edge-runtime-bench.png" alt="Qualcomm 边缘运行编译评测部署证据链图">
+          </div>
+        </div>
+      </section>
+
+      <section id="metrics" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Bench Metrics</p>
+              <h2>评分需要证据，企业验收也需要证据。</h2>
+            </div>
+            <p>初赛阶段先定义指标，复赛阶段填入真实板端数据。这样即使模型还在迭代，工程目标也很清楚。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Latency</h3>
+              <p>端到端动作延迟、p50/p95 和视觉到动作闭环。</p>
+            </article>
+            <article class="card">
+              <h3>Action Rate</h3>
+              <p>策略输出频率、执行稳定性和连续运行能力。</p>
+            </article>
+            <article class="card">
+              <h3>Utilization</h3>
+              <p>CPU/GPU/NPU、内存、摄像头和 IO 占用。</p>
+            </article>
+            <article class="card">
+              <h3>Thermal</h3>
+              <p>温度、功耗、降频风险和散热边界。</p>
+            </article>
+            <article class="card">
+              <h3>Safety</h3>
+              <p>软边界、急停、人工接管和安全门禁结果。</p>
+            </article>
+            <article class="card">
+              <h3>Rollback</h3>
+              <p>版本停用、回滚包、失败日志和下一轮训练任务。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · Demo Evidence</p>
+            <h2>LabForgePilot 的高通价值，要靠 runtime 证据补强。</h2>
+            <p class="lead">三分钟视频里只需要一屏展示：目标设备 profile、策略版本、延迟指标、部署包和回滚日志。答辩 PPT 再展开 EdgeRuntimeBench 的证据表。</p>
+            <ul class="list">
+              <li>初赛：定义 Rhino X1 / QCS8550 target profile 和 benchmark 计划。</li>
+              <li>复赛：接入开发板后填入实测延迟、资源占用和稳定性。</li>
+              <li>视频：展示策略从 CloudTwin 导出到本体运行的证据链。</li>
+              <li>商业：把报告作为企业验收和 SkillDock 上架依据。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/edge-runtime-bench.png" alt="边缘部署 profile 和 runtime benchmark dashboard">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Why Qualcomm</p>
+              <h2>把 Qualcomm 从“硬件选择”变成“技能部署标准”。</h2>
+            </div>
+            <p>如果每个技能包都需要设备 profile、runtime benchmark 和部署证据，Qualcomm 就不只是比赛板卡，而是机器人技能分发、企业验收和长期运维的默认边缘目标。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>AI Hub</strong>
+              <span>模型优化、编译、profile 和部署进入工作流。</span>
+            </div>
+            <div class="stat">
+              <strong>QCS8550</strong>
+              <span>主 demo 以 Rhino X1 / QCS8550 作为 edge target。</span>
+            </div>
+            <div class="stat">
+              <strong>SkillDock</strong>
+              <span>技能上架必须带硬件兼容性和运行证据。</span>
+            </div>
+            <div class="stat">
+              <strong>EdgeFleet</strong>
+              <span>长期部署继续回传模型版本、失败和资源指标。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">EdgeRuntimeBench 的目的，是把“我们会用 Qualcomm”变成“每个策略都能被编译、评测、部署、监控和回滚”。</p>
+          <div class="source-links">
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">RB3 Gen 2</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/q8-series/qcs8550">QCS8550</a>
+            <a href="https://developer.aidlux.com/">APLUX Rhino X1</a>
+            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

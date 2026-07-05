@@ -42,6 +42,7 @@ Suggested contents:
 - Screenshots or exported pages from:
   - https://qc-robotics-2026.pages.dev/
   - https://qc-robotics-2026.pages.dev/labforge-pilot/
+  - https://qc-robotics-2026.pages.dev/edge-runtime-bench/
   - https://qc-robotics-2026.pages.dev/judge-deck/
   - https://qc-robotics-2026.pages.dev/prototype/
   - https://qc-robotics-2026.pages.dev/business-case/
@@ -72,6 +73,7 @@ Suggested values to review:
 - Project name: `RobotMac Core + LeRobot CloudTwin`.
 - Project page: `https://qc-robotics-2026.pages.dev/`.
 - Main demo page: `https://qc-robotics-2026.pages.dev/labforge-pilot/`.
+- Qualcomm runtime evidence page: `https://qc-robotics-2026.pages.dev/edge-runtime-bench/`.
 - Repository: `https://github.com/asd125202/qc-robotics-2026`.
 
 ## Pre-upload Review Checklist

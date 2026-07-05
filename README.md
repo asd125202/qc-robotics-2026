@@ -41,6 +41,7 @@ The current first-batch pitch directions are:
 - `RevenueStack`: pricing ladder, pilot contracts, recurring revenue lines, and Qualcomm ecosystem economics.
 - `RobotAppLayer`: stable application SDK above ROS 2, LeRobot data/policies, fleet operations, and Qualcomm edge deployment.
 - `LabForgePilot`: competition main-demo package for desktop arm sample transfer, training, edge deployment, and failure feedback.
+- `EdgeRuntimeBench`: Qualcomm edge compile/profile/deploy evidence chain for policy packages and runtime metrics.
 
 ## Repo Layout
 

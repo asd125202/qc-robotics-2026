@@ -87,5 +87,6 @@ Qualcomm 可以通过该项目获得一个端到端机器人生态样板：
 - GitHub repository。
 - Cloudflare Pages 中文路演网站：https://qc-robotics-2026.pages.dev/
 - LabForgePilot 比赛主 demo 页：https://qc-robotics-2026.pages.dev/labforge-pilot/
+- EdgeRuntimeBench Qualcomm 运行证据页：https://qc-robotics-2026.pages.dev/edge-runtime-bench/
 - 产品主张、竞品研究、云 GPU 研究、评分对齐表。
 - 三分钟 demo storyboard、LabForgePilot 构建计划和 fallback dashboard 计划。
