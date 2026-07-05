@@ -142,6 +142,10 @@ img {
   background-image: url("./assets/cloud-training-loop.png");
 }
 
+.hero-hardwaremap {
+  background-image: url("./assets/robot-mac-core.png");
+}
+
 .hero::before {
   content: "";
   position: absolute;

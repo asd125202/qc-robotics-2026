@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HardwareMap | 机器人硬件产品线与 BOM</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>HardwareMap</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#sku">SKU</a>
+        <a href="#bom">BOM</a>
+        <a href="#safety">安全</a>
+        <a href="#path">路线</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-hardwaremap">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 10 · Hardware Product Line</p>
+          <h1>HardwareMap</h1>
+          <p class="hero-lede">RobotMac Core 不是给开发板套壳，而是一条可销售硬件产品线：Lite、Pro、Industrial 和未来 IQ10 Robotics，软件体验保持统一。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#sku">硬件 SKU</a>
+            <a class="button" href="../prototype/">打开控制台原型</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="sku" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Product SKUs</p>
+              <h2>用不同 Qualcomm 硬件承担不同价格带和场景。</h2>
+            </div>
+            <p>统一的不是开发板，而是 CloudTwin、SkillDock、EdgeFleet 和部署包体验。硬件按成本、算力、IO、实时控制和传感器规模拆成 SKU。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Core Lite</h3>
+              <p>Radxa Dragon Q6A / QCS6490。面向教育、小车、轻量机械臂和低成本开发者套件。</p>
+            </article>
+            <article class="card">
+              <h3>Core Pro</h3>
+              <p>APLUX Rhino X1 / QCS8550。比赛主线，强调 48 TOPS INT8、边缘 AI、多媒体和标准赛道落地。</p>
+            </article>
+            <article class="card">
+              <h3>Core Industrial</h3>
+              <p>Arduino VENTUNO Q / IQ-8275 + STM32H5。强调 AI compute 和确定性执行的双脑架构。</p>
+            </article>
+            <article class="card">
+              <h3>Core IQ10</h3>
+              <p>未来 production-ready robotics reference design 路线，面向 sensor-heavy AMR、人形和高端服务机器人。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="bom" class="slide tint">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">02 · BOM Blocks</p>
+            <h2>真正的一体机，必须把计算之外的麻烦也产品化。</h2>
+            <ul class="list">
+              <li>Compute：Qualcomm edge AI board、存储、网络、设备身份。</li>
+              <li>Power：电池/外部供电、稳压、保险丝、过流、状态灯。</li>
+              <li>Robot IO：摄像头、CAN-FD、UART、PWM、GPIO、IMU、雷达扩展。</li>
+              <li>Safety：急停、watchdog、本地安全状态机、断云可运行。</li>
+              <li>Thermal：金属外壳、散热器、风扇选项、安装导轨、线缆固定。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/robot-mac-core.png" alt="RobotMac Core 一体化硬件图">
+          </div>
+        </div>
+      </section>
+
+      <section id="safety" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Safety Boundary</p>
+              <h2>电源和安全是机器人产品化的分水岭。</h2>
+            </div>
+            <p>评委看到一体机，不应只看到算力盒子，而要看到商业化成熟度：安全供电、本地控制、故障回退、急停、断网可运行、热管理和可维护外壳。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>急停</strong>
+              <span>物理 emergency stop 与本地控制回路绑定。</span>
+            </div>
+            <div class="stat">
+              <strong>隔离</strong>
+              <span>逻辑电源和电机电源分域，减少调试风险。</span>
+            </div>
+            <div class="stat">
+              <strong>回退</strong>
+              <span>模型和技能包可回滚，本体保留稳定版本。</span>
+            </div>
+            <div class="stat">
+              <strong>断云</strong>
+              <span>云训练可选，本地执行和安全边界必须保留。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="path" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Roadmap</p>
+              <h2>比赛用 Core Pro 讲清楚，商业上扩成产品线。</h2>
+            </div>
+            <p>初赛不要试图做所有硬件。建议主线用 QCS8550 / Rhino X1 作为 Core Pro，其他 SKU 作为产品路线图，证明 Qualcomm 支持后可以扩成生态。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>初赛</h3>
+              <p>展示 Core Pro 产品图、BOM blocks 和 demo architecture。</p>
+            </article>
+            <article class="step">
+              <h3>复赛</h3>
+              <p>拿到开发板后接入真实传感器、策略和边缘指标。</p>
+            </article>
+            <article class="step">
+              <h3>教育</h3>
+              <p>用 Core Lite 打入课程、训练营和开发者社区。</p>
+            </article>
+            <article class="step">
+              <h3>工业</h3>
+              <p>用 Core Industrial 强调确定性执行和现场可靠性。</p>
+            </article>
+            <article class="step">
+              <h3>未来</h3>
+              <p>IQ10 Robotics 路线承接 AMR、人形和 sensor-heavy 系统。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">RobotMac Core 的硬件价值，不是把开发板包起来，而是把机器人产品化的风险包起来。</p>
+          <div class="source-links">
+            <a href="https://rhinopi.docs.aidlux.com/en/rhino-x1-aidlux/">Rhino X1</a>
+            <a href="https://docs.radxa.com/en/dragon/q6a">Radxa Q6A</a>
+            <a href="https://www.arduino.cc/product-ventuno-q">VENTUNO Q</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/iq10-series">IQ10 Series</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

@@ -18,5 +18,6 @@ Current batch:
 - `judge-deck/` — judge-facing scoring alignment and demo storyboard.
 - `prototype/` — interactive simulated training/deployment dashboard.
 - `cloud-plan/` — cloud GPU provider execution and budget story.
+- `hardware-map/` — hardware SKU and BOM story.
 
 Generated illustration assets are stored in `sites/assets/`.

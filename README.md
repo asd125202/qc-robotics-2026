@@ -31,6 +31,7 @@ The current first-batch pitch directions are:
 - `JudgeDeck`: judge-facing scoring alignment and three-minute demo storyboard.
 - `Prototype`: interactive static dashboard that simulates devices, datasets, cloud training, model deployment, and skill packages.
 - `CloudPlan`: provider execution and budget story for China and overseas cloud GPU training.
+- `HardwareMap`: physical product-line and BOM story for QCS6490, QCS8550, IQ-8275, and future IQ10.
 
 ## Repo Layout
 
