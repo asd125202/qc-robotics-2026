@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CareOps | 院内智运平台</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-green">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>CareOps</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#flow">流转</a>
+        <a href="#chain">追溯</a>
+        <a href="#privacy">隐私</a>
+        <a href="#demo">Demo</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-care-ops">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 35 · Hospital Operations Robot Workflow</p>
+          <h1>CareOps</h1>
+          <p class="hero-lede">院内智运平台：让样本、药品、耗材和设备在医院里自动流转，并留下可审计证据。它不做诊断、不替代医嘱，只优化医院后勤与实验室支持流程。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#flow">查看院内流转</a>
+            <a class="button" href="../fleet-conductor/">连接 FleetConductor</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="flow" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Care Flow</p>
+              <h2>把跑腿交给机器人，把护理时间还给医护。</h2>
+            </div>
+            <p>CareOps 从非临床任务切入：样本取送、药房配送、耗材补给、PPE、小设备、夜间低人力覆盖和清洁流程 proof-of-work。机器人负责可验证的运营工作，不进入诊断和治疗边界。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Specimen</h3>
+              <p>采血点、病区、检验科之间的 sealed sample 取送。</p>
+            </article>
+            <article class="card">
+              <h3>Pharmacy</h3>
+              <p>药房到护士站的锁柜配送和授权签收。</p>
+            </article>
+            <article class="card">
+              <h3>Supply</h3>
+              <p>耗材、PPE、小设备和中心库房补给任务。</p>
+            </article>
+            <article class="card">
+              <h3>Access</h3>
+              <p>电梯、自动门、门禁、禁行区和夜间路线。</p>
+            </article>
+            <article class="card">
+              <h3>Audit</h3>
+              <p>条码、温控、交接、异常和电子签收证据。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/care-ops.png" alt="医院样本取送、锁柜交接、路线地图和隐私审计控制台概念图">
+          </div>
+        </div>
+      </section>
+
+      <section id="chain" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · SpecimenChain</p>
+              <h2>从病区到检验科，一路可见。</h2>
+            </div>
+            <p>CareOps 把 barcode / RFID、锁柜、电子签收、温控、交接人、取件点、目的地和异常事件串成 chain-of-custody。目标是支持追溯和院方验证，不声称保证临床检测结果。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Request</h3>
+              <p>LIMS/HIS/FHIR-style 任务进入队列。</p>
+            </article>
+            <article class="step">
+              <h3>Scan</h3>
+              <p>样本条码、工牌、锁柜和取件点绑定。</p>
+            </article>
+            <article class="step">
+              <h3>Transit</h3>
+              <p>路线、电梯、门禁、温控和时间戳记录。</p>
+            </article>
+            <article class="step">
+              <h3>Handoff</h3>
+              <p>目的地扫码、电子签收和状态回写。</p>
+            </article>
+            <article class="step">
+              <h3>Review</h3>
+              <p>异常、超时、错码、开柜和人工接管复盘。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · Privacy First Edge</p>
+            <h2>本地感知、最小化采集，让数据留在院方可控边界。</h2>
+            <p class="lead">医院机器人不能默认把走廊视频和 PHI 送到云端。CareOps 用 Qualcomm edge 完成本地感知、避障、脱敏和任务执行，只上传任务状态、审计事件和经批准的训练片段。</p>
+            <ul class="list">
+              <li>BAA-ready / HIPAA-oriented controls：RBAC、SSO/MFA、审计日志、保留和删除策略。</li>
+              <li>不默认把 PHI 或原始视频用于模型训练；训练数据需要明确边界和去标识化证据。</li>
+              <li>边缘视觉识别人、障碍、区域和交接动作；云端负责分析、训练和版本管理。</li>
+              <li>采购包包含数据流图、安全白皮书、SBOM、更新策略、消毒 SOP 和风险评估模板。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/care-ops.png" alt="医院隐私优先边缘视觉和审计控制台">
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Competition Demo</p>
+              <h2>用 sealed mock specimen，展示商业闭环，不碰临床风险。</h2>
+            </div>
+            <p>比赛 demo 使用模拟样本管和二维码：扫码放入锁柜、生成任务、跨区域移动、到达扫码签收、条码错误进入异常流程，再把取送 episode 导出为 LeRobot-compatible 数据。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Mock</strong>
+              <span>只使用 sealed mock specimen 和合成标签，不处理真实临床材料。</span>
+            </div>
+            <div class="stat">
+              <strong>Trace</strong>
+              <span>条码、工牌、锁柜、温控、路线、交接和异常全程留痕。</span>
+            </div>
+            <div class="stat">
+              <strong>Learn</strong>
+              <span>非临床示教数据进入 LeRobot，用于取送和交接动作优化。</span>
+            </div>
+            <div class="stat">
+              <strong>Bounded</strong>
+              <span>不做诊断、给药、患者监护或医疗器械审批承诺。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Qualcomm Value</p>
+              <h2>医疗场景需要边缘智能，不是云端裸奔。</h2>
+            </div>
+            <p>CareOps 让 Qualcomm 成为强合规场景里的可信边缘层：多摄像头、低功耗、本地推理、连接、隐私边界、断网降级和模型部署共同支撑医院、实验室、养老与服务机器人 OEM。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Edge</strong>
+              <span>本地感知、避障、脱敏、任务缓存和断网降级。</span>
+            </div>
+            <div class="stat">
+              <strong>Ops</strong>
+              <span>LIMS/HIS/药房/库存/电梯门禁进入运营工作流。</span>
+            </div>
+            <div class="stat">
+              <strong>Trust</strong>
+              <span>权限、审计、温控、签收、消毒 SOP 和采购证据包。</span>
+            </div>
+            <div class="stat">
+              <strong>Train</strong>
+              <span>非临床取送、避让、排队和交接数据进入训练闭环。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">CareOps 的商业价值不是“机器人替代医护”，而是让医院后勤、样本、药房和耗材流转变成可追踪、可审计、可持续优化的运营系统。</p>
+          <div class="source-links">
+            <a href="https://www.diligentrobots.com/moxi">Diligent Moxi</a>
+            <a href="https://aethon.com/hospital-robots-healthcare/">Aethon Hospital</a>
+            <a href="https://relayrobotics.com/relay-delivery-robots-for-hospitals">Relay Hospitals</a>
+            <a href="https://www.swisslog-healthcare.com/en-us/medication-management/transport/lab-specimen-transport">Swisslog Specimen</a>
+            <a href="https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html">HIPAA Security</a>
+            <a href="https://build.fhir.org/specimen.html">FHIR Specimen</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

@@ -47,6 +47,7 @@ The current first-batch pitch directions are:
 - `RobotLeaseOps`: RaaS, leasing, uptime SLA, service ledger, and subscription control plane for bankable robot capacity.
 - `ScaleFoundry`: prototype-to-SKU hardware productization, certification evidence, manufacturing launch, and lifecycle assurance.
 - `FleetConductor`: local edge robot tower for mixed-vendor fleet orchestration, maps, traffic, doors, elevators, chargers, incidents, and LeRobot feedback.
+- `CareOps`: hospital and lab operations robot workflow platform for non-clinical logistics, specimen chain-of-custody, privacy-first edge AI, and audit evidence.
 - `SafetyOps`: safety runtime, skill permissions, model release gates, audit ledger, and compliance evidence pack.
 - `DualCloudOps`: China/overseas GPU-cloud provider adapters behind one LeRobot training job contract.
 - `RevenueStack`: pricing ladder, pilot contracts, recurring revenue lines, and Qualcomm ecosystem economics.

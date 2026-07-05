@@ -202,6 +202,10 @@ img {
   background-image: url("./assets/fleet-conductor.png");
 }
 
+.hero-care-ops {
+  background-image: url("./assets/care-ops.png");
+}
+
 .hero-safetyops {
   background-image: url("./assets/safety-ops.png");
 }
