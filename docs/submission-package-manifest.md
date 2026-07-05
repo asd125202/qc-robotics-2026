@@ -41,6 +41,7 @@ Suggested contents:
 - `docs/research/qualcomm-strategic-fit.md`
 - Screenshots or exported pages from:
   - https://qc-robotics-2026.pages.dev/
+  - https://qc-robotics-2026.pages.dev/labforge-pilot/
   - https://qc-robotics-2026.pages.dev/judge-deck/
   - https://qc-robotics-2026.pages.dev/prototype/
   - https://qc-robotics-2026.pages.dev/business-case/
@@ -70,6 +71,7 @@ Suggested values to review:
 - Preferred device: `APLUX Rhino X1 / Qualcomm Dragonwing QCS8550`.
 - Project name: `RobotMac Core + LeRobot CloudTwin`.
 - Project page: `https://qc-robotics-2026.pages.dev/`.
+- Main demo page: `https://qc-robotics-2026.pages.dev/labforge-pilot/`.
 - Repository: `https://github.com/asd125202/qc-robotics-2026`.
 
 ## Pre-upload Review Checklist
