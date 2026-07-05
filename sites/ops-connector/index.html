@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpsConnector | 企业机器人集成桥</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>OpsConnector</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#research">研究</a>
+        <a href="#contract">合约</a>
+        <a href="#workflows">流程</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-ops-connector">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 27 · Enterprise Robot Workflow Bridge</p>
+          <h1 class="long-word-title">OpsConnector</h1>
+          <p class="hero-lede">企业不会为“会动的机器人”买单，而是为能进入现有流程的机器人买单。OpsConnector 把 WMS、MES、ERP、LIMS、PLC/SCADA、operator approval 和机器人技能连接成可审计工作流。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#contract">查看任务合约</a>
+            <a class="button" href="../robot-app-layer/">连接 AppLayer</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">00 · Five-Thread Research</p>
+              <h2>机器人商业化的瓶颈不是会不会动，而是能不能接进业务系统。</h2>
+            </div>
+            <p>五条研究线指向同一个结论：标准、仓储、实验室、机器人平台公司和买家经济学都说明，连接器与工作流本身就是产品。OpsConnector 不做另一个 dashboard，而做 enterprise task 到 robot task 的可信翻译层。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Standards</h3>
+              <p>ISA-95、OPC UA、MQTT/Sparkplug、VDA 5050、MassRobotics、Open-RMF。</p>
+            </article>
+            <article class="card">
+              <h3>Warehouse</h3>
+              <p>WMS / WES / WCS / RCS 负责订单、库存、批次、搬运和异常确认。</p>
+            </article>
+            <article class="card">
+              <h3>Lab</h3>
+              <p>LIMS / ELN 管理样品、协议、结果和 lineage，机器人执行物理流程。</p>
+            </article>
+            <article class="card">
+              <h3>Platforms</h3>
+              <p>Viam、Formant、InOrbit、Foxglove 等验证 API、ops、incident 和日志价值。</p>
+            </article>
+            <article class="card">
+              <h3>Buyers</h3>
+              <p>客户关心 TCO、停机、IT/OT 安全、项目周期和系统集成风险。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/ops-connector.png" alt="企业系统与机器人工作流集成桥概念图">
+          </div>
+        </div>
+      </section>
+
+      <section id="contract" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Robot Task Contract</p>
+              <h2>把企业任务翻译成机器人可以执行、可以回写、可以审计的合约。</h2>
+            </div>
+            <p>OpsConnector 的核心不是接入某一个 API，而是定义一份跨工厂、仓库、实验室都能理解的任务合约，再通过 adapter 接入不同企业系统和机器人执行层。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Intent</h3>
+              <p>订单、工单、实验请求、异常处理或人工审批。</p>
+            </article>
+            <article class="step">
+              <h3>Contract</h3>
+              <p>任务类型、对象、目标、优先级、技能、权限和验收。</p>
+            </article>
+            <article class="step">
+              <h3>Dispatch</h3>
+              <p>通过 RobotAppLayer、EdgeFleet、Open-RMF 或厂商 fleet 执行。</p>
+            </article>
+            <article class="step">
+              <h3>Events</h3>
+              <p>状态、位置、健康、异常、接管、结果和证据持续回传。</p>
+            </article>
+            <article class="step">
+              <h3>Writeback</h3>
+              <p>成功、失败、库存、样品、质量、日志和审计结果回写。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflows" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Workflow Packs</p>
+              <h2>连接器要卖成行业工作流，而不是卖成一堆 API 文档。</h2>
+            </div>
+            <p>系统集成商和企业客户需要可复用模板：SOP、UI、权限、事件、验收指标、异常处理和回写路径。OpsConnector 把这些包装成 workflow pack。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Warehouse</h3>
+              <p>WMS pick、putaway、transport、confirmation、exception 和 inventory update。</p>
+            </article>
+            <article class="card">
+              <h3>Factory</h3>
+              <p>MES work order、OPC UA asset telemetry、PLC signal 和 quality record。</p>
+            </article>
+            <article class="card">
+              <h3>Lab</h3>
+              <p>LIMS request、protocol compile、sample lineage、result artifact 和 audit。</p>
+            </article>
+            <article class="card">
+              <h3>Operator</h3>
+              <p>人工审批、异常确认、retry / skip / abort 和 incident handoff。</p>
+            </article>
+            <article class="card">
+              <h3>Security</h3>
+              <p>SSO、RBAC、TLS、certificate、broker ACL、schema validation 和 audit log。</p>
+            </article>
+            <article class="card">
+              <h3>Sandbox</h3>
+              <p>模拟订单、模拟 LIMS、测试 robot task、dead-letter queue 和回归测试。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · Edge Gateway</p>
+            <h2>企业集成不能依赖一条永远稳定的公网连接。</h2>
+            <p class="lead">OpsConnector 的现场 edge gateway 运行在 RobotCoreOS / Qualcomm edge 环境里。它负责本地缓存、断网继续运行、低延迟任务下发、OT/IT 网络分区、idempotency、retry 和审计事件签名。</p>
+            <ul class="list">
+              <li>Northbound：WMS / MES / ERP / LIMS / ELN / SCADA。</li>
+              <li>Sideways：OPC UA / Sparkplug telemetry 和 enterprise observability。</li>
+              <li>Southbound：RobotMac skill runtime、VDA 5050、Open-RMF、MassRobotics。</li>
+              <li>Governance：device identity、schema validation、audit trail 和 permission policy。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/ops-connector.png" alt="企业集成边缘网关和机器人任务回写图">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Qualcomm Business Value</p>
+              <h2>让 Qualcomm edge 成为企业 IT/OT 流程里的可信执行节点。</h2>
+            </div>
+            <p>OpsConnector 把 Qualcomm 的价值从“机器人本体推理”扩展到企业流程执行。任务来自业务系统，本体在 Qualcomm edge 执行，结果回写到客户记录，失败片段回到 CloudTwin / TrainRouter。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>On-prem</strong>
+              <span>现场 edge gateway 支持本地缓存、断网运行和 OT/IT 网络隔离。</span>
+            </div>
+            <div class="stat">
+              <strong>Workflow</strong>
+              <span>企业任务、机器人技能、人工审批和回写路径被绑定在一起。</span>
+            </div>
+            <div class="stat">
+              <strong>Audit</strong>
+              <span>状态、异常、接管、结果、版本和安全事件进入可导出证据链。</span>
+            </div>
+            <div class="stat">
+              <strong>Channel</strong>
+              <span>系统集成商可购买 connector pack、workflow pack 和认证培训。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">OpsConnector 把“机器人能完成任务”变成“机器人能进入企业流程，并把结果写回系统记录”。</p>
+          <div class="source-links">
+            <a href="https://reference.opcfoundation.org/specs/OPC-40010-1">OPC UA Robotics</a>
+            <a href="https://reference.opcfoundation.org/specs/OPC-10031-4">ISA-95 Job Control</a>
+            <a href="https://www.vda.de/vda-5050">VDA 5050</a>
+            <a href="https://github.com/MassRobotics-AMR/AMR_Interop_Standard">MassRobotics</a>
+            <a href="https://www.open-rmf.org/">Open-RMF</a>
+            <a href="https://docs.opentrons.com/http/api_reference.html">Opentrons API</a>
+            <a href="https://www.benchling.com/automation">Benchling</a>
+            <a href="https://www.inorbit.ai/orchestration">InOrbit</a>
+            <a href="https://docs.formant.io/en_US/docs/integrations-overview">Formant</a>
+            <a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">NIST OT Security</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

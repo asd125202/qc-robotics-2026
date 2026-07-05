@@ -250,6 +250,7 @@ Qualcomm 可获得：
 - EdgeRuntimeBench Qualcomm 运行证据页：https://qc-robotics-2026.pages.dev/edge-runtime-bench/
 - PilotContractKit 商业试点合同页：https://qc-robotics-2026.pages.dev/pilot-contract-kit/
 - SkillCertKit 技能认证体系页：https://qc-robotics-2026.pages.dev/skill-cert-kit/
+- OpsConnector 企业集成桥页：https://qc-robotics-2026.pages.dev/ops-connector/
 - Prototype 可交互控制台：https://qc-robotics-2026.pages.dev/prototype/
 - JudgeDeck 评分对齐页：https://qc-robotics-2026.pages.dev/judge-deck/
 - BusinessCase 商业飞轮页：https://qc-robotics-2026.pages.dev/business-case/

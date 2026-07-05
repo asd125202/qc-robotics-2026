@@ -50,6 +50,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/edge-runtime-bench/
 - https://qc-robotics-2026.pages.dev/pilot-contract-kit/
 - https://qc-robotics-2026.pages.dev/skill-cert-kit/
+- https://qc-robotics-2026.pages.dev/ops-connector/
 - https://qc-robotics-2026.pages.dev/judge-deck/
 - https://qc-robotics-2026.pages.dev/prototype/
 - https://qc-robotics-2026.pages.dev/business-case/
@@ -86,6 +87,7 @@ Suggested values to review:
 - Qualcomm runtime evidence page: `https://qc-robotics-2026.pages.dev/edge-runtime-bench/`.
 - Commercial pilot page: `https://qc-robotics-2026.pages.dev/pilot-contract-kit/`.
 - Skill certification page: `https://qc-robotics-2026.pages.dev/skill-cert-kit/`.
+- Enterprise integration page: `https://qc-robotics-2026.pages.dev/ops-connector/`.
 - Repository: `https://github.com/asd125202/qc-robotics-2026`.
 
 ## Pre-upload Review Checklist

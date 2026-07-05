@@ -44,6 +44,7 @@ The current first-batch pitch directions are:
 - `DualCloudOps`: China/overseas GPU-cloud provider adapters behind one LeRobot training job contract.
 - `RevenueStack`: pricing ladder, pilot contracts, recurring revenue lines, and Qualcomm ecosystem economics.
 - `RobotAppLayer`: stable application SDK above ROS 2, LeRobot data/policies, fleet operations, and Qualcomm edge deployment.
+- `OpsConnector`: enterprise integration bridge for WMS, MES, ERP, LIMS, SCADA, operator approval, robot task contracts, and audit writeback.
 - `LabForgePilot`: competition main-demo package for desktop arm sample transfer, training, edge deployment, and failure feedback.
 - `EdgeRuntimeBench`: Qualcomm edge compile/profile/deploy evidence chain for policy packages and runtime metrics.
 - `BoardBringupKit`: board-to-robot bring-up package for power, camera, IO, safety, runtime image, and validation gates.

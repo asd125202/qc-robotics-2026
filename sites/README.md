@@ -31,6 +31,7 @@ Current batch:
 - `dual-cloud-ops/` — China/overseas GPU-cloud lanes behind one LeRobot training job contract.
 - `revenue-stack/` — pricing ladder, pilot contracts, recurring revenue lines, and ecosystem economics.
 - `robot-app-layer/` — stable application SDK above ROS 2, LeRobot, fleet operations, and Qualcomm edge deployment.
+- `ops-connector/` — enterprise integration bridge for WMS, MES, ERP, LIMS, SCADA, robot tasks, and audit writeback.
 - `labforge-pilot/` — competition main-demo package for desktop arm sample transfer and training feedback.
 - `edge-runtime-bench/` — Qualcomm edge compile/profile/deploy evidence chain and runtime metrics.
 - `board-bringup-kit/` — board-to-robot bring-up package for power, camera, IO, safety, runtime, and validation.

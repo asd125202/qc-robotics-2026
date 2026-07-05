@@ -190,6 +190,10 @@ img {
   background-image: url("./assets/robot-app-layer.png");
 }
 
+.hero-ops-connector {
+  background-image: url("./assets/ops-connector.png");
+}
+
 .hero-labforgepilot {
   background-image: url("./assets/labforge-pilot.png");
 }
