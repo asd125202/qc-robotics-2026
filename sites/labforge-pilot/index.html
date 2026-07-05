@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LabForgePilot | 比赛主 Demo 方案</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-coral">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>LabForgePilot</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#demo">Demo</a>
+        <a href="#video">视频</a>
+        <a href="#plan">计划</a>
+        <a href="#score">评分</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-labforgepilot">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 19 · Competition Main Demo</p>
+          <h1>LabForgePilot</h1>
+          <p class="hero-lede">最稳妥的比赛主 demo：桌面机械臂完成样品转移、扫码记录、示教采集、云训练、Qualcomm 本体部署和失败回流。先证明闭环，再证明商业扩张。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#demo">查看 Demo 闭环</a>
+            <a class="button" href="../data-flywheel/">连接 DataFlywheel</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Controlled Demo Cell</p>
+              <h2>先选一个小而完整的任务，把平台闭环讲清楚。</h2>
+            </div>
+            <p>桌面 LabForge 工作站比移动导航、户外服务和复杂工厂场景更可控。它能展示真实抓取、数据采集、云训练、边缘部署和失败接管，不把风险放在不可控场地上。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Observe</h3>
+              <p>相机识别样品、托盘、目标位和工作台状态。</p>
+            </article>
+            <article class="step">
+              <h3>Teleop</h3>
+              <p>遥操作采集 10-20 条样品转移示教轨迹。</p>
+            </article>
+            <article class="step">
+              <h3>Train</h3>
+              <p>LeRobot / ACT 在 CloudTwin 上训练策略。</p>
+            </article>
+            <article class="step">
+              <h3>Deploy</h3>
+              <p>策略打包成 Qualcomm edge policy package。</p>
+            </article>
+            <article class="step">
+              <h3>Improve</h3>
+              <p>失败接管片段回流到下一轮训练队列。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/labforge-pilot.png" alt="桌面机械臂样品转移和云训练边缘部署比赛 demo 图">
+          </div>
+        </div>
+      </section>
+
+      <section id="video" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Three-Minute Video</p>
+              <h2>三分钟视频必须像产品发布，不像实验记录。</h2>
+            </div>
+            <p>官方复赛要求真实运行 demo 视频不超过三分钟。LabForgePilot 的视频结构直接围绕问题、产品、采集、训练、部署、失败回流和商业扩展。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>0:00</h3>
+              <p>实验室自动化痛点：每次都重新集成硬件、驱动、训练和部署。</p>
+            </article>
+            <article class="card">
+              <h3>0:20</h3>
+              <p>展示 RobotMac Core、LabForge 工作站和 CloudTwin 架构。</p>
+            </article>
+            <article class="card">
+              <h3>0:45</h3>
+              <p>遥操作采集样品转移轨迹，数据进入 DataFlywheel。</p>
+            </article>
+            <article class="card">
+              <h3>1:20</h3>
+              <p>云端训练 ACT 策略，生成评估结果和部署包。</p>
+            </article>
+            <article class="card">
+              <h3>1:50</h3>
+              <p>Qualcomm 本体执行策略，完成抓取、放置和记录。</p>
+            </article>
+            <article class="card">
+              <h3>2:25</h3>
+              <p>失败接管、回滚记录、下一轮训练和商业扩展。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="plan" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · July To November Build Plan</p>
+            <h2>把官方时间线变成工程交付节奏。</h2>
+            <p class="lead">7 月 20 日前交项目书，7 月底等开发板，8-10 月把数据采集、训练、部署、视频素材和代码包逐步锁定，11 月 1 日前提交复赛作品。</p>
+            <ul class="list">
+              <li>7 月：项目书、网站组合、视频脚本、硬件清单和风险预案。</li>
+              <li>8 月：开发板接入、机械臂控制、相机采集和遥操作保底。</li>
+              <li>9 月：LeRobot / ACT 训练、双云 adapter、edge policy package。</li>
+              <li>10 月：稳定性、失败回流、SafetyOps 日志、三分钟视频。</li>
+              <li>11 月 1 日前：提交视频、PPT、代码包和支撑材料。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/labforge-pilot.png" alt="LabForgePilot 比赛 demo 工程计划图">
+          </div>
+        </div>
+      </section>
+
+      <section id="score" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Judging Alignment</p>
+              <h2>这个 demo 对齐评分，而不是只追求炫技。</h2>
+            </div>
+            <p>官方评分强调技术完整性、Qualcomm 处理器应用、产品定义和商业潜力。LabForgePilot 用小场景呈现完整闭环，再用 VerticalPlaybooks 和 RevenueStack 证明扩张。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>完整性</strong>
+              <span>感知、策略、执行、记录、部署和回滚闭环。</span>
+            </div>
+            <div class="stat">
+              <strong>高通价值</strong>
+              <span>本体感知、推理、安全边界和运行时围绕 edge target。</span>
+            </div>
+            <div class="stat">
+              <strong>产品定义</strong>
+              <span>实验室、小工位、教育和系统集成商场景清楚。</span>
+            </div>
+            <div class="stat">
+              <strong>商业潜力</strong>
+              <span>从 Pilot Kit 升级 Fleet Kit，再沉淀 Industry Pack。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">LabForgePilot 的价值不是机械臂做了一次抓取，而是把“采集、训练、部署、失败、改进”变成比赛现场能看懂的产品闭环。</p>
+          <div class="source-links">
+            <a href="https://qc-robotics-dev.aidlux.com/2026/">Competition Page</a>
+            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2</a>
+            <a href="https://docs.ros.org/">ROS 2 Docs</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

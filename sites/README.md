@@ -27,5 +27,6 @@ Current batch:
 - `dual-cloud-ops/` — China/overseas GPU-cloud lanes behind one LeRobot training job contract.
 - `revenue-stack/` — pricing ladder, pilot contracts, recurring revenue lines, and ecosystem economics.
 - `robot-app-layer/` — stable application SDK above ROS 2, LeRobot, fleet operations, and Qualcomm edge deployment.
+- `labforge-pilot/` — competition main-demo package for desktop arm sample transfer and training feedback.
 
 Generated illustration assets are stored in `sites/assets/`.
