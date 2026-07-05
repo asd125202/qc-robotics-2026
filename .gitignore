@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Node / web demos
+node_modules/
+dist/
+build/
+.wrangler/
+.dev.vars
+
+# Models and generated data
+*.onnx
+*.tflite
+*.pt
+*.pth
+*.safetensors
+*.engine
+*.blob
+*.mp4
+*.mov
+*.avi
+*.bag
+data/
+outputs/
+runs/
+
+# Secrets
+.env
+*.key
+*.pem
+credentials/
+secrets/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
