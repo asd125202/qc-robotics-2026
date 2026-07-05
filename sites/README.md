@@ -19,5 +19,6 @@ Current batch:
 - `prototype/` — interactive simulated training/deployment dashboard.
 - `cloud-plan/` — cloud GPU provider execution and budget story.
 - `hardware-map/` — hardware SKU and BOM story.
+- `business-case/` — commercialization, pricing package, and revenue flywheel story.
 
 Generated illustration assets are stored in `sites/assets/`.

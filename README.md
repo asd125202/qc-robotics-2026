@@ -32,6 +32,7 @@ The current first-batch pitch directions are:
 - `Prototype`: interactive static dashboard that simulates devices, datasets, cloud training, model deployment, and skill packages.
 - `CloudPlan`: provider execution and budget story for China and overseas cloud GPU training.
 - `HardwareMap`: physical product-line and BOM story for QCS6490, QCS8550, IQ-8275, and future IQ10.
+- `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 
 ## Repo Layout
 
