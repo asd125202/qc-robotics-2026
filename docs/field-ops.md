@@ -1,216 +1,398 @@
 # FieldOps Pitch
 
-更新时间：2026-07-05。
+更新时间：2026-07-06。该版本按 YC / Airbnb 风格 pitch spine 重写：从光伏/新能源场站 O&M 的可量化痛点切入，再讲现有方案缺口、产品、商业模式、竞争壁垒、Qualcomm 价值、比赛演示和合规边界。
 
-## Core Thesis
+## One-Liner
 
-FieldOps 野巡是面向户外巡检、农田、能源场站和基础设施的边缘机器人平台：
+FieldOps 野巡是远程资产的任务、证据和训练闭环：
 
-> 把 Qualcomm 端侧 AI、耐候机器人套件、任务级传感器舱、弱网/离线连接策略和 LeRobot 数据飞轮整合成一套可商用的现场作业底座，让客户先购买可验收任务，再逐步扩展机器人队。
+> 从光伏/新能源 O&M 切入，把无人机、UGV、四足、传感器舱、弱网策略、工单系统和 LeRobot 数据飞轮连成一个 Qualcomm edge workflow，让客户买“可验收的异常关闭”，不是买一台野外机器人。
 
-它不是“万能户外机器人”，而是一套可复制的现场作业产品线：
+## 1. Problem
 
-- 在明确 ODD 内执行高频、危险、重复的巡检。
-- 用本地感知和任务缓存保证断网不失控。
-- 用远程接管解决复杂地形、异常设备和低置信度判断。
-- 用证据包交付结果，而不是只交付视频流。
-- 把人工接管、失败恢复、低置信度片段转成 LeRobot-compatible 训练数据。
+新能源场站不是缺照片，而是缺“异常是否被关闭”的证据。
 
-## Why This Matters
+光伏、BESS、变电站和风场越来越分散，站点少人值守，网络不稳定，现场环境复杂。无人机和机器人能采集图像，但运营团队真正需要的是收入损失被发现、工单被派发、维修/清洗被验证、模型持续变准。
 
-户外机器人商业化的真实需求不是“机器人很酷”，而是：
+核心痛点：
 
-- 远程资产太多：光伏、风电、管线、变电站、农田、矿区和园区分散。
-- 人工巡检成本高、风险高、频次不足，且记录质量不稳定。
-- 弱网、泥水、粉尘、强光、坡度、碎石、雨雾和季节变化让通用机器人方案容易失效。
-- 客户采购需要报告、工单、GIS/CMMS/SCADA/EAM 对接和可追溯证据。
-- 农业、能源和基础设施买家越来越接受按任务、按站点、按面积或按资产收费的 RaaS / inspection-as-a-service。
+- 热斑、遮挡、积灰、支架异常、逆变器状态会影响发电和质保。
+- 偏远站点人工复查成本高，重复 truck roll 会吞掉巡检 ROI。
+- 弱网和离线是常态，不能把安全、证据和任务完成度押在云端。
+- 坡度、泥水、粉尘、强光、夜间、人车混行和危险区必须进入 ODD。
+- 原始视频不是资产；闭环异常才是资产：位置、资产、传感器、人工判断、机器人动作、维修结果和最终验证。
 
-市场上已有 ANYbotics、Gecko Robotics、Percepto、DJI Agriculture、Carbon Robotics、Built Robotics、Farm-ng 等强玩家。FieldOps 的差异不是声称没有竞品，而是把“现场边缘智能 + 证据工作流 + 数据训练飞轮 + 双云部署”打包成 Qualcomm-first 的可交付平台。
+一句话：
 
-## Product Modules
+> 客户不是买一台野外机器人，而是买少人值守场站里每一个收入漏洞的发现、派工、复核和证据。
 
-### 1. FieldBrain
+## 2. Current Alternatives Fail
 
-Qualcomm edge AI 现场大脑。
+采集层已经很强，但“发现到关闭”仍然断在中间。
 
-- 本地视觉检测、异常初筛、SLAM/定位、任务缓存和安全降级。
-- 断网时继续执行限定任务，恢复网络后同步证据和日志。
-- RB3 Gen 2 / QCS6490 适合 demo 和开发者套件，RB6 适合 5G-heavy 巡检机器人，IQ9 / IQ10 适合高端多传感器生产路线。
-- IQ10 可以作为 2026 年 9 月后高端路线图叙事；不把它写成当前量产主硬件。
+- Drone capture：DJI、Skydio、Percepto、DroneDeploy 等覆盖快，但更擅长发现，不擅长地面复核、清洗/维修证明和弱网自主闭环。
+- Robot hardware：Spot、ANYmal、Unitree、轮式/履带 UGV 都能进入现场，但客户买的是可验收任务，不是机身参数。
+- Solar/wind analytics：Raptor Maps、Zeitview 等能生成缺陷图和资产视图，但现场仍要派人、派机器人、验证修复和沉淀数据。
+- CMMS / EAM：工单系统记录流程，但不理解机器人 ODD、传感器证据、弱网同步和模型发布门禁。
+- Generic RobOps：Formant、InOrbit、Viam、Foxglove 横向能力强，但缺少新能源资产、GIS、ODD、弱网、传感器舱、CMMS/EAM/SCADA 语义。
 
-### 2. RuggedBase
+Deck line：
 
-机器人本体适配层。
+> Capture is solved; closure is not.
 
-- 轮式、履带、四足、无人机和专用爬行/巡检本体共享任务接口、时间戳、数据格式和远程接管策略。
-- FieldOps 不声称开发板天然耐候，而是把外壳、电源、热设计、连接器、线束、维护 SOP 和测试证据产品化。
-- 对外以任务 ODD 表述能力：地形、坡度、雨水、粉尘、温度、光照、可见度、网络和人机混行边界。
+## 3. Solution
 
-### 3. SensorPod
+FieldOps 是 site-controlled ODD 内的 supervised outdoor mission/evidence OS。
 
-任务级传感器舱。
+第一阶段只承诺：
 
-- RGB、热成像、多光谱、LiDAR、声学、气体、土壤/作物传感器。
-- 统一时间同步、标定、传感器健康检查和证据元数据。
-- 以场景卖 payload：光伏热斑、电力表计/温升、农田长势/杂草、管线/园区巡检。
+- 光伏区块、BESS、升压站、围栏、服务道路和能源园区。
+- 站点授权私有区域，不进入公共道路或无授权 BVLOS 场景。
+- 人在环监督、远程接管和 ODD 限制，而不是 fully autonomous everywhere。
 
-### 4. MissionMap
+核心流程：
 
-现场任务规划器。
+1. Plan：导入 GeoJSON、资产清单、禁行区、ODD、传感器计划和验收模板。
+2. Inspect：无人机、UGV、四足和人工 crew 共享 MissionSpec 与 Evidence API。
+3. Close：把热斑、积灰、遮挡、设备异常和低置信度片段转成工单和复核任务。
+4. Prove：交付位置、时间、RGB/thermal、MCAP、模型版本、人工 verdict 和签名。
+5. Learn：接管、近失误和复核结果进入 LeRobot episode，再经 AI Hub/QNN 门禁回到边缘。
 
-- 导入 GIS、卫星图、资产清单、巡检点、禁行区、返航点和人工接管规则。
-- 把“巡一圈”拆成可验收任务：路线、传感器、证据格式、报告字段、异常等级和工单写回。
-- 光伏按 MW / 区块，农业按亩/公顷，电力按站点/设备，管线按公里，矿区按班次或区域计费。
+## 4. Why Now
 
-### 5. ResilientLink
+光伏规模、机器人硬件和数据合规压力第一次把“闭环证据”推到预算中心。
 
-户外弱网连接策略。
+关键信号：
 
-- 专网 5G/LTE、公网 4G/5G、Wi-Fi、卫星兜底和离线缓存。
-- 弱网优先级：安全心跳、控制指令、告警摘要、缩略图、轨迹、证据片段，最后才是原始日志。
-- WebRTC 用于低延迟远程接管，但控制权受本体安全层约束；高延迟或丢包超阈值时降级为低速或半自主接管。
-- 卫星只作为低频摘要、位置、告警和应急指令补充，不承诺稳定高清视频遥操作。
+- IEA PVPS Snapshot 2026 显示全球 PV 累计规模接近 3TW，2025 年新增约 698GW。
+- 中国国家能源局数据：2026-05 光伏装机已超过 1.26TW。
+- IEA PVPS soiling work 指出积灰损失具有实质影响，需要监测和清洗优化。
+- 美国公用事业植被管理是数十亿美元级预算，说明 remote asset risk 有真实资金池。
+- 无人机、四足、UGV、dock、edge AI 和云训练已经成熟，但客户仍缺闭环 evidence contract。
+- FAA/CAAC/BVLOS、关键基础设施限制、EU Data Act、China data residency、Cyber Resilience Act 等要求让“只上传原始数据”的方案越来越难卖。
 
-### 6. EvidenceFlywheel
+## 5. Product
 
-证据与训练飞轮。
+先卖可验收巡检结果，再扩展机器人队列。
 
-- 本地滚动记录 MCAP / ROS bag 片段，按任务、事件、传感器和权限选择性上传。
-- 人工接管、低置信度、近失误、路线失败和特殊地形生成高价值训练样本。
-- MCAP / episode 转为 LeRobot Dataset v3：多相机视频、状态/动作、标定、任务文本、固件/模型版本和环境标签。
-- 云端训练后通过 Qualcomm AI Hub / QNN / ONNX / TFLite 等路径做优化、profile、签名、灰度发布和回滚。
+### Product Modules
 
-## China Version
+- FieldBrain：Qualcomm edge kit，本地运行视觉、热斑初筛、任务缓存、弱网同步和 QNN policy。
+- SensorPod：RGB、thermal、LiDAR、acoustic、gas、multispectral 的 manifest、校准、时间同步和健康检查。
+- MissionMap：GeoJSON route、资产 ID、禁行区、ODD、安全边界、证据模板和工单字段。
+- ResilientLink：local safety、heartbeat、alert summary、thumbnail、track、MCAP 的优先级同步。
+- TeleopFallback：只有在 ODD、延迟、丢包、电量、速度、人车边界和 supervisor 条件满足时开放。
+- EvidenceFlywheel：每个异常生成 evidence package；每次接管、近失误、低置信度片段成为 LeRobot 候选数据。
+- TrainRouter：一个 LeRobot job contract，映射到中国云/私有云和海外 GPU provider 两条算力通道。
+- SimEval：用 MCAP + digital twin 做发布前回放评测，检查 route completion、recall、false positive、p95 latency、energy、lost-link 和 rollback。
 
-中国版主张：
+### Reference Architecture
 
-> FieldOps 野巡：面向智慧农业、新能源场站、矿山安全和电力巡检的边缘智能无人巡检平台。
+```text
+FieldOps edge stack
+  ├─ fieldbrain-runtime
+  ├─ mission-map
+  ├─ sensorpod-registry
+  ├─ resilient-link
+  ├─ robot-drone-adapter-runtime
+  ├─ safety-envelope
+  ├─ evidence-package-api
+  ├─ teleop-fallback
+  ├─ mcap-recorder
+  ├─ train-router
+  ├─ sim-eval
+  ├─ edge-policy-registry
+  └─ cmms-eam-scada-sync
+```
 
-采购语言要强调：
+### Core Schemas
 
-- 示范场景：智慧农业、AI+农业、新能源运维、矿山安全和园区巡检。
-- 可复制推广：县域农场、国企场站、能源基地、工业园区和系统集成伙伴。
-- 国产化交付：本地数据边界、本地运维、本地云 GPU 训练路径。
-- 结果交付：报表、工单、巡检证据、异常复核和安全管理。
+```json
+{
+  "MissionSpec": {
+    "mission_id": "solar_block_a_hotspot_scan",
+    "site_id": "acme-solar-80mw",
+    "route_geojson": "s3://missions/route.geojson",
+    "asset_ids": ["pv-row-17", "inverter-02", "bess-container-03"],
+    "sensor_plan": ["rgb", "thermal", "gnss", "imu"],
+    "od_profile": "solar_service_road_daylight_dry",
+    "link_policy": "fieldops_weaknet_v1",
+    "offline_policy": "cache_alerts_stop_at_boundary",
+    "safety_envelope_id": "se_solar_daylight_v1",
+    "evidence_template_id": "pv_hotspot_v2"
+  }
+}
+```
 
-优先客户：
+```json
+{
+  "EvidencePackage": {
+    "evidence_id": "ev_hotspot_001",
+    "mission_id": "solar_block_a_hotspot_scan",
+    "asset_id": "pv-row-17-module-044",
+    "geometry": {"type": "Point", "coordinates": [113.93, 22.54]},
+    "assets": {
+      "rgb": "object://rgb/ev_hotspot_001.jpg",
+      "thermal": "object://thermal/ev_hotspot_001.tiff",
+      "mcap": "object://mcap/ev_hotspot_001.mcap"
+    },
+    "model_id": "pv-hotspot-qnn-v3",
+    "qnn_profile_id": "profile_9075_20260706",
+    "confidence": 0.82,
+    "operator_verdict": "work_order_required",
+    "cmms_ticket": "WO-9381",
+    "signature": "ed25519:..."
+  }
+}
+```
 
-- 农业农村部门、地方智慧农业示范园、国有农场和大型农企。
-- 光伏/风电场站业主、能源央国企、O&M 承包商。
-- 电网、工业园区、矿山集团和安全生产团队。
-- 本体厂商、传感器厂商和地方系统集成商。
+```json
+{
+  "EdgePolicyManifest": {
+    "policy_id": "pv-hotspot-qnn-v3",
+    "dataset_hash": "sha256:...",
+    "eval_report": "object://eval/pv-hotspot-qnn-v3.json",
+    "onnx_uri": "object://models/pv-hotspot-v3.onnx",
+    "qnn_dlc_uri": "object://models/pv-hotspot-v3.dlc",
+    "qnn_context_binary_uri": "object://models/pv-hotspot-v3.ctx",
+    "target_device": "rb3|rb6|iq10|iq-9075",
+    "latency_p95_ms": 38,
+    "rollback_policy_id": "pv-hotspot-qnn-v2"
+  }
+}
+```
 
-收入模型：
+## 6. Market And Business Model
 
-- 试点包：机器人 + 传感器舱 + 任务地图 + 报告模板 + 数据回流。
-- 项目制：多机器人队列、平台私有化、系统集成和年度运维。
-- 示范场景申报包：面向地方项目的材料、验收指标、看板和现场视频证据。
+按 MW、站点、工单和证据收费，而不是按机器人炫技收费。
 
-## Overseas Version
+第一批客户：
 
-海外版主张：
+- Head of Solar O&M / 新能源场站运维负责人。
+- IPP asset manager / regional operations lead。
+- O&M contractor GM。
+- Utility innovation team / 集控中心负责人。
+- Energy SI / drone service provider / cleaning robot vendor。
+- Gatekeepers：HSE、OT/IT security、SCADA/CMMS owner、procurement、data office。
+
+ROI formula:
+
+```text
+recovered MWh
++ avoided truck rolls
++ optimized cleaning
++ faster repair
++ warranty / insurance recovery
+- FieldOps cost
+```
+
+Pilot success metric:
+
+- 90 天证明 `2x annualized value / first-year ARR`。
+- `30%-50% inspection triage time reduction`。
+- 至少一个从发现到验证关闭的缺陷闭环。
+
+### China Version
+
+中国版 headline：
+
+> 先卖可验收巡检结果，再扩展机器人队列。
+
+商业模式：
+
+- 30-90 天光伏/新能源 pilot：人民币 100k-500k，覆盖 1-3 个站点或一个 plant block。
+- 年度：人民币 200k-1M / site-year，或人民币 3k-12k / MW-year。
+- 大型央国企/园区项目：人民币 1M-5M+。
+- 本地 robot/drone partner 作为 pass-through 或联合交付。
+
+采购包：
+
+- 本地部署。
+- 中文报告模板。
+- 数据边界和跨境 off-by-default 说明。
+- 操作员培训。
+- PMS/SCADA/GIS/EAM integration plan。
+- 验收指标：coverage rate、defect recall、report latency、manual recheck rate。
+
+优先渠道：
+
+- 光伏/风电/储能 O&M 承包商。
+- 国家电网 / 南方电网省公司和合格供应商体系。
+- 能源央国企、地方能源集团、工业园区。
+- DJI / XAG / GDU / Deep Robotics / Shenhao / Yijiahe / Youibot 等本地生态伙伴。
+
+### Overseas Version
+
+海外版 headline：
 
 > Autonomous field intelligence for remote assets.
 
-采购语言要强调：
+商业模式：
 
-- Fewer truck rolls, safer inspections, faster issue detection, lower downtime, auditable records.
-- Utilities, solar/wind operators, farms, mines and infrastructure teams buy verified condition data, not generic robot novelty.
-- RaaS / inspection-as-a-service can lower upfront adoption barrier.
+- 50-150MW pilot：$50k-$125k。
+- Annual evidence layer：$250-$900 / MW-year，site minimum $10k-$25k。
+- Mission fees benchmark：solar thermal mission $150-$500 / MW，utility line inspection $300-$2,000 / mile。
+- 扩展口径：MW、turbine、line-mile、acre、mine-shift。
 
 优先客户：
 
-- Utility vegetation / wildfire / storm-readiness teams.
 - Solar IPP、asset manager、O&M provider。
+- Utility vegetation / wildfire / storm readiness teams。
 - Wind farm operator 和 blade/tower inspection provider。
-- 大型农场、果园、葡萄园、合作社和精准农业服务商。
-- Mining HSE / operations teams。
-- 保险、基础设施风险和资产管理团队作为二级数据买家。
+- Specialty crop / orchard / greenhouse service provider。
+- Mining HSE / operations teams as later high-ACV expansion。
 
-收入模型：
+## 7. Competition And Moat
 
-- 按 acre / MW / turbine / line-mile / km / mine-shift 收费。
-- 硬件租赁 + 软件订阅 + inspection report credits。
-- 传感器舱升级、analytics API、企业支持和数据保留服务。
+竞争不是没有机器人，而是闭环缺少统一 workflow。
 
-## Competition Demo
+竞争地图：
 
-最稳妥 demo 可以做成“户外现场数字孪生 + 小车/桌面验证”的组合：
+- Quadrupeds / UGV：ANYbotics、Boston Dynamics、Unitree、Deep Robotics。
+- Drone ops：DJI Dock、Skydio Dock、Percepto、FlytBase、DroneDeploy。
+- Solar/wind analytics：Raptor Maps、Zeitview、Aerones。
+- Agriculture robots：AgXeed、Burro、Carbon Robotics、Verdant、DJI Agriculture、farm-ng。
+- Horizontal robot ops：Formant、InOrbit、Viam、Foxglove。
+- Critical infrastructure data：Gecko Robotics。
+- Mining autonomy：Komatsu、Sandvik、Emesent and OEM-specific systems。
 
-1. 在网页中展示光伏/农田/变电站任务地图、传感器舱和弱网状态。
-2. 小车或模拟机器人执行一段巡检路线，识别热斑/杂草/表计/障碍中的一个 mock 异常。
-3. 人工远程接管一次绕障，生成 intervention episode。
-4. 系统输出 evidence package：位置、时间、图片/热图、传感器、置信度、工单状态。
-5. 异常片段进入 LeRobot/DataFlywheel，展示训练任务和 Qualcomm edge deployment gate。
-6. 切换网络状态：在线、弱网、离线缓存、恢复同步，展示“弱网不断巡，无网不失控”。
+FieldOps 的壁垒：
 
-## Why Qualcomm Should Care
+- Closed exceptions：热斑、遮挡、清洗、维修、复核和质保证据带有最终 outcome，比原始视频更有价值。
+- ODD library：不同站点的坡度、天气、可见度、人车边界、弱网和 lost-link 行为形成可复用 deployment profile。
+- Adapter compound：机器人、无人机、CMMS、SCADA、GIS、EAM、传感器舱和云训练 provider 越接越快。
+- Evidence contract：位置、资产、传感器、人工 verdict、ticket、signature、model version 和 replay data 对接采购/保险/质保。
+- Qualcomm edge proof：QNN profile、latency、memory、thermal、power、rollback 和 replay eval 变成边缘上线门禁。
 
-FieldOps 让 Qualcomm 的价值从“机器人开发板”扩展成“户外商用机器人底座”：
+## 8. Why Qualcomm
 
-- 多摄像头、多传感器和边缘 AI 是户外巡检的硬需求。
-- 低功耗、本地推理和热设计决定机器人能否长时间跑在现场。
-- 5G / Wi-Fi / NTN / 私有网络叙事让 Qualcomm 在弱网和远程资产场景中有清晰位置。
-- AI Hub 与边缘优化路径可以把云训练模型转成可验证的本体部署包。
-- IQ10 RRD 的 production robot 架构故事与 FieldOps 的长期路线高度一致：compute、sensing、networking、ROS 2、MLOps、DevOps 和 fleet lifecycle。
+户外机器人需要边缘 AI、连接、功耗和部署证据一起成立。
 
-## Safety And Compliance Posture
+Qualcomm value:
 
-FieldOps 的表述应采用“证据包”和“目标测试”，避免无依据的认证承诺：
+- Local perception：热斑、遮挡、表计、障碍、人员和低置信度事件在本体侧初筛。
+- Connectivity：专网、公网、Wi-Fi、NTN/卫星补充和 store-and-forward 支撑偏远资产。
+- Low power / thermal：长时间现场运行必须看 latency、memory、power 和 thermal，而不是只讲 TOPS。
+- AI Hub / QNN：ONNX 到 QNN DLC/context/profile，记录 p95 latency、memory、target runtime 和 rollback。
+- Roadmap：RB3/QCS6490 用于 demo，RB6 用于 5G-heavy field SKU，IQ10 RRD 进入生产级路线。
+- Ecosystem：无人机、四足、UGV、传感器、能源 SI、O&M service partner 和 GPU provider 围绕 Qualcomm edge 连接。
 
-- IP65/IP67 只能用于明确测试过的外壳、舱体或连接器，不把整机随意称为 waterproof。
-- MIL-STD-810H 是定制化环境测试方法，不等于“军工级认证”。
-- 农业自主机械应参考 ISO 18497、ISO 25119、ISO 12100、ISO 13849-1、ISO 13850 等安全设计和验证框架。
-- GNSS/RTK 只能在有改正数、良好天空视野和完整性检查时给出高精度定位，不承诺“厘米级 everywhere”。
-- ODD 必须明确天气、地形、速度、人机混行、网络、夜间、坡度、障碍和遥操作边界。
-- 安全关键控制不依赖公网、云 GPU 或 Cloudflare；本体保留急停、限速、失联策略、返航/驻停和安全制动。
+需要 Qualcomm 支持：
+
+- RB3 Gen 2 / RB6 / Dragonwing IQ10 / IQ-9075 hardware 或 profile。
+- AI Hub / QNN 指导，把 thermal/RGB defect detector、redaction、obstacle classifier 和 teleop recovery model 做成 evidence gate。
+- 传感器 partner、机器人 partner 和新能源/工业客户 introduction。
+- 允许作为 Qualcomm edge field robotics reference workflow 继续打磨。
+
+## 9. Competition Demo
+
+8 分钟演示：一个光伏区块，弱网中发现热斑，人工接管复核并生成训练样本。
+
+Demo setup:
+
+- 浏览器 MissionMap。
+- 小车或仿真 rover。
+- Mini solar field：3 条路线、2 个 no-go zone、若干 panel asset IDs。
+- RGB / thermal mock images。
+- Network state toggle：online、weak、offline、recovered。
+- Teleop assist button。
+- LeRobot export + AI Hub/QNN release gate screen。
+
+Demo flow:
+
+1. Buyer pain：remote solar/substation inspections create truck rolls, missing evidence, unsafe manual checks。
+2. Field kit：FieldBrain + SensorPod mock，展示 RB3/RB6/IQ10 roadmap、thermal/RGB pod、battery、GNSS/RTK、E-stop。
+3. MissionMap：加载 route、asset IDs、ODD card、SafetyEnvelope 和 evidence template。
+4. Weak link：机器人执行任务，切换 network state，UI 只保留 heartbeat、cached thumbnails、alert summary，本地安全仍生效。
+5. Evidence：检测 mock hotspot 或遮挡，生成 map point、thermal image、confidence、MCAP clip、CMMS ticket。
+6. Teleop recovery：低置信度障碍触发 teleop fallback，人工低速接管，事件标注 `autonomy_mode=teleop_assist`。
+7. LeRobot：转换 intervention clip 为 LeRobot episode，提交 TrainRouter，显示 China/global provider selector、budget cap、logs。
+8. AI Hub/QNN：ONNX -> QNN DLC/context/profile，展示 p95 latency、target hardware、rollback package、simulation regression pass。
+
+## Compliance And Safety Posture
+
+Safe deck position:
+
+> FieldOps is not making robots legal everywhere. It helps customers define the operating domain, approval path, safety case, audit trail, cyber posture, and data residency for each field deployment.
+
+Rules:
+
+- Ground robots on private sites：site-controlled machinery, not free-roaming autonomy。
+- Public roads/sidewalks：do not claim blanket legality。
+- Drones：US Part 107 / waivers; BVLOS is not broadly legal by default。
+- China drones：real-name registration, classification, operator rules and operation identification matter。
+- Energy/utility：critical infrastructure UAS restrictions, owner authorization, Remote ID/no-fly screening。
+- Electric grid cyber：if touching utility networks, expect NERC CIP/vendor risk scrutiny。
+- Agriculture：scouting is easier than spraying; pesticide application requires FAA/EPA/state rules and label compliance。
+- Mining：start above-ground or certified non-explosive zones; underground coal/mining needs certified hardware and site safety approvals。
+- Rail/road：automated inspection may supplement, not automatically replace mandated inspections。
+- Data：video, LiDAR, geolocation, license plates, faces, worker behavior, and critical-site imagery may be sensitive data.
+- China data：support local deployment and data-residency controls; do not default to overseas GPU training.
 
 ## Claims To Avoid
 
-- 不声称 fully autonomous anywhere / all-weather / all-terrain。
-- 不声称无人值守、零事故、零停机或替代所有人工巡检。
-- 不声称获得 ATEX/IECEx、UL、CE、BVLOS 或行业安全认证，除非具体硬件已完成认证。
-- 不声称卫星链路可稳定承担高清视频遥操作。
-- 不声称农业 ROI 对所有作物、所有地区成立。
-- 不声称 TOPS 等于真实吞吐；需要用目标模型的 FPS、延迟、功耗和热行为说话。
+- 不说 legal everywhere、approved by regulators、certified compliant，除非绑定具体证书、地区和用例。
+- 不说 fully autonomous with no human oversight。
+- 不说 all-weather、all-terrain、fully autonomous anywhere。
+- 不说 BVLOS-ready without approval/waiver path。
+- 不说 replaces mandated inspections。
+- 不说 no personal data collected，如果相机、LiDAR、GPS、车牌、人脸或 worker activity 会被采集。
+- 不说 data can be freely transferred globally。
+- 不说 unhackable、military-grade、air-gapped、zero risk。
+- 不把 satellite link 描述成稳定高清视频遥操作链路。
+- 不把 TOPS 当真实吞吐；要用目标模型 FPS、latency、power、thermal 和 replay eval 说话。
 
 ## Sources
 
-- Qualcomm RB6：https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform
-- Qualcomm IQ10 Series：https://www.qualcomm.com/internet-of-things/products/iq10-series
-- Dragonwing IQ10 RRD：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
-- Qualcomm IQ-9075：https://www.qualcomm.com/internet-of-things/products/iq9-series/iq-9075
-- Qualcomm QCS6490：https://www.qualcomm.com/internet-of-things/products/q6-series/qcs6490
-- Qualcomm AI Hub：https://aihub.qualcomm.com/
-- LeRobot Dataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
-- LeRobot HIL data collection：https://huggingface.co/docs/lerobot/hil_data_collection
+- IEA PVPS Snapshot 2026：https://iea-pvps.org/snapshot-reports/snapshot-2026/
+- China NEA solar statistics：https://www.nea.gov.cn/20260625/24f752fd199c4632b7dc7762462585de/c.html
+- IEA PVPS soiling losses：https://iea-pvps.org/fact-sheets/fs-soiling-losses/
+- EIA outage duration：https://www.eia.gov/todayinenergy/detail.php?id=66744
+- Public Power vegetation management：https://www.publicpower.org/periodical/article/cost-not-cutting-trees
+- USDA farm labor：https://www.ers.usda.gov/topics/farm-economy/farm-labor
+- DJI solar inspection：https://enterprise.dji.com/inspection/photovoltaic-power-plant
+- DJI Dock 3：https://enterprise.dji.com/dock-3
+- Skydio Dock：https://www.skydio.com/dock
+- Percepto AIM：https://percepto.co/aim/
+- DroneDeploy robotics：https://dronedeploy.com/product/robotics
+- Raptor Maps：https://raptormaps.com/
+- Zeitview：https://www.zeitview.com/
+- Gecko Robotics Cantilever：https://www.geckorobotics.com/cantilever
+- ANYmal X：https://www.anybotics.com/robotics/anymal-x/
+- Boston Dynamics Orbit：https://bostondynamics.com/products/orbit/
+- Unitree B2：https://www.unitree.com/cn/b2/
+- AgXeed：https://www.agxeed.com/
+- Burro：https://burro.ai/
+- Carbon Robotics：https://carbonrobotics.com/
+- Formant：https://formant.io/
+- InOrbit：https://www.inorbit.ai/overview
+- Viam fleet management：https://www.viam.com/platform/fleet-management
+- Foxglove：https://foxglove.dev/
+- FAA commercial UAS：https://www.faa.gov/uas/commercial_operators
+- FAA Part 107 waivers：https://www.faa.gov/uas/commercial_operators/part_107_waivers
+- FAA critical infrastructure UAS：https://www.faa.gov/uas/critical_infrastructure
+- ISO 3691-4：https://www.iso.org/standard/83545.html
+- ANSI/RIA safety resources：https://www.automate.org/robotics/safety/robot-safety-resources
+- EU Machinery Regulation：https://osha.europa.eu/en/legislation/directive/regulation-20231230eu-machinery
+- EU Data Act：https://digital-strategy.ec.europa.eu/en/factpages/data-act-explained
+- CISA UAS cybersecurity：https://www.cisa.gov/topics/physical-security/be-air-aware/uas-cybersecurity
+- NERC CIP：https://www.nerc.com/standards/reliability-standards/cip
+- FTC location data enforcement：https://www.ftc.gov/news-events/news/press-releases/2024/12/ftc-takes-action-against-gravy-analytics-venntel-unlawfully-selling-location-data
+- CAAC drone rules：https://www.caac.gov.cn/English/News/202403/t20240305_223119.html
+- CAC cross-border data provisions：https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm
+- Alibaba PAI Lingjun：https://www.aliyun.com/product/bigdata/learn/pailingjun
+- Tencent TI：https://cloud.tencent.com/product/ti
+- Huawei ModelArts：https://www.huaweicloud.com/product/modelarts.html
+- RunPod pricing：https://www.runpod.io/pricing
+- Lambda pricing：https://lambda.ai/pricing
+- CoreWeave GPU compute：https://www.coreweave.com/products/gpu-compute
 - ROS 2 QoS：https://design.ros2.org/articles/qos.html
 - MCAP ROS 2 guide：https://mcap.dev/guides/getting-started/ros-2
-- WebRTC：https://www.w3.org/TR/webrtc/
-- 3GPP Non-Public Networks：https://www.3gpp.org/technologies/npn
-- 3GPP NTN overview：https://www.3gpp.org/technologies/ntn-overview
-- IEC IP ratings：https://www.iec.ch/ip-ratings
-- ISO 18497-1 autonomous agricultural machinery：https://www.iso.org/standard/82684.html
-- ISO 18497-4 verification and validation：https://www.iso.org/standard/82688.html
-- ISO 12100 risk assessment：https://www.iso.org/standard/51528.html
-- ISO 13849-1 safety-related control systems：https://www.iso.org/standard/73481.html
-- MIL-STD-810H DLA entry：https://quicksearch.dla.mil/qsDocDetails.aspx?ident_number=35978
-- FCC equipment authorization：https://www.fcc.gov/general/equipment-authorization-procedures
-- EU Radio Equipment Directive：https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en
-- PHMSA UN 38.3 summaries：https://www.phmsa.dot.gov/training/hazmat/new-un-requirement-test-summaries
-- EU ATEX equipment directive：https://single-market-economy.ec.europa.eu/sectors/mechanical-engineering/equipment-potentially-explosive-atmospheres-atex_en
-- National Grid Spot case study：https://bostondynamics.com/case-studies/spot-becomes-part-of-the-team-at-national-grid/
-- ANYmal X：https://www.anybotics.com/robotics/anymal-x/
-- Gecko Robotics Cantilever：https://www.geckorobotics.com/cantilever
-- Percepto：https://percepto.co/
-- DJI photovoltaic inspection：https://enterprise.dji.com/inspection/photovoltaic-power-plant
-- DJI Agriculture：https://ag.dji.com/
-- DJI Agriculture annual report 2025：https://www.dji.com/media-center/announcements/dji-agricultural-annual-report-2025
-- Carbon Robotics：https://carbonrobotics.com/
-- John Deere See & Spray：https://www.deere.ca/en/news/all-news/see-spray-herbicide-savings/
-- FAA Part 107 waivers：https://www.faa.gov/uas/commercial_operators/part_107_waivers
-- IFR service robots：https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom
-- FERC vegetation management：https://www.ferc.gov/transmission-line-vegetation-management
-- GAO precision agriculture technologies：https://www.gao.gov/products/gao-24-105962
-- NIOSH mine automation：https://www.cdc.gov/niosh/mining/partnerships/automation.html
+- GeoJSON RFC 7946：https://www.rfc-editor.org/rfc/rfc7946
+- WebRTC：https://webrtc.org/
+- LeRobot Dataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
+- LeRobot HIL data collection：https://huggingface.co/docs/lerobot/hil_data_collection
+- Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- Qualcomm RB6：https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform
+- Qualcomm Dragonwing IQ10 RRD：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- Qualcomm AI Hub docs：https://workbench.aihub.qualcomm.com/docs/

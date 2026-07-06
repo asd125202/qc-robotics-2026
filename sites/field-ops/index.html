@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FieldOps | 野巡户外机器人平台</title>
+    <title>FieldOps | 新能源野巡闭环</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-green">
@@ -13,209 +13,283 @@
         <span>FieldOps</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#field">现场</a>
-        <a href="#kit">套件</a>
-        <a href="#mission">任务</a>
-        <a href="#link">连接</a>
-        <a href="#flywheel">训练</a>
-        <a href="#safety">安全</a>
+        <a href="#problem">问题</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">时机</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-field-ops">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 36 · Outdoor Field Robotics Platform</p>
+          <p class="eyebrow">Pitch 46 · Remote Asset Evidence OS</p>
           <h1>FieldOps 野巡</h1>
-          <p class="hero-lede">把户外巡检、农田、能源场站和基础设施作业做成可远程接管、可审计、可训练的边缘机器人平台。断网可执行，弱网可遥控，联网可持续进化。</p>
+          <p class="hero-lede">客户不是买一台野外机器人，而是买少人值守场站里每一个收入漏洞的发现、派工、复核和证据。FieldOps 从光伏/新能源 O&amp;M 切入，把偏远资产巡检变成可接管、可审计、可训练的边缘机器人任务。</p>
           <div class="cta-row">
-            <a class="button primary" href="#field">查看户外作业闭环</a>
-            <a class="button" href="../fleet-conductor/">连接 FleetConductor</a>
+            <a class="button primary" href="#problem">看场站收入漏洞</a>
+            <a class="button" href="#demo">看比赛演示</a>
           </div>
         </div>
       </section>
 
-      <section id="field" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Field Reality</p>
-              <h2>户外场景不是室内仓库的放大版。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>新能源场站不是缺照片，而是缺“异常是否被关闭”的证据。</h2>
             </div>
-            <p>户外机器人要面对泥水、粉尘、强光、坡度、碎石、弱网、远程值守和安全责任。FieldOps 先把高频、危险、重复的巡检做成标准作业，再让每一次人工接管回流到下一版模型。</p>
+            <p>光伏、BESS、变电站和风场越来越分散，站点少人值守，网络不稳定，现场环境复杂。无人机和机器人能采集图像，但运营团队真正需要的是收入损失被发现、工单被派发、维修/清洗被验证、模型持续变准。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>Solar</h3>
-              <p>光伏阵列热斑、组件遮挡、支架异常和逆变器状态巡检。</p>
+              <span class="claim-tag">MWh</span>
+              <h3>热斑、遮挡、积灰直接影响发电</h3>
+              <p>光伏组件异常、支架遮挡、逆变器状态和清洗优先级，都要转成可量化的发电损失和处理顺序。</p>
             </article>
             <article class="card">
-              <h3>Power</h3>
-              <p>变电站表计、红外温度、声学异常和设备身份证据。</p>
+              <span class="claim-tag">Truck Roll</span>
+              <h3>偏远站点复查成本高</h3>
+              <p>一次人工复查可能要车、人、许可和天气窗口；如果证据不完整，现场还要再跑一趟。</p>
             </article>
             <article class="card">
-              <h3>Farm</h3>
-              <p>作物长势、杂草定位、病虫害线索和复查路线生成。</p>
+              <span class="claim-tag">Weak Net</span>
+              <h3>户外网络不保证在线</h3>
+              <p>机器人不能把安全、证据和任务完成度都押在云端；弱网下要先传告警、缩略图、轨迹和任务状态。</p>
             </article>
             <article class="card">
-              <h3>Corridor</h3>
-              <p>管线、风场、园区周界和偏远资产的周期性巡查。</p>
+              <span class="claim-tag">ODD</span>
+              <h3>不是所有天气地形都能自动化</h3>
+              <p>坡度、泥水、粉尘、强光、夜间、人车混行和危险区，必须进入 ODD 和安全边界。</p>
             </article>
             <article class="card">
-              <h3>Evidence</h3>
-              <p>交付的不是视频流，而是带位置、时间、传感器和工单的证据包。</p>
+              <span class="claim-tag">Data</span>
+              <h3>原始视频不是资产，闭环异常才是资产</h3>
+              <p>有价值的数据是位置、资产、传感器、人工判断、机器人动作、维修结果和最终验证。</p>
             </article>
-          </div>
-          <div class="image-band">
-            <img src="../assets/field-ops.png" alt="户外巡检机器人、传感器舱、四模连接和证据飞轮控制台图">
           </div>
         </div>
       </section>
 
-      <section id="kit" class="slide tint">
+      <section id="broken" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Modular Field Kit</p>
-              <h2>一台机器人底座，换不同现场能力。</h2>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>采集层已经很强，但“发现到关闭”仍然断在中间。</h2>
             </div>
-            <p>FieldOps 不把“万能机器人”当卖点，而是用同一套边缘计算、传感器时间戳、任务接口和数据回流标准，适配轮式、履带、四足、无人机和专用巡检本体。</p>
+            <p>FieldOps 不替代 DJI、Skydio、Spot、ANYmal、Unitree、Raptor Maps 或 DroneDeploy。它把这些系统的输出变成任务、证据、工单、复核和训练数据，补上现场闭环。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>FieldBrain</h3>
-              <p>Qualcomm edge AI 负责本地视觉、SLAM、异常识别、任务缓存和安全降级。</p>
+              <h3>Drone Capture</h3>
+              <p>航测和热成像覆盖快，但更擅长发现，不擅长地面复核、清洗/维修证明和弱网自主闭环。</p>
             </article>
             <article class="card">
-              <h3>RuggedBase</h3>
-              <p>轮式、履带、四足和无人机套件共享 ROS 2、RTK/GNSS、IMU、电池和充电接口。</p>
+              <h3>Robot Hardware</h3>
+              <p>四足、轮式、履带和无人机本体各有优势，但客户买的是可验收任务，不是机身参数。</p>
             </article>
             <article class="card">
-              <h3>SensorPod</h3>
-              <p>RGB、热成像、多光谱、LiDAR、声学、气体和土壤传感器统一校准与时间同步。</p>
+              <h3>Analytics Platform</h3>
+              <p>太阳能/风电分析平台能生成缺陷图，但现场仍要派人、派机器人、验证修复和沉淀数据。</p>
             </article>
             <article class="card">
-              <h3>MissionMap</h3>
-              <p>GIS、卫星图、资产清单、禁行区、复查点和返航规则进入同一任务规划器。</p>
+              <h3>CMMS / EAM</h3>
+              <p>工单系统记录流程，但不理解机器人 ODD、传感器证据、弱网同步和模型发布门禁。</p>
             </article>
             <article class="card">
-              <h3>Evidence API</h3>
-              <p>异常结果写入 CMMS、SCADA、GIS、农机/农艺系统或企业工单。</p>
+              <h3>Generic RobOps</h3>
+              <p>Formant、InOrbit、Viam、Foxglove 横向能力强，但缺少新能源资产、GIS、ODD 和验收报告语义。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="mission" class="slide white">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">03 · Mission First</p>
-            <h2>先规划任务，再让机器人进场。</h2>
-            <p class="lead">FieldOps 的售卖单元不是“买一台车”，而是“买一类可验收的现场任务”。客户选择资产类型、路线、传感器、证据格式和人工接管策略，机器人按 ODD 边界执行。</p>
-            <ul class="list">
-              <li>光伏：红外热斑、组件状态、支架/杂草遮挡、逆变器巡检和日报。</li>
-              <li>电力：表计读取、红外温升、设备异响、远程复核和工单闭环。</li>
-              <li>农业：作物长势、多光谱分区、杂草/病虫害疑点和精准复查路线。</li>
-              <li>基础设施：管线、风场、矿区、园区周界和偏远资产的巡查证据。</li>
-            </ul>
-          </div>
-          <div class="visual">
-            <img src="../assets/field-ops.png" alt="FieldOps 任务规划和户外巡检证据控制台">
-          </div>
-        </div>
-      </section>
-
-      <section id="link" class="slide dark">
+      <section id="solution" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · ResilientLink</p>
-              <h2>有网高带宽，没网也能完成任务。</h2>
+              <p class="kicker">03 · Solution</p>
+              <h2>FieldOps 是远程资产的任务、证据和训练闭环。</h2>
             </div>
-            <p>户外机器人的网络不是永远在线。FieldOps 把专网 5G/LTE、公网 4G/5G、卫星回传和离线缓存做成策略层：安全控制留在本体，高带宽数据择机同步，弱网优先传证据、指令和接管通道。</p>
+            <p>第一阶段只承诺 site-controlled ODD 内的监督式巡检：光伏区块、BESS、升压站、围栏和服务道路。FieldOps 把混合机器人、传感器舱、弱网策略、工单系统和 LeRobot 数据飞轮接成一个产品。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>Private</h3>
-              <p>园区、矿区、电站和农场可用专网或本地边缘节点降低延迟。</p>
+              <h3>Plan</h3>
+              <p>导入 GeoJSON、资产清单、禁行区、ODD、传感器计划和验收模板。</p>
             </article>
             <article class="step">
-              <h3>Public</h3>
-              <p>公网 4G/5G 覆盖区域用于任务下发、状态回传和远程支持。</p>
+              <h3>Inspect</h3>
+              <p>无人机、UGV、四足和人工 crew 共享 MissionSpec 与 Evidence API。</p>
             </article>
             <article class="step">
-              <h3>Satellite</h3>
-              <p>偏远区域作为低频摘要、位置、告警和任务确认的补充链路。</p>
+              <h3>Close</h3>
+              <p>把热斑、积灰、遮挡、设备异常和低置信度片段转成工单和复核任务。</p>
             </article>
             <article class="step">
-              <h3>Offline</h3>
-              <p>断网时本体继续执行限定任务，保留本地日志和证据缓存。</p>
+              <h3>Prove</h3>
+              <p>交付位置、时间、RGB/thermal、MCAP、模型版本、人工 verdict 和签名。</p>
             </article>
             <article class="step">
-              <h3>Teleop</h3>
-              <p>人工接管只在 ODD、带宽和安全门禁满足时开放。</p>
+              <h3>Learn</h3>
+              <p>接管、近失误和复核结果进入 LeRobot episode，再经 AI Hub/QNN 门禁回到边缘。</p>
             </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/field-ops.png" alt="新能源场站机器人巡检、热成像证据、弱网同步和训练飞轮概念图">
           </div>
         </div>
       </section>
 
-      <section id="flywheel" class="slide white">
+      <section id="why-now" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · EvidenceFlywheel</p>
-              <h2>每一次巡检，都是下一版模型的训练数据。</h2>
+              <p class="kicker">04 · Why Now</p>
+              <h2>光伏规模、机器人硬件和数据合规压力第一次把“闭环证据”推到预算中心。</h2>
             </div>
-            <p>FieldOps 把“发现异常、人工复核、远程接管、失败恢复”包装成 LeRobot-compatible 数据生产线。不是把所有原始视频粗暴上传，而是按任务、传感器、事件和权限选择性生成训练片段。</p>
+            <p>全球光伏装机已接近 3TW，中国光伏装机在 2026-05 已超过 1.26TW。站点越分散，资产越多，客户越不愿意只买图像采集，而是要买缺陷优先级、工单关闭、质保/保险证据和可复用模型。</p>
           </div>
-          <div class="grid four">
+          <div class="grid five">
             <div class="stat">
-              <strong>Detect</strong>
-              <span>本体侧发现热斑、杂草、障碍、表计或路线偏差。</span>
-            </div>
-            <div class="stat">
-              <strong>Review</strong>
-              <span>专家在控制台确认异常、标注结果或接管绕障。</span>
+              <strong>3TW</strong>
+              <span>IEA PVPS Snapshot 2026 显示全球 PV 累计规模接近 3TW。</span>
             </div>
             <div class="stat">
-              <strong>Train</strong>
-              <span>事件片段转为 LeRobot 数据集，在中国云或海外云训练。</span>
+              <strong>698GW</strong>
+              <span>2025 年全球新增 PV 约 698GW，巡检和运维规模继续放大。</span>
             </div>
             <div class="stat">
-              <strong>Deploy</strong>
-              <span>通过边缘评测、灰度发布和回滚策略部署到 Qualcomm 本体。</span>
+              <strong>1.26TW</strong>
+              <span>中国国家能源局数据显示 2026-05 光伏装机已超过 1.26TW。</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="safety" class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">06 · ODD &amp; Safety Case</p>
-              <h2>先定义边界，再谈自动化。</h2>
+            <div class="stat">
+              <strong>$6B+</strong>
+              <span>美国公用事业植被管理是数十亿美元级预算，说明 remote asset risk 有真实资金池。</span>
             </div>
-            <p>FieldOps 的商业化表达是“监督式户外巡检机器人”，不是泛化认证自动机器。每个站点先定义 ODD、速度、路线、天气、坡度、网络、人员隔离和接管策略，再交付风险评估、测试证据和残余风险清单。</p>
-          </div>
-          <div class="grid four">
             <div class="stat">
               <strong>ODD</strong>
-              <span>私有场地、围栏区域、映射路线、天气/地形/可见度限制和禁行边界。</span>
+              <span>BVLOS、关键基础设施、数据出境和机械安全要求，迫使产品交付审批证据。</span>
             </div>
-            <div class="stat">
-              <strong>Stops</strong>
-              <span>物理急停、远程停机、保护停、限速、失联驻停、返航和制动验证。</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">05 · Product</p>
+            <h2>先卖可验收巡检结果，再扩展机器人队列。</h2>
+            <p class="lead">FieldOps 的第一款产品不是万能野外机器人，而是新能源 O&amp;M 的闭环巡检包：FieldBrain edge kit、SensorPod、MissionMap、ResilientLink、EvidencePackage API 和 TrainRouter。</p>
+            <ul class="list">
+              <li>FieldBrain：Qualcomm edge kit，本地运行视觉、热斑初筛、任务缓存、弱网同步和 QNN policy。</li>
+              <li>SensorPod：RGB、thermal、LiDAR、acoustic、gas、multispectral 的 manifest、校准、时间同步和健康检查。</li>
+              <li>MissionMap：GeoJSON route、资产 ID、禁行区、ODD、安全边界、证据模板和工单字段。</li>
+              <li>ResilientLink：local safety、heartbeat、alert summary、thumbnail、track、MCAP 的优先级同步。</li>
+              <li>TrainRouter：一个 LeRobot job contract，映射到中国云/私有云和海外 GPU provider 两条算力通道。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/field-ops.png" alt="FieldOps FieldBrain、SensorPod、MissionMap 和 EvidencePackage 控制台">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Product API</p>
+              <h2>它交付的是 field evidence contract，不是视频文件夹。</h2>
             </div>
-            <div class="stat">
-              <strong>Rugged</strong>
-              <span>只声明经过测试的 IP、防尘防水、温度、振动、连接器和电池证据。</span>
+            <p>每个任务都有路线、ODD、链路策略、安全门禁、证据模板、工单状态和模型版本。所有自动化都标注 supervised、teleop_assist、offline_cache 或 human_verified。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>MissionSpec</h3>
+              <p>mission_id、site_id、route_geojson、asset_ids、sensor_plan、ODD、evidence template。</p>
+            </article>
+            <article class="card">
+              <h3>SafetyEnvelope</h3>
+              <p>max_speed、geofence、no-go、slope、weather、human distance、lost-link action、E-stop。</p>
+            </article>
+            <article class="card">
+              <h3>LinkPolicy</h3>
+              <p>online、weak、offline、recovered 状态下的 heartbeat、thumbnail、MCAP、teleop priority。</p>
+            </article>
+            <article class="card">
+              <h3>EvidencePackage</h3>
+              <p>geometry、RGB、thermal、MCAP、model_id、QNN profile、operator verdict、ticket、signature。</p>
+            </article>
+            <article class="card">
+              <h3>LeRobotEpisode</h3>
+              <p>task、robot profile、sensor manifest、state/action、intervention、success、failure_type、rights region。</p>
+            </article>
+            <article class="card">
+              <h3>EdgePolicy</h3>
+              <p>dataset hash、eval report、ONNX、QNN DLC/context、target device、p95 latency、rollback。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Market & Business Model</p>
+              <h2>按 MW、站点、工单和证据收费，而不是按机器人炫技收费。</h2>
             </div>
-            <div class="stat">
-              <strong>HazLoc</strong>
-              <span>油气、粉尘、氢气和化工危险区需 ATEX/IECEx/HazLoc 认证硬件，不能默认进入。</span>
+            <p>第一批买家是新能源 O&amp;M 负责人、IPP asset manager、区域运维中心、O&amp;M 承包商和能源 SI。后续扩展到电网、风电、工业园、矿区和农业，但不一开始讲“所有户外机器人”。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <span class="claim-tag">中国版</span>
+              <h3>本地证明 + 招采包 + 国产训练通道</h3>
+              <p>30-90 天光伏/新能源 pilot：人民币 100k-500k，覆盖 1-3 个站点或一个 plant block。年度：人民币 200k-1M / site-year，或人民币 3k-12k / MW-year。大型央国企/园区可扩展到人民币 1M-5M+ 项目。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">海外版</span>
+              <h3>Verified Condition Data for Remote Assets</h3>
+              <p>50-150MW pilot：$50k-$125k。年度 evidence layer：$250-$900 / MW-year，站点 minimum $10k-$25k。按 MW、turbine、line-mile、acre 或 mine-shift 扩展，并通过 O&amp;M/service partner 交付。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>FieldOps 不和硬件厂商抢身体，而是沉淀“异常关闭数据”。</h2>
             </div>
+            <p>DJI、Skydio、Percepto、DroneDeploy、Raptor Maps、Gecko、ANYbotics、Boston Dynamics、Unitree、AgXeed、Burro、Carbon Robotics 都证明现场机器人需求真实。FieldOps 的复利在任务语义、证据闭环、弱网同步、合规边界和训练数据。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Closed Exceptions</h3>
+              <p>热斑、遮挡、清洗、维修、复核和质保证据带有最终 outcome，比原始视频更有价值。</p>
+            </article>
+            <article class="card">
+              <h3>ODD Library</h3>
+              <p>不同站点的坡度、天气、可见度、人车边界、弱网和 lost-link 行为形成可复用 deployment profile。</p>
+            </article>
+            <article class="card">
+              <h3>Adapter Compound</h3>
+              <p>机器人、无人机、CMMS、SCADA、GIS、EAM、传感器舱和云训练 provider 越接越快。</p>
+            </article>
+            <article class="card">
+              <h3>Qualcomm Evidence</h3>
+              <p>QNN profile、latency、memory、thermal、power、rollback 和 replay eval 变成边缘上线门禁。</p>
+            </article>
           </div>
         </div>
       </section>
@@ -224,50 +298,101 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">07 · Why Qualcomm</p>
-              <h2>户外机器人需要边缘 AI、连接和功耗一起成立。</h2>
+              <p class="kicker">09 · Why Qualcomm</p>
+              <h2>户外机器人需要边缘 AI、连接、功耗和部署证据一起成立。</h2>
             </div>
-            <p>FieldOps 把 Qualcomm 的价值从“开发板性能”升级为“可商用现场机器人底座”：多摄像头、多传感器、低功耗边缘推理、5G/连接、机器人参考设计、模型部署和长期生态伙伴共同构成壁垒。</p>
+            <p>FieldOps 让 Qualcomm 从“机器人开发板”进入“现场资产运营底座”：本地视觉/热成像/LiDAR 融合、弱网执行、低功耗推理、5G/NTN/专网连接、AI Hub/QNN profile 和长期 OTA 证据都在同一个 workflow 里。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Edge AI</h3>
+              <p>热斑、遮挡、表计、障碍、人员和低置信度事件在本体侧初筛。</p>
+            </article>
+            <article class="step">
+              <h3>Connectivity</h3>
+              <p>专网、公网、Wi-Fi、NTN/卫星补充和 store-and-forward 支撑偏远资产。</p>
+            </article>
+            <article class="step">
+              <h3>AI Hub</h3>
+              <p>ONNX 到 QNN DLC/context/profile，记录 p95 latency、memory、power 和 target runtime。</p>
+            </article>
+            <article class="step">
+              <h3>Roadmap</h3>
+              <p>RB3/QCS6490 用于 demo，RB6 用于 5G-heavy field SKU，IQ10 RRD 进入生产级路线。</p>
+            </article>
+            <article class="step">
+              <h3>Ecosystem</h3>
+              <p>无人机、四足、UGV、传感器、能源 SI、O&amp;M service partner 和 GPU provider 围绕 Qualcomm edge 连接。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>八分钟演示：一个光伏区块，弱网中发现热斑，人工接管复核并生成训练样本。</h2>
+            </div>
+            <p>比赛 demo 用小车或仿真 rover + 浏览器 MissionMap：一个 mini solar field、3 条路线、2 个 no-go zone、RGB/thermal mock 图、弱网开关、teleop assist 和 LeRobot export。</p>
           </div>
           <div class="grid four">
-            <div class="stat">
-              <strong>Edge AI</strong>
-              <span>现场实时感知、任务缓存、异常初筛和安全降级不依赖云端。</span>
-            </div>
-            <div class="stat">
-              <strong>Connectivity</strong>
-              <span>专网、公网、Wi-Fi 和卫星补充链路让户外任务有工程弹性。</span>
-            </div>
-            <div class="stat">
-              <strong>Product</strong>
-              <span>从 RB6/RB3 到 IQ10 参考设计，叙事从 demo 走向产品化 SKU。</span>
-            </div>
-            <div class="stat">
-              <strong>Ecosystem</strong>
-              <span>机器人 OEM、传感器厂商、系统集成商和云训练服务都可接入同一标准。</span>
-            </div>
+            <article class="card">
+              <h3>1. Mission</h3>
+              <p>加载 GeoJSON route、asset list、ODD card、SafetyEnvelope 和 evidence template。</p>
+            </article>
+            <article class="card">
+              <h3>2. Weak Link</h3>
+              <p>机器人执行巡检，切换 online / weak / offline / recovered，证明安全和证据留在本地。</p>
+            </article>
+            <article class="card">
+              <h3>3. Evidence</h3>
+              <p>发现 mock hotspot 或遮挡，生成 EvidencePackage：map point、RGB/thermal、MCAP、ticket。</p>
+            </article>
+            <article class="card">
+              <h3>4. Learn</h3>
+              <p>低置信度触发 teleop assist，导出 LeRobotEpisode，再展示 AI Hub/QNN release gate。</p>
+            </article>
           </div>
+          <p class="quote">我们的申请：用 Qualcomm edge kit 打造新能源野巡 reference workflow，让评委看到机器人不是只拍照，而是能把偏远资产异常关闭为可验收、可训练、可部署的现场证据。</p>
         </div>
       </section>
 
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">FieldOps 的商业价值不是承诺机器人在任何天气、任何地形都能替代人，而是把明确 ODD 内的巡检、证据、接管和训练闭环做成可采购产品。</p>
+          <p class="quote">FieldOps 不承诺 all-weather、all-terrain、fully autonomous、BVLOS-ready everywhere 或替代法定人工检查。它卖的是明确 ODD 内的监督式野外任务闭环：任务、证据、工单、接管、训练和边缘发布。</p>
           <div class="source-links">
-            <a href="https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform">Qualcomm RB6</a>
-            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Dragonwing IQ10</a>
-            <a href="https://www.qualcomm.com/news/onq/2026/06/x105-5g-nr-ntn-satellite">Qualcomm X105 NTN</a>
-            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
-            <a href="https://bostondynamics.com/case-studies/spot-becomes-part-of-the-team-at-national-grid/">National Grid Spot</a>
-            <a href="https://www.anybotics.com/robotics/anymal-x/">ANYmal X</a>
+            <a href="https://iea-pvps.org/snapshot-reports/snapshot-2026/">IEA PVPS Snapshot 2026</a>
+            <a href="https://www.nea.gov.cn/20260625/24f752fd199c4632b7dc7762462585de/c.html">China NEA Solar</a>
+            <a href="https://iea-pvps.org/fact-sheets/fs-soiling-losses/">PV Soiling Losses</a>
+            <a href="https://www.eia.gov/todayinenergy/detail.php?id=66744">EIA Outages</a>
+            <a href="https://www.publicpower.org/periodical/article/cost-not-cutting-trees">Utility Vegetation</a>
+            <a href="https://www.ers.usda.gov/topics/farm-economy/farm-labor">USDA Farm Labor</a>
             <a href="https://enterprise.dji.com/inspection/photovoltaic-power-plant">DJI Solar Inspection</a>
-            <a href="https://www.dji.com/media-center/announcements/dji-agricultural-annual-report-2025">DJI Agriculture Report</a>
-            <a href="https://www.deere.ca/en/news/all-news/see-spray-herbicide-savings/">John Deere See &amp; Spray</a>
-            <a href="https://www.iec.ch/ip-ratings">IEC IP Ratings</a>
-            <a href="https://www.iso.org/standard/82684.html">ISO 18497-1</a>
-            <a href="https://www.iso.org/standard/51528.html">ISO 12100</a>
-            <a href="https://www.faa.gov/uas/commercial_operators/part_107_waivers">FAA Part 107 Waivers</a>
+            <a href="https://raptormaps.com/">Raptor Maps</a>
+            <a href="https://percepto.co/aim/">Percepto AIM</a>
+            <a href="https://www.skydio.com/dock">Skydio Dock</a>
+            <a href="https://www.geckorobotics.com/cantilever">Gecko Cantilever</a>
+            <a href="https://www.anybotics.com/robotics/anymal-x/">ANYmal X</a>
+            <a href="https://bostondynamics.com/products/orbit/">Boston Dynamics Orbit</a>
+            <a href="https://formant.io/">Formant</a>
+            <a href="https://www.inorbit.ai/overview">InOrbit</a>
+            <a href="https://www.faa.gov/uas/commercial_operators">FAA Part 107</a>
+            <a href="https://www.faa.gov/uas/commercial_operators/part_107_waivers">FAA Waivers</a>
+            <a href="https://www.iso.org/standard/83545.html">ISO 3691-4</a>
+            <a href="https://www.automate.org/robotics/safety/robot-safety-resources">ANSI/RIA R15.08</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/factpages/data-act-explained">EU Data Act</a>
+            <a href="https://www.cisa.gov/topics/physical-security/be-air-aware/uas-cybersecurity">CISA UAS Cyber</a>
+            <a href="https://mcap.dev/guides/getting-started/ros-2">MCAP ROS 2</a>
+            <a href="https://www.rfc-editor.org/rfc/rfc7946">GeoJSON</a>
             <a href="https://webrtc.org/">WebRTC</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform">Qualcomm RB6</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Dragonwing IQ10</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
+            <a href="https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm">CAC Data Export</a>
           </div>
         </div>
       </section>
