@@ -1,139 +1,241 @@
-# PilotContractKit Pitch
+# PilotContractKit
 
-更新时间：2026-07-05。
+更新时间：2026-07-06。
 
-## Core Thesis
+PilotContractKit is a Chinese pitch-deck concept for the Qualcomm robotics competition. It frames robotics commercialization as a procurement-readiness problem: companies are interested in robots, but they do not know how to buy a low-risk, measurable pilot.
 
-商业化机器人平台不能只靠“我们可以做 demo”。企业客户需要一个低风险采购入口：
+> Make the robot pilot purchasable before it is scalable.
 
-> PilotContractKit = 4-8 周试点合同 + 明确任务范围 + KPI + 验收标准 + 数据权益 + 云训练额度 + 边缘运行证据 + 扩展到 Fleet Kit 的路径。
+## One-Line Company
 
-它把 RobotMac 从技术愿景变成客户能采购、法务能审查、采购经理能批准的试点产品。
+PilotContractKit turns a robot demo into a procurement-ready enterprise pilot package with scope, KPI, data rights, safety boundary, cloud training budget, Qualcomm edge deployment evidence, support responsibility, and expansion pricing.
 
-## Why This Matters
+Chinese pitch:
 
-企业机器人采购的难点通常不是客户完全不感兴趣，而是风险太不清楚：
+> 企业不是不想试机器人，是不知道怎样低风险购买一次试点。
 
-- 试点到底做什么任务？
-- 用什么硬件？
-- 数据归谁？
-- 成功标准是什么？
-- 失败后怎么处理？
-- 试点结束后继续买什么？
-- 供应商是否承担维护和训练责任？
+## Problem
 
-PilotContractKit 的作用是把这些问题写成产品包，而不是每个客户都重新谈一遍。
+Robot demos often fail to become paid pilots because five buyer groups ask different questions:
 
-## Pilot Package
+- procurement asks about price, cancellation, scale pricing, and CapEx risk;
+- operations asks about throughput, intervention, uptime, punch lists, and baseline;
+- IT asks about video, telemetry, cloud regions, retention, and model training rights;
+- safety asks about local emergency stop, supervision, rollback, and site boundaries;
+- engineering asks about training version, edge profile, latency, uptime, and reproducibility.
 
-### 1. Scope
+The current robotics sales motion often starts with a demo and jumps too quickly to “buy the system.” PilotContractKit inserts the missing paid-pilot layer.
 
-定义一个小而明确的任务：
+## Why Now
 
-- LabForge 样品转移。
-- FactoryPilot 指针/状态灯巡检。
-- LogisticsMove 固定路线搬运。
-- EduForge 教学训练闭环。
+Signals checked on 2026-07-06:
 
-每个试点只选一个主任务，避免范围失控。
+- IFR reported 542,000 global industrial robot installations in 2024 and 4.664 million operating industrial robots.
+- IFR reported professional service robot sales close to 200,000 units in 2024 and RaaS fleet growth of about 31%.
+- A3 reported North American robot orders rose 6.6% in 2025; cobots were 19.6% of all robots ordered.
+- A3 reported Q1 2026 demand broadening outside automotive, including life sciences, electronics, plastics/rubber, and food/consumer goods.
+- RaaS providers such as Formic, Locus, and Brightpick show buyer appetite for lower CapEx, service contracts, uptime, maintenance, and performance terms.
+- Fleet platforms such as Formant, Viam, Foxglove, and InOrbit show robot telemetry, operations, and evidence logs are becoming expected infrastructure.
 
-### 2. Baseline
+Conclusion:
 
-试点开始前记录：
+The market does not need more unstructured demos. It needs a commercial format that turns robotics interest into measurable paid pilots.
 
-- 当前人工流程。
-- 任务频率。
-- 失败类型。
-- 安全边界。
-- 可采集数据。
-- 预期节省或学习价值。
+## Insight
 
-### 3. Deliverables
+The key wedge:
 
-交付物：
+> A robot pilot is a cross-functional purchasing artifact, not only an engineering test.
 
-- RobotMac Core / BoardBringupKit。
-- Teleop Studio 采集流程。
-- LeRobot-compatible dataset。
-- CloudTwin 训练报告。
-- EdgeRuntimeBench 运行证据。
-- SafetyOps 发布和回滚记录。
-- 三分钟试点复盘视频。
+The pilot must be legible to procurement, operations, IT, safety, legal, engineering, and the eventual scale owner.
 
-### 4. Acceptance Metrics
+## Solution
 
-试点验收指标：
+PilotContractKit productizes:
 
-- 任务成功率。
-- 单次任务时间。
-- 人工接管次数。
-- 失败回流样本数量。
-- 运行稳定性。
-- 数据集质量。
-- 边缘推理延迟。
-- 客户团队可复现程度。
+- pilot scope and operational boundary;
+- baseline capture;
+- acceptance scorecard;
+- data and telemetry terms;
+- safety boundary;
+- human supervision;
+- rollback and exit;
+- cybersecurity checklist;
+- insurance/liability responsibility matrix;
+- export/data-residency review path;
+- LeRobot/CloudTwin training deliverables;
+- Qualcomm edge deployment evidence;
+- expansion quote into Fleet Kit, Industry Pack, RaaS, or support subscription.
 
-### 5. Expansion Path
+It is not a legal contract generator. It is a robotics pilot evidence and risk-organization product.
 
-试点成功后进入：
+## Product Workflow
 
-- Fleet Kit：多机运维和订阅。
-- Industry Pack：行业模板和私有技能包。
-- SafetyOps：企业权限和审计。
-- DataFlywheel：持续训练数据资产。
+1. Select pilot task: LabForge sample transfer, FactoryPilot inspection, LogisticsMove transport, EduForge training, or another bounded workflow.
+2. Define baseline: manual process, task frequency, cycle time, labor hours, failure types, site boundary, and available data.
+3. Generate pilot pack: scope, KPI, device list, integration boundary, data boundary, support SLA, acceptance table, and price range.
+4. Run pilot: teleop/HIL capture, LeRobot-compatible dataset, cloud training, Qualcomm edge deployment, logs, and failure replay.
+5. Generate acceptance report: throughput, quality, autonomy, uptime, integration, edge metrics, safety events, and customer reproducibility.
+6. Convert to expansion: Fleet Kit, Industry Pack, SafetyOps, DataFlywheel, RaaS/monthly contract, or stop/no-scale decision.
 
-## Contract Structure
+## Acceptance Metrics
 
-### Phase 0: Discovery
+Acceptance should use business metrics and technical metrics:
 
-1 周。确认场景、任务、数据边界、硬件限制和验收标准。
+| Category | Example metrics |
+| --- | --- |
+| Throughput | units/hour, picks/hour, cases/hour, cycle time, changeover time |
+| Quality | order accuracy, defect/rework, false positive/negative, missed task |
+| Autonomy | success rate, intervention rate, human takeover time, failure type |
+| Uptime | minimum production hours, downtime reason, MTTR, support response |
+| Integration | WMS/MES/ERP/API completion, network access, operator training |
+| Edge evidence | p50/p95 latency, FPS/action rate, CPU/GPU/NPU, memory, temperature, power, rollback |
+| Safety log | emergency stop, protective stop, near miss, stop-work event, restart owner |
 
-### Phase 1: Bring-up
+Acceptance means “pilot criteria met,” not production safety certification.
 
-1-2 周。BoardBringupKit、相机、IO、安全、遥操作和数据采集。
+## Market Wedge
 
-### Phase 2: Train
+First buyers:
 
-1-2 周。CloudTwin 训练、评估、EdgeRuntimeBench profile 和部署包。
+1. Mid-market food/CPG end-of-line manufacturers for palletizing, case handling, inspection, machine tending, and material movement.
+2. 3PL/e-commerce/life-sciences warehouses for AMR, tote movement, picking, AS/RS, and WMS integration.
+3. China-based electronics, automotive supplier, food/beverage, and textile factories that already understand robotics but need local procurement/data/safety evidence.
+4. System integrators that need repeatable scopes and acceptance packs.
+5. Robot OEMs that need help converting demos into paid pilots.
 
-### Phase 3: Pilot Run
+## Business Model
 
-1-2 周。真实任务运行、失败接管、日志记录、复盘和扩展方案。
+Commercial shapes:
 
-## Pricing Logic
+- paid diagnostic/scoping sprint;
+- fixed-price pilot with success gates;
+- cloud training and edge profiling add-on;
+- hardware/sensor/safety-device package;
+- RaaS or monthly managed deployment conversion;
+- fleet operations subscription;
+- system-integrator revenue share;
+- industry-template licensing.
 
-不要一开始卖“完整机器人替代方案”。先卖可控试点：
+Pitch price anchor:
 
-- 固定试点费用：覆盖硬件、集成、工程和支持。
-- 云训练额度：按任务或 GPU-hour 包计。
-- 数据/技能交付：根据客户是否需要私有技能包定价。
-- 运维订阅：试点成功后进入 Fleet Kit。
-- 行业模板：多个客户复用后形成 Industry Pack。
+- RMB 300k-1M for paid pilot package, adjusted by scenario complexity, hardware, integration, support, and duration.
+- Use as a proposal anchor, not a guaranteed price.
 
-## Competition Story
+## Go To Market
 
-在项目书和答辩中，PilotContractKit 证明商业潜力不是空话：
+Start with vendors and integrators that already have demos but struggle to close enterprise pilots.
 
-- 有明确买家：实验室、工厂、系统集成商、高校。
-- 有明确入口：4-8 周试点。
-- 有明确验收：任务成功率、延迟、数据、失败回流。
-- 有明确扩展：Fleet Kit / Industry Pack / Training subscription。
-- 有 Qualcomm 价值：每个试点都导向 Qualcomm edge runtime。
+Motion:
 
-## Why Qualcomm Should Care
+1. Publish competition demo and pilot generator.
+2. Package 2-3 sample pilots: LabForge, FactoryPilot, LogisticsMove.
+3. Give SI/OEM partners a reusable SOW, KPI scorecard, risk boundary, data rights module, acceptance packet, and expansion quote.
+4. Convert successful pilots into Fleet Kit, Industry Pack, SafetyOps, and DataFlywheel subscriptions.
 
-如果 RobotMac 能把每个客户试点都包装成 Qualcomm edge deployment evidence，那么 Qualcomm 获得的不只是一次比赛曝光，而是：
+## Competition
 
-- 企业客户接触 Qualcomm edge AI。
-- 开发者围绕 Qualcomm target 训练和部署策略。
-- 试点成功后进入多机运维和长期运行。
-- 行业模板沉淀为可复用参考设计。
+Adjacent categories:
+
+- Formant / Viam / Foxglove / InOrbit: robot SaaS and fleet/data platforms.
+- Locus / Formic / Brightpick / inVia / Vecna: RaaS and managed deployments.
+- UR+ / FANUC / ABB / KUKA / Rockwell: certified ecosystems, integrator networks, and pre-tested packages.
+- HowToRobot / RBTX: sourcing and quote/composition marketplaces.
+- HAI Robotics / Geek+ / Hikrobot / SIASUN / Estun: China-local integrated robotics solutions and deployment channels.
+
+Differentiation:
+
+PilotContractKit sits before and around these tools. It makes the pilot approvable by procurement, operations, safety, IT, legal, and engineering.
+
+## Risk Boundary
+
+Safe claims:
+
+- helps teams structure robotics pilots before deployment;
+- organizes common pilot terms: data, telemetry, safety boundaries, supervision, rollback, cybersecurity, acceptance metrics;
+- maps pilot artifacts to recognized safety, cybersecurity, privacy, and procurement references.
+
+Avoid claims:
+
+- ISO/OSHA/EU/China compliant;
+- certified safe;
+- export-control cleared;
+- China-ready data transfer;
+- cloud dashboard controls safety;
+- replaces counsel, safety integrators, insurers, or regulatory review.
+
+Required language:
+
+> The dashboard is for operational visibility, reporting, configuration workflow, and maintenance support. It is not a safety-rated control system and does not replace local emergency stops, protective devices, risk assessment, or site supervision.
+
+## Moat
+
+The moat is not the contract text. It is the pilot knowledge base:
+
+- industry task templates;
+- acceptance metrics library;
+- failure type library;
+- data-rights and telemetry patterns;
+- safety-boundary patterns;
+- Qualcomm edge deployment evidence;
+- pilot-to-fleet expansion pricing;
+- SI/OEM reusable handoff package.
+
+Every pilot makes the next similar pilot easier to sell, run, and accept.
+
+## Why Qualcomm
+
+Qualcomm should care because each pilot can force concrete edge deployment evidence:
+
+- model artifact;
+- compile/profile job;
+- deployable edge asset;
+- latency/action-rate/resource metrics;
+- power/thermal/runtime evidence;
+- rollback record;
+- acceptance report.
+
+This turns Dragonwing, AI Hub, QNN/QAIRT, and robotics reference designs from competition hardware into customer-facing proof inside the pilot approval packet.
+
+## Demo
+
+Competition demo:
+
+1. Open PilotContractKit generator.
+2. Select `LabForge sample transfer` or `FactoryPilot light/status inspection`.
+3. Generate scope, KPI, data boundary, safety boundary, deliverables, price range, and expansion path.
+4. Capture a few teleop/HIL episodes.
+5. Generate LeRobot-compatible dataset.
+6. Train or simulate training.
+7. Export Qualcomm edge package/profile.
+8. Run the robot or simulated run.
+9. Show scorecard and expansion quote.
+
+All simulated profile metrics must be labeled simulated/target/pending validation.
+
+## Ask
+
+Ask Qualcomm for:
+
+1. QCS8550/QCS6490/IQ-series development hardware or partner controller testing path.
+2. AI Hub / QNN / QAIRT profiling guidance.
+3. Recommended Qualcomm processor application metrics for the contest.
+4. Permission/support to publish the demo as a Dragonwing Robotics Hub reference project.
+5. Introductions to APLUX, Radxa, Advantech, Thundercomm, robotics integrators, education partners, or factory pilots.
 
 ## Sources
 
-- IFR service robots growth：https://ifr.org/news/service-robots-see-global-growth-boom
-- Formic robot-as-a-service company：https://formic.co/
-- Agility Robotics：https://www.agilityrobotics.com/
-- GXO Logistics：https://gxo.com/
-- LeRobot documentation：https://huggingface.co/docs/lerobot/index
-- Qualcomm AI Hub：https://aihub.qualcomm.com/
+- IFR industrial robots 2025: https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years
+- IFR service robots growth: https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom
+- A3 2025 robot orders: https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption
+- A3 Q1 2026 robot orders: https://www.automate.org/robotics/news/robot-orders-hold-steady-in-q1-2026-as-demand-broadens-across-non-automotive-industries
+- Formic full-service automation: https://formic.co/full-service-automation
+- Formant fleet management: https://docs.formant.io/docs/getting-started-fleet-management
+- Viam robot platform: https://www.viam.com/
+- OSHA robotics technical manual: https://www.osha.gov/otm/section-4-safety-hazards/chapter-4
+- ISO 10218-2:2025 robot applications and cells: https://www.iso.org/standard/73934.html
+- NIST SP 800-82 Rev. 3 OT security: https://csrc.nist.gov/pubs/sp/800/82/r3/final
+- Qualcomm Dragonwing Robotics Hub: https://www.qualcomm.com/developer/blog/2026/03/what-qualcomm-dragonwing-robotics-hub-means-for-developers
+- Qualcomm IQ10 Robotics Reference Design: https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- Qualcomm AI Hub deployment docs: https://workbench.aihub.qualcomm.com/docs/hub/deployment.html
+- Hugging Face LeRobot: https://huggingface.co/docs/lerobot/index
