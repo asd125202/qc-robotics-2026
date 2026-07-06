@@ -29,6 +29,7 @@ Current batch:
 - `store-loop/` — retail store execution platform for shelf truth, associate tasks, bounded robot actions, proof-of-closure, privacy-first edge perception, and LeRobot training loops.
 - `food-loop/` — restaurant operations platform for KDS/POS tickets, tray verification, delivery/bussing, cleaning proof, food-safety logs, exception capture, and LeRobot HIL loops.
 - `careos/` — eldercare productivity platform for home, community, and facility care tasks, privacy-first Qualcomm edge execution, caregiver escalation, service evidence, and LeRobot HIL loops.
+- `warehouse-loop/` — warehouse exception-closure platform for WMS mismatches, receiving/putaway errors, returns grading, photo/barcode proof, WMS writeback, and LeRobot HIL loops.
 - `roboport/` — certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `business-case/` — commercialization, pricing package, and revenue flywheel story.
 - `submission-kit/` — preliminary project-book and upload-readiness page.
