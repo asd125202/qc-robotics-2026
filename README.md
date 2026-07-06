@@ -66,7 +66,7 @@ The current first-batch pitch directions are:
 - `ComputeLoop 智算异常闭环台`: AI factory exception-closure pitch that links GPU/job issues, RoCE/network, liquid cooling, power, PUE, robot inspection, SLA impact, LeRobot HIL, and Qualcomm edge evidence into verified recovery events.
 - `BuildLoop 安闭环`: construction safety exception-closure evidence pitch for AI alerts, inspections, subcontractor remediation, owner/regulator/insurer audit packets, symbolic tabletop demo, LeRobot HIL, and Qualcomm edge evidence.
 - `RoboPort 机器人模组港`: robot-module compatibility evidence pitch for CR-ready module passports, ROS 2 driver capsules, LeRobot metadata, compatibility tests, marketplace distribution, and Qualcomm edge certification targets.
-- `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
+- `BusinessCase`: demo-to-deployment business pitch for RobotMac, covering problem, why now, market wedge, dual-cloud training economics, package strategy, competition, moat, Qualcomm value, demo, and ask.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.
 - `VerticalPlaybooks`: factory, logistics, lab, campus/service, and education market product packages.
 - `DataFlywheel`: teleoperation, dataset ledger, cloud training, edge deployment, and failure-mining loop.
