@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LabLoop 实验室闭环 | 样本、仪器、机器人和审计证据的 AI 操作层</title>
+    <title>LabLoop 实验室闭环 | 合规样本流转的物理 AI 操作层</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -15,10 +15,10 @@
       <nav class="navlinks" aria-label="页面导航">
         <a href="#problem">问题</a>
         <a href="#why-now">时机</a>
+        <a href="#insight">洞察</a>
         <a href="#solution">方案</a>
         <a href="#market">市场</a>
-        <a href="#gtm">GTM</a>
-        <a href="#moat">壁垒</a>
+        <a href="#business">商业</a>
         <a href="#competition">竞争</a>
         <a href="#qualcomm">高通</a>
       </nav>
@@ -27,12 +27,12 @@
     <main>
       <section class="hero hero-lab-loop">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 55 · Closed-Loop Lab Operations</p>
-          <h1>实验室不缺记录系统，缺让实验真正闭环的操作层。</h1>
-          <p class="hero-lede">LabLoop 是面向生命科学、临床检验、药企 QC、CRO/CDMO 和核心实验平台的实验室闭环操作层：把样本、协议、仪器、机器人、原始数据、QC 异常、报告和下一轮实验建议连成可执行、可审计、可学习的闭环。</p>
+          <p class="eyebrow">Pitch 55 · Audit-Ready Lab Execution Loop</p>
+          <h1>实验室缺的不是记录系统，是让真实 bench 动作闭环的操作层。</h1>
+          <p class="hero-lede">LabLoop 面向药企 QC、CRO/CDMO、诊断实验室和核心平台，把样本登记、扫码、分拣、移液/制备、仪器结果、QC 异常、QMS 证据和 LeRobot HIL 训练回流串成可执行、可审计、可学习的机器人工作流。</p>
           <div class="cta-row">
             <a class="button primary" href="#solution">看实验闭环</a>
-            <a class="button" href="../labforge-pilot/">连接 LabForgePilot</a>
+            <a class="button" href="#business">看商业模型</a>
           </div>
         </div>
       </section>
@@ -42,26 +42,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">01 · Problem</p>
-              <h2>LIMS 记录样本，ELN 记录结论，但 bench 上的真实执行仍然断裂。</h2>
+              <h2>LIMS 知道样本编号，ELN 知道实验结论，但没人实时知道 bench 上到底发生了什么。</h2>
             </div>
-            <p>实验室已经买了 LIMS、ELN、仪器、排程系统、机器人和 QMS，但协议意图、样本 lineage、仪器参数、原始文件、分析脚本和结论仍散在不同系统里。AI 很难从这样的数据里学习。</p>
+            <p>实验室不是缺软件，而是缺 loop。科学家和检验人员仍在 SOP、Excel、仪器文件、邮件、手工判断和 QMS 偏差之间搬运上下文。结果是样本链路出错、metadata 丢失、失败原因难复盘、AI 也吃不到干净的实验 episode。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>样本链路错</h3>
-              <p>错放、漏扫、标签错误、耗材不足和仪器未就绪经常靠人肉发现。</p>
+              <h3>样本最脆弱</h3>
+              <p>采集、运输、扫码、分拣、开盖、移液、冷藏和交接是 pre-analytical 错误高发环节。</p>
             </article>
             <article class="card">
-              <h3>执行状态盲</h3>
-              <p>LIMS/ELN 知道记录，不实时知道 rack、plate、reagent、robot 和 instrument 状态。</p>
+              <h3>仪器各自为政</h3>
+              <p>plate reader、qPCR、液体工作站、冷库、AMR 和文件夹只知道自己的状态。</p>
             </article>
             <article class="card">
-              <h3>QMS 滞后</h3>
-              <p>deviation 往往事后处理，无法在执行中阻断错误并自动附上 raw evidence。</p>
+              <h3>QMS 事后补证据</h3>
+              <p>deviation 常在错误发生后再追溯，raw evidence、图像、轨迹和人类处置很难拼齐。</p>
             </article>
             <article class="card">
-              <h3>AI 缺数据</h3>
-              <p>目的、动作、状态、结果、异常和人类纠错没有连成可训练 episode。</p>
+              <h3>机器人不成闭环</h3>
+              <p>机械臂能移动样本，但没有协议意图、样本 lineage、QC 结果和 HIL 纠错就无法学习。</p>
             </article>
           </div>
         </div>
@@ -72,26 +72,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">02 · Why Now</p>
-              <h2>自动化、R&D 成本、临床人手和数据完整性压力同时上升。</h2>
+              <h2>AI 能设计实验，湿实验执行却成了瓶颈。</h2>
             </div>
-            <p>实验室自动化正在增长，但“买机器人”和“让实验闭环”是两件事。客户真正需要 throughput、可复现性、QA evidence 和 AI-ready data。</p>
+            <p>实验室自动化、LIMS/ELN、科学数据云、AI-ready data、合规数字化和边缘机器人同时成熟。最大的缺口不是再买一个记录系统，而是把真实样本、机器人动作、QC 证据和数据系统接成闭环。</p>
           </div>
           <div class="grid four">
             <div class="stat">
               <strong>$18.39B</strong>
-              <span>Grand View 预计全球 lab automation 到 2033 年的市场规模。</span>
-            </div>
-            <div class="stat">
-              <strong>$2.671B</strong>
-              <span>Deloitte 估算 2025 年开发一个 pharma asset 的平均成本。</span>
-            </div>
-            <div class="stat">
-              <strong>17.4%</strong>
-              <span>ASCP 调查中已引入 AI 工具的实验室占比，实施缺口仍大。</span>
+              <span>Grand View 估算全球 lab automation 市场 2033 年将达 183.9 亿美元。</span>
             </div>
             <div class="stat">
               <strong>98.4%</strong>
-              <span>一项大规模研究中记录错误主要来自 pre-analytical 阶段。</span>
+              <span>一项 2025 年研究中，实验室记录错误主要集中在 pre-analytical 阶段。</span>
+            </div>
+            <div class="stat">
+              <strong>100+</strong>
+              <span>中国医药工业数智化方案要求到 2027 年打造 100 个以上典型场景和数智药械工厂。</span>
+            </div>
+            <div class="stat">
+              <strong>700 TOPS</strong>
+              <span>Qualcomm Dragonwing IQ10 RRD 支持高算力、多传感和机器人参考设计。</span>
             </div>
           </div>
         </div>
@@ -101,23 +101,23 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">03 · Insight</p>
-              <h2>下一代实验室软件不是 system of record，而是 system of action and provenance。</h2>
+              <p class="kicker">03 · Core Insight</p>
+              <h2>最快的实验室不是机器人最多，而是反馈回路最短。</h2>
             </div>
-            <p>它知道科学家想做什么，仪器实际做了什么，样本/耗材/机器人状态发生了什么，数据是否有效，以及下一步应该做什么。</p>
+            <p>真正的瓶颈不是能不能自动移液，而是每个样本、参数、仪器状态、文件、观察结果和人工纠正，能不能自动变成下一轮实验或 QC 决策的输入。</p>
           </div>
           <div class="grid three">
             <article class="card">
-              <h3>Action</h3>
-              <p>不是把实验写进 ELN，而是驱动 sample、instrument、robot 和 operator 完成下一步。</p>
+              <h3>从记录到执行</h3>
+              <p>LIMS/ELN 记录过去；LabLoop 驱动 sample、instrument、robot 和 operator 完成下一步。</p>
             </article>
             <article class="card">
-              <h3>Provenance</h3>
+              <h3>从文件到 provenance</h3>
               <p>protocol intent、sample identity、physical action、instrument run 和 QC outcome 一起记录。</p>
             </article>
             <article class="card">
-              <h3>Learning</h3>
-              <p>人工纠错、robot failure 和 successful run 变成下一轮 LeRobot / AI 数据。</p>
+              <h3>从异常到学习</h3>
+              <p>人工接管、核验失败和成功 run 都成为 LeRobot HIL、QA 审批和下一版模型的数据。</p>
             </article>
           </div>
         </div>
@@ -127,13 +127,13 @@
         <div class="wrap split">
           <div>
             <p class="kicker">04 · Solution</p>
-            <h2>LabLoop 是 existing lab 之上的闭环操作层。</h2>
-            <p class="lead">它连接 LIMS/ELN/QMS、仪器、机器人、相机、条码/RFID、文件夹和人工确认，把每一次实验从 request 推进到执行、核验、结果、异常和下一步。</p>
+            <h2>LabLoop 是现有实验室之上的物理 AI 执行层。</h2>
+            <p class="lead">它不替换 LIMS/ELN/QMS，也不卖孤立机械臂；它把样本、协议、仪器、机器人、相机、条码/RFID、原始文件和人工审批连接成 live execution + observation + learning loop。</p>
             <ul class="list">
-              <li>Bridge：连接 LIMS/ELN/QMS、仪器、机器人、文件夹、条码/RFID。</li>
-              <li>Runtime：在 Qualcomm edge 核验 sample、rack、plate、instrument readiness 和 robot action。</li>
-              <li>Graph：建立 protocol-sample-instrument-result-deviation-next action 图谱。</li>
-              <li>Learning：把人工纠正、失败和成功 run 转成 LeRobot HIL 数据。</li>
+              <li>Worklist Bridge：导入 LIMS worklist、ELN protocol、QMS rule 和 instrument method。</li>
+              <li>Edge Lab Cell：Qualcomm edge 本地核验 barcode/OCR、tube、cap、well、liquid level 和 anomaly。</li>
+              <li>Evidence Graph：Sample、Aliquot、ProtocolVersion、RobotRun、QCDecision、HILIntervention。</li>
+              <li>Learning Loop：HIL 纠错进入区域训练云，经 AI Hub profile 后等待 QA 审批和灰度。</li>
             </ul>
           </div>
           <div class="visual">
@@ -142,35 +142,35 @@
         </div>
       </section>
 
-      <section id="product" class="slide white">
+      <section id="workflow" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
               <p class="kicker">05 · Product Workflow</p>
-              <h2>8 周闭环一个高频实验流程，不替换 LIMS/ELN。</h2>
+              <h2>先闭环一个高频样本流程，不重建整座实验室。</h2>
             </div>
-            <p>LabLoop 从一个可测量流程切入：一个样本链路、一个仪器类别、一个机器人/人工动作、一个 QC/QMS 输出。</p>
+            <p>最好的第一 wedge 是“sample handling + QC provenance + LIMS/ELN connector”：高频、低争议、强 ROI，且能自然扩展到更多仪器和机器人。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>Order</h3>
-              <p>LIMS 创建 sample IDs、plate map、protocol version、instrument method。</p>
+              <h3>Import</h3>
+              <p>导入 LIMS worklist、样本 ID、plate map、protocol version 和验收标准。</p>
             </article>
             <article class="step">
               <h3>Verify</h3>
-              <p>barcode/RFID/camera 核验 rack、tube、plate、reagent、tip box 和位置。</p>
+              <p>相机、barcode/RFID、称重和传感器核验 tube、rack、reagent、tip box。</p>
             </article>
             <article class="step">
               <h3>Execute</h3>
-              <p>robot 或人工执行 mock pipetting、tube transfer、instrument loading。</p>
+              <p>机器人或人工执行分拣、移液 mock、tube transfer、instrument loading。</p>
             </article>
             <article class="step">
-              <h3>Record</h3>
-              <p>instrument result、raw file、QC flag、postcondition 和 audit evidence 写回。</p>
+              <h3>Block</h3>
+              <p>发现 swapped tube、低液量、错孔位或手进入区域时阻断并请求 HIL。</p>
             </article>
             <article class="step">
-              <h3>Learn</h3>
-              <p>人工接管和核验失败进入 LeRobot HIL 和下一轮模型队列。</p>
+              <h3>Writeback</h3>
+              <p>结果、QC flag、exception note、签名和 evidence packet 写回 LIMS/ELN/QMS。</p>
             </article>
           </div>
         </div>
@@ -181,34 +181,34 @@
           <div class="section-head">
             <div>
               <p class="kicker">06 · Market Wedge</p>
-              <h2>先打已有仪器和系统、但缺 live execution loop 的实验室。</h2>
+              <h2>先打有监管压力、有系统基础、但缺 live execution loop 的实验室。</h2>
             </div>
-            <p>不是所有实验室都愿意重建成云实验室。更大的机会是把现有实验室升级成可执行、可审计、可学习的闭环实验室。</p>
+            <p>不是所有实验室都愿意外包给云实验室。更大的机会是升级客户自己的物理实验室：保留原有仪器和系统，在 bench 上补一层实时执行和审计证据。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>Pharma QC / CMC</h3>
-              <p>方法、样本、仪器、原始数据、QA 和审计压力强。</p>
+              <h3>药企 QC / CMC</h3>
+              <p>中国最优首客：GxP、CSV、数据完整性、LIMS/QMS 集成和放行检验提效。</p>
             </article>
             <article class="card">
               <h3>CRO / CDMO</h3>
-              <p>项目交付、客户审计、样本流转和可复现性影响收入。</p>
+              <p>项目交付、客户审计、样本流转和可复现性直接影响收入和续约。</p>
             </article>
             <article class="card">
-              <h3>临床检验</h3>
-              <p>样本拒收、IQC、EQA、报告互认和 LIS/LIMS 质量证据。</p>
-            </article>
-            <article class="card">
-              <h3>核心平台</h3>
-              <p>仪器预约、样本流转、平台服务、数据归档和使用计费。</p>
+              <h3>诊断 / ICL</h3>
+              <p>避开成熟 TLA 主线，切样本分拣、复检调度、异常样本闭环和报告审核辅助。</p>
             </article>
             <article class="card">
               <h3>检验检测</h3>
-              <p>CNAS/CMA 样本 chain-of-custody、报告防篡改和校准证据。</p>
+              <p>生态环境、食品、疾控、CNAS/CMA 需要 chain-of-custody、防篡改和全流程追溯。</p>
+            </article>
+            <article class="card">
+              <h3>核心平台</h3>
+              <p>高校/园区平台需要仪器预约、样本流转、服务计费、数据归档和机器人示范。</p>
             </article>
             <article class="card">
               <h3>AI-first Lab</h3>
-              <p>模型需要 lab-grade closed-loop data，不只是 raw file dump。</p>
+              <p>小型 biotech 和材料实验室需要 plate-based assay optimization 和 AI-ready episode。</p>
             </article>
           </div>
         </div>
@@ -219,56 +219,56 @@
           <div class="section-head">
             <div>
               <p class="kicker">07 · Business Model</p>
-              <h2>按实验流程、workcell、仪器连接和验证包收费。</h2>
+              <h2>按 workflow、workcell、connector 和 validation pack 收费。</h2>
             </div>
-            <p>LabLoop 的收入来自客户现有实验室之上的操作层，而不是一次性卖机器人硬件。</p>
+            <p>LabLoop 是 workflow infrastructure，不是诊断产品。定价锚点是减少人工核对、降低样本链路异常、缩短 audit retrieval、提升 throughput 和形成 AI-ready data。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>付费试点</h3>
-              <p>中国 20-50 万元；海外 50k-150k 美元，8 周闭环一个流程。</p>
+              <h3>中国试点</h3>
+              <p>8-12 周，1 个 central lab、1 个样本类、1 个 LIMS/LIS/QMS 集成，5-18 万元。</p>
             </article>
             <article class="card">
-              <h3>站点授权</h3>
-              <p>中国 100-300 万元/站点/年；海外 150k-500k 美元/站点/年。</p>
+              <h3>中国生产版</h3>
+              <p>部门版 6k-20k 元/月；网络/合规私有部署 30k-300k 元/月 + 实施费。</p>
             </article>
             <article class="card">
-              <h3>Connector Packs</h3>
-              <p>LIMS/ELN/QMS、instrument class、SiLA/LADS、robot、barcode/RFID。</p>
+              <h3>海外试点</h3>
+              <p>8-12 周，8k-35k 美元；enterprise regulated 30k-120k 美元/月。</p>
             </article>
             <article class="card">
-              <h3>Validation Pack</h3>
-              <p>GxP/CSV/CSA、audit trail、访问控制、变更控制和 model release evidence。</p>
+              <h3>验证包</h3>
+              <p>GxP/CSV/CSA、Part 11/Annex 11 readiness、audit trail、RBAC、model release evidence。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="gtm" class="slide tint">
+      <section id="gtm" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
               <p class="kicker">08 · Go-To-Market</p>
-              <h2>先让一个实验流程闭环，再扩展到整个站点。</h2>
+              <h2>不卖“大平台”，先让一个流程从 protocol 到 clean dataset。</h2>
             </div>
-            <p>LabLoop 的第一单不是“全实验室 AI 化”，而是一个高频、可测量、客户愿意为审计和 throughput 付费的流程。</p>
+            <p>创始团队要用 concierge onboarding 进入 3 个 design partners，把每次手工支持产品化成 adapter、protocol template 和 validation playbook。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>中国版</h3>
-              <p>药企 QC/CMC、CRO/CDMO、医院临床检验、检验检测机构、高校核心平台。</p>
-            </article>
-            <article class="card">
-              <h3>海外版</h3>
-              <p>AI-first biotech、high-throughput assay、formulation、analytical development。</p>
-            </article>
-            <article class="card">
               <h3>第一试点</h3>
-              <p>一个样本链路、一个仪器类别、一个机器人/人工动作、一个 QMS/QC 输出。</p>
+              <p>一个样本链路、一个仪器类别、一个 robot/manual action、一个 QC/QMS 输出。</p>
+            </article>
+            <article class="card">
+              <h3>Pilot KPI</h3>
+              <p>数字 custody 完整率 >95%，audit packet 检索 <5 分钟，人工核对时间下降 20-40%。</p>
             </article>
             <article class="card">
               <h3>扩张路径</h3>
-              <p>流程 -> 仪器类别 -> workcell -> 实验室站点 -> 多站点模型治理。</p>
+              <p>样本流转 -> plate workflow -> workcell -> 实验室站点 -> 多站点模型治理。</p>
+            </article>
+            <article class="card">
+              <h3>渠道伙伴</h3>
+              <p>LIMS/ELN 实施商、自动化集成商、仪器厂商、CRO/CDMO 和 Qualcomm 生态硬件伙伴。</p>
             </article>
           </div>
         </div>
@@ -279,34 +279,34 @@
           <div class="section-head">
             <div>
               <p class="kicker">09 · Competition</p>
-              <h2>记录系统、机器人和 QMS 都重要，但都不是 live operations loop。</h2>
+              <h2>记录系统、科学数据云和机器人都强，但它们没有统一 bench action loop。</h2>
             </div>
-            <p>LabLoop 不替换它们。它把系统、仪器、机器人和人类动作连接成“应该发生、正在发生、实际发生、是否有效、下一步做什么”的操作真相。</p>
+            <p>LabLoop 的位置是 vendor-neutral physical AI layer：不替换 LIMS/ELN/QMS，不替换仪器，也不替换云实验室，而是把现有实验室变成实时执行、观察、证据和学习闭环。</p>
           </div>
           <div class="grid six">
             <article class="card">
               <h3>Benchling / LabWare</h3>
-              <p>system of record 强；LabLoop 管实时 bench action 和核验证据。</p>
+              <p>system of record 强；LabLoop 管实时 bench action、核验和证据包。</p>
             </article>
             <article class="card">
               <h3>TetraScience / Scitara</h3>
-              <p>数据云和标准化强；LabLoop 把数据连接到任务、样本和 QMS。</p>
+              <p>数据云和标准化强；LabLoop 把数据连接到任务、样本、机器人和 QMS。</p>
             </article>
             <article class="card">
-              <h3>Opentrons / Automata</h3>
-              <p>workcell 自动化强；LabLoop 连接 manual + robot + outsourced steps。</p>
+              <h3>Automata / Biosero</h3>
+              <p>workcell 自动化和调度强；LabLoop 做跨 manual、robot 和 outsourced steps 的证据层。</p>
+            </article>
+            <article class="card">
+              <h3>Opentrons / Hamilton</h3>
+              <p>液体处理和自动化强；LabLoop 管样本 lineage、QC provenance 和 HIL 数据。</p>
             </article>
             <article class="card">
               <h3>Emerald / Strateos</h3>
               <p>云实验室闭环强；LabLoop 升级客户自己的物理实验室。</p>
             </article>
             <article class="card">
-              <h3>Roche / Mindray</h3>
-              <p>临床流水线强；LabLoop 做通用跨科研、QC、平台的闭环层。</p>
-            </article>
-            <article class="card">
-              <h3>Veeva / TrackWise</h3>
-              <p>QMS 强；LabLoop 从执行异常自动生成 deviation 和 raw evidence。</p>
+              <h3>镁伽 / 华大智造</h3>
+              <p>国内智慧实验室和 DBTL 强；LabLoop 做轻量合规闭环和 Qualcomm edge 样板。</p>
             </article>
           </div>
         </div>
@@ -319,32 +319,32 @@
               <p class="kicker">10 · Moat</p>
               <h2>壁垒是 protocol-action-result graph。</h2>
             </div>
-            <p>每个闭环 run 都把意图、样本、仪器、机器人、人类纠错、结果和 QMS 结论变成可学习资产。</p>
+            <p>每个闭环 run 都把意图、样本、仪器、机器人、人类纠错、结果和 QMS 结论变成可学习资产。越多流程接入，LabLoop 越懂真实实验如何失败、如何修正、如何进入下一轮。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>Connector Library</h3>
-              <p>国内外 LIMS/ELN/QMS、仪器、机器人、条码/RFID、文件格式和 API。</p>
+              <h3>Adapter Library</h3>
+              <p>LIMS/ELN/QMS、仪器、机器人、条码/RFID、文件格式、SiLA、OPC UA LADS。</p>
             </article>
             <article class="card">
               <h3>Semantic Layer</h3>
-              <p>method、sample、run、raw file、QC flag、deviation 和 report 统一对象模型。</p>
+              <p>Sample、Container、Aliquot、ProtocolVersion、InstrumentReading、QCDecision。</p>
             </article>
             <article class="card">
-              <h3>Action Graph</h3>
-              <p>目的、动作、状态、结果和纠正行为组成可训练数据。</p>
+              <h3>Execution Graph</h3>
+              <p>protocol intent、physical action、instrument run、raw file、deviation 和 next action。</p>
             </article>
             <article class="card">
               <h3>Compliance Flow</h3>
-              <p>data integrity、audit trail、电子签名、CSV/CSA、变更控制和 release evidence。</p>
+              <p>ALCOA+、audit trail、电子签名、CSV/CSA、变更控制和 release evidence。</p>
             </article>
             <article class="card">
-              <h3>Edge Deployment</h3>
-              <p>本地运行、数据本地化、弱网可用、视觉核验和安全门控。</p>
+              <h3>Edge Footprint</h3>
+              <p>本地运行、数据本地化、弱网可用、视觉核验和 fail-closed safety gate。</p>
             </article>
             <article class="card">
-              <h3>Workflow Agents</h3>
-              <p>每个流程的 QC、异常、next action 和 HIL 数据越来越强。</p>
+              <h3>HIL Dataset</h3>
+              <p>机器人救援轨迹、人工处置、核验失败和成功 run 组成可训练 episode。</p>
             </article>
           </div>
         </div>
@@ -354,27 +354,27 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">11 · Product Architecture</p>
-              <h2>Edge Workcell Gateway、LabLoop Cloud、Instrument Layer、Learning Loop。</h2>
+              <p class="kicker">11 · Architecture</p>
+              <h2>Control Plane、Evidence Store、Edge Lab Cell、Robots & Instruments。</h2>
             </div>
-            <p>Qualcomm edge 负责本地视觉、身份核验、设备状态和 robot execution；云端负责 workflow、集成、训练、审批和 rollout。</p>
+            <p>Qualcomm edge 负责本地视觉、身份核验、机器人状态和安全门控；区域云负责 workflow、审计、训练、模型注册、QA 审批和灰度发布。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>Edge Gateway</h3>
-              <p>camera、barcode、RFID、bench robot、AMR、instrument adapter、本地 audit buffer。</p>
+              <h3>Control Plane</h3>
+              <p>LIMS/ELN/QMS connector、protocol lock、worklist、review、signature 和权限。</p>
             </article>
             <article class="card">
-              <h3>LabLoop Cloud</h3>
-              <p>workflow authoring、connectors、analytics、LeRobot datasets、model registry。</p>
+              <h3>Evidence Store</h3>
+              <p>append-only logs、hashes、raw-data policy、chain-of-custody 和 audit packets。</p>
             </article>
             <article class="card">
-              <h3>Instrument Layer</h3>
-              <p>SiLA 2、OPC UA LADS、Allotrope、AnIML、CSV/PDF watcher、vendor SDK。</p>
+              <h3>Edge Lab Cell</h3>
+              <p>QNN/ONNX/QAIRT 模型，sample vision、robot policy、QC checks、signed manifest。</p>
             </article>
             <article class="card">
-              <h3>Learning Loop</h3>
-              <p>HIL episode、AI Hub profile、QAIRT/ONNX artifact、approval 和 rollback。</p>
+              <h3>Robots & Instruments</h3>
+              <p>robot arm、pipette、scanner、balance、plate reader、SiLA 2、OPC UA、vendor SDK。</p>
             </article>
           </div>
         </div>
@@ -385,82 +385,78 @@
           <div class="section-head">
             <div>
               <p class="kicker">12 · Competition Demo</p>
-              <h2>现场展示一个样本流程从 work order 到 QMS evidence。</h2>
+              <h2>12 个 mock 样本，从 LIMS 工单走到 inspection-ready evidence。</h2>
             </div>
-            <p>不要只展示机械臂移动。展示样本核验、异常阻断、机器人执行、仪器结果、QMS 证据和 HIL 数据。</p>
+            <p>比赛 demo 不展示真实生物危害或临床判断，只展示安全样本、故障注入、edge AI 阻断、HIL 接管、机器人执行和审计证据。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Order</h3>
-              <p>LIMS mock 创建 plate reader / qPCR / ELISA-style work order。</p>
-            </article>
-            <article class="step">
-              <h3>Block</h3>
-              <p>故意放错一个 tube 或缺一个 reagent，edge 核验并阻断任务。</p>
-            </article>
-            <article class="step">
-              <h3>Execute</h3>
-              <p>纠正后 bench robot 执行 mock pipetting / tube transfer。</p>
-            </article>
-            <article class="step">
-              <h3>Writeback</h3>
-              <p>mock instrument 返回 result，写回 ELN/LIMS 并生成 QC evidence。</p>
-            </article>
-            <article class="step">
-              <h3>Learn</h3>
-              <p>人工接管一次对位，保存 LeRobot HIL episode 和训练队列。</p>
-            </article>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Worklist</strong>
+              <span>导入 LIMS worklist 和锁定 ELN protocol，展示样本、plate map 和验收标准。</span>
+            </div>
+            <div class="stat">
+              <strong>Verify</strong>
+              <span>edge camera 检测 barcode/OCR、tube presence、cap state、well occupancy 和液量。</span>
+            </div>
+            <div class="stat">
+              <strong>Fault</strong>
+              <span>故意放错 tube、低液量、错孔位或手进入区域，系统阻断并请求 HIL 纠正。</span>
+            </div>
+            <div class="stat">
+              <strong>Evidence</strong>
+              <span>机器人执行后写回 QC result、exception notes、签名、hash 和 LeRobot episode。</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="qualcomm" class="slide white">
+      <section id="qualcomm" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
               <p class="kicker">13 · Why Qualcomm</p>
               <h2>实验室是 regulated physical AI 的高价值边缘场景。</h2>
             </div>
-            <p>Lab benches 需要本地视觉、低延迟核验、设备网关、机器人控制、安全门控和数据本地化。Qualcomm 可以把它做成 Dragonwing-powered closed-loop lab reference。</p>
+            <p>LabLoop 不是纯云端 chatbot。实验室需要低延迟、低功耗、隐私友好的边缘推理：视觉检查、样本识别、异常检测、离线 SOP 辅助、仪器状态理解和机器人安全门控。</p>
           </div>
-          <div class="grid five">
-            <article class="card">
+          <div class="pipeline">
+            <article class="step">
               <h3>Vision</h3>
               <p>rack pose、label visibility、cap state、plate/well state、spill/anomaly。</p>
             </article>
-            <article class="card">
+            <article class="step">
               <h3>Gateway</h3>
               <p>barcode/RFID、instrument adapter、robot state、本地 audit buffer。</p>
             </article>
-            <article class="card">
+            <article class="step">
               <h3>Runtime</h3>
               <p>AI Hub、QNN/QAIRT、ONNX Runtime QNN EP、model release evidence。</p>
             </article>
-            <article class="card">
+            <article class="step">
               <h3>Privacy</h3>
               <p>医疗、药企、HGR 和实验数据默认本地/私有云数据平面。</p>
             </article>
-            <article class="card">
+            <article class="step">
               <h3>Robotics</h3>
-              <p>LeRobot HIL 把人工纠错和机器人动作变成下一版技能。</p>
+              <p>LeRobot HIL 把人工纠错和机器人救援轨迹变成下一版技能。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="ask" class="slide dark">
+      <section id="ask" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
               <p class="kicker">14 · Ask</p>
               <h2>把 LabLoop 做成 Qualcomm regulated lab edge AI 的参考应用。</h2>
             </div>
-            <p>比赛阶段需要一个可验证的 bench workflow：本地核验、机器人执行、仪器结果、QMS evidence 和 HIL 数据。</p>
+            <p>比赛阶段需要一个可验证的 bench workflow：本地核验、机器人执行、仪器结果、QMS evidence 和 HIL 数据，而不是一个只会移动机械臂的 demo。</p>
           </div>
           <div class="grid three">
             <article class="card">
-              <h3>RB3 / RB6</h3>
-              <p>lab workcell vision、identity check、anomaly detection 和本地推理 profile。</p>
+              <h3>开发板与 profile</h3>
+              <p>RB3/RB6/IQ、lab workcell vision、identity check、anomaly detection 和本地推理 profile。</p>
             </article>
             <article class="card">
               <h3>OEM 连接</h3>
@@ -468,36 +464,38 @@
             </article>
             <article class="card">
               <h3>样板实验室</h3>
-              <p>3 个场景：药企 QC/CRO/CDMO、医院检验或高校核心平台。</p>
+              <p>3 个场景：药企 QC/CRO/CDMO、医院检验、检验检测或高校核心平台。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="slide white">
+      <section class="slide tint">
         <div class="wrap">
-          <p class="quote">LabLoop 的一句话 pitch：现有实验室用它把每一次样本、仪器、机器人和 QC 异常从“记录”推进到可执行、可审计、可学习的实验闭环。</p>
+          <p class="quote">LabLoop 的投资人版一句话：让制药、生物技术和诊断实验室，把人工样本处理变成 24/7 可追踪机器人流水线，而不需要重建整个实验室。</p>
           <div class="source-links">
             <a href="https://www.grandviewresearch.com/industry-analysis/lab-automation-market">Lab Automation</a>
-            <a href="https://www.fortunebusinessinsights.com/laboratory-robotics-market-117407">Lab Robotics</a>
-            <a href="https://www.deloitte.com/us/en/industries/life-sciences-health-care/perspectives/navigating-the-glp-boom.html">Deloitte R&D</a>
-            <a href="https://www.aabb.org/news-resources/news/article/2025/10/08/ascp-publishes-results-of-2024-vacancy-survey">ASCP Vacancy</a>
-            <a href="https://criticalvalues.org/news/all/2026/01/27/ascp-2024-vacancy-survey-report-highlights-policy-priorities-to-address-laboratory-workforce-shortages-through-credentialing--advocacy--and-education-expansion">ASCP AI</a>
-            <a href="https://www.nature.com/articles/s41598-026-38458-y">Pre-Analytical</a>
-            <a href="https://profiles.wustl.edu/en/publications/pre-analytical-phase-errors-constitute-the-vast-majority-of-error/">Error Study</a>
-            <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/computer-software-assurance-production-and-quality-management-system-software">FDA CSA</a>
-            <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/part-11-electronic-records-electronic-signatures-scope-and-application">FDA Part 11</a>
-            <a href="https://english.nmpa.gov.cn/2025-03/25/c_1080969.htm">NMPA Reform</a>
-            <a href="https://www.nhc.gov.cn/wjw/c100378/202503/62073c6fc3064f7f9d971f0b1b9c7dd5/files/1743410147292_68704.pdf">NHC Quality</a>
-            <a href="https://www.ccfdie.org/cn/yjxx/yphzp/webinfo/2020/07/1592159028811276.htm">Drug Records</a>
-            <a href="https://www.wuxiapptec.com/news/wuxi-news/ukp6jpdhyncifp8ovk4kv1z6">WuXi</a>
+            <a href="https://www.marketsandmarkets.com/Market-Reports/lab-informatic-market-203037633.html">Lab Informatics</a>
+            <a href="https://www.grandviewresearch.com/industry-analysis/automated-sample-storage-systems-market-report">Sample Storage</a>
+            <a href="https://grants.nih.gov/funding/find-a-fit-for-your-research/highlighted-topics/66">NIH Automated Experimentation</a>
+            <a href="https://criticalvalues.org/news/all/2026/01/27/ascp-2024-vacancy-survey-report-highlights-policy-priorities-to-address-laboratory-workforce-shortages-through-credentialing--advocacy--and-education-expansion">ASCP Workforce</a>
+            <a href="https://profiles.wustl.edu/en/publications/pre-analytical-phase-errors-constitute-the-vast-majority-of-error/">Pre-Analytical Errors</a>
+            <a href="https://www.deloitte.com/us/en/insights/industry/health-care/biopharma-lab-modernization-digital-transformation-qc-lab-future.html">Deloitte QC Labs</a>
+            <a href="https://www.ccfdie.org/cn/yjxx/yphzp/webinfo/2025/05/1744575796851275.htm">医药数智化</a>
+            <a href="https://www.mee.gov.cn/xxgk2018/xxgk/xxgk10/202512/t20251223_1138494.html">生态环境 LIMS</a>
+            <a href="https://www.nhc.gov.cn/yzygj/c100068/202509/56aedbf79f6e476f89657d61e466f95a/files/2.%E4%B8%B4%E5%BA%8A%E6%A3%80%E9%AA%8C%E4%B8%93%E4%B8%9A%E5%8C%BB%E7%96%97%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6%E6%8C%87%E6%A0%87%EF%BC%882025%E5%B9%B4%E7%89%88%EF%BC%89.pdf">临床检验质控</a>
+            <a href="https://www.stcn.com/article/detail/2264818.html">镁伽科技</a>
+            <a href="https://www.mgi-tech.com/lab-management-system.html">华大智造 ZLIMS</a>
+            <a href="https://insilico.com/news_sc/rgga92ofe1-labclaw">LabClaw</a>
+            <a href="https://automata.tech/company-news/automata-raises-45m-series-c-funding">Automata</a>
+            <a href="https://biosero.com/products/green-button-go-scheduler/">Biosero</a>
             <a href="https://sila-standard.com/standards/">SiLA</a>
             <a href="https://reference.opcfoundation.org/specs/OPC-30500-1/full">OPC UA LADS</a>
-            <a href="https://www.allotrope.org/product-overview">Allotrope</a>
-            <a href="https://docs.opentrons.com/python-api/">Opentrons</a>
-            <a href="https://openrmf.readthedocs.io/">Open-RMF</a>
+            <a href="https://www.allotrope.org/">Allotrope</a>
+            <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11">21 CFR Part 11</a>
+            <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/computer-software-assurance-production-and-quality-management-system-software">FDA CSA</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10 RRD</a>
             <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3</a>
-            <a href="https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform">Qualcomm RB6</a>
             <a href="https://workbench.aihub.qualcomm.com/docs/">AI Hub</a>
             <a href="https://huggingface.co/docs/lerobot/hil_data_collection">LeRobot HIL</a>
           </div>
