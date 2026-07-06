@@ -234,6 +234,10 @@ img {
   background-image: url("./assets/touchforge.png");
 }
 
+.hero-harness-loop {
+  background-image: url("./assets/harness-loop.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }

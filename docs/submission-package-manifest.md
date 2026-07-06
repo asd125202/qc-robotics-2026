@@ -61,6 +61,7 @@ Suggested contents:
 - `docs/ramp-loop.md`
 - `docs/sterile-loop.md`
 - `docs/touchforge.md`
+- `docs/harness-loop.md`
 - `docs/cert-forge.md`
 
 Screenshots or exported pages from:
@@ -90,6 +91,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/ramp-loop/
 - https://qc-robotics-2026.pages.dev/sterile-loop/
 - https://qc-robotics-2026.pages.dev/touchforge/
+- https://qc-robotics-2026.pages.dev/harness-loop/
 - https://qc-robotics-2026.pages.dev/worldforge/
 - https://qc-robotics-2026.pages.dev/robotrust/
 - https://qc-robotics-2026.pages.dev/roboport/
@@ -160,6 +162,7 @@ Suggested values to review:
 - Airport ramp exception closure page: `https://qc-robotics-2026.pages.dev/ramp-loop/`.
 - Sterile processing instrument-tray exception closure page: `https://qc-robotics-2026.pages.dev/sterile-loop/`.
 - Tactile force-control skill factory page: `https://qc-robotics-2026.pages.dev/touchforge/`.
+- EV wire-harness exception closure page: `https://qc-robotics-2026.pages.dev/harness-loop/`.
 - Simulation data factory page: `https://qc-robotics-2026.pages.dev/worldforge/`.
 - Robot data trust cloud page: `https://qc-robotics-2026.pages.dev/robotrust/`.
 - Robot module port ecosystem page: `https://qc-robotics-2026.pages.dev/roboport/`.

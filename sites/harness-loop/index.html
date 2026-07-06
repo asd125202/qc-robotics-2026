@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HarnessLoop 线束异常闭环 | 智能车的物理 Bug Tracker</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>HarnessLoop 线束异常闭环</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#problem">问题</a>
+        <a href="#why-now">时机</a>
+        <a href="#solution">方案</a>
+        <a href="#business">商业</a>
+        <a href="#qualcomm">高通</a>
+        <a href="#ask">Ask</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-harness-loop">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 64 · EV Harness Exception Closure</p>
+          <h1>智能车的物理 Bug Tracker。</h1>
+          <p class="hero-lede">HarnessLoop 关闭电动车线束和连接器异常：把半插连接器、错路线束、漏夹扣、导通失败、返工证据和供应商签核变成同一条可追溯闭环，让软件定义汽车不被物理神经系统卡住交付。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#solution">看闭环产品</a>
+            <a class="button" href="#demo">看比赛 Demo</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Problem</p>
+              <h2>一台智能车可能有数百个连接器；真正拖慢交付的是异常没有闭环。</h2>
+            </div>
+            <p>车厂和 Tier-1 并不是不知道哪里出了问题。痛点是：测试失败、半插、错线、漏卡扣、返工、批次追溯、8D、客户放行和供应商责任散落在 MES、QMS、Excel、微信群、照片和工程师脑子里。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>谁痛</h3>
+              <p>EV OEM 质量、制造工程、SQE、EOL 测试、线束 Tier-1 和连接器供应商。</p>
+            </article>
+            <article class="card">
+              <h3>痛在哪里</h3>
+              <p>一个连接器没坐实，可能变成下线返工、整批围堵、客户投诉、召回风险和发布延误。</p>
+            </article>
+            <article class="card">
+              <h3>为什么难</h3>
+              <p>线束柔性、分支多、车型变体多，检测证据和返工证据很难自动对齐到 connector / cavity / lot / VIN。</p>
+            </article>
+            <article class="card">
+              <h3>为什么现在买</h3>
+              <p>中国 NEV 已进入高占比、高出口、高质保压力阶段，发布速度和质量证据同时变成生死线。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Why Now</p>
+              <h2>EV 规模、线束复杂度、供应链压力和边缘 AI 在同一时间逼近拐点。</h2>
+            </div>
+            <p>这个市场不是靠概念拉动，而是被产量、返修、停线、召回和供应商协同推着走。我们要抓住的是“自动化能做一部分，但异常闭环仍然靠人肉拼证据”的空白。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>16.49M</strong>
+              <span>新华社转引中汽协数据：2025 年中国新能源汽车销量 1649 万辆，同比增长 28.2%。</span>
+            </div>
+            <div class="stat">
+              <strong>56.9%</strong>
+              <span>新华社转引中汽协数据：2026 年 5 月中国新能源汽车新车销量占比达到 56.9%。</span>
+            </div>
+            <div class="stat">
+              <strong>90%</strong>
+              <span>Q5D 2025 年称线束制造仍高度人工化，电动化正在放大自动化需求。</span>
+            </div>
+            <div class="stat">
+              <strong>$2.3M/h</strong>
+              <span>Siemens 2024 停机研究估算，大型汽车工厂非计划停机成本可达每小时约 230 万美元。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="insight" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Core Insight</p>
+              <h2>难点不是发现缺陷，而是把缺陷从发现关到验证通过。</h2>
+            </div>
+            <p>现有视觉检测、EOL 测试、MES、QMS、PLM 都在贡献碎片。HarnessLoop 的洞察是：线束异常需要一个懂线束语义的系统 of closure，而不是又一个横向工单系统。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>通用 QMS 看 ticket</h3>
+              <p>HarnessLoop 看 `C214 / cavity 17 / terminal lot / wire ID / vehicle variant / EOL failure / rework proof`。</p>
+            </article>
+            <article class="card">
+              <h3>机器人不是卖点</h3>
+              <p>机器人、相机、力曲线和导通测试只是证据采集器；客户买的是更快闭环和更少逃逸。</p>
+            </article>
+            <article class="card">
+              <h3>每次异常都是训练数据</h3>
+              <p>人工接管、返工动作、复测结果和客户签核会进入 LeRobot episode，下一次边缘策略更稳。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">04 · Solution</p>
+            <h2>HarnessLoop 是 EV 线束和连接器异常闭环平台。</h2>
+            <p class="lead">它不替代 MES、QMS 或线束设计软件。它补的是最丑但最值钱的一层：把检测、返工、复测、责任人、供应商、工程变更和客户放行绑成一条证据链。</p>
+            <ul class="list">
+              <li>Open：从 EOL 测试、视觉检测、扫码、手工发现或机器人力曲线打开异常。</li>
+              <li>Route：按 connector、cavity、wire、terminal lot、车辆项目、供应商和工位自动派给责任人。</li>
+              <li>Recover：机器人或人工在受限夹具内复位、重插、补夹扣、拍照、复测并记录过程。</li>
+              <li>Close：生成包含 before/after、力曲线、导通表、HIL 片段、签核和 CAPA 的闭环包。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/harness-loop.png" alt="汽车电动车线束装配异常闭环控制台，线束板、连接器插入、夹扣扎带、机器人触觉夹爪、力曲线、导通测试和质量证据">
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Product Workflow</p>
+              <h2>从一条测试失败，到一个可审计关闭的物理 bug。</h2>
+            </div>
+            <p>第一版切口是“连接器异常闭环”，不是全自动线束工厂。我们先解决发布爬坡和 EOL 电气失败最疼的一段，再扩展到线束路由、夹扣、扎带、高压连接和供应商门户。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Detect</h3>
+              <p>EOL NOK、视觉缺陷、半插力曲线、漏夹扣、错路线束或供应商 NCR 打开异常。</p>
+            </article>
+            <article class="step">
+              <h3>Correlate</h3>
+              <p>关联 VIN、工位、线束件号、连接器、端子批次、测试项、操作员和供应商。</p>
+            </article>
+            <article class="step">
+              <h3>Recover</h3>
+              <p>HIL 模式下完成重插、补夹、复位、低压导通复测和 before/after 影像采集。</p>
+            </article>
+            <article class="step">
+              <h3>Verify</h3>
+              <p>力位移曲线、视觉状态、导通表、复测记录和人工签核共同判断是否关闭。</p>
+            </article>
+            <article class="step">
+              <h3>Learn</h3>
+              <p>把异常、接管和恢复片段写入 LeRobotDataset，训练下一版边缘检测和恢复策略。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Market Wedge</p>
+              <h2>先打发布爬坡期的连接器异常，再进入整车电气质量网络。</h2>
+            </div>
+            <p>发布爬坡期最愿意付费，因为质量团队每天都在跟停线、EOL NOK、供应商围堵和客户 audit 赛跑。HarnessLoop 用一个窄入口拿到关键数据模型，然后扩展到全项目、全工厂和供应商网络。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>连接器半插</h3>
+              <p>视觉看起来像合格，CPA/锁止可能欺骗人眼，力曲线和复测能补证据。</p>
+            </article>
+            <article class="card">
+              <h3>错线 / 错孔</h3>
+              <p>按 connector-cavity-wire ID 建模，把导通失败定位到可执行的返工动作。</p>
+            </article>
+            <article class="card">
+              <h3>漏夹扣 / 错路线</h3>
+              <p>路线偏差、clip vacancy 和扎带缺失通过 overhead vision 和返工证据关闭。</p>
+            </article>
+            <article class="card">
+              <h3>批次围堵</h3>
+              <p>按 terminal lot、connector lot、工位时间窗和车辆范围快速定位 suspect population。</p>
+            </article>
+            <article class="card">
+              <h3>供应商 NCR</h3>
+              <p>把 OEM、Tier-1、连接器供应商和工装团队放进同一个事实记录。</p>
+            </article>
+            <article class="card">
+              <h3>客户 Audit</h3>
+              <p>自动生成闭环证据包：问题、围堵、根因、纠正、复测、签核和有效性验证。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Business Model</p>
+              <h2>用停线、围堵和返工的钱，为闭环系统付费。</h2>
+            </div>
+            <p>HarnessLoop 不靠“节省几个工人”讲 ROI。真正的预算来自发布质量、停线风险、EOL 复测、客户审核、供应商索赔、质保成本和召回风险控制。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>90 天试点</h3>
+              <p>7.5 万美元/工厂/项目，覆盖 1 条发布线、3 个重点连接器工位和 EOL failure feed。</p>
+            </article>
+            <article class="card">
+              <h3>年度站点订阅</h3>
+              <p>18-24 万美元/site/year，按线体、车型项目、活跃线束族和供应商协同范围分层。</p>
+            </article>
+            <article class="card">
+              <h3>供应商门户</h3>
+              <p>OEM 可赞助供应商网络，Tier-1 和连接器供应商按 seat / program 参与闭环。</p>
+            </article>
+            <article class="card">
+              <h3>边缘工位包</h3>
+              <p>相机、低力夹具、导通 mock、robot/HIL adapter、Qualcomm edge runtime 和实施服务单独收费。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gtm" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Go-To-Market</p>
+              <h2>90 天只证明一件事：目标线束异常关得更快、更干净、更可追溯。</h2>
+            </div>
+            <p>试点不做大而全集成。第一阶段建立 defect taxonomy 和当前闭环基线，第二阶段接入 EOL/视觉/扫码/返工证据，第三阶段用财务和质量团队认可的 KPI 结案。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>质量 KPI</h3>
+              <p>目标缺陷 repeat PPM 下降 20-30%，目标 EOL 电气 NOK/复测率下降 15-25%。</p>
+            </article>
+            <article class="card">
+              <h3>闭环 KPI</h3>
+              <p>平均诊断/返工/关闭时间下降 20-30%，超过 24 小时未关闭异常减少 50%。</p>
+            </article>
+            <article class="card">
+              <h3>证据 KPI</h3>
+              <p>95%+ 目标异常带站点、VIN/lot、证据、处置、根因、围堵责任人和复测结果。</p>
+            </article>
+            <article class="card">
+              <h3>财务 KPI</h3>
+              <p>试点价值覆盖试点费，或形成年度订阅 3 倍以上可信年化价值。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="competition" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Competition</p>
+              <h2>设计软件管上游，MES/QMS 管流程，机器人公司管动作；闭环证据层没人真正拥有。</h2>
+            </div>
+            <p>我们不和 Siemens Capital、Zuken、MES、QMS、视觉检测或 Q5D 这类线束自动化公司正面硬碰。HarnessLoop 是跨系统的异常关闭层：把它们的输出变成可以签核、复盘和训练的数据资产。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>上游 ECAD</h3>
+              <p>强在设计和制造文档，弱在现场异常、返工证据和供应商协同闭环。</p>
+            </article>
+            <article class="card">
+              <h3>MES / QMS</h3>
+              <p>强在生产记录和 CAPA 流程，弱在线束语义、传感器证据和机器人/HIL 数据。</p>
+            </article>
+            <article class="card">
+              <h3>视觉 / EOL</h3>
+              <p>强在检测，弱在把检测失败转成责任、返工、复测、签核和训练样本。</p>
+            </article>
+            <article class="card">
+              <h3>机器人自动化</h3>
+              <p>强在做动作，弱在跨工位、跨供应商和跨车型的商业闭环数据模型。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Moat</p>
+              <h2>护城河不是模型参数，而是线束异常到关闭结果的数据结构。</h2>
+            </div>
+            <p>每一个 connector、cavity、wire、terminal、supplier、force curve、continuity result、HIL recovery 和 CAPA outcome 都让系统更懂车厂线束质量的真实语言。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Harness Graph</h3>
+              <p>连接器、端子、线束分支、车型变体、工位、供应商和测试项构成专用知识图谱。</p>
+            </article>
+            <article class="card">
+              <h3>Evidence Corpus</h3>
+              <p>before/after 图片、力曲线、导通表、HIL 片段和签核记录组成可审计数据集。</p>
+            </article>
+            <article class="card">
+              <h3>Recovery Episodes</h3>
+              <p>每次人工修复都不是丢失的现场经验，而是下一轮 LeRobot 训练和边缘 profile 的样本。</p>
+            </article>
+            <article class="card">
+              <h3>Supplier Network</h3>
+              <p>从单站点扩到 OEM/Tier-1/连接器供应商，网络越大，重复问题越早被发现。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">11 · Architecture</p>
+              <h2>边缘看现场，云端训模型，安全和签核留在人类负责的闭环里。</h2>
+            </div>
+            <p>比赛版本使用安全低压桌面线束板，不接触真实 EV 高压。Qualcomm edge 运行视觉、力曲线分类和证据打包；LeRobot 负责 HIL 片段和数据集；云 GPU 负责训练，MES/QMS/PLM 通过 adapter 连接。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Sense</h3>
+              <p>overhead camera、wrist camera、wrist F/T、触觉指尖、夹具限位和低压导通测试。</p>
+            </article>
+            <article class="step">
+              <h3>Edge AI</h3>
+              <p>QCS6490/RB3 运行 connector detector、route verifier、force signature classifier 和 evidence packer。</p>
+            </article>
+            <article class="step">
+              <h3>HIL</h3>
+              <p>LeRobot 记录 policy、pause、human takeover、recovery、return-to-policy 和质量结果。</p>
+            </article>
+            <article class="step">
+              <h3>Systems</h3>
+              <p>接入 MES/QMS/EOL/PLM/供应商门户，但不替代原系统 of record。</p>
+            </article>
+            <article class="step">
+              <h3>Train</h3>
+              <p>异常 episode 进入中国云或海外云训练，导出固定模型回到 Qualcomm edge profile。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">12 · Competition Demo</p>
+              <h2>三分钟演示一个完整闭环，而不是炫耀万能机器人。</h2>
+            </div>
+            <p>桌面 demo 用低力线束板、彩色线、JST/Molex 类低压连接器、3D 打印夹具、相机、力传感、MCU 导通测试和小机械臂即可。重点是证据链，而不是汽车级认证。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Open</h3>
+              <p>故意放入错路线束或半插连接器，EOL mock 和视觉同时打开异常。</p>
+            </article>
+            <article class="card">
+              <h3>Assist</h3>
+              <p>机器人尝试低速插接或复位，力曲线异常时停止并请求 HIL 接管。</p>
+            </article>
+            <article class="card">
+              <h3>Recover</h3>
+              <p>人工遥操作修复路线、重插连接器或补夹扣，LeRobot 记录 recovery episode。</p>
+            </article>
+            <article class="card">
+              <h3>Verify</h3>
+              <p>复拍照片、检查 latch/route、导通测试通过，系统生成 before/after 和曲线证据。</p>
+            </article>
+            <article class="card">
+              <h3>Close</h3>
+              <p>异常卡片变成 closed，自动生成 8D/CAPA draft 和下一轮训练样本。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">13 · Why Qualcomm</p>
+              <h2>Qualcomm 不只卖智能车大脑，也应该守住智能车的物理神经系统。</h2>
+            </div>
+            <p>线束异常闭环是 Qualcomm 机器人和汽车生态的交叉点：端侧多传感融合、低延迟推理、工业数据本地化、SDV 发布质量和中国车厂供应链都在这里汇合。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Edge AI Workload</h3>
+              <p>相机、力曲线、触觉、导通测试和异常证据在工位本地融合，不适合全部上云。</p>
+            </article>
+            <article class="card">
+              <h3>Automotive Pull</h3>
+              <p>Qualcomm 已在智能座舱、ADAS 和 SDV 中进入车厂；HarnessLoop 把价值延伸到制造质量。</p>
+            </article>
+            <article class="card">
+              <h3>China Fit</h3>
+              <p>中国 NEV 产量、供应链深度、数据本地化和快速发布周期，让本地 edge-first 方案更有说服力。</p>
+            </article>
+            <article class="card">
+              <h3>Developer Story</h3>
+              <p>比赛能展示 AI Hub、QNN/QAIRT、LeRobot HIL、ROS 2 和云训练如何变成商业产品。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ask" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">14 · Ask</p>
+              <h2>比赛阶段需要一个线束异常闭环样板，而不是真实汽车产线。</h2>
+            </div>
+            <p>我们需要证明商业逻辑、数据闭环和 Qualcomm edge 价值：在低风险桌面工位里把一个物理异常从发现、修复、复测、签核到训练回流完整演示出来。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Hardware</h3>
+              <p>RB3 Gen 2 / QCS6490 类开发板、低力机械臂、双相机、F/T 或 load cell、MCU 导通板和 E-stop。</p>
+            </article>
+            <article class="card">
+              <h3>Fixture</h3>
+              <p>3D 打印线束板、彩色线束、低压连接器、clip/tie 点、pogo pin 或 JST/Molex 类测试座。</p>
+            </article>
+            <article class="card">
+              <h3>Software</h3>
+              <p>ROS 2 topic、LeRobot adapter、异常状态机、evidence packet、AI Hub/QNN profile 和 dashboard。</p>
+            </article>
+            <article class="card">
+              <h3>Boundary</h3>
+              <p>不声称高压 EV 验证、ASIL、任意连接器全自动插接、零人工关闭或生产节拍提升已验证。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="claims" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Claims & Sources</p>
+              <h2>可信说法：证据支持的异常闭环，不是全自动线束工厂。</h2>
+            </div>
+            <p>页面使用公开资料作为方向性证据。市场报告类数字只做趋势参考；比赛 demo 明确限定在低压桌面夹具、人工可接管和 operator approval 的边界内。</p>
+          </div>
+          <div class="source-links">
+            <a href="https://www.news.cn/fortune/20260114/cbbd861081c349d8ae238167ca418fa3/c.html">Xinhua CAAM 2025 NEV</a>
+            <a href="https://www.news.cn/fortune/20260610/24116a9f8ff14182a8c052eb4d380392/c.html">Xinhua CAAM May 2026</a>
+            <a href="https://www.iea.org/reports/global-ev-outlook-2026/trends-in-electric-cars">IEA Global EV Outlook 2026</a>
+            <a href="https://q5d.com/news/fully-automated-wire-harness-production-demonstrated/">Q5D Harness Automation</a>
+            <a href="https://q5d.com/news/q5d-secures-13-5-million-in-funding-for-wiring-automation-including-series-a-venture-round-led-by-lockheed-martin/">Q5D Funding</a>
+            <a href="https://www.agile-robots.com/en/news/detail/robotik-challenge-2025-the-solution-behind-the-award/">Agile Robots Harness Challenge</a>
+            <a href="https://arxiv.org/html/2503.09409v2">Robotic Connector Mating</a>
+            <a href="https://www.aptiv.com/en/newsroom/article/aptiv-announces-intention-to-separate-its-electrical-distribution-systems-business">Aptiv EDS Separation</a>
+            <a href="https://ir.versigent.com/news/news-details/2026/Versigent-Launches-as-New-Publicly-Traded-Company/default.aspx">Versigent Launch</a>
+            <a href="https://std.samr.gov.cn/gb/search/gbDetailed?id=2FF37940EB8DD753E06397BE0A0A413F">GB/T 37133-2025</a>
+            <a href="https://assets.new.siemens.com/siemens/assets/api/uuid:1b43afb5-2d07-47f7-9eb7-893fe7d0bc59/TCOD-2024_original.pdf">Siemens Downtime Study</a>
+            <a href="https://www.warrantyweek.com/archive/ww20250911.html">WarrantyWeek Auto Warranty</a>
+            <a href="https://static.nhtsa.gov/odi/rcl/2025/RCLRPT-25V769-7927.pdf">NHTSA Harness Recall Example</a>
+            <a href="https://huggingface.co/docs/lerobot/hil_data_collection">LeRobot HIL</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobotDataset v3</a>
+            <a href="https://www.qualcomm.com/developer/blog/2025/03/powering-iot-developers-with-edge-ai-qualcomm-rb3-gen2-kit-now-integrated-with-edge-impulse">Qualcomm RB3 Gen 2</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-10/general_introduction.html">QNN / QAIRT</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>QC Robotics 2026 · HarnessLoop 线束异常闭环 · <a href="../index.html">返回首页</a></span>
+    </footer>
+  </body>
+</html>
