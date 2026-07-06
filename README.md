@@ -84,7 +84,7 @@ The current first-batch pitch directions are:
 - `FieldOps`: YC-style new-energy field evidence pitch for solar/remote-asset exception closure, mixed drone/UGV/quadruped missions, weak-network execution, ODD safety envelopes, EvidencePackage APIs, China/overseas training lanes, and Qualcomm AI Hub/QNN release gates.
 - `SafetyOps`: YC-style robot skill release-gate pitch for skill permissions, ODD/safety envelopes, AI Hub/QNN profile evidence, ROS/DDS command admission, incident ledgers, rollback, insurer/customer audit packs, and China/overseas trust shells.
 - `机御 Zero`: YC-style motion-level zero trust pitch for proving who can make a robot move, binding Qualcomm-rooted robot passports, ROS/DDS least privilege, JIT remote access, signed OTA, SBOM/VEX, SOC export, and auditable motion command policy into a commercial security layer.
-- `DualCloudOps`: China/overseas GPU-cloud provider adapters behind one LeRobot training job contract.
+- `DualCloudOps`: YC-style LeRobot-to-Qualcomm release pitch for routing one robot training contract across China or overseas GPU clouds, preserving data boundaries, reproducible eval gates, signed artifacts, and Qualcomm edge deployment evidence.
 - `RevenueStack`: pricing ladder, pilot contracts, recurring revenue lines, and Qualcomm ecosystem economics.
 - `RobotAppLayer`: stable application SDK above ROS 2, LeRobot data/policies, fleet operations, and Qualcomm edge deployment.
 - `OpsConnector`: enterprise integration bridge for WMS, MES, ERP, LIMS, SCADA, operator approval, robot task contracts, and audit writeback.
