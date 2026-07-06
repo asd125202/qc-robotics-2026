@@ -47,13 +47,21 @@ The benchmark is YC / Airbnb-style clarity: the page should persuade a smart str
 11. **Moat**
    - Data flywheel, distribution, integrations, hardware reference design, compliance evidence, switching costs.
 
-12. **Why Qualcomm**
+12. **Architecture**
+   - Show the system only after the business spine is clear.
+   - Keep architecture tied to workflow, evidence, data, and edge constraints.
+
+13. **Why Qualcomm**
    - Make Qualcomm necessary, not decorative.
    - Tie to edge AI, cameras, connectivity, power, security, reference design, and developer ecosystem.
 
-13. **Demo / ask**
+14. **Demo / ask**
    - What will be shown in the competition?
    - What support, device, partner, or pilot is needed next?
+
+15. **Claims / sources**
+   - Cite the facts that make the pitch credible.
+   - State safety, compliance, medical, financial, or field-deployment boundaries explicitly.
 
 ## Required Page Sections
 
@@ -70,9 +78,10 @@ Every new pitch page should have the following visible sections, in this approxi
 - Go-to-market.
 - Competition.
 - Moat.
+- Architecture.
 - Why Qualcomm.
 - Demo / ask.
-- Sources.
+- Claims / sources.
 
 If a page skips one of these, it needs a deliberate reason in the companion `docs/*.md` file.
 
@@ -85,6 +94,8 @@ The first three screens should answer:
 - What product solves it in one sentence?
 
 Research details, architecture, and source links belong after the pitch spine is established.
+
+The hero and first section should avoid opening with technology names such as Qualcomm, LeRobot, ROS, QNN, AI Hub, or cloud GPU. Those names should appear after the buyer pain and wedge are already clear.
 
 ## Quality Bar
 
