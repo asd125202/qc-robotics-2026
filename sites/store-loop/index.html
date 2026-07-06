@@ -3,214 +3,420 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>StoreLoop 店务闭环 | 面向门店运营的边缘机器人平台</title>
+    <title>StoreLoop 门店异常闭环 | 让每一次门店异常都有结案</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
     <header class="topbar">
       <a class="brand" href="../index.html" aria-label="项目首页">
         <span class="brand-mark"></span>
-        <span>StoreLoop 店务闭环</span>
+        <span>StoreLoop 门店异常闭环</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#research">研究</a>
-        <a href="#loop">闭环</a>
-        <a href="#stack">架构</a>
-        <a href="#versions">双版本</a>
-        <a href="#demo">演示</a>
+        <a href="#problem">问题</a>
+        <a href="#why-now">时机</a>
+        <a href="#insight">洞察</a>
+        <a href="#solution">方案</a>
+        <a href="#product">产品</a>
+        <a href="#market">楔子</a>
+        <a href="#business">商业</a>
+        <a href="#gtm">GTM</a>
+        <a href="#competition">竞争</a>
+        <a href="#moat">壁垒</a>
+        <a href="#architecture">架构</a>
         <a href="#qualcomm">高通</a>
+        <a href="#ask">Ask</a>
+        <a href="#claims">来源</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-store-loop">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 46 · Retail Store Execution Loop</p>
-          <h1>StoreLoop 店务闭环</h1>
-          <p class="hero-lede">面向门店运营的 Qualcomm 边缘机器人与 LeRobot 数据飞轮：把货架真实状态变成店员任务、受限机器人动作、复扫验证和可训练 episode。</p>
+          <p class="eyebrow">Pitch 46 · Retail Store Exception Closure</p>
+          <h1>让每一次门店异常都有闭环。</h1>
+          <p class="hero-lede">StoreLoop 面向区域经理、店长和总部运营，把缺货、错价、陈列偏差、冷柜/临期、即时零售拣货超时、退货待判和药店追溯异常，变成可派单、可验证、可复盘的门店闭环。</p>
           <div class="cta-row">
-            <a class="button primary" href="#loop">查看店务闭环</a>
-            <a class="button" href="../ops-connector/">连接 OpsConnector</a>
+            <a class="button primary" href="#solution">看异常闭环</a>
+            <a class="button" href="#business">看商业模型</a>
           </div>
         </div>
       </section>
 
-      <section id="research" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">00 · Five-Thread Research</p>
-              <h2>零售机器人已经真实部署，但价值不在“会逛店”，而在把货架问题闭环到动作和数据。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>痛的是区域经理、店长和总部运营，不是算法团队。</h2>
             </div>
-            <p>Simbe Tally、BrainOS、Badger、Pudu、Telexistence、Galbot 等案例说明：成熟方向是货架智能、清洁 proof、受限补货、药房拣选和门店任务。StoreLoop 不做通用店员机器人，而做 shelf truth 到任务闭环的产品层。</p>
+            <p>门店异常发生在分钟级：货架空了、价签错了、临期没处理、冷柜超温、线上订单拣不到货、自助收银漏扫。总部看到报表时已经太晚，区域经理巡店靠碰运气，店长靠群消息救火。</p>
           </div>
-          <div class="grid five">
+          <div class="grid four">
             <article class="card">
-              <h3>Shelf Truth</h3>
-              <p>POS/WMS 库存不等于货架真实状态；缺货、错位、错价和陈列偏差要现场确认。</p>
+              <h3>总部太晚</h3>
+              <p>BI 和销售报表只能解释昨天发生了什么，不能告诉今天哪家店、哪个货架、谁应该马上处理。</p>
             </article>
             <article class="card">
-              <h3>Task Closure</h3>
-              <p>扫描只是第一步，价值来自派单、修复/协助、复扫和 proof-of-closure。</p>
+              <h3>区域太盲</h3>
+              <p>督导巡店频率低、样本少、主观性强；真正高损耗、高复发的异常经常没有证据链。</p>
             </article>
             <article class="card">
-              <h3>China Pharmacy</h3>
-              <p>药品订单、追溯码、有效期、药师审核和取货柜，是中国版最清晰闭环。</p>
+              <h3>店长太累</h3>
+              <p>微信群、电话、纸质巡检和 POS 异常堆在一起，没有优先级、SLA、升级链和结案验证。</p>
             </article>
             <article class="card">
-              <h3>Privacy Edge</h3>
-              <p>门店视频默认本地处理、脱敏和最小化上传，避免监控优先叙事。</p>
-            </article>
-            <article class="card">
-              <h3>Trainable Action</h3>
-              <p>错识别、遮挡、抓取失败和人工接管都进入 LeRobot 数据集。</p>
+              <h3>一线没证据</h3>
+              <p>店员知道问题多，但缺少可复核照片、库存快照、价签 OCR、处理记录和复扫证明。</p>
             </article>
           </div>
-          <div class="image-band">
+        </div>
+      </section>
+
+      <section id="why-now" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Why Now</p>
+              <h2>门店容错率正在下降。</h2>
+            </div>
+            <p>客流波动、即时零售、低毛利、人工成本和消费者即时反馈，让门店异常从“运营瑕疵”变成“利润泄漏”。同时，摄像头、电子价签、POS 接口、边缘 AI 和机器人底盘正在形成可部署基础。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>50.12万亿</strong>
+              <span>2025 年中国社会消费品零售总额；便利店和超市仍增长，但门店经营进入效率战。</span>
+            </div>
+            <div class="stat">
+              <strong>7810亿</strong>
+              <span>2024 年中国即时零售规模，预计 2026 年突破 1 万亿元；门店正在变成本地履约节点。</span>
+            </div>
+            <div class="stat">
+              <strong>$1.73T</strong>
+              <span>IHL 估算全球零售每年因缺货和过剩库存承受的库存失真损失。</span>
+            </div>
+            <div class="stat">
+              <strong>$849.9B</strong>
+              <span>NRF 预计 2025 年美国零售退货规模；线上退货率 19.3%，欺诈和错判继续侵蚀毛利。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="insight" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Core Insight</p>
+              <h2>门店的问题不是看不见，是没有闭环。</h2>
+            </div>
+            <p>更多摄像头和更多告警会让店长更忙。真正有商业价值的是把异常变成责任明确、时限明确、证据明确、结果可验证的动作，再把处理结果沉淀成下一轮 SOP 和模型训练数据。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>告警不是价值</h3>
+              <p>单点视觉 AI 可以发现货架空位，但如果没有 owner、SLA、库存快照和复扫证明，它只是又一个红点。</p>
+            </article>
+            <article class="card">
+              <h3>闭环才是预算</h3>
+              <p>运营负责人愿意为响应时长、同班次关闭率、复发率、价签差错和可售恢复付费。</p>
+            </article>
+            <article class="card">
+              <h3>学习来自结果</h3>
+              <p>低置信度、误报、人工接管、复扫失败和复发异常，是 LeRobot 与边缘模型最有价值的数据。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">04 · Solution</p>
+            <h2>StoreLoop 是 existing store 之上的异常闭环操作层。</h2>
+            <p class="lead">它不替代 POS、ERP、WMS、电子价签、视频监控或店员任务系统。它把门店真实状态、商品主数据、库存、价格、促销、即时订单、药品追溯和人工处理记录连在一起，让异常从发现走到结案。</p>
+            <ul class="list">
+              <li>识别异常：货架空面、错位、错价、促销牌缺失、冷柜/临期、退货待判、拣货超时和药品追溯缺证。</li>
+              <li>判断优先级：结合 POS 库存、销售速度、毛利、订单 SLA、合规风险和门店人力。</li>
+              <li>自动派单：分配给店员、店长、区域经理、药师、损耗专员或机器人辅助动作。</li>
+              <li>验证结案：用复扫照片、价签 OCR、扫码、库存快照、人工确认和处理时长形成证据包。</li>
+              <li>沉淀数据：把失败、复发、接管和人工复核导出为 LeRobot episode 与 SOP 改进样本。</li>
+            </ul>
+          </div>
+          <div class="visual">
             <img src="../assets/store-loop.png" alt="零售门店机器人在货架前巡检、识别缺货错位、生成任务和人机协作补货控制台图">
           </div>
         </div>
       </section>
 
-      <section id="loop" class="slide tint">
+      <section id="product" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Store Execution Loop</p>
-              <h2>从货架真实状态到可执行任务，再到复扫验证。</h2>
+              <p class="kicker">05 · Product Workflow</p>
+              <h2>五步闭环：Detect → Decide → Dispatch → Verify → Learn。</h2>
             </div>
-            <p>StoreLoop 把每次巷道巡检转成门店运营闭环。机器人发现问题后先查 POS/WMS/ERP 缓存，再生成店员任务或受限动作，完成后复扫验证，最后把异常和接管片段变成训练数据。</p>
+            <p>第一版只做高频、高损耗、可验证的异常。客户要看到的是闭环率、响应时长、复发率、可售恢复、人工巡检减少和总部追责成本下降，而不是模型演示分数。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Detect</h3>
+              <p>Edge camera、巡检机器人、员工照片、ESL、POS、库存和 IoT 捕捉异常。</p>
+            </article>
+            <article class="step">
+              <h3>Decide</h3>
+              <p>系统按销售损失、合规风险、订单 SLA、库存状态和人力可用性排序。</p>
+            </article>
+            <article class="step">
+              <h3>Dispatch</h3>
+              <p>异常变成有负责人、SLA、目标状态、证据要求和升级链的任务。</p>
+            </article>
+            <article class="step">
+              <h3>Verify</h3>
+              <p>复扫、拍照、扫码、OCR、POS 快照或人工确认验证是否真正修复。</p>
+            </article>
+            <article class="step">
+              <h3>Learn</h3>
+              <p>失败、低置信度、人工接管和复发片段进入异常库与 LeRobot 数据集。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Market Wedge</p>
+              <h2>先切高频、高损耗、高标准化门店。</h2>
+            </div>
+            <p>最好的首批客户不是所有零售商，而是总部强运营、门店数多、SKU 多、即时履约压力大、SOP 强、异常可量化的连锁业态。先用 20-50 家门店跑出指标，再复制到区域和总部。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>便利店</h3>
+              <p>高频 SKU、夜间人力少、即时订单多，缺货、错价、临期和冷柜异常容易量化。</p>
+            </article>
+            <article class="card">
+              <h3>社区超市 / 生鲜</h3>
+              <p>低毛利、高损耗、高频补货，空面、临期、报损和冷链响应直接影响利润。</p>
+            </article>
+            <article class="card">
+              <h3>连锁药房</h3>
+              <p>药品追溯码、批次、效期、医保白名单、处方交接和近效期处理需要总部可审计。</p>
+            </article>
+            <article class="card">
+              <h3>即时零售前置门店</h3>
+              <p>线上承诺库存必须等于货架真实状态，拣货超时、替代和取消会直接损害平台体验。</p>
+            </article>
+            <article class="card">
+              <h3>会员店 / 大卖场</h3>
+              <p>货架面积大、人工巡检贵，适合全店视觉或巡检机器人版。</p>
+            </article>
+            <article class="card">
+              <h3>美妆 / 3C / 专业零售</h3>
+              <p>促销陈列、锁柜、退货待判和高价值 SKU 需要证据化闭环。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Business Model</p>
+              <h2>按门店订阅，按闭环价值扩张。</h2>
+            </div>
+            <p>StoreLoop 的收入不是卖摄像头，而是卖“异常在同班次被关闭”。试点先做异常损益表：可恢复销售、工时释放、价签差错、损耗归因、退货返架、冷链响应和合规证据。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>软件闭环版</h3>
+              <p>中国 ¥500-2,000/店/月；海外 US$500-1,500/店/月。接 POS/库存、现有摄像头或员工照片、任务流和总部看板。</p>
+            </article>
+            <article class="card">
+              <h3>AI 重点区域版</h3>
+              <p>中国 ¥2,000-8,000/店/月；海外 US$1,000-5,000/店/月。先做冷柜、端架、高频 SKU、退货区和药房柜台。</p>
+            </article>
+            <article class="card">
+              <h3>全店视觉 / 机器人版</h3>
+              <p>中国 RaaS ¥8,000-25,000/店/月；海外可按 US$3,000-8,000/店/月建模。适合大店、会员店和区域旗舰。</p>
+            </article>
+            <article class="card">
+              <h3>企业集成 / 品牌数据</h3>
+              <p>总部级 API、SLA、供应商共担和 CPG 洞察。中国项目费 ¥5万-50万，海外 US$25k-250k。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gtm" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Go-To-Market</p>
+              <h2>从区域试点进入总部预算。</h2>
+            </div>
+            <p>先找 100+ 门店的连锁品牌，不从“全店智能化”卖起，而从 4-8 周诊断和 60-90 天运营试点卖起。买方是 COO、门店运营负责人、数字化负责人、商品/供应链和损耗负责人。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>20-50 家门店</h3>
+              <p>选择同一区域、同一店型、同一高频异常，设置对照门店和 baseline。</p>
+            </article>
+            <article class="card">
+              <h3>60-90 天指标</h3>
+              <p>重点 SKU 可得率、缺货时长、价格错配、冷柜响应、任务同班次关闭率和复发率。</p>
+            </article>
+            <article class="card">
+              <h3>扩张路径</h3>
+              <p>从一个异常模块扩到多模块，再从区域复制到集团总部和供应商共担。</p>
+            </article>
+            <article class="card">
+              <h3>渠道伙伴</h3>
+              <p>POS/ERP/WMS、ESL、视频集成、机器人厂商、零售咨询、药店 SaaS 和 Qualcomm edge 生态。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="competition" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Competition</p>
+              <h2>不是和摄像头比清晰度，是和人工巡店、BI 报表、单点视觉 AI 比闭环。</h2>
+            </div>
+            <p>Simbe、Focal、Vusion/Captana、Trax/FORM、Pensa、Brain/ShelfOptix、Zebra、Blue Yonder、RELEX、Oracle/SAP 都证明需求真实。StoreLoop 的差异是把“货架真实状态”推进到派单、验证、回写、复盘和训练。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>人工巡店</h3>
+              <p>灵活但低频、主观、不可规模化；StoreLoop 给出持续证据、SLA 和跨店 benchmark。</p>
+            </article>
+            <article class="card">
+              <h3>监控 / CCTV</h3>
+              <p>能留视频，但不天然理解 SKU、库存、价格、促销和任务闭环。</p>
+            </article>
+            <article class="card">
+              <h3>BI / ERP</h3>
+              <p>看结果和库存记录强，但不知道货架现场是否真实、谁已经处理、是否复扫通过。</p>
+            </article>
+            <article class="card">
+              <h3>Shelf Robots</h3>
+              <p>Simbe 等扫描能力强；StoreLoop 把扫描结果连到店员任务、药店合规、即时履约和训练闭环。</p>
+            </article>
+            <article class="card">
+              <h3>ESL / Digital Shelf</h3>
+              <p>价签和货架 IoT 是重要数据源，但异常仍需要 owner、SLA、证据和复盘。</p>
+            </article>
+            <article class="card">
+              <h3>任务协同工具</h3>
+              <p>YOOBIC、WorkJam、Reflexis 等负责执行协同；StoreLoop 提供门店真实状态和证据包。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Moat</p>
+              <h2>闭环数据越多，运营判断越准。</h2>
+            </div>
+            <p>护城河不是单个模型，而是门店异常库、行业 SOP 映射、处理结果反馈、客户系统集成、跨门店 benchmark、复发预测和 Qualcomm edge 部署配方。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>异常库</h3>
+              <p>缺货、错价、错位、临期、冷柜、退货、药品追溯、拣货超时和漏扫的场景数据。</p>
+            </article>
+            <article class="card">
+              <h3>SOP 映射</h3>
+              <p>不同业态、门店规模、班次、人力和总部规则对应不同 owner、SLA 和证据要求。</p>
+            </article>
+            <article class="card">
+              <h3>结果反馈</h3>
+              <p>任务是否完成、是否复扫通过、是否复发、是否被店长驳回，决定下一轮优先级。</p>
+            </article>
+            <article class="card">
+              <h3>连接器</h3>
+              <p>POS、ERP、WMS、OMS、ESL、RFID、药品追溯、企微/钉钉/飞书和门店视频系统。</p>
+            </article>
+            <article class="card">
+              <h3>跨店基准</h3>
+              <p>总部能看到同区域、同品类、同店型异常密度、响应时长和复发模式。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Profiles</h3>
+              <p>QNN/AI Hub profile、模型版本、延迟、内存、fallback 和回滚记录成为部署资产。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">11 · Architecture</p>
+              <h2>边缘实时判断，云端统一运营。</h2>
+            </div>
+            <p>门店侧完成视频流接入、OCR、条码/QR、AprilTag 定位、隐私降噪和本地任务缓存；云端完成规则引擎、总部看板、模型训练、灰度发布和系统集成。断网时仍能记录异常和生成本地证据。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>LoopEdge</h3>
+              <p>Qualcomm edge 连接多相机、扫码、ESL、IoT、低速 rover 或固定点位，运行视觉、OCR、定位和隐私过滤。</p>
+            </article>
+            <article class="card">
+              <h3>Store Services</h3>
+              <p>SQLite/FastAPI mock POS、SKU 主数据、库存缓存、planogram、价签、促销、任务队列和证据包。</p>
+            </article>
+            <article class="card">
+              <h3>Closure Cloud</h3>
+              <p>总部运营规则、SLA、升级链、异常损益表、跨店 benchmark 和系统连接器。</p>
+            </article>
+            <article class="card">
+              <h3>Learning Cloud</h3>
+              <p>LeRobot HIL、数据版本、中国/海外训练云、AI Hub/QNN profile、签名部署和灰度回滚。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">12 · Competition Demo</p>
+              <h2>3 分钟看见一个门店异常如何结案。</h2>
+            </div>
+            <p>桌面货架 demo 用纸价签、SKU 盒、QR/GS1、AprilTag、USB/MIPI 相机、可选低速 rover 和急停。目标不是演示无人店员，而是演示异常发现、派单、人工接管、复扫结案和边缘部署。</p>
           </div>
           <div class="pipeline">
             <article class="step">
               <h3>Scan</h3>
-              <p>多相机、depth、OCR、barcode/QR、价签和货架边缘定位。</p>
+              <p>设备扫描 2 层货架，AprilTag 定位货架格，QR/OCR 读取价签和 SKU。</p>
             </article>
             <article class="step">
-              <h3>Decide</h3>
-              <p>对比 planogram、POS 价格、库存、促销和补货优先级。</p>
+              <h3>Mismatch</h3>
+              <p>C2 空面但 POS mock 显示后仓有 12 件；价签 OCR 6.90 与 POS 7.50 不一致。</p>
             </article>
             <article class="step">
-              <h3>Act</h3>
-              <p>派发店员任务、指示位置、小件取放、tote handoff 或请求人工。</p>
+              <h3>Work Order</h3>
+              <p>系统生成补货、价签复核、错位整理和人工确认任务，10 分钟未处理升级店长。</p>
             </article>
             <article class="step">
-              <h3>Verify</h3>
-              <p>复扫货架，记录任务是否关闭、是否误报、是否仍需处理。</p>
+              <h3>HIL</h3>
+              <p>反光或遮挡触发人工接管，只记录复核任务，不直接写库存或价格。</p>
             </article>
             <article class="step">
-              <h3>Learn</h3>
-              <p>低置信度、失败和接管进入 LeRobot，再发布到 Qualcomm edge。</p>
+              <h3>Close</h3>
+              <p>复扫通过后工单 closed，证据包展示模型版本、库存快照、处理人和 AI Hub/QNN profile。</p>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="stack" class="slide white">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">02 · Robot Edge + Store Services + Cloud Training</p>
-            <h2>门店需要本地可运行的机器人，不是依赖公网的摄像头玩具。</h2>
-            <p class="lead">StoreLoop 分成机器人边缘、门店本地服务和云训练三层。断网时机器人仍能按本地缓存扫描、避障、任务排队和保存证据；云端只负责训练、评估和非实时同步。</p>
-            <ul class="list">
-              <li>Robot Edge：ROS 2、Nav2、MoveIt、OCR/barcode、本地 policy、安全过滤和动作仲裁。</li>
-              <li>Store Services：StoreMap、Planogram、POS/WMS/ERP cache、任务派发、视频脱敏和操作台。</li>
-              <li>Cloud Training：LeRobot dataset、标注、训练、评估、模型注册、灰度和回滚。</li>
-              <li>Privacy：默认不做人脸识别，不做顾客画像，先边缘脱敏再上传授权片段。</li>
-            </ul>
-          </div>
-          <div class="visual">
-            <img src="../assets/store-loop.png" alt="门店机器人边缘运行、货架识别、门店服务和 LeRobot 训练闭环图">
-          </div>
-        </div>
-      </section>
-
-      <section class="slide dark">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">03 · First Workflows</p>
-              <h2>第一批任务选“能闭环”的店务，不承诺全自动店员。</h2>
-            </div>
-            <p>StoreLoop 把清洁、货架、补货和药房拆成可验证工作流。机器人可以先做 scan + task + verify，再逐步扩展到受限小件动作。</p>
-          </div>
-          <div class="grid six">
-            <article class="card">
-              <h3>缺货闭环</h3>
-              <p>发现空面，查库存，派补货，复扫验证。</p>
-            </article>
-            <article class="card">
-              <h3>错价复核</h3>
-              <p>OCR 价签，对比 POS/ESL，生成价格任务。</p>
-            </article>
-            <article class="card">
-              <h3>陈列执行</h3>
-              <p>检测错位、促销缺失和 planogram 偏差。</p>
-            </article>
-            <article class="card">
-              <h3>BOPIS 支持</h3>
-              <p>减少线上拣货时的找货、替代和取消。</p>
-            </article>
-            <article class="card">
-              <h3>药房拣选</h3>
-              <p>扫码、追溯码、批次、有效期和药师审核。</p>
-            </article>
-            <article class="card">
-              <h3>清洁证据</h3>
-              <p>把清洁路线和货架巡检合并成门店 proof-of-work。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="versions" class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">04 · China / Overseas Versions</p>
-              <h2>中国版从药房和即时零售切入，海外版从 grocery shelf intelligence 切入。</h2>
-            </div>
-            <p>中国买家关心本地价格、微信生态、药品追溯、企微/钉钉流程和私有化。海外买家关心 RaaS、OOS、BOPIS、CPG 数据、隐私、安全认证准备和 field service。</p>
-          </div>
-          <div class="grid two">
-            <article class="card">
-              <h3>中国店务闭环</h3>
-              <p>微信小程序下单、会员、支付、取货通知；企微/钉钉/飞书处理异常；药房支持追溯码、批次、有效期、处方/药师审核和本地云/私有云。</p>
-            </article>
-            <article class="card">
-              <h3>海外 Shelf Core</h3>
-              <p>8-12 周、6-12 家门店 pilot，对照门店衡量 shelf coverage、alert precision、OOS、price/promo compliance、BOPIS 取消/替代、CPG 数据收入。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="demo" class="slide tint">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">05 · Competition Demo</p>
-              <h2>用一组 mock 货架，把货架感知、任务闭环和训练数据讲完。</h2>
-            </div>
-            <p>演示中，机器人扫描一组货架，发现空面、错位 SKU 或价签/QR 不匹配。系统生成任务，机器人执行指示灯或轻量商品移动；遇到遮挡或抓取失败时人工接管，片段进入 LeRobot dataset，最后展示 Qualcomm edge profile 和复扫验证。</p>
-          </div>
-          <div class="grid four">
-            <div class="stat">
-              <strong>OOS</strong>
-              <span>缺货、低库存和 phantom inventory 进入优先任务队列。</span>
-            </div>
-            <div class="stat">
-              <strong>OCR</strong>
-              <span>价签、促销、条码和 GS1/QR 需要置信度和人工复核。</span>
-            </div>
-            <div class="stat">
-              <strong>HIL</strong>
-              <span>遮挡、反光、相似包装和抓取失败进入人工接管流程。</span>
-            </div>
-            <div class="stat">
-              <strong>Proof</strong>
-              <span>任务完成后复扫，形成 closure evidence 和下一轮训练数据。</span>
-            </div>
           </div>
         </div>
       </section>
@@ -219,59 +425,97 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">06 · Why Qualcomm</p>
-              <h2>门店是高密度、多摄像头、强隐私的边缘 AI 场景。</h2>
+              <p class="kicker">13 · Why Qualcomm</p>
+              <h2>Qualcomm 让门店 AI 从“能跑”变成“能规模化跑”。</h2>
             </div>
-            <p>货架识别、价签 OCR、导航避障、小件动作、隐私脱敏和门店本地缓存，都要求本体侧低延迟执行。Qualcomm 可以把 retail robot 从“联网摄像头”提升为可部署的边缘运营设备。</p>
+            <p>门店是高密度、多摄像头、强隐私、弱网络容错的边缘 AI 场景。StoreLoop 需要在本地完成视觉、OCR、条码、定位、脱敏、任务缓存和低速机器人安全，不应把每个视频帧送到云端。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Vision</h3>
-              <p>多相机、深度、价签、SKU、条码、促销和货架边缘。</p>
+          <div class="grid five">
+            <article class="card">
+              <h3>Edge Vision</h3>
+              <p>SKU、空面、价签、促销牌、QR、AprilTag、冷柜和退货区都需要现场判断。</p>
             </article>
-            <article class="step">
-              <h3>Runtime</h3>
-              <p>QNN / TFLite / ONNX Runtime、AI Hub profile、量化和回归验证。</p>
+            <article class="card">
+              <h3>AI Runtime</h3>
+              <p>AI Hub、QNN、ONNX Runtime QNN EP 和量化 profile 把云训练模型变成可度量 edge artifact。</p>
             </article>
-            <article class="step">
-              <h3>Motion</h3>
-              <p>Nav2、MoveIt、低速安全区、动作仲裁和 HIL 接管。</p>
+            <article class="card">
+              <h3>Local Privacy</h3>
+              <p>默认不做人脸识别和顾客画像；上传前只保留必要 crop、证据元数据和脱敏片段。</p>
             </article>
-            <article class="step">
-              <h3>Privacy</h3>
-              <p>边缘脱敏、最小化上传、区域数据边界和 privacy manifest。</p>
+            <article class="card">
+              <h3>Offline First</h3>
+              <p>门店断网时仍能扫描、生成本地任务、缓存证据包，联网后同步总部。</p>
             </article>
-            <article class="step">
-              <h3>Business</h3>
-              <p>门店 SaaS、RaaS、Brand Insights、CPG 数据和企业 fleet。</p>
+            <article class="card">
+              <h3>Hardware Path</h3>
+              <p>QCS6490/RB3 Gen 2 做比赛原型，QCS8550/RB6/Dragonwing 路线支持更高阶迁移。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="slide white">
+      <section id="ask" class="slide dark">
         <div class="wrap">
-          <p class="quote">StoreLoop 的商业承诺不是“无人商店”，而是让货架真实状态进入可执行、可复核、可训练、可部署的门店闭环。机器人越多跑一圈，门店就多一层可用的运营记忆。</p>
+          <div class="section-head">
+            <div>
+              <p class="kicker">14 · Ask</p>
+              <h2>把 StoreLoop 做成 Qualcomm 零售 physical AI 的可复制样板。</h2>
+            </div>
+            <p>比赛阶段要证明完整商业闭环，而不是单点视觉模型：异常发现、派单、处理、复扫、证据、HIL episode、AI Hub/QNN profile、中国/海外训练云和下一轮部署。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Edge Kit</h3>
+              <p>RB3 Gen 2、QCS6490/QCS8550 或 RB6，用于多摄像头、OCR、条码、NPU profile 和本地 dashboard。</p>
+            </article>
+            <article class="card">
+              <h3>Retail Data</h3>
+              <p>mock POS/API、SKU 主数据、价签、库存、planogram、药品追溯和 5-10 个真实门店异常流程样本。</p>
+            </article>
+            <article class="card">
+              <h3>Design Partners</h3>
+              <p>便利店、药房、社区生鲜、即时零售前置门店、ESL/POS 集成商和机器人伙伴。</p>
+            </article>
+            <article class="card">
+              <h3>Trial Metrics</h3>
+              <p>同班次关闭率、响应时长、价签差错、OOS 时长、冷柜异常、退货返架和 HIL episode。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="claims" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">15 · Claims & Sources</p>
+              <h2>只讲可验证的商业事实。</h2>
+            </div>
+            <p>页面不主张“替代店员”“全球首个”“零误报”“99% OSA”“无需集成”“全 SKU 自动补货”“已获 Qualcomm 官方背书”。StoreLoop 的安全主张是 human-in-the-loop、边缘脱敏、任务验证和渐进式试点。</p>
+          </div>
+          <p class="quote">一句话 pitch：连锁零售用 StoreLoop 把缺货、错价、临期、冷柜、退货、拣货和药店合规从门店异常变成可派单、可验证、可复盘、可训练的异常闭环。</p>
           <div class="source-links">
-            <a href="https://www.simberobotics.com/about/newsroom/simbe-unveils-tally-4-0-the-next-generation-of-autonomous-retail-robot-powering-store-intelligence-via-physical-ai">Simbe Tally</a>
-            <a href="https://www.prnewswire.com/news-releases/br-stores-introduces-simbes-tally-inventory-robot-in-stores-across-nebraska-302794610.html">B&R Stores</a>
-            <a href="https://www.simberobotics.com/the-state-of-in-store-retailing-2026-coresight-research-x-simbe-robotics">Simbe/Coresight</a>
-            <a href="https://corporate.walmart.com/about/samsclub/news/2022/10/20/sams-club-finalizes-national-deployment-of-inventory-scan-brain-corp-becomes-the-worlds-largest-supplier-of-robotic-inventory-scanners">BrainOS Sam's Club</a>
-            <a href="https://www.prnewswire.com/news-releases/brain-corp-and-driveline-launch-shelfoptix-the-first-fully-managed-robot-powered-shelf-intelligence-service-302568903.html">ShelfOptix</a>
-            <a href="https://www.badger-technologies.com/news/press-releases/stop-and-shop-upgrade-marty-the-robot.html">Badger Marty</a>
-            <a href="https://www.prnewswire.com/news-releases/pudu-robotics-and-robobee-forge-strategic-partnership-with-denner-for-major-robotic-cleaning-deployment-across-swiss-stores-302795108.html">Pudu Denner</a>
-            <a href="https://tx-inc.com/en/blog/2022/08/10/11712/">Telexistence</a>
-            <a href="https://news.cgtn.com/news/2026-03-13/China-s-first-pharmacy-robot-goes-into-service-in-Beijing-1LtZ7juLcZ2/p.html">Galbot Pharmacy</a>
-            <a href="https://www.stdaily.com/web/gdxw/2026-03/17/content_486741.html">Stdaily Galbot</a>
-            <a href="https://www.simberobotics.com/store-intelligence/brand-insights">Brand Insights</a>
-            <a href="https://www.qualcomm.com/developer/hardware/robotics-rb5-development-kit">Qualcomm RB5</a>
-            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html">China Retail 2025</a>
+            <a href="https://www.stats.gov.cn/sj/zxfb/202606/t20260616_1963954.html">China Retail 2026 YTD</a>
+            <a href="https://www.news.cn/20251126/0acf69e715b1432d8eb6e48d0822f918/c.html">Instant Retail</a>
+            <a href="https://app.xinhuanet.com/news/article.html?articleId=2026061881b7f34785a74704882e80c4e72beec1">AI + Consumption</a>
+            <a href="https://www.ihlservices.com/news/analyst-corner/2025/09/retail-inventory-crisis-persists-despite-172-billion-in-improvements/">IHL Inventory</a>
+            <a href="https://nrf.com/research/2025-retail-returns-landscape">NRF Returns</a>
+            <a href="https://nrf.com/media-center/press-releases/shrink-accounted-over-112-billion-industry-losses-2022-according-nrf">NRF Shrink</a>
+            <a href="https://www.deloitte.com/us/en/insights/industry/retail-distribution/retail-distribution-industry-outlook.html">Deloitte Retail</a>
+            <a href="https://www.simberobotics.com/about/newsroom/simbe-unveils-tally-4-0-the-next-generation-of-autonomous-retail-robot-powering-store-intelligence-via-physical-ai">Simbe Tally 4.0</a>
+            <a href="https://focal.systems/">Focal Systems</a>
+            <a href="https://www.vusion.com/na/products/captana/">Vusion Captana</a>
+            <a href="https://www.form.com/newsroom/form-and-trax-merge/">Trax / FORM</a>
+            <a href="https://www.braincorp.com/scanning-as-a-service">Brain ShelfOptix</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/profile_examples.html">AI Hub Profile</a>
+            <a href="https://www.qualcomm.com/developer/software/neural-processing-sdk-for-ai">QNN SDK</a>
+            <a href="https://huggingface.co/docs/lerobot/hil_data_collection">LeRobot HIL</a>
             <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset</a>
-            <a href="https://docs.opencv.org/4.x/d6/d25/tutorial_barcode_detect_and_decode.html">OpenCV Barcode</a>
-            <a href="https://www.gs1.org/standards/id-keys/gtin">GS1 GTIN</a>
-            <a href="https://docs.nav2.org/configuration/packages/configuring-collision-monitor.html">Nav2 Collision</a>
-            <a href="https://moveit.picknik.ai/">MoveIt 2</a>
-            <a href="https://design.ros2.org/articles/ros2_access_control_policies.html">ROS 2 Access</a>
+            <a href="https://april.eecs.umich.edu/software/apriltag">AprilTag</a>
+            <a href="https://docs.nav2.org/configuration/packages/collision_monitor/configuring-collision-monitor-node.html">Nav2 Collision Monitor</a>
           </div>
         </div>
       </section>

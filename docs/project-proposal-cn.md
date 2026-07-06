@@ -94,7 +94,7 @@ Qualcomm 可以通过该项目获得一个端到端机器人生态样板：
 - HomeCore 家用机器人技能内核页：https://qc-robotics-2026.pages.dev/home-core/
 - 骁工 XiaoGong 商用人形平台页：https://qc-robotics-2026.pages.dev/xiaogong/
 - SiteLedger 工地实录页：https://qc-robotics-2026.pages.dev/site-ledger/
-- StoreLoop 店务闭环页：https://qc-robotics-2026.pages.dev/store-loop/
+- StoreLoop 门店异常闭环页：https://qc-robotics-2026.pages.dev/store-loop/
 - FoodLoop 餐务闭环页：https://qc-robotics-2026.pages.dev/food-loop/
 - 护元 CareOS 养老照护平台页：https://qc-robotics-2026.pages.dev/careos/
 - WarehouseLoop 仓务异常闭环页：https://qc-robotics-2026.pages.dev/warehouse-loop/

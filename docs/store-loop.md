@@ -1,205 +1,192 @@
-# StoreLoop 店务闭环 Pitch
+# StoreLoop 门店异常闭环 Pitch
 
-更新时间：2026-07-06。零售机器人部署、门店系统接口、隐私监管、药品追溯、POS/ERP/WMS 数据结构和机器人安全认证变化很快；真实商业材料应在提交前复核客户系统、区域法规和设备认证。
+更新时间：2026-07-06。零售、即时履约、药店合规、门店视频、POS/ERP/WMS、ESL、边缘 AI 和机器人部署都变化很快；正式提交前需要复核客户系统、地区法规、设备安全和数据合规。
 
-## Core Thesis
+## 一句话
 
-StoreLoop 店务闭环是面向门店运营的 Qualcomm 边缘机器人与 LeRobot 数据飞轮：
+StoreLoop：让每一次门店异常都有闭环。
 
-> 不是“会逛商店的机器人”，而是门店里的边缘运营闭环。每一次巷道巡检都把货架真实状态变成三个输出：店员任务、受限机器人动作和可训练 episode。
+连锁零售用 StoreLoop 把缺货、错价、陈列偏差、冷柜/临期、即时零售拣货超时、退货待判和药店追溯异常，从门店现场问题变成可派单、可验证、可复盘、可训练的异常闭环。
 
-零售机器人已经商业化，但最成熟的不是通用店员机器人，而是窄任务：
+## Problem
 
-- shelf intelligence：缺货、错位、价格、促销、陈列和 planogram。
-- cleaning proof：清洁机器人、路线覆盖、proof-of-work。
-- store patrol：货架巡检、地面异常、门店任务。
-- bounded replenishment：便利店/药房/饮料柜/小件补货等受限场景。
-- pharmacy/retail capsule：订单、拣选、追溯码、打包、取货柜和人工异常处理。
+痛的是区域经理、店长和总部运营，不是算法团队。
 
-StoreLoop 的产品判断：
+- 总部看到 BI 和销售报表时已经太晚。
+- 区域经理巡店低频、主观、样本少。
+- 店长靠群消息和电话救火，没有 owner、SLA、升级链和结案验证。
+- 一线员工缺少照片、库存快照、价签 OCR、扫码记录和复扫证明。
 
-- POS/WMS 库存不等于货架真实状态。
-- 机器人只检测问题还不够，价值来自“发现 -> 派单 -> 修复/协助 -> 复查 -> 学习”。
-- 人类店员不该被替代，而应该获得更准确的任务优先级和机器人协助。
-- Qualcomm edge 负责本地视觉、OCR/barcode、导航、安全、隐私和低延迟动作；LeRobot 负责 HIL 数据和训练闭环。
+门店异常发生在分钟级，管理动作却经常是小时级或天级。
 
-## Five-Thread Research Synthesis
+## Why Now
 
-### 1. Global Market
+门店容错率正在下降。
 
-Simbe Tally 是最强货架智能参考，公开材料覆盖 on-shelf availability、价格/促销准确性、商品位置、planogram、补货和履约。Brain Corp/BrainOS 在清洁与 inventory scan 组合上有规模化部署，Badger/Marty 证明门店巡检机器人可以从地面异常扩展到货架检测，Pudu 在清洁/配送/服务机器人上规模化，Telexistence 在 FamilyMart 冷柜饮料补货上证明 last-10-meter replenishment 可以在受限场景成立。
+- 2025 年中国社会消费品零售总额 50.12 万亿元；便利店和超市仍增长，但零售从扩张进入效率和利润保卫战。
+- 2024 年中国即时零售规模 7810 亿元，预计 2026 年突破 1 万亿元；线下门店正在变成本地履约节点。
+- IHL 2025 估算全球零售因缺货和过剩库存产生约 1.73 万亿美元库存失真损失。
+- NRF 预计 2025 年美国零售退货 8499 亿美元，线上退货率 19.3%。
+- 中国药店在 2026 年面临医保个人账户白名单、追溯码全量采集上传、票据和处方合规等更强闭环要求。
 
-安全表达：零售机器人商业化已经真实存在，但大多是窄任务和人机协作，不是全店无人化。
+同时，门店已有摄像头、电子价签、POS 接口、扫码、边缘算力和低速机器人底盘，第一次让“异常闭环自动化”具备可部署基础。
 
-### 2. China Retail And Pharmacy
+## Core Insight
 
-中国版最强信号不是“通用人形店员”，而是闭环药房/便利店 workflow。Galbot G1 在北京海淀持牌药房运营的公开报道，给了药品订单接收、拣选、打包、补货、库存、追溯码、近效期提醒和药监追溯平台接入等 benchmark。
+门店的问题不是看不见，是没有闭环。
 
-中国版 StoreLoop 要把消费者侧 WeChat mini-program、会员、支付、取货通知，与员工侧企微/钉钉/飞书异常提醒分开设计。药房场景必须支持药品追溯码、批次、有效期、处方/药师审核交接和本地数据边界。
+单点 AI 会制造更多告警。真正有价值的是把异常变成：
 
-### 3. Technical Architecture
+- 责任明确：谁处理。
+- 时限明确：多久处理。
+- 证据明确：用什么证明处理过。
+- 结果可验证：是否复扫通过。
+- 经验可沉淀：失败、误报、复发和人工接管进入 SOP 与训练数据。
 
-StoreLoop 采用三平面架构：
+## Solution
 
-- Robot edge plane：Qualcomm edge 运行 ROS 2、感知、安全过滤、OCR/barcode、导航、受限动作和本地 policy inference。
-- Store services plane：门店本地服务器保存地图、planogram、库存缓存、POS/WMS/ERP adapter、任务派发、视频脱敏和操作台。
-- Cloud training plane：中国/海外两套数据平面，LeRobot dataset、标注、训练、评估、模型注册和 OTA 灰度。
+StoreLoop 是 existing store 之上的异常闭环操作层。
 
-### 4. Business Model
+它不替代 POS、ERP、WMS、电子价签、视频监控或店员任务系统，而是连接这些系统，把门店真实状态推进到结案：
 
-卖零售执行平台，不卖一台机器人：
+1. Detect：边缘摄像头、巡检机器人、员工照片、ESL、POS、库存和 IoT 发现异常。
+2. Decide：按销售损失、合规风险、订单 SLA、库存状态和人力可用性排序。
+3. Dispatch：生成有 owner、SLA、目标状态、证据要求和升级链的任务。
+4. Verify：复扫、拍照、扫码、OCR、POS 快照或人工确认验证完成。
+5. Learn：失败、低置信度、人工接管和复发进入异常库与 LeRobot 数据集。
 
-- Shelf Core：缺货、价格、促销、陈列和 planogram。
-- Execution Pro：补货任务、BOPIS、门店任务、POS/ERP/ESL 接入。
-- Clean + Proof：清洁机器人 proof-of-work 与货架/地面巡检合并。
-- Brand Insights：把货架执行数据变成 CPG / retail media 的付费洞察。
-- Enterprise Fleet：多门店 RaaS、SLA、服务备机、API、安全审查和区域部署。
+## Market Wedge
 
-### 5. Product Design
+首批客户不是所有零售商，而是总部强运营、门店多、SKU 多、即时履约压力大、SOP 强、异常可量化的连锁业态。
 
-名称：RobotMac StoreLoop / 店务闭环。
+- 便利店：高频 SKU、夜间人力少、即时订单多，缺货、错价、临期和冷柜异常可量化。
+- 社区超市/生鲜：低毛利、高损耗、高频补货，空面、临期、报损和冷链响应影响利润。
+- 连锁药房：药品追溯码、批次、效期、医保白名单、处方交接和近效期处理需要总部审计。
+- 即时零售前置门店：线上承诺库存必须等于货架真实状态。
+- 会员店/大卖场：货架面积大、人工巡检贵，适合全店视觉或巡检机器人版。
+- 美妆、3C、专业零售：促销陈列、锁柜、退货待判和高价值 SKU 需要证据化闭环。
 
-一句话：
+## Business Model
 
-> Shelf truth -> human-safe action -> training data -> edge deployment.
+收入来自“异常在同班次被关闭”，不是卖摄像头。
 
-产品不与 Simbe/Brain/Pudu 正面做“又一个扫描机器人”，而是把 shelf truth 与受限动作、店员任务、LeRobot 数据和 Qualcomm edge 部署闭环连接起来。
+- 软件闭环版：中国 ¥500-2,000/店/月；海外 US$500-1,500/店/月。接 POS/库存、现有摄像头或员工照片、任务流和总部看板。
+- AI 重点区域版：中国 ¥2,000-8,000/店/月；海外 US$1,000-5,000/店/月。先做冷柜、端架、高频 SKU、退货区和药房柜台。
+- 全店视觉/机器人版：中国 RaaS ¥8,000-25,000/店/月；海外可按 US$3,000-8,000/店/月建模。适合大店、会员店和区域旗舰。
+- 企业集成/品牌数据：中国项目费 ¥5万-50万，海外 US$25k-250k。覆盖总部 API、SLA、供应商共担和 CPG 洞察。
 
-## Product Modules
+试点经济模型按单店计算：
 
-### 1. Shelf Truth Engine
+`年收益 = 恢复销售毛利 + 节省工时 + 减少损耗/报损 + 减少价签错误/投诉/罚款 + 退货回架收益 - 年化订阅/硬件/实施成本`
 
-货架真实状态引擎：
+## 60-90 天试点指标
 
-- 多相机、depth/ToF、货架边缘定位、商品检测/分割、OCR 价签、barcode/QR/GS1 Digital Link。
-- 输出缺货、错位、价格不一致、促销标签异常、陈列偏差、低库存、货架遮挡和无法识别。
-- 对相似包装、反光包装、冷柜门、挂钩商品、堆头和季节陈列保持人工复核。
+- 重点 SKU 可得率：中国 +1-3pp，海外成熟超市 +2-5pp。
+- 高频 SKU 缺货/低货架事件下降 15-30%。
+- 重点货架 planogram compliance +5-15pp，或达到 90%+。
+- 价签/促销错配下降 50-80%。
+- 冷柜异常中位响应时间 <15 分钟，未关闭异常下降 30-60%。
+- 退货到可售/报损 dwell time 下降 20-50%。
+- 大店每周释放 15-50 小时巡检/找货/价签核查工时；小店 3-15 小时。
+- 高优先级任务同班次关闭 ≥85%，重开率 <10%。
+- SKU 映射 >95%，库存同步延迟 <15 分钟，接口成功率 >99%。
 
-### 2. Store Task Loop
+这些指标应作为试点目标，不作为未经验证的对外承诺。
 
-把检测结果转成门店任务：
+## GTM
 
-- 检测到空面 -> 查询 POS/WMS/ERP -> 判断是否后仓有货 -> 生成补货任务。
-- 检测到错价 -> 查 POS/ESL -> 生成价格复核任务。
-- 检测到促销陈列不一致 -> 生成 merchandising task。
-- 机器人无法确定 -> 生成人工复核 task，而不是直接写入库存。
-- 任务完成后复扫，形成 proof-of-closure。
+从 20-50 家门店的区域试点进入总部预算。
 
-### 3. Bounded Action Runtime
+1. 选择同一区域、同一店型、同一高频异常，设置对照门店和 baseline。
+2. 用 4-8 周诊断输出异常损益表：可恢复销售、错价数量、缺货时长、员工巡检节省、库存修正率。
+3. 60-90 天验证同班次关闭率、响应时长、复发率、价签差错、OOS 时长、冷柜异常和退货返架。
+4. 成功后从一个异常模块扩到多模块，再从区域复制到集团总部和供应商共担。
 
-StoreLoop 不承诺全 SKU 自动补货，而是做受限动作：
+买方是 COO、门店运营负责人、数字化负责人、商品/供应链和损耗负责人。渠道伙伴包括 POS/ERP/WMS、ESL、视频集成、机器人厂商、药店 SaaS、零售咨询和 Qualcomm edge 生态。
 
-- 指示灯/投影：指给店员要处理的位置。
-- 小件取放：轻量 demo SKU、药盒、饮料/瓶装商品、标准托盘。
-- shelf facing assist：把小件对齐或前移到可见面。
-- tote handoff：从后仓/取货柜/打包台递交给店员。
-- 药房订单：扫码、追溯码、批次、有效期、打包和药师审核交接。
+## Competition
 
-### 4. LeRobot Store Dataset
+StoreLoop 不是和摄像头比清晰度，而是和人工巡店、BI 报表、单点视觉 AI 比闭环。
 
-每次异常都可以变成训练样本：
+- 人工巡店灵活但低频、主观、不可规模化。
+- CCTV 能留视频，但不理解 SKU、库存、价格、促销和任务闭环。
+- BI/ERP 看结果和库存记录强，但不知道货架现场是否真实。
+- Simbe/Focal/Vusion/Captana/Trax/Pensa/Brain 等证明 shelf intelligence 需求真实。
+- Zebra、Blue Yonder、RELEX、Oracle/SAP、YOOBIC、WorkJam、Reflexis 等负责计划、任务、安全或库存，但缺少“门店真实状态 -> 异常优先级 -> 执行验证 -> 模型训练”的统一层。
 
-- ShelfObservation：图片、深度、机器人位姿、货架层、OCR、barcode、检测框和置信度。
-- ReplenishmentTask：源位置、目标货架、SKU、数量、优先级、deadline。
-- ManipulationEpisode：相机、动作、夹爪状态、成功/失败、人工接管和恢复。
-- PrivacyManifest：人脸/身体脱敏、保留周期、区域、导出权限。
-- ModelArtifact：数据版本、训练区域、quantization profile、Qualcomm target、回滚版本。
+## Moat
 
-### 5. Retail Integrations
+护城河不是单个模型，而是：
 
-门店不是孤岛：
-
-- POS / WMS / ERP：商品主数据、库存、价格、促销、会员和订单。
-- ESL / price label：价签和促销验证。
-- BOPIS / pickup：线上下单、门店拣货、缺货替代和取货柜。
-- EPCIS / GS1：商品追溯和库存事件。
-- 中国版：WeChat mini-program、企微、钉钉、飞书、本地 POS、药品追溯、Meituan/Ele.me。
-
-## China / Overseas Versions
-
-中国版：
-
-- 主张：`门店边缘 AI 店务闭环`。
-- 第一场景：药房小店、便利店、商超高频货架、即时零售前置仓和商场清洁/巡检。
-- 消费者侧：微信小程序下单、会员、优惠券、支付、取货通知。
-- 员工侧：企微/钉钉/飞书异常任务、药师/店长审核、低库存、近效期提醒、卡货/卡机通知。
-- 数据侧：本地云/私有云、PIPL、门店 LAN fallback、药品一物一码、批次和有效期。
-
-海外版：
-
-- 主张：`Retail execution platform for shelf truth and trainable store actions`。
-- 第一客户：grocery、warehouse club、pharmacy、convenience、CPG、facility service。
-- 首批包：Shelf Core、Execution Pro、Clean + Proof、Brand Insights、Enterprise Fleet。
-- 以 RaaS、8-12 周 pilot、control stores、UL/安全准备、privacy-forward 和 API integration 进入。
+- 门店异常库：缺货、错价、错位、临期、冷柜、退货、药品追溯、拣货超时和漏扫。
+- 行业 SOP 映射：不同业态、门店规模、班次、人力和总部规则对应不同 owner、SLA 和证据要求。
+- 处理结果反馈：任务是否完成、是否复扫通过、是否复发、是否被店长驳回。
+- 连接器：POS、ERP、WMS、OMS、ESL、RFID、药品追溯、企微/钉钉/飞书和门店视频系统。
+- 跨店 benchmark：同区域、同品类、同店型异常密度、响应时长和复发模式。
+- Edge profiles：QNN/AI Hub profile、模型版本、延迟、内存、fallback 和回滚记录。
 
 ## Competition Demo
 
-三分钟 demo 可以用 mock store shelf 完成：
+三分钟桌面 demo：
 
-1. Qualcomm target 启动，显示本地相机、机器人状态、manual stop。
-2. 机器人扫描货架，检测空面、错位 SKU、价签/QR 不匹配或低库存。
-3. Dashboard 生成补货/复核任务，并显示 POS/WMS 缓存查询。
-4. 机器人执行受限动作：指示灯定位、移动一个轻量 demo 商品，或把商品从 tote 递给店员。
-5. 制造边界情况：遮挡、反光、抓取失败、planogram 过期或人流阻挡。
-6. 人工接管，系统记录 LeRobot episode。
-7. 展示 dataset version、训练 job、Qualcomm edge profile、签名 artifact 和灰度部署。
-8. 复扫货架，关闭任务，输出 proof-of-closure。
+1. 启动设备，展示本地相机、dashboard、物理急停、软件急停和断网可运行。
+2. 低速扫描车或固定相机扫描两层货架，AprilTag 定位货架格，QR/OCR 读取价签。
+3. 系统发现四类异常：空面但后仓有 12 件、SKU 错位、纸价签 OCR 6.90 与 POS 7.50 不一致、反光遮挡低置信度。
+4. 生成补货、价签复核、错位整理和人工确认任务；10 分钟未处理升级店长。
+5. 遮挡/反光触发 human-in-the-loop，只记录复核任务，不直接写库存或价格。
+6. 复扫通过后工单 closed，证据包展示模型版本、库存快照、处理人、复扫图片和 AI Hub/QNN profile。
+7. 失败、低置信度和接管片段进入 LeRobot dataset。
 
-这个 demo 避免假装“实时从零训练”，而是展示已经预训练/预计算 artifact 的发布门禁。
+安全约束：
 
-## Why Qualcomm Should Care
+- 桌面封闭场景，车速建议 ≤0.2 m/s。
+- 云端只做训练、遥测和看板，不参与急停、避障、实时控制。
+- 不做人脸识别、顾客画像、动态定价。
+- 机器人不能直接写 POS/库存/价格，所有业务变更由人确认。
+- Nav2 Collision Monitor 只能作为软件保护层，不能替代硬件安全。
 
-门店运营是 Qualcomm 边缘 AI 的高密度场景：
+## Why Qualcomm
 
-- 多相机和视频 pipeline：货架、价签、条码、深度、手臂末端相机。
-- 本地推理：OCR、barcode、SKU 识别、导航、人群避让和隐私脱敏。
-- 低延迟动作：小件抓取、指示、避障和人工接管。
-- 连接：Wi-Fi / 5G / private network，门店本地 cache 和云端 fleet 同步。
-- AI Hub / QNN / TFLite / ONNX Runtime：模型 profile、量化、回归验证、部署和回滚。
-- 隐私边界：默认边缘脱敏，上传任务元数据和授权片段。
+门店是高密度、多摄像头、强隐私、弱网络容错的边缘 AI 场景。
 
-一句话：
+Qualcomm 的价值不是装饰，而是让门店 AI 从“能跑”变成“能规模化跑”：
 
-> Qualcomm 不只是让门店机器人看见货架，而是让货架真实状态进入可执行、可训练、可验证的门店闭环。
+- Edge Vision：SKU、空面、价签、促销牌、QR、AprilTag、冷柜和退货区都需要现场判断。
+- AI Runtime：AI Hub、QNN、ONNX Runtime QNN EP 和量化 profile 把云训练模型变成可度量 edge artifact。
+- Local Privacy：默认不做人脸识别和顾客画像；上传前只保留必要 crop、证据元数据和脱敏片段。
+- Offline First：断网时仍能扫描、生成本地任务、缓存证据包，联网后同步总部。
+- Hardware Path：QCS6490/RB3 Gen 2 做比赛原型，QCS8550/RB6/Dragonwing 路线支持更高阶迁移。
 
 ## Claims To Avoid
 
-- 不说完全自动补货所有 SKU。
-- 不说替代店员。
-- 不承诺固定库存准确率、ROI 或销售提升。
-- 不说无需门店系统集成。
-- 不做 face recognition、顾客画像、动态定价或监控优先叙事。
-- 不声称实时从零训练或 Qualcomm/LeRobot 官方认证。
-- 不把药房机器人描述成自动处方/临床建议系统；药师审核必须保留。
+- 不说“全球首个门店异常闭环系统”。
+- 不说准确率 99%、零误报、无需人工干预。
+- 不承诺部署后固定营收提升或损耗下降，除非来自真实试点。
+- 不说适用于所有门店、所有异常、所有行业。
+- 不说无需集成即可完整闭环。
+- 不说替代店长或店员。
+- 不说 Qualcomm 官方推荐、认证或合作，除非有书面依据。
+- 不把核心卖点写成“视觉大模型识别门店行为”；核心卖点是异常闭环带来可衡量运营改善。
 
 ## Sources
 
+- China Retail 2025：https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html
+- China Retail 2026 YTD：https://www.stats.gov.cn/sj/zxfb/202606/t20260616_1963954.html
+- Instant Retail：https://www.news.cn/20251126/0acf69e715b1432d8eb6e48d0822f918/c.html
+- AI + Consumption：https://app.xinhuanet.com/news/article.html?articleId=2026061881b7f34785a74704882e80c4e72beec1
+- IHL Inventory Distortion：https://www.ihlservices.com/news/analyst-corner/2025/09/retail-inventory-crisis-persists-despite-172-billion-in-improvements/
+- NRF Returns 2025：https://nrf.com/research/2025-retail-returns-landscape
+- NRF Shrink：https://nrf.com/media-center/press-releases/shrink-accounted-over-112-billion-industry-losses-2022-according-nrf
+- Deloitte Retail Outlook：https://www.deloitte.com/us/en/insights/industry/retail-distribution/retail-distribution-industry-outlook.html
 - Simbe Tally 4.0：https://www.simberobotics.com/about/newsroom/simbe-unveils-tally-4-0-the-next-generation-of-autonomous-retail-robot-powering-store-intelligence-via-physical-ai
-- Simbe / B&R Stores：https://www.prnewswire.com/news-releases/br-stores-introduces-simbes-tally-inventory-robot-in-stores-across-nebraska-302794610.html
-- Simbe / Coresight 2026：https://www.simberobotics.com/the-state-of-in-store-retailing-2026-coresight-research-x-simbe-robotics
-- Simbe 10 years：https://www.simberobotics.com/about/newsroom/simbe-marks-10-years-of-tally-the-robot
-- Brain Corp Sam's Club：https://corporate.walmart.com/about/samsclub/news/2022/10/20/sams-club-finalizes-national-deployment-of-inventory-scan-brain-corp-becomes-the-worlds-largest-supplier-of-robotic-inventory-scanners
-- Brain Corp ShelfOptix：https://www.prnewswire.com/news-releases/brain-corp-and-driveline-launch-shelfoptix-the-first-fully-managed-robot-powered-shelf-intelligence-service-302568903.html
-- Badger / Stop & Shop：https://www.badger-technologies.com/news/press-releases/stop-and-shop-upgrade-marty-the-robot.html
-- Pudu / Denner：https://www.prnewswire.com/news-releases/pudu-robotics-and-robobee-forge-strategic-partnership-with-denner-for-major-robotic-cleaning-deployment-across-swiss-stores-302795108.html
-- Pudu retail：https://www.pudurobotics.com/en/solutions/retail
-- Telexistence FamilyMart：https://tx-inc.com/en/blog/2022/08/10/11712/
-- Galbot pharmacy / CGTN：https://news.cgtn.com/news/2026-03-13/China-s-first-pharmacy-robot-goes-into-service-in-Beijing-1LtZ7juLcZ2/p.html
-- Galbot pharmacy / Stdaily：https://www.stdaily.com/web/gdxw/2026-03/17/content_486741.html
-- Pudu Open Platform：https://open.pudutech.com/en
-- OrionStar cases：https://en.orionstar.com/SuccessfulCases.html
-- Keenon / Xinhua：https://www.news.cn/20250528/bd49185b0c8740dcb8a4eed8cffe3276/c.html
-- Gausium cases：https://www.gs-robot.com/case-studies/
-- IHL inventory distortion：https://www.ihlservices.com/news/analyst-corner/2025/09/retail-inventory-crisis-persists-despite-172-billion-in-improvements/
-- Qualcomm RB5：https://www.qualcomm.com/developer/hardware/robotics-rb5-development-kit
-- Qualcomm AI Hub：https://workbench.aihub.qualcomm.com/docs/
-- Qualcomm SNPE：https://www.qualcomm.com/developer/software/neural-processing-sdk-for-ai
+- Focal Systems：https://focal.systems/
+- Vusion Captana：https://www.vusion.com/na/products/captana/
+- Trax / FORM：https://www.form.com/newsroom/form-and-trax-merge/
+- Brain ShelfOptix：https://www.braincorp.com/scanning-as-a-service
+- Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- Qualcomm AI Hub Profile：https://workbench.aihub.qualcomm.com/docs/hub/profile_examples.html
+- Qualcomm QNN SDK：https://www.qualcomm.com/developer/software/neural-processing-sdk-for-ai
+- LeRobot HIL：https://huggingface.co/docs/lerobot/hil_data_collection
 - LeRobot Dataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
-- LeRobot IL robots：https://huggingface.co/docs/lerobot/en/il_robots
-- OpenCV Barcode：https://docs.opencv.org/4.x/d6/d25/tutorial_barcode_detect_and_decode.html
-- GS1 GTIN：https://www.gs1.org/standards/id-keys/gtin
-- GS1 EPCIS：https://www.gs1.org/standards/epcis
-- Nav2 collision monitor：https://docs.nav2.org/configuration/packages/configuring-collision-monitor.html
-- MoveIt 2：https://moveit.picknik.ai/
-- ROS 2 access control：https://design.ros2.org/articles/ros2_access_control_policies.html
-- CAC data export assessment：https://www.cac.gov.cn/2022-07/07/c_1658811536396503.htm
+- AprilTag：https://april.eecs.umich.edu/software/apriltag
+- Nav2 Collision Monitor：https://docs.nav2.org/configuration/packages/collision_monitor/configuring-collision-monitor-node.html
