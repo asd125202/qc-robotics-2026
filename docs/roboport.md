@@ -1,132 +1,265 @@
-# RoboPort Pitch
+# RoboPort 机器人模组港
 
-更新时间：2026-07-05。
+Public page: https://qc-robotics-2026.pages.dev/roboport/
 
-## Core Thesis
+RoboPort is a Chinese pitch-deck concept for the Qualcomm robotics competition. It frames robot modularity as a compatibility-evidence problem, not a generic hardware marketplace or universal plug-and-play claim.
 
-真正像 Mac / Windows / iPhone 一样的机器人平台，不能每接一个相机、夹爪、伺服、传感器和安全模块都重新布线、重写驱动、重新标定、重新做风险文件。
+## One-Line Pitch
 
-RoboPort 是机器人模组港：
+> 机器人不缺零部件，缺的是可信兼容证据。
 
-> Qualcomm edge core + 标准化机器人端口 + 模组护照 + ROS 2 / LeRobot 元数据 + 兼容测试 + 安全证据包 + 认证模块市场。
+English positioning:
 
-它不是承诺“一个万能接口支持所有设备”，而是把机器人扩展拆成四类可交付端口：
+> RoboPort is the evidence graph for robot-cell compatibility, change impact, and certification readiness.
 
-1. **Motion / I/O Port**：EtherCAT、CANopen、24V industrial I/O、STO、安全控制器桥接。
-2. **Smart Tool Port**：夹爪、吸盘、力控、IO-Link、RS-485/Modbus、工具供电与诊断。
-3. **Perception Port**：MIPI CSI-2、GMSL/FPD-Link、GigE Vision、PoE、trigger、PTP timestamp。
-4. **Internal Expansion Port**：M.2、PCIe、USB、radio、storage、accelerator、capture card。
+RoboPort provides CR-ready module passports, ROS 2 driver capsules, LeRobot metadata, compatibility tests, versioned evidence packs, and a curated module/skill marketplace.
 
-每个模块必须带上自己的硬件边界、软件驱动、坐标系、LeRobot schema、功耗、固件版本、风险提示和测试结果。
+## Problem
 
-## Why This Matters
+Robot projects often fail in the final integration layer:
 
-机器人项目常常死在最后 20%：
+- mechanical flange, tool changer, gripper, camera, sensor, PLC, safety scanner, controller, fieldbus, wiring, firmware, ROS driver, URDF/USD model, calibration, timestamping, LeRobot schema, and risk assessment all come from different vendors;
+- each part can be good, but the final combination may be unknown;
+- upgrades, firmware changes, driver drift, calibration changes, or tooling swaps can invalidate a previously working robot cell;
+- system integrators preserve much of this knowledge in tribal notes rather than queryable evidence.
 
-- 线束、电源、地线、屏蔽、热设计没有统一边界。
-- 相机、夹爪、驱动器和安全 IO 的 ROS 节点互相不兼容。
-- URDF、camera calibration、frame、QoS、timestamp 和 LeRobot feature schema 缺失。
-- 供应商固件升级后现场部署失效。
-- 新末端工具改变了风险评估，但证据文件没有跟上。
-- 客户采购看到的是零散 BOM，而不是可测试、可追溯、可维护的模块系统。
+The missing product object is a validated configuration, not a product listing.
 
-RoboPort 的价值是把这些隐性集成工作前置成产品标准。
+## Why Solve It
 
-## Product Modules
+Robot adoption needs a platform layer:
 
-### 1. RoboPort Edge Core
+- OEMs need more modules and skills per robot body.
+- Tool and sensor vendors need a route to many robot models without custom integration every time.
+- System integrators need reusable evidence and fewer repeated mistakes.
+- Manufacturing engineers need faster commissioning and less version uncertainty.
+- Quality/EHS/legal teams need audit trails, risk boundaries, and rollback records.
+- Developers need one SDK and marketplace path to sell robot skills.
 
-Qualcomm edge SoC 作为机器人扩展中枢。
+## Why Now
 
-- 多摄像头、AI 推理、连接、ROS 2 graph、模块发现和本地诊断。
-- 模型部署和 LeRobot 数据采集都围绕同一个 edge target。
-- 支持未来 Dragonwing / RB / QCS / IQ 系列硬件路线。
+Global:
 
-### 2. SmartPort Physical Layer
+- IFR reports robotics has reached platform-scale volume, with hundreds of thousands of new industrial robot installs annually and millions of robots operating globally.
+- Peripherals, vision, process design, and integrator capability remain adoption bottlenecks, especially for SMEs.
+- UR+, Isaac, ROS 2, Viam, Foxglove, Open-RMF, VDA 5050, OPC UA Robotics, and SRCI all validate the pull toward robot ecosystems, but they solve different layers.
 
-不是一个万能插头，而是一组清晰分层的端口规范。
+China:
 
-- 每类端口定义机械定位、键位、防呆、电压、电流、热设计、e-fuse、隔离、接地、屏蔽和热插拔边界。
-- 低功率传感器可以快速发现，高功率执行器必须经过失能、识别、授权、上电流程。
-- 安全链路与 AI/Linux/cloud 解耦，急停、STO 和安全控制器不依赖普通应用进程。
+- China is the robotics volume market, with millions of industrial robots operating and the largest share of new installations.
+- China policy around humanoids, embodied intelligence, AI+manufacturing, industrial agents, benchmark lines, training fields, and standardization points directly at modular robot infrastructure.
+- 2025-2026 standards plans include perception, motion control, operation, simulation testing, safety, body communication interfaces, cloud-edge-end systems, controllers, model training platforms, and data training fields.
 
-### 3. Module Passport
+## Insight
 
-模块护照是机器人外设的软件说明书。
+The next robotics platform is not only an app store. It is a trust stack:
 
-- vendor、product、serial、firmware hash、port class、power class、driver image、firmware ABI。
-- URDF/xacro、frame、calibration、camera info、ros2_control interface、MoveIt snippet。
-- LeRobot observation/action feature、shape、dtype、unit、FPS、timestamp source。
-- 支持 udev / CAN / Ethernet / USB / EEPROM / secure ID 的稳定识别。
+1. Can this module physically and electrically connect?
+2. Which driver and firmware version work?
+3. Which ROS 2 interfaces, frames, calibration files, and LeRobot schemas are valid?
+4. Which safety evidence and risk boundaries changed?
+5. Who tested the combination, under what scope, with what limitations?
+6. Can the configuration be installed, sold, monitored, and rolled back?
 
-### 4. Driver Capsule
+## Solution
 
-把驱动变成可测试、可回滚、可发布的胶囊。
+RoboPort does not replace EtherCAT, CANopen, IO-Link, OPC UA, SRCI, ROS 2, UR+, Isaac, Viam, Foxglove, TÜV, UL, CE, ISO, or accredited safety certification.
 
-- ROS 2 driver / controller 容器化，带版本、依赖、license、SBOM、签名和兼容矩阵。
-- 测试启动顺序、QoS、断连恢复、延迟、CPU/GPU/内存占用、固件升级和回滚。
-- 模块 Manager 只有在 Manifest、驱动、固件和测试结果匹配时才允许激活。
+RoboPort sits between them:
 
-### 5. SafePort Evidence Pack
+1. Module Passport: hardware identity, power, interfaces, mass, frames, calibration, firmware, driver, LeRobot features, limitations, and signature.
+2. Driver Capsule: ROS 2 lifecycle node, ros2_control interfaces, QoS, diagnostics, SBOM, license, dependencies, version matrix, and rollback.
+3. Compatibility Test: electrical, thermal, latency, timestamp drift, fault recovery, firmware update, soak, and negative evidence.
+4. Evidence Graph: robot, controller, EOAT, sensor, PLC, fieldbus, safety component, firmware, driver, CAD/URDF/USD, certificate, and reviewer relationships.
+5. Marketplace: certified configurations, skill packs, module bundles, integrator support, and enterprise deployment records.
 
-兼容不是口号，是证据包。
+## First Product
 
-- 模块分类：sensor、end effector、drive、safety I/O、battery、radio、tool、partly completed machinery。
-- 记录 intended use、prohibited use、payload、force、torque、speed、environment、compatible robots、firmware versions。
-- 输出电气、EMC/RF、热、故障注入、急停/STO、安全 IO、risk assessment delta 和 change-control 文件。
-- 明确边界：RoboPort Certified 是兼容性与交付证据认证，不替代系统级 ISO/UL/CE 风险评估。
+Start with cobot end effectors and sensors:
 
-### 6. CertLab + Marketplace
+- ISO 9409-1 gives a mechanical flange baseline, but not power, data, safety, calibration, drivers, LeRobot metadata, or app distribution.
+- Cobot cells already use repeatable combinations of robot arms, grippers, tool changers, force sensors, cameras, safety scanners, PLCs, and application skills.
+- Evidence is fragmented across manuals, URCaps, distributor notes, PLC projects, ROS packages, CAD files, and integrator experience.
 
-把模块生态做成商业市场，而不是 PDF 列表。
+First verified combinations:
 
-- 供应商提交模块，测试夹具生成兼容评分、性能曲线、故障记录和证据包。
-- 集成商按场景组合：3D vision kit、force-gripper kit、AMR safety kit、CiA 402 servo bridge。
-- 客户按认证等级、兼容机器人、交付周期、功耗、总线、ROS 2、LeRobot schema 和证据包采购。
+- robot model/controller/software version;
+- EOAT/tool changer/force sensor;
+- vision/sensor device;
+- PLC/fieldbus/safety component;
+- driver capsule;
+- CAD/URDF/USD assets;
+- test method and limitations;
+- LeRobot metadata and optional skill pack.
 
-## Competition Demo
+## Market
 
-比赛不需要真的做完整生态，先展示一条可信流程：
+China version:
 
-1. RobotMac / Rhino X1 / QCS8550 edge core 接入两个模块：相机与夹爪。
-2. 系统识别 module passport，自动加载 ROS 2 节点、URDF frame 和 LeRobot feature schema。
-3. 换一个末端工具，界面显示 action schema、功耗、payload 和安全边界变化。
-4. 用 LeRobot 录制一段新任务 episode，证明数据天然带硬件元数据。
-5. 输出一个兼容测试报告：latency、timestamp、calibration、driver version、safe stop signal、risk note。
+- Buyers: robot OEMs, system integrators, module vendors, smart-factory buyers, vocational schools, industrial parks, test/certification platforms, mid-test bases, and training fields.
+- Procurement language: `机器人模块可信互联平台`, `CR-ready 模块护照`, `软硬件接口标准化`, `本体通信接口`, `云边端协同接口`, `中试验证与场景适配`, `供应链协同与质量追溯`, `安全/EMC/可靠性/功能安全/信息安全/智能化等级评价`.
+- Positioning: let OEMs select joints, hands, sensors, controllers, and skill modules with test reports, interface protocols, and compliance files before pilot, procurement, and mass production.
 
-评委看到的不是“插个外设”，而是一套从硬件接口到训练数据、技能部署和企业交付的产品化扩展体系。
+Overseas version:
 
-## Why Qualcomm Should Care
+- Buyers: system integrators, robot OEM ecosystem teams, manufacturing engineering, quality/compliance, EHS/legal, ISVs, education, insurers/safety reviewers.
+- Positioning: certified compatibility and evidence layer above UR+, ROS 2, Isaac, Viam, Foxglove, Open-RMF, VDA 5050, OPC UA Robotics, and formal certification bodies.
+- Target sectors: warehouses/3PL, electronics manufacturing, food/logistics, healthcare logistics, cleaning, inspection, machine tending, education.
 
-Qualcomm 做机器人生态，不能只卖开发板或 reference design。开发者和企业真正需要的是：
+## Business Model
 
-- 哪些传感器和末端工具能稳定接上？
-- 哪些驱动能跑在 Qualcomm edge 上？
-- 哪些模块会产出正确的 LeRobot 数据？
-- 哪些模块能通过边缘性能测试和安全边界审查？
-- 哪些供应商可以一起进入市场？
+Pilot:
 
-RoboPort 把 Qualcomm edge hardware 变成机器人模块生态的默认认证目标。每一个通过认证的相机、夹爪、驱动器和安全 IO，都在扩大 Qualcomm 的开发者入口和商业交付半径。
+- China: RMB 50k-300k.
+- Overseas: USD 15k-75k.
+- Scope: one workflow, one or two robot models, two or three modules/skills, simulator + safety manifest + evidence pack.
 
-## Claims To Avoid
+Runtime:
 
-- 不声称一个 universal port 能替代 EtherCAT、CANopen、IO-Link、GigE Vision、MIPI CSI、USB、PCIe 和 safety I/O 的差异。
-- 不声称 USB-C 可以替代工业 I/O 或安全链路。
-- 不声称 ROS 2、MoveIt、LeRobot 或 Linux 本身具备功能安全认证。
-- 不声称 RoboPort Certified 等于 CE、UL、ISO 10218、ISO 13849 或 IEC 62061 认证。
-- 不声称任何模块都能即插即用；真实世界仍需要驱动、标定、风险评估和版本匹配。
+- China: RMB 99-499 per robot/month.
+- Overseas: USD 99-499 per robot/month.
+- Enterprise fleet discounts.
+
+Certification:
+
+- Software validation: USD 500-1.5k.
+- Physical robot/app validation: USD 5k-25k.
+- Robot-family adapter certification: USD 10k-50k.
+
+Marketplace:
+
+- Default take rate: 15%.
+- Managed enterprise sales/support/insurance bundles: 25%-30%.
+- Developer account: free community, paid pro around USD 99/year or RMB 699/year, free for schools.
+
+## Pilot KPI
+
+90-day pilot:
+
+- app/module install and config under 30 minutes;
+- >95% runtime uptime during supervised shifts;
+- no unresolved safety events in pilot scope;
+- driver capsule rollback proven;
+- LeRobot episode metadata exported;
+- evidence pack accepted by OEM/SI/quality reviewer;
+- one workflow payback model under 12-18 months;
+- one RoboPort Verified configuration ready for marketplace listing.
+
+## Competition
+
+RoboPort integrates with, rather than replaces:
+
+- EOAT/tool ecosystems: OnRobot, Robotiq, Schunk, Zimmer, Piab, ATI.
+- Robot marketplaces: Universal Robots UR+.
+- Sensors/vision/IO: SICK, Keyence, Cognex, Balluff, Turck, Festo.
+- Controls and PLC: Siemens, Beckhoff, PLCopen/SRCI.
+- Open robotics software: ROS-Industrial, ROS 2 ecosystem.
+- Simulation/digital twin: NVIDIA Isaac Sim, OpenUSD/AOUSD, Gazebo, Vention.
+- Robotics ops/data: Formant, Viam, Tangram Vision, Foxglove/MCAP.
+- Safety/certification: TÜV, UL, ISO 10218, ANSI/A3 R15.06, ISO 13849, ISO/TS 15066 lineage.
+
+Avoid claims:
+
+- universal plug-and-play;
+- replacement for integrators;
+- certified robot-cell safety;
+- simulation-proven production readiness;
+- neutral marketplace without transparent limitations;
+- a brand-new standard that ignores existing buses, drivers, and certification systems.
+
+## Moat
+
+The moat is a cross-OEM compatibility evidence network:
+
+- validated robot-module-skill combinations;
+- negative evidence and known limitations;
+- runtime telemetry and integration failures;
+- driver capsule versions and rollback history;
+- skill-marketplace distribution;
+- module vendor/OEM/SI relationships;
+- evidence accepted by quality, compliance, and safety reviewers.
+
+## Architecture
+
+Layers:
+
+- Physical Port: mechanical/load class, power, thermal, e-fuse, shielding, grounding, EtherCAT, CANopen, IO-Link, USB, PCIe, MIPI/GigE/GMSL where relevant.
+- Passport: EEPROM/secure ID, firmware hash, power budget, mass, frames, calibration hash, signature.
+- Driver Capsule: ROS 2 lifecycle, ros2_control, QoS, diagnostics, SBOM, license, dependency lock, compatibility matrix.
+- Data Schema: LeRobot observation/action features, dtype, unit, FPS, timestamp source, module ID, policy boundary.
+- Evidence Pack: test scope, limitations, negative evidence, risk delta, CAD/URDF/USD, certificates, reviewer, install record.
+
+## Qualcomm Fit
+
+Qualcomm should care because a robotics ecosystem cannot rely only on development boards. It needs module vendors to target Qualcomm edge hardware by default.
+
+RoboPort turns Qualcomm edge into:
+
+- a default certification/performance target;
+- an AI Hub/QNN profile target for sensors and perception modules;
+- a LeRobot-compatible data target;
+- a robotics developer kit and classroom kit path;
+- an OEM preinstall and marketplace path;
+- a recurring ecosystem revenue story.
+
+## Safe Competition Demo
+
+Demo scope:
+
+- tabletop low-voltage module dock, not a moving robot;
+- three to four keyed module bays;
+- 5V USB-C only, current limit, PTC/eFuse, recessed contacts, no exposed live pins;
+- safety MCU owns port power and safe-off;
+- modules: RGB camera, IMU/contact/touch, LED/e-paper output, intentionally incompatible/fault module;
+- Qualcomm edge board runs ROS 2, UI, QNN assist, recorder, diagnostics;
+- no batteries, high voltage, motors, grippers, wheels, solenoids, heaters, lasers, sharp parts, or payload lifting.
+
+Demo flow:
+
+1. Insert valid module; read signed passport.
+2. Check policy, current budget, and compatibility matrix.
+3. Activate ROS 2 lifecycle driver after safety MCU approval.
+4. QNN model checks visual module label/orientation as compatibility assist.
+5. Insert invalid/expired/wrong-voltage module; dock remains safe-off.
+6. Export LeRobot episode and evidence report.
+
+Safety rule:
+
+> AI and ROS may veto activation. Only the independent safety MCU may enable port power.
+
+Claims to avoid:
+
+- safety-certified;
+- universal plug-and-play;
+- production-ready industrial robot interface;
+- AI-controlled safety;
+- QNN validation guarantees correctness;
+- LeRobot compatibility means policy transfer works.
+
+## Ask
+
+Support requested:
+
+- Qualcomm edge board and low-voltage I/O guidance.
+- AI Hub/QNN profiling path for module-recognition assist model.
+- ROS 2 lifecycle and LeRobot metadata review.
+- Introductions to module vendors, robot OEMs, SIs, and certification advisors.
+- Feedback on “RoboPort Certified” boundary language.
 
 ## Sources
 
-- Qualcomm Dragonwing IQ10 Robotics Reference Design：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
-- Qualcomm RB3 Gen 2 Development Kit：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
-- Qualcomm RB6 Robotics Platform：https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform
-- EtherCAT Technology：https://www.ethercat.org/en/technology.html
-- CANopen / CiA：https://www.can-cia.org/can-knowledge/standardized-higher-layer-protocols
-- IO-Link：https://io-link.com/
-- MIPI CSI-2：https://www.mipi.org/specifications/csi-2
-- GigE Vision：https://www.automate.org/vision/vision-standards/vision-standards-gige-vision
-- ros2_control：https://control.ros.org/rolling/doc/getting_started/getting_started.html
-- LeRobot Dataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
-- Universal Robots marketplace：https://www.universal-robots.com/marketplace/
-- ISO robotics standards overview：https://www.iso.org/sectors/engineering/robotics
+- IFR China robotics release: https://ifr.org/downloads/press_docs/2025-09-25-IFR_press_release_China_in_Chinese.pdf
+- IFR World Robotics 2025 industrial robots: https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years
+- National Bureau of Statistics May 2026 robot output: https://www.stats.gov.cn/sj/zxfb/202606/t20260616_1963953.html
+- AI+Manufacturing action plan: https://www.nda.gov.cn/sjj/zwgk/zcfb/0112/20260107214358696030895_pc.html
+- ISO 9409-1 mechanical interfaces: https://www.iso.org/standard/36578.html
+- ISO 10218-1:2025 industrial robot safety: https://www.iso.org/standard/73933.html
+- ANSI/A3 R15.06-2025 robot safety: https://www.automate.org/robotics/news/new-ansi-a3-r15-06-2025-american-national-standard-for-industrial-robot-safety-now-available-for-purchase
+- Universal Robots Marketplace: https://www.universal-robots.com/marketplace/
+- IO-Link: https://io-link.com/
+- EtherCAT: https://www.ethercat.org/en/technology.html
+- ROS-Industrial FAQ: https://rosindustrial.org/about/faq
+- ros2_control hardware interfaces: https://control.ros.org/rolling/doc/ros2_control/hardware_interface/doc/hardware_interface_types_userdoc.html
+- Qualcomm AI Hub compile documentation: https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html
+- Hugging Face LeRobot: https://github.com/huggingface/lerobot
+- ROS 2 managed node lifecycle: https://design.ros2.org/articles/node_lifecycle.html

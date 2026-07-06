@@ -3,33 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RoboPort | 机器人模组港</title>
+    <title>RoboPort 机器人模组港 | 机器人不缺零部件，缺可信兼容证据</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-coral">
     <header class="topbar">
       <a class="brand" href="../index.html" aria-label="项目首页">
         <span class="brand-mark"></span>
-        <span>RoboPort</span>
+        <span>RoboPort 机器人模组港</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
         <a href="#problem">问题</a>
-        <a href="#ports">端口</a>
-        <a href="#passport">护照</a>
-        <a href="#certlab">认证</a>
-        <a href="#qualcomm">高通</a>
+        <a href="#why-now">时机</a>
+        <a href="#solution">方案</a>
+        <a href="#market">市场</a>
+        <a href="#business">商业</a>
+        <a href="#competition">竞争</a>
+        <a href="#demo">Demo</a>
+        <a href="#ask">Ask</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-roboport">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 33 · Certified Robot Module Ecosystem</p>
-          <h1>RoboPort</h1>
-          <p class="hero-lede">让机器人像电脑一样扩展：传感器、夹爪、伺服、安全 IO 和相机不再从零适配，而是带着模组护照、ROS 2 接口、LeRobot 元数据和兼容证据进入 Qualcomm edge 生态。</p>
+          <p class="eyebrow">Pitch 33 · Robot Compatibility Evidence Graph</p>
+          <h1>机器人不缺零部件，缺的是可信兼容证据。</h1>
+          <p class="hero-lede">RoboPort 是机器人模块可信互联平台：给关节、夹爪、相机、传感器、安全 IO、驱动胶囊和技能应用发放 CR-ready 模块护照，把硬件边界、ROS 2 接口、LeRobot 元数据、测试报告、版本回滚和风险说明打成可招采、可中试、可量产的兼容证据图谱。</p>
           <div class="cta-row">
-            <a class="button primary" href="#ports">查看四类端口</a>
-            <a class="button" href="../board-bringup-kit/">连接 BoardBringup</a>
+            <a class="button primary" href="#problem">看 Pitch 逻辑</a>
+            <a class="button" href="#demo">看安全样机</a>
           </div>
         </div>
       </section>
@@ -38,31 +41,27 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Integration Problem</p>
-              <h2>每一次集成，不该从零开始。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>机器人项目死在最后 20%：不是没有模块，而是没人能证明这套组合可靠。</h2>
             </div>
-            <p>线束、电源、驱动、ROS 节点、URDF、标定文件、LeRobot schema 和安全文档分散在供应商手册里。RoboPort 把这些隐性工作前置成一套可测试、可采购、可维护的机器人模组标准。</p>
+            <p>一个机器人单元会牵涉本体、控制器、夹爪、力传感器、视觉、PLC、安全扫描仪、线束、固件、ROS 节点、URDF、标定、LeRobot schema、风险评估和客户验收。每个供应商都有手册，但最终组合是否能工作、能回滚、能留证、能通过安全审查，仍然靠集成商经验。</p>
           </div>
-          <div class="grid five">
+          <div class="grid four">
             <article class="card">
-              <h3>Power</h3>
-              <p>电压、电流、热插拔、e-fuse、接地、屏蔽和热设计边界。</p>
+              <h3>采购看不懂组合</h3>
+              <p>BOM 上每个部件都合格，但整套机器人配置的版本、限制和风险常常不透明。</p>
             </article>
             <article class="card">
-              <h3>Driver</h3>
-              <p>ROS 2 driver、controller、QoS、启动顺序和版本矩阵。</p>
+              <h3>集成反复重来</h3>
+              <p>线束、供电、驱动、QoS、坐标、标定、固件升级和现场回滚重复踩坑。</p>
             </article>
             <article class="card">
-              <h3>Geometry</h3>
-              <p>URDF/xacro、frame、payload、collision、标定和工具中心点。</p>
+              <h3>数据不可复用</h3>
+              <p>新模块接上后，LeRobot/训练数据缺少硬件身份、动作边界和时间戳来源。</p>
             </article>
             <article class="card">
-              <h3>Data</h3>
-              <p>LeRobot observation/action schema、timestamp、FPS、unit、dtype。</p>
-            </article>
-            <article class="card">
-              <h3>Safety</h3>
-              <p>急停、STO、安全 IO、风险 delta、故障注入和证据包。</p>
+              <h3>合规证据断裂</h3>
+              <p>ISO/UL/CE/TÜV 风险评估需要证据，但模块变化影响常被记录在邮件和经验里。</p>
             </article>
           </div>
           <div class="image-band">
@@ -71,81 +70,108 @@
         </div>
       </section>
 
-      <section id="ports" class="slide tint">
+      <section id="why-solve" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Four Port Classes</p>
-              <h2>不是一个万能插头，而是四类清晰边界。</h2>
+              <p class="kicker">02 · Why We Solve It</p>
+              <h2>没有兼容证据，机器人就很难从项目交付变成平台生态。</h2>
             </div>
-            <p>机器人扩展不能把 USB-C 当成工业安全总线。RoboPort 把实时运动、智能工具、工业视觉和内部高速扩展分开定义，再用模块护照把它们接回统一的软件与训练工作流。</p>
+            <p>PC 有 USB 和驱动生态，手机有应用商店和权限模型，新能源汽车有供应链认证和变更管理。机器人如果还停留在“每个项目重新适配”，就无法形成大规模开发者、集成商、模块供应商和中小企业采用。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>OEM</h3>
+              <p>需要更多模块和技能适配同一机器人本体，扩大可卖场景和生态收入。</p>
+            </article>
+            <article class="card">
+              <h3>集成商</h3>
+              <p>需要少踩集成坑，把 tribal knowledge 变成可复用的兼容矩阵和交付包。</p>
+            </article>
+            <article class="card">
+              <h3>模块厂商</h3>
+              <p>需要进入更多机器人型号，而不是给每个客户单独写驱动和风险说明。</p>
+            </article>
+            <article class="card">
+              <h3>终端客户</h3>
+              <p>需要知道这套组合的适用场景、限制、版本、测试结果和故障回滚路径。</p>
+            </article>
+            <article class="card">
+              <h3>开发者</h3>
+              <p>需要一个 SDK 和 marketplace，让技能能跨机器人、跨模块、跨行业复用。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Why Now</p>
+              <h2>机器人已经进入平台规模，但模块信任还停留在项目时代。</h2>
+            </div>
+            <p>中国已经是全球机器人最大市场，具身智能、人形机器人、服务机器人和工业机器人同时扩张。2025-2026 年标准计划覆盖感知、运动、操作、仿真测试、安全、本体通信、云边端系统和训练数据场。机器人行业要从样机走向量产，正需要一个“模块护照 + 兼容证据 + 市场分发”的基础层。</p>
           </div>
           <div class="grid four">
-            <article class="card">
-              <h3>Motion / I/O</h3>
-              <p>EtherCAT、CANopen、24V industrial I/O、STO、安全控制器桥接和周期要求。</p>
-            </article>
-            <article class="card">
-              <h3>Smart Tool</h3>
-              <p>夹爪、吸盘、力控、IO-Link、RS-485/Modbus、工具供电和诊断。</p>
-            </article>
-            <article class="card">
-              <h3>Perception</h3>
-              <p>MIPI CSI-2、GMSL/FPD-Link、GigE Vision、PoE、trigger、PTP timestamp。</p>
-            </article>
-            <article class="card">
-              <h3>Expansion</h3>
-              <p>M.2、PCIe、USB、radio、storage、accelerator、capture card 和热边界。</p>
-            </article>
+            <div class="stat">
+              <strong>2.027M</strong>
+              <span>IFR 口径：2024 年中国工厂运行工业机器人约 202.7 万台。</span>
+            </div>
+            <div class="stat">
+              <strong>54%</strong>
+              <span>中国 2024 年新增工业机器人安装量占全球需求约 54%。</span>
+            </div>
+            <div class="stat">
+              <strong>4.66M</strong>
+              <span>IFR 报告全球在运行工业机器人约 466 万台，已具备平台层空间。</span>
+            </div>
+            <div class="stat">
+              <strong>2027</strong>
+              <span>中国 AI+制造行动目标包括 1000 个工业智能体和 500 个应用场景。</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="passport" class="slide white">
+      <section id="insight" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">03 · Module Passport</p>
-              <h2>插上模块，系统自动识别；开始采集，数据天然可训。</h2>
+              <p class="kicker">04 · Insight</p>
+              <h2>RoboPort 的核心不是商品列表，而是“机器人配置的证据图谱”。</h2>
             </div>
-            <p>每个模块都带签名 Manifest，声明硬件身份、驱动胶囊、URDF 坐标、ros2_control 接口、LeRobot features、功耗、固件 ABI、标定状态和安全边界。</p>
+            <p>UR+ 已经证明 OEM marketplace 有价值；IO-Link、EtherCAT、CANopen、OPC UA、VDA 5050 和 ROS 2 也解决了很多局部接口。缺口在于跨供应商、跨机器人、跨硬件和跨软件版本的组合证据：这套配置谁测试过、测试范围是什么、限制是什么、变化会影响什么。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Identify</h3>
-              <p>serial、EEPROM、USB/CAN/Ethernet match、firmware hash。</p>
+          <div class="grid three">
+            <article class="card">
+              <h3>Product Listing 不够</h3>
+              <p>“这个夹爪很好”不等于“这个夹爪在这台机器人、这个固件、这个安全扫描仪下可交付”。</p>
             </article>
-            <article class="step">
-              <h3>Model</h3>
-              <p>URDF/xacro、frame、payload、collision、MoveIt snippet。</p>
+            <article class="card">
+              <h3>Simulation 不够</h3>
+              <p>URDF/USD/Isaac 可以支撑测试，但真实线束、供电、固件、标定和失效恢复仍要留证。</p>
             </article>
-            <article class="step">
-              <h3>Control</h3>
-              <p>ros2_control interfaces、QoS、lifecycle、diagnostics。</p>
-            </article>
-            <article class="step">
-              <h3>Record</h3>
-              <p>LeRobot action/state/image schema、timestamp、unit、FPS。</p>
-            </article>
-            <article class="step">
-              <h3>Gate</h3>
-              <p>安全边界、功耗、固件版本和兼容测试通过后激活。</p>
+            <article class="card">
+              <h3>Certification 不够早</h3>
+              <p>正式认证在系统级完成，RoboPort 提前把模块变更影响和测试证据准备好。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="certlab" class="slide dark">
+      <section id="solution" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">04 · CertLab + Marketplace</p>
-            <h2>兼容不是口号，是可测试、可追溯、可审计。</h2>
-            <p class="lead">RoboPort Certified 定位为兼容性与交付证据认证：它帮助企业进入系统级风险评估，但不替代 ISO、UL、CE 或功能安全认证。</p>
+            <p class="kicker">05 · Solution</p>
+            <h2>RoboPort 是模块护照、驱动胶囊、兼容测试和认证市场的组合。</h2>
+            <p class="lead">它不发明一个万能插头，也不替代 ISO、UL、CE、TÜV 或系统级风险评估。它把一个机器人配置从“手册 + 经验”变成可查询、可测试、可回滚、可审计、可招采的兼容证据。</p>
             <ul class="list">
-              <li>测试电气、热、延迟、timestamp drift、QoS、驱动启动、掉线恢复和 24-72h soak。</li>
-              <li>输出 SBOM、签名驱动、固件回滚、兼容矩阵、功耗曲线和风险 delta。</li>
-              <li>市场按认证等级、总线、功耗、ROS 2、LeRobot schema 和交付周期筛选。</li>
-              <li>集成商可以采购 inspection kit、force-gripper kit、AMR safety kit 和 servo bridge。</li>
+              <li>Module Passport：硬件身份、接口、电压电流、重量、功耗、固件、标定、URDF/USD、LeRobot schema、限制和签名。</li>
+              <li>Driver Capsule：ROS 2 lifecycle 节点、ros2_control 接口、QoS、依赖、SBOM、license、版本矩阵和回滚。</li>
+              <li>Compatibility Test：电气、热、延迟、timestamp drift、断连恢复、固件升级、24-72h soak 和故障注入。</li>
+              <li>Evidence Graph：robot、controller、EOAT、sensor、PLC、fieldbus、safety component、firmware、CAD/URDF/USD 和证书关系。</li>
+              <li>Marketplace：按机器人型号、行业、模块类型、认证等级、交付周期、证据包和支持方筛选购买。</li>
             </ul>
           </div>
           <div class="visual">
@@ -154,55 +180,330 @@
         </div>
       </section>
 
-      <section id="qualcomm" class="slide white">
+      <section id="ports" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · Qualcomm Ecosystem</p>
-              <h2>从开发板到生态，缺的是可信模组港。</h2>
+              <p class="kicker">06 · First Product</p>
+              <h2>第一版从协作机器人末端工具和传感器切入。</h2>
             </div>
-            <p>Qualcomm 已经有边缘 AI、连接、多媒体和机器人 reference design。RoboPort 把每个相机、夹爪、驱动器、安全 IO 和应用套件都变成 Qualcomm edge 的可认证入口。</p>
+            <p>机械法兰已经半标准化，但电源、通信、安全、驱动、标定、工具语义和技能数据仍然碎片化。RoboPort 首先服务重复度高、风险可控、生态成熟的 cobot cell，再扩到移动机器人、人形机器人和服务机器人。</p>
           </div>
-          <div class="grid four">
-            <div class="stat">
-              <strong>Core</strong>
-              <span>Qualcomm edge 负责模块发现、推理、诊断、数据采集和部署门禁。</span>
-            </div>
-            <div class="stat">
-              <strong>Driver</strong>
-              <span>ROS 2 driver capsule 让外设版本、QoS、资源和回滚可管理。</span>
-            </div>
-            <div class="stat">
-              <strong>Data</strong>
-              <span>LeRobot metadata 保证新模块采集的数据可以训练和复现。</span>
-            </div>
-            <div class="stat">
-              <strong>Market</strong>
-              <span>认证费、市场分成、支持订阅和联合营销构成生态收入。</span>
-            </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>EOAT</h3>
+              <p>夹爪、吸盘、工具快换、力控和末端传感器的组合证据。</p>
+            </article>
+            <article class="step">
+              <h3>Perception</h3>
+              <p>相机、深度、触觉、力传感、GigE/MIPI/GMSL 和标定文件。</p>
+            </article>
+            <article class="step">
+              <h3>Control</h3>
+              <p>EtherCAT、CANopen、IO-Link、PLC/SRCI、ROS 2 driver 和 lifecycle。</p>
+            </article>
+            <article class="step">
+              <h3>Safety Evidence</h3>
+              <p>急停/STO、安全 IO、扫描仪、风险 delta 和系统级认证准备材料。</p>
+            </article>
+            <article class="step">
+              <h3>Skill Pack</h3>
+              <p>机器视觉抓取、上下料、检测、清洁、搬运等 versioned skills。</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="slide white">
+      <section id="market" class="slide white">
         <div class="wrap">
-          <p class="quote">RoboPort 的目标不是发明更多接口，而是让每一个机器人外设都有清晰的兼容规则、软件说明书、训练数据边界和交付证据。</p>
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Market</p>
+              <h2>中国版本卖“CR-ready 模块护照”，海外版本卖“certification-ready compatibility graph”。</h2>
+            </div>
+            <p>同一个产品内核，两套话语。中国客户关心机器人模块可信互联、中试验证、场景适配、供应链协同、质量追溯和 CR-ready 资料；海外客户关心减少集成不确定性、跨 OEM 兼容、ISO/ANSI/TÜV/UL 证据准备、变更影响和应用市场分发。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <h3>中国机器人模组港</h3>
+              <p>卖给深圳/杭州/苏州/上海等地 OEM、集成商、模块厂商、工业园区、职业院校、中试基地、训练场、公共服务平台和认证实验室。采购语言是机器人模块可信互联平台、软硬件接口标准化、本体通信接口、云边端协同接口、CR-ready 模块护照和供应链质量追溯。</p>
+            </article>
+            <article class="card">
+              <h3>海外兼容证据层</h3>
+              <p>卖给 system integrators、manufacturing engineering、quality/compliance、robot OEM ecosystem teams、ISVs、education 和 safety reviewers。它不取代 UR+、Isaac、Viam、Foxglove、Open-RMF、VDA 5050 或 OPC UA，而是把它们的证据连成可交付配置。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Business Model</p>
+              <h2>收入来自 SDK、认证、运行时、市场分成和企业支持。</h2>
+            </div>
+            <p>RoboPort 的价值不是托管一个商品网页，而是降低机器人集成不确定性、缩短交付周期、保留证据、支持变更管理，并给开发者和模块厂商一个可销售通道。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>试点包</h3>
+              <p>中国 5万-30万元；海外 15k-75k 美元，覆盖 1-2 个机器人型号和 2-3 个模块/技能。</p>
+            </article>
+            <article class="card">
+              <h3>运行时订阅</h3>
+              <p>中国 99-499 元/机器人/月；海外 99-499 美元/机器人/月，企业按 fleet 折扣。</p>
+            </article>
+            <article class="card">
+              <h3>认证费用</h3>
+              <p>软件验证 500-1500 美元；物理模块/应用验证 5k-25k 美元；机器人家族适配 10k-50k 美元。</p>
+            </article>
+            <article class="card">
+              <h3>市场分成</h3>
+              <p>默认 15% take rate；托管企业销售、集成支持或保险/合规包可到 25%-30%。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gtm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Go-To-Market</p>
+              <h2>先用 90 天证明“一个模块组合能被验证、安装、回滚和出售”。</h2>
+            </div>
+            <p>首个试点不追求建立完整标准，而是选一个可量化工作流：检测、上下料、搬运、清洁或校园配送。把 1-2 个机器人型号、2-3 个模块、一个技能包和一份安全证据包跑通，形成 RoboPort Verified 配置。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>OEM Preinstall</h3>
+              <p>机器人本体预装 RoboPort runtime，让模块厂商和技能开发者进入同一入口。</p>
+            </article>
+            <article class="card">
+              <h3>SI Channel</h3>
+              <p>集成商使用认证组合缩短报价、调试、验收和售后证据整理。</p>
+            </article>
+            <article class="card">
+              <h3>Developer Kit</h3>
+              <p>免费模拟器 + 499-999 美元边缘套件 + 学校/竞赛课程，培养开发者。</p>
+            </article>
+            <article class="card">
+              <h3>Enterprise Trust</h3>
+              <p>给质量、EHS、法务和采购提供权限、版本、回滚、限制和责任边界。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="competition" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Competition</p>
+              <h2>不要做另一个 EOAT 目录，也不要宣称“UR+ for all robots”。</h2>
+            </div>
+            <p>OnRobot、Robotiq、Schunk、Zimmer、Piab、ATI、UR+、SICK、Keyence、Cognex、Balluff、Turck、Festo、Siemens、Beckhoff、ROS-Industrial、Isaac、Viam、Formant、Tangram、TÜV、UL 都占住了一部分。RoboPort 的位置是在这些生态之上建立组合级证据。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>硬件生态</h3>
+              <p>夹爪、相机、传感器、IO、PLC 和工具厂商拥有产品，不天然拥有跨 OEM 组合证据。</p>
+            </article>
+            <article class="card">
+              <h3>软件生态</h3>
+              <p>ROS 2、Isaac、Viam、Foxglove、Open-RMF 和 VDA 5050 提供基础能力，不是认证市场。</p>
+            </article>
+            <article class="card">
+              <h3>认证机构</h3>
+              <p>ISO/ANSI/TÜV/UL 做正式认证和审查，RoboPort 准备模块与变更影响证据。</p>
+            </article>
+            <article class="card">
+              <h3>RoboPort</h3>
+              <p>兼容矩阵、组合测试、证据图谱、模块护照、驱动胶囊、版本回滚和市场分发。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">11 · Moat</p>
+              <h2>护城河是跨 OEM、跨模块、跨版本的兼容证据网络。</h2>
+            </div>
+            <p>每个通过验证的组合，都会增加 RoboPort 对模块限制、驱动问题、固件风险、时间戳漂移、标定失效、安全边界和集成商交付行为的理解。这个图谱越大，越能帮助客户避免重复验证，也越能帮助模块厂商扩大销售半径。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Compatibility Graph</h3>
+              <p>robot、controller、EOAT、sensor、PLC、fieldbus、firmware、driver、certificate。</p>
+            </article>
+            <article class="card">
+              <h3>Negative Evidence</h3>
+              <p>哪些组合不通过、限制条件是什么、为什么失败、如何回滚，比广告更可信。</p>
+            </article>
+            <article class="card">
+              <h3>Runtime Telemetry</h3>
+              <p>安装时间、故障、驱动崩溃、断连恢复、版本升级和现场 interventions。</p>
+            </article>
+            <article class="card">
+              <h3>Developer Distribution</h3>
+              <p>SDK、认证徽章、市场销售、OEM referral 和 SI channel 形成双边网络。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">12 · Architecture</p>
+            <h2>从物理端口到训练数据，每一步都留证。</h2>
+            <p class="lead">RoboPort 把传统“插上试试”的外设集成，拆成可验证的五层：低压/工业接口、模块身份、驱动胶囊、数据语义、安全/兼容证据。对于高功率执行器和真实安全链路，RoboPort 只记录和门控，不替代 certified safety controller。</p>
+            <ul class="list">
+              <li>Physical Port：mechanical/load class、5/24V、e-fuse、grounding、shielding、thermal、EtherCAT/CAN/IO-Link/USB/PCIe。</li>
+              <li>Passport：EEPROM/secure ID、firmware hash、power budget、mass、frames、calibration hash、signature。</li>
+              <li>Driver Capsule：ROS 2 lifecycle、ros2_control、QoS、diagnostics、SBOM、license、rollback、compatibility matrix。</li>
+              <li>Data Schema：LeRobot observation/action、dtype、unit、FPS、timestamp source、module ID 和 policy boundary。</li>
+              <li>Evidence Pack：test scope、limitations、negative evidence、risk delta、CAD/URDF/USD、certificates 和 reviewer。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/roboport.png" alt="RoboPort 架构，模块护照、驱动胶囊、兼容测试、证据图谱和市场分发">
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">13 · Demo</p>
+              <h2>比赛样机是 5V 安全模块 dock，不做运动机器人。</h2>
+            </div>
+            <p>桌面 dock 使用 3-4 个带键位的低压模块槽、凹陷触点、5V USB-C、限流、PTC/eFuse、手动 stop、独立安全 MCU。模块只包含 RGB 相机、IMU/contact/touch、LED/e-paper 输出和一个故障模块；无电池、高压、电机、夹爪、轮子、加热、激光、尖锐件或载荷。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Insert</h3>
+              <p>插入 camera/sensor 模块，系统先读 signed passport，再允许低压上电。</p>
+            </article>
+            <article class="step">
+              <h3>Activate</h3>
+              <p>ROS 2 lifecycle 从 Unconfigured 到 Inactive，再经 safety MCU 批准变 Active。</p>
+            </article>
+            <article class="step">
+              <h3>Validate</h3>
+              <p>QNN 小模型识别模块类型/方向，只作为兼容辅助，不做安全决策。</p>
+            </article>
+            <article class="step">
+              <h3>Reject</h3>
+              <p>插入 wrong-voltage、unsigned 或 expired passport 模块，端口保持 safe-off。</p>
+            </article>
+            <article class="step">
+              <h3>Record</h3>
+              <p>导出 LeRobot episode、模块 hash、电流、状态、QNN 结果和证据报告。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">14 · Why Qualcomm</p>
+              <h2>Qualcomm 需要的不只是机器人开发板，而是默认被模块厂商适配的生态目标。</h2>
+            </div>
+            <p>Qualcomm 有边缘 AI、多媒体、连接、低功耗和机器人 reference design。RoboPort 把每个通过验证的相机、传感器、夹爪、驱动器、安全 IO 和技能包都变成 Qualcomm edge 的分发入口，扩大开发者、模块厂商、OEM 和集成商围绕 Qualcomm 的交付半径。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Default Target</h3>
+              <p>模块厂商以 Qualcomm edge 作为认证和性能 profile 的默认目标之一。</p>
+            </article>
+            <article class="card">
+              <h3>AI Hub / QNN</h3>
+              <p>相机、触觉、质量检测和模块识别模型可进入 AI Hub/QNN 测试链。</p>
+            </article>
+            <article class="card">
+              <h3>LeRobot Data</h3>
+              <p>每个模块天然携带 observation/action schema，让训练数据具备硬件上下文。</p>
+            </article>
+            <article class="card">
+              <h3>Ecosystem Revenue</h3>
+              <p>认证费、运行时订阅、市场分成、开发者套件和 OEM preinstall 形成生态收入。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ask" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">15 · Ask</p>
+              <h2>请支持 RoboPort 做成“机器人模块可信互联 + Qualcomm edge 认证目标”的参考样机。</h2>
+            </div>
+            <p>我们需要边缘开发板、AI Hub/QNN 测试支持、模块厂商/机器人 OEM 访谈、低压 dock 评审、ROS 2/LeRobot 数据规范反馈和认证边界建议。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>硬件路径</h3>
+              <p>RB3/Dragonwing 级开发板、多摄像头和低压 I/O dock 参考设计建议。</p>
+            </article>
+            <article class="card">
+              <h3>模块伙伴</h3>
+              <p>2 家相机/传感器厂商、1 家夹爪/末端工具厂商、1 家机器人 OEM 或 SI。</p>
+            </article>
+            <article class="card">
+              <h3>标准顾问</h3>
+              <p>ISO/ANSI/TÜV/UL 风险边界反馈，确保 RoboPort Certified 只讲兼容证据。</p>
+            </article>
+            <article class="card">
+              <h3>竞赛样机</h3>
+              <p>一个 5V 安全模块 dock，演示 passport、driver capsule、QNN assist 和 LeRobot export。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="claims" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">16 · Claims & Sources</p>
+              <h2>RoboPort Certified 是兼容证据，不是安全认证。</h2>
+            </div>
+            <p>页面主张低压桌面样机、模块护照、驱动胶囊、兼容测试、证据图谱、市场分发、LeRobot 元数据和 Qualcomm edge/QNN 候选路径。它不主张 universal plug-and-play，不替代 ISO/UL/CE/TÜV，不证明系统级安全，不声称 QNN 或 AI 决定安全。</p>
+          </div>
+          <p class="quote">一句话 pitch：RoboPort is the evidence graph for robot-cell compatibility, change impact, and certification readiness.</p>
           <div class="source-links">
-            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10 RRD</a>
-            <a href="https://www.ethercat.org/en/technology.html">EtherCAT</a>
+            <a href="https://ifr.org/downloads/press_docs/2025-09-25-IFR_press_release_China_in_Chinese.pdf">IFR 2025 中国机器人数据新闻稿</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR World Robotics 2025 industrial robots</a>
+            <a href="https://www.stats.gov.cn/sj/zxfb/202606/t20260616_1963953.html">国家统计局 2026 年 5 月机器人产量</a>
+            <a href="https://www.nda.gov.cn/sjj/zwgk/zcfb/0112/20260107214358696030895_pc.html">AI+制造行动方案</a>
+            <a href="https://www.iso.org/standard/36578.html">ISO 9409-1 mechanical interfaces</a>
+            <a href="https://www.iso.org/standard/73933.html">ISO 10218-1:2025 industrial robot safety</a>
+            <a href="https://www.automate.org/robotics/news/new-ansi-a3-r15-06-2025-american-national-standard-for-industrial-robot-safety-now-available-for-purchase">ANSI/A3 R15.06-2025 robot safety</a>
+            <a href="https://www.universal-robots.com/marketplace/">Universal Robots UR+ Marketplace</a>
             <a href="https://io-link.com/">IO-Link</a>
-            <a href="https://www.automate.org/vision/vision-standards/vision-standards-gige-vision">GigE Vision</a>
-            <a href="https://control.ros.org/rolling/doc/getting_started/getting_started.html">ros2_control</a>
-            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
-            <a href="https://www.universal-robots.com/marketplace/">UR+ Marketplace</a>
-            <a href="https://www.iso.org/sectors/engineering/robotics">ISO Robotics</a>
+            <a href="https://www.ethercat.org/en/technology.html">EtherCAT Technology</a>
+            <a href="https://rosindustrial.org/about/faq">ROS-Industrial FAQ</a>
+            <a href="https://control.ros.org/rolling/doc/ros2_control/hardware_interface/doc/hardware_interface_types_userdoc.html">ros2_control hardware interfaces</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html">Qualcomm AI Hub compile documentation</a>
+            <a href="https://github.com/huggingface/lerobot">Hugging Face LeRobot</a>
+            <a href="https://design.ros2.org/articles/node_lifecycle.html">ROS 2 managed node lifecycle</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+      <p>RoboPort is one exploratory pitch in the Qualcomm robotics competition package. It is designed for proposal discussion and safe low-voltage demonstration, not as a certified robot-cell safety system.</p>
+      <p><a href="../index.html">返回首页</a></p>
     </footer>
   </body>
 </html>

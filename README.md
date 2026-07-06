@@ -65,7 +65,7 @@ The current first-batch pitch directions are:
 - `RailLoop 轨交异常闭环层`: vendor-neutral rail/metro exception-closure pitch around one exception ID, hidden-danger closure, station assets, flood readiness, inspection robots, LeRobot HIL, and Qualcomm edge evidence packets.
 - `ComputeLoop 智算异常闭环台`: AI factory exception-closure pitch that links GPU/job issues, RoCE/network, liquid cooling, power, PUE, robot inspection, SLA impact, LeRobot HIL, and Qualcomm edge evidence into verified recovery events.
 - `BuildLoop 安闭环`: construction safety exception-closure evidence pitch for AI alerts, inspections, subcontractor remediation, owner/regulator/insurer audit packets, symbolic tabletop demo, LeRobot HIL, and Qualcomm edge evidence.
-- `RoboPort`: certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
+- `RoboPort 机器人模组港`: robot-module compatibility evidence pitch for CR-ready module passports, ROS 2 driver capsules, LeRobot metadata, compatibility tests, marketplace distribution, and Qualcomm edge certification targets.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.
 - `VerticalPlaybooks`: factory, logistics, lab, campus/service, and education market product packages.
