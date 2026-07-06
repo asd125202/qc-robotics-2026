@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RevenueStack | 机器人平台收入结构</title>
+    <title>RevenueStack | 机器人收入操作系统</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-green">
@@ -13,112 +13,296 @@
         <span>RevenueStack</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#ladder">套餐</a>
-        <a href="#lines">收入</a>
-        <a href="#pilot">试点</a>
+        <a href="#problem">问题</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">时机</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-revenuestack">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 17 · Pricing & Commercial Packaging</p>
+          <p class="eyebrow">Pitch 17 · Robot Revenue Operating System</p>
           <h1>RevenueStack</h1>
-          <p class="hero-lede">把机器人平台拆成可采购 SKU、云训练额度、技能包、队列运维和安全治理订阅。商业化不是“卖一台机器人”，而是建立从试点到规模部署的收入阶梯。</p>
+          <p class="hero-lede">机器人不是一次性卖货，而是持续产生现金流的劳动力。RevenueStack 把硬件、租赁、技能、云训练、SLA、渠道和用量计费变成一个收入操作系统，让机器人公司从 demo 走向可续费生意。</p>
           <div class="cta-row">
-            <a class="button primary" href="#ladder">查看收入阶梯</a>
-            <a class="button" href="../business-case/">连接商业飞轮</a>
+            <a class="button primary" href="#problem">看收入漏洞</a>
+            <a class="button" href="#demo">看计费演示</a>
           </div>
         </div>
       </section>
 
-      <section id="ladder" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Pricing Ladder</p>
-              <h2>客户不是买概念，而是买一条低风险升级路径。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>机器人越来越便宜，但机器人公司还在用卖硬件的方式赚钱。</h2>
             </div>
-            <p>从开发者套件到企业试点，再到队列部署和行业包，每一级都对应不同买家、预算和交付证据。</p>
+            <p>一个 robot OEM 可以做出很好的 demo，却在商业化时卡住：合同只写硬件价格，试点没有升级路径，软件技能无法收费，远程运维没有订阅，售后和质保吞掉毛利，渠道佣金和租赁账本全靠表格。</p>
           </div>
-          <div class="grid four">
+          <div class="grid five">
             <article class="card">
-              <h3>Starter Kit</h3>
-              <p>面向高校和开发者：Core Lite、基础技能包、少量云训练额度。</p>
+              <span class="claim-tag">Lumpy</span>
+              <h3>收入一次性</h3>
+              <p>硬件交付当天看起来有收入，但客户成功、技能升级、训练数据、运维和续费没有被产品化。</p>
             </article>
             <article class="card">
-              <h3>Pilot Kit</h3>
-              <p>面向实验室和工厂：Core Pro、Teleop Studio、DataFlywheel、SafetyOps。</p>
+              <span class="claim-tag">RaaS</span>
+              <h3>租售混乱</h3>
+              <p>买断、租赁、试用、押金、保内/保外、买断尾款、资产归属和替换机没有统一账本。</p>
             </article>
             <article class="card">
-              <h3>Fleet Kit</h3>
-              <p>面向多机部署：EdgeFleet 运维、企业权限、年度模型更新。</p>
+              <span class="claim-tag">Usage</span>
+              <h3>机器人工作无法计量</h3>
+              <p>自主运行小时、任务数、配送单、巡检点、抓取次数、远程接管和训练积分没有变成可计费事件。</p>
             </article>
             <article class="card">
-              <h3>Industry Pack</h3>
-              <p>面向行业客户：垂直模板、私有数据集、现场交付和 SLA 支持。</p>
+              <span class="claim-tag">Channel</span>
+              <h3>渠道越多越难结算</h3>
+              <p>经销商、SI、租赁公司、现场运维、技能开发者和保险服务商都需要佣金、分成和责任边界。</p>
             </article>
-          </div>
-          <div class="image-band">
-            <img src="../assets/revenue-stack.png" alt="机器人平台硬件云训练技能运维收入结构图">
+            <article class="card">
+              <span class="claim-tag">Finance</span>
+              <h3>财务看不到真实 ARR</h3>
+              <p>硬件、订阅、用量、服务质保、预付训练积分、App Store 分成和递延收入分散在不同表里。</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="lines" class="slide tint">
+      <section id="broken" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Revenue Lines</p>
-              <h2>硬件只是入口，持续收入来自训练、数据、技能、运维和治理。</h2>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>ERP、Stripe 和普通 SaaS 计费工具不理解机器人。</h2>
             </div>
-            <p>平台式机器人生意必须避免只靠硬件毛利。每次客户训练、部署、升级、运维和审计，都应该回到同一套产品系统。</p>
+            <p>机器人商业化同时包含硬件 SKU、BOM、序列号、租赁资产、现场部署、运维 SLA、技能授权、云训练积分、用量证明、保修责任和渠道分账。把它们拼在 CRM、ERP、Stripe、飞书表格和工单系统里，早晚会漏钱。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>Hardware</h3>
-              <p>Core Lite / Pro / Industrial。</p>
+              <h3>ERP / BOM</h3>
+              <p>会管物料和订单，但不理解技能订阅、用量计费、训练积分、机器人任务证明和 App Store 分成。</p>
             </article>
             <article class="card">
-              <h3>Training</h3>
-              <p>CloudTwin 训练额度和双云 adapter。</p>
+              <h3>Stripe / SaaS Billing</h3>
+              <p>适合 seat 和 API 计费；机器人还需要序列号、BOM 修订、替换机、保修、SLA 和部署里程碑。</p>
             </article>
             <article class="card">
-              <h3>Data</h3>
-              <p>DataFlywheel 数据账本和失败挖掘。</p>
+              <h3>Fleet Dashboard</h3>
+              <p>能看设备在线和任务状态，但通常不会生成 quote、invoice、revenue recognition、dealer payout 和续费预测。</p>
             </article>
             <article class="card">
-              <h3>Skills</h3>
-              <p>SkillDock 技能包和行业模板。</p>
+              <h3>Marketplace</h3>
+              <p>UR+、MiR Go、Viam Registry 证明生态有价值，但 robot OEM 仍需要自己的授权、结算和兼容性账本。</p>
             </article>
             <article class="card">
-              <h3>Fleet</h3>
-              <p>EdgeFleet 设备运维、日志和 OTA。</p>
+              <h3>Leasing Tools</h3>
+              <p>能处理设备租赁，却不理解每台机器人今天跑了多少任务、用了哪个技能、触发了哪种 SLA。</p>
             </article>
             <article class="card">
-              <h3>Governance</h3>
-              <p>SafetyOps 权限、门禁和审计包。</p>
+              <h3>Spreadsheet</h3>
+              <p>试点阶段够用；一旦进入 10-500 台部署，报价、续费、渠道、保修和用量都会失控。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="pilot" class="slide dark">
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>RevenueStack 是机器人公司的收入操作系统。</h2>
+            </div>
+            <p>它把 robot、component、skill、fleet workflow、training run、support event、dealer motion 和 app install 变成可定价、可授权、可计量、可开票、可分账、可确认收入的对象。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Product</h3>
+              <p>SKU、BOM、序列号、payload、firmware、skill package、training credit、service plan 和 price book。</p>
+            </article>
+            <article class="step">
+              <h3>Entitlement</h3>
+              <p>客户、站点、fleet、robot serial、skill、meter、quota 和有效期决定“现在能用什么”。</p>
+            </article>
+            <article class="step">
+              <h3>Usage</h3>
+              <p>自主小时、任务数、配送、抓取、巡检点、teleop、inference、GPU-minute、数据 GB 和 SLA 事件。</p>
+            </article>
+            <article class="step">
+              <h3>Revenue</h3>
+              <p>合同、发票、用量、质保、预付积分、渠道分成和交付事件转成收入排期。</p>
+            </article>
+            <article class="step">
+              <h3>Expansion</h3>
+              <p>从 starter kit 到 pilot，再到 fleet subscription、skill marketplace、RaaS 和行业包。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/revenue-stack.png" alt="机器人收入操作系统、硬件、云训练、技能、运维和渠道分账图">
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Why Now</p>
+              <h2>硬件价格下探、RaaS 扩张和技能生态正在创造机器人 App Store 时刻。</h2>
+            </div>
+            <p>IFR 显示 2024 年专业服务机器人销量接近 20 万台，RaaS fleet 增长 31% 至超过 24,500 台。中国工业机器人仍是全球最大市场，服务机器人、AMR、餐饮、清洁、医疗、安防、农业和人形机器人都在寻找“硬件之外”的收入结构。</p>
+          </div>
+          <div class="grid five">
+            <div class="stat">
+              <strong>295K</strong>
+              <span>中国 2024 年新增工业机器人安装约 29.5 万台，占全球安装 54%。</span>
+            </div>
+            <div class="stat">
+              <strong>200K</strong>
+              <span>IFR 报告 2024 年专业服务机器人销量接近 20 万台。</span>
+            </div>
+            <div class="stat">
+              <strong>31%</strong>
+              <span>专业服务机器人 RaaS fleet 2024 年增长 31%，超过 24,500 台。</span>
+            </div>
+            <div class="stat">
+              <strong>$4.9K</strong>
+              <span>低价人形机器人和开发套件把硬件入口拉低，收入重心转向软件和服务。</span>
+            </div>
+            <div class="stat">
+              <strong>500+</strong>
+              <span>UR+ 的生态规模证明：机器人买家愿意为可验证组件、软件和集成包降低部署风险。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">03 · Pilot To Expansion</p>
-            <h2>先卖试点成功，再卖规模部署。</h2>
-            <p class="lead">最现实的商业路径不是一开始承诺替代整条产线，而是用 4-8 周试点证明一个可控任务，收集客户数据，生成行业技能包，再升级多机部署和年度订阅。</p>
+            <p class="kicker">05 · Product</p>
+            <h2>从报价到续费，把每一台机器人变成可扩张账户。</h2>
+            <p class="lead">RevenueStack 的第一批 ICP 是正在从 pilot 走向 10-500 台部署的机器人公司，尤其是通过经销商、SI、RaaS、租赁和海外渠道销售的 OEM。</p>
             <ul class="list">
-              <li>第 1 阶段：Starter Kit 获取开发者和高校心智。</li>
-              <li>第 2 阶段：Pilot Kit 绑定真实客户任务和数据。</li>
-              <li>第 3 阶段：Fleet Kit 把单机成功扩展为队列运维。</li>
-              <li>第 4 阶段：Industry Pack 把一次交付沉淀成可复用行业包。</li>
+              <li>Robotics CPQ：硬件、BOM、payload、安装、训练、技能、SLA、租赁、买断和渠道折扣。</li>
+              <li>RaaS Billing：按月、按小时、按任务、按配送、按巡检点、按亩、按 tote、按节省金额计费。</li>
+              <li>Asset & Lease Ledger：序列号、部署状态、租期、折旧、押金、替换机、退货、买断和保险。</li>
+              <li>Skill Store：技能包、QNN profile、兼容 BOM、license、trial、canary、usage meter、开发者分成。</li>
+              <li>SLA / Warranty：保修、延保、预防性维护、备件、远程支持、现场派单、service credit 和收入确认。</li>
+              <li>Finance Dashboard：ARR、usage revenue、deferred revenue、gross margin、warranty liability、partner payout 和 expansion。</li>
             </ul>
           </div>
           <div class="visual">
-            <img src="../assets/revenue-stack.png" alt="机器人平台试点到规模部署收入阶梯图">
+            <img src="../assets/revenue-stack.png" alt="RevenueStack CPQ、RaaS 计费、技能商店、质保和财务仪表盘">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Product API</p>
+              <h2>机器人收入系统的基本对象不是 seat，而是 SKU、序列号、技能、任务和 SLA。</h2>
+            </div>
+            <p>每个商业动作都被结构化：报价、激活、授权、部署、计量、训练、保修、渠道分成和收入确认。这样机器人公司才能从“卖设备”升级为“经营机器人账户”。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>SKU / BOM</h3>
+              <p>hardware、component、skill、cloud_credit、fleet_plan、warranty、SLA、service、marketplace_app 和 BOM revision。</p>
+            </article>
+            <article class="card">
+              <h3>Entitlement</h3>
+              <p>customer、site、fleet、robot_serial、package、quota、effective_dates 和 install policy。</p>
+            </article>
+            <article class="card">
+              <h3>UsageMeter</h3>
+              <p>autonomy_hours、tasks、picks、deliveries、inspection_points、teleop_minutes、training_credits、data_gb。</p>
+            </article>
+            <article class="card">
+              <h3>Subscription</h3>
+              <p>fleet ops plan、included robots、included usage、support tier、add-ons、overage price 和 renewal date。</p>
+            </article>
+            <article class="card">
+              <h3>SLAWarranty</h3>
+              <p>covered components、response time、uptime commitment、RMA、service credit、assurance vs service warranty。</p>
+            </article>
+            <article class="card">
+              <h3>PartnerPayout</h3>
+              <p>dealer、SI、publisher、territory、deal registration、rev share、commission、fapiao/tax 和 settlement。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Market & Business Model</p>
+              <h2>卖给 robot OEM 的不是财务软件，而是从试点到规模部署的收入基础设施。</h2>
+            </div>
+            <p>RevenueStack 自己的收入也要跟客户增长绑定：active robot、用量计费量、GMV、渠道分成、skill marketplace 和高级财务/质保模块。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <span class="claim-tag">中国版</span>
+              <h3>租售一体 + 渠道友好 + 发票/补贴材料</h3>
+              <p>Starter：人民币 3k-20k / month，用于 10-100 台机器人和基础 CPQ/订阅/用量。Growth：人民币 100k-500k / year，加入渠道、RaaS、质保、私有化和国产云/模型计费。GMV take rate：0.5%-2%，技能商店/渠道分成 10%-25%。支持 fapiao-ready billing、设备更新材料和本地 SI。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">海外版</span>
+              <h3>Revenue OS For Commercial Robotics</h3>
+              <p>Startup：$999-$5k / month + active robot fee。Scale：$25k-$150k / year + usage metering volume。Enterprise：$150k-$500k / year for SOC2-style audit, ASC 606/842 handoff, dealer/channel management, private marketplace and warranty automation。Best ICP: robotics companies moving from pilots to 10-500 deployed robots.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>真正的壁垒不是计费规则，而是机器人收入事实表。</h2>
+            </div>
+            <p>Hardfin、Stripe、Metronome、ERP、CRM、marketplace 和 fleet platforms 都能覆盖一部分。RevenueStack 的护城河是把它们缺少的 robot context 变成系统记录：BOM、序列号、技能、任务、SLA、渠道、训练积分和 Qualcomm edge profile。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Telemetry + Billing</h3>
+              <p>机器人真实任务和 fleet 状态直接生成 invoice、overage、SLA credit 和 renewal expansion。</p>
+            </article>
+            <article class="card">
+              <h3>Contract Templates</h3>
+              <p>仓储、餐饮、医疗、安防、农业、人形和教育的 RaaS / lease / task pack 合同模板沉淀。</p>
+            </article>
+            <article class="card">
+              <h3>Marketplace Network</h3>
+              <p>技能开发者、SI、经销商、租赁商和保险服务商围绕同一套 entitlement 和 payout 增长。</p>
+            </article>
+            <article class="card">
+              <h3>Finance Graph</h3>
+              <p>硬件交付、订阅履约、用量消耗、预付积分、质保义务和渠道分成形成融资需要的数据。</p>
+            </article>
+            <article class="card">
+              <h3>Qualcomm Profile</h3>
+              <p>技能是否可售，取决于目标硬件、AI Hub/QNN profile、runtime constraints 和支持责任。</p>
+            </article>
+            <article class="card">
+              <h3>System Of Record</h3>
+              <p>一旦 RevenueStack 成为 quote-to-cash、usage-to-bill 和 renewal 的记录源，迁移成本很高。</p>
+            </article>
           </div>
         </div>
       </section>
@@ -127,44 +311,89 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · Qualcomm Ecosystem</p>
-              <h2>每一条收入线都把更多开发者和客户带回 Qualcomm edge。</h2>
+              <p class="kicker">09 · Why Qualcomm</p>
+              <h2>Qualcomm 的机会不是只卖开发板，而是拥有开发板周围的收银机。</h2>
             </div>
-            <p>Starter Kit 是开发者入口，Pilot Kit 是客户数据入口，Fleet Kit 是长期部署入口，Industry Pack 是参考设计入口。Qualcomm 支持的不是单一 demo，而是一套商业化路径。</p>
+            <p>RevenueStack 把 Qualcomm 的硬件、AI Hub、QNN/QAIRT、Dragonwing/RB3/IQ10 和生态伙伴变成连续收入触点：starter kit、profile credits、validated skill、fleet runtime、OTA、SLA 和 production SKU。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>学习</h3>
-              <p>高校和开发者用 Starter Kit 学会边缘部署。</p>
+              <h3>Starter</h3>
+              <p>Dragonwing / RB3 starter kit 和教育套件培养 Qualcomm-first developer。</p>
             </article>
             <article class="step">
-              <h3>试点</h3>
-              <p>企业用 Pilot Kit 训练真实任务。</p>
+              <h3>Profile</h3>
+              <p>AI Hub / QNN profile credit 让每个模型都有 Qualcomm edge evidence。</p>
             </article>
             <article class="step">
-              <h3>部署</h3>
-              <p>Fleet Kit 把模型运行在 Qualcomm 本体。</p>
+              <h3>Skill</h3>
+              <p>No QNN profile, no marketplace-ready skill：技能上架以硬件 profile 为门槛。</p>
             </article>
             <article class="step">
-              <h3>复用</h3>
-              <p>行业技能包形成可复制交付模板。</p>
+              <h3>Fleet</h3>
+              <p>EdgeFleet、OTA、rollback、audit 和 SLA 让 Qualcomm 留在硬件售后收入流里。</p>
             </article>
             <article class="step">
-              <h3>生态</h3>
-              <p>更多技能、数据和设备围绕 edge target 增长。</p>
+              <h3>SKU</h3>
+              <p>Prototype on RB3，productize on Dragonwing / IQ10，把 demo 迁移到量产 SKU。</p>
             </article>
           </div>
         </div>
       </section>
 
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>7 分钟演示：机器人跑一次任务，收入系统自动闭环。</h2>
+            </div>
+            <p>演示的目标不是展示发票 UI，而是证明每一次机器人商业动作都能被定价、授权、计量、结算和确认收入。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>0-2m</strong>
+              <span>Dealer 配置 20 台机器人报价：硬件、Inspection Pro 技能、10k 训练积分、3 年 SLA、渠道折扣。</span>
+            </div>
+            <div class="stat">
+              <strong>2-3m</strong>
+              <span>扫描序列号激活 fleet；每台机器人绑定 BOM、firmware、warranty、site、subscription 和 entitlement。</span>
+            </div>
+            <div class="stat">
+              <strong>3-5m</strong>
+              <span>安装付费技能并跑任务；系统记录 3 小时 uptime、182 tasks、12 skill calls、40 training-credit minutes。</span>
+            </div>
+            <div class="stat">
+              <strong>5-7m</strong>
+              <span>Bill run 输出订阅、用量、训练积分消耗、App Store 分成、dealer commission、SLA 状态和递延收入。</span>
+            </div>
+          </div>
+          <p class="quote">对 Qualcomm 的请求：给我们 6-8 周 Dragonwing Revenue Attach Sprint：RB3/IQ10 demo target、AI Hub/QNN quota、2-3 个 reference skills、OEM/SI 介绍，以及谨慎使用 “Qualcomm-edge-ready candidate” 这类 profile 语言的许可。</p>
+        </div>
+      </section>
+
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">如果没有收入结构，机器人平台只是一个 demo；有了 RevenueStack，它才像一个可以销售、续费和扩张的产品公司。</p>
+          <p class="quote">如果没有收入结构，机器人平台只是 demo；有了 RevenueStack，它才像一个可以销售、续费、分账、融资和扩张的产品公司。</p>
           <div class="source-links">
-            <a href="https://ifr.org/worldrobotics/">IFR World Robotics</a>
-            <a href="https://ifr.org/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
-            <a href="https://formic.co/">Formic RaaS</a>
-            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Industrial Robots</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
+            <a href="https://formic.co/resources/articles/robots-as-a-service-raas">Formic RaaS</a>
+            <a href="https://locusrobotics.com/blog/raas-warehouse-roi">Locus RaaS</a>
+            <a href="https://brightpick.ai/resources/how-brightpicks-raas-works/">Brightpick RaaS</a>
+            <a href="https://www.universal-robots.com/marketplace/">UR Marketplace</a>
+            <a href="https://www.universal-robots.com/services/collaborative-robot-leasing/">UR Leasing</a>
+            <a href="https://www.pudurobotics.com/en/pudu-care">PUDU Care</a>
+            <a href="https://www.hardfin.com/industries/robotics">Hardfin Robotics</a>
+            <a href="https://docs.stripe.com/billing">Stripe Billing</a>
+            <a href="https://docs.stripe.com/billing/entitlements">Stripe Entitlements</a>
+            <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-contracts.html">AWS Marketplace SaaS Contracts</a>
+            <a href="https://docs.viam.com/what-is-viam/">Viam Registry</a>
+            <a href="https://www.intrinsic.ai/flowstate">Intrinsic Flowstate</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10 RRD</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/profile_examples.html">AI Hub Profile</a>
           </div>
         </div>
       </section>
