@@ -226,6 +226,10 @@ img {
   background-image: url("./assets/ramp-loop.png");
 }
 
+.hero-sterile-loop {
+  background-image: url("./assets/sterile-loop.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }
