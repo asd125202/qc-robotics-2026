@@ -73,7 +73,7 @@ The current first-batch pitch directions are:
 - `RoboTrust`: robot data trust cloud for regional data planes, dataset rights, training authorization, and enterprise audit evidence.
 - `WorldForge`: simulation CI and synthetic-data factory for LeRobot datasets, failure mining, and Qualcomm edge validation.
 - `IntegratorForge`: certified system integrator marketplace and deployment evidence system for RobotMac / Qualcomm edge projects.
-- `RobotLeaseOps`: RaaS, leasing, uptime SLA, service ledger, and subscription control plane for bankable robot capacity.
+- `RobotLeaseOps`: Dragonwing lease-ready robot asset operations layer for RaaS, leasing, uptime SLA, service history, AI Hub/QNN evidence, maintenance, financing, invoices, and bankable robot capacity.
 - `UptimeOS`: aftermarket service operating system for health passports, predictive maintenance, remote diagnostics, FRU/spares, technician workflows, warranty evidence, and RaaS uptime ledgers.
 - `RiskLedger`: robot risk evidence ledger for black-box event capture, insurance underwriting data, finance diligence, warranty analytics, SLA evidence, and tamper-evident incident replay.
 - `ScaleFoundry`: prototype-to-SKU hardware productization, certification evidence, manufacturing launch, and lifecycle assurance.

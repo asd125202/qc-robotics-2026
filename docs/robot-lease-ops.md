@@ -1,228 +1,258 @@
 # RobotLeaseOps Pitch
 
-更新时间：2026-07-05。RaaS、融资租赁、补贴、税务、保险和服务合同高度依赖地区、客户资质和会计处理，真实销售前必须由客户财务、税务、法律、银行和保险方确认。
+更新时间：2026-07-06。RaaS、融资租赁、补贴、税务、保险、服务合同、机器人价格和监管要求高度依赖地区、客户资质和会计处理；真实销售前必须由客户财务、税务、法律、银行、保险和安全团队确认。
 
-## Core Thesis
+## One-Line Pitch
 
-RobotLeaseOps 不是简单的“机器人分期付款”。它是 RobotMac / Qualcomm edge robots 的商业控制平面：
+RobotLeaseOps 是 Dragonwing lease-ready 机器人资产运营层：
 
-> robot hardware + deployment + cloud training + AI Hub validation + EdgeFleet monitoring + SafetyOps evidence + warranty + maintenance + financing + uptime SLA。
+> robot hardware + deployment + cloud training + AI Hub / QNN evidence + EdgeFleet monitoring + SafetyOps + UptimeOS + RiskLedger + warranty + maintenance + financing + SLA invoice。
 
-机器人买家真正问的是：
+一句话：别让客户买机器人，先让客户雇一支有 SLA 的机器人班组。
 
-- 能不能不做一次性大 CapEx？
-- 能不能先通过验收，再开始付费？
-- 能不能把维护、备件、升级、停机风险交给供应商承担？
-- 能不能按产能、可用率、任务量或月费购买？
-- 能不能给 CFO 一份能进预算会的 ROI / NPV / IRR 报告？
+## Core Problem
 
-核心主张：
+商业机器人今天不是“买一台机器”的问题，而是“谁对现场结果负责”的问题。
 
-- RaaS 不是 payment wrapper，而是 recurring robotics control plane。
-- Qualcomm 如果只卖芯片，会停在 BOM 里；如果进入订阅包，就能绑定 AI Hub、OTA、EdgeFleet、SafetyOps、服务 telemetry 和 partner network。
-- 对 SME 和非汽车行业客户来说，“可月付、可验收、可维护、可扩容”比单纯性能参数更能推动采用。
+客户要自动化，但每次采购都会被拆成十几个问题：
 
-## Research Synthesis
+- CapEx 谁批。
+- 机器人是否适合现场。
+- 集成和安全评估谁做。
+- 模型和边缘部署是否被验证。
+- 维护、保修、备件、换机和停机责任谁承担。
+- 融资方如何判断资产健康和残值。
+- 月度发票和 SLA credit 如何计算。
+- 现场失败是否能复盘和训练下一版。
 
-### 1. RaaS Is Already Visible
+RobotLeaseOps 的目标不是做又一个 RaaS 厂商，而是让 OEM、SI、融资方、保险方、维护商和客户共享一条机器人租赁事实链。
 
-公开案例说明 RaaS / leasing / outcome pricing 已经出现在多个机器人类别：
+## Why Now
 
-- Brightpick 公布 RaaS 月费区间、维护、支持和性能保证。
-- Locus 把硬件、软件、AI 更新、维护和 24/7 支持打包成订阅。
-- Geek+ 用 RaaS 和月度机器人数量调整帮助 3PL 应对波动需求。
-- AutoStore Pay-per-Pick 把 robot / port / software 变成按订单量计费。
-- Formic 把机器人、部署、运维、SLA、OTA 和 production intelligence 包成 fixed monthly price。
-- Universal Robots 通过 leasing 缓解 SME 现金流和 CapEx 压力。
+RaaS 已经被市场教育：
 
-安全表述：RaaS 不一定总比购买便宜，但它能降低前期审批摩擦、减少技术过时风险，并把供应商的收益和可用产能绑定。
+- IFR 2025：2024 年专业服务机器人销售接近 20 万台，RaaS fleet 增长 31%。
+- Locus、Formic、Brightpick、AutoStore、Universal Robots leasing、RobotLAB、Knightscope MaaS 等都证明机器人可以按月、按小时、按任务或按产能采购。
+- 中国活动/服务机器人短租平台证明买家接受“租机器人”，但更多停留在活动、展陈、餐饮和营销场景。
+- 人形机器人、AMR、清洁、巡检和制造 cobot 正在从试点进入付费部署，最缺运营责任层。
 
-### 2. CFO Buying Logic
+缺口不是“还有没有 RaaS”，而是有没有跨品牌、跨融资方、跨维护商的资产运营系统。
 
-CFO 不只看“替代多少人工”，而看“是否降低产能风险”：
+## Product Thesis
 
-- labor shortage。
-- backlog and throughput。
-- overtime / turnover / training。
-- downtime cost。
-- scrap / rework。
-- utilization risk。
-- internal automation capability gap。
-- payback and cash-flow profile。
+RobotLeaseOps 把机器人从硬件项目变成 SLA-backed robot labor contract：
 
-RobotLeaseOps 的 ROI calculator 不能只是 labor-saving toy。它必须输出：
-
-- conservative / base / upside scenarios。
-- monthly cash impact。
-- payback。
-- NPV / IRR。
-- EBITDA effect。
-- break-even utilization。
-- cost per successful cycle / pick / pallet / inspection。
-- CapEx vs lease vs RaaS comparison。
-
-### 3. Warranty, Service And Risk Transfer
-
-RaaS 成立的前提是服务系统，而不是融资表格：
-
-- Coverage ledger：serial、warranty、service tier、exclusion、wear item、battery / consumable rule。
-- SLA engine：response window、repair target、uptime credit、downtime exclusion、customer-caused fault rule。
-- Preventive maintenance：hours、cycles、alarms、battery、reducers、inspection intervals。
-- Spare parts ops：recommended kits、local stock、rush shipment、compatibility、exchange / repair loop。
-- Remote support cyber control：MFA、JIT access、session log、segmentation、vendor risk。
-- Repair / RMA / swap：triage、remote diagnosis、dispatch、loaner、warranty claim。
-- Customer success：monthly fleet review、root-cause report、ROI analytics、renewal trigger。
-
-长期可以加入 insurance-backed performance warranty，但前提是先积累 telemetry 和 claims history。
-
-### 4. China And Overseas Finance Split
-
-China version:
-
-- policy + bank + leasing + local subsidy stack。
-- subsidy-ready package：项目书、设备清单、ROI model、银行材料、地方申报 checklist。
-- China-local data architecture：edge inference、本地存储、可配置出境数据、工业数据分类支持。
-- 不承诺补贴一定拿到。资格取决于城市、行业、项目名单、银行、时间窗口和审批。
-
-Overseas version:
-
-- lease / finance / RaaS + ROI model。
-- US：Section 179、SBA 7(a) / 504、NIST MEP。
-- EU：EDIH、InvestEU / EIF、EU Data Act、AI Act。
-- Singapore / UK / Japan：productivity grant、Made Smarter、SME productivity programs。
-- 不承诺税务优惠或 grant，只提供 lender / accountant / program administrator-ready package。
-
-### 5. Qualcomm Subscription Control Plane
-
-RobotLeaseOps 可以把 Qualcomm 从 silicon design-in 推到 recurring commercial stack：
-
-```text
-Account / site / robot identity
-  -> hardware SKU and lease term
-  -> model entitlement and AI Hub validation
-  -> OTA ring and rollback state
-  -> EdgeFleet health and utilization
-  -> SafetyOps evidence
-  -> warranty, SLA, service ticket
-  -> monthly invoice / usage / outcome billing
-```
-
-这让 Qualcomm 的价值进入：
-
-- model-to-device entitlement。
-- OTA and lifecycle management。
-- fleet monitoring。
-- safety and compliance evidence。
-- partner service channel。
-- renewal and expansion motion。
+1. 客户输入任务、班次、面积、吞吐、SLA 和预算约束。
+2. 系统生成 robot SKU、Dragonwing target、部署计划、AI Hub/QNN evidence、SafetyOps、EdgeFleet、维护和融资方案。
+3. 试点通过 acceptance gate 后进入正式订阅或租赁期。
+4. EdgeFleet 和 UptimeOS 持续记录 uptime、任务小时、故障、维护、备件和远程诊断。
+5. RiskLedger 保留安全事件、事故回放、责任边界和保险/融资证据。
+6. 月底自动生成 SLA invoice、service credit、QBR、续约风险和扩容建议。
 
 ## Product Modules
 
-### 1. Quote Engine
+### 1. Lease Bundle Builder
 
-- CapEx purchase。
-- equipment finance。
-- lease。
-- full-service RaaS。
-- pay-per-task。
-- pay-per-hour。
-- seasonal burst fleet。
-- refresh / buyout / end-of-term。
+报价不是“这台机器人多少钱”，而是：
 
-### 2. Acceptance KPI Gate
+- 场景：仓储 AMR、商业清洁、安保巡逻、餐饮配送、制造 cobot、受控人形试点。
+- 任务量：小时、面积、pick、cycle、inspection、weld seam、shift。
+- KPI：uptime、coverage、throughput、first-pass yield、intervention rate。
+- 合同：购买、租赁、RaaS、按小时、按件、保底加超额、季节性扩容。
+- 服务：Core / Pro / Critical SLA。
+- 数据边界：中国本地、海外云、私有化、离线缓存。
 
-费用不应该在“机器人到场”时开始，而应该在验收通过后开始：
+### 2. Acceptance Gate
+
+不应在“机器人到货”时开始正式收费，而应在可验证验收后开始：
 
 - 3-10 个连续生产班次。
 - 30 天稳定运行。
-- target throughput。
+- target throughput / coverage。
 - uptime。
 - first-pass yield。
 - intervention rate。
 - MTTR。
 - safety incidents。
-- operator signoff。
+- operator/customer signoff。
 
-### 3. SLA Meter
+### 3. Asset And Lease Registry
 
-- Core：97.5% monthly availability。
-- Pro：98.5% monthly availability。
-- Critical：99% contracted production-hours availability。
-- service credits below SLA。
-- root-cause report。
-- onsite response window。
-- optional standby unit。
+每台机器人都有资产出生证：
 
-Exclusions：上游缺料、客户操作错误、断电、网络故障、安全暂停和计划维护。
+- serial、BOM、Dragonwing target、MAC/IMEI、证书链、固件基线。
+- lease contract、客户、站点、SLA、保修、排除项、服务等级。
+- deployment photo、handover checklist、customer signoff。
+- residual value、再部署状态、回收/转租记录。
 
-### 4. Asset And Service Ledger
+### 4. Service Ledger
 
-- robot serial。
-- hardware SKU。
-- battery / sensor / actuator health。
-- model version。
-- OTA ring。
-- warranty coverage。
-- lease term。
-- residual value。
-- service ticket。
-- spare parts。
-- telemetry consent。
-- insurance / lender metadata。
+RaaS 毛利来自服务运营：
 
-### 5. Qualcomm Entitlement
+- 工单、技师、远程诊断、日志包、客户批准。
+- 备件、库存、RMA、RTV、换件记录。
+- warranty reserve、MTBF 假设、预计维修成本和释放流水。
+- EdgeFleet 告警、断网补传、服务历史和 root-cause report。
 
-- AI Hub compile / profile evidence。
-- QNN / ONNX / TFLite artifact。
-- EdgeRuntimeBench latency / memory / power report。
-- SafetyOps approved model / firmware gate。
-- EdgeFleet monitoring and rollback。
+### 5. AI / QNN Evidence Registry
 
-## Demo Story
+租赁资产里的 AI 必须可证明：
 
-最强 demo 是一个 RaaS Bundle Builder：
+- model card、dataset version、model digest。
+- AI Hub compile / profile / inference job。
+- QNN / ONNX Runtime QNN backend、runtime version、target device。
+- latency、memory、accuracy/eval、thermal/power summary。
+- OTA release、canary、rollback 和 deployment digest。
 
-1. 选择场景：warehouse AMR、lab sample transfer、machine tending、inspection。
-2. 选择 Dragonwing / QCS target。
-3. 输入班次、人工成本、吞吐、停机成本、订单波动。
-4. 比较 CapEx purchase、lease、RaaS、pay-per-task。
-5. 生成 acceptance KPI、SLA tier、monthly price range、service package。
-6. 展示 EdgeFleet telemetry、SafetyOps evidence、AI Hub validation 和 invoice preview。
+## China / Global Versions
 
-这个页面能补齐评委关心的商业价值：不是“我们有机器人”，而是“客户怎么买、怎么验收、怎么付费、怎么扩张”。
+### China
 
-## Why Qualcomm Should Care
+中国市场的两个入口不同：
 
-RobotLeaseOps 让 Qualcomm robotics stack 变成可续费商业系统：
+- 短租/活动/文旅/商场/餐饮：买的是曝光、互动、确定性交付和现场服务。
+- 功能型工业/仓储/巡检/清洁：买的是任务完成率、可用率、维护响应、低首付和本地服务。
 
-- 每台 financed robot 都绑定 Dragonwing / RB / QCS target。
-- 每个订阅包都包含 AI Hub validation 和 EdgeRuntimeBench 报告。
-- OTA、FoundriesFactory、EdgeFleet、SafetyOps 和 service telemetry 变成月费价值。
-- partner network 可以销售标准化 RaaS bundle，而不是每个项目重新谈。
-- fleet telemetry 让 Qualcomm/OEM 知道真实部署中的故障、热、功耗、模型表现和行业需求。
+建议套餐：
 
-一句话：
+- 活动引流包：日租，机器人+运输+现场工程师+脚本/动作模板+保险。
+- 门店运营包：月租，迎宾、配送、互动、巡逻。
+- 清洁巡检包：按面积、班次、耗材和响应 SLA 定价。
+- 工厂/仓储试点包：按任务吞吐、OEE、节省人工小时和 success fee 建模。
 
-> RobotLeaseOps turns Qualcomm edge robots into bankable, measurable, recurring production capacity.
+合规边界：
+
+- 长期租赁不一定自动表外，CAS21 等规则可能要求确认使用权资产和租赁负债。
+- 数据默认本地化，跨境按数据类型、客户角色、行业和阈值评估。
+- AI 内容标识、生成式 AI、网络数据安全和等保要求需按实际功能评估。
+
+### Global
+
+海外优先场景：
+
+- 仓储/3PL。
+- 商业清洁。
+- 安保巡逻。
+- 酒店/餐饮配送。
+- 制造 cobot。
+- 受控人形试点。
+
+常见商业语言：
+
+- lower upfront cash。
+- uptime SLA。
+- remote diagnostics。
+- maintenance included。
+- productive-hour pricing。
+- customer success review。
+- SBOM / cyber evidence。
+- GDPR / AI Act / Machinery / CRA readiness where relevant。
+
+边界：
+
+- IFRS 16 / ASC 842 下，超过 12 个月的租赁可能仍上表。
+- 不承诺税务优惠、补贴、保险降价、融资审批或表外处理。
+
+## Competition
+
+RobotLeaseOps 的定位不是单一机器人供应商：
+
+- Formic：制造业全托管 RaaS，证明中小制造客户愿意为 outcome + maintenance 付费。
+- Locus / inVia / Vecna / ForwardX：AMR RaaS，证明仓储订阅和峰值扩容成立。
+- Brightpick / AutoStore：仓储 automation subscription / pay-per-pick 证明 outcome pricing。
+- Universal Robots / Hirebotics / RobCo：cobot 生态证明应用包和租赁需求。
+- GXO / Agility / Figure / Apptronik：大客户和人形试点说明早期商业部署需要运营责任层。
+- 中国 AMR / 服务机器人 / 人形机器人厂商：硬件供应强，但中立租赁资产运营层仍弱。
+- 金融租赁方和设备租赁公司：懂信用和残值，但不懂机器人 uptime、任务完成率和模型/软件状态。
+
+RobotLeaseOps 可占的空白：
+
+- 中立租赁操作系统。
+- 任务级资产台账。
+- 合同与计费引擎。
+- 机器人残值与二级流转。
+- 人形机器人试点运营责任层。
+- 面向 SME 的 RaaS 后台即服务。
+
+## Moat
+
+护城河来自可审计运营事实：
+
+- Lease-ready artifacts：资产出生证、合同、服务历史、SLA 公式、AI/QNN 证据、月度发票。
+- Service data compounding：故障率、备件消耗、远程修复率、停机原因、排除项、维护成本。
+- Residual value curve：跨品牌资产健康、再部署成功率、二级租赁、残值曲线。
+- Channel network：OEM、SI、金融租赁方、保险方、维护商共享同一套运营语言。
+- Qualcomm profile library：Dragonwing / RB / QCS / IQ target、runtime、thermal、power、QNN evidence 和 longevity 数据。
+
+## Demo Storyboard
+
+三分钟网页演示：
+
+1. Configure：输入 10 万平方英尺仓库、两班制、98.5% uptime、清洁+巡检任务。
+2. Contract：生成两台机器人、Dragonwing edge module、AI Hub/QNN badge、月费、SLA、验收 KPI。
+3. Enroll：扫描机器人二维码，创建 `robot_id`，绑定序列号、X.509 证书、客户站点和合同。
+4. Operate：EdgeFleet 显示心跳、任务小时、battery、thermal、model version、coverage。
+5. Fail：模拟电机温度异常或导航进程崩溃，自动开 incident。
+6. Service：拉取日志包，远程诊断，派备件或替换机，更新 service history。
+7. AI Evidence：展示模型 hash、AI Hub job、QNN backend、latency、target device。
+8. Invoice：月底生成 uptime、downtime 排除项、SLA credit、使用量、发票和 QBR。
+
+## Why Qualcomm
+
+RobotLeaseOps makes Dragonwing lease-ready。
+
+Qualcomm 的收益：
+
+- Dragonwing attach：每台租赁机器人绑定 Qualcomm target profile。
+- AI Hub/QNN usage：AI evidence 从开发工具变成合同、验收、续约材料。
+- Telemetry feedback：合规聚合数据反馈真实热、功耗、故障、模型漂移和维护成本。
+- OEM/SI channel：伙伴可以围绕 Dragonwing 发布 lease-ready kit。
+- Enterprise confidence：产品寿命、OTA、fleet lifecycle、QNN evidence 和服务记录进入采购语言。
+- Developer ecosystem：Dragonwing Robotics Hub / Arduino / Edge Impulse demo 可以升级成可租赁应用模板。
+
+建议对 Qualcomm 的 ask：
+
+- Dragonwing Lease-Ready Program。
+- AI Hub / QNN / Device Cloud quota。
+- 2-3 个 reference SKU：轻量服务机器人、仓储/巡检 AMR、受控人形/多传感器机器人。
+- 共同定义 lease evidence schema：model passport、runtime profile、uptime telemetry、service history、SLA invoice。
+
+## Claim Boundaries
+
+可以讲：
+
+- RobotLeaseOps 能降低 upfront cash、把服务风险显性化、让机器人运营可计量。
+- RobotLeaseOps 可以帮助 OEM/SI/租赁方把机器人打包成可验收、可服务、可续约的产能。
+- RobotLeaseOps 与 Qualcomm Dragonwing、AI Hub/QNN、EdgeFleet、SafetyOps、UptimeOS 和 RiskLedger 高度互补。
+
+避免讲：
+
+- 已获 Qualcomm 官方认证、合作或投资。
+- 保证融资、保险、补贴、税务优惠、表外处理或固定 ROI。
+- 自动满足中国、美国、欧盟或行业监管。
+- 所有模型都能在 QNN 上最优运行。
+- RaaS 一定比购买更便宜。
+- 机器人能力等同于人工替代。
 
 ## Sources
 
-- Brightpick RaaS：https://brightpick.ai/resources/how-brightpicks-raas-works/
-- Locus Robotics RaaS：https://locusrobotics.com/why-locus/robots-as-a-service
-- Geek+ Janco RaaS case：https://www.geekplus.com/case-studies/geek-and-janco-global-logistics-reinvent-3pl-services-with-robot-as-a-service
-- AutoStore Pay-per-Pick：https://www.autostoresystem.com/news/autostore-launches-pay-per-pick-service-option-to-address-fast-growing-demand-for-fulfillment-automation
-- Pio warehouse automation cost：https://pio.com/content/how-much-does-warehouse-automation-cost
+- IFR service robots：https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom
+- Locus RaaS：https://locusrobotics.com/why-locus/robots-as-a-service
 - Formic full-service automation：https://formic.co/full-service-automation
+- Brightpick RaaS：https://brightpick.ai/resources/how-brightpicks-raas-works/
+- AutoStore Pay-per-Pick：https://www.autostoresystem.com/news/autostore-launches-pay-per-pick-service-option-to-address-fast-growing-demand-for-fulfillment-automation
 - Universal Robots leasing：https://www.universal-robots.com/services/collaborative-robot-leasing/
-- IFR service robots RaaS：https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom
-- Deloitte 2025 smart manufacturing：https://www.deloitte.com/us/en/insights/industry/manufacturing/2025-smart-manufacturing-survey.html
-- Manufacturing Institute workforce estimate：https://themanufacturinginstitute.org/manufacturers-need-as-many-as-3-8-million-new-employees-by-2033/
-- Formic RaaS accounting guide：https://formic.co/resources/articles/robots-as-a-service-raas
-- KUKA service and maintenance：https://www.kuka.com/en-us/services/service_robots-and-machines/robot-service-maintenance-servicing
-- NIST SP 800-82：https://csrc.nist.gov/pubs/sp/800/82/r3/final
-- IRS Publication 946：https://www.irs.gov/publications/p946
-- SBA 7(a) loans：https://www.sba.gov/funding-programs/loans/7a-loans
-- European Digital Innovation Hubs：https://digital-strategy.ec.europa.eu/en/policies/edihs
+- RobotLAB financing：https://www.robotlab.com/financing/
+- Knightscope MaaS：https://knightscope.com/use-cases/who-we-serve
 - Qualcomm AI Hub：https://aihub.qualcomm.com/
-- Qualcomm FoundriesFactory：https://www.qualcomm.com/developer/software/foundriesfactory
-- Dragonwing IQ10 robotics reference design：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- Qualcomm AI Engine Direct SDK：https://www.qualcomm.com/developer/software/qualcomm-ai-engine-direct-sdk
+- Dragonwing IQ10 Robotics Reference Design：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- Qualcomm Product Longevity Program：https://www.qualcomm.com/internet-of-things/products/product-longevity-program
+- NIST IoT device baseline：https://nvlpubs.nist.gov/nistpubs/ir/2020/NIST.IR.8259A.pdf
+- AWS IoT Jobs：https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html
+- AWS IoT Secure Tunneling：https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html
+- Microsoft Dynamics Field Service service history：https://learn.microsoft.com/en-us/dynamics365/field-service/service-history
+- IFRS 16 leases：https://www.ifrs.org/issued-standards/list-of-standards/ifrs-16-leases/
+- CAC data export rules：https://www.cac.gov.cn/2024-03/22/c_1712776612187994.htm
+- EU AI Act：https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+- EU Cyber Resilience Act：https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act

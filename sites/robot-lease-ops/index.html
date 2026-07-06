@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RobotLeaseOps | 机器人订阅与产能金融</title>
+    <title>RobotLeaseOps | Dragonwing lease-ready 机器人资产运营层</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -13,197 +13,385 @@
         <span>RobotLeaseOps</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#research">研究</a>
-        <a href="#bundle">订阅包</a>
-        <a href="#service">服务</a>
+        <a href="#problem">问题</a>
+        <a href="#why-now">为什么现在</a>
+        <a href="#solution">方案</a>
+        <a href="#ledger">账本</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-robot-lease">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 30 · RaaS Finance & Fleet Performance</p>
+          <p class="eyebrow">Pitch 30 · Lease-Ready Robot Operations</p>
           <h1 class="long-word-title">RobotLeaseOps</h1>
-          <p class="hero-lede">机器人商业化不能只靠一次性销售。RobotLeaseOps 把硬件、云训练、AI Hub 验证、EdgeFleet、SafetyOps、维护、质保、融资和 uptime SLA 打包成可月付的生产产能。</p>
+          <p class="hero-lede">别让客户买机器人，先让客户雇一支有 SLA 的机器人班组。RobotLeaseOps 把硬件、部署、云训练、AI Hub/QNN 证据、EdgeFleet 监控、SafetyOps、维护、质保、融资、发票和 uptime SLA 打成一套 Dragonwing lease-ready 资产运营层。</p>
           <div class="cta-row">
-            <a class="button primary" href="#bundle">查看订阅控制面</a>
-            <a class="button" href="../revenue-stack/">连接 RevenueStack</a>
+            <a class="button primary" href="#problem">从采购阻力开始</a>
+            <a class="button" href="../edgefleet/">连接 EdgeFleet</a>
           </div>
         </div>
       </section>
 
-      <section id="research" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">00 · Five-Thread Research</p>
-              <h2>RaaS 不是付款方式，而是让机器人变成可续费产能的商业控制面。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>商业机器人不是“买一台机器”的问题，而是“谁对现场结果负责”的问题。</h2>
             </div>
-            <p>五条研究线说明：仓储、制造、cobot 和中国租赁市场已经出现 RaaS；CFO 关心现金流、验收、风险和产能；服务系统决定毛利；中国与海外融资路径不同；Qualcomm 可以通过订阅包绑定 AI Hub、OTA、SafetyOps 和 EdgeFleet。</p>
+            <p>客户想自动化，但采购被 CapEx、集成、安全评估、AI 模型适配、维护、保修、备件、融资、保险、停机责任和会计处理拆成十几个供应商。结果是：demo 能跑，预算批不了；试点能上线，没人敢承诺 uptime；出了故障，客户不知道该找 OEM、集成商、模型团队、融资方还是维护商。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>RaaS Models</h3>
-              <p>Brightpick、Locus、Geek+、AutoStore、Formic、UR leasing 都证明市场接受度。</p>
+              <span class="claim-tag">CFO 风险</span>
+              <h3>一次性 CapEx 难批</h3>
+              <p>客户担心设备折旧、技术过时、利用率不足、残值和投资回收周期。</p>
             </article>
             <article class="card">
-              <h3>CFO Logic</h3>
-              <p>买家不是只算人工替代，而是算现金流、可用产能、停机风险和 payback。</p>
+              <span class="claim-tag">运营风险</span>
+              <h3>买到机器不等于买到产能</h3>
+              <p>吞吐、覆盖面积、任务小时、人工接管、停机和服务响应才决定业务价值。</p>
             </article>
             <article class="card">
-              <h3>Service System</h3>
-              <p>覆盖范围、SLA、维护、备件、RMA、远程支持和客户成功决定合同质量。</p>
+              <span class="claim-tag">供应商风险</span>
+              <h3>服务成本吞掉毛利</h3>
+              <p>没有远程诊断、备件预测、换机规则和服务账本，RaaS 会被现场工程师成本拖垮。</p>
             </article>
             <article class="card">
-              <h3>Regional Finance</h3>
-              <p>中国做政策 / 银行 / 租赁 / 补贴 ready，海外做 ROI / 税务 / lender ready。</p>
+              <span class="claim-tag">金融风险</span>
+              <h3>融资方看不到资产健康</h3>
+              <p>传统租赁会算信用和残值，但不了解 uptime、任务完成率、故障码、模型版本和再部署性。</p>
             </article>
             <article class="card">
-              <h3>Qualcomm</h3>
-              <p>订阅包让 AI Hub、OTA、FoundriesFactory、SafetyOps 和 EdgeFleet 成为月费价值。</p>
+              <span class="claim-tag">高通风险</span>
+              <h3>Dragonwing 停在 BOM 里</h3>
+              <p>如果 Qualcomm 只在硬件清单里出现，就无法进入订阅、维护、模型更新和续约的长期价值链。</p>
             </article>
-          </div>
-          <div class="image-band">
-            <img src="../assets/robot-lease-ops.png" alt="机器人 RaaS 订阅、SLA、ROI 和 Qualcomm edge fleet dashboard">
           </div>
         </div>
       </section>
 
-      <section id="bundle" class="slide tint">
+      <section id="why-now" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Bundle Builder</p>
-              <h2>把机器人从采购项目，变成可验收、可月付、可扩容的产能包。</h2>
+              <p class="kicker">02 · Why Now</p>
+              <h2>RaaS 已经被市场教育，但还缺跨品牌的资产运营系统。</h2>
             </div>
-            <p>RobotLeaseOps 的报价不是“这台机器人多少钱”，而是客户选择场景、班次、吞吐、SLA 和服务等级后，生成 CapEx、lease、RaaS、pay-per-task 四种路径。</p>
-          </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Scenario</h3>
-              <p>AMR、lab transfer、machine tending、inspection、palletizing。</p>
-            </article>
-            <article class="step">
-              <h3>ROI</h3>
-              <p>人工、加班、停机、返工、订单波动、维护和内部能力缺口。</p>
-            </article>
-            <article class="step">
-              <h3>Contract</h3>
-              <p>购买、融资、租赁、RaaS、按任务、按小时、季节性扩容。</p>
-            </article>
-            <article class="step">
-              <h3>SLA</h3>
-              <p>Core 97.5%、Pro 98.5%、Critical 99% 生产时段可用率。</p>
-            </article>
-            <article class="step">
-              <h3>Invoice</h3>
-              <p>月费、用量、服务积分、停机扣减、备件和扩展机器人。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">02 · Acceptance Before Billing</p>
-              <h2>企业愿意订阅的前提，是机器人先通过验收。</h2>
-            </div>
-            <p>RobotLeaseOps 把收费起点绑定到 PilotContractKit 和 IntegratorForge 的验收证据：不是到货就收费，而是跑过明确的生产 KPI 才进入正式订阅期。</p>
-          </div>
-          <div class="grid six">
-            <article class="card">
-              <h3>Throughput</h3>
-              <p>每小时 pick、move、cycle、inspection 或 lab run。</p>
-            </article>
-            <article class="card">
-              <h3>Availability</h3>
-              <p>合同生产时段 uptime、计划维护和异常排除规则。</p>
-            </article>
-            <article class="card">
-              <h3>Quality</h3>
-              <p>first-pass yield、误抓、漏检、返工和人工接管率。</p>
-            </article>
-            <article class="card">
-              <h3>Safety</h3>
-              <p>安全事件、near-miss、SafetyOps gate 和 rollback proof。</p>
-            </article>
-            <article class="card">
-              <h3>Service</h3>
-              <p>MTTR、响应窗口、备件到位、远程诊断和现场支持。</p>
-            </article>
-            <article class="card">
-              <h3>Signoff</h3>
-              <p>3-10 个连续班次或 30 天稳定运行后的 operator signoff。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="service" class="slide dark">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">03 · Service Ledger</p>
-            <h2>RaaS 成败不在合同模板，而在每台机器人是否被持续照看。</h2>
-            <p class="lead">RobotLeaseOps 维护每台机器人从交付到续约的商业状态：coverage、warranty、lease term、battery、sensor、model version、OTA ring、service ticket、spare parts、telemetry consent 和 residual value。</p>
-            <ul class="list">
-              <li>Coverage Ledger：质保、服务等级、免责、易耗件、人工 / 差旅 / 备件范围。</li>
-              <li>SLA Engine：可用率、响应窗口、修复目标、service credit 和 customer-caused fault。</li>
-              <li>Maintenance：小时、循环、报警、电池、减速器、传感器和例检自动生成工单。</li>
-              <li>Remote Cyber：MFA、JIT access、session log、segmentation 和 vendor risk。</li>
-            </ul>
-          </div>
-          <div class="visual">
-            <img src="../assets/robot-lease-ops.png" alt="机器人订阅服务账本、SLA 和维护工单 dashboard">
-          </div>
-        </div>
-      </section>
-
-      <section id="qualcomm" class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">04 · Qualcomm Subscription Layer</p>
-              <h2>把 Qualcomm edge 从 BOM 里的芯片，变成月费里的核心证据。</h2>
-            </div>
-            <p>每个 RobotLeaseOps bundle 都绑定 Dragonwing / RB / QCS target、AI Hub validation、EdgeRuntimeBench、OTA ring、SafetyOps evidence 和 EdgeFleet monitoring。这样 Qualcomm 进入的不只是硬件销售，而是持续运营。</p>
+            <p>IFR 2025 显示，2024 年专业服务机器人销售接近 20 万台，RaaS fleet 增长 31%。Locus、Formic、AutoStore、Brightpick、Universal Robots leasing、RobotLAB、Knightscope MaaS 和中国短租平台都在教育买家：机器人可以按月、按小时、按任务、按产能购买。现在缺的是一个中立系统，把合同、利用率、SLA、维护、AI 证据、账单和残值连起来。</p>
           </div>
           <div class="grid four">
             <div class="stat">
-              <strong>Entitlement</strong>
-              <span>模型、runtime、AI Hub profile、QNN artifact 和设备身份绑定。</span>
+              <strong>199K+</strong>
+              <span>IFR：2024 年专业服务机器人销售接近 20 万台。</span>
             </div>
             <div class="stat">
-              <strong>Telemetry</strong>
-              <span>利用率、热、功耗、battery、sensor、model version 和任务结果。</span>
+              <strong>RaaS +31%</strong>
+              <span>订阅和租赁队列增长，说明买家接受运营化采购。</span>
             </div>
             <div class="stat">
-              <strong>OTA</strong>
-              <span>FoundriesFactory / RobotCoreOS ring、canary、rollback 和 evidence。</span>
+              <strong>24-36 月</strong>
+              <span>机器人订阅、租赁和服务合同更适合用中长期资产运营来管理。</span>
             </div>
             <div class="stat">
-              <strong>Renewal</strong>
-              <span>真实部署数据推动续约、扩容、保险、备件和下一个技能包。</span>
+              <strong>Lease-ready</strong>
+              <span>AI Hub/QNN profile、EdgeFleet uptime 和服务历史能把机器人变成可融资资产。</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="slide white">
+      <section id="solution" class="slide white">
         <div class="wrap">
-          <p class="quote">RobotLeaseOps 把“买机器人”改写成“订阅一段可验证、可维护、可扩张的生产能力”。</p>
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>RobotLeaseOps 是机器人租赁资产运营层，不是又一个 RaaS 机器人厂商。</h2>
+            </div>
+            <p>它连接 OEM、系统集成商、融资方、保险方、维护商和终端客户，把“这台机器人多少钱”升级为“这台机器人在什么场景创造了多少可验证产能，以及谁为 uptime 负责”。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Scope</h3>
+              <p>选择场景、班次、面积、任务量、KPI、站点限制、数据边界和安全要求。</p>
+            </article>
+            <article class="step">
+              <h3>Bundle</h3>
+              <p>生成 robot SKU、Dragonwing target、部署服务、训练额度、EdgeFleet、SafetyOps 和 SLA。</p>
+            </article>
+            <article class="step">
+              <h3>Finance</h3>
+              <p>比较购买、租赁、RaaS、按小时、按件、保底加超额和季节性扩容。</p>
+            </article>
+            <article class="step">
+              <h3>Operate</h3>
+              <p>记录 uptime、任务小时、维护、备件、AI/QNN 证据、远程诊断和客户签收。</p>
+            </article>
+            <article class="step">
+              <h3>Invoice</h3>
+              <p>自动生成月度账单、SLA credit、排除项、QBR、续约风险和扩容建议。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/robot-lease-ops.png" alt="RobotLeaseOps 机器人订阅、SLA、服务历史、发票和 Qualcomm edge 证据 dashboard">
+          </div>
+        </div>
+      </section>
+
+      <section id="ledger" class="slide tint">
+        <div class="wrap split">
+          <div class="visual">
+            <img src="../assets/robot-lease-ops.png" alt="机器人租赁资产账本、服务工单、AI 证据和 SLA 发票图">
+          </div>
+          <div>
+            <p class="kicker">04 · Product</p>
+            <h2>商业可信来自一条可审计的机器人租赁事实链。</h2>
+            <p class="lead">每台机器人都必须能回答：它是谁、在哪里、运行多久、坏过什么、谁修过、换了什么件、推过什么版本、是否发生安全事件、AI/QNN 是否真实跑在目标硬件上，以及这些事实如何进入 SLA 和发票。</p>
+            <ul class="list">
+              <li>`asset-birth-certificate.json`：序列号、BOM、Dragonwing target、证书链、固件基线、交付照片。</li>
+              <li>`lease-contract.yaml`：客户、站点、SLA、保修、排除项、费用结构、服务等级、合同期限。</li>
+              <li>`service-history.jsonl`：工单、诊断、技师、备件、RMA、工时、客户签收、版本前后对比。</li>
+              <li>`ai-evidence.json`：AI Hub job、QNN backend、模型 hash、目标设备、latency、memory、部署包 digest。</li>
+              <li>`monthly-sla-invoice.pdf`：uptime、任务小时、downtime 排除项、service credit、使用量、付款状态。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Market & Business Model</p>
+              <h2>先从 ROI 明确、设备可标准化、服务可复制的场景开始。</h2>
+            </div>
+            <p>最好的第一批场景不是泛人形，而是制造 cobot、仓储 AMR、商业清洁、安保巡逻、酒店餐饮配送和受控人形试点。中国先用短租/活动/服务机器人教育市场，再进入功能型长期租赁；海外先打清洁、仓储、餐饮配送、安保和制造，因为 ROI 与 SLA 更容易量化。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">收入结构</span>
+              <h3>基础费 + 运营费</h3>
+              <p>月租/日租、部署费、SLA 服务费、耗材/保险、内容/场景定制、超额使用、金融/保险返点和数据报表。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">中国版</span>
+              <h3>先短租，再功能型订阅</h3>
+              <p>活动引流包、门店运营包、清洁巡检包、工厂/仓储试点包，强调本地维护、企微/钉钉、私有化和低首付。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">海外版</span>
+              <h3>按 robot/month 或 productive-hour</h3>
+              <p>仓储、清洁、安保、配送、制造按任务小时、产出、覆盖面积、SLA 和服务等级组合定价。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">会计边界</span>
+              <h3>降低现金压力，不承诺表外</h3>
+              <p>不同地区的租赁会计不同；RobotLeaseOps 应说降低 upfront cash 和服务风险，不说自动变成表外 OpEx。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Operations Stack</p>
+              <h2>RaaS 毛利不在合同模板里，而在服务运营系统里。</h2>
+            </div>
+            <p>机器人租赁失败常常不是卖不出去，而是维护、备件、远程支持、换机、事故和客户成功没有被系统化。RobotLeaseOps 把 EdgeFleet、UptimeOS、SafetyOps、RiskLedger 和财务系统接成一条运营链。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <span class="claim-tag">Identity</span>
+              <h3>设备身份</h3>
+              <p>X.509 / 证书轮换、robot_id、租赁合同、客户站点、交付和吊销记录。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Telemetry</span>
+              <h3>可用率</h3>
+              <p>心跳、任务小时、在线/离线、故障码、电池、热、传感器和断网补传。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Remote</span>
+              <h3>远程诊断</h3>
+              <p>JIT access、只读日志包、安全隧道、会话审计、客户批准和诊断报告。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">OTA</span>
+              <h3>版本治理</h3>
+              <p>签名包、SBOM、灰度批次、成功率、失败回滚、版本合规矩阵。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Service</span>
+              <h3>备件与保修</h3>
+              <p>库存、RMA、换件记录、技师工时、保修政策、MTBF 和 warranty reserve。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Finance</span>
+              <h3>SLA 发票</h3>
+              <p>租金、使用量、service credit、排除项、税费、付款状态和 QBR 报告。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Competition & Moat</p>
+              <h2>RaaS 厂商证明需求，RobotLeaseOps 占据资产运营层。</h2>
+            </div>
+            <p>Formic、Locus、Brightpick、AutoStore、UR leasing、Rapid/RobCo、Hirebotics、GXO、Agility、Figure、Apptronik、中国 AMR 和服务机器人厂商都在推动机器人商业化。RobotLeaseOps 不和它们抢单机，而是做跨 OEM、跨融资方、跨维护商的合同、SLA、服务、残值和证据系统。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">短期壁垒</span>
+              <h3>lease-ready artifacts</h3>
+              <p>资产出生证、合同、服务历史、SLA 公式、AI/QNN 证据和月度发票模板。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">中期壁垒</span>
+              <h3>service data compounding</h3>
+              <p>故障率、备件消耗、远程修复率、停机原因、客户排除项和维护成本不断沉淀。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">长期壁垒</span>
+              <h3>residual value curve</h3>
+              <p>跨品牌资产健康、再部署成功率、二级租赁和残值曲线是金融方最缺的数据。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">渠道壁垒</span>
+              <h3>OEM/SI/finance network</h3>
+              <p>让机器人厂商、集成商、租赁公司和维护伙伴共享一套 lease-ready 运营语言。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Why Qualcomm</p>
+              <h2>RobotLeaseOps makes Dragonwing lease-ready。</h2>
+            </div>
+            <p>Qualcomm 支持这个方向，不是为了做金融软件，而是为了让 Dragonwing 机器人成为可融资、可部署、可计费、可维护、可复购的商业资产。每个订阅包都把 Dragonwing target、AI Hub/QNN evidence、OTA、EdgeFleet monitoring、SafetyOps 和客户 SLA 绑定在一起。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Attach</strong>
+              <span>每台租赁机器人绑定 Dragonwing / RB / QCS / IQ profile 和硬件清单。</span>
+            </div>
+            <div class="stat">
+              <strong>Evidence</strong>
+              <span>AI Hub / QNN / ONNX Runtime QNN 证据进入合同、验收和续约材料。</span>
+            </div>
+            <div class="stat">
+              <strong>Feedback</strong>
+              <span>合规聚合 telemetry 反馈真实热、功耗、故障、模型漂移和维护成本。</span>
+            </div>
+            <div class="stat">
+              <strong>Channel</strong>
+              <span>OEM、SI、租赁方和维护商可以围绕 Dragonwing 打包标准化订阅方案。</span>
+            </div>
+          </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">Program</span>
+              <h3>Dragonwing Lease-Ready Program</h3>
+              <p>RB3 Gen 2、IQ9、IQ10 RRD 分层定义租赁 SKU、telemetry agent、QNN manifest、OTA 和 SLA dashboard。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">China</span>
+              <h3>本地化私有部署包</h3>
+              <p>中国本地云/私有化、数据分级、跨境默认关闭、AI 内容标识适用性评估和 OEM/SI 联合交付。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Global</span>
+              <h3>合规采购包</h3>
+              <p>SBOM、漏洞报告、fleet safety audit logs、GDPR DPA、EU AI Act/Machinery/CRA checklist 和企业尽调材料。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Demo & Evidence</p>
+              <h2>三分钟演示：从一份租赁合同，到一次停机，再到 SLA 发票。</h2>
+            </div>
+            <p>这个 demo 可以纯网页完成，但要像真实运营系统：客户不是看漂亮图表，而是看机器人是否真的被计量、服务、追责和结算。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Configure</h3>
+              <p>输入 10 万平方英尺仓库、两班制、98.5% uptime、清洁+巡检任务。</p>
+            </article>
+            <article class="step">
+              <h3>Contract</h3>
+              <p>生成两台机器人、Dragonwing edge module、AI Hub/QNN badge、SLA、月费和验收 KPI。</p>
+            </article>
+            <article class="step">
+              <h3>Operate</h3>
+              <p>EdgeFleet 显示心跳、任务小时、电池、热、模型版本、coverage 和异常。</p>
+            </article>
+            <article class="step">
+              <h3>Service</h3>
+              <p>模拟电机温度异常，系统开工单、拉日志、远程诊断、派备件或替换机。</p>
+            </article>
+            <article class="step">
+              <h3>Invoice</h3>
+              <p>月底生成 uptime、downtime 排除项、SLA credit、服务历史、QBR 和续约建议。</p>
+            </article>
+          </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">可讲</span>
+              <h3>可融资、可服务、可计费</h3>
+              <p>RobotLeaseOps 把机器人变成能进入 CFO 预算会、租赁公司风控和客户 SLA review 的资产。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">谨慎</span>
+              <h3>不是融资承诺</h3>
+              <p>不承诺获得贷款、补贴、税务优惠、保险降价或表外处理；这些取决于合同和地区规则。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">边界</span>
+              <h3>不是安全认证</h3>
+              <p>SafetyOps 和 RiskLedger 提供证据与复盘，不替代法定认证、现场风险评估或法律责任判断。</p>
+            </article>
+          </div>
+          <p class="quote pipeline-extra">RobotLeaseOps 的一句话：把“买机器人”改写成“订阅一段可验证、可维护、可扩张的机器人产能”。</p>
           <div class="source-links">
-            <a href="https://brightpick.ai/resources/how-brightpicks-raas-works/">Brightpick</a>
-            <a href="https://locusrobotics.com/why-locus/robots-as-a-service">Locus</a>
-            <a href="https://www.autostoresystem.com/news/autostore-launches-pay-per-pick-service-option-to-address-fast-growing-demand-for-fulfillment-automation">AutoStore</a>
-            <a href="https://formic.co/full-service-automation">Formic</a>
-            <a href="https://www.universal-robots.com/services/collaborative-robot-leasing/">UR Leasing</a>
-            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR</a>
-            <a href="https://aihub.qualcomm.com/">AI Hub</a>
-            <a href="https://www.qualcomm.com/developer/software/foundriesfactory">FoundriesFactory</a>
-            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">IQ10 RRD</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots 2025</a>
+            <a href="https://locusrobotics.com/why-locus/robots-as-a-service">Locus RaaS</a>
+            <a href="https://formic.co/full-service-automation">Formic Full-Service Automation</a>
+            <a href="https://brightpick.ai/resources/how-brightpicks-raas-works/">Brightpick RaaS</a>
+            <a href="https://www.autostoresystem.com/news/autostore-launches-pay-per-pick-service-option-to-address-fast-growing-demand-for-fulfillment-automation">AutoStore Pay-per-Pick</a>
+            <a href="https://www.universal-robots.com/services/collaborative-robot-leasing/">Universal Robots Leasing</a>
+            <a href="https://www.robotlab.com/financing/">RobotLAB Financing</a>
+            <a href="https://knightscope.com/use-cases/who-we-serve">Knightscope MaaS</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://www.qualcomm.com/developer/software/qualcomm-ai-engine-direct-sdk">Qualcomm AI Engine Direct</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Dragonwing IQ10 RRD</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/product-longevity-program">Qualcomm Product Longevity</a>
+            <a href="https://nvlpubs.nist.gov/nistpubs/ir/2020/NIST.IR.8259A.pdf">NIST IoT Device Baseline</a>
+            <a href="https://learn.microsoft.com/en-us/dynamics365/field-service/service-history">Dynamics Field Service History</a>
+            <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html">AWS IoT Jobs</a>
+            <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">AWS IoT Secure Tunneling</a>
+            <a href="https://www.ifrs.org/issued-standards/list-of-standards/ifrs-16-leases/">IFRS 16 Leases</a>
+            <a href="https://www.cac.gov.cn/2024-03/22/c_1712776612187994.htm">CAC Data Export Rules</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">EU AI Act</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act">EU Cyber Resilience Act</a>
           </div>
         </div>
       </section>
