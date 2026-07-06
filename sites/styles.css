@@ -657,6 +657,10 @@ h2 {
   counter-reset: step;
 }
 
+.pipeline-extra {
+  margin-top: 10px;
+}
+
 .step {
   position: relative;
   min-height: 160px;
