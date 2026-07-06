@@ -4,11 +4,11 @@
 
 ## One-Line Company
 
-ColdChainLoop 是面向冷链物流、生鲜连锁、餐饮食材和医药配送企业的温控异常闭环系统：
+ColdChainLoop 是面向生鲜连锁、中央厨房、餐饮供应链、区域冷链 3PL 和温敏品仓配的冷链异常闭环系统：
 
-> 发现脱温、滞留、交接缺证和错区风险，派单纠偏，扫码/拍照/温度验证，并把审计记录回写 TMS/WMS/QMS。
+> 把每一次脱温、滞留、错温区、封签/交接缺证，从告警变成责任、纠偏、证据、放行/隔离/拒收和下一轮机器人训练数据。
 
-它不是又一个温度 logger，也不是车队 GPS 大屏。它是冷链事故从 signal 到 action 到 proof 到 release/CAPA 的操作层。
+它不是又一个温度 logger，也不是车队 GPS 大屏。它是冷链事故从 `alert -> action -> proof -> release/CAPA` 的操作层。
 
 ## Problem
 
@@ -31,13 +31,13 @@ ColdChainLoop 是面向冷链物流、生鲜连锁、餐饮食材和医药配送
 
 ## Why Now
 
-- 2026 年全球冷链物流市场估算已在数千亿美元量级，食品、医药和跨境供应链持续增长。
-- FAO 2026 年指出，约 5.26 亿吨食品因制冷、温控和储存不足而损失或浪费。
+- 全球冷链物流 2026 年估算在数千亿美元量级，食品、医药、跨境供应链和生鲜即时零售持续增长。
+- FAO/UNEP 数据显示，全球食品在供应链前段损失 13.2%，零售、餐饮和家庭端再浪费 19%。
 - FDA FSMA 204 虽然延后执法到 2028-07-20 前不会强制，但 CTE/KDE 和 24 小时记录访问要求已经给食品企业明确方向。
-- 中国 2025 年冷链需求约 3.814 亿吨，冷链物流总收入约 5567.1 亿元，冷库容量约 2.67 亿立方米。
+- 中国 2025 年冷链需求约 3.814 亿吨，冷链物流总收入约 5567.1 亿元；2026 年市场规模预计超过 5850 亿元。
 - 中国已经布局 105 个国家骨干冷链物流基地，覆盖 31 个省份，冷链从建容量转向智能化运营。
 - 医药追溯码从 2025-07-01 接入医保结算流程，到 2026-01-01 医疗/药店机构全面采集上传，药品冷链和追溯运营压力上升。
-- UPS、DHL、Cencora 等 2025-2026 年继续投资医药冷链、温控 cross-dock、chain-of-custody、机器人和 AI。
+- 食品安全法、GB 31605、集中配送服务规范和采购商审计都在把“有没有温度记录”推向“异常是否及时处置、追溯、复盘”。
 
 ## Non-Obvious Insight
 
@@ -90,17 +90,19 @@ ColdChainLoop 用四层把冷链异常闭环：
 
 一句话收入模型：按冷链站点、货量和异常闭环收费，而不是只卖传感器。
 
-- 付费试点：中国 8-30 万元；海外 10k-40k 美元，聚焦一条路线或一个冷 dock。
-- SaaS：按设施、shipment、case、活跃客户门户或合规模板收费。
-- 企业版：TMS/WMS/QMS 集成、客户门户、SLA 报表、QMS deviation/CAPA workflow。
-- Edge kit：Qualcomm dock / truck / cold-room inspection node，按租赁或伙伴销售。
+- 90 天付费试点：中国 8万-30万元；海外 $10k-$60k，聚焦一个冷库、cold dock、路线或温区。
+- 站点 SaaS：中国 3k-2万元/站点/月；海外 $500-$5k/站点/月，按事件、case、客户门户或合规模板扩展。
+- 企业版：中国 30万-150万元/年；海外 $50k-$300k/年，含 TMS/WMS/QMS 集成、客户门户、SLA 报表和 QMS deviation/CAPA workflow。
+- Edge kit：Qualcomm dock / truck / cold-room inspection node，按租赁、伙伴销售或成果分成组合。
 - 渠道：WMS/TMS 厂商、冷库集成商、reefer 设备商、sensor/logging 厂商、冷链咨询公司。
 
 ## Go-To-Market
 
 Beachhead promise：
 
-> 45 天内减少一条路线或一个冷 dock 的拒收争议和 QA 调查时间。
+> 45 天验证证据链，90 天验证经济性。
+
+试点应先跑 2 周 baseline，再跑 10 周改进。核心指标包括异常关闭时间、温度偏离分钟/托盘、开门 dwell、错温区移区 SLA、缺标签/漏扫、QA hold 决策周期、模拟召回定位时间、审计包导出时间、人工日志/群聊追单时间和证据完整率。
 
 中国版：
 
@@ -115,12 +117,12 @@ Beachhead promise：
 
 ## Competition
 
-- Sensitech / Controlant / Tive / Roambee / Wiliot：温度、位置和实时可视化强，但通常止于 alert。
+- Controlant / Sensitech / Tive / Roambee / Wiliot：温度、位置和实时可视化强，但通常止于 alert。
 - ELPRO / Berlinger / LogTag / Logmore / DeltaTrak：记录仪便宜可靠，但更多是事后证明。
 - Thermo King / Carrier / ORBCOMM / Geotab / Samsara：reefer telematics 强，但资产中心重于产品/批次风险。
 - GS1 EPCIS / IBM Food Trust / FoodLogiQ / TraceLink / SAP ATTP：追溯、序列化和合规强，但纠偏执行弱。
 - AutoStore / Locus / Geek+ / Hai / Quicktron / Hikrobot：冷库机器人和仓内自动化强，但不天然理解产品温控风险。
-- SAP / Oracle / Manhattan / Blue Yonder / 富勒 / 唯智：WMS/TMS/QMS 强，但冷链质量闭环通常需要昂贵定制。
+- SafetyCulture / SAP / Oracle / Manhattan / Blue Yonder / 富勒 / 唯智：检查、WMS/TMS/QMS 强，但冷链质量闭环通常需要昂贵定制。
 
 ColdChainLoop 的位置：
 
@@ -174,13 +176,13 @@ ColdChainLoop 的位置：
 
 ## Demo
 
-比赛 demo 应该让“异常关闭”可见：
+比赛 demo 应该让“异常关闭”可见，并保持低风险：
 
-1. 创建模拟 shipment：2-8C 疫苗/海鲜样品、托盘 QR、logger、温度 profile。
-2. Qualcomm edge node 监控一个保温箱或 mini cold dock。
-3. 打开箱门或加入 warm pack，触发温度/门开异常。
+1. 创建模拟 shipment：2-8C 食品/温敏样品、托盘 QR/AprilTag、低压温度传感器、温度 profile。
+2. Qualcomm edge node 监控一个泡沫箱、亚克力盒或 mini cold dock；不使用真实食品、药品、干冰、液氮、压缩机制冷或高功率加热。
+3. 打开箱门、错区、漏扫或软件阈值触发温度/门开异常。
 4. Edge 在本地生成 excursion case，显示温度曲线、相机证据和受影响 lot。
-5. 人工批准纠偏：机器人/AMR 把样品移到隔离/冷区，或抓取冷包/拍摄复核图。
+5. 人工批准纠偏：低速 rover 复扫、拍照、提示移区或由操作员完成隔离动作。
 6. 系统要求 proof：扫码、照片、温度恢复、签名和任务完成。
 7. WMS 更新到 `QUARANTINE`，TMS 标记 exception，QMS 生成 deviation/evidence bundle。
 8. 操作者人工修正一次机器人动作，记录为 LeRobot HIL episode。
@@ -215,24 +217,26 @@ ColdChainLoop 是 Qualcomm supply-chain edge AI 的自然延伸：
 
 ## Sources
 
-- Mordor cold-chain market 2026-2031：https://www.prnewswire.com/news-releases/cold-chain-logistics-market-outlook-2026-2031-usd-515-79-billion-opportunity-north-america-accounted-for-33-62-of-global-revenue-in-2025--says-mordor-intelligence-302805341.html
-- FAO cold-chain food loss：https://www.fao.org/energy/news-and-events/news/news-details/cooling-the-chain--cutting-the-waste/en
-- UNEP food loss and waste：https://www.unep.org/topics/food-systems/food-loss-and-waste
+- 中国冷链物流发展报告 2026：https://www.mot.gov.cn/xinwen/jiaotongyaowen/202606/t20260612_4207392.html
+- Mordor cold-chain logistics market：https://www.mordorintelligence.com/industry-reports/cold-chain-logistics-market
+- FAO food loss data：https://www.fao.org/policy-support/policy-themes/food-loss-and-food-waste/-Food-Loss-and-Food-Waste-Database/en
+- UNEP Food Waste Index 2024：https://www.unep.org/resources/publication/food-waste-index-report-2024
 - FDA FSMA traceability：https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-requirements-additional-traceability-records-certain-foods
 - FDA sanitary transportation：https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-sanitary-transportation-human-and-animal-food
-- China cold-chain 2025 data：https://tradeinservices.mofcom.gov.cn/article/lingyu/gjhdai/202601/181473.html
+- 21 CFR Part 1 Subpart O：https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-1/subpart-O
+- 中国 2025 冷链数据：https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/202601/t20260128_7086292.htm
 - 105 national cold-chain bases：https://www.ndrc.gov.cn/fzggw/jgsj/jms/sjdt/202506/t20250609_1398336.html
 - China 14th five-year cold-chain plan：https://www.ndrc.gov.cn/fggz/fzzlgh/gjjzxgh/202203/t20220325_1320204.html
-- Drug trace-code医保结算：https://www.nhsa.gov.cn/art/2025/3/19/art_104_16045.html
-- Vaccine cold chain：中国 CDC：https://www.chinacdc.cn/jkkp/mygh/ymyf/202505/t20250523_306984.html
-- Cencora distribution investment：https://www.cencora.com/newsroom/cencora-to-invest-1-billion-in-us-distribution-network
-- UPS temperature-controlled cross-docks：https://about.ups.com/us/en/newsroom/press-releases/customer-first/ups-extends-complex-healthcare-logistics-lead-with--48-million-i.html
-- GS1 EPCIS：https://ref.gs1.org/standards/epcis/
-- GS1 CBV：https://ref.gs1.org/standards/cbv/
+- 食品安全法 2025：https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=104105
+- GB 31605 冷链物流卫生规范：https://zwfw.nhc.gov.cn/kzx/tzgg/sptjjxpzsp_224/202101/t20210118_2032.html
+- Drug trace-code 医保结算：https://www.nhsa.gov.cn/art/2025/3/19/art_104_16045.html
 - Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
 - Qualcomm Robotics RB5：https://www.qualcomm.com/developer/hardware/robotics-rb5-development-kit
+- Qualcomm Aware：https://www.qualcomm.com/internet-of-things/solutions/aware
 - Qualcomm AI Hub：https://aihub.qualcomm.com/
 - ONNX Runtime QNN EP：https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html
 - LeRobot HIL：https://huggingface.co/docs/lerobot/en/hil_data_collection
 - LeRobotDataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
+- GS1 EPCIS：https://ref.gs1.org/standards/epcis/
+- GS1 CBV：https://ref.gs1.org/standards/cbv/
 - MassRobotics AMR interoperability：https://github.com/MassRobotics-AMR/AMR_Interop_Standard
