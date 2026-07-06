@@ -41,6 +41,7 @@ The current first-batch pitch directions are:
 - `SiteLedger 工地实录`: construction-site memory and evidence platform for layout verification, progress/QA capture, safety observations, payment evidence, BIM/CDE integration, and LeRobot data loops.
 - `StoreLoop 店务闭环`: retail store execution platform for shelf truth, associate tasks, bounded robot actions, proof-of-closure, privacy-first edge perception, and LeRobot training loops.
 - `FoodLoop 餐务闭环`: restaurant operations platform for KDS/POS tickets, tray verification, delivery/bussing, cleaning proof, food-safety logs, exception capture, and LeRobot HIL loops.
+- `护元 CareOS`: eldercare productivity platform for home, community, and facility care tasks, privacy-first Qualcomm edge execution, caregiver escalation, service evidence, and LeRobot HIL loops.
 - `RoboPort`: certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.

@@ -253,6 +253,7 @@ Qualcomm 可获得：
 - SiteLedger 工地实录页：https://qc-robotics-2026.pages.dev/site-ledger/
 - StoreLoop 店务闭环页：https://qc-robotics-2026.pages.dev/store-loop/
 - FoodLoop 餐务闭环页：https://qc-robotics-2026.pages.dev/food-loop/
+- 护元 CareOS 养老照护平台页：https://qc-robotics-2026.pages.dev/careos/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/

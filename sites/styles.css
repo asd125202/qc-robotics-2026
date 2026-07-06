@@ -178,6 +178,10 @@ img {
   background-image: url("./assets/food-loop.png");
 }
 
+.hero-careos {
+  background-image: url("./assets/careos.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }
