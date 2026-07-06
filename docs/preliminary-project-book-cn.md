@@ -263,6 +263,7 @@ Qualcomm 可获得：
 - InfraLoop 设施巡检闭环页：https://qc-robotics-2026.pages.dev/infra-loop/
 - YardLoop 港场异常闭环页：https://qc-robotics-2026.pages.dev/yard-loop/
 - ShipyardLoop 船厂生产证据闭环页：https://qc-robotics-2026.pages.dev/shipyard-loop/
+- CircularLoop 城市矿山分流闭环页：https://qc-robotics-2026.pages.dev/circular-loop/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/
