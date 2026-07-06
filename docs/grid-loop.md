@@ -1,158 +1,289 @@
-# GridLoop 配网异常闭环
-
-GridLoop is a Chinese pitch-deck concept for the Qualcomm robotics competition. It frames distribution-grid operations as an exception-closure problem: voltage anomalies, transformer overload, hot connectors, vegetation risk, feeder trips, storm damage, reverse power flow, EV charging peaks, and field inspection evidence should become owned, verified, learnable cases.
+# GridLoop 配网异常闭环层
 
 Public page: https://qc-robotics-2026.pages.dev/grid-loop/
 
 ## One-Line Pitch
 
-> 让每一次配网异常都有结论、有动作、有复盘。
+> 全球不缺发电，真正卡住 AI、EV 和光伏的是配电最后一公里。
 
-GridLoop serves distribution-grid dispatchers, inspection and maintenance teams, utility digital departments, industrial parks, charging-heavy cities, and DER-rich feeders. The product unit is not an alert. It is a resolved exception with evidence.
+GridLoop is a vendor-neutral exception closure layer for distribution operations. It does not replace ADMS, OMS, DERMS, SCADA, AMI, GIS, EAM, protection systems, or inspection AI. It turns alerts, defects, DER constraints, voltage excursions, outage follow-ups, inspection findings, and model mismatches into assigned, evidenced, auditable closure.
 
 ## Problem
 
-Distribution utilities already have many systems:
+Distribution utilities already have:
 
-- SCADA, AMI, OMS, GIS, CMMS/EAM, weather, charger telemetry, distributed PV telemetry, drone inspection, robot inspection, and field photos.
-- These systems see signals, but people still chase context across tools, calls, spreadsheets, and post-event reports.
-- A voltage complaint, transformer overload, thermal hotspot, vegetation issue, storm damage report, reverse-power event, or feeder trip often lacks one owner, one timeline, one action path, and one verification packet.
+- ADMS, OMS, SCADA, AMI, GIS, EAM/CMMS, DERMS, vegetation platforms, drone inspection, robot inspection, weather, field crews, and regulatory reports.
+
+But operational closure remains slow:
+
+- Which alert is real?
+- Which feeder, transformer, switch, customer group, DER, or asset is affected?
+- Who owns the action?
+- What evidence is needed?
+- Was the issue actually fixed?
+- Did it reopen?
+- Was the grid model wrong?
+- Can the result support reliability reporting, wildfire mitigation evidence, rate-case justification, or DER interconnection review?
+
+## Why We Solve It
+
+Grid construction takes 5-15 years, but grid-edge exceptions happen today.
+
+GridLoop helps existing distribution networks carry more load with fewer failures:
+
+- Faster fault and likely-cause localization.
+- Better truck-roll targeting.
+- Closed-loop inspection defects.
+- Better vegetation and wildfire mitigation evidence.
+- Transformer and feeder overload prioritization.
+- DER/EV hosting constraints turned into follow-up actions.
+- Regulatory and investment evidence packages.
 
 ## Why Now
 
 Global:
 
-- IEA says grid investment needs to nearly double by 2030 to more than $600B per year.
-- EIA reported that U.S. customers averaged almost 11 hours of power interruptions in 2024, with major storms driving most outage hours.
-- ASCE reports that distribution-system failures cause the overwhelming majority of customer interruptions in the United States.
-- DER, EV charging, extreme weather, wildfire, transformer shortages, and aging assets are pushing utilities toward faster, evidence-rich field operations.
+- ASCE 2025 gives U.S. energy infrastructure a D+ and notes most service interruptions originate in distribution systems.
+- EIA reports U.S. customers averaged almost 11 outage hours in 2024, with major weather events driving most outage duration.
+- IEA projects massive renewable additions through 2030, with distributed PV a large share.
+- Global public EV charging points exceeded 7 million by the end of 2025, with China over 65% of the total.
+- Transformer shortages and long lead times make software/edge visibility valuable while hardware catches up.
 
 China:
 
-- Distribution grids are a core bottleneck for distributed renewables, charging infrastructure, local flexibility, disaster resilience, and digital-grid operations.
-- Policy language around 2024-2027 distribution-grid action emphasizes carrying capacity, resilience, intelligent monitoring, and high-quality distribution development.
-- 2030 policy targets for distributed new energy and charging infrastructure make feeder-level visibility and closure more important.
-- China deployment should emphasize local/private deployment, edge AI, only-read OT integration, human approval, and "数据不出域, 证据可上报".
+- China policy frames the new power system as source-grid-load-storage coordination.
+- The 2024-2027 new power system action plan requires provincial distribution-grid upgrades around carrying capacity, resilience, open-capacity warning, charging-facility capacity, and smart dispatch.
+- 2025 national grid investment was RMB 639.5B, with 110kV and below distribution-grid investment around RMB 321.8B.
+- China targets 28M+ charging facilities and 300GW+ public charging capacity by the end of 2027.
+- Energy infrastructure is covered by critical-information-infrastructure/data-security expectations, so deployment must be local/private and security-aware.
 
-## Product Workflow
+## Insight
 
-1. Ingest: SCADA, AMI, OMS, GIS, CMMS, weather, EV chargers, distributed PV, drone footage, robot sensing, and field photos.
-2. Detect: voltage drift, transformer overload, feeder trip, line-loss spike, reverse power, hot connector, vegetation risk, acoustic anomaly, and customer-cluster complaint.
-3. Explain: combine topology, time sequence, asset history, nearby work orders, weather, and field evidence into one case.
-4. Assign: create human-approved tasks with owner, risk, impacted users, recommended evidence, and SLA.
-5. Verify: confirm telemetry recovery, AMI voltage recovery, thermal rescan, photos, crew verdict, or customer-complaint decline.
-6. Learn: feed false positives, missed events, human labels, and verified fixes into the anomaly graph and LeRobot-compatible datasets.
+The valuable dataset is not raw telemetry. It is closure:
 
-## Market Wedge
+- Which anomaly was real?
+- Which evidence proved it?
+- Which crew or robot inspected it?
+- Which action worked?
+- How long did it take?
+- Did it reopen?
+- Did the grid model need correction?
 
-Start narrow:
+Every closed exception improves the distribution operations model.
 
-- DER/EV-heavy feeders.
-- Transformer overload and low-voltage complaint closure.
-- Thermal defects and connector inspection.
-- Vegetation or wildfire-risk evidence closure.
-- Storm-damage triage after major weather.
-- Industrial parks with private distribution networks and energy teams.
+## Solution
 
-Expand later:
+GridLoop provides a closure layer:
 
-- DER hosting-capacity workflow.
-- Vegetation and wildfire module.
-- Storm restoration and estimated-time-to-restore module.
-- Equipment-health module.
-- Reliability reporting and compliance package generation.
+1. Normalize: convert events from ADMS/OMS/AMI/GIS/EAM/DERMS/inspection systems into common exceptions.
+2. Deduplicate: group repeated alarms by topology, time window, customers, assets, weather, and evidence.
+3. Assign: create owner, SLA, evidence requirements, suggested work order, and approval path.
+4. Verify: close only with telemetry recovery, AMI voltage recovery, thermal rescan, field photo, crew verdict, or complaint decline.
+5. Learn: track time-to-close, reopen, false positive, root cause, recurring issue, and model correction.
 
-## Buyer Economics
+First-phase boundary:
 
-Primary value drivers:
+- Read-only OT integration.
+- Human approval.
+- No protection logic.
+- No autonomous feeder switching.
+- No ADMS/DERMS replacement claims.
 
-- Reliability: avoided customer-minutes interrupted, improved SAIDI/SAIFI, repeat-incident reduction, and faster restoration.
-- Field operations: fewer low-value patrols, better truck-roll targeting, less cross-system investigation time, fewer repeat visits.
-- Vegetation and wildfire: prioritized high-risk spans, better evidence before/after work, and faster closure of risk work orders.
-- Equipment health: earlier hot connector or transformer overload discovery, less emergency work, better replacement timing.
-- DER/EV: delayed or better-targeted upgrades through feeder-level visibility and action tracking.
-- Compliance and reporting: less manual reconstruction of incident timelines and evidence.
+## Product Wedge
 
-Pilot:
+Do not start with the whole grid. Start with one high-frequency closure loop:
 
-- 4-6 months.
-- Scope: 10-30 feeders or 50k-150k meters.
-- Overseas price: $150k-$250k.
-- China price: project/package pricing through utility digital-grid, inspection, or local integrator budget.
-- Goal: show payback using hard-dollar actions such as avoided truck rolls, investigation time saved, repeated incident reduction, and deferred low-priority work. Reliability and public-safety value is upside.
+- Inspection defect closure.
+- AMI/grid-edge power-quality exception closure.
+- DER constraint follow-up.
+- GIS/ADMS model correction loops.
+- Vegetation/wildfire mitigation audit trails.
+- Worst-feeder outage intelligence.
+
+Pilot scope:
+
+- 5-20 feeders.
+- 500-5,000 assets.
+- 12-24 months baseline OMS/AMI/GIS history.
+- Matched control feeders when possible.
+
+## Market
+
+China version:
+
+- Position as “源网荷储协同下的配网异常闭环”.
+- Buyers: provincial/municipal grid companies, city/county power-supply bureaus, grid digital subsidiaries, industrial parks, data centers, charging operators, PV/storage developers, VPP aggregators, local energy-service platforms.
+- Procurement language: 提升承载力、可靠性、自愈、可观可测可调可控、源网荷储协同.
+- Requirements: local/on-prem/private cloud, CII/data-security posture, integration with dispatch/SCADA/AMI/GIS/95598, domestic SI/design institute ecosystem.
+
+Overseas version:
+
+- Position as reliability + vegetation/wildfire + DER/EV exception closure.
+- Buyers: VP Distribution, COO, Grid Modernization, Reliability, Vegetation/Wildfire, Asset Management, DER Planning, Storm Response, Regulatory Affairs.
+- Target utilities facing reliability penalties, wildfire scrutiny, worst-feeder programs, storm restoration issues, or EV load growth.
+
+## Business Model
+
+Modules:
+
+- Outage intelligence.
+- Vegetation/wildfire risk closure.
+- Transformer/feeder capacity.
+- Inspection AI closure.
+- Storm/restoration.
+- Regulatory reporting.
+
+Pricing:
+
+- China county/city pilot: RMB 100k-500k.
+- China county/city annual software: RMB 300k-2M.
+- China provincial rollout: RMB 2M-10M+ annually.
+- Overseas small utility/co-op pilot: $50k-$150k.
+- Overseas small utility annual: $75k-$250k.
+- Overseas mid/large IOU/DSO annual: $300k-$1.5M+ by module.
+- Enterprise/national DSO: $1M-$5M+.
+- Optional success fee: 5%-10% of verified direct savings, capped.
+
+Hardware and field services can be sold through qualified partners.
+
+## ROI
+
+Annual benefit:
+
+```text
+Benefit =
+  avoided customer interruption value
++ avoided truck rolls * fully loaded truck-roll cost
++ avoided vegetation events * average event cost
++ vegetation budget * efficiency gain
++ avoided transformer failures * failure cost
++ deferred capex * carrying cost
++ avoided inspection cost
++ storm overtime / mutual-aid savings
++ reporting hours saved * loaded labor rate
++ regulatory incentives or avoided penalties
+```
+
+ROI:
+
+```text
+Annual ROI = (annual benefit - annual GridLoop cost) / annual GridLoop cost
+Payback months = one-time implementation cost / monthly net benefit
+```
+
+90-day KPIs:
+
+- >95% GIS/OMS/AMI/SCADA asset/customer/feeders matched.
+- >85% precision for high-severity vegetation/asset alerts.
+- Fault localization within 100-300m where sensor/AMI density supports it.
+- 10%-20% fewer diagnostic truck rolls on pilot feeders.
+- 30%-50% reduction in time to identify likely cause/location.
+- Top 5%-10% risky vegetation spans validated in field and converted to work orders.
+- 7-day transformer peak forecast MAPE <10%-15%.
+- DER/EV hosting pre-screen reduced from weeks to days.
+- Inspection cost per mile/structure reduced 30%+ vs baseline.
+- Monthly audit pack with CMI/SAIDI/SAIFI, causes, actions, and evidence trail.
+- Annualized benefit/cost >2x.
 
 ## Competition
 
-GridLoop should integrate, not replace:
+Do not claim:
 
-- ADMS/OMS/SCADA: GE Vernova, Schneider Electric, Siemens, Oracle Utilities, Hitachi Energy, and others.
-- DERMS/VPP: AutoGrid, EnergyHub, Schneider DERMS, Enbala/Generac-style platforms.
-- Inspection and imagery: AiDash, Overstory, Buzz Solutions, Noteworthy AI, DroneDeploy, Cyberhawk, Pix4D, and drone OEMs.
-- EAM/GIS/workforce: Esri, SAP, IBM Maximo, Oracle WAM, ServiceNow, and utility work-management tools.
+- Autonomous grid.
+- Single pane of glass.
+- ADMS replacement.
+- DERMS replacement.
+- Digital twin.
+- Inspection AI.
+- Utility-grade protection relay/recloser.
+- FLISR replacement.
 
-Differentiation:
+Integrate with:
 
-- Closure-first workflow layer.
+- Schneider EcoStruxure ADMS / DERMS.
+- Siemens Spectrum Power ADMS / Gridscale X.
+- GE Vernova GridOS.
+- Oracle Utilities NMS / ADMS.
+- AspenTech/OSI.
+- Hitachi Energy Network Manager.
+- Itron and Landis+Gyr.
+- Uplight/AutoGrid, Smarter Grid Solutions, Camus.
+- AiDash, Neara, LineVision, Prisma Photonics, Noteworthy AI, Buzz Solutions, eSmart Systems, Gridware, Heimdall.
+
+Wedge:
+
+> Vendor-neutral exception closure for distribution operations.
+
+## Moat
+
 - Topology-aware exception graph.
-- Field proof loop and edge evidence packets.
-- China/local deployment option.
-- LeRobot/Qualcomm edge path for repeatable robot-learning experiments.
+- Closure labels from work orders, inspections, customer complaints, telemetry recovery, and reopen events.
+- Workflow embedding in ADMS/OMS/EAM/GIS/crew processes.
+- Edge evidence from robots, trucks, substations, and weak-network feeder points.
+- Local utility playbooks and regulatory reporting logic.
 
 ## Qualcomm Fit
 
-Distribution-grid operations need edge AI because many sites are bandwidth-limited, cyber-sensitive, intermittent, or physically remote:
+GridLoop needs:
 
-- Substations and distribution rooms.
-- Feeder corridors.
-- Utility trucks.
-- Drone/robot inspection workflows.
-- Industrial parks and charging-heavy sites.
-- Storm response and weak-network environments.
-
-QNN/AI Hub candidate models:
-
-- Thermal hotspot classification.
-- Vegetation/contact segmentation.
-- Asset detector for transformer, pole, insulator, switch, and connector.
-- Acoustic anomaly classification from spectrograms.
-- Electrical telemetry anomaly model.
-- Multimodal fusion model for case priority and likely cause.
+- Edge AI for substations, distribution rooms, utility trucks, drone/robot inspection, and storm response.
+- Multimodal inference: RGB, thermal, acoustic, voltage/current, IMU, and topology context.
+- ROS 2 actions for robot inspection and evidence capture.
+- Qualcomm AI Hub/QNN path for thermal hotspot, vegetation segmentation, asset detection, acoustic anomaly, and telemetry anomaly models.
+- LeRobotDataset episodes from safe tabletop HIL and future inspection workflows.
 
 ## Safe Competition Demo
 
-Demo scope:
+Demo concept:
 
-- 12-24V tabletop feeder, current-limited supply, fuses, e-stop, and clear cover.
-- 3D-printed pole/transformer/connector props and LED/resistor load bank.
-- Low-voltage PTC/heater pad under a connector prop with thermostat and thermal fuse.
-- Foam or plastic branch with marker/contact switch as vegetation surrogate.
-- Speaker-played buzz/hum samples for acoustic anomaly, not corona/arcing.
-- Small rover, pan-tilt camera mast, or drone shell with propellers removed/guarded.
-- RGB, thermal, depth/ToF, acoustic, voltage/current, IMU/odom, and safety interlock.
-- ROS 2 topics, evidence packet, human approval, and LeRobotDataset episode export.
+- 24V tabletop visual feeder.
+- OpenDSS or GridLAB-D digital feeder driving simulated scenarios.
+- Current-limited Class 2/LPS supply where possible, branch fuses/eFuses, E-stop, and clear cover.
+- Feeder segments A/B/C, normally open tie, EV load emulator, solar emulator, storage emulator, adjustable load bank, and fault/exception injector.
+- Low-voltage relay/MOSFET “breakers”.
+- Robot/gantry/pan-tilt camera inspection analog, not a live-grid drone.
+- Per-segment V/I telemetry, relay state, temperature, RGB, thermal, and robot status.
 
-Claims to avoid:
+3-minute script:
 
-- Detects real distribution-grid faults.
-- Prevents outages, fires, or electrocution.
-- Safe around live utility equipment.
-- Autonomously isolates, recloses, or reconfigures feeders.
-- Equivalent to protection, SCADA, FLISR, relay logic, or certified electrical-safety procedure.
-- Real-time Qualcomm NPU performance before profiling on target hardware.
+1. Show normal feeder with EV, solar/storage/load, telemetry, and power-flow animation.
+2. Trigger EV inrush or hot-connector prop; UI shows voltage sag, current spike, relay open, lost load.
+3. Dispatch LeRobot inspection analog to read asset tag and capture visible/thermal evidence.
+4. QNN model flags no physical hazard or thermal hazard.
+5. Safety checklist runs: voltage safe, current safe, thermal below threshold, contact state known, robot clear, operator approval required.
+6. Demonstrate one blocked condition, then clear it.
+7. Operator approves low-voltage relay closure; load restores; event closes with evidence and LeRobotDataset episode.
 
-Safe claim:
+Safe claims:
 
-> Tabletop low-voltage distribution-grid exception-closure demo using multimodal sensing, ROS 2 action workflow, human-reviewed evidence packets, LeRobot-compatible data, and a candidate Qualcomm AI Hub/QNN edge path.
+- Low-voltage HIL demonstration of feeder exception handling.
+- PMU-inspired synchronized telemetry, not IEEE C37.118 compliant PMU.
+- On-device AI inference path using Qualcomm AI Hub/QNN.
+- LeRobot-based inspection policy for tabletop robot/drone analog.
+- Operator-in-the-loop deterministic safety-gated relay simulation.
+
+Avoid:
+
+- Autonomous grid restoration.
+- Utility-grade protection relay/recloser.
+- Safe for live distribution equipment.
+- NERC/CIP, UL, IEC, NFPA, or utility interconnection compliance.
+- Validated outage reduction on real feeders.
 
 ## Sources
 
-- IEA Electricity Grids and Secure Energy Transitions: https://www.iea.org/reports/electricity-grids-and-secure-energy-transitions/executive-summary
-- EIA U.S. outage duration summary: https://www.eia.gov/todayinenergy/detail.php?id=66744
-- ASCE Energy Infrastructure Report Card: https://infrastructurereportcard.org/cat-item/energy-infrastructure/
-- DOE GRIP program projects: https://www.energy.gov/oe/grid-resilience-and-innovation-partnerships-grip-program-projects
-- National Energy Administration distribution-grid action plan: https://zfxxgk.nea.gov.cn/2024-08/02/c_1310784260.htm
-- NDRC/NEA high-quality grid development opinion: https://www.ndrc.gov.cn/xxgk/zcfb/tz/202512/t20251231_1402949.html
-- Qualcomm AI Hub: https://aihub.qualcomm.com/
-- Qualcomm RB3 Gen 2 Development Kit: https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
-- Hugging Face LeRobot docs: https://huggingface.co/docs/lerobot/en/index
-- OSHA 1910.333: https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.333
+- ASCE Energy 2025: https://infrastructurereportcard.org/wp-content/uploads/2025/03/Energy.pdf
+- EIA outage duration: https://www.eia.gov/todayinenergy/detail.php?id=66744
+- IEA Renewables 2025: https://www.iea.org/reports/renewables-2025/renewable-electricity
+- IEA EV charging 2026: https://www.iea.org/reports/global-ev-outlook-2026/electric-vehicle-charging-chap-6-and-10
+- WoodMac transformer shortage: https://www.woodmac.com/press-releases/power-transformers-and-distribution-transformers-will-face-supply-deficits-of-30-and-10-in-2025/
+- China distribution-grid high-quality development: https://www.ndrc.gov.cn/xxgk/zcfb/tz/202403/t20240301_1364313.html
+- New power system action plan: https://www.ndrc.gov.cn/xwdt/tzgg/202408/P020240806534738672970.pdf
+- China Power Development Report 2026: https://www.nea.gov.cn/20260701/52eef0c7dc2c43968e411487618aaf06/c.html
+- China charging infrastructure action: https://www.ndrc.gov.cn/xxgk/zcfb/tz/202510/P020251015595398499456.pdf
+- Schneider ADMS: https://www.se.com/us/en/product-range/61751-ecostruxure-adms/
+- GE Vernova GridOS ADMS: https://www.gevernova.com/software/products/gridos/advanced-distribution-management-system
+- Qualcomm AI Hub compile: https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html
+- Qualcomm RB3 Gen 2: https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- ROS 2 Actions: https://docs.ros.org/en/humble/Concepts/Basic/About-Actions.html
+- LeRobot: https://github.com/huggingface/lerobot

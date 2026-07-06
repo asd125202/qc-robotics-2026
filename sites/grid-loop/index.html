@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GridLoop 配网异常闭环 | 让每一次配网异常都有结论、有动作、有复盘</title>
+    <title>GridLoop 配网异常闭环层 | 配电最后一公里的检测到关闭</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-amber">
     <header class="topbar">
       <a class="brand" href="../index.html" aria-label="项目首页">
         <span class="brand-mark"></span>
-        <span>GridLoop 配网异常闭环</span>
+        <span>GridLoop 配网异常闭环层</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
         <a href="#problem">问题</a>
@@ -26,12 +26,12 @@
     <main>
       <section class="hero hero-grid-loop">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 70 · Distribution Grid Exception Closure</p>
-          <h1>让每一次配网异常都有结论、有动作、有复盘。</h1>
-          <p class="hero-lede">GridLoop 服务配网调度、运检、数字化部门、园区能源团队和充电/光伏负荷密集城市，把 SCADA、AMI、OMS、GIS、CMMS、天气、无人机、机器人、EV/PV 负荷和现场照片变成可派单、可复核、可学习的配网异常闭环。</p>
+          <p class="eyebrow">Pitch 70 · Vendor-Neutral Distribution Exception Closure</p>
+          <h1>全球不缺发电，真正卡住 AI、EV 和光伏的是配电最后一公里。</h1>
+          <p class="hero-lede">GridLoop 是配网运营的异常闭环层：把 ADMS、OMS、DERMS、SCADA、AMI、GIS、EAM、无人机、机器人、植被/山火和现场证据，转成有 owner、有 SLA、有证据、有复盘、有 ROI 的已关闭异常。</p>
           <div class="cta-row">
-            <a class="button primary" href="#solution">看闭环方案</a>
-            <a class="button" href="#demo">看安全 Demo</a>
+            <a class="button primary" href="#solution">看闭环层</a>
+            <a class="button" href="#roi">看 ROI</a>
           </div>
         </div>
       </section>
@@ -41,82 +41,112 @@
           <div class="section-head">
             <div>
               <p class="kicker">01 · Problem</p>
-              <h2>配网不是缺告警，而是缺“异常已经解决”的闭环。</h2>
+              <h2>配网有很多系统，但没有足够快的 exception-to-close。</h2>
             </div>
-            <p>调度台看到的是电压、跳闸、负荷、投诉和气象；运检班组看到的是杆塔、台区、树障、热缺陷和抢修；数字化部门看到的是 GIS、OMS、工单和报表。一次低电压、变压器过载、馈线跳闸、反向潮流或风暴损伤，常常需要多人跨系统追问，最后缺少能复盘和训练模型的结论数据。</p>
+            <p>配网公司已经有 ADMS、OMS、SCADA、AMI、GIS、EAM、DERMS、无人机巡检、植被平台和现场班组系统。可是一旦出现电压越限、配变过载、树障、热缺陷、馈线跳闸、DER 约束或风暴损伤，运营团队仍要跨系统追上下文、派人、复核、写报告。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>配网调度</h3>
-              <p>需要快速判断影响范围、可能原因、是否需要现场核查，而不是在多个屏幕间拼线索。</p>
+              <h3>调度 / 可靠性</h3>
+              <p>需要更快定位故障原因和影响客户，而不是在 ADMS、OMS、AMI 和电话记录之间拼线索。</p>
             </article>
             <article class="card">
-              <h3>运检班组</h3>
-              <p>需要知道今天先查哪条馈线、哪个台区、哪类缺陷，并用证据关闭工单。</p>
+              <h3>资产 / 运检</h3>
+              <p>无人机和热像发现很多缺陷，但哪些要今天处理、是否已修复、是否复发，常常难以闭环。</p>
             </article>
             <article class="card">
-              <h3>充电 / 光伏片区</h3>
-              <p>EV 充电、分布式光伏和储能让潮流更动态，传统静态巡检更难解释异常。</p>
+              <h3>规划 / DER</h3>
+              <p>EV、光伏和储能让馈线容量变成动态问题，传统年度规划无法处理每天出现的约束异常。</p>
             </article>
             <article class="card">
-              <h3>数字化部门</h3>
-              <p>买了平台和传感器，但最稀缺的是跨系统可复核的异常时间线和处置结果。</p>
+              <h3>监管 / 财务</h3>
+              <p>SAIDI/SAIFI、植被山火、风暴恢复和投资证明都需要证据链，而不是事故后手工复盘。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="why-now" class="slide tint">
+      <section id="stakes" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Why Now</p>
-              <h2>配电网从单向输电末端，变成新能源、充电和韧性的主战场。</h2>
+              <p class="kicker">02 · Why We Solve It</p>
+              <h2>电网建设要 5-15 年，配网异常今天就要关闭。</h2>
             </div>
-            <p>过去配网异常多靠经验闭环。现在分布式光伏、电动车、储能、虚拟电厂、极端天气和老旧设备同时叠加，异常更多、变化更快、责任链更长。预算会流向能把异常从“看到”推进到“处置并证明已恢复”的产品。</p>
+            <p>AI 数据中心、EV 充电、分布式光伏、储能和极端天气都在同一张配网末端叠加。硬件扩容必须做，但周期长、供应紧。GridLoop 的切口是让现有配网少停电、少出车、多承载，并把每次处置变成可学习数据。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>可靠性是 KPI</h3>
+              <p>停电分钟、重复故障、最差馈线和客户投诉会进入监管、绩效和投资论证。</p>
+            </article>
+            <article class="card">
+              <h3>容量是瓶颈</h3>
+              <p>变压器短缺、EV 峰值和分布式光伏反向潮流让配变/馈线容量每天被重新测试。</p>
+            </article>
+            <article class="card">
+              <h3>现场是成本</h3>
+              <p>无效巡线、重复出车、人工读图和风暴后低效定位，是 utility 能直接核算的现金成本。</p>
+            </article>
+            <article class="card">
+              <h3>证据是护城河</h3>
+              <p>每次缺陷、派工、复扫、恢复和误报，都能训练下一轮配网机器人和边缘 AI。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Why Now</p>
+              <h2>老配网、DER、EV、山火和风暴正在同一时间撞上运营系统。</h2>
+            </div>
+            <p>这不是未来十年的抽象趋势。2025-2027 的政策、投资和可靠性压力已经把配网从“输电末端”推成能源转型主战场：发电能建，负荷能来，但配网能不能看见、解释和关闭异常，决定接入速度和服务质量。</p>
           </div>
           <div class="grid four">
             <div class="stat">
-              <strong>$600B+</strong>
-              <span>IEA 认为到 2030 年全球电网投资需要接近翻倍，超过每年 6000 亿美元。</span>
-            </div>
-            <div class="stat">
               <strong>92%</strong>
-              <span>ASCE 报告指出，美国大多数客户停电来自配电系统故障，配电是可靠性的主现场。</span>
+              <span>ASCE 报告指出，美国电力服务中断绝大多数来自配电系统故障，配电是可靠性主现场。</span>
             </div>
             <div class="stat">
               <strong>11h</strong>
-              <span>EIA 报告 2024 年美国用户平均停电接近 11 小时，极端天气贡献了大部分停电小时。</span>
+              <span>EIA 报告美国用户 2024 年平均停电接近 11 小时，重大天气事件贡献了多数停电时长。</span>
             </div>
             <div class="stat">
-              <strong>900GW</strong>
-              <span>中国政策提出到 2030 年支撑分布式新能源和海量充电设施接入，对配网承载力提出新要求。</span>
+              <strong>RMB 321.8B</strong>
+              <span>中国 2025 年 110kV 及以下配网投资约 3218 亿元，占全国电网投资过半。</span>
+            </div>
+            <div class="stat">
+              <strong>28M</strong>
+              <span>中国 2025-2027 年充电设施目标达到 2800 万台以上，配网承载力和灵活性成为刚需。</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="insight" class="slide dark">
+      <section id="insight" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">03 · Core Insight</p>
-              <h2>配网 AI 的护城河不是原始遥测，而是带结论的处置历史。</h2>
+              <p class="kicker">04 · Insight</p>
+              <h2>配网 AI 的核心数据不是告警，而是告警如何被关闭。</h2>
             </div>
-            <p>电流、电压、热像、图片和工单本身都可以被采集。真正难复制的是：哪个信号组合最后被证明是树障、接头过热、低压投诉、反向潮流、台区过载、误报或风暴损伤；谁处理；如何验证恢复；哪条规则下次要调整。GridLoop 把“异常已解决”变成数据资产。</p>
+            <p>电压、电流、热像、无人机照片和工单都能采集。真正稀缺的是闭环标签：哪个告警是树障、哪个是接头过热、哪个是配变过载、哪个是客户侧问题、哪个是 DER 约束、谁处理、多久恢复、是否复发。</p>
           </div>
           <div class="grid three">
             <article class="card">
-              <h3>Alert-to-Case</h3>
-              <p>把孤立告警转成带影响范围、责任人、优先级和截止时间的异常案件。</p>
+              <h3>Exception Graph</h3>
+              <p>把馈线、开关、配变、客户、DER、天气、巡检缺陷和工单结果连成异常图谱。</p>
             </article>
             <article class="card">
-              <h3>Case-to-Proof</h3>
-              <p>把现场照片、热像、AMI 恢复、OMS 状态、工单和人工结论绑定成证据包。</p>
+              <h3>Evidence Before Control</h3>
+              <p>先做只读接入、人工审批、证据包和工作流，不碰保护逻辑和真实电网控制。</p>
             </article>
             <article class="card">
-              <h3>Proof-to-Model</h3>
-              <p>把误报、漏报、派工结果和复核证据回流到 LeRobot 与边缘模型训练集。</p>
+              <h3>Closure Is Training</h3>
+              <p>每次误报、漏报、复扫失败和人工 verdict 都回流成 LeRobot/CloudTwin 数据。</p>
             </article>
           </div>
         </div>
@@ -125,14 +155,15 @@
       <section id="solution" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">04 · Solution</p>
-            <h2>GridLoop 是配网异常的闭环操作系统。</h2>
-            <p class="lead">它不替代 ADMS、OMS、SCADA、GIS、CMMS 或保护系统，也不直接控制电网。它在这些系统旁边加一层异常闭环：发现、解释、分派、复核、复盘和训练。</p>
+            <p class="kicker">05 · Solution</p>
+            <h2>GridLoop 是配网运营的 vendor-neutral exception closure layer。</h2>
+            <p class="lead">它不替代 Schneider、Siemens、GE Vernova、Oracle、AspenTech/OSI、Hitachi、Itron、Landis+Gyr、Uplight/AutoGrid、AiDash、Neara、LineVision、Gridware 或巡检 AI。它把这些系统产生的异常变成可分派、可复核、可审计、可学习的关闭结果。</p>
             <ul class="list">
-              <li>Detect：融合 SCADA/AMI/OMS/GIS/CMMS、天气、充电负荷、光伏、无人机、机器人和现场照片。</li>
-              <li>Decide：解释电压偏移、台区过载、馈线跳闸、线损异常、热缺陷、树障和反向潮流。</li>
-              <li>Dispatch：生成带拓扑、风险、历史、证据需求和建议动作的人工审批工单。</li>
-              <li>Verify：用恢复后的遥测、AMI、复扫图片、热像和人工验收关闭异常。</li>
+              <li>Normalize：把 ADMS/OMS/AMI/GIS/EAM/DERMS/无人机/传感器事件标准化成 exception。</li>
+              <li>Deduplicate：按拓扑、客户、资产、时间窗、天气和巡检证据合并重复告警。</li>
+              <li>Assign：生成 owner、SLA、建议证据、工单更新和人工审批路径。</li>
+              <li>Verify：用遥测恢复、AMI 电压、热像复扫、现场照片、工单验收和客户投诉回落关闭。</li>
+              <li>Learn：度量 time-to-close、reopen、false positive、root cause 和 recurring issue。</li>
             </ul>
           </div>
           <div class="visual">
@@ -141,103 +172,133 @@
         </div>
       </section>
 
-      <section id="product" class="slide white">
+      <section id="product" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · Product Workflow</p>
-              <h2>从一次台区低电压到已验证恢复，五步关闭。</h2>
+              <p class="kicker">06 · Product</p>
+              <h2>第一版只关一类高频异常，不做全电网主站。</h2>
             </div>
-            <p>第一版不做全量电网数字孪生，先做 DER/EV 密集片区的 10kV 馈线、配变、台区和重点缺陷闭环。客户要看到异常定位更快、派工更准、恢复可验证、复盘可训练。</p>
+            <p>最好的试点不是“全量数字孪生”，而是 5-20 条馈线或 500-5000 个资产上的一个高价值闭环：热缺陷、植被/山火、低电压、配变过载、DER/EV hosting 或风暴损伤。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>Ingest</h3>
-              <p>接入 SCADA、AMI、OMS、GIS、CMMS、气象、充电站、分布式光伏和机器人巡检。</p>
+              <h3>Detect</h3>
+              <p>AMI、OMS、SCADA、无人机、热像、传感器和客户投诉进入同一个异常池。</p>
             </article>
             <article class="step">
               <h3>Explain</h3>
-              <p>用拓扑、时间序列、历史工单和现场证据解释“这不是一个孤立告警”。</p>
+              <p>拓扑、天气、负荷、DER、设备年龄、历史工单和现场证据组合成 root-cause hypothesis。</p>
             </article>
             <article class="step">
-              <h3>Assign</h3>
-              <p>按影响用户、设备风险、天气窗口、班组位置和 SLA 生成建议工单。</p>
+              <h3>Dispatch</h3>
+              <p>按 CMI、风险、班组位置、天气窗口、备件和 SLA 推荐最优工单。</p>
             </article>
             <article class="step">
               <h3>Verify</h3>
-              <p>用电压恢复、热像复扫、照片、工单验收和客户投诉回落确认关闭。</p>
+              <p>复扫图像、温度回落、遥测恢复、客户投诉下降和人工验收形成 closure packet。</p>
             </article>
             <article class="step">
-              <h3>Learn</h3>
-              <p>把确认原因、误报、漏报、处理时长和证据质量写入异常库。</p>
+              <h3>Improve</h3>
+              <p>重新打开、误报、漏报和重复根因进入模型与流程迭代。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="market" class="slide tint">
+      <section id="market" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">06 · Market Wedge</p>
-              <h2>先切“新能源和充电让运检变复杂”的配网片区。</h2>
+              <p class="kicker">07 · Market</p>
+              <h2>中国做源网荷储协同下的配网闭环，海外做可靠性、山火和 DER 瓶颈。</h2>
             </div>
-            <p>GridLoop 最好的切口不是整张电网，而是已经有数据、已经有痛点、又缺闭环能力的片区：光伏密集县域、充电高峰城区、工业园区、台风/山火/冰灾风险区域、老旧小区低电压和重复投诉台区。</p>
+            <p>GridLoop 的买方不是单一部门。中国是省市电网、供电局、数字化子公司、设计院、园区能源、充电运营和 VPP 生态；海外是 DSO/utility 的 reliability、asset、vegetation、storm、DER planning 和 field operations。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>配变过载</h3>
-              <p>EV 充电和季节负荷叠加时，提前识别过载台区并派发核查。</p>
+              <h3>低电压 / 95598</h3>
+              <p>客户投诉、AMI 电压、台区拓扑和历史工单合并，减少重复投诉和无效出车。</p>
             </article>
             <article class="card">
-              <h3>低电压投诉</h3>
-              <p>把客户投诉、AMI 电压、拓扑和历史工单合并成可解释案件。</p>
+              <h3>配变 / 馈线容量</h3>
+              <p>EV、光伏、储能和热模型共同预测过载，支撑扩容、调度或需求响应建议。</p>
             </article>
             <article class="card">
-              <h3>热缺陷</h3>
-              <p>无人机/机器人热像发现接头、刀闸、引线和配变异常，并复扫关闭。</p>
+              <h3>巡检缺陷</h3>
+              <p>无人机/机器人热像、可见光和声学异常转成 EAM 工单和复扫关闭条件。</p>
             </article>
             <article class="card">
-              <h3>树障 / 山火</h3>
-              <p>把植被风险、气象、巡检影像和工单状态变成可追踪隐患闭环。</p>
+              <h3>植被 / 山火</h3>
+              <p>卫星、巡检影像、气象、线路走廊和工单状态形成风险闭环和审计证据。</p>
             </article>
             <article class="card">
-              <h3>反向潮流</h3>
-              <p>分布式光伏高渗透区域需要异常解释、容量预警和人工审批处置建议。</p>
+              <h3>DER 约束</h3>
+              <p>hosting capacity、反向潮流、灵活接入和 VPP 事件需要跨 DERMS/ADMS 的闭环。</p>
             </article>
             <article class="card">
-              <h3>风暴抢修</h3>
-              <p>灾后快速把无人机、客户来电、OMS 和现场照片合成恢复优先级。</p>
+              <h3>风暴恢复</h3>
+              <p>OMS、客户来电、无人机照片和 crews 进展合成恢复优先级和事后报告。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="business" class="slide white">
+      <section id="business" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">07 · Business Model</p>
-              <h2>卖给配网运营方的不是看板，是 MTTR、出车命中率和闭环证据。</h2>
+              <p class="kicker">08 · Business Model</p>
+              <h2>按模块和已验证运营收益收费，不按“AI 平台”收费。</h2>
             </div>
-            <p>定价要避开空泛“AI 平台”。先按可验证试点收费，随后按馈线、台区、资产数、机器人/无人机接入数和模块订阅扩张。成功费只绑定经客户确认的硬账，可靠性社会价值作为上行空间。</p>
+            <p>GridLoop 的商业包装应面向预算 owner：outage intelligence、vegetation/wildfire、transformer/feeder capacity、inspection AI closure、storm restoration、regulatory reporting。每个模块都要能给出直接现金收益或可靠性指标。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>4-6 个月试点</h3>
-              <p>10-30 条馈线或 50k-150k 户表量级，$150k-$250k 或国内项目包价。</p>
+              <h3>90 天试点</h3>
+              <p>5-20 条馈线或 500-5000 个资产；中国 10-50 万元，海外 5-15 万美元起。</p>
             </article>
             <article class="card">
-              <h3>年度平台</h3>
-              <p>按运营公司、馈线、台区、配变、巡检设备和数据保留规模分层订阅。</p>
+              <h3>年度订阅</h3>
+              <p>中国县/市局 30-200 万元/年，省级 rollout 200-1000 万元+；海外 7.5-150 万美元/年。</p>
             </article>
             <article class="card">
-              <h3>边缘网关</h3>
-              <p>弱网、站房、充电片区和移动巡检车部署 Qualcomm edge appliance。</p>
+              <h3>边缘 / 现场包</h3>
+              <p>站房、弱网馈线、巡检车和机器人网关按点位或设备收取硬件与运维费用。</p>
             </article>
             <article class="card">
-              <h3>验证收益</h3>
-              <p>按减少无效出车、缩短定位、减少重复故障、报表工时和延期扩容收益封顶收费。</p>
+              <h3>成功费</h3>
+              <p>对少出车、少巡检、减少重复故障、延期扩容和报告工时节省收 5%-10% 封顶分成。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="roi" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · ROI</p>
+              <h2>90 天试点必须证明少出车、更快定位和证据完整。</h2>
+            </div>
+            <p>可靠性改善有社会价值，但第一张订单要先用 utility 能审计的硬指标：truck roll、巡检成本、time-to-locate、风暴加班、重复缺陷、延期扩容、报告工时和 CMI/SAIDI/SAIFI 变化。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>数据就绪</h3>
+              <p>试点馈线 GIS、OMS、AMI、SCADA、EAM 资产/客户匹配率超过 95%。</p>
+            </article>
+            <article class="card">
+              <h3>定位效率</h3>
+              <p>疑似故障位置在传感/AMI 密度允许时缩到 100-300m，原因定位时间下降 30%-50%。</p>
+            </article>
+            <article class="card">
+              <h3>出车 / 巡检</h3>
+              <p>试点馈线诊断出车下降 10%-20%，巡检每英里/每结构成本下降 30%+。</p>
+            </article>
+            <article class="card">
+              <h3>容量 / DER</h3>
+              <p>7 天配变峰值预测 MAPE 10%-15%，DER/EV interconnection 预筛从周级缩到天级。</p>
             </article>
           </div>
         </div>
@@ -247,27 +308,27 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">08 · Go-To-Market</p>
-              <h2>8 周接入只读数据，90 天证明一个片区的异常关闭率。</h2>
+              <p class="kicker">10 · Go To Market</p>
+              <h2>先成为已有系统旁边最轻的闭环层，再进入核心流程。</h2>
             </div>
-            <p>中国从省市电网公司的配网数字化、设备运检、抢修指挥中心、科研院所和本地集成商切入；海外从 DSO/utility reliability、vegetation、storm response、DER hosting capacity 和 field operations 团队切入。</p>
+            <p>不要正面挑战主站和调度系统。先读不控，先从巡检缺陷、AMI power-quality、DER 约束跟进、GIS/ADMS 模型修正或植被/山火审计切入，再把状态写回系统记录。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>先读不控</h3>
-              <p>只读 OT 接入、人工审批、工单建议和证据包输出，不写 SCADA 和保护系统。</p>
+              <h3>中国路径</h3>
+              <p>通过设计院、系统集成商、巡检/监测 OEM、国网/南网生态和园区能源项目进入。</p>
             </article>
             <article class="card">
-              <h3>先闭环一个场景</h3>
-              <p>低电压、配变过载、树障热缺陷或风暴损伤任选一个，先证明关闭率和复核率。</p>
+              <h3>海外路径</h3>
+              <p>从 wildfire/vegetation、storm restoration、worst-feeder reliability 或 EV load growth 团队进入。</p>
             </article>
             <article class="card">
-              <h3>伙伴交付</h3>
-              <p>联合无人机/机器人厂商、电力设计院、系统集成商和 Qualcomm IoT 生态伙伴。</p>
+              <h3>只读原则</h3>
+              <p>只读接入 ADMS/OMS/SCADA/AMI，所有工单和模拟操作都需要人工审批。</p>
             </article>
             <article class="card">
-              <h3>扩模块</h3>
-              <p>从异常闭环扩到 DER 承载力、设备健康、风暴恢复、山火植被和合规报表。</p>
+              <h3>扩张路径</h3>
+              <p>试点馈线 -> 最差馈线组合 -> 多模块 -> 可靠性/投资证明 enterprise platform。</p>
             </article>
           </div>
         </div>
@@ -277,23 +338,27 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">09 · Competition</p>
-              <h2>巨头拥有系统记录权，GridLoop 抢的是异常闭环层。</h2>
+              <p class="kicker">11 · Competition</p>
+              <h2>巨头拥有控制和记录系统，GridLoop 占据跨系统闭环。</h2>
             </div>
-            <p>ADMS、OMS、SCADA、GIS、EAM、DERMS、VPP、巡检平台和数据湖都很重要。GridLoop 的定位是站在它们旁边，把跨系统异常变成可关闭案件，而不是替换客户已经采购的核心系统。</p>
+            <p>GridLoop 不说 autonomous grid、single pane of glass、ADMS replacement、DERMS replacement、digital twin 或 inspection AI。更可信的话是：vendor-neutral exception closure for distribution operations。</p>
           </div>
-          <div class="grid three">
+          <div class="grid four">
             <article class="card">
-              <h3>核心系统</h3>
-              <p>GE Vernova、Schneider、Siemens、Oracle、Hitachi Energy 等提供 ADMS/OMS/SCADA 和电网记录。</p>
+              <h3>ADMS / OMS / SCADA</h3>
+              <p>Schneider、Siemens、GE Vernova、Oracle、AspenTech/OSI、Hitachi 强在主站和控制。</p>
             </article>
             <article class="card">
-              <h3>数据 / 巡检</h3>
-              <p>AiDash、Overstory、Buzz Solutions、Noteworthy AI、DroneDeploy、Cyberhawk 等处理影像、植被和资产数据。</p>
+              <h3>AMI / DERMS</h3>
+              <p>Itron、Landis+Gyr、Uplight/AutoGrid、Smarter Grid Solutions 强在计量、DER 和灵活性。</p>
             </article>
             <article class="card">
-              <h3>GridLoop 位置</h3>
-              <p>专注告警到案件、案件到证据、证据到模型，不做保护逻辑、调度主站或通用数据湖。</p>
+              <h3>巡检 / 感知</h3>
+              <p>AiDash、Neara、LineVision、Gridware、Buzz、eSmart、Noteworthy 强在检测和数据采集。</p>
+            </article>
+            <article class="card">
+              <h3>GridLoop</h3>
+              <p>把跨系统异常归并、派发、证据、写回、reopen 和 root cause 度量成闭环。</p>
             </article>
           </div>
         </div>
@@ -303,27 +368,27 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">10 · Moat</p>
+              <p class="kicker">12 · Moat</p>
               <h2>每关闭一个异常，系统就更懂这张配网。</h2>
             </div>
-            <p>护城河来自本地化拓扑、处置历史、证据质量和客户流程，而不是一个单独视觉模型。越多异常被闭环，越知道哪些告警值得派人，哪些需要无人机，哪些是客户侧问题，哪些需要扩容或改造。</p>
+            <p>护城河不是一个热像模型，而是 feeder/customer/asset/crew/work-order/evidence/result 的长期闭环图谱。它会告诉客户：哪些异常值得出车，哪些需要无人机，哪些是客户侧问题，哪些要扩容，哪些是系统模型错了。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>拓扑异常图谱</h3>
-              <p>馈线、开关、配变、台区、充电负荷、光伏和客户投诉形成动态关联图。</p>
+              <h3>Topology-Aware Graph</h3>
+              <p>馈线、配变、开关、客户、DER、EV、植被、缺陷和投诉形成动态异常图谱。</p>
             </article>
             <article class="card">
-              <h3>处置标签</h3>
-              <p>每次派工、误报、修复、复扫和验收都变成可训练标签，而不是留在 PDF 里。</p>
+              <h3>Closure Labels</h3>
+              <p>每次派工、误报、修复、复扫、恢复和验收都成为模型可学习标签。</p>
             </article>
             <article class="card">
-              <h3>边缘证据</h3>
-              <p>弱网现场也能用 Qualcomm edge 生成本地证据包、模型版本和审计链。</p>
+              <h3>Workflow Embedding</h3>
+              <p>接入 ADMS/OMS/EAM/GIS/班组流程后，替换成本来自日常运营和审计记录。</p>
             </article>
             <article class="card">
-              <h3>流程嵌入</h3>
-              <p>接入 OMS/CMMS/GIS/班组流程后，替换成本来自运营习惯和合规记录。</p>
+              <h3>Edge Evidence</h3>
+              <p>弱网现场也能用 Qualcomm edge 生成本地证据、模型版本和审计链。</p>
             </article>
           </div>
         </div>
@@ -332,15 +397,14 @@
       <section id="architecture" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">11 · Architecture</p>
-            <h2>边缘看现场，云端学闭环，人工批准关键动作。</h2>
-            <p class="lead">GridLoop 的架构要让评委看到工程可落地：OT 只读、安全隔离、边缘 AI、本地缓存、证据哈希、云训练、模型回滚和人工审批。</p>
+            <p class="kicker">13 · Architecture</p>
+            <h2>边缘看现场，平台关案件，人工批准关键动作。</h2>
+            <p class="lead">GridLoop 的架构要让评委看到工程边界：OT 只读、安全隔离、边缘 AI、本地缓存、证据哈希、云训练、模型回滚和人工审批。</p>
             <ul class="list">
-              <li>Edge：站房/巡检车/机器人网关采集 RGB、热像、深度、声学、电压、电流和安全状态。</li>
-              <li>Correlation：时序模型、拓扑图、规则和人工 playbook 共同解释异常。</li>
-              <li>Workflow：生成案件、派单、证据要求、SLA、复核任务和报表。</li>
-              <li>Training：LeRobotDataset 记录机器人状态、动作、传感、人工 verdict 和最终标签。</li>
-              <li>Deployment：模型经 QNN/AI Hub 路线优化到 Qualcomm edge，现场保留人工确认。</li>
+              <li>Data：ADMS/OMS/SCADA/AMI/GIS/EAM/DERMS/天气/巡检影像/边缘传感只读接入。</li>
+              <li>Edge：站房、巡检车、机器人或弱网馈线用 Qualcomm edge 做视觉/热像/声学/遥测预处理。</li>
+              <li>Case Engine：异常标准化、拓扑合并、owner/SLA、工单写回、证据要求和 reopen 跟踪。</li>
+              <li>CloudTwin：LeRobotDataset、HIL 标注、AI Hub/QNN profile、异常库回放和模型评估。</li>
             </ul>
           </div>
           <div class="visual">
@@ -353,31 +417,31 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">12 · Demo</p>
-              <h2>比赛 Demo 用低压桌面馈线证明闭环，不模拟真实带电电网。</h2>
+              <p class="kicker">14 · Competition Demo</p>
+              <h2>比赛 Demo 是 24V 低压 HIL 馈线，不是自动恢复真实电网。</h2>
             </div>
-            <p>安全边界要讲清楚：12-24V 低压、限流电源、保险丝、急停、透明罩、PTC/恒温热源、泡棉树枝、扬声器声学样本和机器人巡检。所有抢修和开关动作都在 UI 中模拟，由人确认，不控制真实电气设备。</p>
+            <p>用 OpenDSS/GridLAB-D 数字馈线驱动一个 24V 桌面可视馈线：源端、馈线 A/B/C、常开联络、EV 负荷、光伏/储能模拟、可调负载、热缺陷道具、低压继电器和机器人/gantry 巡检。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>Scenario</h3>
-              <p>台区电压异常、接头热缺陷、树障接触 surrogate、充电负荷尖峰和风暴损伤标记。</p>
+              <h3>Trigger</h3>
+              <p>EV inrush 或热接头道具触发电压跌落、过流、模拟跳闸和 lost load。</p>
             </article>
             <article class="step">
-              <h3>Observe</h3>
-              <p>RGB、热像、深度、声学、电压、电流、机器人位姿和安全联锁进入 ROS 2。</p>
+              <h3>Inspect</h3>
+              <p>LeRobot 控制的 gantry/rover 读取 AprilTag，采集可见光和热像。</p>
             </article>
             <article class="step">
-              <h3>Triage</h3>
-              <p>模型输出候选原因、置信度、证据缺口和下一步巡检动作。</p>
+              <h3>Infer</h3>
+              <p>QNN/ONNX 节点输出热异常/无物理危险/证据缺口，安全节点检查状态。</p>
             </article>
             <article class="step">
               <h3>Approve</h3>
-              <p>人批准模拟工单，机器人补拍证据，系统生成 evidence packet。</p>
+              <p>人类操作员批准后才闭合低压模拟继电器；过温、机器人未清场或遥测过期会阻断。</p>
             </article>
             <article class="step">
-              <h3>Export</h3>
-              <p>导出 LeRobotDataset episode、QNN 候选模型、证据哈希和复盘报告。</p>
+              <h3>Close</h3>
+              <p>负荷恢复、遥测正常、事件日志、证据包和 LeRobotDataset episode 导出。</p>
             </article>
           </div>
         </div>
@@ -387,27 +451,27 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">13 · Why Qualcomm</p>
-              <h2>这类产品需要靠近资产的边缘 AI，而不是只靠云端看板。</h2>
+              <p class="kicker">15 · Why Qualcomm</p>
+              <h2>配网异常闭环需要靠近资产的边缘 AI，而不是只靠云端看板。</h2>
             </div>
-            <p>配网站房、巡检车、无人机、机器人、弱网片区和应急现场都需要本地推理、传感融合、低功耗计算、安全身份和长期供货。Qualcomm 能把“机器人比赛 Demo”拉成面向工业 IoT、能源韧性和城市基础设施的参考架构。</p>
+            <p>站房、巡检车、无人机、机器人、弱网片区和应急现场都需要本地推理、传感融合、低功耗计算、安全身份和长期供货。Qualcomm 能把机器人比赛 demo 拉成面向能源韧性和城市基础设施的参考架构。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>边缘推理</h3>
+              <h3>Edge Inference</h3>
               <p>热缺陷、植被分割、表计识别、声学异常和多模态融合适合在现场先筛选。</p>
             </article>
             <article class="card">
-              <h3>连接与安全</h3>
-              <p>弱网缓存、设备身份、模型签名、证据包和审计链让基础设施客户更容易试点。</p>
-            </article>
-            <article class="card">
-              <h3>机器人生态</h3>
+              <h3>ROS 2 + Robotics</h3>
               <p>RB3/RB5/Dragonwing 路线可以连接 ROS 2、相机、IMU、热像和外设。</p>
             </article>
             <article class="card">
-              <h3>开发者飞轮</h3>
-              <p>AI Hub/QNN 的模型优化结果可以成为参赛材料中的性能证据和生态故事。</p>
+              <h3>AI Hub / QNN</h3>
+              <p>模型编译、profile、QNN context 和 ONNX Runtime QNN EP 可以成为参赛性能证据。</p>
+            </article>
+            <article class="card">
+              <h3>China + Global</h3>
+              <p>中国做本地部署和源网荷储协同，海外做老化配网、山火植被和 DER/EV 约束。</p>
             </article>
           </div>
         </div>
@@ -417,10 +481,10 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">14 · Ask</p>
-              <h2>申请把 GridLoop 做成“配网异常闭环”的 Qualcomm 参考样机。</h2>
+              <p class="kicker">16 · Ask</p>
+              <h2>我们要把 GridLoop 做成配网异常闭环的 Qualcomm 参考样机。</h2>
             </div>
-            <p>我们需要的不是泛泛支持，而是可以帮助产品变成可交付样机的资源：开发板、模型优化、行业导师、试点场景和评委能看懂的边缘证据。</p>
+            <p>这不是要求 Qualcomm 背书电网控制安全，而是用低压 HIL demo 证明：边缘 AI、机器人巡检、LeRobot 数据和异常闭环可以服务高价值能源基础设施场景。</p>
           </div>
           <div class="grid four">
             <article class="card">
@@ -428,50 +492,53 @@
               <p>获得 Qualcomm 机器人/IoT 开发板、AI Hub/QNN 优化路径和 profiling 支持。</p>
             </article>
             <article class="card">
-              <h3>行业试点</h3>
+              <h3>场景反馈</h3>
               <p>连接园区能源、充电运营、配网运检或无人机巡检伙伴，拿到真实流程反馈。</p>
             </article>
             <article class="card">
               <h3>安全评审</h3>
-              <p>明确低压 Demo、只读接入、人工审批和不控制真实电网的安全边界。</p>
+              <p>明确低压 HIL、只读接入、人工审批、不接管 SCADA/保护系统的边界。</p>
             </article>
             <article class="card">
               <h3>生态发布</h3>
-              <p>把 LeRobot + Qualcomm edge + 基础设施异常闭环包装成开发者案例。</p>
+              <p>把 LeRobot + Qualcomm edge + 配网异常闭环包装成开发者案例。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="claims" class="slide white">
+      <section id="sources" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">15 · Claims & Sources</p>
-              <h2>硬指标来自公开资料，Demo 主张保持安全和可验证。</h2>
+              <p class="kicker">17 · Claims / Sources</p>
+              <h2>页面主张限定为闭环工作流和低压演示。</h2>
             </div>
-            <p>页面只主张低压桌面 Demo、只读数据接入、人审工单、证据包和 LeRobot/Qualcomm edge 候选路径。它不主张真实电网故障自动处置、保护控制、带电作业安全认证或上线前的 NPU 实时性能。</p>
+            <p>GridLoop 不主张真实电网故障自动处置、保护控制、带电作业安全认证、NERC/CIP 合规、UL/IEC/NFPA 认证或上线前 NPU 实时性能。比赛演示只做 24V 低压 HIL 和人审模拟继电器闭环。</p>
           </div>
-          <p class="quote">一句话 pitch：GridLoop 把配网异常从“报警和巡检素材”变成“有主人、有动作、有证据、有复盘数据”的闭环产品。</p>
           <div class="source-links">
-            <a href="https://www.iea.org/reports/electricity-grids-and-secure-energy-transitions/executive-summary">IEA Electricity Grids and Secure Energy Transitions</a>
-            <a href="https://www.eia.gov/todayinenergy/detail.php?id=66744">EIA 2024 U.S. outage duration summary</a>
-            <a href="https://infrastructurereportcard.org/cat-item/energy-infrastructure/">ASCE Energy Infrastructure Report Card</a>
-            <a href="https://www.energy.gov/oe/grid-resilience-and-innovation-partnerships-grip-program-projects">DOE GRIP program projects</a>
-            <a href="https://zfxxgk.nea.gov.cn/2024-08/02/c_1310784260.htm">国家能源局配电网高质量发展行动实施方案</a>
-            <a href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202512/t20251231_1402949.html">国家发改委/能源局电网高质量发展意见</a>
-            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
-            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2 Development Kit</a>
-            <a href="https://huggingface.co/docs/lerobot/en/index">Hugging Face LeRobot docs</a>
-            <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.333">OSHA 1910.333 electrical safety standard</a>
+            <a href="https://infrastructurereportcard.org/wp-content/uploads/2025/03/Energy.pdf">ASCE Energy 2025</a>
+            <a href="https://www.eia.gov/todayinenergy/detail.php?id=66744">EIA outage duration</a>
+            <a href="https://www.iea.org/reports/renewables-2025/renewable-electricity">IEA Renewables 2025</a>
+            <a href="https://www.iea.org/reports/global-ev-outlook-2026/electric-vehicle-charging-chap-6-and-10">IEA EV charging 2026</a>
+            <a href="https://www.woodmac.com/press-releases/power-transformers-and-distribution-transformers-will-face-supply-deficits-of-30-and-10-in-2025/">WoodMac transformer shortage</a>
+            <a href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202403/t20240301_1364313.html">中国配电网高质量发展</a>
+            <a href="https://www.ndrc.gov.cn/xwdt/tzgg/202408/P020240806534738672970.pdf">新型电力系统行动方案</a>
+            <a href="https://www.nea.gov.cn/20260701/52eef0c7dc2c43968e411487618aaf06/c.html">中国电力发展报告 2026</a>
+            <a href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202510/P020251015595398499456.pdf">中国充电设施三年行动</a>
+            <a href="https://www.se.com/us/en/product-range/61751-ecostruxure-adms/">Schneider ADMS</a>
+            <a href="https://www.gevernova.com/software/products/gridos/advanced-distribution-management-system">GE Vernova GridOS ADMS</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html">Qualcomm AI Hub compile</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2</a>
+            <a href="https://docs.ros.org/en/humble/Concepts/Basic/About-Actions.html">ROS 2 Actions</a>
+            <a href="https://github.com/huggingface/lerobot">LeRobot</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>GridLoop is one exploratory pitch in the Qualcomm robotics competition package. It is designed for proposal discussion and safe low-voltage demonstration, not for direct grid control.</p>
-      <p><a href="../index.html">返回首页</a></p>
+      <span>GridLoop is part of the RobotMac Core + LeRobot CloudTwin competition package. <a href="../index.html">返回首页</a></span>
     </footer>
   </body>
 </html>
