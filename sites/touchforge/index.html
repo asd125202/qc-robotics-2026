@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TouchForge 触觉力控技能工厂 | 最后一厘米，才是真正的机器人</title>
+    <title>TouchForge 触觉力控技能工厂 | 让机器人把每一次接触都做对</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-coral">
@@ -27,12 +27,12 @@
     <main>
       <section class="hero hero-touchforge">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 63 · Tactile Force-Control Skill Factory</p>
-          <h1>最后一厘米，才是真正的机器人。</h1>
-          <p class="hero-lede">TouchForge 让机器人学会拿捏：把人类示教、触觉、力矩、视觉、失败回放和 LeRobot HIL 纠错铸成可部署的接触技能，让连接器插入、压合、柔性抓取、扭矩受限拧紧和易损件处理在 Qualcomm edge AI 上低延迟运行。</p>
+          <p class="eyebrow">Pitch 63 · Contact Skill Factory</p>
+          <h1>机器人会看、会走，却会在最后一毫米卡住生产。</h1>
+          <p class="hero-lede">TouchForge 是跨硬件的接触技能层：把触觉、力/力矩、视觉、关节状态、人工接管和质量结果变成可复用的插接、压合、拧紧、柔性抓取和仓储拣选技能；云端训练，Qualcomm edge 本地推理，让每次触碰都可控、可追溯、可改进。</p>
           <div class="cta-row">
-            <a class="button primary" href="#solution">看触觉技能工厂</a>
-            <a class="button" href="#ask">比赛 Demo Ask</a>
+            <a class="button primary" href="#problem">先看问题</a>
+            <a class="button" href="#solution">看接触技能层</a>
           </div>
         </div>
       </section>
@@ -42,26 +42,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">01 · Problem</p>
-              <h2>机器人不缺眼睛，缺手感。</h2>
+              <h2>视觉自动化能把机器人带到零件旁边，但不能保证插进去、压到位、拧好、不刮伤。</h2>
             </div>
-            <p>工业机器人能到达零件附近，但真正昂贵的失败发生在最后一厘米：插头半插、针脚弯曲、螺丝滑牙、压合过力、柔性件打滑、易损件刮伤、仓储拣选掉落。视觉能告诉机器人“在哪”，触觉和力控才告诉它“怎么碰”。</p>
+            <p>工厂和仓库已经买了机器人、相机、夹爪、F/T 传感器和安全 PLC，但最贵的失败常常发生在接触瞬间：半插、卡滞、过力、打滑、交叉螺纹、压装不到位、易损件刮伤。问题不是机器人不会动，而是每个触碰没有被理解、记录、复用。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>接触失败很贵</h3>
-              <p>一个错误接触会造成停线、返工、报废、测试失败、客户退货或质量追溯缺口。</p>
+              <h3>停线来自最后一毫米</h3>
+              <p>机器人到达位置后，一个错位插接、过力压合或滑牙螺丝就会触发停线、返工、报废和人工介入。</p>
             </article>
             <article class="card">
-              <h3>集成不可复制</h3>
-              <p>传统集成商为每个工位调夹具、轨迹和阈值，换产品、换机器人、换传感器就重新来。</p>
+              <h3>质量证据不够细</h3>
+              <p>很多工位只记录 pass/fail 或终点值，没有把力位曲线、触觉热图、接管动作和质量结果绑定到每个周期。</p>
             </article>
             <article class="card">
-              <h3>数据格式断裂</h3>
-              <p>视觉、触觉、F/T、马达电流、动作、HIL 接管、质量结果和 MES 记录不在同一条 episode。</p>
+              <h3>每个项目重新集成</h3>
+              <p>换机器人、换夹爪、换触觉传感器、换 SKU 后，轨迹、阈值、恢复策略和日志格式往往重新来。</p>
             </article>
             <article class="card">
-              <h3>大模型缺物理反馈</h3>
-              <p>机器人基础模型需要真实接触数据、失败恢复和现场回放，不是只靠互联网视觉数据。</p>
+              <h3>大模型缺接触闭环</h3>
+              <p>机器人基础模型需要真实触觉、力控、失败恢复和质量标签，而不是只靠互联网视觉和漂亮 demo。</p>
             </article>
           </div>
         </div>
@@ -72,26 +72,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">02 · Why Now</p>
-              <h2>机器人硬件、触觉传感、数据工厂和边缘 AI 在同一时间成熟。</h2>
+              <h2>基础模型在找真实数据，触觉硬件在爆发，中国工厂在等可验证的接触技能。</h2>
             </div>
-            <p>2025-2026 年的信号很明确：基础模型公司在融资，机器人公司在建数据工厂，Amazon Vulcan 把触觉带到仓储，BMW / Mercedes 等制造客户试用人形和移动操作机器人，中国政策也把力位曲线、异常扰动和真实场景数据写进方向。</p>
+            <p>2025-2026 年的信号很清楚：PI、Skild、DeepMind 和 NVIDIA 推动机器人脑与数据工厂；Amazon Vulcan 把触觉带进仓储生产；GelSight、XELA、PaXini、Daimon、Unitree 等让触觉硬件变多；中国政策和 3C/EV 工厂开始要求力位曲线、真实数据和可追溯过程。</p>
           </div>
           <div class="grid four">
             <div class="stat">
-              <strong>$600M</strong>
-              <span>Physical Intelligence 2025 年 B 轮融资规模，说明机器人模型层进入资本主赛道。</span>
+              <strong>$1.4B</strong>
+              <span>Skild AI 2026 年融资规模，说明通用机器人脑进入资本主赛道，也更需要高质量真实数据。</span>
             </div>
             <div class="stat">
-              <strong>$935M+</strong>
-              <span>Apptronik 2026 年 Series A 累计规模，用于产品化、客户部署和数据采集设施。</span>
+              <strong>75%</strong>
+              <span>Amazon Vulcan 宣称可处理约 75% 商品，触觉/力反馈已从实验室进入仓储生产。</span>
             </div>
             <div class="stat">
-              <strong>2M</strong>
-              <span>IFR 2026 数据显示，中国运营中的工业机器人约 200 万台，是最大部署市场。</span>
+              <strong>54%</strong>
+              <span>IFR 数据显示中国 2024 年新增工业机器人占全球 54%，运行存量超过 200 万台。</span>
             </div>
             <div class="stat">
-              <strong>41 分钟</strong>
-              <span>按 ABB 12.5 万美元/小时停机成本口径，避免约 41 分钟停机即可覆盖 8.5 万美元试点。</span>
+              <strong>$2.3M/h</strong>
+              <span>Siemens downtime report 估算汽车行业非计划停机成本可达约 230 万美元/小时。</span>
             </div>
           </div>
         </div>
@@ -102,22 +102,22 @@
           <div class="section-head">
             <div>
               <p class="kicker">03 · Insight</p>
-              <h2>不要先做通用机器人脑，先把高价值接触动作变成可复用技能。</h2>
+              <h2>不要再做一个机器人脑，先把昂贵、重复、可验收的接触动作产品化。</h2>
             </div>
-            <p>TouchForge 的判断是：客户不会为“触觉很酷”付费，但会为连接器一次插对、螺丝不滑牙、柔性件不掉、力曲线可追溯、人工接管减少和小于 12 个月回本付费。</p>
+            <p>TouchForge 的判断是：客户不会为“触觉很酷”付费，也不会因为通用机器人愿景下单；他们会为连接器一次插对、压装曲线合格、螺丝不滑牙、柔性件不掉、异常可回放、12 个月内回本付费。</p>
           </div>
           <div class="grid three">
             <article class="card">
-              <h3>Last-Centimeter</h3>
-              <p>最有价值的技能不是搬到附近，而是最后接触：插入、压合、拧紧、拿捏、擦拭和放置。</p>
+              <h3>Contact Primitive</h3>
+              <p>最有价值的技能不是“移动到附近”，而是插入、压合、拧紧、拿捏、滑移、释放和失败恢复。</p>
             </article>
             <article class="card">
-              <h3>Data Factory</h3>
-              <p>每次示教、失败、打滑、过力、接管和恢复都是下一个技能更稳的训练样本。</p>
+              <h3>Do Things That Do Not Scale</h3>
+              <p>先人工示教、标注、接管、回放，把最脏最值钱的接触失败变成标准 episode。</p>
             </article>
             <article class="card">
-              <h3>Edge Skill</h3>
-              <p>接触控制需要低延迟，策略和安全门禁要在工位边缘运行，而不是等云端推理。</p>
+              <h3>Edge Runtime</h3>
+              <p>接触控制不能等云端；低延迟推理、成功判别和软件门禁必须在工位边缘运行。</p>
             </article>
           </div>
         </div>
@@ -127,13 +127,13 @@
         <div class="wrap split">
           <div>
             <p class="kicker">04 · Solution</p>
-            <h2>TouchForge 是接触式操作的数据与技能工厂。</h2>
-            <p class="lead">它不卖单一触觉传感器，也不声称通用灵巧手已完成。它把机器人、触觉/力传感、视觉、LeRobot HIL、云 GPU 训练和 Qualcomm edge runtime 组织成一个可交付闭环：先手工解决一个高价值工位，再把它产品化成技能包。</p>
+            <h2>TouchForge 是跨硬件的触觉智能层，把每次接触变成可部署技能。</h2>
+            <p class="lead">它不卖单一触觉传感器、夹爪、灵巧手或人形机器人。它把 GelSight/DIGIT/XELA/AnySkin/Unitree/Shadow/ATI/Robotiq/OnRobot 等不同硬件的触觉和力数据标准化，连接 LeRobot HIL、云 GPU 训练、Qualcomm edge runtime 和工厂 KPI。</p>
             <ul class="list">
-              <li>Capture：同步记录 RGB、触觉图、力/力矩、马达电流、动作、夹爪状态、失败原因和人工接管。</li>
-              <li>Forge：用 LeRobotDataset v3、BC/ACT/HIL 纠错和云 GPU 训练，生成接触策略、成功判别器和异常检测器。</li>
-              <li>Deploy：经 AI Hub profile、QNN/QAIRT 或 ONNX Runtime QNN 输出可在 Qualcomm edge 上运行的技能。</li>
-              <li>Improve：每个客户工位继续回收失败、恢复和质量结果，形成可复用 skill primitive。</li>
+              <li>Normalize：把触觉图、wrist F/T、马达电流、RGB、动作、夹爪状态和 MES/质检结果对齐到同一条 episode。</li>
+              <li>Forge：用 LeRobotDataset v3、BC/ACT/HIL-SERL 和云 GPU 训练接触策略、成功判别器和异常检测器。</li>
+              <li>Deploy：将可 profile 的触觉 encoder、reward classifier 或小策略经 AI Hub / QNN / QAIRT 部署到 Qualcomm edge。</li>
+              <li>Improve：每次打滑、卡滞、过力、接管、恢复和质量结果都进入下一轮 skill update。</li>
             </ul>
           </div>
           <div class="visual">
@@ -147,30 +147,30 @@
           <div class="section-head">
             <div>
               <p class="kicker">05 · Product Workflow</p>
-              <h2>从人类手感到边缘技能包。</h2>
+              <h2>第一版只卖三个东西：接触数据管线、技能包、质量证据仪表盘。</h2>
             </div>
-            <p>第一版不追求泛化到任意机器人和任意零件。它先在夹具、低速、低力和明确安全边界内，把一个接触任务做成可复用产品。</p>
+            <p>第一版不追求泛化到任意机器人和任意零件。它先在夹具、低速、低力和明确安全边界内，把一个昂贵接触任务做成可采购、可验收、可复用的产品。</p>
           </div>
           <div class="pipeline">
             <article class="step">
               <h3>Instrument</h3>
-              <p>给工位加 wrist F/T、触觉指尖、前视/腕部相机、马达电流和安全限位。</p>
+              <p>给工位加 wrist F/T、触觉指尖、前视/腕部相机、关节/电流遥测和安全限位。</p>
             </article>
             <article class="step">
-              <h3>Demonstrate</h3>
-              <p>老师傅或操作员示教 50-200 次，系统记录成功、失败、恢复和低置信度。</p>
+              <h3>Record</h3>
+              <p>操作员示教、接管和纠错，系统记录成功、失败、恢复、force signature 和质量标签。</p>
             </article>
             <article class="step">
               <h3>Train</h3>
-              <p>云端训练多模态策略、成功判别器和异常 force signature 模型。</p>
+              <p>云端训练 BC/ACT/HIL-SERL 策略、成功判别器、触觉 encoder 和异常 force/tactile signature。</p>
             </article>
             <article class="step">
               <h3>Deploy</h3>
-              <p>导出固定形状 ONNX/PyTorch，AI Hub profile 后部署到 QNN/QAIRT edge runner。</p>
+              <p>导出固定形状模型，AI Hub profile 后将小模型或 encoder 部署到 QNN/QAIRT edge runner。</p>
             </article>
             <article class="step">
-              <h3>Replay</h3>
-              <p>把接触失败、人工接管、质量结果和 MES 记录回流到下一轮 skill update。</p>
+              <h3>Prove</h3>
+              <p>每个周期输出力位曲线、触觉摘要、最大力、接管记录、质量结果和 ROI 报表。</p>
             </article>
           </div>
         </div>
@@ -183,12 +183,12 @@
               <p class="kicker">06 · Market Wedge</p>
               <h2>先做一类高 ROI 接触动作，不从万能灵巧手开始。</h2>
             </div>
-            <p>最好的第一批客户不是想看 demo 的展厅，而是已经因为错误接触付钱的电子、汽车、医疗器械和仓储自动化团队。</p>
+            <p>最好的第一批客户不是想看 demo 的展厅，而是已经因为错误接触付钱的 3C、EV、汽车零部件、医疗器械和仓储自动化团队。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>连接器插入</h3>
-              <p>半插、针脚弯曲、线束变形和下游测试失败，适合力曲线与恢复策略闭环。</p>
+              <h3>连接器 / FPC 插入</h3>
+              <p>半插、针脚弯曲、线束变形和下游测试失败，适合力曲线、触觉状态和恢复策略闭环。</p>
             </article>
             <article class="card">
               <h3>扭矩受限拧紧</h3>
@@ -204,7 +204,7 @@
             </article>
             <article class="card">
               <h3>3C / EV 装配</h3>
-              <p>平板测试、连接器、线束、胶合、精密上下料和电池相关工位是中国切口。</p>
+              <p>平板测试上下料、连接器/FPC、线束、胶合、精密搬运和电池压装是中国切口。</p>
             </article>
             <article class="card">
               <h3>仓储拣选</h3>
@@ -219,26 +219,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">07 · Business Model</p>
-              <h2>按工位技能、运行订阅和验证节省收费。</h2>
+              <h2>采购语言不是“触觉很先进”，而是少停线、少报废、少返工、少人工异常。</h2>
             </div>
-            <p>TouchForge 的卖点不是节省人工，而是减少接触失败造成的停线、报废、返工、质量逃逸和人工异常处理。</p>
+            <p>TouchForge 的商业包给 Plant Manager、自动化工程、质量工程、OT 和 CFO 同一张账：每个接触周期是否合格、哪里失败、谁接管、少了多少停机、报废、返工和仓储异常。</p>
           </div>
           <div class="grid four">
             <article class="card">
               <h3>90 天试点</h3>
-              <p>8.5 万美元/工位任务族，覆盖一个 cell、1-3 个 SKU/零件变体、数据采集、技能调优和 ROI 报告。</p>
+              <p>35k-75k 美元/工厂 cell，或 50k-150k 美元/仓储 flow，覆盖数据采集、技能调优和 ROI 报告。</p>
             </article>
             <article class="card">
               <h3>运行订阅</h3>
-              <p>5k-12k 美元/cell/月，包含技能 runtime、漂移监测、失败回放、模型更新和质量报表。</p>
+              <p>按 cell、机器人或工作流订阅，包含技能 runtime、漂移监测、失败回放、模型更新和质量报表。</p>
             </article>
             <article class="card">
-              <h3>按周期计费</h3>
-              <p>高量客户可加每成功周期 0.005-0.03 美元，绑定成功执行和质量追溯。</p>
+              <h3>No-CapEx 选项</h3>
+              <p>与集成商/OEM 打包 RaaS，降低一次性采购阻力，把付费绑定到产线可用性和支持 SLA。</p>
             </article>
             <article class="card">
               <h3>成功费</h3>
-              <p>达成 KPI 后收取 2 万美元 success fee；试点 50% 可抵扣年度订阅降低采购阻力。</p>
+              <p>对经验证的停机、报废、返工、人工异常和仓储 exception 下降收取 success fee。</p>
             </article>
           </div>
         </div>
@@ -249,22 +249,22 @@
           <div class="section-head">
             <div>
               <p class="kicker">08 · Go-To-Market</p>
-              <h2>90 天证明：接触失败下降，力曲线可追溯，12 个月内回本。</h2>
+              <h2>90 天证明：接触失败下降，力/触觉证据可追溯，12 个月内回本。</h2>
             </div>
-            <p>先做 baseline，再收集 3k-10k 个接触周期或示教，最后跑 10 个班次或 10k 周期的 shadow/limited production。每个报告都按缺陷、报废、停机小时、人工介入和吞吐贡献算账。</p>
+            <p>先做 2 周 baseline，再收集示教、失败和恢复 episode，最后跑 10 个班次或 10k 周期的 shadow / limited production。每个报告都按缺陷、报废、停机小时、人工介入和吞吐贡献算账。</p>
           </div>
           <div class="grid four">
             <article class="card">
               <h3>Connector KPI</h3>
-              <p>批准零件集 first-pass success ≥99%，或插入失败比 baseline 降 50%+，100% 力曲线可追溯。</p>
+              <p>半插、弯针、插入力 NOK 和重试率下降 50%+，100% 周期保留 force/tactile trace。</p>
             </article>
             <article class="card">
               <h3>Fastening KPI</h3>
-              <p>交叉螺纹、漏打、滑牙和 torque NOK 下降 50%+，cycle time 不超过 takt +10%。</p>
+              <p>交叉螺纹、漏打、滑牙和 torque/angle NOK 下降 50%+，cycle time 不超过 takt +10%。</p>
             </article>
             <article class="card">
               <h3>Fragile KPI</h3>
-              <p>掉落、刮伤、裂纹、变形报废下降 50-80%，人工异常介入下降 30-50%。</p>
+              <p>掉落、打滑、刮伤、裂纹、变形报废下降 50-80%，人工异常介入下降 30-50%。</p>
             </article>
             <article class="card">
               <h3>Economic KPI</h3>
@@ -279,22 +279,22 @@
           <div class="section-head">
             <div>
               <p class="kicker">09 · Competition</p>
-              <h2>传感器公司卖手指，大模型公司卖大脑，TouchForge 卖可交付的接触技能。</h2>
+              <h2>传感器公司卖手指，大模型公司卖大脑，TouchForge 卖能通过 KPI 验收的接触技能。</h2>
             </div>
-            <p>Physical Intelligence、Skild、Google DeepMind 和 NVIDIA 推动通用模型；GelSight、XELA、Daimon、PaXini、Unitree 等推动触觉和灵巧硬件；传统集成商做单个 cell。TouchForge 的位置是跨硬件的数据、训练、评测和 edge runtime 层。</p>
+            <p>Physical Intelligence、Skild、Google DeepMind 和 NVIDIA 推动通用模型；GelSight、DIGIT、XELA、Daimon、PaXini、Unitree、Shadow、Robotiq、ATI 等推动触觉/力控硬件；传统集成商做单个 cell。TouchForge 的位置是跨硬件的数据、训练、评测和 edge runtime 层。</p>
           </div>
           <div class="grid three">
             <article class="card">
               <h3>不是传感器硬件</h3>
-              <p>传感器会被供应链卷低价，商业护城河在 episode、failure replay 和可复用 skill。</p>
+              <p>硬件层已经拥挤，商业护城河在跨硬件 episode、failure replay、质量标签和可复用 skill。</p>
             </article>
             <article class="card">
               <h3>不是通用基础模型</h3>
-              <p>先从昂贵、重复、可验收的接触工位切入，而不是承诺任意任务泛化。</p>
+              <p>PI、Skild 和 DeepMind 需要真实数据；TouchForge 从昂贵、重复、可验收的接触工位切入。</p>
             </article>
             <article class="card">
-              <h3>不是一次性集成</h3>
-              <p>每个部署都生成标准化数据、策略、评测和更新，下一次同类任务更快。</p>
+              <h3>不是一次性调参</h3>
+              <p>每个部署都生成标准化数据、策略、评测、OT 日志和更新，下一次同类任务更快。</p>
             </article>
           </div>
         </div>
@@ -305,14 +305,14 @@
           <div class="section-head">
             <div>
               <p class="kicker">10 · Moat</p>
-              <h2>壁垒是接触 episode 到质量结果的闭环数据。</h2>
+              <h2>壁垒是跨硬件接触 episode 到质量结果的闭环数据。</h2>
             </div>
-            <p>TouchForge 的数据不是普通视频，而是带力、触觉、动作、失败、HIL 恢复、质量判定和 ROI 的多模态接触历史。这是机器人真正学会拿捏的燃料。</p>
+            <p>TouchForge 的数据不是普通视频，而是带力、触觉、动作、失败、HIL 恢复、质量判定、OT 日志和 ROI 的多模态接触历史。这是机器人真正学会拿捏的燃料。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>Force/Tactile Episodes</h3>
-              <p>视觉、触觉、F/T、马达电流、动作和干预标记同步成可训练 episode。</p>
+              <h3>Contact Episodes</h3>
+              <p>视觉、触觉、F/T、马达电流、动作、夹爪状态、干预标记和质量结果同步成可训练 episode。</p>
             </article>
             <article class="card">
               <h3>Failure Replay</h3>
@@ -320,7 +320,7 @@
             </article>
             <article class="card">
               <h3>Skill Library</h3>
-              <p>插接、压合、拧紧、柔性抓取和易损件处理形成跨客户复用的 primitive。</p>
+              <p>插接、FPC、压合、拧紧、柔性抓取和易损件处理形成跨客户复用的 primitive。</p>
             </article>
             <article class="card">
               <h3>Edge Profiles</h3>
@@ -337,16 +337,16 @@
               <p class="kicker">11 · Architecture</p>
               <h2>云端训练，边缘推理，安全环不交给模型。</h2>
             </div>
-            <p>Qualcomm edge 负责低延迟推理、成功判别和异常提示；云 GPU 负责训练；ROS 2 安全 supervisor 负责硬限制。页面和 demo 不会声称 Qualcomm 现场训练策略。</p>
+            <p>Qualcomm edge 负责低延迟推理、触觉 encoder、成功判别和异常提示；云 GPU 负责训练；ROS 2 supervisor 只做软件门禁，E-stop/OEM 安全控制独立存在。页面和 demo 不声称 Qualcomm 现场训练策略。</p>
           </div>
           <div class="pipeline">
             <article class="step">
               <h3>Sensors</h3>
-              <p>wrist F/T、触觉皮肤、GelSight/DIGIT 类视觉触觉、马达电流、前视/腕部 RGB。</p>
+              <p>wrist F/T、触觉皮肤、GelSight/DIGIT 类视觉触觉、关节/电流遥测、前视/腕部 RGB。</p>
             </article>
             <article class="step">
               <h3>Dataset</h3>
-              <p>ROS bag 作源数据，转换到 LeRobotDataset v3：state/action、MP4、Parquet 和 metadata。</p>
+              <p>ROS bag 作源数据，转换到 LeRobotDataset v3：state/action、wrench、tactile MP4、Parquet 和 metadata。</p>
             </article>
             <article class="step">
               <h3>Train</h3>
@@ -354,11 +354,11 @@
             </article>
             <article class="step">
               <h3>Deploy</h3>
-              <p>PyTorch/ONNX -> AI Hub compile/profile/quantize -> QNN/QAIRT 或 ONNX Runtime QNN。</p>
+              <p>PyTorch/ONNX/TFLite -> AI Hub compile/profile/quantize -> QNN/QAIRT 或 ONNX Runtime QNN。</p>
             </article>
             <article class="step">
               <h3>Safety</h3>
-              <p>workspace bounds、速度限制、力限制、E-stop、夹具约束和人工接管独立于学习策略。</p>
+              <p>workspace bounds、速度/力限制、watchdog、E-stop、夹具约束和人工接管独立于学习策略。</p>
             </article>
           </div>
         </div>
@@ -369,14 +369,14 @@
           <div class="section-head">
             <div>
               <p class="kicker">12 · Competition Demo</p>
-              <h2>低力桌面工位就能证明“手感到技能包”。</h2>
+              <h2>低力桌面工位就能证明“人类手感到边缘技能包”。</h2>
             </div>
-            <p>演示重点不是展示万能灵巧，而是展示一条完整证据链：示教、触觉/力数据、失败回放、HIL 恢复、云训练、边缘 profile、受限动作成功。</p>
+            <p>演示重点不是展示万能灵巧，而是展示一条完整证据链：示教、触觉/力数据、失败回放、HIL 恢复、云端训练 artifact、边缘 profile、受限动作成功。</p>
           </div>
           <div class="grid five">
             <article class="card">
               <h3>Capture</h3>
-              <p>操作员遥操作一次轻量插接，系统记录 RGB、触觉、F/T、电流、动作和干预标记。</p>
+              <p>操作员遥操作一次轻量插接/压合，系统记录 RGB、触觉、F/T、电流、动作和干预标记。</p>
             </article>
             <article class="card">
               <h3>Replay Failure</h3>
@@ -388,7 +388,7 @@
             </article>
             <article class="card">
               <h3>Edge Deploy</h3>
-              <p>展示 AI Hub profile、QNN/QAIRT artifact、edge latency 和固定安全限制。</p>
+              <p>展示 AI Hub profile、QNN/QAIRT artifact、edge latency、最大力和固定软件门禁。</p>
             </article>
             <article class="card">
               <h3>Skill Pass</h3>
@@ -403,9 +403,9 @@
           <div class="section-head">
             <div>
               <p class="kicker">13 · Why Qualcomm</p>
-              <h2>触觉力控技能是 Qualcomm 机器人边缘 AI 的杀手级工作负载。</h2>
+              <h2>接触技能是 Qualcomm 机器人边缘 AI 的高价值工作负载。</h2>
             </div>
-            <p>接触控制不能把每个触觉帧、力曲线和动作决策发到云端等待。它需要本地多传感器融合、低延迟策略、硬安全门禁、弱网可用和可 profile 的模型部署。</p>
+            <p>接触控制不能把每个触觉帧、力曲线和动作决策发到云端等待。它需要本地多传感器融合、低延迟策略、软件门禁、弱网可用和可 profile 的模型部署。</p>
           </div>
           <div class="grid four">
             <article class="card">
@@ -414,7 +414,7 @@
             </article>
             <article class="card">
               <h3>AI Hub / QNN</h3>
-              <p>可展示固定输入模型的 compile/profile/quantize、QNN/QAIRT 运行和回滚。</p>
+              <p>可展示固定输入模型、触觉 encoder 或 reward classifier 的 compile/profile/quantize、QNN/QAIRT 运行和回滚。</p>
             </article>
             <article class="card">
               <h3>Industrial Edge</h3>
@@ -422,7 +422,7 @@
             </article>
             <article class="card">
               <h3>Ecosystem Pull</h3>
-              <p>TouchForge 把 Qualcomm 拉进灵巧手、触觉传感、工业机器人、3C/EV 装配和物理 AI 标准。</p>
+              <p>TouchForge 把 Qualcomm 拉进灵巧手、触觉传感、工业机器人、3C/EV 装配、仓储拣选和物理 AI 标准。</p>
             </article>
           </div>
         </div>
@@ -435,7 +435,7 @@
               <p class="kicker">14 · Ask</p>
               <h2>比赛阶段需要一个可信、低风险、可复现的接触技能样板。</h2>
             </div>
-            <p>我们需要证明数据闭环和 edge runtime，而不是在比赛现场训练一个通用灵巧模型。</p>
+            <p>我们需要证明数据闭环和 edge runtime，而不是在比赛现场训练一个通用灵巧模型或宣称安全认证。</p>
           </div>
           <div class="grid four">
             <article class="card">
@@ -448,11 +448,11 @@
             </article>
             <article class="card">
               <h3>Data</h3>
-              <p>50-200 次示教、失败和恢复 episode，含力曲线、触觉热图、动作和成功/失败标签。</p>
+              <p>50-200 次示教、失败和恢复 episode，含力曲线、触觉热图、动作、接管和成功/失败标签。</p>
             </article>
             <article class="card">
               <h3>Boundary</h3>
-              <p>不声称通用灵巧、工厂即用、零样本泛化、现场训练或任意机器人/传感器迁移。</p>
+              <p>不声称通用灵巧、工厂即用、零样本泛化、现场训练、安全认证或任意机器人/传感器迁移。</p>
             </article>
           </div>
         </div>
@@ -465,21 +465,35 @@
               <p class="kicker">Claims To Avoid</p>
               <h2>可信边界比大词更重要。</h2>
             </div>
-            <p>不说通用灵巧、工厂级螺丝/插接已完成、零样本触觉操作、马达电流等同力传感、Qualcomm edge 现场训练策略、任意 PyTorch 模型可直接跑 QNN、可安全人机协作或跨任意机器人/夹爪/零件/传感器迁移。</p>
+            <p>不说通用灵巧、工厂级螺丝/插接已完成、零样本触觉操作、马达电流等同标定力传感、Qualcomm edge 现场训练策略、任意 VLA/Transformer 可直接跑 QNN、ROS 2 supervisor 等同安全控制器、可安全人机协作或跨任意机器人/夹爪/零件/传感器迁移。</p>
           </div>
           <div class="source-links">
+            <a href="https://www.pi.website/blog/pi07">Physical Intelligence π0.7</a>
+            <a href="https://www.skild.ai/blogs/series-c">Skild Series C</a>
+            <a href="https://deepmind.google/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/">Gemini Robotics 1.5</a>
+            <a href="https://nvidianews.nvidia.com/news/nvidia-announces-open-physical-ai-data-factory-blueprint-to-accelerate-robotics-vision-ai-agents-and-autonomous-vehicle-development">NVIDIA Data Factory</a>
             <a href="https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch">Amazon Vulcan</a>
             <a href="https://apptronik.com/news-collection/apptronik-closes-over-935-million-series-a">Apptronik Series A</a>
             <a href="https://tutorintelligence.com/blog/building-a-100-robot-data-factory-toward-factory-ready-ai">Tutor Data Factory</a>
-            <a href="https://ifr.org/ifr-press-releases/news/china-makes-ai-powered-robots-core-of-national-strategy">IFR China Robots</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Global Robot Demand</a>
+            <a href="https://www.iea.org/reports/global-ev-outlook-2025/trends-in-the-electric-car-industry-3">IEA EV Production</a>
+            <a href="https://www.ncsti.gov.cn/kjdt/tzgg/202606/t20260609_249248.html">MIIT Real-Scenario Training</a>
             <a href="https://www.agibot.com/article/231/detail/60.html">AgiBot Factory Deployment</a>
+            <a href="https://www.gelsight.com/gelsight-and-meta-ai-introduce-digit-360-tactile-sensor/">GelSight / DIGIT 360</a>
+            <a href="https://xelarobotics.com/press-release/xela-robotics-unlocks-enhanced-automation-for-humanoid-and-industrial-robots/">XELA uSkin</a>
+            <a href="https://www.dmrobot.com/en/product/p1/dm-tac-w.html">Daimon DM-Tac W</a>
             <a href="https://www.unitree.com/mobile/Dex3-1/">Unitree Dex3-1</a>
             <a href="https://assets.new.siemens.com/siemens/assets/api/uuid:1b43afb5-2d07-47f7-9eb7-893fe7d0bc59/TCOD-2024_original.pdf">Siemens Downtime Cost</a>
+            <a href="https://corp.i-pex.com/en/product/cara">I-PEX CARA</a>
+            <a href="https://robotiq.com/solutions/screwdriving">Robotiq Screwdriving</a>
+            <a href="https://amdmachines.com/blog/press-fit-assembly-process-control-and-monitoring/">Press-Fit Process Control</a>
             <a href="https://link.springer.com/article/10.1186/s10033-025-01349-w">Peg-in-Hole Review</a>
             <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobotDataset v3</a>
             <a href="https://huggingface.co/docs/lerobot/hil_data_collection">LeRobot HIL</a>
+            <a href="https://huggingface.co/docs/lerobot/hilserl">LeRobot HIL-SERL</a>
             <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
             <a href="https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-10/general_introduction.html">QNN / QAIRT</a>
+            <a href="https://moveit.picknik.ai/main/doc/examples/realtime_servo/realtime_servo_tutorial.html">MoveIt Servo</a>
           </div>
         </div>
       </section>
