@@ -1,158 +1,300 @@
-# WaterLoop 水务异常闭环
-
-WaterLoop is a Chinese pitch-deck concept for the Qualcomm robotics competition. It frames water utility operations as an anomaly-closure problem: leaks, pressure drops, pump anomalies, water-quality drift, sewer/stormwater risk, customer calls, and field evidence should become owned, verified, learnable cases.
+# WaterLoop 水务异常闭环层
 
 Public page: https://qc-robotics-2026.pages.dev/water-loop/
 
 ## One-Line Pitch
 
-> 让每一次水务异常，都有闭环。
+> 水务公司每年把数百亿美元埋在地下，我们把异常从检测带到已验证修复。
 
-WaterLoop serves utility dispatchers, non-revenue-water teams, pump-station operators, sewer/stormwater teams, field crews, and compliance owners. The product unit is not an alert. It is a resolved anomaly with evidence.
+WaterLoop is a vendor-neutral water utility exception-closure layer. It does not replace SCADA, AMI, DMA, GIS, CMMS, LIMS, CCTV inspection, leak detection, hydraulic models, or field crews. It connects their signals into assigned, time-bound, evidence-backed, ROI-tracked operational closeout.
 
 ## Problem
 
-Water utilities already have many data sources:
+Water utilities already have detection systems:
 
-- SCADA, AMI/AMR, GIS, CMMS/EAM, CRM/customer calls, lab/LIMS, weather, field photos, CCTV inspection, and smart-water dashboards.
-- These systems see signals, but people still chase context across tools and spreadsheets.
-- A pressure drop, night-flow spike, pump anomaly, turbidity drift, customer call, or sewer-level alarm often lacks one owner, one timeline, one action path, and one verification packet.
+- SCADA, AMI/AMR, DMA, GIS, CMMS/EAM, CRM, LIMS/lab, weather, field photos, CCTV inspection, video, pump monitoring, and smart-water dashboards.
+
+But the operating workflow is still broken:
+
+- Which alert is real?
+- Which pipe, pressure zone, valve, customer group, pump, or sewer basin is affected?
+- Who owns the action?
+- What is the SLA?
+- What evidence proves closure?
+- What value was recovered?
+- Can the event support regulatory reporting and audit?
+
+## Why We Solve It
+
+Every unclosed water anomaly is water, money, trust, and compliance risk:
+
+- Non-revenue water means water has already been abstracted, treated, pumped, and distributed but did not become revenue or service value.
+- Pump anomalies waste energy and increase O&M cost.
+- Sewer overflows and water-quality events create public, regulatory, and reputation pressure.
+- Manual reporting consumes staff time and often lacks source-data lineage.
+- The most valuable AI dataset is not the alert; it is the verified repair path.
+
+WaterLoop should sell verified operational savings, not smart-water dashboards.
 
 ## Why Now
 
 Global:
 
-- EPA's 7th drinking-water needs survey estimates about $625B needed over 20 years for U.S. drinking-water infrastructure.
-- AWWA's 2026 State of the Water Industry again identifies aging infrastructure renewal and replacement as a top challenge.
-- Global non-revenue water is estimated around 126B m3/year with tens of billions of dollars of economic impact.
-- PFAS, lead service lines, sewer overflow, drought/flood resilience, and energy pressure are adding regulatory and operating load.
+- Global non-revenue water is estimated at around 126 billion m3/year with about $50B/year economic impact.
+- U.S. drinking-water infrastructure needs are estimated at about $625B over 20 years.
+- U.S. water losses cost utilities billions of dollars annually, with most losses from real leakage/bursts.
+- PFAS, stormwater/sewer overflow transparency, drought/flood resilience, and aging mains are increasing compliance pressure.
+- AMI, pressure sensors, SCADA historians, GIS, and CCTV AI are creating more alerts than teams can close.
 
 China:
 
-- Leakage-control pilots and MOHURD mechanisms push DMA metering, pressure control, GIS/data sharing, old-pipe renewal, secondary supply O&M, smart construction, and financing mechanisms.
-- City-renewal and underground-pipe investment is now a major policy and funding track.
-- Buyers include municipal housing/urban-management/water bureaus, local SOE water groups, drainage groups, city-investment platforms, industrial-park wastewater operators, EPCs, and design institutes.
-- China deployment should be local/private, with "数据不出域, 结果可上报" as the posture.
+- China targets urban public water-supply leakage <=9% by 2025.
+- Leakage-control pilot cities must reach district-metering coverage by 2025; selected pilot areas must reach <=7%-8% leakage depending on baseline.
+- The 2024 water-saving regulation says losses above national leakage-control standards cannot be included in public water utility tariff costs.
+- Municipal equipment renewal through 2027 covers waterworks, secondary supply, wastewater monitoring/autocontrol, and city-lifeline IoT sensing.
+- The 2026-2030 city-renewal cycle points toward large-scale underground-pipeline renovation and smart monitoring.
 
-## Product Workflow
+## Insight
 
-1. Ingest: SCADA, AMI/AMR, GIS, CMMS, CRM, LIMS/lab, weather, field photos, CCTV, robot inspection, and edge sensors.
-2. Detect: night-flow spikes, pressure drops, burst signatures, pump-energy anomalies, sewer surcharge risk, turbidity/water-quality drift, and customer-cluster anomalies.
-3. Explain: combine pipe age, valve context, recent work orders, weather, pressure zone, and customer calls into one case.
-4. Assign: create work orders with owner, GIS context, valve/isolation notes, SLA, and recommended playbook.
-5. Verify: confirm with flow/pressure recovery, photos, sampling, CCTV, robot reinspection, or pump-energy metrics.
-6. Learn: feed false positives, missed events, human labels, and verified fixes into the anomaly library and LeRobot-compatible datasets.
+Leak detection, AMI, SCADA, hydraulic modeling, and CCTV AI mostly answer: what might be wrong?
 
-## Market Wedge
+WaterLoop answers:
 
-Start narrow:
+- What case is this?
+- Who owns it?
+- What action should happen today?
+- What evidence proves it worked?
+- What value did we recover?
+- What should the model learn?
 
-- 1-3 district metered areas with AMI/SCADA but limited analytics staff.
-- One pump-station cluster.
-- One drainage catchment with overflow risk.
+The moat is the “signal-to-repair” library for each utility.
+
+## Solution
+
+WaterLoop provides:
+
+1. Observe: read SCADA, AMI, DMA, GIS, CMMS, CRM, LIMS, weather, CCTV, robot inspection, and edge sensors.
+2. Correlate: combine alerts by pressure zone, asset, pipe age, valve state, customer impact, work-order history, and weather.
+3. Decide: classify NRW/leak, apparent loss, pump anomaly, sewer overflow risk, water-quality drift, CCTV defect, or false alarm.
+4. Act: write tasks to CMMS/mobile work, sampling plans, handover notes, customer-notice drafts, or inspection requests.
+5. Verify: close only after flow/pressure recovery, lab sample, photo/video, CCTV, robot reinspection, or human signoff.
+6. Learn: feed false positives, missed events, field outcomes, and closure evidence into LeRobot/CloudTwin datasets.
+
+First-phase principle: read-only OT integration, human approval, no direct SCADA control.
+
+## Product Wedge
+
+Do not pilot the whole city. Start with one measurable unit:
+
+- 1-3 DMAs.
+- One pressure zone.
+- One pump station.
+- One sewer basin.
 - One industrial water network.
 
-Expand later:
+90-day objective:
 
-- Pump energy optimization.
-- Water-quality incident workflows.
-- Sewer/stormwater monitoring.
-- Compliance package generation.
-- Capital planning and pipe-renewal prioritization.
+- Reduce minimum night flow or verified m3/day loss.
+- Reduce alert-to-crew assignment time.
+- Improve first-visit resolution.
+- Reduce kWh/m3 for selected pump assets.
+- Produce audit-ready evidence packets.
 
-## Buyer Economics
+## Market
 
-Primary value drivers:
+China version:
 
-- Real leakage savings: `MG saved x marginal production cost`.
-- Apparent loss recovery: `underbilled kgal x retail rate x collection rate`.
-- Avoided emergency breaks: `breaks avoided x event cost`.
-- SSO/CSO risk: cleanup, bypass, lab, notification, claims, and penalties.
-- Pump energy: `baseline kWh x reduction x $/kWh`.
-- Truck rolls: `avoided dispatches x loaded truck-roll cost`.
-- CCTV/cleaning prioritization: `feet avoided/reprioritized x cost/ft`.
-- Reporting labor: hours saved on compliance and audit packages.
+- Position as “漏损控制 + 厂网一体 + 城市生命线”.
+- Buyers: water bureaus, housing/urban-rural construction bureaus, city-management/drainage bureaus, water affairs groups, wastewater operators, city-renewal platform SOEs, industrial parks.
+- Requirements: local/private deployment, Chinese UI, DingTalk/WeCom workflow, domestic GIS/database options, 等保/信创/密评 posture, data residency, regulator-facing exports.
 
-Pilot:
+Overseas version:
 
-- 90-120 days.
-- Overseas price: $30k-$75k.
-- China price: project/package pricing by zone, pump station, drainage catchment, or city-renewal work package.
-- Goal: show payback under 12 months using only hard-dollar validated actions; large incident avoidance is upside, not the base case.
+- Position as NRW + exception closure for utilities that already have data but lack operational closeout.
+- Targets: US/Canada/UK/EU/Australia utilities with 50k-1M connections, NRW >15%, aging mains, AMI/SCADA installed, or sewer overflow scrutiny.
+- Requirements: Esri/Cityworks/Maximo/OpenGov/SCADA historian APIs, NPDES/SDWA/CCR/UWWTD exports, consultant-friendly audit packs, SOC 2/ISO-style security posture.
+
+## Business Model
+
+China pricing, excluding hardware:
+
+- 90-day paid pilot: RMB 180k-600k, credited if converted.
+- Starter county/small city: RMB 300k-800k/year.
+- Standard city utility: RMB 800k-2.5M/year.
+- Enterprise water group/private cloud: RMB 2.5M-8M/year.
+- Implementation: RMB 200k-2M depending on SCADA/GIS/CMMS complexity.
+- Optional success fee: 5%-12% of verified savings, capped.
+
+Overseas pricing, excluding hardware:
+
+- 90-day paid pilot: $35k-$120k.
+- Mid-size utility subscription: $75k-$300k/year.
+- Large utility/multi-module: $300k-$1.2M/year.
+- Implementation: 15%-30% of year-one subscription.
+- Optional success fee: 5%-15% of verified savings, capped.
+
+Expansion modules:
+
+- NRW/leakage.
+- Pump energy.
+- Sewer overflow.
+- Water-quality incident workflow.
+- CCTV/inspection defect closure.
+- Regulatory reporting.
+- Edge evidence nodes.
+
+## ROI
+
+Hard ROI formula:
+
+```text
+ROI = (annual verified benefit - annual WaterLoop cost) / annual WaterLoop cost
+Payback months = 12 * year-one WaterLoop cost / annual verified benefit
+
+Annual verified benefit =
+  m3 real water saved * variable production cost
++ m3 recovered billed * tariff * collection rate
++ avoided breaks * average break cost
++ crew hours saved * loaded labor rate
++ kWh saved * electricity price
++ truck rolls avoided * cost per roll
++ reporting hours saved * loaded labor rate
++ hard-to-audit risk reduction kept separate as upside
+```
+
+90-day pilot KPIs:
+
+- >90% selected assets mapped.
+- >95% tag mapping for selected assets.
+- 5%-15% minimum night flow reduction or validated m3/day saved.
+- >60% precision on actionable alerts.
+- 20%-40% reduction in alert-to-crew assignment time.
+- >75% first-visit resolution for generated jobs.
+- 3%-8% kWh/m3 reduction at selected pump assets without service violations.
+- Mobile closeout completeness >90%.
+- Annualized gross benefit at least 3x proposed annual software fee.
 
 ## Competition
 
-WaterLoop should integrate, not replace:
+Do not claim to be:
 
-- SCADA/historians.
-- Digital water platforms: Autodesk Info360, Bentley OpenFlows WaterSight, Xylem Vue, TaKaDu.
-- Leak detection and analytics: FIDO AI and similar tools.
-- Sewer/CCTV AI: SewerAI, VAPAR.
-- Robotics/inspection: RedZone, ACWA Robotics, PIPEON-style robotics.
-- Smart sewer monitoring: SmartCover/UDlive-style systems.
+- Leak detector.
+- AMI/MDM network.
+- SCADA/HMI.
+- GIS.
+- Hydraulic model.
+- Sewer CCTV AI.
+- CMMS/EAM.
+- Water-quality certified instrument.
 
-Differentiation:
+Integrate with:
 
-- Closure-first workflow layer.
-- Field proof loop and edge evidence.
-- Chinese/local deployment option.
-- LeRobot/Qualcomm edge path for repeatable robot-learning experiments.
+- Xylem/Xylem Vue/Sensus.
+- Itron, Badger, Aclara.
+- TaKaDu.
+- FIDO and acoustic leak tools.
+- Fracta, Bentley OpenFlows, Autodesk Info360.
+- Esri.
+- Trimble Unity/Cityworks.
+- Seeq.
+- Schneider/AVEVA and Siemens.
+- RedZone, SewerAI, VAPAR-style inspection systems.
+
+Wedge:
+
+> WaterLoop closes the operational gap between detection and done.
+
+Metrics:
+
+- Exception aging.
+- MTTA/MTTR.
+- Duplicate suppression.
+- Owner assignment.
+- Evidence completeness.
+- Reopened exceptions.
+- Verified volume saved.
+- CMMS/GIS feedback.
+
+## Moat
+
+- Resolution dataset: signals, root cause, actions, repairs, recovery curves, photos/videos, reports.
+- Utility playbooks: valves, roads, sampling, notices, crews, SLA, regulatory fields.
+- Integration lock-in: SCADA, AMI, GIS, CMMS, CRM, LIMS, CCTV, smart-water platform.
+- Edge evidence: pump stations, valve vaults, pipe galleries, and inspection robots generate local proof.
 
 ## Qualcomm Fit
 
-Water operations need edge AI because many sites are bandwidth-limited, cyber-sensitive, intermittent, or physically remote:
+WaterLoop needs:
 
-- Pump stations.
-- Valve vaults.
-- Pipe galleries.
-- Temporary construction zones.
-- Field crews.
-- Tablet/robot inspection workflows.
-
-QNN/AI Hub candidate models:
-
-- Acoustic leak classification.
-- Pump anomaly classification.
-- Analog gauge OCR.
-- Valve-status vision.
-- Water-region/leak/drip segmentation.
-- Turbidity and visual anomaly classification.
+- Offline-first edge inference for pump stations, valve vaults, pipe galleries, construction sites, and mobile crews.
+- Multimodal fusion: acoustic, RGB, depth, thermal, flow, pressure, current, turbidity, and position.
+- Qualcomm AI Hub/QNN compile/profile path for leak-mask, acoustic classification, meter OCR, pump anomaly, and visual evidence models.
+- ROS 2 action workflow for inspection, evidence capture, human approval, and episode export.
+- LeRobotDataset episodes from tabletop HIL and future field inspection loops.
 
 ## Safe Competition Demo
 
-Demo scope:
+Safe rig:
 
-- Clear acrylic pipe loop and clear open channel.
-- Clean water or dyed clean water only.
-- 5-12V small pump, flow sensor, current sensor, leak valve, partial blockage insert, turbidity cup.
-- RGB, thermal, depth/ToF, external acoustic contact mic/hydrophone, turbidity, flow, pump current, and e-stop.
-- Small rover/crawler beside the rig, not inside live municipal pipes.
-- ROS 2 inspection actions, evidence packet, human approval, and LeRobotDataset episode export.
+- 1-2 L reservoir.
+- Clear silicone/PVC loop.
+- 12V DC pump.
+- Normally-closed valves or servo pinch valves.
+- Bypass loop, leak simulation valve, flush-to-waste cup.
+- Mechanical pressure relief.
+- Inline fuse, GFCI upstream, catch tray, splash shield, drip loops.
 
-Claims to avoid:
+Sensors:
 
-- Municipal-grade leak detection.
-- Certified water-quality monitoring.
-- Flood or contamination prevention.
-- Real sewer/stormwater deployment.
-- Autonomous utility incident closure.
-- SCADA-ready or cybersecure production claims before testing.
-- Exact Qualcomm NPU FPS before profiling on the target device.
+- Main and branch flow.
+- Upstream/downstream pressure.
+- pH/turbidity demo sample cup.
+- Pump current.
+- RGB, depth, thermal.
+- Leak tray sensor.
 
-Safe claim:
+3-minute script:
 
-> Tabletop clean-water anomaly closed-loop demo using multimodal sensing, ROS 2 action workflow, human-reviewed evidence packets, LeRobot-compatible data, and a candidate Qualcomm AI Hub/QNN edge path.
+1. Show clear low-voltage rig, E-stop, catch tray, and dashboard.
+2. Run normal flow; display pressure, flow, turbidity, current, and camera feeds.
+3. Trigger a small leak and cloudy slug.
+4. System detects pressure drop, flow mismatch, visual leak mask, and turbidity rise.
+5. Operator approves the suggested closure.
+6. System lowers pump, isolates segment, opens bypass, flushes demo segment, then verifies recovery.
+7. Ticket closes with before/after metrics and a LeRobotDataset episode.
+
+Safe claims:
+
+- Tabletop clean-water analog of water utility exception closure.
+- Edge AI-assisted detection, supervised response, and verification.
+- Qualcomm AI Hub/QNN path for exported models.
+- LeRobot for dataset capture, teleoperation, and bounded policy experiments.
+
+Avoid claims:
+
+- Guarantees safe drinking water.
+- Detects all leaks or contaminants.
+- EPA/NSF/AWWA certified.
+- Production-ready for municipal infrastructure.
+- Replaces SCADA or operators.
+- Fully autonomous public-health decision system.
+- Qualcomm/Hugging Face/ROS endorsement.
 
 ## Sources
 
-- EPA Drinking Water Infrastructure Needs Survey: https://www.epa.gov/dwsrf/epas-7th-drinking-water-infrastructure-needs-survey-and-assessment
-- AWWA State of the Water Industry 2026: https://www.awwa.org/state-of-the-water-industry/
-- Proparco non-revenue water article: https://www.proparco.fr/en/article/non-revenue-water-water-wasted-resource-wasted
-- China leakage-control pilot notice: https://www.ndrc.gov.cn/xwdt/tzgg/202203/t20220315_1319313_ext.html
-- Xinhua urban leakage target summary: https://www.news.cn/politics/2022-02/04/c_1128330675.htm
-- EPA energy efficiency for water utilities: https://www.epa.gov/sustainable-water-infrastructure/energy-efficiency-water-utilities
-- EPA sanitary sewer overflows: https://www.epa.gov/npdes/sanitary-sewer-overflows-ssos
-- Qualcomm QCS6490: https://www.qualcomm.com/internet-of-things/products/q6-series/qcs6490
+- Proparco NRW: https://www.proparco.fr/en/article/non-revenue-water-water-wasted-resource-wasted
+- Bluefield US water losses: https://www.bluefieldresearch.com/ns/water-losses-cost-u-s-utilities-us6-4-billion-annually/
+- EPA DWINSA: https://www.epa.gov/dwsrf/epas-7th-drinking-water-infrastructure-needs-survey-and-assessment
+- China leakage target: https://www.ndrc.gov.cn/fggz/hjyzy/sjyybh/202202/t20220217_1315750.html
+- China leakage pilots: https://www.ndrc.gov.cn/xwdt/tzgg/202203/t20220315_1319313_ext.html
+- Water-saving regulation: https://www.mee.gov.cn/zcwj/gwywj/202403/t20240325_1069149.shtml
+- Municipal infrastructure equipment renewal: https://www.ndrc.gov.cn/xwdt/ztzl/tddgmsbgxhxfpyjhx/gzdt/202404/t20240417_1365729.html
+- EPA water energy: https://www.epa.gov/sustainable-water-infrastructure/energy-efficiency-water-utilities
+- EPA PFAS: https://www.epa.gov/sdwa/and-polyfluoroalkyl-substances-pfas
+- EPA SSO: https://www.epa.gov/npdes/sanitary-sewer-overflows-ssos
+- Xylem Vue: https://www.xylem.com/en-us/brand/xylem-vue/
+- TaKaDu CEM: https://www.takadu.com/
+- FIDO AI: https://fido.tech/
+- Qualcomm AI Hub Workbench: https://workbench.aihub.qualcomm.com/docs/
 - Qualcomm RB3 Gen 2: https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
-- Qualcomm AI Hub: https://aihub.qualcomm.com/
 - LeRobotDataset v3: https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
