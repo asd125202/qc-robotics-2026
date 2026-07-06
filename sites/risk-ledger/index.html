@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RiskLedger | 机器人风险账本</title>
+    <title>RiskLedger | Physical AI EDR 与机器人事故证据账本</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -13,57 +13,138 @@
         <span>RiskLedger</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#why">为什么</a>
-        <a href="#shield">黑匣子</a>
-        <a href="#evidence">证据包</a>
-        <a href="#finance">金融</a>
-        <a href="#trust">安全</a>
+        <a href="#problem">问题</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">为什么现在</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-risk-ledger">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 37 · Robot Risk Evidence Ledger</p>
-          <h1>RiskLedger</h1>
-          <p class="hero-lede">机器人风险账本：让商业机器人可承保、可融资、可复盘。RobotShield 在本体侧记录黑匣子证据，RiskLedger 在云端生成事故、质保、SLA、保险和融资可用的可信证据包。</p>
+          <p class="eyebrow">Pitch 42 · Physical AI EDR / Claims Exchange</p>
+          <h1 class="long-word-title">RiskLedger</h1>
+          <p class="hero-lede">机器人行业不缺保险产品，缺的是保险、融资、质保和 SLA 都能相信的机器事实层。RiskLedger 在 Dragonwing 机器人本体侧封存事故前后证据，用签名、哈希链、隐私脱敏和可回放时间线，把每台机器人变成可承保、可融资、可复盘的商业资产。</p>
           <div class="cta-row">
-            <a class="button primary" href="#shield">查看黑匣子模块</a>
-            <a class="button" href="../robot-lease-ops/">连接 RobotLeaseOps</a>
+            <a class="button primary" href="#problem">从责任黑洞开始</a>
+            <a class="button" href="#demo">看黑匣子演示</a>
           </div>
         </div>
       </section>
 
-      <section id="why" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Risk Is The Next Platform Layer</p>
-              <h2>机器人要走向商业化，就必须回答“出事后谁相信数据”。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>机器人不是买不起，是出事后没人敢相信谁的数据。</h2>
             </div>
-            <p>企业、保险、融资、法务和运维不会只看 demo。它们要知道机器人运行了多久、维护是否按时、模型是否被篡改、事件发生前后机器人看到了什么、谁接管过、证据是否能复核。</p>
+            <p>商业机器人正在进入仓库、医院、酒店、园区和人机混行空间。一旦发生碰撞、近失事件、停机、误操作或模型异常，责任链会同时牵涉硬件、软件、AI 模型、传感器、地图、场地、操作员、维护商、网络和远程支持。没有可信证据，保险难定价，融资难尽调，OEM 难判质保，客户难证明 SLA。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>Insurance</h3>
-              <p>保险和经纪需要结构化 exposure、incident、ODD、维护和使用数据，而不是静态申请表。</p>
+              <span class="claim-tag">保险</span>
+              <h3>风险数据太少</h3>
+              <p>核保人需要 exposure hours、ODD、near-miss、事故频率、维护和补丁状态，而不是静态问卷。</p>
             </article>
             <article class="card">
-              <h3>Finance</h3>
-              <p>租赁和 RaaS 需要残值、利用率、服务历史、可回收性和违约损失假设。</p>
+              <span class="claim-tag">融资</span>
+              <h3>资产健康不可见</h3>
+              <p>租赁方要看位置、使用强度、事故、维修、残值和可保性，否则机器人很难像设备资产一样融资。</p>
             </article>
             <article class="card">
-              <h3>Warranty</h3>
-              <p>OEM 需要知道故障来自硬件、软件、站点、网络、维护还是客户误用。</p>
+              <span class="claim-tag">质保</span>
+              <h3>责任归因混在一起</h3>
+              <p>故障可能来自产品缺陷、客户误用、超工况、过期模型、维护缺失、网络攻击或第三方集成。</p>
             </article>
             <article class="card">
-              <h3>SLA</h3>
-              <p>停机、例外、service credit、MTTR 和计划维护必须有可审计记录。</p>
+              <span class="claim-tag">客户</span>
+              <h3>SLA 纠纷靠截图</h3>
+              <p>停机原因、计划维护、例外条款、人工接管和 service credit 缺少共同事实源。</p>
             </article>
             <article class="card">
-              <h3>Liability</h3>
-              <p>责任归因涉及 OEM、集成商、软件、云、场地、操作员和维护方，必须先保全证据。</p>
+              <span class="claim-tag">高通</span>
+              <h3>边缘能力没有变成信任</h3>
+              <p>Dragonwing 的安全启动、多传感器和 QNN profile 如果不进入证据链，就只是技术参数。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="broken" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>今天的工具能看见机器人，却不能把事故变成第三方可信证据。</h2>
+            </div>
+            <p>RiskLedger 不做 fleet command center，不替代 CMMS，也不抢 OEM cloud。它只占一个缺口：跨 OEM、跨队列、客户可控、保险和法务能读取的 Physical AI EDR。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <span class="claim-tag">Fleet ops</span>
+              <h3>管 uptime，不管证据</h3>
+              <p>Formant、InOrbit、Viam 类系统适合监控、告警和远程诊断，但不是 claims exchange。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">ROS bag</span>
+              <h3>能回放，不等于可信</h3>
+              <p>开发日志缺少保全、签名、隐私脱敏、custody log、外部分享权限和事故报告格式。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">CCTV</span>
+              <h3>只看到表象</h3>
+              <p>监控视频看不到模型 hash、控制命令、QNN runtime、急停状态、地图版本和传感器健康。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">CMMS / EAM</span>
+              <h3>能派单，不懂机器人因果</h3>
+              <p>ServiceNow、Maximo、Dynamics 可以接工单，但需要一个机器人证据包作为输入。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Blockchain</span>
+              <h3>事后上链不够</h3>
+              <p>如果边缘端采集不可信，只给不可信日志盖时间戳，无法解决责任归因。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>RiskLedger 是机器人事故的 EDR、黑匣子和 claims exchange。</h2>
+            </div>
+            <p>它在本体侧捕获碰撞、急停、near-miss、人工接管、传感器失效、模型/策略更新、网络异常和 SLA downtime；封存关键视频、MCAP、控制命令、模型/QNN 版本、维护状态和操作员动作；再输出可验证、可脱敏、可回放、可分享的 evidence pack。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Trigger</h3>
+              <p>急停、近碰、人员闯入、安全区越界、QNN failure、人工接管、租赁越界或证书异常。</p>
+            </article>
+            <article class="step">
+              <h3>Capture</h3>
+              <p>冻结 T-60s 到 T+180s 环形缓冲：视频、LiDAR、IMU、ROS 2、CAN、EtherCAT、日志和控制链。</p>
+            </article>
+            <article class="step">
+              <h3>Seal</h3>
+              <p>生成 manifest、Merkle root、COSE signature、timestamp、privacy class 和 custody event。</p>
+            </article>
+            <article class="step">
+              <h3>Replay</h3>
+              <p>把原始日志变成可读时间线：先发生什么、系统怎么判断、谁接管、是否超出 ODD。</p>
+            </article>
+            <article class="step">
+              <h3>Export</h3>
+              <p>输出保险理赔包、质保争议包、SLA credit、EHS 审计包、融资尽调和 CertForge 证据。</p>
             </article>
           </div>
           <div class="image-band">
@@ -72,169 +153,243 @@
         </div>
       </section>
 
-      <section id="shield" class="slide tint">
+      <section id="why-now" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · RobotShield</p>
-              <h2>本体侧黑匣子只做记录和风控动作，不干扰安全控制链。</h2>
+              <p class="kicker">04 · Why Now</p>
+              <h2>Physical AI 进入保险、责任、融资和合规结算层。</h2>
             </div>
-            <p>RobotShield 是被动记录器和风险状态模块：监听 ROS 2、CAN、EtherCAT、PLC、安全控制器、相机、LiDAR、IMU、关节、电机、地图和操作员输入；遇到关键事件时冻结环形缓冲并签名。</p>
+            <p>IFR 2025 显示，2024 年全球工业机器人安装约 54.2 万台、运行存量约 466.4 万台；专业服务机器人销售接近 20 万台，RaaS fleet 增长 31%。同时，EU AI Act 对高风险 AI 的日志提出要求，EU Product Liability Directive 把软件/AI 更明确纳入产品责任，CRA、Machinery Regulation 和中国数据规则都把生命周期证据推向采购前台。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Capture</h3>
-              <p>多源传感、控制命令、模型版本、地图版本和人工输入同步记录。</p>
-            </article>
-            <article class="step">
-              <h3>Trigger</h3>
-              <p>急停、保护停、碰撞力峰、近失误、定位丢失、接管、通信故障和配置异常触发保全。</p>
-            </article>
-            <article class="step">
-              <h3>Sign</h3>
-              <p>安全启动状态、设备身份、模型哈希、计数器、时间戳和证据哈希链进入签名元数据。</p>
-            </article>
-            <article class="step">
-              <h3>Redact</h3>
-              <p>视频、人脸、工牌、地图和客户工艺信息按权限脱敏、留存或法律冻结。</p>
-            </article>
-            <article class="step">
-              <h3>Act</h3>
-              <p>信任状态异常时可进入限速、锁定高风险技能或要求人工审批。</p>
-            </article>
+          <div class="grid four">
+            <div class="stat">
+              <strong>542K</strong>
+              <span>2024 年全球工业机器人新增安装量，机器人事故和维护证据会进入规模化阶段。</span>
+            </div>
+            <div class="stat">
+              <strong>RaaS +31%</strong>
+              <span>机器人按月、按小时、按产能收费后，事故证据直接影响毛利和续约。</span>
+            </div>
+            <div class="stat">
+              <strong>EDR</strong>
+              <span>汽车领域已经证明，事故前后窗口记录是责任和理赔基础设施。</span>
+            </div>
+            <div class="stat">
+              <strong>AI / CRA</strong>
+              <span>日志、补丁、漏洞、模型版本和产品责任证据正在成为联网机器人采购门槛。</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="evidence" class="slide white">
+      <section id="product" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">03 · Evidence Capsule</p>
-            <h2>每一次事件，都变成可回放、可校验、可导出的证据包。</h2>
-            <p class="lead">RiskLedger 不用 AI 直接判定责任。它保留可防篡改的事实链：机器人状态、传感片段、控制命令、模型和软件版本、操作员接管、维护状态、场地图和证据保管链。</p>
+            <p class="kicker">05 · Product</p>
+            <h2>RiskLedger 卖的不是“录像”，而是一条可采信的责任链。</h2>
+            <p class="lead">每个事件输出一个 Evidence Bundle：既能给机器人专家回放，也能给保险、融资、质保、EHS、法务和客户成功团队读取。</p>
             <ul class="list">
-              <li>事件时间线：事件前后高频窗口 + 低频运营上下文。</li>
-              <li>数据载荷：MCAP / ROS bag / video / LiDAR slice / config hash / SBOM ref。</li>
-              <li>完整性：设备签名、hash chain、Merkle root、monotonic counter 和 custody log。</li>
-              <li>复盘：near-miss 聚类、纠正措施、测试场景 backlog 和 SafetyOps 门禁更新。</li>
+              <li>`robot-evidence-event.json`：event_id、robot_id、site、trigger、severity、capture_window、lease_id、operator hash、privacy class。</li>
+              <li>`event.mcap`：ROS 2 topic、sensor fusion、planning、control、safety state、pose、velocity、fault code。</li>
+              <li>`qnn/runtime.json`：AI Hub job、model hash、QNN context hash、runtime version、latency、target SoC。</li>
+              <li>`evidence-bundle-manifest.cbor`：file hashes、Merkle root、secure boot state、OTA version、retention class、legal hold。</li>
+              <li>`redaction-manifest.json`：人脸、工牌、地图、客户工艺信息和音视频片段的脱敏规则与 reviewer hash。</li>
+              <li>`claim-pack.pdf`：事故时间线、责任因子、维护状态、质保边界、SLA 例外和导出记录。</li>
             </ul>
           </div>
           <div class="visual">
-            <img src="../assets/risk-ledger.png" alt="RiskLedger 事件时间线、哈希链和证据包回放控制台">
+            <img src="../assets/risk-ledger.png" alt="RiskLedger 事件时间线、哈希链、隐私脱敏和证据包回放控制台">
           </div>
         </div>
       </section>
 
-      <section id="finance" class="slide dark">
+      <section id="business" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · Insurability &amp; Bankability</p>
-              <h2>不是卖保险，而是让机器人具备被承保和被融资的证据基础。</h2>
+              <p class="kicker">06 · Market & Business Model</p>
+              <h2>第一批买家，是已经在承担事故、维修、理赔、残值和责任归属成本的人。</h2>
             </div>
-            <p>RiskLedger 面向 OEM、RaaS 运营商、集成商、企业客户、保险伙伴和设备金融机构，输出 underwriting data pack、SLA evidence、warranty reserve、residual value 和 bankability score。</p>
-          </div>
-          <div class="grid four">
-            <div class="stat">
-              <strong>Uptime</strong>
-              <span>可用率、计划/非计划停机、MTBF、MTTR、远程修复率和 first-time-fix。</span>
-            </div>
-            <div class="stat">
-              <strong>Claims</strong>
-              <span>事件频率、严重度、near-miss、维修原因、证据状态和纠正措施。</span>
-            </div>
-            <div class="stat">
-              <strong>Residual</strong>
-              <span>电池、传感器、里程、循环、软件支持期、维修历史和再部署成本。</span>
-            </div>
-            <div class="stat">
-              <strong>Finance</strong>
-              <span>资产护照、LTV、服务合规、RaaS 毛利、SLA 例外和租赁审计数据。</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="trust" class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">05 · Procurement Trust Pack</p>
-              <h2>把安全问卷、SBOM、漏洞状态和日志出口做成采购包。</h2>
-            </div>
-            <p>机器人是联网设备，也是 OT 资产。RiskLedger 为客户安全团队提供 release-level SBOM、VEX、漏洞披露、签名 OTA、审计日志、SIEM export、远程支持记录、数据留存和分区部署指南。</p>
+            <p>优先级不是“所有机器人用户”，而是 RaaS/租赁运营商、保险公司/经纪/MGA、融资租赁、OEM 质保、企业 EHS 和系统集成商。中国先做租赁平台、OEM 白标和项目验收证据；海外先做 robot/month evidence SaaS、claims reconstruction 和 underwriting data room。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>SBOM / VEX</h3>
-              <p>每个版本绑定组件清单、CVE/KEV 状态、affected / not affected 说明。</p>
+              <span class="claim-tag">RaaS / 租赁</span>
+              <h3>先保护运营毛利</h3>
+              <p>按机器人/月收取证据账本费，事故报告按次收费，帮助处理损坏、责任、停机和重新部署。</p>
             </article>
             <article class="card">
-              <h3>Audit Logs</h3>
-              <p>管理员访问、远程支持、机器人命令、固件更新、地图导出和风险模式变化。</p>
+              <span class="claim-tag">保险 / MGA</span>
+              <h3>卖风险数据接口</h3>
+              <p>输出 exposure、ODD、near-miss、维护、补丁、事故频率、反欺诈和理赔重建数据。</p>
             </article>
             <article class="card">
-              <h3>OTA Evidence</h3>
-              <p>签名构建、灰度发布、回滚、支持期、EOL 和安全更新历史。</p>
+              <span class="claim-tag">融资租赁</span>
+              <h3>让机器人更 bankable</h3>
+              <p>提供贷后监控、资产健康、可保性、事故历史、残值证明和法律冻结状态。</p>
             </article>
             <article class="card">
-              <h3>OT Guide</h3>
-              <p>网络分区、最小权限、VLAN、SIEM、site hardening 和 incident response playbook。</p>
+              <span class="claim-tag">OEM / SI</span>
+              <h3>降低质保和验收争议</h3>
+              <p>版本、配置、工况、维护、操作者、第三方组件和现场环境共同进入质保证据包。</p>
+            </article>
+          </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">中国价格锚点</span>
+              <h3>100-800 元/台/月</h3>
+              <p>低风险室内机器人低价起步，人形、AMR、工业移动机器人按风险上浮；事故取证报告 3000-20000 元/次。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">海外价格锚点</span>
+              <h3>$25-250 / robot / month</h3>
+              <p>基础证据账本按台收费，高风险视频/AI 事故分析上浮；企业和保险试点 $25k-$150k。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">ROI 边界</span>
+              <h3>只验证，不承诺</h3>
+              <p>不承诺保费必降或融资必批，只验证理赔成本、质保争议、事故复盘效率和 SLA 纠纷减少。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="qualcomm" class="slide white">
+      <section id="moat" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">06 · Why Qualcomm</p>
-              <h2>可信证据必须从边缘硬件开始，而不是事后补表格。</h2>
+              <p class="kicker">07 · Competition & Moat</p>
+              <h2>真正的壁垒不是记录数据，而是让外部机构接受 RiskLedger 证据包。</h2>
             </div>
-            <p>RiskLedger 让 Qualcomm 的安全启动、硬件信任根、边缘多传感器采集、连接、AI Hub profile 和设备生命周期管理变成商业证据。Qualcomm 不只是运行模型，还能证明模型、固件和机器人状态没有被随意替换。</p>
+            <p>我们把自己放在 fleet ops、OEM cloud、机器人数据平台、CMMS/EAM、保险理赔和工业 OT 安全之间。短期 wedge 是 AMR/RaaS/仓储物流的 accident packet；长期壁垒是跨 OEM 事故 schema、设备级可信采集、理赔/质保/融资 API 和真实风险数据集。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Boot</h3>
-              <p>安全启动、设备身份和 attestation 作为证据链起点。</p>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">短期壁垒</span>
+              <h3>Robot EDR schema</h3>
+              <p>定义机器人事故前后窗口：感知、控制、QNN、策略、地图、人工接管、安全状态和维护状态。</p>
             </article>
-            <article class="step">
-              <h3>Model</h3>
-              <p>AI Hub / QNN / runtime artifact 的哈希、profile 和验证记录进入模型护照。</p>
+            <article class="card">
+              <span class="claim-tag">中期壁垒</span>
+              <h3>Claims exchange</h3>
+              <p>保险、融资、OEM、SI、客户 EHS 和法务开始围绕同一 evidence pack 协作。</p>
             </article>
-            <article class="step">
-              <h3>Edge</h3>
-              <p>视频、LiDAR、IMU、控制和安全事件在本体侧低延迟采集。</p>
+            <article class="card">
+              <span class="claim-tag">生态壁垒</span>
+              <h3>Connector-first</h3>
+              <p>接入 Formant、Viam、Foxglove、Roboto、ServiceNow、Maximo、Jira、Zendesk 和 OEM cloud。</p>
             </article>
-            <article class="step">
-              <h3>Sync</h3>
-              <p>离线时本地排队签名，恢复 Wi-Fi/5G/专网后同步 RiskLedger。</p>
-            </article>
-            <article class="step">
-              <h3>Shield</h3>
-              <p>信任状态异常时自动降级高风险能力，等待人工审批。</p>
+            <article class="card">
+              <span class="claim-tag">数据壁垒</span>
+              <h3>风险语义复利</h3>
+              <p>每个事故、near-miss、维修、补丁、接管和质保结果，都会训练下一版风险评分和产品安全案例。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="slide white">
+      <section id="qualcomm" class="slide dark">
         <div class="wrap">
-          <p class="quote">RiskLedger 不承诺机器人永不出事，也不替法务判定责任。它让每一次运行、维护、更新和事故都有可校验事实，机器人因此更容易被采购、承保、融资和规模化部署。</p>
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Why Qualcomm</p>
+              <h2>可信证据必须从边缘硬件开始，而不是事故后补表格。</h2>
+            </div>
+            <p>Dragonwing IQ10 RRD 把异构计算、AI 加速、多相机、LiDAR、ToF、IMU、EtherCAT、CAN-FD、TSN、网络和机器人软件栈放进同一参考设计。RiskLedger 把这些能力转换成商业信任：证明某台机器人在某个模型/QNN/策略版本下，基于哪些传感器输入和控制链路做出了什么动作。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Secure Edge</strong>
+              <span>安全启动、设备身份、签名和本地证据密钥，让日志从源头具备可信起点。</span>
+            </div>
+            <div class="stat">
+              <strong>Sensor Fusion</strong>
+              <span>相机、LiDAR、IMU、CAN、EtherCAT 和安全状态在本体侧同步封存。</span>
+            </div>
+            <div class="stat">
+              <strong>QNN Proof</strong>
+              <span>AI Hub job、QNN context hash、runtime version 和 latency 进入模型证据链。</span>
+            </div>
+            <div class="stat">
+              <strong>Offline Trust</strong>
+              <span>断网时本地签名排队，恢复 Wi-Fi/5G/专网后按 custody chain 同步。</span>
+            </div>
+          </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>RB3 / IQ9 / IQ10 证据 profile</h3>
+              <p>定义安全启动、传感器、QNN、系统版本、功耗和网络状态如何进入事件证据包。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>AI Hub / QNN artifact ID</h3>
+              <p>让比赛 demo 的模型不是“跑过”，而是能在事故回放里证明实际部署版本。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>生态验证场景</h3>
+              <p>联合 OEM、RaaS、保险/MGA 和融资方做 90 天证据试点，验证可承保、可融资、可质保。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Demo & Ask</p>
+              <h2>8 分钟演示：把一次 near-miss 变成保险、质保、SLA 和训练都能使用的证据包。</h2>
+            </div>
+            <p>比赛 demo 用浏览器模拟 Dragonwing AMR。人员进入安全区，机器人降速或保护停；RiskLedger 自动冻结事故窗口，生成签名 evidence bundle，再演示一行日志被篡改后 verify 失败。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">Demo 1-2 min</span>
+              <h3>事件触发</h3>
+              <p>显示机器人任务、租赁合同、UptimeOS 状态和人员闯入安全区的 near-miss。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Demo 3-4 min</span>
+              <h3>边缘封存</h3>
+              <p>冻结 T-60s 到 T+180s 缓冲，打包 MCAP、视频、QNN runtime、policy log、SBOM/MLBOM。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Demo 5-6 min</span>
+              <h3>证据回放</h3>
+              <p>展示时间线、感知帧、规划轨迹、速度曲线、急停状态、操作员动作和 redacted replay。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Demo 7-8 min</span>
+              <h3>导出与校验</h3>
+              <p>导出 claim pack、warranty pack、SLA exception、CertForge evidence，并展示 tamper hash mismatch。</p>
+            </article>
+          </div>
+          <p class="quote pipeline-extra">RiskLedger 不判定法律责任，也不承诺保费必降。它让每次运行、维护、更新和事故都有可校验事实，机器人因此更容易被采购、承保、融资和规模化部署。</p>
           <div class="source-links">
-            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Industrial Robots</a>
-            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
-            <a href="https://www.osha.gov/robotics">OSHA Robotics</a>
-            <a href="https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-563">NHTSA EDR</a>
-            <a href="https://www.koop.ai/blog/api-underwriting-a-perfect-solution-for-avs-robotics-insurance">Koop Underwriting API</a>
-            <a href="https://www.thehartford.com/insights/technology/evaluating-autonomous-risk">The Hartford</a>
-            <a href="https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng">EU Product Liability</a>
-            <a href="https://csrc.nist.gov/pubs/sp/800/92/final">NIST Log Management</a>
-            <a href="https://csrc.nist.gov/pubs/sp/800/218/final">NIST SSDF</a>
-            <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng">EU CRA</a>
-            <a href="https://www.qualcomm.com/developer/blog/2024/12/secure-boot-as-part-of-platform-security-architecture-modern-system-on-chip">Qualcomm Secure Boot</a>
-            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Industrial Robots 2025</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots 2025</a>
+            <a href="https://www.nhtsa.gov/research-data/event-data-recorder">NHTSA Event Data Recorder</a>
+            <a href="https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-563">49 CFR Part 563</a>
+            <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12">EU AI Act Article 12</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act">EU Cyber Resilience Act</a>
+            <a href="https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng">EU Product Liability Directive</a>
+            <a href="https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm">China Data Export Rules</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Dragonwing IQ10 RRD</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Dragonwing RB3 Gen 2</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html">Qualcomm AI Hub Compile</a>
+            <a href="https://mcap.dev/">MCAP</a>
+            <a href="https://design.ros2.org/articles/ros2_dds_security.html">ROS 2 DDS Security</a>
+            <a href="https://opentelemetry.io/docs/concepts/semantic-conventions/">OpenTelemetry Semantic Conventions</a>
+            <a href="https://datatracker.ietf.org/doc/rfc9052/">COSE RFC 9052</a>
+            <a href="https://www.ietf.org/rfc/rfc3161.txt">RFC 3161 Timestamp</a>
+            <a href="https://datatracker.ietf.org/doc/html/rfc9162">RFC 9162 Transparency Log</a>
+            <a href="https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html">C2PA Specification</a>
+            <a href="https://docs.formant.io/docs/fleet-observability">Formant Fleet Observability</a>
+            <a href="https://www.viam.com/platform/fleet-management">Viam Fleet Management</a>
+            <a href="https://www.cmtelematics.com/news/cambridge-mobile-telematics-announces-enhanced-driver-experiences-crash-capabilities-and-developer-tools/">CMT Claims Exchange</a>
           </div>
         </div>
       </section>

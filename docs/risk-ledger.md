@@ -1,210 +1,212 @@
 # RiskLedger Pitch
 
-更新时间：2026-07-05。
+更新时间：2026-07-06。该版本按 `docs/pitch-deck-standard.md` 重写，定位为 Physical AI EDR / robot claims exchange，而不是普通机器人运维平台。
 
-## Core Thesis
+## One-Liner
 
-RiskLedger 是面向商业机器人队列的风险证据账本：
+机器人行业不缺保险产品，缺的是保险、融资、质保和 SLA 都能相信的机器事实层。RiskLedger 在 Dragonwing 机器人本体侧封存事故前后证据，用签名、哈希链、隐私脱敏和可回放时间线，把每台机器人变成可承保、可融资、可复盘的商业资产。
 
-> RobotShield 在 Qualcomm edge 本体侧记录黑匣子证据，RiskLedger 在云端生成事故复盘、保险承保、融资尽调、质保、SLA 和采购安全所需的可信证据包。
+## 1. Problem
 
-它不是保险公司，不替法务判定责任，也不声称认证机器人安全。它解决的是商业化中的下一个硬问题：
+机器人不是买不起，是出事后没人敢相信谁的数据。
 
-- 机器人运行数据是否可信。
-- 事故前后事实能否回放。
-- 日志是否被篡改。
-- 维护、固件、模型和安全事件是否能追溯。
-- 保险、设备金融和企业采购是否能拿到足够结构化的数据。
+商业机器人进入仓库、医院、酒店、园区和人机混行空间以后，一次事故会同时牵涉：
 
-一句话：让机器人从“可演示、可部署”进一步变成“可承保、可融资、可复盘”的商业资产。
+- 硬件故障、传感器状态、制动和急停。
+- AI 模型、QNN runtime、策略版本、地图版本和 OTA。
+- 现场环境、人员闯入、网络异常和操作员接管。
+- OEM、系统集成商、维护商、客户、租赁方、保险方和融资方。
 
-## Why This Matters
+没有可信证据，保险公司难定价，融资方难尽调，OEM 难判断质保责任，客户难证明 SLA，法务和 EHS 团队只能靠截图、群聊和事后口供。
 
-机器人数量已经足以产生保险、融资和事故证据基础设施需求：
+## 2. Current Alternatives Fail
 
-- IFR 报告 2024 年全球工业机器人安装量约 542,000 台，运行存量约 4.66M 台，并预测 2028 年安装量超过 700,000 台。
-- 专业服务机器人 2024 年销售接近 200,000 台，物流/运输类居前，RaaS fleet 增长显著。
-- 企业买机器人时常常需要保险凭证、安全文档、事故历史、服务记录和供应商安全问卷。
-- 保险和经纪机构需要 robot-level exposure、utilization、ODD、incident、maintenance 和 performance 数据。
-- RaaS 和设备金融需要 uptime、服务合规、残值、再部署风险、资产健康和违约损失假设。
+今天的工具能看见机器人，却不能把事故变成第三方可信证据。
 
-现有 SafetyOps 解决“策略如何上线和回滚”，RobotLeaseOps 解决“机器人如何订阅和融资购买”，RoboTrust 解决“数据如何采集和训练”。RiskLedger 连接这些模块，把运行事实变成外部机构也能使用的证据。
+- Fleet ops：Formant、InOrbit、Viam 等适合监控、告警、远程诊断和调度，但不是 claims exchange。
+- ROS bag / MCAP：能回放数据，但默认缺少保全、签名、隐私脱敏、custody log、分享权限和事故报告格式。
+- CCTV：只能看到表象，看不到模型 hash、控制命令、QNN runtime、急停状态、地图版本和传感器健康。
+- CMMS / EAM：ServiceNow、Maximo、Dynamics 可以处理工单，但需要一个机器人证据包作为输入。
+- OEM cloud：适合单厂商设备管理，但客户现场常是多品牌、多集成商、多业务系统。
+- Blockchain：如果边缘端采集不可信，只是给不可信日志盖时间戳。
 
-## Product Modules
+RiskLedger 的产品边界必须清晰：不做 fleet command center，不替代 CMMS，不抢 OEM cloud。它只做跨 OEM、跨队列、客户可控、外部机构能读取的 Physical AI EDR。
 
-### 1. RobotShield Edge Recorder
+## 3. Solution
 
-本体侧被动黑匣子。
+RiskLedger 是机器人事故的 EDR、黑匣子和 claims exchange。
 
-- 监听 ROS 2 / DDS、CAN、EtherCAT、PLC、安全控制器、相机、LiDAR、IMU、关节/力矩、地图和 operator input。
-- 默认不插入安全关键控制链，避免给急停和保护停增加延迟或新故障模式。
-- 在明确验证前，只说“记录、保全和风险状态触发”，不说替代安全控制器。
+核心流程：
 
-触发条件：
+1. Trigger：急停、近碰、人员闯入、安全区越界、QNN failure、人工接管、租赁越界或证书异常触发事件。
+2. Capture：冻结 `T-60s` 到 `T+180s` 环形缓冲，采集视频、LiDAR、IMU、ROS 2、CAN、EtherCAT、日志和控制链。
+3. Seal：生成 manifest、Merkle root、COSE signature、timestamp、privacy class 和 custody event。
+4. Replay：把原始日志变成可读时间线：先发生什么、系统怎么判断、谁接管、是否超出 ODD。
+5. Export：输出保险理赔包、质保争议包、SLA credit、EHS 审计包、融资尽调和 CertForge 证据。
 
-- 急停、保护停、碰撞/力峰、速度区违规。
-- 人员接近、近失误、禁区穿越。
-- 定位丢失、autonomy disengagement、manual override。
-- 通信故障、维护/LOTO 状态不匹配。
-- 固件、模型、配置、debug 或网络安全异常。
+RiskLedger 不直接判定法律责任。它保全可复核事实，支持 root-cause review、保险理赔、质保判断、SLA 争议和安全案例更新。
 
-### 2. Forensic Buffer
+## 4. Why Now
 
-事件前后高频窗口 + 低频运营上下文。
+Physical AI 正在进入保险、责任、融资和合规结算层。
 
-- 类似汽车 EDR 的思路：保留短窗口、高质量、可检索的关键数据，而不是无限期上传所有原始视频。
-- 高速数据保留本地，云端先同步 manifest、hash、缩略图、风险元数据和必要片段。
-- 支持 legal hold、retention policy、role-based export 和 privacy redaction。
+- IFR 2025 显示，2024 年全球工业机器人新增安装约 54.2 万台，运行存量约 466.4 万台。
+- 2024 年专业服务机器人销售接近 20 万台，RaaS fleet 增长 31%。
+- 自动驾驶和汽车 EDR 已经证明，事故前后窗口记录是责任和理赔基础设施。
+- EU AI Act 对高风险 AI 系统有生命周期日志要求，但并不意味着所有机器人都是高风险 AI。
+- EU Product Liability Directive 更明确地把软件/AI 纳入产品责任框架。
+- EU Cyber Resilience Act、Machinery Regulation、中国数据出境规则、客户 IT/OT 审计，都在推动机器人生命周期证据成为采购门槛。
 
-### 3. Evidence Capsule
+安全表述：商业机器人目前没有通用“黑盒强制要求”。RiskLedger 的机会来自合规、保险、融资、质保和诉讼压力形成的事实需求。
 
-可导出的证据包。
+## 5. Product
 
-包含：
+RiskLedger 卖的不是“录像”，而是一条可采信的责任链。
 
-- package id、incident id、schema version。
-- robot id、model、serial、site、cell、map version。
-- event type、severity、trigger、UTC time、monotonic time、time-sync quality。
-- robot pose、velocity、joint state、commands、payload、speed limit。
-- safety state：E-stop、guards、scanner zones、safety function refs。
-- autonomy state：planner、localization confidence、model hashes。
-- media refs：video / LiDAR / MCAP / ROS bag slices、redaction status。
-- software config：firmware、app version、config hash、SBOM ref。
-- integrity：hash chain head、signature、custody log、reviewer annotations。
+核心 artifact：
 
-关键表述：RiskLedger 不直接判定法律责任。它保全可复核事实，支持 root-cause review、保险理赔、集成商复盘、质保判定和安全案例更新。
+- `robot-evidence-event.json`：event_id、robot_id、fleet_id、site_id、trigger、severity、capture_window、lease_id、operator_id_hash、policy_version、privacy_class。
+- `event.mcap`：ROS 2 topic、sensor fusion、planning、control、safety state、pose、velocity、fault code。
+- `qnn/runtime.json`：AI Hub job、model hash、QNN context hash、runtime version、latency、target SoC。
+- `policy/decision_log.jsonl`：策略决策、人工审批、风险模式变化、权限和拒绝原因。
+- `evidence-bundle-manifest.cbor`：file hashes、Merkle root、secure boot state、OTA version、retention class、legal hold。
+- `signature.cose` / `timestamp.tsr` / `ledger_receipt.json`：签名、时间戳和透明日志收据。
+- `redaction-manifest.json`：人脸、工牌、地图、客户工艺信息和音视频片段的脱敏规则与 reviewer hash。
+- `claim-pack.pdf`：事故时间线、责任因子、维护状态、质保边界、SLA 例外和导出记录。
 
-### 4. RiskLedger Cloud
+建议 API：
 
-云端风险账本。
+- `POST /v1/robot-events`
+- `POST /v1/evidence-bundles:init`
+- `PUT /v1/evidence-bundles/{id}/parts/{part}`
+- `POST /v1/evidence-bundles/{id}:seal`
+- `GET /v1/evidence-bundles/{id}:verify`
+- `POST /v1/custody-events`
+- `POST /v1/redactions`
+- `GET /v1/replay/{bundle_id}`
 
-- 事件时间线、回放、证据校验和篡改检测。
-- near-miss heatmap：按通道、班次、机器人型号、任务、速度区聚类。
-- corrective action tracker：问题、原因、负责人、修复、验证、复发监控。
-- safety-case loop：把事故复盘转成风险评估、ODD 限制、测试场景 backlog 和 SafetyOps release gate。
-- fleet dashboard：每台机器人 boot integrity、attestation、model version、patch level、last risk event 和 unresolved evidence。
+和其他模块关系：
 
-### 5. Insurance And Finance Data Packs
+- UptimeOS：事故后自动打开 incident，更新 health passport 和 service workflow。
+- RobotLeaseOps：事故后进入 evidence hold，必要时禁止 redeploy，直到 sealed receipt 生成。
+- CertForge：导出标准映射 evidence pack，进入安全案例、合规包和版本变更记录。
+- LeRobot / TrainRouter：把失败片段转成 failure mining 和训练评估数据。
 
-面向保险、经纪、融资和 RaaS 的结构化数据。
+## 6. Market And Business Model
 
-- Underwriting pack：ODD、任务、利用率、近失误、事故、维护、操作员接管、场地风险。
-- Claims reconstruction：事件前后时间线、证据链、维护状态、软件/模型状态、操作记录。
-- Warranty reserve：部件故障、维修原因、客户误用、field service cost 和 repeat issue。
-- SLA evidence：可用率、计划/非计划停机、MTBF、MTTR、服务例外、service credit。
-- Residual value：电池健康、循环、里程、传感器状态、软件支持期、再部署成本和维修历史。
+第一批买家不是“所有机器人用户”，而是已经在承担事故、维修、理赔、残值和责任归属成本的人。
 
-商业模式：
+买方优先级：
 
-- per-robot monthly SaaS。
-- enterprise audit / lender dashboard。
-- underwriting API / claims reconstruction tool。
-- warranty analytics / service contract module。
-- partner-enabled insurance referral 或 coverage workflow，但不无证经营保险业务。
+1. RaaS / 租赁运营商：高频流转、跨场景使用，设备损坏、第三者责任和数据安全风险集中在运营方。
+2. 保险公司 / 经纪 / MGA：机器人风险数据少，难精准定价，需要动态费率、承保准入和理赔取证。
+3. 融资租赁 / 设备金融：关心抵押物位置、使用强度、维护状态、残值和道德风险。
+4. OEM 质保 / 售后：需要区分产品缺陷、客户误用、超工况使用和 no-fault-found。
+5. 企业 EHS / 合规团队：上线机器人前后需要事故复盘、审计留痕和安全闭环。
+6. 系统集成商：把证据系统打包进 FAT/SAT、风险评估、验收和维护移交。
 
-### 6. Cyber Procurement Pack
+建议定价：
 
-连接机器人采购安全和 OT 安全。
+- 中国低风险室内配送/清洁：`100-300 元/台/月`。
+- 中国人形、AMR、工业移动机器人：`300-800 元/台/月`。
+- 中国事故取证报告：`3000-20000 元/次`。
+- 中国保险/租赁平台试点：`10万-50万元/3-6个月`。
+- 海外基础证据账本：`$25-75 / robot / month`。
+- 海外高风险视频/AI 事故分析：`$100-250 / robot / month`。
+- 海外事故取证报告：`$300-1500 / incident`。
+- 海外保险/企业试点：`$25k-$150k / 3-6 months`。
 
-- Secure-by-design SDLC：threat modeling、SAST/SCA/fuzzing、release gates、signed builds、patch metrics。
-- per-robot identity：unique credentials、MFA/RBAC、hardware-backed keys、secure boot where supported。
-- signed OTA：staged rollout、rollback、security updates、support period、EOL disclosure。
-- SBOM/VEX：release-level SBOM、CVE/KEV monitoring、affected/not affected status、advisory history。
-- CVD/VDP：security contact、security.txt、triage SLA、coordinated disclosure。
-- audit logs：admin access、robot commands、firmware updates、remote support、policy changes、map/data export、safety-mode changes。
-- OT guide：network segmentation、robot VLAN、zones/conduits、least privilege remote access、SIEM export。
+ROI 公式示例：
 
-安全表述：
+- RaaS / 租赁运营商：少赔的维修费 + 少赔的第三者责任 + 追回责任方赔偿 + 保险可得性提升 + 停机争议减少 - RiskLedger 成本。
+- 保险公司：损失率下降 + 反欺诈节省 + 理赔处理成本下降 + 风险选择改善 - 数据/集成成本。
+- 融资租赁：残值提升 + 灭失/逾期损失下降 + 保险可得性提升 + 处置效率提升 - 监控成本。
+- OEM 质保：识别误用索赔 + no-fault-found 减少 + 供应商追偿 + 质保准备金优化 - SDK/数据接入成本。
 
-- “designed to align with NIST SSDF, NIST IoT guidance, CISA Secure by Design and EU CRA evidence needs.”
-- 不说 CRA compliant、NIST certified、hack-proof、guaranteed secure 或 fully compliant。
+安全表述：不承诺保费必降、融资必批或责任自动判定，只承诺建立可验证事实层。
 
-## Qualcomm Value
+## 7. Competition And Moat
 
-RiskLedger 是一个非常适合 Qualcomm 的“硬件信任根 + 边缘证据”叙事：
+公开市场里还没有一个清晰主导者专门做“机器人事故证据交换与责任账本”。现有工具要么偏运维，要么偏开发数据，要么偏 IT/OT 风险，要么锁在 OEM 云里。
 
-- Secure Boot / hardware root of trust：证明机器人从授权软件启动。
-- QTEE / secure storage / SPU-like capabilities：保护签名密钥、计数器和证据哈希。
-- AI Hub：记录模型 ID、版本、runtime target、compiled artifact hash、latency、memory、compute-unit profile 和 numerical validation result。
-- Dragonwing / RB / QCS / IQ 平台：多摄像头、LiDAR、IMU、ToF、音频和控制数据在本体侧低延迟采集。
-- 5G / Wi-Fi / private network：离线签名、本地排队、恢复网络后同步账本。
-- Qualcomm edge 不只是运行模型，而是让模型、固件、传感器和事件证据可被第三方信任。
+RiskLedger 的 wedge：
 
-Demo hooks：
+- Robot EDR schema：定义机器人事故前后窗口，覆盖感知、控制、QNN、策略、地图、人工接管、安全状态和维护状态。
+- Evidence packet：自动截取事故前后多模态数据，生成可验证、可脱敏、可分享的证据包。
+- Chain of custody：hash、签名、时间戳、WORM/object lock、访问审计、导出记录和 redaction。
+- Claims / warranty / safety export：面向保险、OEM、SI、客户 EHS、法务、融资和监管流程。
+- Connector-first：接 Formant、InOrbit、Viam、Foxglove、Roboto、ServiceNow、Maximo、Jira、Zendesk 和 OEM cloud。
+- Risk data flywheel：每个事故、near-miss、维修、补丁、接管和质保结果都会改善下一版风险评分。
 
-1. Trusted Boot Gate：secure boot / attestation 通过才显示绿色；模拟 debug/tamper 后锁定高风险技能。
-2. Model Swap Alarm：AI Hub profile 模型正常；换成未验证模型后 RiskLedger 标记 model drift。
-3. Near-Miss Evidence Capsule：人进入限制区，机器人签名事件、保存本地视频、上传 hash 和元数据。
-4. Disconnected But Accountable：断网时持续本地签名，联网后按顺序同步。
-5. Tamper Demo：篡改一帧 telemetry，证据包 hash verification 失败。
-6. Fleet Risk Ledger：比较三台机器人在信任状态、模型状态、安全事件和未关闭证据上的差异。
+一句话边界：
 
-## Competition Demo
+> RiskLedger 是机器人事故的 EDR + 黑匣子 + claims exchange，不是另一个 robot fleet dashboard。
 
-最稳妥的比赛演示是浏览器可交互 replay：
+## 8. Why Qualcomm
 
-1. 模拟仓库 AMR 任务，显示机器人、工位、人行区和安全 zone。
-2. 出现 near-miss：人进入黄区，机器人保护停或降速。
-3. RobotShield 冻结事件前后数据窗口。
-4. RiskLedger 生成证据包：时间线、视频片段、LiDAR/地图、控制命令、模型哈希、固件版本、维护状态。
-5. 点击“校验”，证据链通过；手动篡改一条 telemetry，校验失败。
-6. 一键导出给 insurer / integrator / customer safety team 的证据摘要。
-7. 事件进入 corrective action：更新 ODD、速度区、测试场景和 SafetyOps gate。
+可信证据必须从边缘硬件开始，而不是事故后补表格。
 
-## China / Overseas Positioning
+Dragonwing IQ10 RRD 把异构计算、AI 加速、多相机、LiDAR、ToF、IMU、EtherCAT、CAN-FD、TSN、网络和机器人软件栈放进同一参考设计。RiskLedger 把这些能力转换成商业信任：证明某台机器人在某个模型/QNN/策略版本下，基于哪些传感器输入和控制链路做出了什么动作。
 
-中国版：
+Qualcomm 价值：
 
-- 面向机器人厂商、系统集成商、场景业主、租赁公司和保险/风控伙伴。
-- 重点说“事故复盘、运维质保、项目验收、设备租赁、责任边界、数据留痕”。
-- 不公开强调“自动理赔”，而强调“安全生产、设备可信、项目验收、可追溯运维”。
+- Secure edge：安全启动、设备身份、签名和本地证据密钥，让日志从源头具备可信起点。
+- Sensor fusion：相机、LiDAR、IMU、CAN、EtherCAT 和安全状态在本体侧同步封存。
+- QNN proof：AI Hub job、QNN context hash、runtime version 和 latency 进入模型证据链。
+- Offline trust：断网时本地签名排队，恢复 Wi-Fi/5G/专网后按 custody chain 同步。
+- Ecosystem attach：RiskLedger 能把 Qualcomm 生态从“机器人运行”延伸到“机器人承保、融资、质保和合规”。
 
-海外版：
+需要 Qualcomm 支持：
 
-- 面向 RaaS operator、robotics OEM、insurance broker、equipment lessor、enterprise risk team。
-- 重点说 insurability、bankability、claims reconstruction、product liability evidence、Cyber Resilience Act evidence needs。
-- 可以和 Koop / Lloyd's / AXA XL / Hartford / Axis 等生态作为外部市场信号，但不声称替代它们。
+- RB3 / IQ9 / IQ10 证据 profile：定义安全启动、传感器、QNN、系统版本、功耗和网络状态如何进入事件证据包。
+- AI Hub / QNN artifact ID：让比赛 demo 的模型不是“跑过”，而是能在事故回放里证明实际部署版本。
+- 生态验证场景：联合 OEM、RaaS、保险/MGA 和融资方做 90 天证据试点。
+
+## 9. Competition Demo
+
+8 分钟演示：把一次 near-miss 变成保险、质保、SLA 和训练都能使用的证据包。
+
+演示脚本：
+
+1. RobotLeaseOps 创建租赁任务，UptimeOS 显示机器人在线，RiskLedger agent 处于 armed 状态。
+2. 人员进入安全区，触发 `near_miss.human_zone_intrusion`。
+3. Evidence Agent 冻结 `T-60s` 到 `T+180s` 缓冲，打包 MCAP、视频、QNN runtime、policy decision log、SBOM/MLBOM。
+4. 生成 Merkle root、COSE signature、RFC3161 timestamp 和 RiskLedger receipt。
+5. RiskLedger 展示时间线：感知帧、policy decision、规划轨迹、速度/刹车曲线、急停状态和 redacted replay。
+6. UptimeOS 自动开 incident，RobotLeaseOps 加 legal hold，CertForge 一键生成标准映射 evidence pack。
+7. Tamper demo：改动一帧视频或一行日志，`GET /verify` 返回 hash mismatch。
+8. 导出 claim pack、warranty pack、SLA exception 和 LeRobot failure episode。
 
 ## Claims To Avoid
 
-- 不声称 guaranteed premium reduction 或 financing approval。
-- 不声称 determine legal fault；只说 evidence preservation and attribution support。
-- 不声称 OSHA approved、ANSI certified、CRA compliant、NIST certified 或 safety certified。
-- 不说 tamper-proof，除非实现足够密码学控制；更稳妥是 tamper-evident。
-- 不说机器人比人类绝对更安全；风险取决于场景、维护、控制和部署边界。
-- 不把 AI root-cause analysis 当作结论；AI 只能做 advisory，事实证据才是核心。
-- 不把 cybersecurity 说成 machinery / functional safety 的替代品。
+- 不说“全球首个机器人黑匣子”。
+- 不说“不可篡改”，说 tamper-evident / 可发现篡改。
+- 不承诺保费必降、融资必批、质保准备金必降。
+- 不暗示所有机器人都受 EU AI Act 高风险日志义务约束。
+- 不说 RiskLedger 能判定法律责任；它提供证据和责任因子。
+- 不声称 Qualcomm 官方合作、认证或内置，除非已经拿到授权。
+- 不说 CRA compliant、NIST certified、safety certified 或 hack-proof。
 
 ## Sources
 
-- IFR industrial robot demand：https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years
-- IFR service robots：https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom
-- A3 robot orders 2025：https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption
-- OSHA robotics：https://www.osha.gov/robotics
-- Koop Lloyd's Lab：https://www.lloyds.com/insights/lloyds-lab/programmes-and-initiatives/lloyds-lab-accelerator/alumni/koop-technologies
-- Koop underwriting API：https://www.koop.ai/blog/api-underwriting-a-perfect-solution-for-avs-robotics-insurance
-- The Hartford autonomous risk：https://www.thehartford.com/insights/technology/evaluating-autonomous-risk
-- Axis robotics insurance：https://axisinsurance.ca/commercial-insurance/robotics-insurance/
-- AXA XL autonomous vehicle policy：https://axaxl.com/press-releases/axa-xl-launches-single-customisable-policy-for-autonomous-vehicles
+- IFR industrial robot demand 2025：https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years
+- IFR service robots 2025：https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom
+- NHTSA Event Data Recorder：https://www.nhtsa.gov/research-data/event-data-recorder
+- 49 CFR Part 563：https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-563
+- EU AI Act Article 12：https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12
+- EU Cyber Resilience Act：https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act
 - EU Product Liability Directive：https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng
-- eCFR 49 CFR Part 563 Event Data Recorders：https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-563
-- Federal Register EDR final rule 2024：https://www.federalregister.gov/documents/2024/12/18/2024-29862/event-data-recorders
-- ISO 10218-1:2025：https://www.iso.org/standard/73933.html
-- ISO 10218-2:2025：https://www.iso.org/standard/73934.html
-- ANSI/A3 R15.08：https://www.automate.org/robotics/safety/robot-safety-standard-documents
-- OSHA Technical Manual robotics：https://www.osha.gov/otm/section-4-safety-hazards/chapter-4
-- NIST SP 800-92 Log Management：https://csrc.nist.gov/pubs/sp/800/92/final
-- NIST chain of custody glossary：https://csrc.nist.gov/glossary/term/chain_of_custody
-- NIST SSDF SP 800-218：https://csrc.nist.gov/pubs/sp/800/218/final
-- NISTIR 8259A IoT cybersecurity baseline：https://csrc.nist.gov/pubs/ir/8259/a/final
-- NIST SP 800-82 Rev. 3 OT Security：https://csrc.nist.gov/pubs/sp/800/82/r3/final
-- CISA Secure by Design：https://www.cisa.gov/resources-tools/resources/secure-by-design
-- CISA SBOM：https://www.cisa.gov/topics/information-communications-technology-supply-chain-security/sbom
-- EU Cyber Resilience Act：https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng
-- ISA/IEC 62443：https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards
-- Qualcomm secure boot：https://www.qualcomm.com/developer/blog/2024/12/secure-boot-as-part-of-platform-security-architecture-modern-system-on-chip
-- Qualcomm IoT security：https://www.qualcomm.com/products/features/iot-security
-- Qualcomm AI Hub：https://aihub.qualcomm.com/
-- Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
-- Qualcomm RB6：https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform
-- Dragonwing IQ10 RRD：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- China cross-border data rules：https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm
+- Dragonwing IQ10 Robotics Reference Design：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- Dragonwing RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- Qualcomm AI Hub compile examples：https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html
+- MCAP：https://mcap.dev/
+- ROS 2 DDS Security：https://design.ros2.org/articles/ros2_dds_security.html
+- OpenTelemetry Semantic Conventions：https://opentelemetry.io/docs/concepts/semantic-conventions/
+- COSE RFC 9052：https://datatracker.ietf.org/doc/rfc9052/
+- RFC 3161 timestamp：https://www.ietf.org/rfc/rfc3161.txt
+- RFC 9162 transparency log：https://datatracker.ietf.org/doc/html/rfc9162
+- C2PA Specification：https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html
+- Formant Fleet Observability：https://docs.formant.io/docs/fleet-observability
+- Viam Fleet Management：https://www.viam.com/platform/fleet-management
+- Cambridge Mobile Telematics Claims Exchange：https://www.cmtelematics.com/news/cambridge-mobile-telematics-announces-enhanced-driver-experiences-crash-capabilities-and-developer-tools/
