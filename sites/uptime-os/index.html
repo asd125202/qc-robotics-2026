@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UptimeOS | 机器人售后操作系统</title>
+    <title>UptimeOS | Dragonwing 机器人可运营服务层</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -13,12 +13,15 @@
         <span>UptimeOS</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#research">研究</a>
-        <a href="#plane">数据平面</a>
-        <a href="#service">服务</a>
-        <a href="#china">中国</a>
-        <a href="#demo">演示</a>
+        <a href="#problem">问题</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">为什么现在</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
@@ -26,44 +29,117 @@
       <section class="hero hero-uptime-os">
         <div class="hero-inner">
           <p class="eyebrow">Pitch 41 · Robot Aftermarket Service OS</p>
-          <h1>UptimeOS</h1>
-          <p class="hero-lede">机器人售后操作系统：健康护照、预测维护、远程诊断、备件图谱、技师工单、质保证据和 RaaS 可用率，全部接入 Qualcomm edge 的服务数据平面。</p>
+          <h1 class="long-word-title">UptimeOS</h1>
+          <p class="hero-lede">RaaS 卖的不是机器人，是可审计的 uptime。UptimeOS 给每台 Dragonwing 机器人一份 Health Passport，把遥测、AI Hub/QNN 证据、远程诊断、FRU/RMA、技师工单、质保和 SLA 发票接成一条售后经济账本。</p>
           <div class="cta-row">
-            <a class="button primary" href="#plane">查看服务数据平面</a>
-            <a class="button" href="../robot-lease-ops/">连接 RobotLeaseOps</a>
+            <a class="button primary" href="#problem">从售后黑洞开始</a>
+            <a class="button" href="#demo">看比赛演示</a>
           </div>
         </div>
       </section>
 
-      <section id="research" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">00 · Five-Thread Research</p>
-              <h2>机器人从 demo 走向规模化，瓶颈会从部署转向持续在线。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>机器人能交付，不代表它能被持续运营、融资、保险和续约。</h2>
             </div>
-            <p>五条研究线显示：机器人存量和 RaaS 队列已经足够大；远程诊断、备件、现场技师、SLA 和一次修复率决定 ROI；中国客户把售后能力当采购门槛；领先厂商都在把 uptime 做成服务商品。</p>
+            <p>商业机器人进入客户现场后，真正决定 ROI 的不是首日 demo，而是 uptime、MTTR、一次修复率、备件命中、质保责任、SLA 证据和下次续约。现在这些事实散落在 OEM 云、ROS 日志、微信群、CRM、Excel、备件 PDF、工单系统和财务发票里。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>Downtime</h3>
-              <p>非计划停机是制造与物流的真实成本锚点，机器人服务必须围绕 MTTR、MTBF 和一次修复率设计。</p>
+              <span class="claim-tag">客户痛点</span>
+              <h3>停机责任说不清</h3>
+              <p>机器人停在现场，客户只看到业务中断，却很难判断是硬件、软件、网络、模型、操作还是环境问题。</p>
             </article>
             <article class="card">
-              <h3>Installed Base</h3>
-              <p>IFR 口径 2024 年全球工业机器人运行存量约 4.664M，专业服务机器人销售接近 200,000 台。</p>
+              <span class="claim-tag">运营痛点</span>
+              <h3>远程诊断太晚</h3>
+              <p>工程师往往先拉群、翻日志、要视频，再决定是否派人；MTTR 被信息收集拖长。</p>
             </article>
             <article class="card">
-              <h3>RaaS Risk</h3>
-              <p>月付降低客户 CapEx，但把折旧、维护、备件、质保和 SLA 风险转移给运营商。</p>
+              <span class="claim-tag">服务痛点</span>
+              <h3>备件和技师不联动</h3>
+              <p>FRU、库存、替代件、技师资质、工单 checklist 和客户签收没有形成同一条闭环。</p>
             </article>
             <article class="card">
-              <h3>China Service</h3>
-              <p>中国市场需要 400/企微入口、本地备件库、授权服务商、现场响应和 SI 交付生态。</p>
+              <span class="claim-tag">金融痛点</span>
+              <h3>机器人不像资产</h3>
+              <p>融资方和保险方需要健康、维修、事故、模型版本和残值证据，而不是一个静态设备清单。</p>
             </article>
             <article class="card">
-              <h3>Aftermarket OS</h3>
-              <p>机会不是再做一个 dashboard，而是服务记录、健康分、备件、工单和证据的统一操作系统。</p>
+              <span class="claim-tag">高通痛点</span>
+              <h3>Dragonwing 价值停在交付前</h3>
+              <p>如果边缘 AI 只被当作算力卖点，就无法进入售后、续费、服务网络和生态标准。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="broken" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>今天的售后工具各管一段，没有一层为机器人 uptime 负责。</h2>
+            </div>
+            <p>OEM service cloud、RobOps dashboard、CMMS/EAM、现场服务系统和 RaaS 财务系统都有价值，但它们通常不共享机器人级事实：谁在何时更换了哪个部件、哪个模型版本在什么硬件上运行、哪次事故影响了 SLA，以及这台机器人是否还值得融资或转售。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">OEM Cloud</span>
+              <h3>强在单品牌，弱在跨队列</h3>
+              <p>ABB、KUKA、FANUC 等服务云能强化自家设备，但客户现场常是多品牌、多系统、多集成商。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">RobOps</span>
+              <h3>看得到状态，不一定闭环维修</h3>
+              <p>Formant、InOrbit、Foxglove 类工具解决可视化、日志和远程介入，但不天然覆盖 FRU/RMA、保修和发票。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">CMMS / FSM</span>
+              <h3>能派单，但不了解机器人</h3>
+              <p>ServiceNow、Maximo、Dynamics、MaintainX 管工单很强，却缺少 ROS、QNN、模型、OTA 和事故回放语义。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Spreadsheets</span>
+              <h3>短期便宜，长期不可审计</h3>
+              <p>Excel 和群聊可以撑住试点，但撑不住 RaaS 毛利、融资尽调、保险理赔和大客户采购审计。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>UptimeOS 是机器人售后经济的系统记录，不替代 OEM，也不替代 CMMS。</h2>
+            </div>
+            <p>它把机器人本体、边缘 AI、服务网络、备件、质保、保险和 RaaS 合同连接起来。核心不是再做一个 dashboard，而是把每次运行、异常、诊断、维修、OTA、换件、签收和 SLA 结算变成同一份可信资产记录。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Enroll</h3>
+              <p>扫码建档：robot_id、客户站点、Dragonwing target、BOM、证书、保修和数据边界。</p>
+            </article>
+            <article class="step">
+              <h3>Sense</h3>
+              <p>边缘 agent 采集 ROS、CAN、BMS、热、相机、网络、QNN latency 和任务状态。</p>
+            </article>
+            <article class="step">
+              <h3>Diagnose</h3>
+              <p>生成 incident packet、log bundle、疑似原因、风险等级、远程只读诊断和升级路径。</p>
+            </article>
+            <article class="step">
+              <h3>Fix</h3>
+              <p>匹配 FRU、库存、RMA、技师资质、移动 checklist、照片和客户签收。</p>
+            </article>
+            <article class="step">
+              <h3>Bill & Learn</h3>
+              <p>更新 uptime ledger、质保证据、SLA credit、RobotLeaseOps 发票和 LeRobot 失败片段。</p>
             </article>
           </div>
           <div class="image-band">
@@ -72,168 +148,220 @@
         </div>
       </section>
 
-      <section id="plane" class="slide tint">
+      <section id="why-now" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Service Data Plane</p>
-              <h2>每台机器人都应该有服务记录、健康分和可用率合同。</h2>
+              <p class="kicker">04 · Why Now</p>
+              <h2>机器人正在从项目交付转向运营资产，售后数据第一次变成战略入口。</h2>
             </div>
-            <p>UptimeOS 位于 RobotCoreOS 之上、客户业务系统之下。边缘侧采集和预处理诊断信号，云端编排工单、备件、SLA、证据和训练闭环；安全关键动作仍由 SafetyOps gate 和现场授权控制。</p>
+            <p>IFR 2025 显示 2024 年专业服务机器人销售接近 20 万台，RaaS fleet 增长 31%。Autodesk 2026 年宣布以约 36 亿美元收购 MaintainX，也说明维护、资产历史和现场运营数据正在成为平台级资产。机器人会比传统设备更需要这层记录，因为它同时包含硬件、软件、AI 模型、传感器、远程操作和安全责任。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Sense</h3>
-              <p>ROS、CAN、BMS、热区、NPU/GPU、定位、充电、校准和安全状态本体采集。</p>
+          <div class="grid four">
+            <div class="stat">
+              <strong>199K+</strong>
+              <span>IFR：2024 年专业服务机器人销售接近 20 万台。</span>
+            </div>
+            <div class="stat">
+              <strong>RaaS +31%</strong>
+              <span>订阅和租赁队列增长，让 uptime 变成直接收入指标。</span>
+            </div>
+            <div class="stat">
+              <strong>$3.6B</strong>
+              <span>Autodesk / MaintainX 交易信号：运维数据会进入资产生命周期平台。</span>
+            </div>
+            <div class="stat">
+              <strong>Health Passport</strong>
+              <span>监管、融资、保险和二手流通都需要可验证的设备生命周期记录。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">05 · Product</p>
+            <h2>给每台机器人一份可以被客户、服务商和金融方共同读取的健康护照。</h2>
+            <p class="lead">UptimeOS 的交付物不是一句“我们有运维平台”，而是一组可以拿给评委、客户、集成商和 Qualcomm 看的文件、界面和 API。它把服务操作变成可审计 artifact。</p>
+            <ul class="list">
+              <li>`robot-health-passport.json`：序列号、站点、Dragonwing SoC、运行小时、电池循环、固件、模型、维修、质保和 SLA。</li>
+              <li>`uptime-agent.manifest.yaml`：采集 topic、诊断权限、脱敏策略、离线缓存、远程访问和上报频率。</li>
+              <li>`incident-log-bundle.mcap`：任务上下文、地图位置、错误码、QNN profile、MCAP slice、照片/视频引用和 custody hash。</li>
+              <li>`fru-rma-record.json`：BOM、可更换件、兼容性、库存、替代件、质保状态、RMA 和技师签收。</li>
+              <li>`monthly-uptime-ledger.pdf`：uptime、MTTR、一次修复率、SLA credit、排除项、服务成本和续约风险。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/uptime-os.png" alt="机器人健康护照、事故包、备件记录和 uptime 账本图">
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Market & Business Model</p>
+              <h2>卖给谁？卖给机器人停机时真正亏钱的人。</h2>
+            </div>
+            <p>第一批买家不是所有机器人爱好者，而是 RaaS 运营商、OEM 售后部门、系统集成商、工厂/仓库运营团队和维护服务商。中国版更像 OEM/SI 白标服务中台；海外版更像按 robot/month、site/year 和 SLA tier 收费的售后 SaaS。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">中国版</span>
+              <h3>白标服务中台</h3>
+              <p>面向 OEM、SI 和区域服务商，支持企微/钉钉入口、本地备件库、授权服务商、私有化和客户工单门户。</p>
             </article>
-            <article class="step">
-              <h3>Packet</h3>
-              <p>自动生成日志包、MCAP 片段、健康信号、错误码、证据 hash 和脱敏状态。</p>
+            <article class="card">
+              <span class="claim-tag">海外版</span>
+              <h3>Robot/month SaaS</h3>
+              <p>按机器人、站点、服务等级和数据保留收订阅费，对接 ServiceNow、Maximo、Dynamics、Jira 和 Zendesk。</p>
             </article>
-            <article class="step">
-              <h3>Predict</h3>
-              <p>Qualcomm edge 先做异常检测和健康分，云端汇总 RUL、原因码和服务计划。</p>
+            <article class="card">
+              <span class="claim-tag">RaaS 运营商</span>
+              <h3>按 uptime 保护毛利</h3>
+              <p>避免现场派工、备件错配、质保争议和 SLA credit 失控；不承诺固定降幅，只做基线和改进验证。</p>
             </article>
-            <article class="step">
-              <h3>Dispatch</h3>
-              <p>备件兼容性、库存、授权服务商、技师 checklist 和客户签收进入一个工单。</p>
-            </article>
-            <article class="step">
-              <h3>Learn</h3>
-              <p>RiskLedger、CertForge、RobotLeaseOps 和 LeRobot failure mining 更新同一资产记录。</p>
+            <article class="card">
+              <span class="claim-tag">金融/保险</span>
+              <h3>提供尽调数据包</h3>
+              <p>为租赁、承保、延保、二手残值和事故复盘输出健康历史、服务记录、事件证据和模型版本。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="service" class="slide white">
+      <section id="moat" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Product Modules</p>
-              <h2>售后不是维修单，而是机器人全生命周期的资产系统。</h2>
+              <p class="kicker">07 · Competition & Moat</p>
+              <h2>UptimeOS 的壁垒不是看板，而是跨品牌、跨服务商、跨合同的维修事实图谱。</h2>
             </div>
-            <p>UptimeOS 把服务工作拆成六个可卖模块：健康护照、边缘诊断、事件证据包、FRU/备件图谱、技师移动工作流和 RaaS 可用率账本。</p>
+            <p>我们站在三层中间：下接 OEM cloud、ROS、PLC、OPC UA、MTConnect、QNN runtime 和传感器；上接 ServiceNow、Maximo、Dynamics、ERP、保险和融资系统。长期壁垒来自机器人级故障语义、FRU 知识、服务网络、事故证据和真实维修结果。</p>
           </div>
-          <div class="grid six">
+          <div class="grid four">
             <article class="card">
-              <h3>Health Passport</h3>
-              <p>序列号、运行小时、电池循环、固件、模型、校准、维修、质保和 SLA。</p>
+              <span class="claim-tag">短期壁垒</span>
+              <h3>机器人 Health Passport schema</h3>
+              <p>把设备身份、运行、AI、维修、质保和 SLA 统一到客户可读、服务商可执行的 schema。</p>
             </article>
             <article class="card">
-              <h3>Edge Agent</h3>
-              <p>低带宽诊断、离线缓存、本地脱敏、异常优先上报和安全审计。</p>
+              <span class="claim-tag">中期壁垒</span>
+              <h3>Alert-to-fix closed loop</h3>
+              <p>从异常到诊断、备件、派工、签收、RMA、发票和回归训练，形成可复制服务 workflow。</p>
             </article>
             <article class="card">
-              <h3>Incident Packet</h3>
-              <p>任务上下文、地图位置、日志、视频/MCAP、错误码和建议处理步骤。</p>
+              <span class="claim-tag">生态壁垒</span>
+              <h3>SI / 维护商网络</h3>
+              <p>让授权服务商、备件仓、OEM 和客户共享同一份事实，不靠单个工程师经验扩张。</p>
             </article>
             <article class="card">
-              <h3>FRU Graph</h3>
-              <p>BOM 到可更换件、兼容性、库存、替代件、交期和质保状态。</p>
-            </article>
-            <article class="card">
-              <h3>Tech Mobile</h3>
-              <p>QR 扫码、离线 checklist、备件消耗、照片、签收和回访评价。</p>
-            </article>
-            <article class="card">
-              <h3>Uptime Ledger</h3>
-              <p>可用率、MTTR、一次修复率、服务成本、残值和续约风险。</p>
+              <span class="claim-tag">数据壁垒</span>
+              <h3>故障知识会复利</h3>
+              <p>每次真实故障、错误排查、换件结果和 OTA 修复都会反哺下一次诊断和 LeRobot failure mining。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="china" class="slide dark">
+      <section id="qualcomm" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">03 · China Lane / Overseas Lane</p>
-              <h2>同一个售后内核，需要两种商业语言。</h2>
+              <p class="kicker">08 · Why Qualcomm</p>
+              <h2>Dragonwing 的下一层生态 attach，不是更多 demo，而是 uptime。</h2>
             </div>
-            <p>中国客户看重本地服务网络、快速响应、备件前置和 SI 项目交付；海外客户更强调支持门户、RMA、warranty reserve、IT 安全、OT 分区和服务证据。</p>
+            <p>Qualcomm 已经在 Dragonwing IQ10 RRD 中强调从 prototype 到 production 的一体化机器人平台：计算、传感、网络、软件、部署、验证和生命周期管理。UptimeOS 把这条主线商业化：让 Dragonwing 不只负责机器人跑起来，还负责机器人被客户长期运营、维护、升级和续约。</p>
           </div>
-          <div class="grid two">
+          <div class="grid four">
+            <div class="stat">
+              <strong>Agent</strong>
+              <span>Dragonwing Uptime Agent 在本体侧完成健康摘要、异常优先上报和低带宽诊断。</span>
+            </div>
+            <div class="stat">
+              <strong>QNN Evidence</strong>
+              <span>AI Hub / QNN latency、runtime、模型 hash 和 rollback 记录进入健康护照。</span>
+            </div>
+            <div class="stat">
+              <strong>Longevity</strong>
+              <span>长期供货、PCN/PDN、安全更新和备件计划变成客户采购信心。</span>
+            </div>
+            <div class="stat">
+              <strong>Ecosystem</strong>
+              <span>OEM、SI、云训练、SkillDock、RobotLeaseOps 和服务商围绕 Dragonwing 标准协同。</span>
+            </div>
+          </div>
+          <div class="grid three pipeline-extra">
             <article class="card">
-              <h3>中国版</h3>
-              <p>400 / 企微 / 微信小程序入口、区域备件中心、授权服务商、24-48 小时到场、中文故障码、WMS/MES/PLC/电梯/门禁/消防接口模板。</p>
+              <span class="claim-tag">需要高通支持</span>
+              <h3>Dragonwing 诊断 profile</h3>
+              <p>定义温度、功耗、QNN latency、相机、网络、BMS 和系统版本的标准上报模板。</p>
             </article>
             <article class="card">
-              <h3>海外版</h3>
-              <p>OEM / RaaS support portal、ServiceNow / Jira / Zendesk adapter、RBAC、audit log、JIT remote access、depot repair、residual value 和 insurability data。</p>
+              <span class="claim-tag">需要高通支持</span>
+              <h3>AI Hub / QNN 证据接口</h3>
+              <p>让模型部署证据直接进入售后记录，方便质保、回滚、续约和技能市场审核。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>开发板与生态背书</h3>
+              <p>复赛用真实开发板跑诊断 agent，展示 Qualcomm-first aftermarket OS 的可行性。</p>
             </article>
           </div>
         </div>
       </section>
 
       <section id="demo" class="slide white">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">04 · Demo Story</p>
-            <h2>从电机异常，到工单、备件、签收和训练回流。</h2>
-            <p class="lead">比赛 demo 不需要真实搭一个售后网络。浏览器里展示一条闭环就够：电机电流异常，边缘 agent 生成 incident packet，系统推荐 FRU，技师扫码完成维修，证据进入 RiskLedger，失败片段进入 LeRobot。</p>
-            <ul class="list">
-              <li>Edge detection：本体侧识别电机温升和电流趋势。</li>
-              <li>Service twin：显示健康护照、质保、SLA、备件兼容性和库存。</li>
-              <li>Technician flow：QR 扫码、离线 checklist、照片、备件消耗和客户签收。</li>
-              <li>Closed loop：RobotLeaseOps 计算可用率，CertForge 记录维修变更，LeRobot 标记 failure episode。</li>
-            </ul>
-          </div>
-          <div class="visual">
-            <img src="../assets/uptime-os.png" alt="机器人售后闭环、预测维护和技师移动工单图">
-          </div>
-        </div>
-      </section>
-
-      <section id="qualcomm" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · Why Qualcomm</p>
-              <h2>Qualcomm 不只让机器人跑起来，还能让机器人修得快、活得久、续得上。</h2>
+              <p class="kicker">09 · Demo & Ask</p>
+              <h2>比赛演示要证明一件事：我们能把一次故障变成可审计、可收费、可学习的服务闭环。</h2>
             </div>
-            <p>UptimeOS 把 Qualcomm 的边缘 AI、连接、安全启动、设备身份、AI Hub profile、热/功耗/电池/传感数据和长期供货计划，变成客户续约、服务毛利和机器人资产残值的商业证据。</p>
+            <p>8 分钟 demo 不需要搭真实售后网络。我们用浏览器模拟一台 Dragonwing AMR + 小机械臂，从电机异常和 QNN 延迟漂移开始，走完整个 alert-to-fix-to-ledger 流程。</p>
           </div>
           <div class="grid four">
-            <div class="stat">
-              <strong>Edge AI</strong>
-              <span>异常检测、视频/日志压缩、热健康、电池健康和电机健康尽量在本体侧完成。</span>
-            </div>
-            <div class="stat">
-              <strong>Secure OTA</strong>
-              <span>签名发布、canary、A/B 回滚、SafetyOps gate 和 CertForge 证据。</span>
-            </div>
-            <div class="stat">
-              <strong>Connectivity</strong>
-              <span>Wi-Fi、5G、专网、离线缓存和恢复同步支撑远程诊断。</span>
-            </div>
-            <div class="stat">
-              <strong>Lifecycle</strong>
-              <span>BOM、PCN/PDN、备件、安全更新和健康护照提高长期采购信心。</span>
-            </div>
+            <article class="card">
+              <span class="claim-tag">Demo 1-2 min</span>
+              <h3>扫码建档</h3>
+              <p>生成健康护照：robot_id、BOM、Dragonwing target、模型版本、服务合同和数据边界。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Demo 3-4 min</span>
+              <h3>异常与远程诊断</h3>
+              <p>模拟电机温升、相机丢帧或 QNN latency 漂移，生成 incident packet 和 log bundle。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Demo 5-6 min</span>
+              <h3>备件与技师闭环</h3>
+              <p>系统推荐 FRU，检查库存，创建移动工单，记录照片、换件、客户签收和 RMA。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Demo 7-8 min</span>
+              <h3>SLA 与训练回流</h3>
+              <p>更新 uptime ledger、RobotLeaseOps 发票、RiskLedger 证据、CertForge 变更和 LeRobot failure episode。</p>
+            </article>
           </div>
-        </div>
-      </section>
-
-      <section class="slide white">
-        <div class="wrap">
-          <p class="quote">UptimeOS 的新意不是发明维修，而是把机器人售后变成平台能力：一台机器人从交付、运行、异常、维修、证据、续约到二次销售，都有同一份可信资产记录。</p>
+          <p class="quote pipeline-extra">一句话：每台商用机器人都需要一份可以融资、保险、转售和索赔的健康护照；UptimeOS 是这份护照背后的操作系统。</p>
           <div class="source-links">
-            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Industrial Robots</a>
-            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
-            <a href="https://assets.new.siemens.com/siemens/assets/api/uuid:1b43afb5-2d07-47f7-9eb7-893fe7d0bc59/TCOD-2024_original.pdf">Siemens Downtime</a>
-            <a href="https://www.kuka.com/en-us/services/service_robots-and-machines/robot-service-maintenance-servicing">KUKA Service</a>
-            <a href="https://www.motoman.com/en-us/service-training/spare-parts">Motoman Parts</a>
-            <a href="https://www.bcg.com/publications/2025/the-next-frontier-of-field-service">BCG Field Service</a>
-            <a href="https://www.ibm.com/think/topics/first-time-fix-rate">IBM FTFR</a>
-            <a href="https://formant.io/">Formant</a>
-            <a href="https://www.inorbit.ai/">InOrbit</a>
-            <a href="https://foxglove.dev/">Foxglove</a>
-            <a href="https://locusrobotics.com/why-locus/robots-as-a-service">Locus RaaS</a>
-            <a href="https://mobile-industrial-robots.com/products/software/mir-fleet">MiR Fleet</a>
-            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots 2025</a>
+            <a href="https://adsknews.autodesk.com/en/news/autodesk-to-acquire-maintainx-advancing-unified-platform-in-operations/">Autodesk / MaintainX</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10 RRD</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/product-longevity-program">Qualcomm Product Longevity</a>
+            <a href="https://www.fanucamerica.com/products/software/zero-down-time-zdt">FANUC ZDT</a>
+            <a href="https://new.abb.com/products/robotics/nl/service/data-driven-services/connected-services">ABB Connected Services</a>
+            <a href="https://www.kuka.com/en-us/products/robotics-systems/software/cloud-software/iiqot-robot-condition-monitoring">KUKA iiQoT</a>
+            <a href="https://docs.formant.io/docs/incident-management">Formant Incident Management</a>
+            <a href="https://www.inorbit.ai/unified-command">InOrbit Unified Command</a>
+            <a href="https://www.servicenow.com/docs/r/release-notes/field-service-management-rn.html">ServiceNow Field Service</a>
+            <a href="https://www.ibm.com/products/maximo">IBM Maximo</a>
+            <a href="https://learn.microsoft.com/en-us/dynamics365/field-service/connected-field-service">Dynamics Connected Field Service</a>
             <a href="https://github.com/ros/diagnostics">ROS Diagnostics</a>
-            <a href="https://mcap.dev/">MCAP</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX Runtime QNN EP</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act">EU Cyber Resilience Act</a>
           </div>
         </div>
       </section>

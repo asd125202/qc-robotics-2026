@@ -74,7 +74,7 @@ The current first-batch pitch directions are:
 - `WorldForge`: simulation CI and synthetic-data factory for LeRobot datasets, failure mining, and Qualcomm edge validation.
 - `IntegratorForge`: certified system integrator marketplace and deployment evidence system for RobotMac / Qualcomm edge projects.
 - `RobotLeaseOps`: Dragonwing lease-ready robot asset operations layer for RaaS, leasing, uptime SLA, service history, AI Hub/QNN evidence, maintenance, financing, invoices, and bankable robot capacity.
-- `UptimeOS`: aftermarket service operating system for health passports, predictive maintenance, remote diagnostics, FRU/spares, technician workflows, warranty evidence, and RaaS uptime ledgers.
+- `UptimeOS`: YC-style pitch for a Dragonwing aftermarket service OS that turns telemetry, AI Hub/QNN evidence, remote diagnostics, FRU/RMA, technician workflows, warranty history, and SLA invoices into robot health passports and auditable uptime ledgers.
 - `RiskLedger`: robot risk evidence ledger for black-box event capture, insurance underwriting data, finance diligence, warranty analytics, SLA evidence, and tamper-evident incident replay.
 - `ScaleFoundry`: prototype-to-SKU hardware productization, certification evidence, manufacturing launch, and lifecycle assurance.
 - `CertForge`: compliance evidence factory for Qualcomm-powered robots, covering standards mapping, safety cases, SBOM/VEX, CRA readiness, radio, battery, CE/FCC/CCC/SRRC workflow, and launch dossier exports.
