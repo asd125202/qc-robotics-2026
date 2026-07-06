@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TrainRouter | 机器人训练交付层</title>
+    <title>TrainRouter | 受控机器人训练执行平面</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -14,10 +14,9 @@
       </a>
       <nav class="navlinks" aria-label="页面导航">
         <a href="#problem">问题</a>
-        <a href="#why-now">为什么现在</a>
         <a href="#solution">方案</a>
+        <a href="#product">产品</a>
         <a href="#market">商业</a>
-        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
         <a href="#demo">演示</a>
       </nav>
@@ -26,131 +25,212 @@
     <main>
       <section class="hero hero-train-router">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 25 · Robot Training Delivery Layer</p>
+          <p class="eyebrow">Pitch 25 · Controlled Robot Training Execution Plane</p>
           <h1 class="long-word-title">TrainRouter</h1>
-          <p class="hero-lede">机器人训练不应该停留在“找一块 GPU 跑一次脚本”。TrainRouter 把 LeRobot 数据集、预算、数据地域、评估门槛和 Qualcomm 边缘目标写成同一份训练合约，让中国云和海外云都能交付同一种可验证的机器人技能版本。</p>
+          <p class="hero-lede">LeRobot CloudTwin 背后的受控机器人训练执行平面：把一份不可变 robot job contract 路由到中国云、海外云或私有 lane，并强制执行预算 admission、数据边界、checkpoint 恢复、固定评测和 Qualcomm edge export gate。</p>
           <div class="cta-row">
             <a class="button primary" href="#problem">从问题开始</a>
-            <a class="button" href="#demo">看 8 分钟演示</a>
+            <a class="button" href="#demo">看演示闭环</a>
           </div>
         </div>
       </section>
 
-      <section id="problem" class="slide white">
+      <section id="problem" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
               <p class="kicker">01 · Problem</p>
-              <h2>机器人团队能录数据，也能训练一次模型，但很难把训练变成交付。</h2>
+              <h2>机器人团队能训练一次模型，但很难把训练变成交付。</h2>
             </div>
-            <p>真正的商业客户不只问“模型有没有训练出来”。他们会问预算是否失控、数据是否跨境、不同云训练结果是否可比较、模型能否部署回真实机器人，以及失败后能否回滚。</p>
+            <p>真正的商业客户不只问“模型有没有训练出来”。他们会问预算是否失控、数据是否跨境、不同云训练结果是否可比较、模型能否部署回 Qualcomm edge，以及失败后能否回滚。</p>
           </div>
-          <div class="grid four">
+          <div class="grid six">
             <article class="card">
-              <span class="claim-tag">痛点 1</span>
-              <h3>云 GPU 成本不可控</h3>
-              <p>训练任务被拆散在多个账号、控制台和镜像里，团队很难在启动前承诺费用、时长和失败重试边界。</p>
+              <h3>成本不可控</h3>
+              <p>云预算通常不是硬封顶；spot/竞价会中断；GPU 价格、库存、区域和存储费用快速变化。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">痛点 2</span>
-              <h3>中国版和海外版割裂</h3>
-              <p>中国客户、海外客户、公开 demo 数据和企业私有数据面对不同区域、支付、网络和合规约束。</p>
+              <h3>数据边界不可见</h3>
+              <p>中国客户、海外客户、公开 demo 和企业私有数据面对不同区域、账号、付款、发票和访问约束。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">痛点 3</span>
-              <h3>训练结果不可比较</h3>
-              <p>同一份 LeRobot 数据在不同 provider 上跑完，如果没有固定 split、seed、容器和评估脚本，就无法判断模型真的变好。</p>
+              <h3>训练不可复现</h3>
+              <p>不同 provider、镜像、dataset revision、split、seed、checkpoint 和代码版本会让结果不可比较。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">痛点 4</span>
-              <h3>云端结果断在边缘部署前</h3>
-              <p>商业价值发生在机器人本体。模型文件如果不能进入 Qualcomm edge runtime、profile、回滚和技能发布链路，就不是产品交付。</p>
+              <h3>评测不可采购</h3>
+              <p>训练 loss 下降不等于任务变好；客户需要固定 eval protocol、失败类型、回放视频和 release verdict。</p>
+            </article>
+            <article class="card">
+              <h3>边缘导出断裂</h3>
+              <p>云端 checkpoint 必须进入 ONNX/PT2、AI Hub/QNN、profile、inference 校验、artifact hash 和 rollback。</p>
+            </article>
+            <article class="card">
+              <h3>买方不止 ML 团队</h3>
+              <p>FinOps、采购、安全、法务和数据治理都会问预算、区域、审计、权限和责任边界。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="why-now" class="slide dark">
+      <section class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Why Now</p>
-              <h2>机器人学习正在从研究样例，走向可规模化的训练供应链。</h2>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>现有工具强在运行任务，弱在机器人训练交付。</h2>
             </div>
-            <p>时机来自三件事同时发生：LeRobot 把数据和策略工作流标准化，云 GPU 市场碎片化且价格/库存快速变化，Qualcomm 的边缘 AI 工具链让“训练后部署到真实设备”成为可验证目标。</p>
+            <p>TrainRouter 不替代 Kubernetes、SkyPilot、Ray、Kubeflow、HF Jobs 或云厂商；它把它们当 backend，把 robot contract、routing policy、evidence bundle 和 Qualcomm export gate 做成产品层。</p>
           </div>
-          <div class="grid three">
+          <div class="grid six">
             <article class="card">
-              <span class="claim-tag">LeRobot</span>
-              <h3>机器人数据格式开始统一</h3>
-              <p>LeRobotDataset v3 将多模态时间序列、视频和元数据组织成可训练、可索引、可流式使用的数据层，适合变成商业训练合约。</p>
+              <h3>Kubernetes / Ray</h3>
+              <p>负责运行容器和作业，但不理解 LeRobot dataset、observation/action schema、机器人 embodiment 和 edge target。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">市场规模</span>
-              <h3>机器人部署正在扩大</h3>
-              <p>IFR 2025 报告显示 2024 年工业机器人安装量约 54.2 万台，亚洲占 74%，中国占全球部署 54%。中国版和海外版不是选择题，而是产品现实。</p>
+              <h3>SkyPilot</h3>
+              <p>跨云 GPU 调度很强，但它不提供机器人训练 contract、数据权利、Qualcomm artifact receipt 和 promotion gate。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">边缘目标</span>
-              <h3>部署证据可以产品化</h3>
-              <p>Qualcomm AI Hub 支持模型转换、on-device profile、数值正确性验证和 QAIRT/QNN 运行时路径，这给机器人训练结果提供了清晰的落地门槛。</p>
+              <h3>Kubeflow / SageMaker</h3>
+              <p>提供训练 job schema 或 pipeline，但通常停在云内资源、容器、输入输出和模型 registry。</p>
+            </article>
+            <article class="card">
+              <h3>W&B / MLflow / HF Jobs</h3>
+              <p>支持复现实验和 artifact，但不会强制机器人 preflight、behavior gate、edge gate 和 rollback drill。</p>
+            </article>
+            <article class="card">
+              <h3>GPU Providers</h3>
+              <p>RunPod、Lambda、Modal、AutoDL、PAI、腾讯、华为卖算力，不负责把结果变成 edge skill release。</p>
+            </article>
+            <article class="card">
+              <h3>RobotOps Tools</h3>
+              <p>Viam、Formant、Foxglove 解决 fleet、teleop、数据可视化或运维，不是受控训练执行平面。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="solution" class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">03 · Solution</p>
-              <h2>一份 job contract，路由到任意云，输出同一种机器人技能版本。</h2>
-            </div>
-            <p>TrainRouter 的核心洞察是：机器人训练不是购买 GPU，而是发布一个可审计的 skill release。每次 release 都必须绑定 dataset hash、训练容器、预算、评估结果、Qualcomm target profile 和 rollback package。</p>
+      <section id="solution" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · Solution</p>
+            <h2>把通用云 runner 变成机器人训练供应链。</h2>
+            <p class="lead">TrainRouter = Robot Job Contract + Lane Policy + Budget Admission + Data Boundary + Reproducible Eval + Artifact Provenance + Qualcomm Export Gate。</p>
+            <ul class="list">
+              <li>Contract：写入 kind、dataset revision、policy、robot profile、budget、data class、region、eval protocol 和 edge target。</li>
+              <li>Route：按 China / Overseas / Private lane 选择 AutoDL、PAI、腾讯、华为、RunPod、Lambda、Modal、CoreWeave 或 BYOC。</li>
+              <li>Evaluate：固定 eval gate，输出 success、failure tags、intervention rate、replay evidence、baseline delta 和 verdict。</li>
+              <li>Export：返回 Qualcomm compile/profile/inference/download receipt、runtime evidence、artifact hash 和 rollback package。</li>
+            </ul>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Contract</h3>
-              <p>写入 LeRobot dataset、policy、robot profile、budget、region 和 eval gate。</p>
-            </article>
-            <article class="step">
-              <h3>Route</h3>
-              <p>按 China / Overseas / Auto lane 选择 AutoDL、PAI、Runpod、Lambda 或 Modal。</p>
-            </article>
-            <article class="step">
-              <h3>Train</h3>
-              <p>锁定容器、split、seed、checkpoint 和重试策略，记录 cost estimate 与运行日志。</p>
-            </article>
-            <article class="step">
-              <h3>Evaluate</h3>
-              <p>统一评估成功率、失败类型、动作平滑度和 replay 指标，不让 provider 差异污染结论。</p>
-            </article>
-            <article class="step">
-              <h3>Export</h3>
-              <p>生成 Qualcomm edge policy package、runtime evidence、回滚包和 SkillDock 发布凭证。</p>
-            </article>
-          </div>
-          <div class="image-band">
+          <div class="visual">
             <img src="../assets/train-router.png" alt="中国云和海外云 GPU 训练路由及 Qualcomm 边缘部署图">
           </div>
         </div>
       </section>
 
-      <section class="slide tint">
+      <section class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Why Now</p>
+              <h2>LeRobot、双云 GPU、企业治理和 Qualcomm edge gate 同时成熟。</h2>
+            </div>
+            <p>CloudTwin 已经定义了 episode-to-policy release，TrainRouter 承担其中最难标准化的执行层：在明确预算和数据边界内训练，并把结果推到 Qualcomm edge 可验证门槛。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>LeRobot 标准化</h3>
+              <p>Dataset v3、HF Jobs、`lerobot-train/eval/rollout`、HIL/DAgger 和 policy zoo 给出共同语言。</p>
+            </article>
+            <article class="card">
+              <h3>双云现实存在</h3>
+              <p>海外 RunPod/Modal/Lambda/CoreWeave，国内 AutoDL/阿里/腾讯/华为，价格、库存和采购流程差异很大。</p>
+            </article>
+            <article class="card">
+              <h3>企业要受控执行</h3>
+              <p>预算硬停、数据驻留、跨境审批、RBAC、审计、SIEM、provenance 和 evidence export 进入采购语言。</p>
+            </article>
+            <article class="card">
+              <h3>Qualcomm 可验证</h3>
+              <p>AI Hub、QNN/QAIRT、ONNX Runtime QNN、Profiler、Qualcomm Linux 和 QIR SDK 让 edge gate 可以产品化。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Product</p>
+              <h2>用户看到的是训练订单和验收单，不是云厂商控制台。</h2>
+            </div>
+            <p>TrainRouter 的产品不是“发起训练”按钮，而是一条从 admission 到 edge receipt 的受控路径。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Contract</h3>
+              <p>选择 train/eval/rollout/hil、dataset、policy、robot profile、target board、data class、region 和 budget。</p>
+            </article>
+            <article class="step">
+              <h3>Preflight</h3>
+              <p>检查 Dataset v3 schema、camera/FPS、policy I/O、data region、spot_allowed 和 checkpoint policy。</p>
+            </article>
+            <article class="step">
+              <h3>Route</h3>
+              <p>敏感数据禁用 spot/community；紧急交付走 on-demand、预留、专属或私有 runner。</p>
+            </article>
+            <article class="step">
+              <h3>Guard</h3>
+              <p>生成 cost estimate、max_cost、hard_stop_policy、warning/checkpoint/stop thresholds 和 approval flow。</p>
+            </article>
+            <article class="step">
+              <h3>Execute</h3>
+              <p>渲染完整 LeRobot CLI，提交 adapter，记录 job id、logs、resource metrics、checkpoint 和 recovery log。</p>
+            </article>
+          </div>
+          <div class="pipeline pipeline-extra">
+            <article class="step">
+              <h3>Evaluate</h3>
+              <p>固定 revision、split、seed 和 eval protocol；仿真、回放和真实机器人指标分开标注。</p>
+            </article>
+            <article class="step">
+              <h3>Export</h3>
+              <p>提交 Qualcomm export gate，记录 AI Hub job IDs、runtime、device、latency、memory 和 fallback。</p>
+            </article>
+            <article class="step">
+              <h3>Package</h3>
+              <p>生成 skill release package、rollback package、qualcomm_export_manifest 和 SkillCertKit 凭证。</p>
+            </article>
+            <article class="step">
+              <h3>Audit</h3>
+              <p>输出 Budget/FinOps、Data Boundary、Governance/Provenance 和评委版 evidence table。</p>
+            </article>
+            <article class="step">
+              <h3>Publish</h3>
+              <p>通过 SkillCertKit 后进入 SkillDock；没有 edge evidence 不可发布。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark">
         <div class="wrap split">
           <div>
-            <p class="kicker">04 · Product</p>
-            <h2>用户看到的是训练订单，不是云厂商控制台。</h2>
-            <p class="lead">TrainRouter 把 provider 差异封装成 adapter，把客户关心的边界放到任务合约里：最多花多少钱、数据留在哪里、训练失败怎么办、什么指标算通过、模型要部署到哪块 Qualcomm 板子。</p>
-            <ul class="list">
-              <li>预算守卫：70% 预警、85% 自动 checkpoint、95% 停机或人工确认。</li>
-              <li>数据边界：中国客户默认 China lane，海外公开 demo 可进入 Auto lane。</li>
-              <li>训练复现：固定 dataset hash、split、seed、container digest 和 eval harness。</li>
-              <li>交付闭环：输出 edge artifact manifest，而不是只输出一个权重文件。</li>
-            </ul>
+            <p class="kicker">06 · Product API/Evidence</p>
+            <h2>不可变 robot job contract 是核心资产。</h2>
+            <p class="lead">字段包括 runner、dataset revision、split/episode ids、policy checkpoint、full CLI、max cost、hard stop、spot policy、eval protocol、target device、audit sink 和 rollback requirement。</p>
           </div>
-          <div class="visual">
-            <img src="../assets/train-router.png" alt="GPU 训练预算控制、数据边界和边缘导出路由图">
+          <div>
+            <ul class="list">
+              <li>Job Evidence：rendered command、job id/url、status、logs、resource metrics、cost estimate vs actual。</li>
+              <li>Training Evidence：dataset commit、LeRobot version、container digest、seed、train_config、checkpoint hash。</li>
+              <li>Eval Evidence：eval_info、rollout videos、failure/intervention ids、gate verdict、human approval。</li>
+              <li>Governance Evidence：Budget/FinOps、Data Boundary、SSO/RBAC、audit log、SBOM、provenance。</li>
+              <li>Qualcomm Receipt：compile/profile/inference/download IDs、runtime、target device、latency、memory、fallback 和 artifact hash。</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -159,107 +239,93 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · Market & Business Model</p>
-              <h2>从一次训练脚本，升级成机器人技能生产线。</h2>
+              <p class="kicker">07 · Market & Business Model</p>
+              <h2>第一批客户是有真实机器人数据和交付压力的人。</h2>
             </div>
-            <p>目标客户不是“所有 AI 团队”，而是已经开始采集真实机器人数据、需要把训练结果交付给硬件和业务场景的团队：高校实验室、机器人初创公司、OEM、系统集成商和企业创新部门。</p>
+            <p>TrainRouter 赚的不是纯 GPU 价差，而是受控执行、数据边界、可复现评估、edge export 和证据包的钱。</p>
           </div>
-          <div class="grid four">
+          <div class="grid six">
             <article class="card">
-              <span class="claim-tag">Developer Starter</span>
-              <h3>开发者起步包</h3>
-              <p>面向比赛队伍和高校实验室，提供固定预算的小 GPU 训练额度、公开数据 lane 和基础 edge export。</p>
+              <h3>LeRobot 开发者</h3>
+              <p>需要固定预算、低摩擦训练、比赛展示和 reproducible eval pack。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Pro Lab</span>
-              <h3>实验室订阅</h3>
-              <p>按月收取平台费与计算转售服务费，支持多次 train/eval loop、artifact storage 和评估报告。</p>
+              <h3>机器人初创公司</h3>
+              <p>需要把 demo 变成可复现版本发布，避免云脚本、数据和边缘部署断裂。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">SI Pilot</span>
-              <h3>集成商试点包</h3>
-              <p>4-8 周固定试点，绑定数据采集、训练迭代、Qualcomm edge evidence 和现场验收指标。</p>
+              <h3>系统集成商</h3>
+              <p>把训练成本、数据边界、验收指标和回滚写进 4-8 周试点合同。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Enterprise Lane</span>
-              <h3>企业私有训练通道</h3>
-              <p>私有存储、区域策略、SSO/RBAC、审计日志和指定 provider，对接企业数据与采购流程。</p>
+              <h3>企业治理买方</h3>
+              <p>FinOps、安全、法务、采购需要 hard stop、approval、RBAC、region allowlist 和 SIEM audit。</p>
+            </article>
+            <article class="card">
+              <h3>Lane 默认值</h3>
+              <p>海外 dev 用 Modal/RunPod/Lambda；海外企业用 CoreWeave/Lambda；中国 dev 用 AutoDL；中国企业用 PAI/腾讯/华为。</p>
+            </article>
+            <article class="card">
+              <h3>商业模式</h3>
+              <p>Developer Starter、Pro Lab、SI Pilot、Enterprise Private Lane 和 Governance Pack。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="moat" class="slide tint">
+      <section class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">06 · Competition & Moat</p>
-              <h2>我们不是又一个 GPU 云，而是机器人训练 release system。</h2>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>护城河不是“更会调度 GPU”，而是机器人训练证据链。</h2>
             </div>
-            <p>Runpod、Lambda、PAI、ModelArts、Modal 解决算力；Ray、SkyPilot、Kubeflow 解决通用调度；Viam、Formant、Foxglove 解决部分机器人运维或数据可视化。缺口在于：没有一层把 LeRobot 数据、双云训练、预算边界、统一评估和 Qualcomm edge export 绑定成商业交付物。</p>
+            <p>SkyPilot 已经覆盖多云 GPU arbitrage，W&B/MLflow 已经覆盖 artifact 和 registry。TrainRouter 的差异在机器人语义、数据边界、评测门禁和 Qualcomm edge receipt。</p>
           </div>
-          <div class="grid three">
-            <article class="card">
-              <span class="claim-tag">短期壁垒</span>
-              <h3>机器人训练合约库</h3>
-              <p>积累不同机器人、传感器、动作空间、policy、GPU class 和 Qualcomm target 的可复用 job templates。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">中期壁垒</span>
-              <h3>评估与失败数据</h3>
-              <p>把每次失败、人工 takeover、replay eval 和边缘 profile 变成下次训练的选择依据，形成数据飞轮。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">长期壁垒</span>
-              <h3>Qualcomm-first skill release graph</h3>
-              <p>每个技能版本都有硬件兼容、runtime evidence、rollback 和市场上架记录，切换云供应商不会切断产品资产。</p>
-            </article>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Contract</strong>
+              <span>observation/action schema、embodiment、sensor calibration、sim/real split、policy type 和 robot target。</span>
+            </div>
+            <div class="stat">
+              <strong>Boundary</strong>
+              <span>China / Overseas / Private lane、region allowlist、data class、artifact/log residency。</span>
+            </div>
+            <div class="stat">
+              <strong>Gate</strong>
+              <span>preflight、artifact、behavior、human approval、failure/intervention evidence 和 rollback drill。</span>
+            </div>
+            <div class="stat">
+              <strong>Receipt</strong>
+              <span>AI Hub compile/profile/inference/download、QNN/QAIRT target、device-specific caveat 和 artifact hash。</span>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="qualcomm" class="slide dark">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">07 · Why Qualcomm</p>
-              <h2>云可以换，机器人本体上的边缘标准不能换。</h2>
-            </div>
-            <p>TrainRouter 把所有云端训练结果收敛到 Qualcomm 边缘 AI 证据包：模型格式、AI Hub compile/profile、QAIRT/QNN runtime、设备验证、功耗/延迟标签和回滚策略。这样 Qualcomm 不只是提供开发板，而是成为机器人技能交付的默认目标平台。</p>
+        <div class="wrap split">
+          <div>
+            <p class="kicker">09 · Why Qualcomm</p>
+            <h2>云可以换，机器人本体上的边缘标准不能换。</h2>
+            <p class="lead">TrainRouter 把“云训练完成”变成 Qualcomm 关心的交付物：checkpoint、ONNX/PT2、量化日志、AI Hub job IDs、目标设备、runtime、NPU placement、latency、memory、fallback、数值差异、artifact hash 和 rollback package。</p>
           </div>
-          <div class="grid four">
-            <div class="stat">
-              <strong>Route</strong>
-              <span>中国云和海外云只是训练资源池，客户接口保持一致。</span>
-            </div>
-            <div class="stat">
-              <strong>Compile</strong>
-              <span>训练结果进入 Qualcomm AI Hub / QAIRT / QNN 导出门槛。</span>
-            </div>
-            <div class="stat">
-              <strong>Profile</strong>
-              <span>每个 release 附带延迟、内存、算力单元和数值正确性标签。</span>
-            </div>
-            <div class="stat">
-              <strong>Publish</strong>
-              <span>通过 SkillCertKit 后进入 SkillDock，成为可售机器人技能。</span>
-            </div>
-          </div>
-          <div class="grid three pipeline-extra">
+          <div class="grid two">
             <article class="card">
-              <span class="claim-tag">需要高通支持</span>
-              <h3>AI Hub 额度与 target profile</h3>
-              <p>用于比赛期间把 demo policy 真实跑过 compile/profile 流程，形成可信证据截图和报告。</p>
+              <h3>Prototype-to-production</h3>
+              <p>开发者不是只说“我训练好了”，而是带着 RB3/QCS6490、QCS8550、IQ 系列的可审计证据来关闭性能和算子问题。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">需要高通支持</span>
-              <h3>Dragonwing 开发板与 Device Cloud</h3>
-              <p>让复赛作品从网页原型升级为端侧验证，不只停留在云端训练。</p>
+              <h3>Artifact Gate</h3>
+              <p>compile、profile、inference 校验、download receipt、optrace/QHAS bottleneck 和 artifact hash 进入 release record。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">需要高通支持</span>
-              <h3>Profiler 指标模板</h3>
-              <p>把机器人技能发布指标标准化，帮助生态伙伴判断一个技能是否可以上架和交付。</p>
+              <h3>Device-specific Truth</h3>
+              <p>QNN context binary 是 SoC-specific；proxy 分数不能当真实硬件保证，profile 必须标注目标设备和运行时。</p>
+            </article>
+            <article class="card">
+              <h3>具体请求</h3>
+              <p>AI Hub quota、Device Cloud/真实设备、QNN soc_model 映射、QNN EP 矩阵、QIR 样例、Profiler 模板和 Robotics Hub review。</p>
             </article>
           </div>
         </div>
@@ -269,47 +335,75 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">08 · Demo & Evidence</p>
-              <h2>8 分钟演示要证明的不是“云能跑”，而是“训练能交付”。</h2>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>演示要证明的不是“云能跑”，而是“训练能交付”。</h2>
             </div>
-            <p>比赛演示从一个 LeRobot job contract 开始，到一个 Qualcomm edge evidence packet 结束。中间每一步都要让评委看到商业客户会付钱的控制点。</p>
+            <p>比赛 demo 从 `robot_job_contract.yaml` 开始，到 Qualcomm export receipt 和 rollback package 结束。中间每一步都要让评委看到商业客户会付钱的控制点。</p>
           </div>
-          <div class="grid four">
-            <article class="card">
-              <span class="claim-tag">Demo 1-2 min</span>
-              <h3>提交 job contract</h3>
-              <p>选择 dataset、policy、robot profile、China/Overseas lane、预算上限和 eval gate。</p>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Contract</h3>
+              <p>选择 dataset revision、policy、target profile、lane、budget、spot policy 和 eval gate。</p>
             </article>
-            <article class="card">
-              <span class="claim-tag">Demo 3-4 min</span>
-              <h3>路由与预算守卫</h3>
-              <p>展示 provider selection、cost estimate、数据边界、checkpoint 和 stop policy。</p>
+            <article class="step">
+              <h3>Admission</h3>
+              <p>展示 schema、split hash、data class、region allowlist、estimated cost 和 hard stop。</p>
             </article>
-            <article class="card">
-              <span class="claim-tag">Demo 5-6 min</span>
-              <h3>统一评估</h3>
-              <p>同一套 replay/eval harness 输出 success rate、failure tags、baseline delta 和 release verdict。</p>
+            <article class="step">
+              <h3>Route</h3>
+              <p>展示 provider 选择理由、fallback、checkpoint policy、cost burn 和 interruption recovery。</p>
             </article>
-            <article class="card">
-              <span class="claim-tag">Demo 7-8 min</span>
-              <h3>Qualcomm export gate</h3>
-              <p>展示模型格式、target device、runtime、profile metrics、rollback package 和 SkillDock 上架状态。</p>
+            <article class="step">
+              <h3>Gate</h3>
+              <p>展示 fixed eval report、failure tags、intervention rate、baseline delta、replay videos 和 verdict。</p>
+            </article>
+            <article class="step">
+              <h3>Export</h3>
+              <p>展示 AI Hub job IDs、runtime target、profile metrics、op fallback、artifact hash 和 SkillDock 状态。</p>
             </article>
           </div>
           <p class="quote pipeline-extra">TrainRouter 的一句话：把“租 GPU 训练模型”变成“按预算发布一个能在 Qualcomm 机器人上验证的技能版本”。</p>
+        </div>
+      </section>
+
+      <section class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Claim Boundaries</p>
+              <h2>边界讲清楚，可信度才会提高。</h2>
+            </div>
+            <p>TrainRouter 不声称获得 Qualcomm 官方认证，不自动满足 PIPL/GDPR/EU AI Act，不保证云成本永不超支，不保证 spot 稳定，不承诺任意模型无损编译到 QNN，也不把 AI Hub profile latency 当最终机器人 app latency。所有指标必须标注 simulated、replay-eval、Device Cloud 或 measured-on-hardware，并附日期、板卡、SDK/runtime、模型版本和 dataset hash。</p>
+          </div>
           <div class="source-links">
             <a href="https://huggingface.co/docs/lerobot/en/index">LeRobot</a>
+            <a href="https://huggingface.co/docs/lerobot/en/il_robots">LeRobot workflow</a>
             <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobotDataset v3</a>
-            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR 2025</a>
-            <a href="https://www.runpod.io/pricing">Runpod</a>
-            <a href="https://lambda.ai/instances">Lambda</a>
-            <a href="https://modal.com/pricing">Modal</a>
-            <a href="https://www.alibabacloud.com/help/en/pai/billing-of-dlc">阿里云 PAI DLC</a>
-            <a href="https://www.tencentcloud.com/product/gpu">腾讯云 GPU</a>
-            <a href="https://www.huaweicloud.com/intl/en-us/product/modelarts.html">ModelArts</a>
-            <a href="https://www.autodl.com/docs/gpu/">AutoDL</a>
-            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://huggingface.co/docs/huggingface_hub/en/guides/jobs">HF Jobs</a>
+            <a href="https://docs.runpod.io/accounts-billing/billing">RunPod billing</a>
+            <a href="https://lambda.ai/instances">Lambda instances</a>
+            <a href="https://modal.com/docs/guide/preemption">Modal preemption</a>
+            <a href="https://www.coreweave.com/pricing">CoreWeave pricing</a>
+            <a href="https://www.autodl.com/docs/price/">AutoDL pricing</a>
+            <a href="https://help.aliyun.com/zh/pai/product-overview/billing-of-dlc">阿里 PAI DLC</a>
+            <a href="https://cloud.tencent.com/document/product/560/8025">腾讯 GPU</a>
+            <a href="https://support.huaweicloud.com/intl/zh-cn/price-modelarts/price-modelarts-0035.html">华为 ModelArts</a>
+            <a href="https://kubernetes.io/docs/concepts/workloads/controllers/job/">Kubernetes Job</a>
+            <a href="https://docs.skypilot.co/en/latest/overview.html">SkyPilot</a>
+            <a href="https://docs.ray.io/en/latest/cluster/running-applications/job-submission/index.html">Ray Jobs</a>
+            <a href="https://www.kubeflow.org/docs/components/trainer/operator-guides/migration/">Kubeflow Trainer</a>
+            <a href="https://docs.wandb.ai/platform/launch/walkthrough">W&B Launch</a>
+            <a href="https://mlflow.org/docs/latest/ml/model-registry/">MLflow Registry</a>
+            <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-controls.html">AWS Budgets</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/data-act">EU Data Act</a>
+            <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng">EU AI Act</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://aihub.qualcomm.com/models">AI Hub models</a>
+            <a href="https://aihub.qualcomm.com/models/act">Qualcomm ACT</a>
             <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX Runtime QNN</a>
+            <a href="https://www.qualcomm.com/developer/software/qualcomm-linux">Qualcomm Linux</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">RB3 Gen 2</a>
           </div>
         </div>
       </section>
