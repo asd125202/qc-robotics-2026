@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ScaleFoundry | 机器人硬件产品化工厂</title>
+    <title>ScaleFoundry | Dragonwing 机器人原型到 SKU 产品化层</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -13,55 +13,138 @@
         <span>ScaleFoundry</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#research">研究</a>
-        <a href="#gates">门禁</a>
-        <a href="#evidence">证据</a>
+        <a href="#problem">问题</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">为什么现在</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-scale-foundry">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 31 · Prototype-To-SKU Foundry</p>
-          <h1>ScaleFoundry</h1>
-          <p class="hero-lede">比赛 demo 不是产品。ScaleFoundry 把 Qualcomm 机器人原型变成可试产、可认证、可维修、可长期供应的 robot compute SKU：EVT、DVT、PVT、DFM、认证证据、BOM 生命周期和制造伙伴交接一体化。</p>
+          <p class="eyebrow">Pitch 43 · Dragonwing Prototype-To-SKU Foundry</p>
+          <h1 class="long-word-title">ScaleFoundry</h1>
+          <p class="hero-lede">ScaleFoundry 不造机器人，而是把 Dragonwing 机器人从“能跑 demo”铸成“可报价、可生产、可维护 SKU”的产品化流水线：BOM、EVT/DVT/PVT、工厂测试、认证证据、Golden Image、FRU、PCN/PDN 和现场故障反馈全部连成一条产品化图谱。</p>
           <div class="cta-row">
-            <a class="button primary" href="#gates">查看产品化门禁</a>
-            <a class="button" href="../board-bringup-kit/">连接 BoardBringup</a>
+            <a class="button primary" href="#problem">从 demo 断层开始</a>
+            <a class="button" href="#demo">看 SKU 演示</a>
           </div>
         </div>
       </section>
 
-      <section id="research" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">00 · Five-Thread Research</p>
-              <h2>机器人硬件商业化，真正难的是从 demo 走到可复购 SKU。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>这台机器人今天能动，但客户不敢买 500 台。</h2>
             </div>
-            <p>五条研究线说明：硬件必须经过 EVT / DVT / PVT；认证应当做成 evidence workflow；BOM、PCN、FRU、备件和电池寿命决定 7-15 年部署；Qualcomm 生态需要 China lane 和 overseas lane；最可卖的产品是 robot platform productization。</p>
+            <p>机器人团队越来越容易做出 demo，却很难把 demo 变成可复购 SKU。真正卡住量产的不是单个算法，而是传感器同步、实时控制、散热、电源、线束、夹具、认证、OTA、安全启动、BOM 生命周期、工厂良率、备件和现场故障闭环。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>NPI Gates</h3>
-              <p>EVT、DVT、PVT、pilot yield、locked BOM、DFM / DFT 和 CM handoff。</p>
+              <span class="claim-tag">产品风险</span>
+              <h3>开发板不是 SKU</h3>
+              <p>评估套件适合验证路线，但商业产品还需要安全配置、密钥、关闭调试、secure boot、测试点和可维护结构。</p>
             </article>
             <article class="card">
-              <h3>Certification</h3>
-              <p>FCC、CE / UKCA、NRTL、EMC、wireless、battery、robot safety 证据流。</p>
+              <span class="claim-tag">制造风险</span>
+              <h3>工厂不能复制工程师经验</h3>
+              <p>如果没有 PFMEA、Control Plan、EOL 测试、Golden Sample 和追溯，试产问题会变成现场问题。</p>
             </article>
             <article class="card">
-              <h3>Lifecycle</h3>
-              <p>7-15 年可供应、PCN/PDN、FRU、备件、电池可替换和材料护照。</p>
+              <span class="claim-tag">认证风险</span>
+              <h3>改一颗料可能重测</h3>
+              <p>无线、EMC、电池、机械安全、功能安全、网络安全和标签说明书都要和 BOM/ECO 绑定。</p>
             </article>
             <article class="card">
-              <h3>Partner Lanes</h3>
-              <p>中国 lane 做速度和成本，海外 lane 做 regulated / long-lifecycle deployment。</p>
+              <span class="claim-tag">供应链风险</span>
+              <h3>没有二供就没有交付</h3>
+              <p>SoC、模组、电池、相机、LiDAR、电机、减速器、安规电源和线束都需要 AVL、PCN/PDN 和替换规则。</p>
             </article>
             <article class="card">
-              <h3>Business</h3>
-              <p>Audit、Devkit-to-Product Sprint、Certification Pack、Launch Pack、Managed Ops。</p>
+              <span class="claim-tag">高通风险</span>
+              <h3>Reference design 停在样机</h3>
+              <p>如果 Dragonwing 不能被客户顺利产品化，芯片优势会在认证、制造和售后阶段流失。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="broken" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>开发板、ODM、集成商、PLM、MES、fleet ops 都只解决半题。</h2>
+            </div>
+            <p>机器人不是普通 IoT 盒子。它同时是机械、电气、嵌入式、AI/自治、安全和现场服务系统。今天每一层都有工具，但没有一个机器人语义层把 BOM、软件/模型、校准、工厂测试、良率、现场失败、ECO/CAPA 和下一版门禁连起来。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <span class="claim-tag">Devkit</span>
+              <h3>验证快，交付远</h3>
+              <p>RB3、IQ EVK 和参考设计降低原型门槛，但不会自动生成量产测试、认证包和 FRU 策略。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">ODM / CM</span>
+              <h3>能制造，前提是产品已定义</h3>
+              <p>Jabil、Plexus、Sanmina 等强在 NPI 与生产执行，但通常要求客户先定义清楚产品和测试。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">PLM / MES</span>
+              <h3>通用系统不懂机器人行为</h3>
+              <p>Arena、Duro、Tulip、Aegis 能管 BOM 和工厂，却不懂 mission success、intervention rate、校准和模型版本。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Fleet ops</span>
+              <h3>部署后强，回写制造弱</h3>
+              <p>Formant、InOrbit、Foxglove 擅长运维和调试，但现场 failure 不会天然回到 DVT/PVT 和供应商 CAPA。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Consulting</span>
+              <h3>一次性服务难复利</h3>
+              <p>传统产品化顾问能救一个项目，但很难沉淀跨机器人、跨供应商、跨工厂的产品化数据资产。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>ScaleFoundry 是 Dragonwing 机器人产品化操作系统，不是另一家代工厂。</h2>
+            </div>
+            <p>它接收客户已有样机和目标场景，输出可交给 ODM、试点客户、认证实验室和售后团队的出货资产：硬件基线、BSP/Ubuntu/Yocto/ROS 2 镜像、AI Hub/QNN 模型证据、工厂测试脚本、认证矩阵、BOM/AVL、FRU、PVT 包和生命周期账本。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Audit</h3>
+              <p>2-4 周生成 SKU 风险图谱：热、电源、接口、BOM、OTA、安全、认证、制造和服务风险。</p>
+            </article>
+            <article class="step">
+              <h3>Gate</h3>
+              <p>把 EVT/DVT/PVT/MP 变成可审计门禁，补上 autonomy、calibration、MTBF 和 serviceability 指标。</p>
+            </article>
+            <article class="step">
+              <h3>Package</h3>
+              <p>生成 CM Readiness Pack：BOM、治具、作业指导、EOL 测试、Golden Image、追溯和验收标准。</p>
+            </article>
+            <article class="step">
+              <h3>Launch</h3>
+              <p>小批试产、良率爬坡、认证资料、标签说明书、备件包、RMA 和 UptimeOS/RiskLedger 接入。</p>
+            </article>
+            <article class="step">
+              <h3>Learn</h3>
+              <p>现场失败、制造缺陷和供应商问题回写 ECO/CAPA、下一版 DVT 和 verified recipe。</p>
             </article>
           </div>
           <div class="image-band">
@@ -70,141 +153,245 @@
         </div>
       </section>
 
-      <section id="gates" class="slide tint">
+      <section id="why-now" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Manufacturing Readiness Gates</p>
-              <h2>从开发板到 SKU，中间必须有可审计的工程门禁。</h2>
+              <p class="kicker">04 · Why Now</p>
+              <h2>Physical AI 正在从展台进入工厂，产品化断层会成为产业瓶颈。</h2>
             </div>
-            <p>ScaleFoundry 不把 prototype 直接包装成“量产”。它让每个阶段有明确 exit criteria、测试证据、BOM 状态、夹具、良率和变更控制。</p>
-          </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Audit</h3>
-              <p>BOM 风险、compute choice、热、电源、I/O、认证路径和 DFM gap。</p>
-            </article>
-            <article class="step">
-              <h3>EVT</h3>
-              <p>bring-up、接口、电源、热、firmware、早期 test point 和 debug access。</p>
-            </article>
-            <article class="step">
-              <h3>DVT</h3>
-              <p>可靠性、EMC pre-scan、环境测试、safety case、fixture v1。</p>
-            </article>
-            <article class="step">
-              <h3>PVT</h3>
-              <p>小批试产、yield、MES traceability、golden sample、CM handoff。</p>
-            </article>
-            <article class="step">
-              <h3>Launch</h3>
-              <p>locked BOM、AVL、ECO、service kit、warranty 和 field feedback。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="evidence" class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">02 · Evidence Rooms</p>
-              <h2>认证、制造和生命周期不是文档堆，而是产品化证据房间。</h2>
-            </div>
-            <p>ScaleFoundry 生成的不是泛泛 PPT，而是客户、实验室、制造伙伴、投资人和 Qualcomm 生态伙伴能检查的证据资产。</p>
-          </div>
-          <div class="grid six">
-            <article class="card">
-              <h3>DFM / DFT</h3>
-              <p>test pads、JTAG、flash path、service port、thermal margin、cable strain relief。</p>
-            </article>
-            <article class="card">
-              <h3>Factory Test</h3>
-              <p>flying probe、functional jig、ICT、boundary scan、AOI/AXI 和 MES data。</p>
-            </article>
-            <article class="card">
-              <h3>Compliance</h3>
-              <p>FCC、CE、UKCA、NRTL、EMC、battery、label、manual 和 DoC index。</p>
-            </article>
-            <article class="card">
-              <h3>Safety</h3>
-              <p>hazard analysis、functional safety、ISO 10218、E-stop、safe state。</p>
-            </article>
-            <article class="card">
-              <h3>Lifecycle</h3>
-              <p>longevity score、BOM risk、PCN/PDN、FRU graph 和 spare kit。</p>
-            </article>
-            <article class="card">
-              <h3>Materials</h3>
-              <p>RoHS、REACH、WEEE、SCIP、battery passport 和 future product passport。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide dark">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">03 · Partner Lane Manager</p>
-            <h2>同一个 Qualcomm 架构，需要两条不同制造路线。</h2>
-            <p class="lead">ScaleFoundry 把产品路线拆成 China lane 和 overseas / regulated lane。前者追求速度、成本、本地机器人 OEM 和中文生态；后者追求严格 BOM、长生命周期、TAA / NDAA / India / Taiwan manufacturing 和合规客户。</p>
-            <ul class="list">
-              <li>China lane：Thundercomm、Quectel、Fibocom、APLUX / AidLux、本地云和快速定制。</li>
-              <li>Overseas lane：Advantech、VVDN、Lantronix、TAA / NDAA、长生命周期模块和严格 BOM 控制。</li>
-              <li>JDM / ODM record：IP、责任、测试、质量、供应链和量产交付边界写清。</li>
-              <li>Qualcomm co-sell：用 reference design、AI Hub、FoundriesFactory、RobotCoreOS 和 EdgeFleet 形成共同证据。</li>
-            </ul>
-          </div>
-          <div class="visual">
-            <img src="../assets/scale-foundry.png" alt="中国和海外机器人硬件制造伙伴路线图">
-          </div>
-        </div>
-      </section>
-
-      <section id="qualcomm" class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">04 · Qualcomm Production Value</p>
-              <h2>把 Dragonwing reference design，变成可交付的机器人产品族。</h2>
-            </div>
-            <p>ScaleFoundry 让 Qualcomm 从“芯片和开发板”进入产品化证据链：传感器集成、热设计、motion I/O、OS、AI Hub、OTA、认证路径、供应链和生命周期支持。</p>
+            <p>IFR 2025 显示，2024 年全球工业机器人安装约 54.2 万台，中国占全球新装机 54%。McKinsey 指出人形机器人商业化要跨过安全、uptime、灵巧/移动能力和成本，供应链也会成为约束。Qualcomm 则在 Dragonwing、IQ10 RRD、AI Hub、Edge Impulse、FoundriesFactory、Ubuntu/Yocto 和伙伴模组上补齐边缘 AI 产品化拼图。</p>
           </div>
           <div class="grid four">
             <div class="stat">
-              <strong>QCS / IQ</strong>
-              <span>按 QCS6490、QCS8550、IQ9、IQ10 拆分 robot compute SKU。</span>
+              <strong>542K</strong>
+              <span>2024 年全球工业机器人新增安装量，部署期会暴露产品化和生命周期问题。</span>
             </div>
             <div class="stat">
-              <strong>AI Hub</strong>
-              <span>把模型 profile、edge runtime 和硬件 target 绑定进产品证据。</span>
+              <strong>10-500 台</strong>
+              <span>Seed 到 Series B 机器人公司最容易卡在试点放量：不是 MP，又不是实验室。</span>
             </div>
             <div class="stat">
-              <strong>Factory</strong>
-              <span>制造测试、traceability、良率、BOM 和 ECO 让设计可复购。</span>
+              <strong>EVT/DVT/PVT</strong>
+              <span>机器人需要在传统硬件门禁之外加入 autonomy、校准、安全和现场服务门禁。</span>
             </div>
             <div class="stat">
-              <strong>Lifecycle</strong>
-              <span>长供货、备件、维修、电池、材料护照让客户敢长期部署。</span>
+              <strong>2038</strong>
+              <span>Dragonwing IQ9/IQ8/IQ6 生命周期叙事可被包装成企业级 lifecycle ledger。</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="slide white">
+      <section id="product" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">05 · Product</p>
+            <h2>用户买到的不是咨询 PPT，而是一套能出货的机器人 SKU 资产。</h2>
+            <p class="lead">ScaleFoundry 把 prototype 到 SKU 的所有事实放进 Productization Graph：每台样机、每个 build、每批工厂件、每次现场故障都能追溯到设计、供应商、测试、软件、模型和服务记录。</p>
+            <ul class="list">
+              <li>`sku-readiness-report.pdf`：热、电源、I/O、传感器、BOM、认证、制造、服务和安全风险图谱。</li>
+              <li>`dragonwing-sku-kit.yaml`：QCS6490/QCS5430、IQ8、IQ9、IQ10 的 target、OS、ROS 2、AI Hub/QNN 和连接配置。</li>
+              <li>`evt-dvt-pvt-gates.json`：DFMEA、DFA/DFM、验证矩阵、可靠性、预扫、认证样机、PVT 良率和 MP 准入标准。</li>
+              <li>`cm-readiness-pack.zip`：EBOM/MBOM/Service BOM、AVL、EOL 测试、治具需求、SOP、Golden Image 和追溯 schema。</li>
+              <li>`lifecycle-ledger.json`：SoC 供货期、BOM 版本、OS/kernel、SBOM/CVE、模型版本、认证状态、PCN/PDN 和迁移路径。</li>
+              <li>`field-capa-loop.jsonl`：现场 RMA、UptimeOS 事件、RiskLedger 事故、供应商 CAPA、ECO 和下一版 build gate。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/scale-foundry.png" alt="机器人产品化图谱、EVT DVT PVT 门禁和工厂测试控制台图">
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
         <div class="wrap">
-          <p class="quote">ScaleFoundry 的目标不是把 demo 包装得更漂亮，而是让每一个 RobotMac 核心都能变成可制造、可认证、可维修、可复购的产品 SKU。</p>
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Market & Business Model</p>
+              <h2>最先付钱的人，是已经有原型、客户压力或量产窗口的人。</h2>
+            </div>
+            <p>主战场不是泛用户和大学课程，而是已融资机器人初创、机器人/设备 OEM、Qualcomm/Dragonwing 生态方案商、企业自动化实验室和正在把一次性项目变成行业套件的系统集成商。CM/ODM、测试实验室、认证顾问和模组伙伴更适合做渠道与联合交付。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">Paid Diagnostic</span>
+              <h3>SKU Readiness Audit</h3>
+              <p>2-4 周低摩擦入口：中国 ¥10万-30万，海外 $25k-$75k，输出风险、预算、认证和 NPI 路线。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Milestone NRE</span>
+              <h3>EVT / DVT / PVT Sprint</h3>
+              <p>按阶段 SOW 收费，每阶段有 acceptance criteria；海外 EVT/DVT 常见 $150k-$1M 级别。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Launch Subscription</span>
+              <h3>量产后持续支持</h3>
+              <p>按月收质量、BOM、固件、认证、供应商管理和现场 CAPA；高价值产品可叠加 per-unit 或 COGS royalty。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Partner Network</span>
+              <h3>CM / Lab / Supplier marketplace</h3>
+              <p>把合适的 CM、可靠性实验室、RF/EMC 认证、传感器、模组和返修伙伴接入产品化图谱。</p>
+            </article>
+          </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">中国版</span>
+              <h3>工程效率与 BOM 压力</h3>
+              <p>客户更看重速度、成本、本地供应链、中文工厂协作和国产机器人价格压力。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">海外版</span>
+              <h3>上市风险保险</h3>
+              <p>客户为认证风险、供应链风险、现场支持风险和交付确定性付更高 NRE。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">ROI</span>
+              <h3>卖给机器人供应方</h3>
+              <p>少一次硬件大改版、少一次认证返测、更快 PVT/MP、更低 BOM、更少现场故障。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Competition & Moat</p>
+              <h2>ScaleFoundry 的壁垒不是顾问能力，而是机器人产品化数据和工作流嵌入。</h2>
+            </div>
+            <p>我们不正面做 PLM、MES、fleet ops 或 CM。ScaleFoundry 是这些系统之间的机器人语义层：把“这台机器人为什么坏、这批为什么良率低、下个版本该改什么、哪家工厂能稳定做出来”变成可查询、可执行、可复用的产品化资产。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">数据壁垒</span>
+              <h3>Failure-mode database</h3>
+              <p>跨项目沉淀哪些设计、供应商、工艺、测试缺口会在 AMR、机械臂、人形和户外机器人上爆雷。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">流程壁垒</span>
+              <h3>Robot NPI gates</h3>
+              <p>把传统 EVT/DVT/PVT 扩展到 autonomy、安全、校准、任务成功率、人工接管率和 serviceability。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">网络壁垒</span>
+              <h3>CM / Lab / Supplier graph</h3>
+              <p>知道谁能做低中量复杂机电装配、可靠性测试、返修、认证和机器人专用供应链替代。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">迁移壁垒</span>
+              <h3>Build history lock-in</h3>
+              <p>客户把 build history、质量记录和现场记录放进来后，ScaleFoundry 成为下一代 SKU 的工作底座。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Why Qualcomm</p>
+              <h2>Dragonwing 已有拼图，ScaleFoundry 把拼图变成客户能采购、能认证、能部署十年的产品路径。</h2>
+            </div>
+            <p>ScaleFoundry 不复制 AI Hub、Edge Impulse 或 FoundriesFactory，而是把它们编排进量产路径：benchmark-to-BOM、verified recipes、lifecycle ledger、certification kit 和 migration contract。这样 Qualcomm 不只是卖开发板，而是提高从评估板到量产 SKU 的转化率。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>RB3</strong>
+              <span>QCS6490 / QCS5430 入口平台，适合把开发者和 PoC 导入可量产 product line。</span>
+            </div>
+            <div class="stat">
+              <strong>IQ8 / IQ9</strong>
+              <span>工业 AI 主平台，结合 Ubuntu、Yocto、FoundriesFactory 和长期生命周期。</span>
+            </div>
+            <div class="stat">
+              <strong>IQ10</strong>
+              <span>高端机器人 reference blueprint，支撑 AMR、人形、通用机器人和多传感器系统。</span>
+            </div>
+            <div class="stat">
+              <strong>AI Hub</strong>
+              <span>模型 profile 结果进入 BOM、功耗、热设计、内存、相机数量和 SoC 推荐。</span>
+            </div>
+          </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>Verified recipes</h3>
+              <p>共建 RB3 零售视觉、IQ-8275 工业相机、IQ-9075 多路视频/AMR、IQ10 机器人 blueprint。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>Lifecycle hooks</h3>
+              <p>把 Product Longevity、AI Hub artifact、Linux/Yocto、FoundriesFactory 和模组路径接入 lifecycle ledger。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>Partner lane</h3>
+              <p>联合 Advantech、Thundercomm、Lantronix、VVDN、测试实验室和机器人 OEM 打首批 SKU。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Demo & Ask</p>
+              <h2>比赛演示：从一个会动的原型，生成一份可交给 ODM 的生产包。</h2>
+            </div>
+            <p>网页 demo 不需要真的量产硬件，但要让评委看到一个原型如何被转成可审计产品化资产：风险、门禁、测试、认证、生命周期和现场闭环。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">Demo 1-2 min</span>
+              <h3>上传原型配置</h3>
+              <p>选择 Dragonwing target、相机/LiDAR/IMU/CAN/EtherCAT、电池、通信、ROS 2、AI Hub 模型和目标市场。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Demo 3-4 min</span>
+              <h3>生成 SKU 风险图谱</h3>
+              <p>标出热、电源、实时、接口、OTA、BOM、认证、DFM/DFA、FRU 和供应链风险。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Demo 5-6 min</span>
+              <h3>打开 EVT/DVT/PVT 门禁</h3>
+              <p>展示验证矩阵、工厂测试、EOL、Golden Image、追溯 schema、PVT 良率和 MP 准入条件。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Demo 7-8 min</span>
+              <h3>导出 Production Pack</h3>
+              <p>输出 CM handoff、certification readiness、lifecycle ledger、FRU/spares 和 UptimeOS/RiskLedger 接入。</p>
+            </article>
+          </div>
+          <p class="quote pipeline-extra">ScaleFoundry 的一句话：Qualcomm provides the reference design; ScaleFoundry turns it into your robot product.</p>
           <div class="source-links">
-            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">IQ10 RRD</a>
-            <a href="https://www.qualcomm.com/internet-of-things/products/q6-series/qcs6490">QCS6490</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Industrial Robots 2025</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots 2025</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Dragonwing IQ10 RRD</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Dragonwing RB3 Gen 2</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/iq9-series/iq-9075">Dragonwing IQ-9075</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/product-longevity-program">Qualcomm Product Longevity</a>
             <a href="https://www.qualcomm.com/developer/software/foundriesfactory">FoundriesFactory</a>
-            <a href="https://resources.altium.com/p/designing-for-testability-dft">DFT</a>
-            <a href="https://www.keysight.com/us/en/products/in-circuit-test-for-manufacturing.html">ICT</a>
-            <a href="https://www.ul.com/services/robotic-safety-security-and-performance">UL Robotics</a>
-            <a href="https://www.fcc.gov/general/equipment-authorization">FCC</a>
-            <a href="https://www.kuka.com/en-us/services/spare-parts">KUKA Parts</a>
-            <a href="https://hax.co/program/">HAX</a>
-            <a href="https://www.thundercomm.com/product/qualcomm-rb5-gen-2-development-kit/">Thundercomm</a>
+            <a href="https://www.qualcomm.com/developer/software/ubuntu-on-qualcomm-iot-platforms">Ubuntu on Qualcomm IoT</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://www.edgeimpulse.com/qualcomm">Edge Impulse Qualcomm</a>
+            <a href="https://formlabs.com/uk/blog/validation-testing-product-development-poc-evt-dvt-pvt-mp/">EVT / DVT / PVT</a>
+            <a href="https://www.aiag.org/training-and-resources/manuals/details/PPAP-4">AIAG PPAP</a>
+            <a href="https://www.iso.org/sectors/engineering/robotics">ISO Robotics Standards</a>
+            <a href="https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15">47 CFR Part 15</a>
+            <a href="https://www.osha.gov/nationally-recognized-testing-laboratory-program">OSHA NRTL</a>
+            <a href="https://www.gs1.org/standards/gs1-global-traceability-standard/current-standard">GS1 Traceability</a>
+            <a href="https://memfault.com/">Memfault</a>
+            <a href="https://mender.io/">Mender</a>
+            <a href="https://durolabs.co/">Duro PLM</a>
+            <a href="https://tulip.co/">Tulip</a>
+            <a href="https://www.plexus.com/solutions/new-product-introduction/">Plexus NPI</a>
+            <a href="https://www.bench.com/mechatronics-and-robotics">Benchmark Robotics</a>
+            <a href="https://www.fictiv.com/">Fictiv</a>
           </div>
         </div>
       </section>

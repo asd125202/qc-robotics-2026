@@ -76,7 +76,7 @@ The current first-batch pitch directions are:
 - `RobotLeaseOps`: Dragonwing lease-ready robot asset operations layer for RaaS, leasing, uptime SLA, service history, AI Hub/QNN evidence, maintenance, financing, invoices, and bankable robot capacity.
 - `UptimeOS`: YC-style pitch for a Dragonwing aftermarket service OS that turns telemetry, AI Hub/QNN evidence, remote diagnostics, FRU/RMA, technician workflows, warranty history, and SLA invoices into robot health passports and auditable uptime ledgers.
 - `RiskLedger`: Physical AI EDR / robot claims exchange pitch for tamper-evident incident capture, MCAP/QNN evidence bundles, insurance underwriting data, finance diligence, warranty disputes, SLA evidence, and redacted incident replay.
-- `ScaleFoundry`: prototype-to-SKU hardware productization, certification evidence, manufacturing launch, and lifecycle assurance.
+- `ScaleFoundry`: Dragonwing prototype-to-SKU productization layer for BOM/AVL, EVT/DVT/PVT gates, factory tests, certification evidence, golden images, FRU/spares, PCN/PDN, lifecycle ledgers, and field CAPA loops.
 - `CertForge`: compliance evidence factory for Qualcomm-powered robots, covering standards mapping, safety cases, SBOM/VEX, CRA readiness, radio, battery, CE/FCC/CCC/SRRC workflow, and launch dossier exports.
 - `能栈 NengStack`: robot energy OS for fleet charging schedules, dock/charger mesh, battery passports, site power planning, Qualcomm power budgets, and RaaS energy evidence.
 - `FleetConductor`: local edge robot tower for mixed-vendor fleet orchestration, maps, traffic, doors, elevators, chargers, incidents, and LeRobot feedback.
