@@ -67,6 +67,7 @@ Suggested contents:
 - `docs/solar-loop.md`
 - `docs/mine-loop.md`
 - `docs/water-loop.md`
+- `docs/grid-loop.md`
 - `docs/cert-forge.md`
 
 Screenshots or exported pages from:
@@ -102,6 +103,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/solar-loop/
 - https://qc-robotics-2026.pages.dev/mine-loop/
 - https://qc-robotics-2026.pages.dev/water-loop/
+- https://qc-robotics-2026.pages.dev/grid-loop/
 - https://qc-robotics-2026.pages.dev/worldforge/
 - https://qc-robotics-2026.pages.dev/robotrust/
 - https://qc-robotics-2026.pages.dev/roboport/
