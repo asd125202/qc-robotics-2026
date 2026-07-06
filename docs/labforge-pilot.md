@@ -1,161 +1,238 @@
 # LabForgePilot Pitch
 
-更新时间：2026-07-05。
+更新时间：2026-07-06。
 
-## Core Thesis
+## One-Line Thesis
 
-前面的页面解释了平台愿景。LabForgePilot 是比赛中最稳妥的第一落地 demo：
+LabForgePilot 是 RobotMac 平台的第一个商业楔子：一个桌面样品转移工作站，把 Qualcomm 边缘 AI、LeRobot 数据/策略训练、RobotAppLayer 可安装应用、OpsConnector 写回和 SafetyOps 证据链，压缩进实验台上能购买的产品。
 
-> 用桌面机械臂完成“样品转移 + 扫码记录 + 失败接管 + 重新训练 + Qualcomm 本体部署”的完整闭环。
+一句话：
 
-它不是最炫的机器人形态，但最适合比赛：
+> 把样本转移这件小事，变成可训练、可审计、可写回系统的桌面机器人工作站。
 
-- 场景可控。
-- 数据采集可复现。
-- LeRobot / ACT 工作流容易解释。
-- 安全风险低。
-- 三分钟视频能讲完完整闭环。
-- 商业上能扩展到实验室自动化、教育训练、工厂小工位和系统集成商试点。
+## 01 · Problem
 
-## Demo Task
+实验室最贵的浪费，不是一次拿放，而是样本记录和物理动作断裂。
 
-任务名称：桌面样品转移工作站。
+- 中小型研发、QC、诊断和转化实验室里，大量样本转移仍靠人手、条码枪、Excel、LIMS/ELN 补录和事后复核。
+- 真正成本是慢、不一致、错样、漏扫、夜间等待、失败原因丢失，以及无法证明谁在何时把哪个样本转到了哪里。
+- 夹取失败、孔位偏移、遮挡、错样和人工接管通常被当场修掉，没有进入训练集。
+- 低成本机械臂越来越便宜，但缺少夹具、样品模板、数据采集、应用、日志、培训和维护体系。
 
-基础流程：
+## 02 · Current Alternatives Fail
 
-1. 机械臂识别工作台上的样品、托盘和目标位。
-2. 通过遥操作采集 10-20 条示教轨迹。
-3. 数据以 LeRobot 兼容格式保存。
-4. CloudTwin 在中国版或海外版 GPU 云训练 ACT 策略。
-5. 策略部署到 Qualcomm edge target。
-6. 机械臂自动完成抓取、移动、放置和状态记录。
-7. 一次失败被人工接管，失败片段进入下一轮训练队列。
+LabForgePilot 不和 Hamilton、Tecan、Beckman、Opentrons 正面争“液体处理精度”。它从更窄的样本物流、扫码、视觉核对、失败学习和边缘证据切入。
 
-可选扩展：
+- 人工 + Excel：便宜但不可复制；GxP 或客户审计下，很难证明样本链路、操作者、失败和修正动作。
+- Opentrons Flex：开放、低价、适合自动移液；视觉、失败学习、LeRobot 数据、LIMS 证据链仍需要用户自己拼。
+- Automata / Biosero / Cellario：跨设备编排和整实验室调度很强，但部署、销售和集成较重，更适合成熟自动化团队。
+- Hamilton / Tecan / Beckman：高可靠液体处理和条码/LIMS 能力成熟；不是围绕低成本机器人、失败回流和 edge AI 数据闭环设计。
+- myCobot / Dobot / xArm / SO-101：硬件商品化证明成本下降，但客户买到的是手臂，不是可购买、可培训、可维护的实验台工作站。
+- 大型 SI 项目：能做非标交付，但每个项目重新设计夹具、软件、记录、培训和维护，难以沉淀成商品。
 
-- 扫码或视觉识别记录样品编号。
-- 失败后 SafetyOps 触发回滚。
-- EdgeFleet 记录设备和模型版本。
-- SkillDock 把任务打包成 LabForge skill。
+## 03 · Solution
 
-## Why Desktop Lab First
+桌面 sample-transfer workcell：
 
-移动机器人、户外导航和复杂服务场景更容易出视觉、定位、路径规划、安全和场地问题。
+1. 扫条码识别源样本与目标孔位。
+2. 机器人执行转移。
+3. 摄像头捕捉关键动作。
+4. 失败自动标注。
+5. 生成可训练的 LeRobot / ACT 数据集。
+6. 边缘端部署视觉和策略包。
+7. 成功、失败、异常、操作者确认写回 Benchling/LIMS 或审计包。
 
-桌面 LabForge 的优势：
+第一版只做三件高频事：
 
-- 任务空间小。
-- 光照和背景可控。
-- 机械臂动作可重复。
-- 视频拍摄稳定。
-- 数据量要求更低。
-- 评委能一眼理解“真实任务闭环”。
+- tube-to-plate。
+- plate-to-plate。
+- plate-to-tube。
 
-这符合初赛和复赛的真实目标：先证明平台闭环，再证明可扩展商业场景。
+每次动作都绑定：
 
-## Three-Minute Video Storyboard
+- sample ID。
+- source / destination。
+- operator。
+- timestamp。
+- vision snapshot。
+- robot trajectory。
+- failure class。
+- LIMS writeback status。
 
-### 0:00-0:20 问题
+## 04 · Why Now
 
-实验室和小工位自动化难在每次都要重新集成硬件、驱动、训练和部署。
+- 实验室自动化市场已经有预算，很多小批量、多变化流程仍缺低门槛自动化入口。
+- LeRobot / ACT / SO-101 把机器人采集和模仿学习门槛拉低。
+- LeRobot v3 数据以 Parquet 低维状态/动作、MP4 多相机视频、JSON/Parquet 元数据组织，适合清晰展示数据闭环。
+- ACT 是 LeRobot 推荐的新手 baseline，适合用约 50 demos 起步。
+- HIL / DAgger、`lerobot-rollout`、failure clip 和 replay 让“失败也有价值”变成可演示能力。
+- Qualcomm AI Hub / QNN / RB3 Gen 2 提供可展示的本地 edge AI 路线。
 
-### 0:20-0:45 产品
+## 05 · Product
 
-RobotMac Core + LabForge 工作站 + LeRobot CloudTwin + Qualcomm edge deployment。
+核心应用：
 
-### 0:45-1:20 数据采集
+- `TubeRackTransfer`
+- `PlateStaging`
+- `BarcodeVerify`
+- `QCPhoto`
+- `LoadUnload`
+- `FailureMining`
 
-遥操作采集样品转移轨迹，数据进入 DataFlywheel。
+核心模块：
 
-### 1:20-1:50 云训练
+- 低成本桌面机械臂 / SO-101 风格 follower arm。
+- leader arm 或 teleop station。
+- front + top/side camera。
+- 固定托盘、管架、孔板、样本盒、灯箱、AprilTag/ArUco/颜色标记。
+- LeRobot v3 dataset collector。
+- ACT baseline trainer。
+- HIL correction queue。
+- Qualcomm edge profile viewer。
+- LIMS/Benchling mock writeback。
+- Safety boundary 和急停。
 
-CloudTwin 启动训练任务，输出评估结果和 edge policy package。
+第一版定位：
 
-### 1:50-2:25 本体部署
+- research。
+- education。
+- QC workflow automation。
 
-策略在 Qualcomm 本体运行，机械臂完成样品转移和扫码记录。
+不承诺：
 
-### 2:25-2:45 失败回流
+- 临床诊断。
+- GMP/CLIA/IVD 认证。
+- 高精度液体处理替代。
 
-一次失败被接管，片段进入下一轮训练队列，SafetyOps 记录版本和回滚。
+## 06 · Product API Objects
 
-### 2:45-3:00 商业扩展
+- `Episode`：一次完整尝试，含 reset、teleop、policy、HIL、success/failure、front/top video 和 joint/action parquet。
+- `Task`：`transfer_sample_tube_from_rack_to_slot`，带自然语言、sample ID、rack slot、target slot 和 worklist。
+- `Variation`：rack 位置、目标槽、光照、管子朝向、背景扰动、遮挡和随机布局。
+- `FailureClip`：从 rollout ring buffer 保存失败前后 10-30 秒，标记 miss grasp、wrong slot、drop、collision、timeout。
+- `PolicyCard`：ACT/SmolVLA checkpoint、dataset hash、camera config、训练步数、success@20、interventions/min 和 latency。
+- `EdgeProfile`：p50/p95 延迟、control FPS、QNN/CPU/GPU path、memory、model hash、device id 和 runtime version。
 
-同一底座可扩展到 FactoryPilot、EduForge 和 Industry Pack。
+## 07 · Market & Business Model
 
-## Build Plan
+第一批买家排序：
 
-### Before 2026-07-20
+1. 高校/职业院校/机器人 AI 课程：买 5-20 台教学/竞赛/实训套件。
+2. 科研实验室与共享平台：买 1-3 台 pilot kit，用于管架/孔板/样品盒转移、扫码核对、拍照记录、上机前后 staging。
+3. 小型 QC 实验室/轻工厂：食品、材料、电池、化妆品、化学品的小批量质检台。
+4. 系统集成商：买 fleet kit 作为可复制机器人应用底座。
+5. 机器人/OEM 厂商：后续授权 RobotAppLayer / OpsConnector。
 
-- 完成项目书。
-- 完成中文路演网站组合。
-- 完成 LabForgePilot 方案页、视频脚本和系统架构图。
-- 明确首选开发板、机器人形态和风险控制。
+中国版定价假设：
 
-### 2026-07-20 to 2026-07-31
+- Edu/Starter Kit：¥29,800-49,800。
+- Lab Pilot Kit：¥68,000-98,000。
+- Fleet Kit 5-pack：¥298,000-498,000。
+- Software：¥599-1,999/机器人/月。
+- Training credits：¥500-800/小时，或 ¥10,000 包。
+- Support：硬件价 15%-20%/年。
 
-- 等待入围和开发板邮寄。
-- 准备机械臂、相机、样品托盘、桌面工位和采集脚本。
-- 准备云训练 adapter 的最小可运行版本。
+海外版定价假设：
 
-### 2026-08
+- Pilot Kit：$9,900-$14,900。
+- Fleet Kit 5-pack：$39,000-$69,000。
+- Software：$199-$499/robot/month。
+- Training：$150-$250/hour。
+- Support：$2,000-$8,000/year。
 
-- 接入开发板。
-- 跑通相机输入、机械臂控制、数据采集和本地可视化。
-- 完成手写保底策略和遥操作采集。
+定价逻辑：
 
-### 2026-09
+- 低于 Opentrons Flex 和大型 NGS workstation。
+- 明显高于裸机械臂，因为卖的是工作站、应用、培训、日志、部署和运维。
 
-- 跑通 LeRobot / ACT 训练。
-- 完成 China Lane 和 Overseas Lane 的至少一个可运行训练路径。
-- 完成 edge policy package 的导出和部署。
+## 08 · Competition & Moat
 
-### 2026-10
+壁垒不是机械臂，而是实验室样本转移数据资产。
 
-- 提升稳定性。
-- 录制多轮成功/失败/接管素材。
-- 完成 SafetyOps、DataFlywheel、EdgeFleet 的演示视图。
+- Labware templates：管架、孔板、样品盒、检测槽、夹具和灯箱模板。
+- Failure dataset：每个错夹、掉落、遮挡、错位和人工接管都能训练下一版策略。
+- Audit semantics：sample ID、operator、timestamp、source/destination、worklist、image evidence 和 policy version 绑定。
+- Robot apps：TubeRackTransfer、PlateStaging、BarcodeVerify、QCPhoto、LoadUnload 可进入 RobotAppLayer / SkillDock。
+- Edge evidence：QNN profile、latency、memory、model hash、device ID 和 local runtime logs。
+- Channel loop：学校、SI、OEM、科研平台和 QC 实验室共同沉淀课程、模板、应用和维护手册。
 
-### Before 2026-11-01
+## 09 · Why Qualcomm
 
-- 提交三分钟视频。
-- 提交 PPT。
-- 提交代码资源包和说明文档。
+比赛必须证明：这不是云端遥控，而是可量化的实验台边缘部署。
 
-## Scoring Alignment
+边缘架构：
 
-### Technical Completeness
+1. `Sensing`：RB3 Gen 2 Vision Kit 的 CSI 摄像头、可选 USB camera、IMU/压力/磁力传感器；样本架可加 AprilTag/ArUco/颜色标记降低风险。
+2. `Camera Pipeline`：Qualcomm Linux / Ubuntu / GStreamer 接入 camera stream，把帧送入视觉模型。
+3. `Vision Models`：检测试管、孔位、tip、液面/颜色、夹爪或移液器末端，输出 rack pose、well id、confidence 和 occlusion。
+4. `Sample-transfer Policy`：小型 ONNX policy 或规则+学习混合策略生成动作候选；安全边界、限位和碰撞停止由确定性控制器执行。
+5. `Evidence Runtime`：记录视频帧 hash、模型 hash、QNN/QAIRT version、device id、latency、NPU/CPU fallback、成功/失败原因和动作时间线。
 
-感知、策略、执行、记录、部署和回滚形成完整闭环。
+谨慎表述：
 
-### Technical Innovation
+- RB3 Gen 2 / QCS6490 是比赛 MVP edge target。
+- QCS8550 是高性能扩展 profile。
+- IQ10 RRD 只写 roadmap / early access ask；截至 2026-07-06 不写成已量产或已集成硬件。
+- 如果 AI Hub 使用 `QCS6490 (Proxy)`，标注为 proxy/device-cloud profile。
+- 如果模型有 CPU fallback，单独报告；只有禁用 fallback 且成功运行后，才写 full NPU path。
 
-不是单独训练模型，而是把数据飞轮、双云训练和边缘部署做成产品化 workflow。
+## 10 · Demo & Ask
 
-### Qualcomm Processor Application
+3 分钟视频：
 
-实时感知、策略推理、安全边界和本体运行都围绕 Qualcomm edge target。
+1. 0:00-0:10：人工实验台混乱、手工记录和错样风险。
+2. 0:10-0:30：LabForgePilot 实物和工作站。
+3. 0:30-0:55：SOP、视觉、计划、策略、校验、日志架构。
+4. 0:55-1:35：完整任务一镜到底：抓取、放置、检测、记录。
+5. 1:35-1:55：扰动恢复：移动物体，系统重新定位或安全停机。
+6. 1:55-2:15：Qualcomm 特写：板卡、端侧推理指标、断网运行、延迟数字。
+7. 2:15-2:35：非脚本证明：三个随机布局、两个任务模板、运行成功率。
+8. 2:35-3:00：商业场景和路线图。
 
-### Product Definition
+7 分钟现场 demo：
 
-LabForgePilot 是明确客户场景：实验室、小工位、教育和系统集成商。
+1. 一句话问题 + 实物台面亮相。
+2. 输入新任务：找到 A 样本，转移到检测位，拍照确认并记录。
+3. 场景感知：物体识别、位姿、置信度、风险区域。
+4. 自动生成计划：observe -> pick -> place -> verify -> log。
+5. 执行动作：至少 3 个连续动作，并显示实时状态。
+6. 人为扰动：移动样本或放入错误物体，系统重新识别、暂停、重规划或拒绝错误动作。
+7. Qualcomm 证明：断网运行、本地推理延迟、CPU/NPU/GPU 占用、功耗/温度。
+8. 输出实验日志：时间戳、图像证据、动作轨迹、异常记录。
 
-### Commercial Potential
+Fallback：
 
-先卖 Pilot Kit，再升级 Fleet Kit 和 Industry Pack。
+- Green：真实策略可跑，展示闭环策略和扰动恢复。
+- Yellow：策略不稳，改成学习感知 + 规划器 + 运动原语。
+- Red：真实机器人不稳，展示仿真策略 + 真实台面感知 + 机械臂执行一个安全子任务。
+- 最低可交付：端侧识别、任务规划、动作日志、一个物理动作成功，不能退化成纯视频或纯网页。
 
-## Risk Controls
+Ask：
 
-- 如果真实训练不稳定，保留遥操作回放和手写规则策略作为视频保底。
-- 如果机械臂控制延迟高，缩小动作空间和速度。
-- 如果视觉识别不稳，先使用固定托盘和颜色/形状标记。
-- 如果云训练耗时过长，预训练小模型并在视频中展示复现实验。
-- 如果开发板到货晚，先在普通 Linux 设备上完成数据和控制台，再迁移 edge target。
+- RB3 Gen 2 Vision/Core Kit。
+- QCS8550 profile target。
+- IQ10 RRD roadmap 评审。
+- AI Hub/QNN office hours。
+- 允许提交 QNN profiling artifacts。
+- 10 个付费试点：4 个科研/平台实验室，3 个高校/职业院校 fleet，2 个系统集成商，1 个机械臂/OEM 伙伴。
 
 ## Sources
 
-- Competition information：`docs/competition-info.md`
-- LeRobot documentation：https://huggingface.co/docs/lerobot/index
-- Qualcomm AI Hub：https://aihub.qualcomm.com/
-- Qualcomm RB3 Gen 2 Development Kit：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
-- ROS 2 documentation：https://docs.ros.org/
+- Competition page：https://qc-robotics-dev.aidlux.com/2026/
+- LeRobot：https://github.com/huggingface/lerobot
+- LeRobot Dataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
+- LeRobot ACT：https://huggingface.co/docs/lerobot/en/act
+- LeRobot HIL：https://huggingface.co/docs/lerobot/en/hil_data_collection
+- LeRobot SO-101：https://huggingface.co/docs/lerobot/en/so101
+- Opentrons Flex：https://opentrons.com/robots/flex
+- Automata LINQ：https://www.automata.tech/linq
+- Biosero GBG：https://biosero.com/products/green-button-go-orchestrator/
+- HighRes Cellario：https://www.highres.com/lab-orchestration
+- Benchling LIMS：https://www.benchling.com/lims-software
+- 21 CFR Part 11：https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11
+- Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- Qualcomm QCS6490：https://www.qualcomm.com/internet-of-things/products/q6-series/qcs6490
+- Qualcomm QCS8550：https://www.qualcomm.com/internet-of-things/products/q8-series/qcs8550
+- Qualcomm AI Hub：https://workbench.aihub.qualcomm.com/docs/
+- ONNX Runtime QNN：https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html
+- Dragonwing IQ10 RRD：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design

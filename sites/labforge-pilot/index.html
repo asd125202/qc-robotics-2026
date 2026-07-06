@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LabForgePilot | 比赛主 Demo 方案</title>
+    <title>LabForgePilot | 实验台端侧机器人闭环</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-coral">
@@ -13,160 +13,415 @@
         <span>LabForgePilot</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#demo">Demo</a>
-        <a href="#video">视频</a>
-        <a href="#plan">计划</a>
-        <a href="#score">评分</a>
+        <a href="#problem">问题</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">时机</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
+        <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-labforgepilot">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 19 · Competition Main Demo</p>
+          <p class="eyebrow">Pitch 19 · Edge Lab Robot Workcell</p>
           <h1>LabForgePilot</h1>
-          <p class="hero-lede">最稳妥的比赛主 demo：桌面机械臂完成样品转移、扫码记录、示教采集、云训练、Qualcomm 本体部署和失败回流。先证明闭环，再证明商业扩张。</p>
+          <p class="hero-lede">把样本转移这件小事，变成可训练、可审计、可写回系统的桌面机器人工作站。LabForgePilot 用 LeRobot 数据飞轮和 Qualcomm edge evidence，把一次 demo 变成第一台能卖的机器人产品。</p>
           <div class="cta-row">
-            <a class="button primary" href="#demo">查看 Demo 闭环</a>
-            <a class="button" href="../data-flywheel/">连接 DataFlywheel</a>
+            <a class="button primary" href="#problem">看实验台断点</a>
+            <a class="button" href="#demo">看比赛演示</a>
           </div>
         </div>
       </section>
 
-      <section id="demo" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Controlled Demo Cell</p>
-              <h2>先选一个小而完整的任务，把平台闭环讲清楚。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>实验室最贵的浪费，不是一次拿放，而是样本记录和物理动作断裂。</h2>
             </div>
-            <p>桌面 LabForge 工作站比移动导航、户外服务和复杂工厂场景更可控。它能展示真实抓取、数据采集、云训练、边缘部署和失败接管，不把风险放在不可控场地上。</p>
+            <p>中小型研发、QC、诊断和转化实验室里，大量样本转移仍靠人手、条码枪、Excel、LIMS/ELN 补录和事后复核。真正的成本是慢、不一致、错样、漏扫、夜间等待、失败原因丢失，以及无法证明谁在何时把哪个样本转到了哪里。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Observe</h3>
-              <p>相机识别样品、托盘、目标位和工作台状态。</p>
+          <div class="grid five">
+            <article class="card">
+              <span class="claim-tag">Manual</span>
+              <h3>人手转移不可规模化</h3>
+              <p>拿、扫、放、拍照、核对和等待占据实验员时间，重复性和夜间运行能力都弱。</p>
             </article>
-            <article class="step">
-              <h3>Teleop</h3>
-              <p>遥操作采集 10-20 条样品转移示教轨迹。</p>
+            <article class="card">
+              <span class="claim-tag">Trace</span>
+              <h3>样本链路靠补录</h3>
+              <p>sample ID、source、destination、operator、timestamp、失败原因和 plate map 如果分散记录，审计就不可信。</p>
             </article>
-            <article class="step">
-              <h3>Train</h3>
-              <p>LeRobot / ACT 在 CloudTwin 上训练策略。</p>
+            <article class="card">
+              <span class="claim-tag">Learning</span>
+              <h3>失败没有变成数据</h3>
+              <p>夹取失败、孔位偏移、遮挡、错样和人工接管通常被当场修掉，没有进入训练集。</p>
             </article>
-            <article class="step">
-              <h3>Deploy</h3>
-              <p>策略打包成 Qualcomm edge policy package。</p>
+            <article class="card">
+              <span class="claim-tag">Edge</span>
+              <h3>云端控制不适合实验台</h3>
+              <p>实验台需要本地视觉、本地策略、本地安全停机和断网继续运行，不应把关键动作交给不稳定公网。</p>
             </article>
-            <article class="step">
-              <h3>Improve</h3>
-              <p>失败接管片段回流到下一轮训练队列。</p>
+            <article class="card">
+              <span class="claim-tag">Product</span>
+              <h3>低成本机器人仍像玩具</h3>
+              <p>裸机械臂越来越便宜，但缺少夹具、样品模板、数据采集、应用、日志、培训和维护体系。</p>
             </article>
-          </div>
-          <div class="image-band">
-            <img src="../assets/labforge-pilot.png" alt="桌面机械臂样品转移和云训练边缘部署比赛 demo 图">
           </div>
         </div>
       </section>
 
-      <section id="video" class="slide tint">
+      <section id="broken" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Three-Minute Video</p>
-              <h2>三分钟视频必须像产品发布，不像实验记录。</h2>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>传统实验室自动化很强，但不是这个楔子。</h2>
             </div>
-            <p>官方复赛要求真实运行 demo 视频不超过三分钟。LabForgePilot 的视频结构直接围绕问题、产品、采集、训练、部署、失败回流和商业扩展。</p>
+            <p>LabForgePilot 不和 Hamilton、Tecan、Beckman、Opentrons 正面争“液体处理精度”。它从更窄的样本物流、扫码、视觉核对、失败学习和边缘证据切入，补上台面 sample movement / staging / verification。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>0:00</h3>
-              <p>实验室自动化痛点：每次都重新集成硬件、驱动、训练和部署。</p>
+              <h3>人工 + Excel</h3>
+              <p>便宜但不可复制；GxP 或客户审计下，很难证明样本链路、操作者、失败和修正动作。</p>
             </article>
             <article class="card">
-              <h3>0:20</h3>
-              <p>展示 RobotMac Core、LabForge 工作站和 CloudTwin 架构。</p>
+              <h3>Opentrons Flex</h3>
+              <p>开放、低价、适合自动移液；视觉、失败学习、LeRobot 数据、LIMS 证据链仍需要用户自己拼。</p>
             </article>
             <article class="card">
-              <h3>0:45</h3>
-              <p>遥操作采集样品转移轨迹，数据进入 DataFlywheel。</p>
+              <h3>Automata / Biosero / Cellario</h3>
+              <p>跨设备编排和整实验室调度很强，但部署、销售和集成较重，更适合成熟自动化团队。</p>
             </article>
             <article class="card">
-              <h3>1:20</h3>
-              <p>云端训练 ACT 策略，生成评估结果和部署包。</p>
+              <h3>Hamilton / Tecan / Beckman</h3>
+              <p>高可靠液体处理和条码/LIMS 能力成熟；不是围绕低成本机器人、失败回流和 edge AI 数据闭环设计。</p>
             </article>
             <article class="card">
-              <h3>1:50</h3>
-              <p>Qualcomm 本体执行策略，完成抓取、放置和记录。</p>
+              <h3>myCobot / Dobot / xArm</h3>
+              <p>硬件商品化证明成本下降，但客户买到的是手臂，不是可购买、可培训、可维护的实验台工作站。</p>
             </article>
             <article class="card">
-              <h3>2:25</h3>
-              <p>失败接管、回滚记录、下一轮训练和商业扩展。</p>
+              <h3>大型 SI 项目</h3>
+              <p>能做非标交付，但每个项目重新设计夹具、软件、记录、培训和维护，难以沉淀成商品。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="plan" class="slide dark">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">03 · July To November Build Plan</p>
-            <h2>把官方时间线变成工程交付节奏。</h2>
-            <p class="lead">7 月 20 日前交项目书，7 月底等开发板，8-10 月把数据采集、训练、部署、视频素材和代码包逐步锁定，11 月 1 日前提交复赛作品。</p>
-            <ul class="list">
-              <li>7 月：项目书、网站组合、视频脚本、硬件清单和风险预案。</li>
-              <li>8 月：开发板接入、机械臂控制、相机采集和遥操作保底。</li>
-              <li>9 月：LeRobot / ACT 训练、双云 adapter、edge policy package。</li>
-              <li>10 月：稳定性、失败回流、SafetyOps 日志、三分钟视频。</li>
-              <li>11 月 1 日前：提交视频、PPT、代码包和支撑材料。</li>
-            </ul>
-          </div>
-          <div class="visual">
-            <img src="../assets/labforge-pilot.png" alt="LabForgePilot 比赛 demo 工程计划图">
-          </div>
-        </div>
-      </section>
-
-      <section id="score" class="slide white">
+      <section id="solution" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · Judging Alignment</p>
-              <h2>这个 demo 对齐评分，而不是只追求炫技。</h2>
+              <p class="kicker">03 · Solution</p>
+              <h2>LabForgePilot 是 RobotMac 平台的第一个商业楔子。</h2>
             </div>
-            <p>官方评分强调技术完整性、Qualcomm 处理器应用、产品定义和商业潜力。LabForgePilot 用小场景呈现完整闭环，再用 VerticalPlaybooks 和 RevenueStack 证明扩张。</p>
+            <p>一个桌面样品转移工作站，把 Qualcomm 边缘 AI、LeRobot 数据/策略训练、RobotAppLayer 可安装应用、OpsConnector 写回和 SafetyOps 证据链，压缩进实验台上能购买的产品。</p>
           </div>
-          <div class="grid four">
+          <div class="pipeline">
+            <article class="step">
+              <h3>Scan</h3>
+              <p>识别样本管、孔板、目标位、条码、颜色标记、AprilTag 和工作台状态。</p>
+            </article>
+            <article class="step">
+              <h3>Record</h3>
+              <p>用 teleop / leader arm 采集 LeRobot v3 episode，绑定 sample ID、rack slot、target slot 和 operator。</p>
+            </article>
+            <article class="step">
+              <h3>Train</h3>
+              <p>用 ACT 做可靠 baseline，再用 HIL / DAgger 把失败接管片段变成下一轮训练数据。</p>
+            </article>
+            <article class="step">
+              <h3>Deploy</h3>
+              <p>把视觉模型和策略包 profile 到 RB3 / QCS6490 路线，保留 CPU fallback，不把 NPU 路径当唯一成功条件。</p>
+            </article>
+            <article class="step">
+              <h3>Writeback</h3>
+              <p>完成、异常、样本 lineage、图像证据、模型版本、延迟和 operator 写回 LIMS/Benchling 或审计包。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/labforge-pilot.png" alt="LabForgePilot 样本转移、LeRobot 数据飞轮、云训练和 Qualcomm 边缘部署图">
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Why Now</p>
+              <h2>实验室有预算，低成本机器人有硬件，LeRobot 让数据闭环终于可解释。</h2>
+            </div>
+            <p>实验室自动化市场已经存在，但很多小批量、多变化流程仍没有合适的自动化入口。与此同时，LeRobot/ACT/SO-101 把机器人采集和模仿学习门槛拉低，Qualcomm AI Hub/QNN/RB3 给本地边缘推理提供可展示证据。</p>
+          </div>
+          <div class="grid five">
             <div class="stat">
-              <strong>完整性</strong>
-              <span>感知、策略、执行、记录、部署和回滚闭环。</span>
+              <strong>$8B+</strong>
+              <span>市场报告估计 2024 年 lab automation 市场约 82.7 亿美元，说明预算真实存在。</span>
             </div>
             <div class="stat">
-              <strong>高通价值</strong>
-              <span>本体感知、推理、安全边界和运行时围绕 edge target。</span>
+              <strong>50</strong>
+              <span>LeRobot/SmolVLA 文档建议约 50 条示教 episode 可作为低成本机器人任务起点。</span>
             </div>
             <div class="stat">
-              <strong>产品定义</strong>
-              <span>实验室、小工位、教育和系统集成商场景清楚。</span>
+              <strong>ACT</strong>
+              <span>ACT 是 LeRobot 推荐的新手 baseline，适合用 50 demos 起步做可靠操作策略。</span>
             </div>
             <div class="stat">
-              <strong>商业潜力</strong>
-              <span>从 Pilot Kit 升级 Fleet Kit，再沉淀 Industry Pack。</span>
+              <strong>12 TOPS</strong>
+              <span>QCS6490/RB3 Gen 2 可作为比赛 MVP edge target，展示本地视觉和策略证据。</span>
             </div>
+            <div class="stat">
+              <strong>3 min</strong>
+              <span>比赛视频需要短而完整：问题、采集、训练、边缘运行、失败回流和商业价值。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">05 · Product</p>
+            <h2>第一版只做三件高频事：拿、扫、放。</h2>
+            <p class="lead">不要承诺临床诊断、GMP、CLIA、IVD 或高精度湿实验认证。第一版定位 research / education / QC workflow automation，用空管、彩色水、假样本和可验证记录证明平台闭环。</p>
+            <ul class="list">
+              <li>Tube-to-plate：从管架取样本，放到目标孔位，拍照确认并生成 plate map。</li>
+              <li>Plate-to-plate：在两个托盘之间搬运样品盒、管架或 mock labware，验证位姿和任务模板。</li>
+              <li>Plate-to-tube：从 staging 位取出样本，放回目标管架，完成扫码、复核和记录。</li>
+              <li>BarcodeVerify：条码与 worklist 不匹配时拒绝执行，生成审计事件。</li>
+              <li>QCPhoto：每个关键动作后抓取图像证据，绑定样本、孔位、策略版本和时间戳。</li>
+              <li>FailureMining：夹取失败、错位、遮挡、drop、timeout 自动进入失败片段库和 HIL 修正队列。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/labforge-pilot.png" alt="LabForgePilot 桌面机械臂样本转移工作站和边缘证据图">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Product API</p>
+              <h2>每次转移，都是一条可追溯、可训练、可回放的数据。</h2>
+            </div>
+            <p>LabForgePilot 的数据对象直接兼容 LeRobot v3，又加上实验室语义：样本、孔位、操作者、任务、失败、策略版本和边缘 profile。这样它不是一次机械臂脚本，而是能越跑越好的 workcell。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Episode</h3>
+              <p>一次完整尝试，含 reset、teleop、policy、HIL、success/failure、front/top video 和 joint/action parquet。</p>
+            </article>
+            <article class="card">
+              <h3>Task</h3>
+              <p>`transfer_sample_tube_from_rack_to_slot`，带自然语言、sample ID、rack slot、target slot 和 worklist。</p>
+            </article>
+            <article class="card">
+              <h3>Variation</h3>
+              <p>rack 位置、目标槽、光照、管子朝向、背景扰动、遮挡和随机布局，证明不是单脚本。</p>
+            </article>
+            <article class="card">
+              <h3>Failure Clip</h3>
+              <p>从 rollout ring buffer 保存失败前后 10-30 秒，标记 miss grasp、wrong slot、drop、collision、timeout。</p>
+            </article>
+            <article class="card">
+              <h3>Policy Card</h3>
+              <p>ACT/SmolVLA checkpoint、dataset hash、camera config、训练步数、success@20、interventions/min 和 latency。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Profile</h3>
+              <p>p50/p95 延迟、control FPS、QNN/CPU/GPU path、memory、model hash、device id 和 runtime version。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Market & Business Model</p>
+              <h2>先卖可购买的实验台工作站，再扩展成机器人应用平台。</h2>
+            </div>
+            <p>第一批客户不是最严格的临床实验室，而是愿意为教学、科研、共享平台、小型 QC 和 SI 展示付费的用户。他们需要可培训、可维护、可复用的工作站，而不是一只裸机械臂。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <span class="claim-tag">中国版</span>
+              <h3>教育 + 试点 + SI 渠道</h3>
+              <p>高校/职业院校 5-20 台课程套件，科研/共享平台 1-3 台 pilot kit，小型 QC 台和 SI 样板间。强调价格、交付速度、本地课程、微信/飞书/钉钉、国产机械臂/相机/夹具和本地云/离线部署。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">海外版</span>
+              <h3>研究/QC workcell + 连接器</h3>
+              <p>主打英文文档、安全手册、CE/FCC/UL-ready 物料、LIMS/MES/ELN connector、离线优先、渠道/SI 支持和更高订阅价格。</p>
+            </article>
+          </div>
+          <div class="grid five" style="margin-top: 16px;">
+            <div class="stat">
+              <strong>¥29.8k-49.8k</strong>
+              <span>中国 Edu/Starter Kit：课程、竞赛、开发者和高校 fleet。</span>
+            </div>
+            <div class="stat">
+              <strong>¥68k-98k</strong>
+              <span>中国 Lab Pilot Kit：实验室或质检台 1 台试点。</span>
+            </div>
+            <div class="stat">
+              <strong>$9.9k-14.9k</strong>
+              <span>海外 Pilot Kit：低于传统高通量平台，明显高于裸机械臂。</span>
+            </div>
+            <div class="stat">
+              <strong>¥599-1999</strong>
+              <span>每机器人每月软件：RobotAppLayer、日志、应用更新和远程支持。</span>
+            </div>
+            <div class="stat">
+              <strong>10</strong>
+              <span>寻找 10 个付费试点：4 个实验室、3 个学校 fleet、2 个 SI、1 个机械臂/OEM。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>壁垒不是机械臂，而是实验室样本转移数据资产。</h2>
+            </div>
+            <p>硬件会商品化，传统自动化会继续服务高通量液体处理。LabForgePilot 的壁垒在条码、视觉、轨迹、失败、HIL、LIMS 语义、边缘 profile 和审计证据之间的绑定。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Labware Templates</h3>
+              <p>管架、孔板、样品盒、检测槽、夹具和灯箱模板，让新部署从配置开始而不是从机械设计开始。</p>
+            </article>
+            <article class="card">
+              <h3>Failure Dataset</h3>
+              <p>每个错夹、掉落、遮挡、错位和人工接管都能训练下一版策略。</p>
+            </article>
+            <article class="card">
+              <h3>Audit Semantics</h3>
+              <p>sample ID、operator、timestamp、source/destination、worklist、image evidence 和 policy version 绑定。</p>
+            </article>
+            <article class="card">
+              <h3>Robot Apps</h3>
+              <p>TubeRackTransfer、PlateStaging、BarcodeVerify、QCPhoto、LoadUnload 可进入 RobotAppLayer / SkillDock。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Evidence</h3>
+              <p>QNN profile、latency、memory、model hash、device ID 和 local runtime logs 成为 Qualcomm 差异化证据。</p>
+            </article>
+            <article class="card">
+              <h3>Channel Loop</h3>
+              <p>学校、SI、OEM、科研平台和 QC 实验室共同沉淀课程、模板、应用和维护手册。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">09 · Why Qualcomm</p>
+            <h2>比赛必须证明：这不是云端遥控，而是可量化的实验台边缘部署。</h2>
+            <p class="lead">LabForgePilot 用 Qualcomm Dragonwing 边缘平台在本地完成视觉识别、策略执行、证据记录和运行指标。云端只负责模型准备、AI Hub 编译/profile、可选 OTA 和双云训练。</p>
+            <ul class="list">
+              <li>RB3 Gen 2 / QCS6490：比赛 MVP 平台，展示 Linux/Ubuntu、相机、USB/以太网/GPIO、AI vision 和 12 TOPS NPU 路线。</li>
+              <li>QCS8550：高性能扩展 profile，适合多摄像头、多模型并行和更强 on-prem robot operations box。</li>
+              <li>AI Hub / QNN / ONNX Runtime QNN：生成 compile/profile/inference evidence，记录 runtime、latency、memory、compute unit 和 fallback 状态。</li>
+              <li>Qualcomm Linux / Ubuntu：承接 camera/video/sensor overlays、ROS2、GStreamer、ONNX、QNN、容器和本地服务。</li>
+              <li>IQ10 RRD：只写 roadmap / early access ask；截至 2026-07-06 不写成已量产或已集成硬件。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/labforge-pilot.png" alt="LabForgePilot Qualcomm Dragonwing 本地视觉、策略和证据运行图">
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>三分钟视频讲一个完整闭环，七分钟现场证明它不是脚本。</h2>
+            </div>
+            <p>主 demo 选“样本搬运 + 扫码/视觉核对 + 拍照记录”。移液作为增强镜头，不作为成败依赖。失败不是尴尬，而是展示 HIL 和数据飞轮的产品能力。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>0:00</h3>
+              <p>人工实验台混乱、手工记录和错样风险；切到 LabForgePilot 实物。</p>
+            </article>
+            <article class="step">
+              <h3>0:30</h3>
+              <p>遥操作采集 episode，LeRobot v3 数据流生成，样本、孔位、相机、动作和标签入库。</p>
+            </article>
+            <article class="step">
+              <h3>1:00</h3>
+              <p>ACT policy card：50 demos、训练任务、成功曲线、失败模式和 checkpoint。</p>
+            </article>
+            <article class="step">
+              <h3>1:35</h3>
+              <p>自主 rollout 完成转移；人为移动物体，系统重定位、暂停或安全拒绝错误动作。</p>
+            </article>
+            <article class="step">
+              <h3>2:15</h3>
+              <p>Qualcomm edge profile、断网运行、本地证据包、LIMS/Benchling 写回和商业试点 ask。</p>
+            </article>
+          </div>
+          <div class="grid three" style="margin-top: 16px;">
+            <article class="card">
+              <span class="claim-tag">Fallback</span>
+              <h3>Green / Yellow / Red</h3>
+              <p>Green：真实策略闭环。Yellow：学习感知 + 规划器 + 运动原语。Red：仿真策略 + 真实台面感知 + 一个安全物理子任务。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Qualcomm Ask</span>
+              <h3>硬件和 profile 支持</h3>
+              <p>RB3 Gen 2 Vision/Core Kit、QCS8550 profile target、IQ10 RRD roadmap 评审、AI Hub/QNN office hours、提交 QNN profiling artifacts。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Milestone</span>
+              <h3>比赛时间线</h3>
+              <p>7 月 20 日前提交项目书；7 月底开发板；8 月端侧跑通；9 月鲁棒性；10 月彩排视频；11 月 1 日前提交复赛作品。</p>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">LabForgePilot 的价值不是机械臂做了一次抓取，而是把“采集、训练、部署、失败、改进”变成比赛现场能看懂的产品闭环。</p>
+          <p class="quote">LabForgePilot 的价值不是机械臂做了一次抓取，而是把“采集、训练、部署、失败、写回、改进”变成实验台上能购买的产品闭环。</p>
           <div class="source-links">
             <a href="https://qc-robotics-dev.aidlux.com/2026/">Competition Page</a>
-            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
-            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
-            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2</a>
-            <a href="https://docs.ros.org/">ROS 2 Docs</a>
+            <a href="https://github.com/huggingface/lerobot">LeRobot</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
+            <a href="https://huggingface.co/docs/lerobot/en/act">LeRobot ACT</a>
+            <a href="https://huggingface.co/docs/lerobot/en/hil_data_collection">LeRobot HIL</a>
+            <a href="https://huggingface.co/docs/lerobot/en/so101">SO-101</a>
+            <a href="https://opentrons.com/robots/flex">Opentrons Flex</a>
+            <a href="https://www.automata.tech/linq">Automata LINQ</a>
+            <a href="https://biosero.com/products/green-button-go-orchestrator/">Biosero GBG</a>
+            <a href="https://www.highres.com/lab-orchestration">HighRes Cellario</a>
+            <a href="https://www.benchling.com/lims-software">Benchling LIMS</a>
+            <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11">21 CFR Part 11</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">RB3 Gen 2</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/q6-series/qcs6490">QCS6490</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/q8-series/qcs8550">QCS8550</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX Runtime QNN</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Dragonwing IQ10</a>
           </div>
         </div>
       </section>
