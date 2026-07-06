@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RobotCoreOS | 机器人商业化运行底座</title>
+    <title>RobotCoreOS | Qualcomm 机器人生产运行层</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -15,6 +15,7 @@
       <nav class="navlinks" aria-label="页面导航">
         <a href="#problem">问题</a>
         <a href="#solution">解法</a>
+        <a href="#product">产品</a>
         <a href="#market">商业</a>
         <a href="#qualcomm">高通</a>
         <a href="#demo">Demo</a>
@@ -26,10 +27,10 @@
         <div class="hero-inner">
           <p class="eyebrow">Pitch 26 · Qualcomm-first Robot Runtime OS</p>
           <h1 class="long-word-title">RobotCoreOS</h1>
-          <p class="hero-lede">机器人公司不缺一次能跑的 Demo，缺的是可交付、可更新、可回滚、可审计的运行底座。RobotCoreOS 把 Qualcomm 开发板变成一套面向商业化机器人的 golden runtime image。</p>
+          <p class="hero-lede">面向 Qualcomm Dragonwing/ARM 机器人的生产运行层：把 ROS 2 原型、LeRobot 数据闭环、AI Hub/QNN 端侧推理、签名 OTA、回滚、设备身份和 release evidence，打包成可继承的商业化底座。</p>
           <div class="cta-row">
             <a class="button primary" href="#problem">进入路演</a>
-            <a class="button" href="../skill-cert-kit/">连接 SkillCertKit</a>
+            <a class="button" href="../robot-mac/">连接 RobotMac Core</a>
           </div>
         </div>
       </section>
@@ -39,9 +40,9 @@
           <div class="section-head">
             <div>
               <p class="kicker">01 · Problem</p>
-              <h2>机器人商业化最脏、最贵、最容易被低估的部分，是系统维护。</h2>
+              <h2>机器人行业不缺 Demo，缺的是从 Demo 到客户现场队列的生产底座。</h2>
             </div>
-            <p>每个团队都在重复自建 OS image、BSP、驱动、ROS 2 launch、相机/NPU 配置、日志、远程诊断、OTA、回滚、证书、客户隔离和模型发布门禁。Demo 可以成功一次，但客户现场需要 20 台、50 台、200 台机器可以被长期运营。</p>
+            <p>每个团队都在重复做 OS image、BSP、驱动、ROS 2 lifecycle、相机/NPU 配置、日志、远程诊断、OTA、回滚、证书、SBOM、模型发布门禁和企业审计。买方担心的不是算法不够酷，而是 20 台、100 台、1000 台机器能不能被长期运营。</p>
           </div>
           <div class="grid six">
             <article class="card">
@@ -57,16 +58,16 @@
               <p>云上训练出的 policy 要落到本体，还要处理 QNN/QAIRT、输入规格、fallback、温度和功耗。</p>
             </article>
             <article class="card">
+              <h3>数据闭环断裂</h3>
+              <p>失败片段、人工接管、低置信度和训练 checkpoint 没有统一 lineage，模型迭代无法解释。</p>
+            </article>
+            <article class="card">
               <h3>买方怕运维</h3>
-              <p>企业客户买的不是酷 demo，而是 uptime、审计、恢复、责任边界和安全发布流程。</p>
+              <p>企业客户要 uptime、审计、恢复、责任边界、安全发布和 CVE 响应，不只是一段演示视频。</p>
             </article>
             <article class="card">
               <h3>集成商被拖慢</h3>
               <p>系统集成商每个项目都从镜像、驱动和远程支持重新开始，交付成本吞掉毛利。</p>
-            </article>
-            <article class="card">
-              <h3>生态难复用</h3>
-              <p>没有标准 runtime contract，技能、日志、模型、硬件 profile 和 fleet ops 很难跨项目复用。</p>
             </article>
           </div>
         </div>
@@ -76,27 +77,35 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Why Now</p>
-              <h2>具身智能正在从“能跑一次”进入“能部署一批”。</h2>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>现有工具都重要，但没有单独解决 Qualcomm 机器人从原型到量产的问题。</h2>
             </div>
-            <p>ROS Noetic 已在 2025 年 5 月到达 EOL，ROS 2 Jazzy LTS 面向 Ubuntu 24.04 时代；LeRobot 让真实数据采集和策略训练更开放；Qualcomm Dragonwing、AI Hub、QNN/QAIRT 和 Device Cloud 正在补齐边缘 AI 工具链。现在缺的是把云训练结果安全地放到机器人本体上的产品层。</p>
+            <p>RobotCoreOS 不应该声称“发明机器人 OS”。更准确的定位是：把通用 OS、ROS 2、OTA、安全、边缘 AI、数据闭环和 fleet 运维，组装成 Qualcomm 机器人可复用的生产层。</p>
           </div>
-          <div class="grid four">
+          <div class="grid six">
             <article class="card">
-              <h3>ROS 维护窗口</h3>
-              <p>商业队列需要冻结过的 LTS image、迁移计划、补丁策略和可验证的系统生命周期。</p>
+              <h3>ROS 2</h3>
+              <p>事实开发生态和中间件，但不是 secure product OS、fleet updater、rollback layer 或发布证据系统。</p>
             </article>
             <article class="card">
-              <h3>RaaS 经济模型</h3>
-              <p>Robot-as-a-Service 把 CapEx 变成 OpEx，也把 uptime、远程诊断、proof-of-work 和服务 SLA 变成采购核心。</p>
+              <h3>Linux / Yocto</h3>
+              <p>提供 OS/BSP/长期维护基础，但不定义 robot skill、LeRobot lineage、QNN artifact 和现场 incident bundle。</p>
             </article>
             <article class="card">
-              <h3>边缘模型发布</h3>
-              <p>策略模型不再只是文件，而是带输入、输出、硬件、性能、权限、安全边界和回滚包的发布单元。</p>
+              <h3>Mender / Balena</h3>
+              <p>证明签名 OTA、A/B 和 rollback 是刚需，但默认不理解 ROS graph、AI model、MCU firmware 和校准 schema。</p>
             </article>
             <article class="card">
-              <h3>Qualcomm 机会</h3>
-              <p>低功耗、多摄像头、连接和端侧 AI 很适合真实机器人队列，但生态需要一个默认 runtime target。</p>
+              <h3>Viam / Formant</h3>
+              <p>RobOps、telemetry 和 remote control 强，但不是 bootable Qualcomm runtime image，也不负责 board profile。</p>
+            </article>
+            <article class="card">
+              <h3>Foxglove</h3>
+              <p>证明机器人数据平台有付费意愿，但不解决系统镜像、驱动矩阵、QNN release 和 OTA 回滚。</p>
+            </article>
+            <article class="card">
+              <h3>NVIDIA / 中国 OS</h3>
+              <p>Isaac/Jetson 和 M-Robots/openEuler/AGIROS 都说明平台化正在发生，Qualcomm 需要自己的 Dragonwing-first 路径。</p>
             </article>
           </div>
         </div>
@@ -106,13 +115,13 @@
         <div class="wrap split">
           <div>
             <p class="kicker">03 · Solution</p>
-            <h2>把开发板变成可出货机器人，需要一套黄金运行镜像。</h2>
-            <p class="lead">RobotCoreOS = Qualcomm board profile + validated drivers + ROS 2 bridge + LeRobot hooks + QNN/QAIRT policy runner + SafetyOps + signed OTA + A/B rollback + fleet identity + runtime manifest。</p>
+            <h2>把 Qualcomm 开发板变成可出货机器人，需要一套生产运行层。</h2>
+            <p class="lead">RobotCoreOS = Qualcomm board profile + golden image + runtime agent + ROS 2 lifecycle supervisor + LeRobot hooks + QNN/QAIRT policy runner + signed rollout + A/B rollback + evidence pack + fleet identity。</p>
             <ul class="list">
-              <li>它不替代 ROS 2，而是把 ROS 2 放进可维护的产品运行环境。</li>
-              <li>它不替代 Viam、Formant、Foxglove，而是给这些云层提供可信本体 endpoint。</li>
-              <li>它不只是 OTA agent，而是绑定系统镜像、技能包、模型、数据和安全边界的 runtime contract。</li>
-              <li>它把 Qualcomm edge profile 写进每次部署证据，让硬件价值进入产品机制。</li>
+              <li>它不替代 ROS 2，而是把 ROS 2 产品化、托管化、安全化。</li>
+              <li>它不替代 Qualcomm Linux/Ubuntu/Yocto，而是在其上定义机器人 runtime contract。</li>
+              <li>它不替代 Viam、Formant、Foxglove，而是给这些云层提供可信的本体 endpoint。</li>
+              <li>它把模型、系统、传感器、QNN profile、OTA 和事故证据绑定到同一份 manifest。</li>
             </ul>
           </div>
           <div class="visual">
@@ -125,10 +134,40 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · Product Workflow</p>
-              <h2>从工厂烧录到现场回滚，每一步都留下证据。</h2>
+              <p class="kicker">04 · Why Now</p>
+              <h2>机器人、ROS 2、LeRobot、Qualcomm 和合规采购同时进入生产化阶段。</h2>
             </div>
-            <p>RobotCoreOS 的产品价值不是一个镜像文件，而是一条从 hardware bring-up 到 fleet ops 的交付流程。客户拿到的是可启动、可验证、可更新、可恢复的机器人底座。</p>
+            <p>过去做 RobotCoreOS 太早，因为模型、数据、边缘 AI 和 fleet 需求还没有收敛。现在 ROS 2 Jazzy 对齐 Ubuntu 24.04，LeRobot 建立数据和 policy 工作流，Qualcomm 正在构建 Dragonwing 开发者生态，企业采购也开始要求 SBOM、provenance、签名发布和可审计运维。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>部署量变大</h3>
+              <p>IFR 报告 2024 年工业机器人新装约 54.2 万台，运行存量约 466.4 万台；软件基础设施价值开始显性化。</p>
+            </article>
+            <article class="card">
+              <h3>ROS 2 成为主线</h3>
+              <p>2025 ROS Metrics 显示下载接近 9.84 亿次，ROS 2 占 91.2%；Jazzy LTS 对齐 Ubuntu 24.04 和 ARM64。</p>
+            </article>
+            <article class="card">
+              <h3>LeRobot 可产品化</h3>
+              <p>Dataset v3、HF Jobs、checkpoint lineage、rollout、DAgger/HIL 和失败片段采集，让数据飞轮可以进入产品层。</p>
+            </article>
+            <article class="card">
+              <h3>Qualcomm 补齐工具链</h3>
+              <p>Dragonwing、AI Hub、QNN/QAIRT、Device Cloud、Profiler、Qualcomm Linux 2.0 和 Robotics Hub 形成端侧 AI 路径。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Product</p>
+              <h2>第一版 wedge：从 Qualcomm 裸板到可注册、可更新、可回滚的机器人 runtime。</h2>
+            </div>
+            <p>RobotCoreOS 的产品价值不是一个镜像文件，而是一条从 hardware bring-up 到 fleet ops 的交付流程。客户拿到的是可启动、可验证、可观察、可恢复的机器人底座。</p>
           </div>
           <div class="pipeline">
             <article class="step">
@@ -137,11 +176,11 @@
             </article>
             <article class="step">
               <h3>Enroll</h3>
-              <p>首次开机完成 device identity、客户归属、证书、网络和 fleet enrollment。</p>
+              <p>首次开机生成 device identity，完成证书、客户归属、网络和 fleet enrollment。</p>
             </article>
             <article class="step">
               <h3>Validate</h3>
-              <p>检查相机、IO、IMU、CAN/UART、急停、NPU/GPU/CPU placement 和 ROS lifecycle。</p>
+              <p>检查 camera、IO、IMU、CAN/UART、急停、NPU placement、ROS lifecycle 和 thermal headroom。</p>
             </article>
             <article class="step">
               <h3>Install</h3>
@@ -149,7 +188,7 @@
             </article>
             <article class="step">
               <h3>Operate</h3>
-              <p>本地执行策略、安全边界、日志、episode capture、telemetry 和异常上报。</p>
+              <p>本地执行感知、策略、控制、安全边界、telemetry、episode capture 和日志。</p>
             </article>
           </div>
           <div class="pipeline pipeline-extra">
@@ -159,87 +198,76 @@
             </article>
             <article class="step">
               <h3>Update</h3>
-              <p>对 image、app、skill、model 和 config 做签名更新、灰度发布和健康门禁。</p>
+              <p>对 OS、ROS app、AI model、MCU firmware、校准 schema 和 config 做签名灰度发布。</p>
             </article>
             <article class="step">
               <h3>Rollback</h3>
-              <p>失败启动、性能退化或安全门禁失败时自动回到上一稳定版本或安全模式。</p>
+              <p>失败启动、性能退化或安全门禁失败时，回到上一稳定版本或安全模式。</p>
             </article>
             <article class="step">
               <h3>Capture</h3>
-              <p>把失败片段、低置信度、人工接管和任务 episode 回流到 LeRobot 数据闭环。</p>
+              <p>把失败片段、低置信度、人工接管和 safety hit 回流到 LeRobot 数据闭环。</p>
             </article>
             <article class="step">
               <h3>Audit</h3>
-              <p>导出 SBOM、签名、发布记录、硬件 profile、模型 lineage 和现场恢复报告。</p>
+              <p>导出 SBOM、签名、provenance、发布记录、硬件 profile 和模型 lineage。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="market" class="slide tint">
+      <section class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">06 · Product API/Evidence</p>
+            <h2>真正的产品 API 是一份让工程、运维、采购、安全和评委都能读懂的 runtime contract。</h2>
+            <p class="lead">每个机器人 release 都必须产出 evidence bundle：board profile、image digest、ROS graph、policy hash、QNN profile、SBOM、provenance、CVE triage、health gate、rollback drill 和 incident replay。</p>
+          </div>
+          <div>
+            <ul class="list">
+              <li>Board：SoC、base OS、ROS distro、camera、IO、accelerator、thermal、power、recovery path。</li>
+              <li>Policy：LeRobot/ONNX/QNN_DLC artifact、model hash、inputs、outputs、max rate、safety boundary。</li>
+              <li>Release：SPDX/CycloneDX、SLSA-style provenance、canary rollout、rollback slot、health gate。</li>
+              <li>Telemetry：latency、FPS、memory、power、thermal、accelerator placement、safety hits、rollback cause。</li>
+              <li>Data：MCAP/ROS bag/OTel export、失败 episode、人工接管、checkpoint lineage 和再训练入口。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · Market</p>
+              <p class="kicker">07 · Market & Business Model</p>
               <h2>第一批客户不是“所有机器人公司”，而是最怕现场失控的人。</h2>
             </div>
-            <p>这个产品的 wedge 是从 Qualcomm 开发板到量产机器人之间的 productization gap。买方愿意付费，是因为它减少系统团队、现场返工、版本事故、集成工时和客户采购疑虑。</p>
+            <p>RobotCoreOS 赚的不是整个机器人硬件市场的钱，而是机器人软件基础设施、设备管理、release evidence、fleet ops 和板级 productization 的钱。</p>
           </div>
           <div class="grid six">
             <article class="card">
               <h3>机器人 OEM</h3>
-              <p>VP Engineering 需要可复现的 BSP、Linux、ROS、driver、OTA baseline，避免长期养发行版团队。</p>
+              <p>10-1000 台规模的团队需要可复现 BSP、Linux、ROS、driver、OTA baseline，避免长期养发行版团队。</p>
             </article>
             <article class="card">
               <h3>系统集成商</h3>
-              <p>需要 installable image、已知可用的 ROS/driver stack、远程支持和回滚，减少每个项目的脏活。</p>
+              <p>需要 installable image、known-good stack、远程支持、rollback 和项目交付模板，保护项目毛利。</p>
             </article>
             <article class="card">
               <h3>RaaS 运营商</h3>
-              <p>按月对 uptime 负责，需要 identity、telemetry、proof-of-work、staged rollout 和故障恢复。</p>
+              <p>按月对 uptime 负责，需要 identity、telemetry、proof-of-work、staged rollout 和 incident recovery。</p>
             </article>
             <article class="card">
               <h3>企业 IT / 安全</h3>
-              <p>关心设备身份、补丁 SLA、SBOM、CVE、审计日志、访问控制和 fleet inventory。</p>
+              <p>关心设备身份、补丁 SLA、SBOM/CVE、访问控制、审计日志和 fleet inventory。</p>
             </article>
             <article class="card">
               <h3>教育与开发套件</h3>
-              <p>需要学生和开发者能刷机、恢复、运行 ROS/LeRobot 示例，而不是先修嵌入式 Linux。</p>
+              <p>需要学生和开发者能直接刷机、恢复、运行 ROS/LeRobot 示例，而不是先修嵌入式 Linux。</p>
             </article>
             <article class="card">
-              <h3>行业试点客户</h3>
-              <p>工厂、实验室、物流、零售和园区试点需要 5-50 台机器先被可靠运营起来。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">06 · Business Model</p>
-              <h2>卖的不是“一个 Linux 镜像”，而是机器人从 Demo 到队列的维护能力。</h2>
-            </div>
-            <p>定价需要高于 generic IoT device management，低于完整 RobOps 平台；核心是按设备授权加企业订阅，再用 OEM/NRE 和集成商包做早期现金流。</p>
-          </div>
-          <div class="grid four">
-            <article class="card">
-              <h3>Community</h3>
-              <p>免费开发镜像、示例 profile、课程和论坛支持，种子用户来自高校、比赛和开发套件。</p>
-            </article>
-            <article class="card">
-              <h3>Runtime</h3>
-              <p>每台机器人授权，包含 signed image、ROS 2 baseline、rollback OTA、device identity、SBOM 和 update channel。</p>
-            </article>
-            <article class="card">
-              <h3>Fleet</h3>
-              <p>按机器人/月订阅，包含分组、灰度、远程诊断、日志、审计、版本治理和 incident bundle。</p>
-            </article>
-            <article class="card">
-              <h3>OEM / SI</h3>
-              <p>面向厂商和集成商收取 bring-up、secure boot、私有镜像、长期维护、认证 profile 和项目模板费用。</p>
+              <h3>商业模式</h3>
+              <p>Community 免费入口，Runtime 按设备授权，Fleet 按机器人/月订阅，OEM/SI 收 bring-up，企业版做私有化和 SLA。</p>
             </article>
           </div>
         </div>
@@ -249,133 +277,55 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">07 · Competition</p>
-              <h2>真正的竞争不是某一个产品，而是四类工具拼起来的临时方案。</h2>
-            </div>
-            <p>RobotCoreOS 的定位必须清楚：ROS-compatible，不是 ROS replacement；Qualcomm-first，不是通用云 dashboard；bootable runtime image，不只是 OTA agent。</p>
-          </div>
-          <div class="grid six">
-            <article class="card">
-              <h3>ROS 2</h3>
-              <p>默认机器人中间件和工具生态，但不是 secure product OS、fleet updater、rollback layer 或发布证据系统。</p>
-            </article>
-            <article class="card">
-              <h3>Ubuntu Core / Yocto</h3>
-              <p>提供生产 OS 和嵌入式构建基础，但不定义机器人技能、ROS topic contract、LeRobot lineage 和 SafetyOps。</p>
-            </article>
-            <article class="card">
-              <h3>Mender / Balena</h3>
-              <p>验证 A/B OTA 和设备管理是刚需，但机器人还需要 motion safety、policy manifest、episode 数据和硬件 profile。</p>
-            </article>
-            <article class="card">
-              <h3>Viam / Formant</h3>
-              <p>验证 fleet ops、telemetry、remote control 和 RobOps 市场，但不是 bootable Qualcomm BSP/runtime layer。</p>
-            </article>
-            <article class="card">
-              <h3>Foxglove</h3>
-              <p>验证机器人数据和可视化的重要性；RobotCoreOS 应默认输出 clean MCAP、ROS bag、telemetry 和 incident bundle。</p>
-            </article>
-            <article class="card">
-              <h3>NVIDIA Isaac</h3>
-              <p>证明 physical AI 需要完整栈；RobotCoreOS 的差异化是 Qualcomm-native、低功耗、camera-rich、connected edge。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide dark">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">08 · Moat</p>
-              <h2>护城河来自运行证据，而不是某个单点功能。</h2>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>护城河不是 dashboard，而是 Qualcomm 运行证据和兼容图谱。</h2>
             </div>
             <p>每一次 bring-up、失败 OTA、传感器漂移、温度降频、人工接管、技能安装和客户恢复，都会沉淀成下一版 runtime rule、compatibility profile 和发布门禁。</p>
           </div>
           <div class="grid four">
             <div class="stat">
-              <strong>Profile</strong>
-              <span>Qualcomm board、driver、camera、IO、accelerator 和传感器矩阵。</span>
+              <strong>Board Profile</strong>
+              <span>QCS6490、QCS8550、IQ 系列、driver、camera、IO、accelerator、thermal、power 和 recovery 矩阵。</span>
             </div>
             <div class="stat">
-              <strong>Evidence</strong>
-              <span>SBOM、provenance、签名、OTA、回滚、health gate 和审计记录。</span>
+              <strong>Hardware CI</strong>
+              <span>SDK、kernel、driver、QNN、ROS 包、policy runtime 每次变化都留下可比较 profile。</span>
             </div>
             <div class="stat">
-              <strong>Lineage</strong>
-              <span>模型、技能、LeRobot dataset、episode、失败片段和版本历史。</span>
+              <strong>Evidence Graph</strong>
+              <span>SBOM、provenance、签名、OTA、回滚、health gate、watchdog、audit trail 和 recovery report。</span>
             </div>
             <div class="stat">
-              <strong>Network</strong>
-              <span>OEM、集成商、教育套件、行业模板和 fleet incident 数据不断复用。</span>
+              <strong>Skill Graph</strong>
+              <span>技能包与硬件、ROS graph、模型 runtime、权限、安全边界和 rollback package 的兼容关系。</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">09 · Runtime Evidence</p>
-              <h2>每个 golden image 都必须带一份 release evidence bundle。</h2>
-            </div>
-            <p>评委和客户需要看到这不是“又一个机器人 OS 名字”，而是一套可验证的交付规范。比赛阶段可以先模拟流程，复赛拿到板卡后补实测 profile。</p>
+      <section id="qualcomm" class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">09 · Why Qualcomm</p>
+            <h2>RobotCoreOS 让 Dragonwing 从“被使用的一块板”变成机器人技能的默认边缘目标。</h2>
+            <p class="lead">Qualcomm 的机会不是只报 TOPS，而是把低功耗、多摄像头、连接、端侧 AI、Device Cloud、AI Hub/QNN、Profiler、Qualcomm Linux 和 Robotics Hub 组合成开发者可以继承的 runtime product。</p>
           </div>
-          <div class="grid six">
+          <div class="grid two">
             <article class="card">
-              <h3>Image</h3>
-              <p>不可变基础系统、独立 data 分区、signed image digest、board profile、recovery path、reproducible build log。</p>
+              <h3>对 Qualcomm 的价值</h3>
+              <p>每个 demo 都输出 Qualcomm edge profile：latency、memory、FPS/W、thermal headroom、accelerator placement 和 rollback evidence。</p>
             </article>
             <article class="card">
-              <h3>Security</h3>
-              <p>device identity、证书、密钥注入、secure boot/FDE 可用性说明、无 secrets baked into image。</p>
+              <h3>生态位置</h3>
+              <p>RobotCoreOS 可以成为 Dragonwing Robotics Hub 的 reference runtime project，而不是只有单点 sample code。</p>
             </article>
             <article class="card">
-              <h3>SBOM</h3>
-              <p>系统、容器、应用、模型和技能包生成 SPDX/CycloneDX，附 vulnerability、license、VEX/exception notes。</p>
+              <h3>双版本叙事</h3>
+              <p>中国和海外都能讲端侧推理、云端训练、数据驻留、企业私有化和跨云模型 lineage。</p>
             </article>
             <article class="card">
-              <h3>Lifecycle</h3>
-              <p>ROS 2 managed nodes、watchdog、health gate、safe mode、network allowlist、DDS/SROS 2 权限。</p>
-            </article>
-            <article class="card">
-              <h3>Policy</h3>
-              <p>声明模型 hash、runtime target、输入输出、max rate、speed/force/zone、依赖和 rollback package。</p>
-            </article>
-            <article class="card">
-              <h3>Telemetry</h3>
-              <p>导出 latency、FPS、memory、power、thermal、accelerator placement、safety hits、update state 和 rollback cause。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="qualcomm" class="slide tint">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">10 · Why Qualcomm</p>
-              <h2>RobotCoreOS 让 Qualcomm 从“被使用的一块板”变成机器人技能的默认边缘目标。</h2>
-            </div>
-            <p>Qualcomm 的价值不是只报 TOPS，而是低功耗边缘 AI、多摄像头/多媒体、连接、端侧隐私、弱网韧性和长期硬件生态。RobotCoreOS 把这些能力写进 runtime manifest、edge profile、发布门禁和 demo 证据。</p>
-          </div>
-          <div class="grid four">
-            <article class="card">
-              <h3>Dragonwing-first</h3>
-              <p>从 RB3 Gen 2 / QCS6490 入口，扩展到 QCS8550、IQ 系列和更高阶机器人计算。</p>
-            </article>
-            <article class="card">
-              <h3>AI Hub / QNN</h3>
-              <p>模型包记录 AI Hub compile/profile/inference 结果、QNN/QAIRT 版本、backend 和数值验证。</p>
-            </article>
-            <article class="card">
-              <h3>Profiler</h3>
-              <p>demo 不只展示“能跑”，还展示 latency、memory、utilization、FPS/W、thermal headroom 和 throttling 前后表现。</p>
-            </article>
-            <article class="card">
-              <h3>Ecosystem</h3>
-              <p>可成为 Dragonwing Robotics Hub 的 reference runtime project，帮助开发者从 prototype 走向 production。</p>
+              <h3>具体请求</h3>
+              <p>90 天 validation sprint、开发板或 RRD loaner、AI Hub/Device Cloud quota、QNN office hours、Profiler review 和 partner introduction。</p>
             </article>
           </div>
         </div>
@@ -385,83 +335,71 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">11 · Demo Story</p>
+              <p class="kicker">10 · Demo & Ask</p>
               <h2>三分钟证明：这不是 Demo 机器，而是可交付机器。</h2>
             </div>
-            <p>比赛初赛先用模拟 dashboard 和本地运行样例展示完整闭环；复赛拿到开发板后补真实 Qualcomm profile、功耗、温度、延迟、视频和失败回滚证据。</p>
+            <p>初赛先用模拟 dashboard、本地样例流程和现有资产证明闭环；复赛拿到开发板后补真实 Qualcomm profile、视频、功耗、温度、延迟和稳定性数据。</p>
           </div>
           <div class="pipeline">
             <article class="step">
               <h3>Boot</h3>
-              <p>开机进入 RobotCoreOS console，展示 board profile、image digest、ROS 2 baseline 和 device identity。</p>
+              <p>开发板启动 RobotCoreOS console，展示 board profile、image digest、ROS 2 Jazzy baseline、device identity。</p>
             </article>
             <article class="step">
-              <h3>Install</h3>
-              <p>安装一个 LeRobot policy package，展示 model manifest、输入规格、权限和 safety boundary。</p>
+              <h3>Enroll</h3>
+              <p>设备进入 fleet dashboard，自动生成 runtime manifest 和初始 health check。</p>
             </article>
             <article class="step">
               <h3>Run</h3>
-              <p>运行桌面机械臂或移动底盘任务，实时显示 latency、camera、ROS topics、accelerator placement。</p>
+              <p>安装 LeRobot/ACT policy，走 AI Hub/QNN profile，显示 camera、ROS topics、latency、NPU placement。</p>
             </article>
             <article class="step">
               <h3>Fail</h3>
-              <p>触发错误 OTA 或性能退化，health gate 阻止发布，系统回滚到上一稳定版本。</p>
+              <p>推送 crash 或延迟超标的更新，canary health gate 失败，系统停止 rollout 并回滚。</p>
             </article>
             <article class="step">
               <h3>Export</h3>
-              <p>导出 runtime manifest、失败 episode、SBOM、release record、NPU/温度/功耗 profile 和审计报告。</p>
+              <p>导出 SBOM、provenance、runtime manifest、CVE impact view、failure episode 和评委版 evidence bundle。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="slide dark">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">12 · Ask</p>
-            <h2>给 Qualcomm 的请求：把 RobotCoreOS 做成 Dragonwing 机器人 runtime 样板。</h2>
-            <p class="lead">我们希望得到 6-8 周 Dragonwing validation sprint：RB3 Gen 2 或指定开发板、AI Hub/Device Cloud quota、QNN/QAIRT 指导、profiling review、机器人生态伙伴引荐和可公开的 reference project 机会。</p>
-          </div>
-          <div>
-            <ul class="list">
-              <li>共同定义 3 个 Qualcomm-first benchmark：vision pipeline、multi-model sensor fusion、small VLM/LLM robot assistant。</li>
-              <li>统一报告 latency、memory、accelerator utilization、FPS/W、thermal headroom、power 和 rollback success。</li>
-              <li>把比赛成果整理成中文 pitch deck、developer tutorial、runtime manifest schema 和 demo video。</li>
-              <li>所有性能数字标注日期、SDK、板卡、散热、电源、模型版本和是否模拟。</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide white">
+      <section class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">13 · Claim Boundaries</p>
+              <p class="kicker">Claim Boundaries</p>
               <h2>边界讲清楚，可信度才会提高。</h2>
             </div>
-            <p>RobotCoreOS 不是安全认证系统，不是硬实时控制器，不替代合规安全控制，也不声称已经获得 Qualcomm 官方认证。它的可 defend claim 是：一套 Qualcomm-first、可签名、可更新、可回滚、可观测、可审计的机器人运行镜像和发布证据流程。</p>
+            <p>RobotCoreOS 不是 Qualcomm 官方认证 OS，不替代 ROS 2，不替代安全认证，不保证所有板卡 secure boot/FBE/attestation 开箱可用，也不声称所有 LeRobot/VLA 模型都能直接跑 NPU。它的可 defend claim 是：一套 Qualcomm-first、可签名、可更新、可回滚、可观测、可审计的机器人运行镜像和发布证据流程。</p>
           </div>
           <p class="quote">RobotCoreOS 把“这块板能跑 Demo”升级成“这台机器人可以被交付、更新、回滚和长期维护”。</p>
           <div class="source-links">
-            <a href="https://www.ros.org/blog/noetic-eol/">ROS Noetic EOL</a>
-            <a href="https://www.openrobotics.org/blog/2024/5/ros-jazzy-jalisco-released">ROS 2 Jazzy</a>
-            <a href="https://huggingface.co/docs/lerobot/index">LeRobot</a>
-            <a href="https://ubuntu.com/robotics/ros-esm">Ubuntu ROS ESM</a>
-            <a href="https://ubuntu.com/core/docs">Ubuntu Core</a>
-            <a href="https://docs.yoctoproject.org/">Yocto</a>
-            <a href="https://mender.io/engineers/how-mender-works">Mender OTA</a>
-            <a href="https://www.balena.io/pricing">Balena pricing</a>
-            <a href="https://www.viam.com/platform/fleet-management">Viam fleet</a>
-            <a href="https://docs.formant.io/docs/getting-started-fleet-management">Formant fleet</a>
-            <a href="https://foxglove.dev/product">Foxglove</a>
-            <a href="https://developer.nvidia.com/isaac/ros">Isaac ROS</a>
-            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2</a>
+            <a href="https://www.qualcomm.com/news/releases/2026/01/qualcomm-introduces-a-full-suite-of-robotics-technologies-power">Qualcomm robotics suite</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Dragonwing IQ10 RRD</a>
+            <a href="https://www.qualcomm.com/developer/blog/2026/03/what-qualcomm-dragonwing-robotics-hub-means-for-developers">Robotics Hub</a>
             <a href="https://www.qualcomm.com/developer/software/qualcomm-linux">Qualcomm Linux</a>
-            <a href="https://workbench.aihub.qualcomm.com/docs/">AI Hub Workbench</a>
-            <a href="https://www.qualcomm.com/developer/software/qualcomm-profiler">Qualcomm Profiler</a>
-            <a href="https://qdc.qualcomm.com/support/user-guide/overview">Qualcomm Device Cloud</a>
-            <a href="https://www.qualcomm.com/news/onq/2026/03/how-qualcomm-dragonwing-powers-industrial-edge-ai">Dragonwing Robotics Hub</a>
+            <a href="https://www.qualcomm.com/developer/blog/2026/06/qualcomm-linux-2-now-available">Qualcomm Linux 2.0</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://huggingface.co/qualcomm/ACT">Qualcomm ACT</a>
+            <a href="https://www.openrobotics.org/blog/2024/5/ros-jazzy-jalisco-released">ROS 2 Jazzy</a>
+            <a href="https://design.ros2.org/articles/ros2_dds_security.html">ROS 2 DDS security</a>
+            <a href="https://discourse.openrobotics.org/t/2025-ros-metrics-report/52575">ROS Metrics 2025</a>
+            <a href="https://huggingface.co/docs/lerobot/en/index">LeRobot</a>
+            <a href="https://huggingface.co/docs/lerobot/lerobot-dataset-v3">LeRobot Dataset v3</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR industrial robots</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR service robots</a>
+            <a href="https://documentation.ubuntu.com/core/">Ubuntu Core</a>
+            <a href="https://mender.io/pricing/plans">Mender</a>
+            <a href="https://www.balena.io/pricing">Balena</a>
+            <a href="https://www.viam.com/pricing">Viam</a>
+            <a href="https://formant.io/">Formant</a>
+            <a href="https://foxglove.dev/pricing">Foxglove</a>
+            <a href="https://developer.nvidia.com/isaac/ros">NVIDIA Isaac ROS</a>
+            <a href="https://slsa.dev/spec/v1.2/">SLSA</a>
+            <a href="https://csrc.nist.gov/projects/ssdf">NIST SSDF</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act">EU CRA</a>
           </div>
         </div>
       </section>
