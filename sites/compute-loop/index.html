@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ComputeLoop 智算异常闭环台 | 稳定算力，比新增算力更便宜</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>ComputeLoop 智算异常闭环台</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#problem">问题</a>
+        <a href="#why-now">时机</a>
+        <a href="#solution">方案</a>
+        <a href="#business">商业</a>
+        <a href="#competition">竞争</a>
+        <a href="#qualcomm">高通</a>
+        <a href="#ask">Ask</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-compute-loop">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 72 · AI Data Center Exception Closure</p>
+          <h1>值班团队不该靠群聊守住万卡集群。</h1>
+          <p class="hero-lede">ComputeLoop 服务智算中心运营方、企业私有算力平台、行业云推理服务商和液冷机房团队，把 DCIM/BMS/PDU/UPS/CDU、漏液、热像、GPU 作业、网络、工单、机器人巡检和 SLA 影响变成有结论、有动作、有验证的异常闭环。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#solution">看异常闭环</a>
+            <a class="button" href="#demo">看安全 Demo</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Problem</p>
+              <h2>智算中心异常越来越跨层，恢复却还靠人工拼图。</h2>
+            </div>
+            <p>一个推理延迟飙升或节点掉卡，会穿过作业队列、加速卡、网络、存储、液冷、电力、工单和值班群。DCIM 看设施，Prometheus/Grafana 看指标，BMS 看机电，调度器看任务，客户成功看 SLA。工具都能报警，但谁负责结论、动作、验证和复盘，常常断在跨系统协作里。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>智算运营方</h3>
+              <p>关心可计费 GPU 小时、SLA、客户续约和故障复盘，不只是机房告警数量。</p>
+            </article>
+            <article class="card">
+              <h3>设施团队</h3>
+              <p>UPS、PDU、CDU、液冷、漏液、气流和 PUE 异常需要和作业影响对齐。</p>
+            </article>
+            <article class="card">
+              <h3>SRE / 平台团队</h3>
+              <p>要判断是节点、网络、存储、调度、模型服务还是物理设施导致性能下降。</p>
+            </article>
+            <article class="card">
+              <h3>合规与客户成功</h3>
+              <p>需要事件时间线、处理证据、SLA 归因和审计材料，而不是事后补记录。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Why Now</p>
+              <h2>推理上线后，故障从“影响任务”变成“影响收入和 SLA”。</h2>
+            </div>
+            <p>AI 数据中心正在从机房变成 AI 工厂。高密机柜、液冷、算电协同、绿电/PUE 约束、推理 SLA 和人才短缺同时到来。新增算力很贵，稳定已有算力开始变成更便宜的增长方式。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>945TWh</strong>
+              <span>IEA 预计全球数据中心用电到 2030 年约 945 TWh，较 2024 年翻倍以上。</span>
+            </div>
+            <div class="stat">
+              <strong>$1M+</strong>
+              <span>Uptime 报告中，部分重大数据中心停机成本超过 100 万美元。</span>
+            </div>
+            <div class="stat">
+              <strong>1.2 PUE</strong>
+              <span>中国国家枢纽节点数据中心项目被要求向更低 PUE 和高绿电占比推进。</span>
+            </div>
+            <div class="stat">
+              <strong>$8B+</strong>
+              <span>Dell'Oro 预测直连液冷市场到 2030 年超过 80 亿美元。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="insight" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Core Insight</p>
+              <h2>智算中心不是缺监控，而是缺一个以业务影响为中心的异常闭环。</h2>
+            </div>
+            <p>同一次异常会同时表现为 GPU 降频、作业失败、冷却支路流量下降、PUE 漂移、漏液传感器告警和客户 SLA 风险。真正有价值的不是再显示一条曲线，而是把这些信号合并成一个可执行事件，并证明算力已经恢复。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>Alert-to-Impact</h3>
+              <p>把 137 条告警压成一个影响图：哪些机柜、哪些卡、哪些作业、哪些客户受影响。</p>
+            </article>
+            <article class="card">
+              <h3>Impact-to-Action</h3>
+              <p>给出可审批动作：迁移任务、隔离节点、通知设施、开工单、补拍证据。</p>
+            </article>
+            <article class="card">
+              <h3>Action-to-Proof</h3>
+              <p>验证 p99、GPU 利用率、失败率、热像、漏液、PUE 和工单状态已恢复。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">04 · Solution</p>
+            <h2>ComputeLoop 是智算中心的异常闭环台。</h2>
+            <p class="lead">它不替代 DCIM/BMS/EMS/NMS/SOC/CMDB、调度器、工单系统、消防报警或合规系统，也不直接控制真实配电、制冷或消防。它站在这些系统上面，把跨层异常变成可执行、可验证、可复盘的事件。</p>
+            <ul class="list">
+              <li>Detect：接入 metrics/logs/events/traces、Slurm/K8s、BMC、PDU、UPS、CDU、漏液、热像和机器人巡检。</li>
+              <li>Decide：构建作业、节点、机柜、供电、冷却、网络、客户和 SLA 的影响图。</li>
+              <li>Dispatch：生成 runbook、MOP/EOP/SOP、责任人、审批动作和证据要求。</li>
+              <li>Verify：回看 p99、利用率、失败率、热像、漏液状态、PUE 和工单关闭证据。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/compute-loop.png" alt="智算中心异常闭环平台，AI 机柜、液冷管路、巡检机器人、热像、漏液、气流、功耗和证据时间线">
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Product Workflow</p>
+              <h2>从一次推理延迟飙升到已验证恢复，八步闭环。</h2>
+            </div>
+            <p>ComputeLoop 的第一版不做全自动控制。它先做影子模式和辅助闭环：把 Top 20 告警合并、定位、派发、复核、复盘跑顺，再逐步开放人工审批后的低风险动作。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>接入</h3>
+              <p>DCIM/BMS/PDU/UPS/CDU、GPU telemetry、K8s/Slurm、网络、工单和机器人证据。</p>
+            </article>
+            <article class="step">
+              <h3>合并</h3>
+              <p>把重复告警按机柜、节点、作业、液冷支路、客户和时间窗口合并。</p>
+            </article>
+            <article class="step">
+              <h3>定位</h3>
+              <p>识别可能根因：液冷流量下降、热热点、PDU 异常、节点掉卡、网络抖动。</p>
+            </article>
+            <article class="step">
+              <h3>处置</h3>
+              <p>人审后执行迁移、隔离、通知、工单、巡检、低风险演示动作或手动操作指引。</p>
+            </article>
+            <article class="step">
+              <h3>验证</h3>
+              <p>确认 SLA、利用率、失败率、热像、漏液、能耗和工单证据都已恢复。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Market Wedge</p>
+              <h2>先打 500-5000 卡、正在上液冷的企业/园区/行业智算中心。</h2>
+            </div>
+            <p>超大云厂有自研运维能力，小机房痛感不够。最佳切口是新建或改造中的智算中心、neocloud、行业推理平台、政企私有智算、算力券/训力券平台和高密液冷 pod：规模足够痛，流程还没有完全固化。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>液冷支路</h3>
+              <p>CDU、流量、温差、漏液、冷却容量和机柜热像形成闭环。</p>
+            </article>
+            <article class="card">
+              <h3>推理 SLA</h3>
+              <p>p99、失败率、GPU 利用率、作业队列和客户影响统一到异常 ID。</p>
+            </article>
+            <article class="card">
+              <h3>PUE / 能耗</h3>
+              <p>PUE 漂移、异常能耗小时、绿电占比和碳效报表变成可追溯事件。</p>
+            </article>
+            <article class="card">
+              <h3>远程手 / 巡检</h3>
+              <p>机器人热像、漏液、气流和功耗取证减少无效跑腿和证据缺口。</p>
+            </article>
+            <article class="card">
+              <h3>设备健康</h3>
+              <p>GPU、BMC、PDU、UPS、电池、风扇、传感器失效和维护逾期合并派单。</p>
+            </article>
+            <article class="card">
+              <h3>合规审计</h3>
+              <p>等保、CII、云安全评估、节能审查和事故复盘需要完整留痕。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Business Model</p>
+              <h2>按站点、机柜、液冷区和闭环模块收费。</h2>
+            </div>
+            <p>首单卖“异常体检 + 影子模式 + 辅助闭环”，让客户先看到 MTTD、MTTA、MTTR、告警压缩、证据完整率、巡检工时和 PUE 异常响应的变化。年度合同再扩到多站、液冷、容量和 SLA 模块。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>8 周试点</h3>
+              <p>人民币 18万-30万，1 个智算 pod 或 20-50 个高密柜，最多 1MW IT 负载。</p>
+            </article>
+            <article class="card">
+              <h3>核心年费</h3>
+              <p>人民币 500-1200 元/柜/月，高密/液冷柜取上沿，单站最低 30万-60万/年。</p>
+            </article>
+            <article class="card">
+              <h3>扩展模块</h3>
+              <p>液冷/漏液、PUE/能耗、容量降额、SLA 审计、机器人取证和 7x24 托管闭环。</p>
+            </article>
+            <article class="card">
+              <h3>验证收益</h3>
+              <p>对 PUE 改善、异常能耗小时、可售 kW 恢复和巡检工时减少做封顶成功费。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gtm" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Go-To-Market</p>
+              <h2>用“节能降碳改造 + 智能运维 + 安全闭环”进入项目。</h2>
+            </div>
+            <p>中国通过电信云、地方国资数据集团、智算运营商、数据中心 EPC/O&M 集成商、液冷 OEM、能源服务公司和园区算力平台进入。海外从 colo、neocloud、AI infrastructure operator 和高密改造项目切入。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>先影子模式</h3>
+              <p>不改配置、不接管控制，先压缩噪声告警、生成影响图、验证闭环证据。</p>
+            </article>
+            <article class="card">
+              <h3>先液冷区</h3>
+              <p>液冷、热像、漏液、PUE 和 GPU 降频的业务影响最容易讲清楚。</p>
+            </article>
+            <article class="card">
+              <h3>先本地化</h3>
+              <p>私有化部署、数据不出域、角色权限、日志、证据哈希和审计导出。</p>
+            </article>
+            <article class="card">
+              <h3>再多站扩张</h3>
+              <p>从一个 pod 扩到站点、园区、多城算力网络和算电协同调度证据。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="competition" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Competition</p>
+              <h2>DCIM 告诉你有问题，ComputeLoop 负责把异常关闭。</h2>
+            </div>
+            <p>Prometheus、Grafana、Zabbix 看指标；Schneider EcoStruxure IT、Nlyte、Sunbird、Eaton、ABB 看设施和资产；ServiceNow/PagerDuty 派工单；硬件管理套件管设备；液冷和漏液厂商看局部信号。ComputeLoop 做跨工作负载、硬件、网络、设施和工单的恢复闭环。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>监控 / DCIM</h3>
+              <p>强在可观测和资产记录，但通常不以“业务影响到修复验证”为中心。</p>
+            </article>
+            <article class="card">
+              <h3>硬件 / 液冷</h3>
+              <p>强在设备级告警、传感器和维护，但跨供应商事件链常常断开。</p>
+            </article>
+            <article class="card">
+              <h3>ComputeLoop 位置</h3>
+              <p>事故图谱、处置动作库、连接器、安全执行策略、证据包和复盘反馈数据。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Moat</p>
+              <h2>每一次已验证恢复，都是下一次更快恢复的数据。</h2>
+            </div>
+            <p>护城河不是一个通用告警模型，而是客户自己的事故图谱：节点、机柜、液冷支路、PDU、作业、客户、SOP、人工动作、验证证据和最终结果。越多异常闭环，越知道哪些动作有效、哪些告警是噪声、哪些供应商和机柜组合风险高。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>事故图谱</h3>
+              <p>作业、GPU、机柜、冷却、电力、网络、客户和 SLA 的多层关联。</p>
+            </article>
+            <article class="card">
+              <h3>Runbook 库</h3>
+              <p>MOP/EOP/SOP、审批策略、回滚条件和验证指标沉淀成动作资产。</p>
+            </article>
+            <article class="card">
+              <h3>证据包</h3>
+              <p>热像、漏液、rosbag、工单、时间线、模型版本和人工结论可回放。</p>
+            </article>
+            <article class="card">
+              <h3>本地部署</h3>
+              <p>数据驻留、权限、日志、等保、云安全评估和审计要求带来真实粘性。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">11 · Architecture</p>
+            <h2>边缘看机柜，闭环引擎看影响，人工批准关键动作。</h2>
+            <p class="lead">ComputeLoop 的架构要让运维和合规都放心：只读接入、隔离部署、人审动作、证据留痕、模型版本、可回滚 runbook、本地化数据平面和可禁用的执行入口。</p>
+            <ul class="list">
+              <li>Signal Layer：metrics/logs/events/traces、Slurm/K8s、BMC、PDU、UPS、CDU、漏液、热像、机器人。</li>
+              <li>Impact Graph：连接作业、节点、机柜、液冷支路、电力链路、客户和 SLA。</li>
+              <li>Closure Engine：告警压缩、根因候选、runbook、审批、工单、巡检和验证。</li>
+              <li>Edge Evidence：Qualcomm edge 上做热斑、漏液、气流、机柜识别和证据打包。</li>
+              <li>Training Loop：LeRobotDataset 记录机器人巡检图像、状态、动作、人工 verdict 和最终标签。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/compute-loop.png" alt="智算中心异常闭环架构，站点边缘、AI 机柜、液冷、机器人巡检、影响图、runbook 和证据包">
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">12 · Demo</p>
+              <h2>比赛 Demo 用低压桌面智算中心 rig，证明闭环而不是控制真实机房。</h2>
+            </div>
+            <p>桌面 rig 使用 5V/12V/24V DC、保险丝、限流、物理急停、透明罩、4-6 个机柜模型、冷热通道、LED 假负载、PTC 受控热源、独立漏液托盘、风扇/挡板气流 surrogate 和低速巡检 rover。所有处置动作只作用于演示风扇、假负载、警示灯或标签舵机。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Baseline</h3>
+              <p>Rover 巡检 rack mockup，采集 RGB、热像、漏液、气流、功耗和位姿。</p>
+            </article>
+            <article class="step">
+              <h3>Fault</h3>
+              <p>触发热热点、漏液托盘、气流下降、假负载功耗异常或维护逾期场景。</p>
+            </article>
+            <article class="step">
+              <h3>Evidence</h3>
+              <p>生成 manifest、timeline、media、rosbag2、decision 和 chain-of-custody 证据包。</p>
+            </article>
+            <article class="step">
+              <h3>Approve</h3>
+              <p>人审后只执行 demo-only 动作：开风扇、亮灯、贴标签、降低假负载。</p>
+            </article>
+            <article class="step">
+              <h3>Export</h3>
+              <p>导出 LeRobot episode、QNN 候选模型结果、证据哈希和复盘报告。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">13 · Why Qualcomm</p>
+              <h2>高能效推理硬件需要一层能证明稳定交付和 TCO 的闭环。</h2>
+            </div>
+            <p>Qualcomm 的数据中心和边缘 AI 叙事强调能效、推理吞吐、tokens/watt、机柜级部署和设备化生态。ComputeLoop 把这些优势转成客户能看见的结果：上线更稳、故障更快闭环、证据更完整、PUE/液冷/算力恢复更可追踪。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Edge AI</h3>
+              <p>热斑、漏液、机柜识别、障碍、气流和巡检证据适合站端本地推理。</p>
+            </article>
+            <article class="card">
+              <h3>AI Hub / QNN</h3>
+              <p>把 YOLOX、DeepLabV3+、UNet、Depth Anything 等候选模型编译和 profile。</p>
+            </article>
+            <article class="card">
+              <h3>Data Center Fit</h3>
+              <p>用稳定性和 TCO 闭环支撑 Qualcomm 高能效推理进入智算中心。</p>
+            </article>
+            <article class="card">
+              <h3>Robot Flywheel</h3>
+              <p>巡检失败、人工 verdict 和闭环结果持续进入 LeRobot 数据集。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ask" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">14 · Ask</p>
+              <h2>申请把 ComputeLoop 做成智算中心异常闭环的 Qualcomm 参考样机。</h2>
+            </div>
+            <p>我们需要把桌面样机推到可信的行业场景：边缘开发板、AI Hub/QNN 评测、数据中心导师、液冷/机房集成伙伴和 2-3 个设计客户。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>开发板与模型</h3>
+              <p>Qualcomm edge 开发板、AI Hub/QNN profiling、视觉/热像/多传感模型建议。</p>
+            </article>
+            <article class="card">
+              <h3>联合 Demo 机架</h3>
+              <p>1 个低压 rack rig，覆盖热、漏、气流、功耗、机器人和证据闭环。</p>
+            </article>
+            <article class="card">
+              <h3>设计客户</h3>
+              <p>2-3 个智算中心、neocloud、液冷 pod 或企业私有算力平台访谈/试点。</p>
+            </article>
+            <article class="card">
+              <h3>生态目录</h3>
+              <p>进入 Qualcomm AI infrastructure / edge robotics 伙伴方案叙事。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="claims" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">15 · Claims & Sources</p>
+              <h2>外部事实支撑“为什么现在”，产品收益必须由试点证明。</h2>
+            </div>
+            <p>页面主张低压桌面模拟、边缘 AI 巡检、ROS 2 异常闭环、证据包、人审工单、LeRobot 数据集和 Qualcomm edge 候选路径。它不主张自动控制真实配电、制冷、消防或安全系统，不替代 DCIM/BMS/消防报警/漏水检测，不承诺零误报或认证合规。</p>
+          </div>
+          <p class="quote">一句话 pitch：ComputeLoop 把智算中心异常从“报警太多、结论太少”推进到“影响清楚、动作明确、恢复可验证”。</p>
+          <div class="source-links">
+            <a href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai">IEA Energy and AI data center electricity demand</a>
+            <a href="https://datacenter.uptimeinstitute.com/rs/711-RIA-145/images/2025.Annual.Survey.Report.pdf?version=0">Uptime Institute 2025 Annual Data Center Survey</a>
+            <a href="https://www.delloro.com/news/data-center-physical-infrastructure-market-to-surpass-80-billion-by-2030/">Dell'Oro data center physical infrastructure forecast</a>
+            <a href="https://www.ndrc.gov.cn/xwdt/tzgg/202407/P020240723625616053849.pdf">中国数据中心绿色低碳发展专项行动计划</a>
+            <a href="https://www.nea.gov.cn/20260508/4dae97ca01d348e4871bb8654be34b3a/c.html">国家能源局 AI+能源行动</a>
+            <a href="https://www.qualcomm.com/data-center">Qualcomm Data Center</a>
+            <a href="https://www.qualcomm.com/developer/software/qualcomm-ai-inference-suite">Qualcomm AI Inference Suite</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobotDataset v3</a>
+            <a href="https://www.osha.gov/electrical">OSHA electrical safety</a>
+            <a href="https://www.nfpa.org/codes-and-standards/nfpa-75-standard-development/75">NFPA 75</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>ComputeLoop is one exploratory pitch in the Qualcomm robotics competition package. It is designed for proposal discussion and safe low-voltage demonstration, not for direct control of real data-center power, cooling, or fire systems.</p>
+      <p><a href="../index.html">返回首页</a></p>
+    </footer>
+  </body>
+</html>
