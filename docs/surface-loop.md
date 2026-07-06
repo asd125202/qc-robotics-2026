@@ -1,51 +1,61 @@
-# SurfaceLoop 表面工程证据闭环 Pitch
+# SurfaceLoop 表面工程放行层 Pitch
 
 更新时间：2026-07-06。
 
 ## One-Line Company
 
-SurfaceLoop 让每一平方米钢表面都有可验证的施工记忆：
+SurfaceLoop 是船厂、重钢、风电、汽车和航空表面工程的放行证据层：
 
-> 把除锈、打磨、喷涂、复检、返工和放行变成可审计工作包。边缘 AI 看到表面风险，机器人/人工完成受控返修，检验员签核 release packet，低置信度和接管片段进入 LeRobot 数据闭环。
+> 把前处理、环境、膜厚/粗糙度、缺陷、机器人/人工返工、检验员签核和付款/质保证据变成一个可追溯 release packet。
 
-## Problem
+## YC-Style Opening
 
-表面工程不是“刷一层漆”，而是交付前最容易丢证据的质量关口。
+### Problem
 
-- 业主为腐蚀、停航/停线、质保、重涂、脚手架、干坞、索赔和工期延误付费。
-- 承包商在前处理或涂装问题发现太晚时损失利润，还很难证明责任边界。
-- 检验员依赖照片、DFT、粗糙度、温湿度、纸单和手工抽检。
-- 机器人和相机能采集数据，但数据很少变成完整的 closed work package。
+表面工程的失败，通常不是因为没人干活，而是证据在交付前断掉。
 
-## Why Now
+- 业主/总包关心停航、停线、干坞延期、质保争议和付款依据。
+- 船厂/涂装主管面对多班组、多区域、多设备并行施工，真正拖慢交付的是返工票、复检排队和资料退回。
+- 承包商在前处理或涂装问题发现太晚时损失利润，且责任边界很难证明。
+- 第三方检验员需要把照片、DFT、profile、温湿度、批次、返工和签名整理成可审计文档。
 
-- AMPP/NACE IMPACT 常用口径：全球腐蚀年度成本约 2.5 万亿美元，成熟腐蚀控制措施可节约 15%-35%。
-- Manufacturing Institute / Deloitte 2024 预测美国制造业到 2033 年可能需要 380 万名新员工，其中 190 万岗位可能空缺。
-- HII 与 GrayMatter Robotics 在 2026 年签署 MOU，将 autonomous surface preparation、coating 和 inspection 引入造船。
-- HII HYPR 计划把 robotic welding、material movement、autonomous surface treatment 和 autonomous quality checks 放进 2026 proof / 2027 pilot。
-- Aerobotix 2026 年获得 120 万美元 Air Force DP2 SBIR，用于 F-35 robotic scuff sanding。
-- FANUC / GM / 3M / Inovision 在移动汽车产线上部署 robotic paint repair。
-- 中国 2025 年造船完工量占全球 56.1%，新增风电 120GW，汽车 NEV 销售占比在 2026 年 5 月达到 56.9%。
-- 中国制造政策强调在线智能检测、质量追溯、AI + manufacturing、具身智能示范线和工业智能体。
+### Why Now
 
-## Core Insight
+- AMPP/NACE 常用口径：全球腐蚀年度成本约 2.5 万亿美元。
+- 中国 2025 年造船完工量占全球 56.1%，2026 年一季度新接船舶订单全球份额达到 84.9%。
+- 中国 2025 年新增风电装机约 120GW，累计风电约 640GW，塔筒、叶片和海上维护带来重复表面检验需求。
+- 中国 2025 年工业机器人产量 773,074 台，AI+制造政策要求在线智能检测、质量追溯和工业智能体。
+- HII HYPR、GrayMatter、Blastman、VertiDrive、AMBPR、FANUC、FerRobotics 等信号说明表面执行层正在自动化，但放行证据层仍碎片化。
 
-涂层不是产品，放行包才是产品。
+### Core Insight
+
+涂料公司卖材料，机器人公司卖动作；客户真正买的是可付款、可质保、可审计的放行决定。
 
 Defensible dataset 不是更多锈蚀图片，而是：
 
-`surface before state + prep method + environment + surface profile + coating recipe + DFT + defect decision + inspector disposition + rework result + final release`
+```text
+surface before state
++ prep method
++ environment
++ profile / DFT / batch
++ defect decision
++ rework action
++ inspector disposition
++ owner acceptance
++ final release
+```
 
-## Solution
+## Product
 
-SurfaceLoop 是表面前处理、涂装 QA 和返工放行的工作包层：
+SurfaceLoop 是设备中立的 Surface Release Packet Layer。它坐在机器人、巡检、涂装设备、手机和仪器之上，把现场动作变成可关闭的表面工作包。
 
-1. Import：导入资产、区域、涂层体系、前处理标准、hold point 和检验计划。
-2. Capture：从相机、DFT、粗糙度、温湿度、机器人、手机和检验员批注采集证据。
-3. Flag：端侧识别锈蚀、旧涂层残留、漏打磨、针孔、橘皮、膜厚风险和低置信度区域。
-4. Rework：对缺陷区域生成返修 patch，机器人或人工在受力/速度/材料边界内处理。
-5. Close：生成 before/after、测量、模型版本、人工批准、返工历史和放行包。
-6. Learn：低置信度、补拍、返工、复检和人工改判进入 LeRobot/HIL 数据闭环。
+1. Spec：导入资产、区域、涂层体系、前处理标准、hold point、责任班组和放行条件。
+2. Capture：采集照片、视频、DFT/profile、温湿度、批次、机器人轨迹、工具状态和检验员批注。
+3. Flag：端侧识别锈蚀、残留旧涂层、漏打磨、针孔、橘皮、膜厚风险和低置信度区域。
+4. Route：把问题派给人工、机器人、承包商或第三方复检。
+5. Close：绑定返工动作、低力接触、复检照片、测量值和人工接管。
+6. Release：生成 before/after、测量、模型版本、签名、返工历史和 owner-ready release packet。
+7. Learn：低置信度、返工、复检、人工接管和改判进入 LeRobot/HIL 数据闭环。
 
 ## Market Wedge
 
@@ -53,11 +63,10 @@ SurfaceLoop 是表面前处理、涂装 QA 和返工放行的工作包层：
 
 原因：
 
-- 高价值资产。
-- 大面积钢结构。
-- 强检验、强争议、强证据需求。
-- 弱网络和数据敏感，适合 edge-first。
-- 已有 HII/GrayMatter/Blastman 等自动化信号。
+- 大面积、多班组、强检验、弱网络、数据敏感。
+- 一次返工、一天干坞延期或一次资料退回就能证明 ROI。
+- 业主、承包商、检验员和项目控制都有同一份 release packet 需求。
+- 已有机器人表面处理和纸less QA 信号，客户教育成本下降。
 
 扩展路径：
 
@@ -72,165 +81,127 @@ ship repair -> newbuild ship blocks -> tanks/terminals -> bridges -> wind towers
 
 ## Business Model
 
-收入模型：
-
-> paid pilot + site subscription + edge nodes + integrations + optional verified-savings fee
+定位：不是表单软件，而是 constraint-day insurance 和 defensible release packet。
 
 建议价格：
 
-- 试点：5-15 万美元/站点/工作流，或中国 30-100 万元。
-- 生产订阅：5k-25k 美元/site/月，按资产、用户、工作包、证据存储和模型服务分层。
-- 边缘节点：1k-3k 美元/节点/月。
-- 集成：MES/CMMS/EAM/Ship OS/QMS 实施费。
-- 成功费：按返工减少、放行加速或争议减少分享 verified savings。
+- 90 天试点：海外 7.5k-15k 美元/项目工作包；中国 5-10 万元。覆盖模板、5-10 用户、现场 onboarding 和 ROI 报告。
+- 年度项目订阅：18k-36k 美元/站点或项目团队/年，外加 75-150 美元/现场用户/月；业主/检验员查看免费。
+- 企业业主版：50k-150k 美元/年，覆盖多团队、SSO、审计、数据留存、owner reporting 和系统集成。
+- 边缘证据节点：按节点租赁或一次性硬件加软件维护，负责多相机接入、弱网缓存、模型 profile 和证据同步。
 
 ROI 公式：
 
 ```text
-Rework cost =
-  sanding_hours * loaded_rate
-+ paint_touchup_hours * loaded_rate
-+ QA_reinspection_hours * loaded_rate
-+ consumables + paint/materials + waste disposal
-+ constraint_delay_days * cost_per_constraint_day
-+ scrap_probability * part_or_area_replacement_cost
-
-Pilot ROI =
-  (verified_savings - pilot_fee - buyer_internal_cost)
-  / (pilot_fee + buyer_internal_cost)
+ROI =
+  (admin labor saved
+ + rework avoided
+ + constraint days avoided
+ + faster release / invoice value
+ + dispute and audit cost avoided
+ - SurfaceLoop cost)
+ / SurfaceLoop cost
 ```
 
 90 天 KPI：
 
-- 从“表面完成”到“检验放行”的平均时间下降 20%-35%。
-- 每 100 平米 / aircraft zone / blade / ship section 返工小时下降 20%-35%。
-- 至少避免 1 个 constraint day。
-- 关键缺陷 recall >=90%，误报不增加净 QA 时间。
-- 95%+ NCR/返工票带 before/after、测量值、区域、处置、复检和检验员签核。
+- release packet 编制时间下降 30%-50%。
+- 资料退回/缺字段率下降 50%，missing required fields <2%。
+- required hold points captured digitally = 100%。
+- inspection to reviewed report <24h。
+- out-of-spec DFT/profile 或表面缺陷在下一道涂层前被发现。
+- zero schedule delays caused by missing QA documentation。
 
 ## Competition
 
-- GrayMatter / Blastman / VertiDrive / AMBPR / KUKA / Durr：强在机器人执行。
+SurfaceLoop 不应声称自己是第一个表面机器人或检测系统。
+
+- GrayMatter / Blastman / VertiDrive / AMBPR / KUKA / Durr / FANUC / FerRobotics：强在机器人执行。
 - Gecko Robotics / Square Robot / Apellix / Voliro：强在资产巡检。
 - Cognex / Keyence / Hikrobot / Basler / MVTec：强在机器视觉工具。
 - Maximo / SAP / ServiceNow / MES / CMMS / Ship OS：强在系统记录。
 
-SurfaceLoop 的差异：关闭表面工作包，跨前处理、涂装、返工、检验和放行。
+SurfaceLoop 的差异：跨设备、跨班组、跨检验点关闭表面工作包。它不是执行器或巡检器，而是 release packet layer。
 
 ## Moat
 
-- Surface evidence graph：资产、区域、前处理状态、涂层配方、测量值、缺陷、处置和放行。
-- Domain dataset：before/after、低置信度、人工纠错、机器人轨迹、DFT/profile、返工结果。
-- Workflow lock-in：业主、承包商、检验员和项目控制共用同一个 release packet。
-- Integrations：MES、CMMS、EAM、Ship OS、document control、coating specs、QA forms。
-- Edge profiles：Qualcomm-optimized models、离线缓存、弱网同步、回滚和安全边界。
+- Surface evidence graph：before/after、DFT/profile、环境、缺陷、返工动作、复检和签核连成可查询图谱。
+- Domain dataset：低置信度、人工纠错、机器人轨迹、测量值、返工结果和最终放行结果绑定在同一 surface zone。
+- Workflow lock-in：业主、承包商、检验员、项目控制和质保团队共用同一个 release packet 格式。
+- Equipment neutrality：可接机器人、爬壁车、无人机、手机、膜厚仪、粗糙度仪和既有 MES/CMMS。
+- Edge deployment know-how：Qualcomm 模型 profile、离线缓存、弱网同步、回滚和数据不出厂变成部署资产。
 
 ## Architecture
 
-比赛 demo 使用安全桌面 coupon，不接触真实喷涂、溶剂、金属粉尘或高能打磨。
+比赛 demo 使用安全桌面 coupon，不做真实喷涂、溶剂、金属粉尘或高能打磨。DFT/profile 字段默认模拟，只有接入校准仪器时才作为真实测量。
 
-### Sensors
+### Field Stack
 
-- Front RGB camera。
-- Wrist RGB camera。
-- Optional depth / structured-light height map。
-- Wrist F/T or fixture load cell。
-- Tool RPM/current。
-- Vibration/IMU。
-- Coupon QR ID。
-- Fixture clamp switch。
-- E-stop。
+- 双 RGB 相机，可选 depth/thermal。
+- Spring-loaded probe + 1-axis load cell / HX711，或 wrist F/T。
+- Coupon QR ID、fixture clamp switch、E-stop。
+- ROS 2 负责低层 motion、joint state、image、force topic 和安全 supervisor。
+- LeRobotDataset v3 保存多相机视频、state/action、force、intervention、label 和模型版本。
 
-### ROS 2 Topics
+### AI Stack
 
-- `/camera/front/image_rect`
-- `/camera/wrist/image_rect`
-- `/surface/height_map`
-- `/surface/defect_mask`
-- `/surface/rework_plan`
-- `/tool/ft_raw`
-- `/tool/ft_filtered`
-- `/tool/rpm_state`
-- `/tool/current`
-- `/force_ctrl/target`
-- `/hil/intervention`
-- `/episode/event`
-- `/qnn/perf`
-
-### Edge AI
-
-Runs well on Qualcomm edge / QNN:
-
-- Defect detector / segmenter。
-- Coverage / risk flagger。
-- Contact-state classifier from F/T, current, vibration。
-- Quality pass/fail classifier on before/after crops。
-- AI Hub compile/profile/package evidence。
-
-Runs outside QNN:
-
-- F/T filtering。
-- Force/admittance control。
-- Watchdogs, geofence, tool interlock。
-- ROS 2 graph and MCAP recording。
-- Patch generation and safety supervisor。
-
-Cloud:
-
-- LeRobot training/fine-tuning。
-- HIL dataset curation。
-- Evaluation replay。
-- Larger VLA/LLM experiments。
-- Dashboard analytics。
+- 云端/GPU：训练和 fine-tune perception model / evidence classifier / HIL policy。
+- Qualcomm edge：部署 compact defect segmentation、quality scoring、contact-state classifier。
+- AI Hub / QNN：对目标 SoC compile/profile，使用 ONNX Runtime QNN 或 AI Hub 生成的 profile artifacts。
+- 安全边界：AI 只给缺陷、建议和证据；速度/力上限、tool interlock、E-stop、人工签核在确定性系统和人类流程中。
 
 ## Competition Demo
 
-3 分钟 demo：
+3 分钟演示：
 
-1. Edge camera detects simulated dust nib / scratch / missed sanding area on a safe coupon。
-2. System opens surface NCR with defect mask and work-package context。
-3. System generates bounded rework patch: target force, speed, dwell, and tool mode。
-4. Robot uses low-force felt/foam pad; force spike or mask drift pauses motion。
-5. Human performs HIL correction if needed。
-6. System rescans, compares before/after, and inspector approves on tablet。
-7. Release packet is generated and the HIL episode is saved to LeRobotDataset。
+1. Place coupon under robot. Show zone map and surface work package。
+2. Edge camera detects simulated dust nib / scratch / thin coating / missed sanding area。
+3. Probe touches ridge/patch at low force. Load-cell trace + mock DFT/profile attach to evidence card。
+4. Intentionally trigger drift or missed ridge. Human pauses, teleoperates correction, resumes。
+5. Show LeRobotDataset episode: MP4 frames + Parquet state/action/force/labels。
+6. Run compact model on Qualcomm edge while disconnected from cloud。
+7. Generate pass/fail/needs-review release packet and close the surface NCR。
 
 ## Why Qualcomm
 
-- Surface work occurs in harsh, weak-network, data-sensitive industrial sites。
-- Multi-camera and sensor ingestion benefit from local edge processing。
-- Defect segmentation and quality scoring can be compiled/profiled through AI Hub / QNN / QAIRT。
-- Factory/shipyard/auto data should not default to raw public-cloud upload。
-- LeRobot HIL corrections create training data; profiled artifacts return to Qualcomm edge。
-- China private deployment and overseas cloud training can share the same job contract。
+- 表面工程发生在弱网、粉尘、噪声和数据敏感的现场，原始视频不应默认上传公有云。
+- 多相机和传感器 ingestion 适合本地边缘处理。
+- 缺陷分割、quality scoring、evidence classifier 可以通过 AI Hub / QNN / QAIRT 编译和 profile。
+- RB3 Gen 2 / QCS6490 级边缘节点可作为相机、传感器、ROS 2 和证据包的现场枢纽。
+- 中国私有部署和海外云 GPU 训练可以共享同一 job contract，默认数据不出厂。
+- 这是 Qualcomm robotics ecosystem 可展示的商业化参考应用：不是 demo toy，而是工业工作流。
 
 ## Claims To Avoid
 
 - 不说零腐蚀。
 - 不说零返工。
 - 不说替代检验员。
-- 不说自动认证。
+- 不说自动认证或 ASTM/AMPP/IMO compliance 已完成。
+- 不说 camera-only 可以真实测量 DFT/profile。
 - 不说全自动喷涂/打磨可覆盖任意场景。
 - 不说生产汽车/飞机漆面返修已完成。
 - 不说云端在安全控制环内。
-- 不说任意 PyTorch 模型可直接跑 QNN。
+- 不说任意 PyTorch/VLA 模型可直接跑 QNN。
 
 ## Sources
 
-- AMPP corrosion campaign: https://www.ampp.org/blogs/webmasternaceorg/2025/04/22/global-campaign-urges-action-on-corrosion-crisis
-- AMPP surface prep standards: https://blogs.ampp.org/protectperform/surface-prep-standards-a-quick-summary
-- Manufacturing Institute / Deloitte workforce: https://themanufacturinginstitute.org/manufacturers-need-as-many-as-3-8-million-new-employees-by-2033/
-- IFR World Robotics 2025: https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years
-- HII GrayMatter MOU: https://hii.com/news/hii-teams-with-graymatter-robotics-to-integrate-physical-ai-into-manned-and-unmanned-shipbuilding
-- HII HYPR: https://hii.com/news/hii-launches-hypr-program-with-path-robotics-and-graymatter-robotics-to-accelerate-production-at-scale
-- Aerobotix F-35 sanding: https://aerobotix.net/aerobotix-secures-1-2m-air-force-dp2-sbir-contract-for-robotic-scuff-sanding-on-f-35-aircraft/
-- FANUC GM paint repair: https://www.fanucamerica.com/case-studies/first-ever-robotic-paint-repair-solution-on-a-moving-automotive-line
-- FerRobotics SEAT/Cupra paint repair: https://www.ferrobotics.com/en/references/case-studies/seat-cupra-robotic-paint-repair-sanding-polishing/
-- China shipbuilding 2025: https://news.cn/fortune/20260224/421f9de6ac8548c8a9112099698c43cb/c.html
+- AMPP corrosion cost: https://www.ampp.org/blogs/webmasternaceorg/2023/04/14/ampp-recognizes-world-corrosion-awareness-day-impa
+- Graco surface prep standards: https://www.graco.com/gb/en/contractor/solutions/articles/surface-prep-standards-explained-sspc-nace-iso-8501.html
+- AMPP coating inspector program: https://www.ampp.org/education/education-resources/courses-by-program/coating-inspector-program/cip-1
+- IMO PSPC: https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.215%2882%29.pdf
+- China shipbuilding 2025: https://news.cctv.com/2026/02/01/ARTIPRaqs8PSuxG3vQVoILPF260201.shtml
+- China shipbuilding Q1 2026: https://www.news.cn/20260509/94566f90a53d411682a1eeecf1b2a5d0/c.html
 - China wind 2025: https://www.nea.gov.cn/20260212/742b8c6a078347b0b39de676c05c5d58/c.html
-- CAC auto data rules: https://www.cac.gov.cn/2021-08/20/c_1631049984897667.htm
-- LeRobot HIL: https://huggingface.co/docs/lerobot/en/hil_data_collection
+- China robots 2025: https://www.stats.gov.cn/sj/zxfb/202601/t20260119_1962329.html
+- GrayMatter surface robotics: https://graymatter-robotics.com/solutions/
+- HII HYPR: https://www.hii.com/news/hii-launches-hypr-program-with-path-robotics-and-graymatter-robotics-to-accelerate-production-at-scale
+- Blastman shipbuilding: https://www.blastman.com/references/ship-building.html
+- VertiDrive abrasive blasting: https://www.vertidrive.com/abrasive-blasting/
+- Damen AMBPR robots: https://www.damen.com/services/shiprepair/projects/dsdu-takes-delivery-of-five-ambpr-robots
+- FANUC paint repair: https://www.fanucamerica.com/case-studies/first-ever-robotic-paint-repair-solution-on-a-moving-automotive-line
+- FerRobotics ACF-K: https://www.ferrobotics.com/en/services/products/active-contact-flange-kit/
+- NSRP paperless paint QA: https://www.nsrp.org/wp-content/uploads/2018/05/2016-428-Implementation-Robust-Paperless-Paint-Final-Report.pdf
+- LeRobot HIL: https://huggingface.co/docs/lerobot/hil_data_collection
 - LeRobotDataset v3: https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
 - Qualcomm AI Hub: https://workbench.aihub.qualcomm.com/docs/
-- QNN / QAIRT: https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-10/general_introduction.html
 - Qualcomm RB3 Gen 2: https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
