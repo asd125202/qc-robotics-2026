@@ -109,6 +109,7 @@ Qualcomm 可以通过该项目获得一个端到端机器人生态样板：
 - CircularLoop 城市矿山分流闭环页：https://qc-robotics-2026.pages.dev/circular-loop/
 - RampLoop 机坪异常闭环页：https://qc-robotics-2026.pages.dev/ramp-loop/
 - SterileLoop 手术器械异常闭环页：https://qc-robotics-2026.pages.dev/sterile-loop/
+- TouchForge 触觉力控技能工厂页：https://qc-robotics-2026.pages.dev/touchforge/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/

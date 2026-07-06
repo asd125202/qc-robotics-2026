@@ -54,6 +54,7 @@ The current first-batch pitch directions are:
 - `CircularLoop 城市矿山分流闭环`: electronics circularity value-routing platform for ITAD, refurb, trade-in, battery quarantine, data-wipe evidence, audit packets, and LeRobot HIL loops.
 - `RampLoop 机坪异常闭环`: airport ramp and aircraft turnaround exception-closure platform for GSE/FOD/baggage/service blockers, owner assignment, evidence packets, and LeRobot HIL loops.
 - `SterileLoop 手术器械异常闭环`: sterile processing and OR instrument-tray exception-closure platform for missing/wrong instruments, cycle evidence, UDI/RFID proof, human signoff, and LeRobot HIL loops.
+- `TouchForge 触觉力控技能工厂`: tactile and force-control data factory for last-centimeter contact skills, LeRobot HIL episodes, Qualcomm edge deployment, and industrial ROI evidence.
 - `RoboPort`: certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.

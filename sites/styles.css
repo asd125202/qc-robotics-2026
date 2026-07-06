@@ -230,6 +230,10 @@ img {
   background-image: url("./assets/sterile-loop.png");
 }
 
+.hero-touchforge {
+  background-image: url("./assets/touchforge.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }
