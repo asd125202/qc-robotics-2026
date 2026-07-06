@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EdgeRuntimeBench | Qualcomm 边缘运行证据链</title>
+    <title>EdgeRuntimeBench | 边缘运行证据层</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-amber">
@@ -13,159 +13,415 @@
         <span>EdgeRuntimeBench</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#pipeline">流程</a>
-        <a href="#metrics">指标</a>
-        <a href="#demo">Demo</a>
+        <a href="#problem">问题</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">时机</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-edge-runtime">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 20 · Qualcomm Edge Runtime Evidence</p>
+          <p class="eyebrow">Pitch 20 · Physical AI Runtime Evidence Layer</p>
           <h1 class="long-word-title">EdgeRuntimeBench</h1>
-          <p class="hero-lede">Qualcomm 价值不能只写在项目书里。训练出的机器人策略要经过编译、profile、打包、部署、监控和回滚，形成评委和企业都能检查的边缘运行证据链。</p>
+          <p class="hero-lede">把机器人策略从“能跑”变成“有证据地跑在 Qualcomm 边缘设备上”。EdgeRuntimeBench 为每个 LeRobot / ACT / SmolVLA 策略生成可复现证据包：lineage、compile、profile、fallback、runtime、SafetyOps gate、部署和回滚。</p>
           <div class="cta-row">
-            <a class="button primary" href="#pipeline">查看运行链路</a>
-            <a class="button" href="../labforge-pilot/">连接 LabForgePilot</a>
+            <a class="button primary" href="#problem">看证据缺口</a>
+            <a class="button" href="#demo">看比赛证据包</a>
           </div>
         </div>
       </section>
 
-      <section id="pipeline" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Runtime Pipeline</p>
-              <h2>从云端策略到本体运行，中间必须有可验证的工程链路。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>机器人 demo 能跑，不代表企业敢买、集成商敢交付、评委相信用了高通。</h2>
             </div>
-            <p>CloudTwin 训练出的策略不是直接丢给机器人。它需要绑定设备 profile、评估延迟和资源占用、生成部署包，并通过 SafetyOps 发布门禁。</p>
+            <p>模型更新、固件变化、热降频、相机替换、客户现场光照、ROS pipeline、CPU fallback 或量化误差，都可能让一个看起来成功的 robot policy 失效。买家需要的不是截图，而是能复现、能审计、能回滚的运行时证据。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Artifact</h3>
-              <p>LeRobot / ACT 策略、数据集版本、训练配置和评估报告。</p>
+          <div class="grid five">
+            <article class="card">
+              <span class="claim-tag">Runtime</span>
+              <h3>NPU claim 容易失真</h3>
+              <p>模型可能静默 fallback 到 CPU；没有 QNN profile、backend report 和 fallback 记录，就不能说“跑在 NPU”。</p>
             </article>
-            <article class="step">
-              <h3>Compile</h3>
-              <p>面向 QCS8550 / QCS6490 / IQ-8275 profile 生成 runtime target。</p>
+            <article class="card">
+              <span class="claim-tag">Robot</span>
+              <h3>模型延迟不是机器人延迟</h3>
+              <p>真正决定动作的是 camera frame age、preprocess、inference、postprocess、action serialization 和 actuator ack。</p>
             </article>
-            <article class="step">
-              <h3>Profile</h3>
-              <p>测量延迟、action rate、内存、温度、功耗和稳定性。</p>
+            <article class="card">
+              <span class="claim-tag">Lineage</span>
+              <h3>策略来源不可追溯</h3>
+              <p>dataset revision、LeRobot version、checkpoint step、camera config、normalization stats 和 action schema 必须锁定。</p>
             </article>
-            <article class="step">
-              <h3>Package</h3>
-              <p>部署包、依赖 manifest、兼容性报告和回滚包。</p>
+            <article class="card">
+              <span class="claim-tag">Safety</span>
+              <h3>性能变化会变成安全问题</h3>
+              <p>p95 延迟、jitter、frame reuse、memory leak 和热降频都可能让机器人越过 ODD 或错过安全停机窗口。</p>
             </article>
-            <article class="step">
-              <h3>Monitor</h3>
-              <p>运行日志、失败 episode、安全边界触发和回滚事件。</p>
+            <article class="card">
+              <span class="claim-tag">Buyer</span>
+              <h3>验收缺少共同语言</h3>
+              <p>OEM、SI、企业、保险、marketplace 和评委都需要同一份 evidence pack，而不是各看一堆脚本和日志。</p>
             </article>
-          </div>
-          <div class="image-band">
-            <img src="../assets/edge-runtime-bench.png" alt="Qualcomm 边缘运行编译评测部署证据链图">
           </div>
         </div>
       </section>
 
-      <section id="metrics" class="slide tint">
+      <section id="broken" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Bench Metrics</p>
-              <h2>评分需要证据，企业验收也需要证据。</h2>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>AI Hub、QNN、MLOps、fleet tools 和认证实验室都重要，但没有覆盖机器人运行证据闭环。</h2>
             </div>
-            <p>初赛阶段先定义指标，复赛阶段填入真实板端数据。这样即使模型还在迭代，工程目标也很清楚。</p>
+            <p>EdgeRuntimeBench 不替代 Qualcomm AI Hub、QAIRT/QNN、ONNX Runtime、Foxglove、Formant、InOrbit 或测试认证。它把这些结果组织成面向机器人策略发布和商业验收的 evidence graph。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>Latency</h3>
-              <p>端到端动作延迟、p50/p95 和视觉到动作闭环。</p>
+              <h3>Qualcomm AI Hub</h3>
+              <p>能 compile、profile、run inference，但更像模型工作台；不覆盖 ROS pipeline、机器人动作、长时运行和部署审计。</p>
             </article>
             <article class="card">
-              <h3>Action Rate</h3>
-              <p>策略输出频率、执行稳定性和连续运行能力。</p>
+              <h3>QAIRT / QNN Scripts</h3>
+              <p>能生成 context binary、CSV、QHAS/optrace，但证据分散在命令、bin、log 和 wrapper 里，难以交付给客户。</p>
             </article>
             <article class="card">
-              <h3>Utilization</h3>
-              <p>CPU/GPU/NPU、内存、摄像头和 IO 占用。</p>
+              <h3>ONNX Runtime QNN</h3>
+              <p>能接入 QNN backend，但团队仍要证明 provider options、context cache、profiling、fallback 和 unsupported ops。</p>
             </article>
             <article class="card">
-              <h3>Thermal</h3>
-              <p>温度、功耗、降频风险和散热边界。</p>
+              <h3>MLOps / Eval Tools</h3>
+              <p>擅长软件模型追踪和云端 eval；对 device power、thermal、firmware、ROS/PLC/CAN、FAT/SAT 和安全记录较弱。</p>
             </article>
             <article class="card">
-              <h3>Safety</h3>
-              <p>软边界、急停、人工接管和安全门禁结果。</p>
+              <h3>MLPerf / MLMark</h3>
+              <p>适合标准芯片/模型比较；不是客户项目、机器人 workload、site acceptance 或 marketplace 上架证据。</p>
             </article>
             <article class="card">
-              <h3>Rollback</h3>
-              <p>版本停用、回滚包、失败日志和下一轮训练任务。</p>
+              <h3>Fleet Ops</h3>
+              <p>Foxglove、Formant、InOrbit 能运营 fleet，但不是独立证明每个模型/runtime 更新能安全部署的报告层。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="demo" class="slide dark">
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>EdgeRuntimeBench 是 physical AI 的运行时证据层。</h2>
+            </div>
+            <p>它接收 LeRobot policy、ONNX、QNN artifact 或已部署包，锁定 lineage，运行 export matrix、replay parity、edge profile、live loop、soak test 和 rollback trial，最后输出 buyer-facing Evidence Pack。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Lineage</h3>
+              <p>锁定 dataset repo、policy revision、LeRobot version、checkpoint、camera config、FPS、task prompt、normalization。</p>
+            </article>
+            <article class="step">
+              <h3>Compile</h3>
+              <p>AI Hub / QAIRT / QNN / ONNX Runtime QNN：生成 context binary、precompiled QNN ONNX 或标记 unsupported。</p>
+            </article>
+            <article class="step">
+              <h3>Benchmark</h3>
+              <p>model microbench、pipeline replay、live edge loop、soak、rollback trial，分开标记 measured/proxy/simulated。</p>
+            </article>
+            <article class="step">
+              <h3>Gate</h3>
+              <p>SafetyOps 根据 p95 latency、deadline miss、frame age、jitter、memory、thermal、fallback 和 ODD 决定能否发布。</p>
+            </article>
+            <article class="step">
+              <h3>Pack</h3>
+              <p>生成 `judge-audit-pack.zip`、SkillDock bundle、RobotAppLayer adapter、rollback record 和 video proof index。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/edge-runtime-bench.png" alt="EdgeRuntimeBench Qualcomm 边缘运行证据、profile、部署和回滚图">
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Why Now</p>
+              <h2>边缘 AI 进入机器人采购，证据层会成为新的验收语言。</h2>
+            </div>
+            <p>工业机器人已经大规模部署，edge AI 软硬件支出继续增长。AI Act、ISO 10218、ISO 3691-4、保险、RFP、marketplace 和 SkillDock 上架都会要求更多技术文档、日志、准确性、鲁棒性、网络安全和 post-market monitoring 证据。</p>
+          </div>
+          <div class="grid five">
+            <div class="stat">
+              <strong>542K</strong>
+              <span>IFR 报告 2024 年全球工业机器人安装约 54.2 万台。</span>
+            </div>
+            <div class="stat">
+              <strong>295K</strong>
+              <span>中国 2024 年安装约 29.5 万台工业机器人，占全球 54%。</span>
+            </div>
+            <div class="stat">
+              <strong>QNN</strong>
+              <span>AI Hub、QAIRT/QNN、ONNX Runtime QNN 和 Plugin EP 正在形成 Qualcomm runtime 入口。</span>
+            </div>
+            <div class="stat">
+              <strong>LeRobot</strong>
+              <span>机器人策略 lineage、dataset、rollout、HIL 和 policy card 需要接到 edge evidence。</span>
+            </div>
+            <div class="stat">
+              <strong>RFP</strong>
+              <span>企业采购、FAT/SAT、保险和上架审核都可以被 evidence pack 加速。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">03 · Demo Evidence</p>
-            <h2>LabForgePilot 的高通价值，要靠 runtime 证据补强。</h2>
-            <p class="lead">三分钟视频里只需要一屏展示：目标设备 profile、策略版本、延迟指标、部署包和回滚日志。答辩 PPT 再展开 EdgeRuntimeBench 的证据表。</p>
+            <p class="kicker">05 · Product</p>
+            <h2>不是单一 benchmark，而是策略上线前后的证据工作流。</h2>
+            <p class="lead">EdgeRuntimeBench 把一个 policy package 分成明确状态：Ready、Needs Quantization、Unsupported、Runtime Risk、Blocked by SafetyOps。每个判断都能追到原始 artifact。</p>
             <ul class="list">
-              <li>初赛：定义 Rhino X1 / QCS8550 target profile 和 benchmark 计划。</li>
-              <li>复赛：接入开发板后填入实测延迟、资源占用和稳定性。</li>
-              <li>视频：展示策略从 CloudTwin 导出到本体运行的证据链。</li>
-              <li>商业：把报告作为企业验收和 SkillDock 上架依据。</li>
+              <li>Lineage Graph：dataset -> train config -> checkpoint -> policy card -> export candidate -> eval -> edge package -> HIL feedback。</li>
+              <li>Contract Inspector：检查 camera names、image size、FPS、state/action shape、task prompt、control mode、normalization stats。</li>
+              <li>Export Matrix：PyTorch native、ONNX、ONNX+QNN、ONNX+TensorRT、native RTC，标记 supported / experimental / blocked。</li>
+              <li>Replay Parity：用 held-out LeRobot episode 比较 PyTorch vs export 的 action chunks、drift、latency 和 queue gaps。</li>
+              <li>Live Edge Loop：camera -> preprocess -> inference -> postprocess -> action commit -> actuator ack 的端到端 trace。</li>
+              <li>Evidence Pack：device registry、policy manifest、Qualcomm export manifest、edge profile、install audit、SafetyOps gate、rollback。</li>
             </ul>
           </div>
           <div class="visual">
-            <img src="../assets/edge-runtime-bench.png" alt="边缘部署 profile 和 runtime benchmark dashboard">
+            <img src="../assets/edge-runtime-bench.png" alt="EdgeRuntimeBench evidence pack、runtime dashboard 和机器人工作站图">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Product API</p>
+              <h2>证据对象必须能被评委、客户、SI、保险和 marketplace 同时读懂。</h2>
+            </div>
+            <p>所有指标都标注来源：`measured-on-board`、`AI-Hub-device-cloud`、`proxy`、`replay-eval` 或 `simulated`。诚实标注比假装全链路 NPU 更可信。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>sut_manifest</h3>
+              <p>board、SoC、OS、kernel、firmware、runtime、ORT/QNN version、model hash、dataset hash、container digest。</p>
+            </article>
+            <article class="card">
+              <h3>cycle_events</h3>
+              <p>capture、preprocess、inference、postprocess、action commit、actuator ack、deadline、safety state、backend used。</p>
+            </article>
+            <article class="card">
+              <h3>profile_summary</h3>
+              <p>latency p50/p95/p99、action rate、control FPS、jitter、deadline miss、frame age、memory、thermal、power。</p>
+            </article>
+            <article class="card">
+              <h3>qnn_backend_report</h3>
+              <p>HTP/GPU/CPU backend、fallback、unsupported ops、context cache、QNN profile CSV、optrace/QHAS links。</p>
+            </article>
+            <article class="card">
+              <h3>release_gate</h3>
+              <p>ODD、permissions、thresholds、SafetyOps decision、fail reasons、rollback pointer、previous-known-good。</p>
+            </article>
+            <article class="card">
+              <h3>video_proof_index</h3>
+              <p>把三分钟视频时间码映射到 model hash、device log、profile chart、incident 和 rollback artifact。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Market & Business Model</p>
+              <h2>证据在钱发生的地方收费：采购、验收、保险、上架和更新。</h2>
+            </div>
+            <p>EdgeRuntimeBench 的买家不是只想看 dashboard 的工程师，而是要签字的人：机器人 OEM、系统集成商、企业工厂、受监管实验室、保险、测试机构和 marketplace operator。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <span class="claim-tag">中国版</span>
+              <h3>交付验收 + 国产边缘适配 + SI 项目包</h3>
+              <p>围绕机器人 OEM、SI、工厂和高校赛事交付。收费点是 SKU 证据包、FAT/SAT 项目包、持续设备监控、国产/Qualcomm/Jetson 对比和上架 badge。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">海外版</span>
+              <h3>RFP + 合规 + 保险 + marketplace trust</h3>
+              <p>围绕企业采购、ISO/AI Act 文档、保险 underwriting、marketplace seller evidence 和 site acceptance。强调 signed evidence pack 和 continuous runtime drift。</p>
+            </article>
+          </div>
+          <div class="grid five" style="margin-top: 16px;">
+            <div class="stat">
+              <strong>¥29.8k-98k</strong>
+              <span>中国 OEM SKU evidence campaign，证明某机器人/SKU/runtime 声称。</span>
+            </div>
+            <div class="stat">
+              <strong>$7.5k-25k</strong>
+              <span>海外 OEM evidence pack per campaign。</span>
+            </div>
+            <div class="stat">
+              <strong>¥80k-300k</strong>
+              <span>SI FAT/SAT project pack，绑定里程碑付款和客户验收。</span>
+            </div>
+            <div class="stat">
+              <strong>$60k-250k</strong>
+              <span>海外 enterprise site license，含持续 runtime monitoring 和 audit archive。</span>
+            </div>
+            <div class="stat">
+              <strong>2+2+2</strong>
+              <span>设计伙伴目标：2 个 OEM、2 个 SI、2 个工厂，再加 1 个 insurer/lab 和 1 个 marketplace。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>壁垒不是 benchmark 脚本，而是跨硬件、模型、现场和结果的证据图。</h2>
+            </div>
+            <p>最大威胁可能来自 MLCommons/EEMBC、Foxglove/Formant/InOrbit、NVIDIA/Qualcomm trust badge、测试实验室数字化。EdgeRuntimeBench 的机会是站在买方和发布流程上，把证据做成独立、可复现、可签名、可续更的商业对象。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Evidence Graph</h3>
+              <p>hardware、firmware、runtime、model、dataset、sensor、environment、power、thermal、robot workload 和 outcome 绑定。</p>
+            </article>
+            <article class="card">
+              <h3>Raw Artifacts</h3>
+              <p>不是截图，而是 profile CSV、QNN log、optrace、rosbag、JSONL、hash、manifest 和复现命令。</p>
+            </article>
+            <article class="card">
+              <h3>Robot Connectors</h3>
+              <p>ROS、RobotAppLayer、SafetyOps、SkillDock、PLC/CAN/OPC、camera pipeline 和 fleet logs 连接。</p>
+            </article>
+            <article class="card">
+              <h3>Acceptance Language</h3>
+              <p>进入 RFP、FAT/SAT、marketplace、保险和客户验收模板后，证据格式会形成路径依赖。</p>
+            </article>
+            <article class="card">
+              <h3>Partner Loop</h3>
+              <p>OEM、SI、企业、保险、测试机构和生态平台共同定义可信阈值。</p>
+            </article>
+            <article class="card">
+              <h3>Update History</h3>
+              <p>每次模型、firmware、runtime、camera、site 条件变化都要求 refresh evidence，形成持续收入。</p>
+            </article>
           </div>
         </div>
       </section>
 
       <section id="qualcomm" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">09 · Why Qualcomm</p>
+            <h2>EdgeRuntimeBench 把“用了 Qualcomm”变成比赛和商业都能检查的证据链。</h2>
+            <p class="lead">LabForgePilot 提供真实任务，EdgeRuntimeBench 证明策略被编译、profile、部署到 Qualcomm target，SafetyOps 决定它能不能控制机器人。这样 Qualcomm 不只是硬件选择，而是技能发布和验收标准。</p>
+            <ul class="list">
+              <li>RB3 Gen 2 / QCS6490：2026 年 7 月最现实的比赛 MVP target，能做板端/AI Hub proxy evidence。</li>
+              <li>QCS8550：高性能扩展 target，可展示多相机、多模型和更高 edge AI workload。</li>
+              <li>IQ10 RRD：作为 roadmap / early access ask，不能在 2026-07-06 写成已量产可用。</li>
+              <li>AI Hub / QAIRT / QNN / ONNX Runtime QNN：生成 compile、profile、backend、context cache、fallback 和 latency evidence。</li>
+              <li>QIR / QRB ROS：把 QNN 推理接入 ROS camera/inference nodes，并记录 topic timing 和 pipeline delay。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/edge-runtime-bench.png" alt="Qualcomm edge runtime profile、QNN 证据和机器人策略发布门禁图">
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · Why Qualcomm</p>
-              <h2>把 Qualcomm 从“硬件选择”变成“技能部署标准”。</h2>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>三分钟视频里只要证明一件事：Qualcomm 在控制闭环的关键路径上。</h2>
             </div>
-            <p>如果每个技能包都需要设备 profile、runtime benchmark 和部署证据，Qualcomm 就不只是比赛板卡，而是机器人技能分发、企业验收和长期运维的默认边缘目标。</p>
+            <p>评委必须看到物理板卡、相机、机器人、E-stop、终端、live camera feed、模型 hash、runtime log、latency chart、SafetyOps deny 和 rollback receipt。每个指标都要标注 measured-on-board、AI-Hub-device-cloud、proxy、replay-eval 或 simulated。</p>
           </div>
-          <div class="grid four">
-            <div class="stat">
-              <strong>AI Hub</strong>
-              <span>模型优化、编译、profile 和部署进入工作流。</span>
-            </div>
-            <div class="stat">
-              <strong>QCS8550</strong>
-              <span>主 demo 以 Rhino X1 / QCS8550 作为 edge target。</span>
-            </div>
-            <div class="stat">
-              <strong>SkillDock</strong>
-              <span>技能上架必须带硬件兼容性和运行证据。</span>
-            </div>
-            <div class="stat">
-              <strong>EdgeFleet</strong>
-              <span>长期部署继续回传模型版本、失败和资源指标。</span>
-            </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>0:12</h3>
+              <p>硬件亮相：LabForgePilot bench、Qualcomm target board、camera、robot、E-stop、OS/runtime terminal。</p>
+            </article>
+            <article class="step">
+              <h3>0:55</h3>
+              <p>一镜到底执行：本地感知、pick/place/verify/log，明确标注 cloud not in control loop。</p>
+            </article>
+            <article class="step">
+              <h3>1:30</h3>
+              <p>EdgeRuntimeBench dashboard：policy hash、QNN/ONNX status、p95 latency、action rate、runtime path。</p>
+            </article>
+            <article class="step">
+              <h3>1:55</h3>
+              <p>扰动：错样本、keepout、latency miss 或 unsafe raw command；SafetyOps pause/deny 并记录 incident。</p>
+            </article>
+            <article class="step">
+              <h3>2:45</h3>
+              <p>导出 `judge-audit-pack.zip`：dataset -> policy -> Qualcomm profile -> SafetyOps gate -> LabForge log。</p>
+            </article>
+          </div>
+          <div class="grid three" style="margin-top: 16px;">
+            <article class="card">
+              <span class="claim-tag">Fallback</span>
+              <h3>转换失败也能赢</h3>
+              <p>如果全策略 QNN 失败，拆成 NPU vision + CPU policy fallback；如果板卡晚到，用 AI Hub device-cloud/proxy 并标注迁移清单。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Artifacts</span>
+              <h3>统一文件名</h3>
+              <p>`device-registry.json`、`policy-artifact-manifest.json`、`qualcomm-export-manifest.json`、`edge-profile.qualcomm.json`、`rollback-record.json`。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Ask</span>
+              <h3>向高通要什么</h3>
+              <p>RB3/QCS6490 或 QCS8550 target、AI Hub/QNN office hours、QIR/ROS guidance、允许提交 QNN profiling artifacts、IQ10 RRD roadmap review。</p>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">EdgeRuntimeBench 的目的，是把“我们会用 Qualcomm”变成“每个策略都能被编译、评测、部署、监控和回滚”。</p>
+          <p class="quote">EdgeRuntimeBench 的目的，是把“我们会用 Qualcomm”变成“每个策略都能被编译、评测、部署、监控、门禁和回滚”。</p>
           <div class="source-links">
-            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html">AI Hub Compile</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/profile_examples.html">AI Hub Profile</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX Runtime QNN</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/plugin-ep-libraries/">ONNX Plugin EP</a>
+            <a href="https://github.com/onnxruntime/onnxruntime-qnn">onnxruntime-qnn</a>
             <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">RB3 Gen 2</a>
             <a href="https://www.qualcomm.com/internet-of-things/products/q8-series/qcs8550">QCS8550</a>
-            <a href="https://developer.aidlux.com/">APLUX Rhino X1</a>
-            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Dragonwing IQ10</a>
+            <a href="https://www.qualcomm.com/developer/project/robotics-ros">Qualcomm Robotics ROS</a>
+            <a href="https://github.com/qualcomm-qrb-ros/qrb_ros_nn_inference">QRB ROS NN</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset</a>
+            <a href="https://huggingface.co/docs/lerobot/main/inference">LeRobot Rollout</a>
+            <a href="https://mlcommons.org/benchmarks/inference-edge/">MLPerf Edge</a>
+            <a href="https://www.eembc.org/mlmark/">EEMBC MLMark</a>
+            <a href="https://github.com/robotperf/benchmarks">RobotPerf</a>
+            <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-11">EU AI Act Art. 11</a>
+            <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72">EU AI Act Art. 72</a>
           </div>
         </div>
       </section>
