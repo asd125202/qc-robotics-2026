@@ -80,7 +80,7 @@ The current first-batch pitch directions are:
 - `CertForge`: YC-style Dragonwing robot compliance CI/CD pitch for turning every model, firmware, SBOM/VEX, ROS/MCAP, QNN profile, HIL/field test, risk decision, and supplier proof into auditable launch dossiers for labs, customers, investors, and market-entry workflows.
 - `能栈 NengStack`: YC-style robot energy operations pitch for coordinating robot battery state, charging reservations, tasks, site power envelopes, battery health, Dragonwing edge energy telemetry, and RaaS/leasing margin evidence.
 - `FleetConductor`: YC-style local edge robot tower pitch for second-vendor rollout, mixed-vendor AMR orchestration, VDA 5050/Open-RMF adapters, site graph, traffic reservations, doors/elevators/chargers, incident replay, and LeRobot feedback.
-- `CareOps`: hospital and lab operations robot workflow platform for non-clinical logistics, specimen chain-of-custody, privacy-first edge AI, and audit evidence.
+- `CareOps`: YC-style hospital logistics control-plane pitch for sealed specimen transport, medication/supply handoff, LIS/LIMS/FHIR-style workflow, privacy-first edge vision, chain-of-custody evidence, China/overseas data lanes, and Qualcomm AI Hub/QNN deployment proof.
 - `FieldOps`: outdoor inspection, agriculture, energy, and infrastructure robotics platform with rugged kits, sensor pods, resilient connectivity, teleoperation fallback, evidence packages, and a LeRobot field-data flywheel.
 - `SafetyOps`: safety runtime, skill permissions, model release gates, audit ledger, and compliance evidence pack.
 - `机御 Zero`: motion-level zero trust fabric for robot identity, ROS/DDS least privilege, JIT remote access, signed OTA, SBOM/VEX, SOC export, and auditable motion command policy.

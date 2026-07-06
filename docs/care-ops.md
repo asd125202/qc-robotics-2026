@@ -1,131 +1,363 @@
 # CareOps Pitch
 
-更新时间：2026-07-05。
+更新时间：2026-07-06。该版本按 YC / Airbnb 风格 pitch spine 重写：先讲医院运营问题，再讲现有方案缺口、解决方案、为什么现在、产品、商业模式、竞争壁垒、为什么 Qualcomm、比赛演示和合规边界。
 
-## Core Thesis
+## One-Liner
 
-CareOps 是面向医院与实验室的非临床机器人工作流平台：
+CareOps 是院内智运控制面：
 
-> 用 Qualcomm 边缘机器人连接样本、药房、耗材、电梯门禁、LIMS/HIS 与审计系统，让院内取送交接变成隐私优先、可追溯、可持续学习的运营流程。
+> 用 Qualcomm 边缘节点把样本、药品、耗材、机器人、门梯、隐私和审计连成一个非临床物流闭环，让医院证明“什么被送了、谁碰过、是否越权、是否超时、是否可以复盘”。
 
-它不做诊断、不替代医嘱、不执行给药、不声称医疗器械批准。第一阶段只做高频、可验证、可采购的运营任务：
+它不做诊断、不分诊、不给药、不监护患者、不替代医嘱或临床判断。
 
-- 样本取送与分拣。
-- 药房和耗材配送。
-- PPE、设备、床旁物资补给。
-- 夜间低人力覆盖。
-- 清洁/消毒流程辅助和 proof-of-work。
-- 老年照护场景中的物品递送和提醒类支持。
+## 1. Problem
 
-## Why This Matters
+医院最短缺的人力，被消耗在送标本、送药、取耗材和等电梯上。
 
-医院的机器人价值不在于炫技，而在于把重复搬运交给机器人，把医护时间还给患者。
+核心痛点：
 
-关键痛点：
+- 护士、药师、检验人员每天被非临床跑腿任务打断。
+- 标本从病区到检验科的 last mile 最容易出现错码、延迟、交接不清和运输异常。
+- 药品、耗材、小设备和 PPE 配送需要锁柜、身份、权限、时间戳和签收。
+- 老院区、多楼宇、电梯、门禁、拥挤走廊、夜间路线让机器人部署复杂。
+- 走廊视频、患者位置、工牌、屏幕、样本编号和异常片段不能默认上云。
+- 医院招采部门需要网络安全、隐私、消毒 SOP、风险评估、验收 KPI 和运维 SLA，不是只看一个 robot demo。
 
-- 医护人员被非临床取送任务打断。
-- 样本、药品和耗材在院内流转时需要条码、权限、温控、交接和审计。
-- 电梯、门禁、禁行区、夜间路线和拥挤走廊让部署复杂。
-- 医疗数据属于敏感数据，云端训练不能默认收集 PHI 或原始视频。
-- 采购部门需要 HIPAA/PIPL/GDPR-oriented controls、网络安全、消毒 SOP、风险评估和运维 SLA。
+商业表达：
 
-CareOps 的策略是先做院内运营，不碰诊疗承诺。
+> 医院不是缺一个会移动的机器人，而是缺一套能把院内物流变成可采购、可审计、可持续优化的系统。
 
-## Product Modules
+## 2. Current Alternatives Fail
 
-### 1. EdgeRobot Core
+现有方案各解决一块，但没有把可采购的院内智运拼成闭环。
 
-基于 Qualcomm edge 的院内机器人核心。
+- 人工 runner：灵活但不可复制，交接、温控、路线、延迟、错误和责任边界常靠人工记录。
+- 气动物流：适合小件高速传输，但覆盖不了大件、锁柜、多点配送、机器人路线和异常复盘。
+- 单一机器人厂商：Moxi、TUG、Relay、Pudu、Keenon、MiR 都能执行任务，但客户仍需要跨系统 workflow 和招采证据。
+- 实验室自动化：提升 lab 内部效率，但不解决病区到检验科的 last mile、身份签收、电梯门禁和 PHI 边界。
+- 通用 RobOps：InOrbit、Formant 擅长 fleet ops，但不天然包含样本链路、LIS/LIMS/FHIR、BAA-ready、消毒 SOP 和医院 procurement packet。
 
-- 本地多摄像头感知、避障、路径执行、任务缓存和断网降级。
-- 走廊、人群、电梯厅、护士站和实验室入口的现场感知在边缘完成。
-- 原始视频和 PHI 不默认进入云端训练。
+Deck line：
 
-### 2. FlowOps Scheduler
+> 机器人负责跑，CareOps 负责让样本、药品、耗材、电梯门禁、隐私和审计形成闭环。
 
-院内任务调度引擎。
+## 3. Solution
 
-- 对接 LIMS / LIS / HIS / pharmacy / inventory / CMMS / FHIR mock API。
-- 支持 STAT priority、夜班队列、定时巡回、ETA、异常处理和人工接管。
-- 与 FleetConductor 共享电梯、门禁、楼层和充电资源。
+CareOps 是院内部署的非临床物流控制面。
 
-### 3. AccessBridge
+部署形态：
 
-电梯、门禁和楼层规则接入层。
+- Qualcomm Dragonwing / RB / IQ edge appliance。
+- 连接机器人、LIS/LIMS、HIS、药房、SPD、护士站、门梯和 BMS/设施接口。
+- 云端只做训练、分析、远程支持和包更新；现场任务、隐私、签收、审计和异常复盘在院内边缘运行。
 
-- 通过院方授权接口请求电梯、自动门、门禁和禁行区通行。
-- 所有通行都进入审计日志，不直接绕过医院设施控制。
-- 支持地理围栏、慢行区、人机混行区和维护模式。
+核心流程：
 
-### 4. SpecimenChain
+1. Request：LIS/LIMS、HIS、药房、SPD、护士站或人工台生成非临床物流任务。
+2. Verify：条码/RFID、工牌、锁柜、温控、目的地和权限进入 SpecimenChain。
+3. Dispatch：按优先级、路线、门梯、电量、区域规则和机器人能力派发任务。
+4. Protect：视频、患者位置、工牌和屏幕默认本地处理，导出前完成最小化和脱敏。
+5. Replay：交接失败、错码、超时、堵路和人工接管变成审计包和 LeRobot 训练片段。
 
-样本链路模块。
+## 4. Why Now
 
-- 条码/RFID、锁柜、电子签收、温控、时间戳、交接人、取件点和目的地。
-- 支持 sealed mock specimen demo，不处理开放样本、锐器、Category A infectious substances 或临床结果。
-- 目标是 traceability 和 chain-of-custody，不声称保证检测结果或样本完整性。
+护理短缺、医院机器人成熟和数据合规压力正在同时逼近。
 
-### 5. MedSupply Secure Relay
+可用事实：
 
-药房、耗材和小设备安全配送。
+- AHA 报告显示人工和薪酬约占美国医院成本的 56%。
+- NSI 2025 报告中 RN turnover 为 17.6%，每名 bedside RN turnover 成本约 $60,090。
+- McKinsey / ANA 估计技术和任务重分配可释放最高约 15% 护士时间。
+- AHRQ / PSNet 指出，检验结果影响大量临床决策，pre-analytical 阶段是错误高发区。
+- 中国医院物流机器人招采已经出现从单机采购、系统采购到租赁服务的多种形态。
+- HIPAA、PIPL、网络安全、医院感染控制和医疗软件边界让“云端裸奔”的机器人方案越来越难进医院。
+- Qualcomm Dragonwing / RB / IQ + AI Hub / QNN 可以把本地推理、模型 profile、隐私处理和部署证据打包成 reference workflow。
 
-- 锁柜、多站点配送、工牌/PIN/RFID 授权开柜和电子签收。
-- 支持耗材、PPE、小设备、一般药房配送流程。
-- 不做给药动作，不替代药师、护士或医嘱系统。
+## 5. Product
 
-### 6. PrivacyAudit DataFlywheel
+先做 sealed specimen transport，再扩展到药房、耗材和设备补给。
 
-隐私优先的数据飞轮。
+第一阶段 wedge：
 
-- 本地脱敏、人脸/屏幕模糊、最小化采集、可配置保留和删除。
-- 结构化审计事件：谁下单、谁取件、谁交接、何时到达、是否超温、是否异常。
-- 非临床任务的示教、路线、排队、交接和异常片段进入 LeRobot-compatible dataset。
+- 使用 sealed mock specimen tubes 和二维码/条码。
+- 从护士站/病区/急诊/手术室到检验科。
+- 不处理开放样本、锐器、Category A infectious substances 或真实临床结果。
+- 目标是 traceability、handoff、route SLA 和 exception closure，不声称保证临床检测结果。
 
-## Competition Demo
+核心模块：
 
-最稳妥 demo：
+- CareOps Edge：本地任务引擎、机器人 adapter、隐私视觉、事件账本和 sync agent。
+- Integration Gateway：FHIR R4 / HL7 v2 / vendor API / LIS/LIMS / HIS / pharmacy / SPD adapters。
+- SpecimenChain：条码/RFID、锁柜、工牌/PIN、温控、时间戳、签收和 hash-linked custody events。
+- SiteGraph + AccessBridge：楼层、门禁、电梯、restricted zones、服务电梯队列和设施 ack。
+- Robot Adapter Runtime：VDA 5050、Open-RMF / ROS 2、vendor REST/gRPC、observe-only。
+- PrivacyVision：本地人脸、工牌、腕带、屏幕和非任务标签脱敏，原始视频短期留院内。
+- Incident Replay：MCAP/JSON 复盘包，包含任务状态、机器人轨迹、交接、设施事件、视频片段和模型版本。
+- LeRobot Flywheel：只导出获批的非临床、脱敏 HIL episodes，例如堵路、错码、交接失败、电梯等待和锁柜定位。
 
-1. 使用 sealed mock specimen tubes 和二维码/条码标签。
-2. 护士或操作员扫码，把样本放入锁柜。
-3. CareOps 生成 LIMS/FHIR-style 任务、温控记录和 chain-of-custody 时间线。
-4. 机器人从病区模拟点移动到检验科模拟点。
-5. 到达后扫码交接，系统回写状态。
-6. 一次条码错误或路径阻塞进入异常流程。
-7. 采集的非临床取送 episode 进入 LeRobot/DataFlywheel，用于训练更稳定的交接动作和任务路线。
+### Reference Architecture
 
-这能展示商业闭环，同时避开医疗器械、诊断和真实样本处理风险。
+```text
+CareOps edge appliance on hospital LAN
+  ├─ api-gateway
+  ├─ nurse-station console
+  ├─ integration-gateway
+  ├─ task-engine
+  ├─ specimen-chain ledger
+  ├─ site-graph
+  ├─ access-bridge
+  ├─ robot-adapter-runtime
+  ├─ privacy-vision
+  ├─ incident-replay
+  ├─ rbac-audit
+  ├─ model-registry
+  └─ sync-agent
+```
 
-## Why Qualcomm Should Care
+Data plane:
 
-CareOps 让 Qualcomm 进入高价值、强合规、需要边缘智能的医疗运营场景：
+- Postgres for task state and custody ledger.
+- Append-only event log.
+- Local object store for replay media and redacted exports.
+- MQTT / NATS / ROS 2 / vendor API for local integration.
+- Cloud optional; never required for live hospital logistics.
 
-- 医院需要本地推理和隐私边界，不能把原始视频和 PHI 默认送到云端。
-- 多摄像头、连接、低功耗和本地 AI 是院内移动机器人刚需。
-- RB / QCS / IQ / Dragonwing 可以成为医院机器人 OEM 的标准边缘底座。
-- AI Hub 和 LeRobot 工作流可以把非临床支持任务持续优化，而不触碰诊疗承诺。
-- 中国版强调智慧医院、数据不出院、院内物流、养老服务和 “机器人+” 应用；海外版强调 HIPAA/GDPR-oriented controls、护理人力短缺、RaaS 试点和采购证据包。
+### Core Schemas
+
+```json
+{
+  "CareOpsTask": {
+    "task_id": "co_task_123",
+    "kind": "specimen_transport|pharmacy_lockbox|supply_replenish",
+    "priority": "routine|urgent|stat",
+    "source_refs": {
+      "fhir_task": "Task/abc",
+      "service_request": "ServiceRequest/lab1"
+    },
+    "objects": [
+      {
+        "id": "SP-2026-001",
+        "id_type": "barcode|rfid",
+        "sealed": true
+      }
+    ],
+    "pickup": "Location/ward-5a-nurse-station",
+    "dropoff": "Location/core-lab-intake",
+    "custody_required": true,
+    "due_by": "2026-07-06T10:15:00Z"
+  }
+}
+```
+
+```json
+{
+  "CustodyEvent": {
+    "event_id": "urn:uuid:...",
+    "task_id": "co_task_123",
+    "object_id": "SP-2026-001",
+    "event_type": "commission|pickup|handoff|exception|receive",
+    "actor": "badge_hash:...",
+    "read_point": "ward-5a-locker-02",
+    "biz_location": "core-lab-intake",
+    "sensor": {
+      "temp_c": 4.8,
+      "locker_slot": "A3"
+    },
+    "media_ref": "redacted://clip/...",
+    "prev_hash": "sha256:...",
+    "signature": "ed25519:..."
+  }
+}
+```
+
+```json
+{
+  "IncidentReplay": {
+    "incident_id": "inc_barcode_mismatch_01",
+    "kind": "barcode_mismatch|elevator_timeout|path_blocked|handoff_failed|temp_excursion",
+    "task_id": "co_task_123",
+    "timeline_uri": "mcap://careops/inc_barcode_mismatch_01",
+    "redaction_status": "passed",
+    "exportable_to_lerobot": true,
+    "model_versions": {
+      "redactor": "qnn-face-redact-v3",
+      "barcode": "qnn-barcode-v2"
+    }
+  }
+}
+```
+
+## 6. Market And Business Model
+
+卖给医院的不是机器人，是更少跑腿、更快交接和更完整的招采证据。
+
+第一批客户：
+
+- 大型综合医院 / 三甲：多楼宇、多科室、高检验量、老院区改造、夜间低人力。
+- 医学中心 / 检验量高的医院实验室：重视 specimen TAT、错码、交接和异常追溯。
+- 药学部 / PIVAS / 中心药房：重视安全配送、锁柜、授权签收和中断减少。
+- SPD / 后勤 / 运营院长：重视跨科室耗材、PPE、设备补给和路线 SLA。
+- 医院 SI / SPD operator / robot OEM：需要把一次性交付变成可复用方案。
+
+海外版：
+
+- 90 天 pilot：2-3 台机器人 + CareOps edge + LIMS/pharmacy mock integration，$30k-$75k。
+- Site integration：$25k-$100k。
+- Secure delivery robot operations：$3k-$8k / robot / month。
+- 付费理由：护士时间、药房配送时长、specimen TAT、异常关闭时间、chain-of-custody、BAA-ready evidence。
+
+中国版：
+
+- 试点到招采：三甲/大型院区、检验科、SPD、信息中心和后勤联合推动。
+- 轻量样本机器人人民币 198k-298k。
+- 安全药品/温控机器人人民币 350k-500k。
+- 试点包人民币 0.6M-1.5M。
+- 年维保 8%-12%。
+- 强调数据不出院、院内部署、等保、国产云/院内私有训练、本地 robot/SI/SPD 伙伴和招采材料。
+
+## 7. Competition And Moat
+
+竞争很多，但不能按“谁的机器人更好”来打。
+
+竞争地图：
+
+- Hospital delivery robots：Diligent Robotics Moxi、Aethon TUG / Zena RX、Relay Robotics、Pudu、Keenon、MiR。
+- Healthcare transport incumbents：Swisslog Healthcare pneumatic tube / transport automation。
+- Lab automation：Thermo Fisher、Biosero、Omron 等 lab AMR and automation workflow。
+- Horizontal RobOps：InOrbit、Formant。
+- China hospital logistics robots：钛米、赛特、普渡、擎朗、诺亚、易普森等。
+- Hospital IT / LIS / SPD / SI：东软、卫宁、创业慧康、东华、上药 SPD、国药、九州通等。
+
+CareOps 的壁垒：
+
+- Workflow memory：每条病区到检验科、药房到护士站、SPD 到科室的路线、权限、异常和交接模式会变成站点资产。
+- Evidence packet：BAA-ready、PIPL/等保、消毒 SOP、SBOM、patch SLA、数据流图、风险评估和验收 KPI 服务招采。
+- Hospital adapters：FHIR / HL7 v2、LIS/LIMS、药房、SPD、BMS、电梯门禁和 robot adapter 逐步复用。
+- Privacy data flywheel：只把批准的脱敏事件、模拟数据和非临床片段进入训练，形成中国和海外两条数据边界。
+- Qualcomm profile library：不同 RB / Dragonwing / IQ target 的本地视觉、QNN profile、网络、功耗和断网行为形成 deployment profile。
+
+## 8. Why Qualcomm
+
+Qualcomm 的机会，是成为医院机器人可被信任的边缘底座。
+
+CareOps 对 Qualcomm 的价值：
+
+- 把 Dragonwing / RB / IQ 从机器人开发板叙事升级成 hospital edge workflow reference。
+- 多摄像头、NPU/GPU/DSP、低功耗、Wi-Fi/private 5G、设备身份和断网降级正好对应医院现场要求。
+- AI Hub / QNN compile-profile-run 结果可以进入上线门禁：redaction FPS、barcode/OCR latency、memory、power、rollback。
+- Qualcomm 可以连接机器人 OEM、医院 SI、SPD、LIS/LIMS、药房系统和设施系统，而不是只进入单机 BOM。
+- 中国版强调院内部署、数据不出院和国产云/私有训练；海外版强调 BAA-ready、FHIR/LIS/pharmacy integration 和 RaaS pilot。
+
+需要 Qualcomm 支持：
+
+- RB3 Gen 2 / Dragonwing IQ10 / IQ-9075 硬件访问或 technical profile。
+- AI Hub / QNN 技术指导，把 privacy redaction、barcode/OCR、obstacle/handoff anomaly profile 写入 demo evidence。
+- 机器人 OEM、医院 SI 或医疗生态伙伴 introduction。
+- 允许作为 Qualcomm edge healthcare robotics reference workflow 继续打磨。
+
+## 9. Competition Demo
+
+8 分钟 demo：一个 STAT mock specimen，从护士站到检验科，途中电梯超时。
+
+Demo site：`Acme Medical Center`
+
+- Locations：`ward-5a-nurse-station`、`service-elevator-a`、`core-lab-intake`、`pharmacy-window`、`spd-room`。
+- Robots：1 台 secure delivery AMR，1 个 simulator，1 个 FleetConductor-style site graph。
+- Objects：sealed mock specimen tube、mock medication package、PPE bin。
+- Interfaces：FHIR-style Task / Specimen mock、barcode scanner、badge mock、locker state、elevator ack mock。
+- Incidents：elevator timeout、barcode mismatch、path blocked、handoff failed。
+
+演示流程：
+
+1. Nurse station dashboard 显示 STAT mock specimen to core lab。
+2. 操作员扫码 sealed mock tube + staff badge，锁柜关闭，生成 CareOpsTask 和第一条 CustodyEvent。
+3. SiteGraph 预约走廊、服务电梯和检验科门；机器人 adapter 接收任务。
+4. 本地视频 overlay 显示人脸、工牌和屏幕脱敏，不上传 raw hallway video。
+5. 注入 elevator timeout 或 barcode mismatch；CareOps 暂停、告警、生成 IncidentReplay。
+6. 人工接管完成交接，FHIR-style Task 变为 completed，最终 CustodyEvent 签名。
+7. 导出 redacted LeRobot episode：observations、pose/action、intervention marker、outcome label、no raw PHI。
+8. Qualcomm evidence screen：target hardware、AI Hub/QNN profile、latency/memory/power、model manifest、rollback package。
+
+## Compliance And Procurement Evidence
+
+Pitch 中要展示的材料：
+
+- BAA-ready control matrix：PHI flows、subcontractors、retention、breach process。
+- Data map：what stays on robot、hospital server、cloud、training set。
+- No raw video by default：院内短期 ring buffer + 脱敏导出 + 审批流程。
+- Cleaning SOP：disinfectant compatibility、contact time、wheels/cabinet/payload bay、spill response。
+- Safety case：risk assessment、speed zones、geofences、E-stop、manual takeover、near-miss logs。
+- Specimen evidence：barcode/RFID、lock state、temperature if used、handoff signatures、exception timeline。
+- Cyber packet：SBOM、signed OTA、vulnerability policy、patch SLA、pen-test summary、network ports。
+- AI packet：model/version registry、evaluation set、failure taxonomy、human override log、drift monitoring。
+- China packet：PIPL data classification、local deployment、cross-border off by default、等保/医院网络安全配合。
+- Pilot governance：hospital IPC、lab director、privacy/security、facilities、nursing/pharmacy signoff。
 
 ## Claims To Avoid
 
-- 不声称 FDA/NMPA/CE medical-device approval。
-- 不声称诊断、治疗、分诊、患者监护、跌倒检测或临床决策支持。
-- 不声称替代护士、药师或检验人员。
-- 不声称 HIPAA compliant robot；只说支持 HIPAA-oriented safeguards 或 BAA-ready deployment。
-- 不声称 sterile、prevents infection、reduces HAIs，除非有临床验证。
-- 不声称训练数据已经 de-identified，除非完成 HIPAA Safe Harbor 或 Expert Determination。
+- 不说 “HIPAA compliant robot”、“PIPL compliant”、“fully de-identified” 或 “PHI never touched”。
+- 不说 FDA/NMPA cleared、not regulated by FDA/NMPA、medical device approved。
+- 不说诊断、分诊、患者监护、跌倒检测、病情预测或 clinical decision support。
+- 不说 prevents infection、reduces HAIs、sterile 或 hospital-grade disinfection，除非有验证。
+- 不说 CLIA compliant robot、guarantees specimen integrity 或处理 Category A / open specimens。
+- 不说替代护士、药师、检验人员或 courier。
+- 不说 autonomous drug administration、dispenses medication 或 verifies medication correctness。
+- 不说 secure/unhackable/zero-risk、SOC 2/ISO 27001 certified，除非真的完成。
+- 不说中国数据可以训练全球模型，除非跨境路径、同意和数据分级已解决。
 
 ## Sources
 
-- AHA workforce shortage market scan：https://www.aha.org/aha-center-health-innovation-market-scan/2024-09-10-5-health-care-workforce-shortage-takeaways-2028
-- HRSA workforce projections：https://bhw.hrsa.gov/data-research/projecting-health-workforce-supply-demand
-- Aethon hospital robots：https://aethon.com/hospital-robots-healthcare/
-- Relay hospital delivery robots：https://relayrobotics.com/relay-delivery-robots-for-hospitals
-- Diligent Robotics Moxi：https://www.diligentrobots.com/moxi
-- Swisslog lab specimen transport：https://www.swisslog-healthcare.com/en-us/medication-management/transport/lab-specimen-transport
-- HIPAA Security Rule：https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html
-- FDA administrative-support software guidance：https://www.fda.gov/medical-devices/digital-health-center-excellence/step-2-software-function-intended-administrative-support-health-care-facility
-- CLIA specimen integrity：https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-493/subpart-K
+- AHA fast facts：https://www.aha.org/statistics/fast-facts-us-hospitals
+- AHA 2025 cost of caring report：https://www.aha.org/guides-and-reports/2026-03-09-2025-cost-caring-report
+- NSI nurse retention report：https://www.nsinursingsolutions.com/documents/library/nsi_national_health_care_retention_report.pdf
+- Becker's summary of McKinsey nursing workload：https://www.beckershospitalreview.com/quality/nursing/6-ways-to-optimize-nurse-workload/
+- AHRQ specimen errors：https://psnet.ahrq.gov/web-mm/pre-analytical-pitfalls-missing-and-mislabeled-specimens
+- Diligent Moxi：https://www.diligentrobots.com/moxi
+- Serve Robotics / Diligent transaction：https://ir.serverobotics.com/news-releases/news-release-details/serve-robotics-acquire-diligent-robotics-expanding-physical-ai
+- Aethon T3：https://aethon.com/t3/
+- Aethon Zena RX：https://aethon.com/zena-rx/
+- Aethon ReadyElevator：https://aethon.com/readyelevator/
+- Relay hospitals：https://relayrobotics.com/relay-delivery-robots-for-hospitals
+- Swisslog specimen transport：https://www.swisslog-healthcare.com/en-us/medication-management/transport/lab-specimen-transport
+- Pudu healthcare：https://www.pudurobotics.com/en/solutions/health-care
+- Keenon：https://www.keenon.com/en
+- MiR hospitals：https://mobile-industrial-robots.com/industries/hospitals
+- InOrbit orchestration：https://www.inorbit.ai/orchestration
+- Formant fleet management：https://docs.formant.io/docs/getting-started-fleet-management
+- HHS HIPAA Security Rule：https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html
+- HHS BAA cloud guidance：https://www.hhs.gov/hipaa/for-professionals/faq/2075/may-a-hipaa-covered-entity-or-business-associate-use-cloud-service-to-store-or-process-ephi/index.html
+- HHS minimum necessary：https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/minimum-necessary-requirement/index.html
+- HHS de-identification：https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html
+- NIST SP 800-66r2：https://csrc.nist.gov/pubs/sp/800/66/r2/final
+- FDA administrative-support software：https://www.fda.gov/medical-devices/digital-health-center-excellence/step-2-software-function-intended-administrative-support-health-care-facility
+- CDC CLIA overview：https://www.cdc.gov/clia/php/about/index.html
+- CLIA specimen handling：https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-493/subpart-K/subject-group-ECFR5f8f0b6639946fd/section-493.1242
 - OSHA bloodborne pathogens：https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1030
+- CMS infection prevention：https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-482/subpart-C/section-482.42
+- CDC environmental infection control：https://www.cdc.gov/infection-control/hcp/environmental-control/index.html
+- HHS HPH cybersecurity goals：https://hhscyber.hhs.gov/cybersecurity-performance-goals.html
+- NIST CSF 2.0：https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf
+- NIST SSDF：https://csrc.nist.gov/pubs/sp/800/218/final
+- NIST AI RMF：https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf
 - FHIR Specimen：https://build.fhir.org/specimen.html
+- FHIR Task：https://build.fhir.org/task.html
+- FHIR ServiceRequest：https://build.fhir.org/servicerequest.html
+- FHIR AuditEvent：https://build.fhir.org/auditevent.html
+- GS1 EPCIS：https://ref.gs1.org/standards/epcis/
 - Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- Qualcomm Dragonwing IQ10 RRD：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- Qualcomm AI Hub docs：https://workbench.aihub.qualcomm.com/docs/
 - LeRobot Dataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
+- PIPL：https://en.spp.gov.cn/2021-12/29/c_948419.htm
+- CAC 2024 data export provisions：https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm
+- NHC population health information guidance：https://www.nhc.gov.cn/zwgk/jdjd/201405/9992e411fff04a95b03caeda31794c7d.shtml
+- Government procurement law：https://www.gjxfj.gov.cn/gjxfj/xxgk/fgwj/flfg/webinfo/2016/03/1460585589877143.htm
+- MOF Order 87：https://www.mof.gov.cn/gp/xxgkml/tfs/201707/t20170718_2652766.htm
+- AutoDL：https://www.autodl.com/
+- Alibaba PAI-DLC：https://www.aliyun.com/activity/bigdata/pai-dlc
+- Tencent GPU：https://cloud.tencent.com/product/gpu
+- Huawei ModelArts：https://www.huaweicloud.com/product/modelarts.html
+- RunPod pricing：https://www.runpod.io/pricing
+- Lambda pricing：https://lambda.ai/pricing
+- Modal pricing：https://modal.com/pricing
+- CoreWeave pricing：https://www.coreweave.com/pricing
