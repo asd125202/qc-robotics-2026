@@ -1,147 +1,220 @@
-# MineLoop 智矿异常闭环
-
-MineLoop is a Chinese pitch-deck concept for the Qualcomm robotics competition. It frames smart mining as an exception-closure problem: alarms, video AI, personnel location, SCADA, FMS, CMMS, drones, robots, slope monitoring, and tailings monitoring should become assigned work, verified fixes, evidence packets, and learning data.
+# MineLoop 智矿异常闭环层
 
 Public page: https://qc-robotics-2026.pages.dev/mine-loop/
 
 ## One-Line Pitch
 
-> 矿山不是缺报警，缺的是异常闭环。
+> 矿山已经有无人矿卡和智能大屏，真正缺的是把异常变成已验证的行动。
 
-MineLoop serves mine managers, safety directors, dispatch centers, equipment maintenance teams, and group-level safety/production/IT teams. It turns fragmented mine-site exceptions into accountable, auditable, closed-loop work orders.
+MineLoop is a mixed-vendor mine exception management layer. It does not replace FMS, SCADA, CAS, CMMS, slope/tailings monitoring, drones, robots, or OEM autonomy systems. It connects them into one accountable loop: observe, correlate, decide, act, verify, learn.
 
 ## Problem
 
-Mines already have many detection systems:
+Modern mines have many systems that detect problems:
 
-- Gas, ventilation, water, belt, vehicle, slope, tailings, and personnel-location monitoring.
-- Video AI, SCADA, FMS, CMMS/EAM, drone surveys, robotic inspection, and manual reports.
-- Group dashboards and regulatory reporting systems.
+- Dispatch/FMS, autonomous haulage, CAS, PLC/SCADA, conveyor protection, video AI, personnel positioning, slope radar, tailings monitoring, drones, inspection robots, CMMS/EAM, manual reports.
 
-The gap is after detection:
+But after detection, the workflow is broken:
 
-- Who confirmed the exception?
-- Which SOP applied?
-- Who owns the work?
-- Was the work completed?
-- Did second inspection verify closure?
-- Can the evidence support internal audit, regulatory reporting, insurance, and production review?
+- Who confirmed the event?
+- Which SOP applies?
+- Who owns the action?
+- Was the action completed?
+- Did a second inspection verify closure?
+- What was the production and financial impact?
+- Can the evidence support regulatory reporting, group audit, insurance, and restart approval?
+
+## Why We Solve It
+
+Mine exception closure hits four budgets at once:
+
+- Safety governance: hidden-danger dynamic clearing, ledgers, five responsibilities, acceptance, closeout, review.
+- Production: crusher/conveyor downtime, haulage queueing, idle fleet hours, delayed restart.
+- Maintenance: PdM alerts must become work orders, planned windows, parts, and verification.
+- Group management: multi-site benchmarking, overdue issue tracking, standardization, evidence quality.
+
+The product should be sold as closed-loop operational loss recovery, not as a generic dashboard or AI platform.
 
 ## Why Now
 
 China:
 
-- 2024 smart-mine guidance sets explicit 2026 targets around smart coal capacity, intelligent workfaces, equipment/robot substitution, and underground personnel reduction.
-- 2026 NMSA materials emphasize safety-risk/hidden-danger ledgers, closed-loop management, monthly major-hidden-danger inspections, and quarterly reporting.
-- Revised hidden-danger standards and risk-monitoring approaches make "预警-处置-反馈-销号" a direct product wedge.
-- China deployment should be local/private: mine edge box + group private cloud + regulator-facing exports, with data kept in-mine or within the group.
+- Smart-mine policy targets 2026 for data interconnection, intelligent disaster warning, intelligent capacity, robot substitution, and underground personnel reduction.
+- The 2024-2026 campaign makes “重大事故隐患动态清零” a workflow requirement: databases, list management, dynamic updates, shared information,整改销号.
+- Non-coal mines have explicit monthly checks, ledgers, “五落实”,整改验收, and quarterly reporting duties.
+- Deployment must be local/private: mine edge box + group private cloud + regulator-facing exports.
 
 Global:
 
-- Critical minerals and energy-transition demand are increasing scrutiny on mining productivity and resilience.
-- The largest miners still have technology budgets, but many have struggled to industrialize pilots.
-- Autonomous haulage, drones, LiDAR, robotic inspection, collision avoidance, and remote operations have scaled; cross-system exception closure is still fragmented.
+- PwC Mine 2026 reports 2025 revenue of $909B and net profit of $120B for the Top 40 miners.
+- IEA expects major critical-mineral demand growth and around $500B of new mine capex by 2040 under STEPS.
+- Autonomous haulage, drones, LiDAR, robotics, CAS, and remote operations have scaled, but cross-vendor exception closure remains fragmented.
+- Downtime remains a large and auditable profit pool.
 
-## Product Workflow
+## Insight
 
-1. Sense: capture RGB, thermal, depth, vibration, current, gas, positioning, FMS, SCADA, slope/tailings, and robot state.
-2. Merge: combine multiple alerts into one event card.
-3. Rank: score by safety risk, production impact, equipment criticality, SLA, and evidence quality.
-4. Assign: generate a work order with owner, SOP, deadline, and verification condition.
-5. Verify: collect photos, video, telemetry, robot reinspection, and operator signoff.
-6. Close: produce ledger, audit packet, regulatory fields, and LeRobot HIL dataset slices.
-7. Learn: feed false positives, missed events, human corrections, and failed robot missions into the next model iteration.
+After automation scales, the most valuable mine dataset is not the alert itself. It is the full closure path:
 
-## Market Wedge
+- Which alerts were correlated?
+- Which person approved the action?
+- Which robot or worker inspected it?
+- What evidence proved closure?
+- Did production recover?
+- Did the same issue repeat?
 
-Start with high-risk, high-downtime, regulated exception workflows:
+That loop becomes the training data for the next generation of mine robotics and edge AI.
 
-- Conveyor and crushing: hot spots, belt drift, blockage, foreign object, transfer-point spillage, motor current spikes.
-- Haulage: queueing, idle time, haul-road defects, spillage, abnormal stops, people/vehicle proximity.
-- Slope and tailings: rainfall, displacement, cracks, turbidity, freeboard, threshold/TARP workflows.
-- Underground inspection: ventilation, gas, water, personnel location, robot inspection, and equipment-state fusion.
-- Group safety governance: hidden-danger closure rate, overdue events, repeated issues, evidence completeness.
-- Overseas autonomous mines: cross-vendor closure across AHS, FMS, drones, robots, CAS, SCADA, and CMMS.
+## Solution
 
-## Buyer Economics
+MineLoop adds a neutral layer above existing systems:
 
-Use hard ROI first:
+1. Observe: ingest FMS/OEM telemetry, CAS, video AI, historian/SCADA, CMMS, slope/tailings monitoring, personnel positioning, drones, and robots.
+2. Correlate: build an event graph across asset, location, shift, operator/team, SOP, hazard, work order, and production impact.
+3. Decide: recommend owner, priority, deadline, SOP, escalation rule, and verification condition.
+4. Act: create/update tasks in approved systems such as CMMS work orders, inspection requests, handover notes, risk reviews, FMS advisories, or robot missions.
+5. Verify: close events only after evidence, second inspection, telemetry recovery, or human signoff.
+6. Learn: feed false positives, missed events, human corrections, failed robot missions, and closure outcomes into LeRobot/CloudTwin datasets.
 
-- Conveyor/crushing downtime reduction.
-- Haul-truck queue and idle reduction.
-- Predictive maintenance and emergency work-order reduction.
-- Fuel/electricity reduction.
-- Faster hidden-danger ledgers, audits, and reports.
+## Product Wedge
 
-Avoid selling disaster prevention as the first payback case. Keep tailings, slope, and major incident reduction as risk-governance upside.
+Start with one mine, one bottleneck, one measurable loss pool:
 
-Pilot model:
+- Conveyor/crusher downtime.
+- Haulage queue/idle.
+- Critical asset predictive maintenance.
+- Slope/tailings threshold and TARP closure.
+- Hidden-danger ledger and safety audit packet.
 
-- 8-12 week paid pilot: RMB 300k-800k per mine site.
-- Connect 2-4 data classes: dispatch/FMS, CMMS/EAM, belt/PLC/SCADA, safety hidden-danger ledger, slope/tailings monitoring, video, or robot inspection.
-- Success metrics: direct hard benefit at least 3x pilot fee, red-event MTTA under 10 minutes, key-event on-time closure above 90%, repeated/overdue exceptions down 30%+, evidence-packet generation time down 70%+.
+The first deployment should not promise a full digital twin. It should prove a 90-day exception closure package that reduces loss and produces audit-ready evidence.
 
-Annual model:
+## Market
 
-- Platform base: RMB 800k-1.5M per mine site per year.
-- Add asset packages by truck, belt-km, critical asset, slope/tailings facility, or safety-compliance package.
-- Optional success fee on verified savings, capped to avoid procurement resistance.
+China version:
+
+- Position as “重大隐患动态清零 + 双重预防 + 集团台账监管”.
+- Sell group-first, mine-second.
+- Support local/private deployment, data-residency posture, Chinese safety terminology, regulator-facing exports, and connectors to safety monitoring, personnel positioning, GIS, SCADA, dispatch, video AI, and CMMS.
+
+Global version:
+
+- Position as mixed-vendor mine exception management.
+- Target open-pit metals, coal, aggregates, and mineral processing sites with existing FMS/OEM automation, 20+ mobile assets, bottleneck fixed plant, remote operations, or visible safety-action backlog.
+
+## Business Model
+
+Recommended pricing:
+
+- 90-day paid pilot: RMB 300k-800k per China mine, or $75k-$150k per overseas site.
+- Core site SaaS: RMB 800k-1.5M per mine per year, or $120k-$300k per site per year.
+- Production/dispatch package: site fee plus mobile asset fee.
+- Fixed plant package: per critical conveyor/crusher/pump/fan asset.
+- Edge node: hardware one-time fee plus annual edge subscription.
+- Group enterprise layer: multi-site governance, benchmarking, SSO, audit, and reporting.
+- Optional success fee: 5%-10% of audited savings, capped.
+
+ROI formula:
+
+```text
+Annual benefit =
+  avoided downtime hours x bottleneck margin/hour
++ reduced queue/idle hours x fuel/wear/operator/productive-hour value
++ avoided failures x downtime, repair, expediting, and overtime savings
++ admin hours saved x fully loaded labor rate
++ risk-adjusted safety/compliance savings
+
+Net ROI = (annual benefit - annual MineLoop cost) / annual MineLoop cost
+Payback months = upfront + first-year cost / monthly verified benefit
+```
+
+## 90-Day Pilot KPIs
+
+- Target asset data coverage >90%.
+- Critical events assigned within one shift >90%.
+- High-risk hidden-danger closure by due date >85%.
+- Overdue high-risk actions down 40%-60%.
+- Crusher/conveyor unplanned downtime down 10%-20% normalized.
+- Queue/idle hours at the chosen bottleneck down 10%-20%.
+- Maintenance work-order cycle time down 15%-30%.
+- Evidence packet/reporting admin time down 30%-50%.
+- Annualized verified value at least 3x pilot fee.
 
 ## Competition
 
 MineLoop should integrate, not replace:
 
-- OEM autonomy: Komatsu FrontRunner, Cat MineStar Command, Sandvik AutoMine, Epiroc autonomous drilling, Liebherr/Fortescue AHS.
-- Safety/situational awareness: Hexagon CAS and similar systems.
-- Robotics/drones: Emesent, Exyn, Percepto, ANYbotics, Gecko, ABB/Point Laz.
-- Systems of record: SAP, IBM Maximo, Pronto, Ellipse, ServiceNow, Hexagon EAM.
+- OEM autonomy: Komatsu FrontRunner, Cat MineStar Command, Sandvik AutoMine, Epiroc Open Autonomy.
+- FMS/dispatch: Komatsu DISPATCH, Wenco, Hexagon OP Pro, Micromine Pitram, Cat MineStar Fleet.
+- CAS/safety: Hexagon MineProtect, Wabtec CAS, Strata HazardAVERT, Becker PDS, Cat MineStar Detect.
+- Inspection: Emesent, Exyn, Percepto, ANYbotics, Gecko.
+- Slope/tailings: GroundProbe, IDS GeoRadar, Reutech, Canary Systems, Silixa.
+- CMMS/EAM: SAP, IBM Maximo, Hexagon EAM, RPMGlobal AMT.
+- Remote operations: Rio Tinto, BHP, Vale, ABB, AVEVA style operations centers.
 
-Differentiation:
+Claim boundary:
 
-- MineLoop is not another robot or another dashboard.
-- It is the exception operating layer connecting detection, assignment, action, verification, audit, and model learning.
+- Do not claim autonomous haulage, OEM-agnostic machine control, Level 9 CAS, certified safety, slope/tailings early warning authority, FMS replacement, CMMS system of record, drone/robot autonomy stack, SCADA control, or guaranteed safety/productivity improvement.
+
+## Moat
+
+- Exception graph: asset, location, shift, team, SOP, evidence, work order, verification, and financial impact.
+- Workflow lock-in: integrations with CMMS, FMS, SCADA, safety ledgers, dispatch, handover, and regulator exports.
+- HIL dataset: human approvals, false positives, missed events, robot failures, verification failures.
+- Partner surface: a neutral layer that OEMs, integrators, robot vendors, 5G providers, and EAM vendors can cooperate with.
 
 ## Qualcomm Fit
 
 MineLoop needs:
 
-- Local AI in dusty, weak-network, safety-sensitive environments.
-- Multimodal sensor fusion: RGB, thermal, depth, vibration, current, gas, positioning, and robot state.
-- Multi-camera edge pipelines and private-network connectivity.
-- AI Hub / QNN compile and profile evidence for detection, segmentation, depth, thermal anomaly, and sensor-fusion models.
-- A path from competition tabletop prototype to industrial edge nodes.
+- Local AI under weak network conditions.
+- Multimodal edge fusion: RGB, thermal, depth, vibration, current, gas, positioning, and robot state.
+- ROS 2 integration for sensors, actions, evidence capture, and robot tasks.
+- Qualcomm AI Hub/QNN compile and profile workflow for edge inference.
+- A bridge from cloud training to on-site robotic closure loops.
 
 ## Safe Competition Demo
 
-Demo scope:
+Safe desktop rig:
 
-- Desktop conveyor, sorting gate, slope rover area, transparent tailings mock tank, and low-voltage motor load box.
-- RGB, thermal, depth/ToF, vibration/IMU, current/voltage, encoder, and limit-switch sensing.
-- A small rover or XY gantry only performs low-force actions: approach, capture evidence, move foam/plastic objects, actuate a sorting gate, return home.
-- ROS 2 actions for inspect, pause conveyor request, light sorting, evidence capture, and return home.
-- Evidence packet with event ID, timestamps, telemetry, images, model version, QNN/AI Hub profile ID, ROS bag URI, LeRobot episode ID, hash, and operator approval.
+- 12/24V DC tabletop conveyor.
+- Current-limited supply, fuse, hardwired mushroom E-stop, guards over rollers/pulleys/nip points.
+- Foam foreign objects only.
+- Simulated belt drift using color edge marker or low-force servo.
+- Simulated bearing fault using a guarded dummy bearing block, low-watt heater or LED thermal target, temperature sensor, thermal camera, IMU, and small vibration motor.
 
-Claims to avoid:
+Demo script:
 
-- Direct deployment in real mines, underground workings, or tailings dams.
-- Explosion-proof, SIL, IEC 61508, certified safety, or functional-safety claims.
-- Zero accidents, worker replacement, collapse prediction, or automatic accident handling.
-- Qualcomm official certification or partnership unless separately granted.
+1. Show guarded rig, E-stop, foam-only objects, and dashboard.
+2. Run normal belt with RGB/depth/thermal/current/vibration status.
+3. Drop foam object; detect, stop, ask human approval, remove with gantry, verify closure.
+4. Trigger simulated belt drift; human approves correction, camera verifies centered state.
+5. Trigger current/vibration anomaly; system opens maintenance exception.
+6. Trigger thermal bearing simulation; system closes only after cooldown or operator acknowledgment.
+7. Show one recorded ROS bag/exported LeRobotDataset episode.
 
 Safe claim:
 
 > 面向机器人比赛和教学演示的低压桌面矿山异常闭环原型，展示多模态感知、ROS 2 action 编排、人在回路确认、Qualcomm edge inference path、LeRobot HIL 数据和证据包复盘。
 
+Avoid claims:
+
+- MSHA/OSHA certification or compliance.
+- Prevents injuries, guarantees safety, replaces inspectors/operators.
+- Underground deployment, intrinsically safe, explosion-proof, SIL/PL/functional-safety certification.
+- Detects all hazards/failures or autonomously closes mine exceptions.
+- Qualcomm-certified product.
+
 ## Sources
 
 - China smart-mine guidance: https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/202404/t20240430_486617.shtml
-- NMSA closed-loop hidden-danger management: https://www.chinamine-safety.gov.cn/zfxxgk/fdzdgknr/tzgg/202606/t20260623_608824.shtml
-- IEA Global Critical Minerals Outlook 2025: https://www.iea.org/reports/global-critical-minerals-outlook-2025
+- Hidden-danger dynamic clearing campaign: https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/202402/t20240222_478449.shtml
+- Non-coal hidden-danger closure requirements: https://www.chinamine-safety.gov.cn/zfxxgk/fdzdgknr/tzgg/202412/t20241218_522936.shtml
+- IEA Global Critical Minerals Outlook 2025: https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals
 - PwC Mine 2026: https://www.pwc.com/gx/en/industries/energy-utilities-resources/publications/mine.html
-- Komatsu 1000 autonomous haul trucks: https://www.komatsu.com/en-us/newsroom/2026/komatsu-becomes-first-oem-to-commission-1000-ultra-class-autonomous-haul-trucks
-- MSHA powered haulage safety: https://www.msha.gov/safety-and-health/safety-and-health-initiatives/powered-haulage-safety
-- Emesent mining robotics: https://www.emesent.com/industry/mining/
-- Gecko mining robotics: https://www.geckorobotics.com/mining
-- Qualcomm Robotics Processors: https://www.qualcomm.com/internet-of-things/applications/robotics-processors
-- Qualcomm AI Hub: https://aihub.qualcomm.com/
+- Komatsu FrontRunner: https://www.komatsu.com/en-us/technology/smart-mining/loading-and-haulage/autonomous-haulage-system
+- Komatsu DISPATCH case: https://www.komatsu.com/en-us/case-studies/dispatch-fleet-management-system-helps-mine-optimize-its-haulage
+- Wipro conveyor downtime: https://www.wipro.com/natural-resources/predictive-failure-model-for-conveyor-belt-systems/
+- Rockwell mining APM downtime: https://literature.rockwellautomation.com/idc/groups/literature/documents/wp/min-wp006_-en-p.pdf
+- Qualcomm AI Hub Workbench: https://workbench.aihub.qualcomm.com/docs/
+- Qualcomm Robotics ROS: https://www.qualcomm.com/developer/project/robotics-ros
 - LeRobotDataset v3: https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
+- ONNX Runtime QNN EP: https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html
