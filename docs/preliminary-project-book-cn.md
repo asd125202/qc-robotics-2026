@@ -256,6 +256,7 @@ Qualcomm 可获得：
 - 护元 CareOS 养老照护平台页：https://qc-robotics-2026.pages.dev/careos/
 - WarehouseLoop 仓务闭环页：https://qc-robotics-2026.pages.dev/warehouse-loop/
 - QualityLoop 质检闭环页：https://qc-robotics-2026.pages.dev/quality-loop/
+- AgriLoop 农务闭环页：https://qc-robotics-2026.pages.dev/agri-loop/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/

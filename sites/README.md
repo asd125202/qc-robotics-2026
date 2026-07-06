@@ -31,6 +31,7 @@ Current batch:
 - `careos/` — eldercare productivity platform for home, community, and facility care tasks, privacy-first Qualcomm edge execution, caregiver escalation, service evidence, and LeRobot HIL loops.
 - `warehouse-loop/` — warehouse exception-closure platform for WMS mismatches, receiving/putaway errors, returns grading, photo/barcode proof, WMS writeback, and LeRobot HIL loops.
 - `quality-loop/` — manufacturing quality closed-loop system for defect evidence, RCA/CAPA, re-inspection, MES/QMS writeback, edge vision governance, and LeRobot HIL loops.
+- `agri-loop/` — verified farm-work operating loop for scouting, prescriptions, farm-service dispatch, robot/drone execution, proof-of-work, traceability, cost, and LeRobot HIL loops.
 - `roboport/` — certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `business-case/` — commercialization, pricing package, and revenue flywheel story.
 - `submission-kit/` — preliminary project-book and upload-readiness page.
