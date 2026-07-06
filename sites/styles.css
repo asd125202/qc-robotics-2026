@@ -611,6 +611,27 @@ h2 {
   color: var(--muted);
 }
 
+.claim-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  margin-bottom: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #071013;
+  background: rgba(17, 183, 201, 0.18);
+  border: 1px solid rgba(17, 183, 201, 0.32);
+  font-size: 12px;
+  font-weight: 820;
+  line-height: 1.2;
+}
+
+.dark .claim-tag {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
 .dark .card p {
   color: rgba(255, 255, 255, 0.72);
 }

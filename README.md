@@ -21,7 +21,7 @@ Working concept:
 
 The current first-batch pitch directions are:
 
-- `RobotMac Core`: all-in-one robotics compute, power, IO, safety, and runtime core.
+- `RobotMac Core`: Qualcomm-first robot computer appliance that packages edge compute, protected power, robot IO, safety boundaries, RobotCoreOS, LeRobot cloud-training hooks, fleet runtime, and release evidence.
 - `RobotCoreOS`: Qualcomm-first commercial robot runtime OS with golden images, ROS 2 / LeRobot hooks, QNN policy runner, signed OTA, rollback, fleet identity, SBOM, and release evidence.
 - `LeRobot CloudTwin`: real robot data collection, cloud GPU training, and Qualcomm edge deployment loop.
 - `TrainRouter`: dual-cloud GPU training router for China/overseas provider selection, budget guards, data boundaries, evaluation, and Qualcomm edge artifact export.
