@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FleetConductor | 机器人塔台</title>
+    <title>FleetConductor | 本地机器人塔台</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -13,56 +13,133 @@
         <span>FleetConductor</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#tower">塔台</a>
-        <a href="#adapters">适配器</a>
-        <a href="#map">地图</a>
-        <a href="#incident">异常</a>
+        <a href="#problem">问题</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">时机</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-fleet-conductor">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 34 · Mixed Robot Fleet Orchestration</p>
+          <p class="eyebrow">Pitch 44 · Local Edge Robot Tower</p>
           <h1>FleetConductor</h1>
-          <p class="hero-lede">让工厂、仓库、医院和实验室里的每台机器人，遵守同一张地图、同一套交通规则、同一个任务节拍。Qualcomm 边缘塔台本地运行，云端只做训练和优化增强。</p>
+          <p class="hero-lede">商业现场真正崩掉的不是单台机器人导航，而是多品牌机器人共用同一个空间。FleetConductor 是本地机器人塔台：在 Dragonwing edge appliance 上统一协调机器人、门、电梯、充电桩、交通资源、企业工单和异常复盘。</p>
           <div class="cta-row">
-            <a class="button primary" href="#tower">查看机器人塔台</a>
-            <a class="button" href="../ops-connector/">连接 OpsConnector</a>
+            <a class="button primary" href="#problem">看现场瓶颈</a>
+            <a class="button" href="#demo">看比赛演示</a>
           </div>
         </div>
       </section>
 
-      <section id="tower" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Edge Tower Runtime</p>
-              <h2>机器人越多，现场越需要一座本地塔台。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>机器人越多，现场越像小机场；没有塔台，就会抢路、抢梯、抢桩。</h2>
             </div>
-            <p>FleetConductor 不是又一个远程 dashboard，而是现场边缘运行时：任务队列、交通调度、地图服务、fleet registry、incident manager 和 event log 都在本地保持在线。</p>
+            <p>仓库、工厂、医院和园区开始同时部署 AMR、AGV、清洁、配送、巡检和机械臂。每个厂商都有自己的地图、调度器、充电逻辑、dashboard 和异常流程，客户最后用群聊、电话和临时脚本协调共享空间。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <span class="claim-tag">第二厂商</span>
+              <h3>痛点从第二个机器人品牌开始</h3>
+              <p>Vendor A 和 Vendor B 都能跑，但它们不共享交通假设、地图版本、charger queue、门梯预约和事故语义。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">共享资源</span>
+              <h3>电梯、门、窄走廊最先堵住</h3>
+              <p>单机 demo 绕不开真实设施资源：门禁、电梯、装卸位、充电桩、禁区、慢行区和人机混行区。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">集成成本</span>
+              <h3>每加一种自动化都要重新集成</h3>
+              <p>WMS/WES、RCS、BMS、PLC、厂商 API 和运营流程反复定制，扩站速度被工程集成拖慢。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">断网风险</span>
+              <h3>云 dashboard 不能做现场塔台</h3>
+              <p>OT 场景需要本地连续运行、低延迟、审计、断网可用和明确安全边界。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">数据断链</span>
+              <h3>失败片段没有回到训练闭环</h3>
+              <p>堵塞、抢梯、低电、人工接管和绕行轨迹常常只留在日志里，没有变成下一版策略的数据。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="broken" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>标准和工具都在，但没有一个完整商业产品承担现场塔台责任。</h2>
+            </div>
+            <p>FleetConductor 不把 VDA 5050、MassRobotics 或 Open-RMF 讲成魔法。它把这些必要组件产品化，并补上地图对齐、现场 commissioning、RBAC、审计、事件复盘、设施适配和边缘部署。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>OEM Fleet Manager</h3>
+              <p>MiR、OTTO、Locus、Geek+、Hikrobot、HAI 等系统管自家队列很强，但跨品牌和共享设施通常不是第一责任。</p>
+            </article>
+            <article class="card">
+              <h3>VDA 5050 v3</h3>
+              <p>提供 central control 与 AGV/AMR 的 MQTT/JSON 通信语言，但不定义安全、交通算法、外设接口或网络安全。</p>
+            </article>
+            <article class="card">
+              <h3>MassRobotics</h3>
+              <p>适合共享位置、状态、速度、健康和可用性，不是 fleet management、导航或安全控制系统。</p>
+            </article>
+            <article class="card">
+              <h3>Open-RMF</h3>
+              <p>证明多车队和门梯等共享资源调度可行，但企业客户仍需要硬化产品、支持、权限和商业 adapter。</p>
+            </article>
+            <article class="card">
+              <h3>WMS / WES</h3>
+              <p>Manhattan、Blue Yonder、GreyOrange、SVT 等管业务流程和集成，但不天然负责低延迟机器人交通和楼宇资源。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>FleetConductor 是 WMS/WES 之下、OEM fleet manager 之上的本地塔台。</h2>
+            </div>
+            <p>它不替代机器人厂商 autonomy stack，也不替代安全控制器。它把不同机器人 API、VDA 5050 / Open-RMF-compatible 工作流和设施接口，翻译成现场级任务、交通、门梯、充电和事件 orchestration。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>Order</h3>
-              <p>WMS/MES/ERP/LIMS/HIS 任务进入统一队列。</p>
+              <h3>Receive</h3>
+              <p>从 WMS、MES、CMMS、LIMS、HIS、BMS 或人工调度台接收任务和设施事件。</p>
             </article>
             <article class="step">
-              <h3>Allocate</h3>
-              <p>按能力、位置、电量、payload、SLA 选择机器人。</p>
+              <h3>Model</h3>
+              <p>把楼层、车道、门、电梯、充电桩、队列点、禁区和地图版本变成 SiteGraph。</p>
             </article>
             <article class="step">
-              <h3>Schedule</h3>
-              <p>走廊、门、电梯、充电桩和装卸位进入资源时刻表。</p>
+              <h3>Adapt</h3>
+              <p>通过 VDA 5050 v3、Open-RMF、MassRobotics、ROS 2、REST/MQTT/OPC UA/BACnet 接入。</p>
             </article>
             <article class="step">
-              <h3>Operate</h3>
-              <p>本地边缘执行，云端断开也能继续运行和记录。</p>
+              <h3>Reserve</h3>
+              <p>按时间窗预约走廊、电梯、门、充电桩和装卸位，避免共享资源冲突。</p>
             </article>
             <article class="step">
-              <h3>Learn</h3>
-              <p>成功、失败和人工接管进入 DataFlywheel。</p>
+              <h3>Replay</h3>
+              <p>把低电、堵塞、门梯失败、人工接管和断网事件变成可审计复盘包。</p>
             </article>
           </div>
           <div class="image-band">
@@ -71,89 +148,147 @@
         </div>
       </section>
 
-      <section id="adapters" class="slide tint">
+      <section id="why-now" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Adapter Hub</p>
-              <h2>不替代厂商大脑，连接所有车队系统。</h2>
+              <p class="kicker">04 · Why Now</p>
+              <h2>机器人密度、互操作标准和边缘 AI 硬件第一次同时成熟。</h2>
             </div>
-            <p>MassRobotics 适合共享状态，VDA 5050 适合 master-control 到 AGV/AMR 的订单和状态，Open-RMF 适合多车队与门梯充电等共享资源。FleetConductor 用 adapter 把这些接入企业流程。</p>
+            <p>IFR 显示 2024 年工业机器人新增安装约 542,000 台，专业服务机器人销量接近 20 万台。与此同时，VDA 5050 v3.0.0、MassRobotics、Open-RMF、ROS 2 LTS 和 Dragonwing edge AI 让本地塔台从系统集成项目变成可产品化平台。</p>
           </div>
-          <div class="grid four">
-            <article class="card">
-              <h3>VDA 5050</h3>
-              <p>MQTT/JSON order、state、connection、factsheet、zone 和 map adapter。</p>
-            </article>
-            <article class="card">
-              <h3>Open-RMF</h3>
-              <p>fleet adapter、traffic schedule、door/lift/charger adapter 和 task bidding。</p>
-            </article>
-            <article class="card">
-              <h3>MassRobotics</h3>
-              <p>identity、location、speed、health、availability 和 shared awareness。</p>
-            </article>
-            <article class="card">
-              <h3>Facility API</h3>
-              <p>REST、MQTT、OPC-UA、BACnet、WMS、MES、ERP、BMS 和厂商 SDK。</p>
-            </article>
+          <div class="grid five">
+            <div class="stat">
+              <strong>542K</strong>
+              <span>2024 年全球工业机器人新增安装约 542,000 台。</span>
+            </div>
+            <div class="stat">
+              <strong>199K+</strong>
+              <span>2024 年专业服务机器人销售接近 20 万台。</span>
+            </div>
+            <div class="stat">
+              <strong>VDA v3</strong>
+              <span>VDA 5050 3.0.0 于 2026-03 发布，异构移动机器人通信继续标准化。</span>
+            </div>
+            <div class="stat">
+              <strong>Edge</strong>
+              <span>OT 现场需要本地连续运行、审计、低延迟和断网 store-and-forward。</span>
+            </div>
+            <div class="stat">
+              <strong>ROI</strong>
+              <span>第二厂商 rollout 和重复集成成本，正在变成可购买的软件预算。</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="map" class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">03 · Live Facility Map</p>
-              <h2>地图不是背景图，是可执行的交通规则。</h2>
-            </div>
-            <p>走廊、会车点、禁行区、门、电梯、装卸点、充电位和等待点都进入同一个资源模型。任务不只是派发，而是被安全编排、预约、冲突检测和可回放。</p>
-          </div>
-          <div class="grid six">
-            <article class="card">
-              <h3>Lanes</h3>
-              <p>单向、双向、限速、会车和临时封控。</p>
-            </article>
-            <article class="card">
-              <h3>Doors</h3>
-              <p>通过授权设施系统请求开门和记录结果。</p>
-            </article>
-            <article class="card">
-              <h3>Elevators</h3>
-              <p>楼层、等待队列、占用窗口和失败回退。</p>
-            </article>
-            <article class="card">
-              <h3>Chargers</h3>
-              <p>低电任务插入、排队、兼容桩和充电窗口。</p>
-            </article>
-            <article class="card">
-              <h3>Zones</h3>
-              <p>禁区、慢行区、人机混行区和权限边界。</p>
-            </article>
-            <article class="card">
-              <h3>Replay</h3>
-              <p>事件日志、轨迹、视频快照和根因时间线。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="incident" class="slide dark">
+      <section id="product" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">04 · Incident Command</p>
-            <h2>异常不是弹窗，是处置流程。</h2>
-            <p class="lead">低电、堵塞、急停、传感器遮挡、门梯失败和任务超时自动进入事件时间线，触发重路由、隔离、人工接管、证据留存和复盘包。</p>
+            <p class="kicker">05 · Product</p>
+            <h2>从 second-vendor rollout kit 切入，再扩展成多站点机器人塔台。</h2>
+            <p class="lead">第一阶段不抢 OEM fleet manager 的控制权：连接 WMS/WES + Vendor A + Vendor B + 一个共享设施资源，证明更快上线、更少人工协调、更好可追溯。然后再进入主动交通、充电、门梯和多站点优化。</p>
             <ul class="list">
-              <li>定位为运营安全和可追溯层，不替代机器人本体安全控制器。</li>
-              <li>异常视频、状态、轨迹和人工接管片段默认留在现场边缘。</li>
-              <li>云端同步摘要、精选 incident clips、LeRobot 数据集和优化指标。</li>
-              <li>恢复后回灌 DataFlywheel，形成训练、仿真、评估和边缘部署闭环。</li>
+              <li>Edge Tower Runtime：本地任务队列、交通调度、资源预约、事件日志和 store-and-forward。</li>
+              <li>Adapter Hub：VDA 5050 v3、Open-RMF、MassRobotics、ROS 2、vendor API、OPC UA、BACnet。</li>
+              <li>SiteGraph + Map Federation：多楼层、车道、门梯、充电桩、坐标变换、地图版本和运行时封控。</li>
+              <li>Incident Replay + LeRobot Export：事件时间线、视频片段、人工接管和训练/回放/eval 数据包。</li>
             </ul>
           </div>
           <div class="visual">
-            <img src="../assets/fleet-conductor.png" alt="机器人异常处置、视频快照和事件复盘控制台">
+            <img src="../assets/fleet-conductor.png" alt="本地机器人塔台、SiteGraph、adapter runtime 和 incident replay 控制台">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Product API</p>
+              <h2>它不是看板，而是一组现场资源 API 和事件账本。</h2>
+            </div>
+            <p>所有状态都进入 append-only event log；所有指令都有 RBAC、reason code、ack、replay pointer 和 audit record。安全关键功能仍由机器人 OEM 与合规设施系统负责。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>SiteGraph</h3>
+              <p>nodes、lanes、zones、doors、lifts、chargers、queue points、speed overlays、temporary closures。</p>
+            </article>
+            <article class="card">
+              <h3>MapTransform</h3>
+              <p>canonical site frame、floor frame、RMF frame、vendor fleet maps 和 robot-native maps。</p>
+            </article>
+            <article class="card">
+              <h3>RobotAdapter</h3>
+              <p>vda5050、rmf_ros2、vendor_rest_grpc、traffic_light、observe_only 五种接入模式。</p>
+            </article>
+            <article class="card">
+              <h3>Reservation</h3>
+              <p>走廊、电梯、门、充电桩、窄区和装卸位的 time-windowed reservation lease。</p>
+            </article>
+            <article class="card">
+              <h3>Incident</h3>
+              <p>deadlock、blocked path、elevator timeout、charger fault、manual intervention、emergency stop。</p>
+            </article>
+            <article class="card">
+              <h3>LeRobotEpisode</h3>
+              <p>camera frames、state/action、map context、operator intervention、outcome label、reward tags。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Market & Business Model</p>
+              <h2>卖的不是“fleet management”，而是更快上线第二个机器人厂商。</h2>
+            </div>
+            <p>第一笔预算来自避免重复集成和加速 site launch；扩展预算来自 uptime、利用率、交通控制、多站点标准化和 RaaS 计费。不要用巨大 TAM 开头，先讲已有机器人、第二厂商和共享设施资源的痛点。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <span class="claim-tag">海外版</span>
+              <h3>Edge Appliance + SaaS</h3>
+              <p>Pilot / site setup：$25k-$150k。Platform fee：$3k-$15k / site / month。Observe：$75-$200 / robot / month。Active dispatch / traffic：$250-$700 / robot / month。RaaS attach：5%-12% of robot RaaS MRR。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">中国版</span>
+              <h3>私有化 / SI 交付</h3>
+              <p>中国版更适合本地部署、私有化、项目制和 SI-led delivery：人民币 10k-40k / site / month，人民币 100-500 / robot / month，或人民币 100k-500k 项目 license + 15%-20% 年维护。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>竞争很多，但真正缺的是现场级 physical operations control plane。</h2>
+            </div>
+            <p>InOrbit、Formant、Meili、KINEXON、SYNAOS、Open-RMF、NVIDIA Isaac、MiR、OTTO、Geek+、Hikrobot、SVT、Blue Yonder 都各自解决一层。FleetConductor 的防线是本地边缘、设施资源、混合厂商、事件记忆和 Qualcomm profile。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Facility Graph</h3>
+              <p>每个商业站点的楼层、门梯、走廊、充电、禁区、WMS/WES 和运营规则会形成黏性资产。</p>
+            </article>
+            <article class="card">
+              <h3>Adapter Compound</h3>
+              <p>机器人、门梯、充电、WMS/MES/CMMS/BMS 的 adapter 越多，交付速度越快。</p>
+            </article>
+            <article class="card">
+              <h3>Incident Memory</h3>
+              <p>堵塞、抢梯、低电、人工接管和绕行会变成下一站点配置、仿真场景和训练数据。</p>
+            </article>
+            <article class="card">
+              <h3>Dragonwing Profile</h3>
+              <p>不同 Dragonwing / RB / QCS / IQ target 的相机、NPU、网络、热、电源和离线行为形成 profile library。</p>
+            </article>
           </div>
         </div>
       </section>
@@ -162,44 +297,92 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · Qualcomm Role</p>
-              <h2>从单机 edge AI，升级到设施级机器人操作系统。</h2>
+              <p class="kicker">09 · Why Qualcomm</p>
+              <h2>Qualcomm 不应只展示一台机器人跑 AI，而应展示一个现场如何协调一群机器人。</h2>
             </div>
-            <p>FleetConductor 把 Qualcomm 放在现场协同核心：多媒体、连接、边缘 AI、低云依赖、模型部署和本地事件闭环共同构成可交付的 factory edge tower appliance。</p>
+            <p>FleetConductor 把 Dragonwing 从开发板叙事升级成现场 edge tower appliance：本地任务、交通、地图、事件、视频、AI profile 和日志都在现场运行，云端负责远程支持、训练和策略更新。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Local AI</h3>
+              <p>多摄像头检测 blocked aisle、forklift、人流、电梯队列、dock congestion 和安全事件。</p>
+            </article>
+            <article class="step">
+              <h3>Connectivity</h3>
+              <p>Wi-Fi、private 5G、VLAN、mTLS、DDS Security 和 OT 分段支撑现场通信。</p>
+            </article>
+            <article class="step">
+              <h3>AI Hub</h3>
+              <p>QNN compile/profile/run 结果进入上线门禁、事件证据和 LeRobot 数据飞轮。</p>
+            </article>
+            <article class="step">
+              <h3>Offline</h3>
+              <p>云端断开时，本地塔台继续调度、记录、审计和保守执行。</p>
+            </article>
+            <article class="step">
+              <h3>Partner</h3>
+              <p>OEM、SI、WMS/WES、RaaS 和门梯系统围绕 Dragonwing edge workflow 协作。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>八分钟演示：一个医院/仓库现场，三种机器人抢同一部电梯。</h2>
+            </div>
+            <p>演示不需要接入真实电梯。用浏览器 + 本地 edge runtime 模拟 Acme Medical Tower：3 个楼层、3 个机器人厂商、6 扇门、2 部服务电梯、4 个充电桩和一组 WMS/HIS mock tasks。</p>
           </div>
           <div class="grid four">
-            <div class="stat">
-              <strong>Edge</strong>
-              <span>本地任务、交通、地图、事件和日志运行，不依赖云端往返。</span>
-            </div>
-            <div class="stat">
-              <strong>Video</strong>
-              <span>现场视频、远程接管、异常快照和隐私边界在边缘处理。</span>
-            </div>
-            <div class="stat">
-              <strong>Network</strong>
-              <span>Wi-Fi、private 5G、VLAN、mTLS、DDS Security 和 OT 分段。</span>
-            </div>
-            <div class="stat">
-              <strong>Flywheel</strong>
-              <span>轨迹、失败、人工接管和复盘进入 LeRobot 数据飞轮。</span>
-            </div>
+            <article class="card">
+              <h3>1. Second Vendor</h3>
+              <p>接入 delivery_vda5050、cleaning_ros2、security_vendor_rest 三个 fleet adapter 和同一张 SiteGraph。</p>
+            </article>
+            <article class="card">
+              <h3>2. Conflict</h3>
+              <p>同时出现药房配送、清洁任务和巡检任务，三台机器人争抢电梯、窄走廊和充电桩。</p>
+            </article>
+            <article class="card">
+              <h3>3. Edge Tower</h3>
+              <p>FleetConductor 本地预约电梯、门、走廊和充电窗口；断开云端后继续运行并记录事件。</p>
+            </article>
+            <article class="card">
+              <h3>4. Replay</h3>
+              <p>导出 incident capsule、audit trail、CloudEvents log 和 LeRobot-compatible recovery episode。</p>
+            </article>
           </div>
+          <p class="quote">我们的申请：用 Qualcomm Dragonwing / IQ edge hardware 打造一套 mixed robot edge tower reference workflow，让比赛 demo 能直接连接真实商业部署问题。</p>
         </div>
       </section>
 
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">FleetConductor 不承诺“一键兼容所有机器人”，它卖的是一座现场塔台：连接现有机器人、设施系统和企业流程，让多品牌车队少堵车、少停机、更可追溯。</p>
+          <p class="quote">FleetConductor 不承诺开箱兼容所有机器人，也不替代机器人本体安全控制器。它卖的是一座本地塔台：连接现有机器人、设施系统和企业流程，让多品牌车队少堵车、少停机、更可追溯。</p>
           <div class="source-links">
             <a href="https://www.vda.de/en/topics/automotive-industry/vda-5050">VDA 5050</a>
+            <a href="https://github.com/VDA5050/VDA5050">VDA GitHub</a>
             <a href="https://www.open-rmf.org/">Open-RMF</a>
+            <a href="https://openrmf.readthedocs.io/en/latest/interfacing/index.html">RMF Interfaces</a>
             <a href="https://www.massrobotics.org/what-is-the-massrobotics-amr-interoperability-standard/">MassRobotics AMR</a>
-            <a href="https://osrf.github.io/ros2multirobotbook/integration_fleets_adapter_tutorial.html">RMF Fleet Adapter</a>
-            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10 RRD</a>
-            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
-            <a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">NIST OT Security</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Industrial Robots</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
+            <a href="https://www.marketsandmarkets.com/PressReleases/amr-agv-fleet-management-software.asp">Fleet Software Market</a>
+            <a href="https://www.svtrobotics.com/">SVT Robotics</a>
+            <a href="https://csrc.nist.gov/News/2023/nist-publishes-sp-800-82-revision-3">NIST OT Security</a>
             <a href="https://www.iso.org/standard/83545.html">ISO 3691-4</a>
+            <a href="https://www.automate.org/robotics/industry-insights/mobile-robot-standard-r15-08-1-2020-what-you-need-to-know">ANSI R15.08</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/iq9-series/iq-9075">Qualcomm IQ-9075</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10 RRD</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
+            <a href="https://cloudevents.io/">CloudEvents</a>
+            <a href="https://swagger.io/specification/">OpenAPI</a>
+            <a href="https://www.asyncapi.com/docs/reference/specification/latest">AsyncAPI</a>
+            <a href="https://developer.inorbit.ai/docs">InOrbit API</a>
+            <a href="https://docs.formant.io/docs/getting-started-fleet-management">Formant</a>
           </div>
         </div>
       </section>
