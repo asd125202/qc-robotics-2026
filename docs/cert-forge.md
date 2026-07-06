@@ -1,157 +1,142 @@
 # CertForge Pitch
 
-更新时间：2026-07-05。法规、标准、认证路径和实验室要求会随产品类别、目标市场和版本变化；真实交付前必须由合规负责人、实验室、认证机构和法律顾问按具体 SKU 复核。
+更新时间：2026-07-06。CertForge 不是认证机构、测试实验室或法律顾问；它不承诺自动获得 CE / FCC / UL / CCC / SRRC / NRTL / AI Act / CRA 结论。真实项目必须由合规负责人、实验室、认证机构和律师按具体 SKU、目标市场、用途和版本复核。
 
-## Core Thesis
+## One-Liner
 
-CertForge 是面向 Qualcomm 机器人产品的合规证据工厂：
+CertForge 是 Dragonwing 机器人合规 CI/CD：
 
-> 从原型到量产，把每一次模型、固件、ROS 节点、传感器标定、基准测试、SBOM、风险决策和供应商声明，自动锻造成可审计的认证准备证据包。
+> 不是写合规，是铸证据。它把每一次代码、模型、SBOM、ROS/MCAP、HIL/真机测试、QNN profile、风险评估和供应商证明，自动编成可审计技术文件证据链。
 
-它不是认证机构，也不承诺机器人“自动通过 CE / FCC / UL / CCC”。它解决的是商业化过程中更常见、更昂贵的问题：
+## 1. Problem
 
-- 初创团队不知道哪些标准、法规和测试路径真正适用。
-- 认证准备经常发生在量产前夜，导致硬件返工、说明书返工、标签返工、软件更新流程返工。
-- 模型、固件、BOM、无线模组、电池、传感器和安全策略变更后，没有统一的合规影响分析。
-- 企业客户、集成商、实验室、投资人和 Qualcomm 生态伙伴需要看到结构化证据，而不是零散文件夹。
+机器人公司不是被“要不要合规”卡住，而是被“证据在哪里、版本为什么可信、变更影响是什么”卡住。
 
-一句话：CertForge 不替你“发证”，而是让机器人产品从第一天就按可审计证据来研发。
+- 机器人不是 App。模型、固件、无线、电池、传感器、外壳、速度限制、说明书和供应商变化后，原有安全、网络、无线、电气和市场准入判断都可能失效。
+- 证据散落在 Git、Jira、Confluence、实验室 PDF、仿真报告、ROS bag、SBOM 工具、供应商邮件和现场运维系统。
+- 实验室、顾问和客户安全团队通常在量产前夜看到一个快照，很难追回每次设计决策、风险接受、测试覆盖和真实运行记录。
+- Qualcomm 的安全启动、AI profile、功耗、连接和生命周期优势，如果没有证据格式，很难进入企业采购、融资尽调和上市材料。
 
-## Five-Thread Research Synthesis
+## 2. Current Alternatives Fail
 
-### 1. Product Compliance Roadmap
+- 实验室 / 认证顾问：能解释路径和做测试，但通常太晚介入，无法自动追踪工程变更影响。
+- PLM / ALM：能管理需求、物料和流程，却不天然理解 ROS/MCAP、QNN profile、模型回归、现场事件和机器学习版本。
+- SBOM / SAST：能覆盖软件供应链，不能覆盖机械危险源、功能安全、无线、电池和运行场景风险。
+- 仿真平台：能生成大量数据，但如果没有条款、危险源、控制措施、签核人和 release 关系，数据不会自动变成审计证据。
+- 通用合规自动化：Saphira AI、Normal、Ketryx 等证明市场正在形成。CertForge 的差异化必须是机器人 evidence graph + Dragonwing release integration + field evidence。
 
-最稳妥的产品定位是 scope-first roadmap：
+## 3. Solution
 
-- 产品分类：工业机器人、协作机器人、AMR/AGV、服务机器人、家庭/消费机器人、医疗/实验室辅助设备、户外/农业机器人。
-- 市场路径：EU CE / Machinery、EMC、RED、Battery、RoHS；US FCC、NRTL/UL、CPSC/FDA where applicable；China CCC catalogue、SRRC、GB / GB/T 标准。
-- 技术文件：风险评估、EHSR checklist、DoC、标签、说明书、测试报告、BOM、无线模块资料、电池运输文件。
-- 变更控制：BOM、无线、外壳、电源、散热、固件、模型、OTA、传感器和安全参数变化后自动触发 impact review。
+CertForge 连接 Dragonwing 研发栈、Git/CI、SBOM、AI Hub / QNN、ROS2/MCAP、ScaleFoundry、UptimeOS、RiskLedger、SafetyOps、仿真、HIL、真机测试和供应商文档，维护一张可审计图谱：
 
-### 2. Functional Safety Evidence
+```text
+regulatory clause -> hazard -> safety/control measure -> test -> artifact -> signer -> release
+```
 
-机器人安全不是一个证书，而是一套持续维护的 safety case：
+核心流程：
 
-- ISO 12100 风险评估。
-- ISO 13849 / IEC 62061 安全相关控制系统证据。
-- ISO 10218-1/-2:2025 工业机器人与集成单元证据。
-- ISO 3691-4:2023 AMR / AGV 相关证据。
-- ANSI/A3 R15.08 工业移动机器人和系统集成证据。
-- ISO 13482 个人护理/服务机器人路径。
+1. Classify：选择机器人类型、用途、目标市场、无线、电池、电源、环境、用户和应用边界。
+2. Map：生成适用法规、标准、测试路径、不适用理由和 reviewer sign-off。
+3. Collect：从 release、BOM、SBOM、QNN profile、ROS/MCAP、HIL、仿真和真机测试收集证据。
+4. Gate：每次模型、固件、供应商、无线、电池、外壳、风险策略和说明书变化触发 impact review。
+5. Export：输出 EU、US、中国、客户采购、保险尽调和实验室沟通所需的 evidence dossier。
 
-CertForge 不复印标准正文，只维护 applicability matrix、hazard-to-evidence graph、测试任务、责任人、版本和证据索引。
+## 4. Why Now
 
-### 3. Cybersecurity And Software Compliance
+2026-2028 是 Physical AI 从 demo 走向监管证据的窗口期。
 
-联网机器人是软件产品、OT 资产和边缘 AI 设备：
+- EU RED 网络安全要求已从 2025-08-01 开始适用于相关无线设备。
+- EU CRA 漏洞和严重事件报告义务从 2026-09-11 开始，主要义务从 2027-12-11 开始。
+- EU Machinery Regulation 从 2027-01-20 开始适用。
+- AI Act 让高风险 AI 的文档、日志、治理和质量管理要求逐步进入实体产品，但不能声称所有机器人都是同一类高风险 AI。
+- ISO 10218-1/-2:2025 更新，AMR、协作机器人和移动机器人安全证据继续细化。
+- Qualcomm Dragonwing 和 AI Hub / QNN 把边缘 AI 推向量产机器人，正需要一个把芯片能力转成商业准入能力的证据层。
 
-- SBOM / VEX：版本级组件清单、漏洞状态和影响说明。
-- NIST SSDF：安全开发、release gate、构建完整性、漏洞修复流程。
-- CVD / PSIRT：漏洞披露、响应 SLA、security.txt、客户公告。
-- OTA evidence：签名发布、灰度、回滚、支持期、EOL 和补丁历史。
-- EU CRA readiness：2024-12-10 生效；2026-09-11 起漏洞和事件报告义务开始适用；2027-12-11 主要义务开始适用。
+## 5. Product
 
-稳妥表述是“designed to support EU CRA readiness”和“aligned to NIST SSDF evidence needs”，而不是声称自动合规或认证。
+### Evidence Graph
 
-### 4. China / Overseas Lanes
+版本化追踪每个 release 的风险、控制措施、测试、签核、缺口和导出材料。
 
-中国版重点是“适用范围先判定”：
+### Robot Run Recorder
 
-- CCC 只覆盖官方目录内的产品和部件，机器人整机常常通过电源适配器、电池、家电/儿童产品、车辆、无线模块、爆炸性环境设备等触发。
-- SRRC / CMIIT 用于无线电发射设备型号核准。
-- GB / GB/T evidence map：工业机器人安全、协作机器人、服务机器人、机械电气安全、EMC、安全相关控制系统。
-- 中文说明书、标签、产品铭牌、供应商声明和实验室资料需要单独管理。
+把 ROS2/MCAP、仿真、HIL、真机测试和现场事件转换成场景覆盖、安全证据和回归结果。
 
-海外版重点是 EU / US launch dossier：
+### Cyber + AI Pack
 
-- EU：Machinery Directive / Machinery Regulation transition、EMC、RED、RoHS、Battery、GPSR、CRA、AI Act where applicable。
-- US：FCC equipment authorization、NRTL planning、UL robotics safety path、OSHA workplace expectations、CPSC/FDA where applicable。
+SBOM、VEX、漏洞报告、模型卡、数据 lineage、QNN profile、量化误差、性能边界、鲁棒性和人工监督证据。
 
-### 5. Product Design
+### Technical File Export
 
-最有商业张力的产品不是“合规咨询平台”，而是“Qualcomm-powered robots 的 compliance evidence factory”：
+Machinery、CRA、AI Act、RED、FCC、NRTL planning、ISO 10218、ISO 3691-4、ANSI/RIA R15.08、中国 CCC 目录判定、SRRC、客户审计包和 gap tickets。
 
-- ScaleFoundry 输出硬件 SKU、BOM、EVT/DVT/PVT 记录。
-- EdgeRuntimeBench 输出 Qualcomm edge profile、模型哈希、延迟、温度、功耗和回滚证据。
-- SafetyOps 输出 release gate、权限、运行策略和异常日志。
-- RiskLedger 输出现场事故、near-miss、维护和证据保管链。
-- CertForge 把这些证据映射到市场准入、认证准备、采购问卷和审计包。
+### Evidence Schema
 
-## Product Modules
+```json
+{
+  "evidence_id": "ev_qnn_profile_2026_07_06",
+  "kind": "model_qnn_evidence",
+  "product": "dragonwing-amr-iq10",
+  "subject": "pick_place_policy_v17",
+  "standard_refs": ["ISO 10218-1:2025", "EU CRA"],
+  "requirement_refs": ["safe_stop_fallback", "software_supply_chain"],
+  "producer": "aihub-qnn-pipeline",
+  "hashes": ["sha256:..."],
+  "attachments": ["qnn_profile.json", "regression_report.html"],
+  "signature": "sigstore-bundle",
+  "status": "review_required"
+}
+```
 
-### 1. Standards Graph
+## 6. Business Model
 
-- 产品分类问卷。
-- 地区和行业选择。
-- 适用法规 / 标准 / 测试路径候选。
-- 不适用理由和 reviewer sign-off。
-- 标准变更 watchlist。
+首批买家：准备量产、准备企业采购或准备融资尽调的机器人 OEM / startup。
 
-### 2. Evidence Vault
+第二批买家：RaaS operator、系统集成商、实验室、园区、保险/融资数据用户和 Qualcomm 生态伙伴。
 
-- Release manifest。
-- BOM / AVL / PCN / PDN。
-- Firmware / OS / ROS package / model hashes。
-- SBOM / VEX / vulnerability status。
-- Benchmarks and validation reports。
-- Labels, manuals, warnings, DoC drafts。
-- Supplier declarations and wireless module certificates。
+海外定价：
 
-### 3. Safety Case Studio
+- Readiness Sprint：$8k-$25k，4-6 周梳理路径和 gap。
+- Certification Run：$30k-$100k NRE / robot / market。
+- Continuous Assurance：$24k-$120k / year by product line / market / evidence count。
+- Fleet add-on：$500-$2k / site / month 或 $25-$150 / robot / month。
+- Lab/channel white-label：$75k-$250k / year + usage。
 
-- Hazard analysis。
-- Risk reduction measures。
-- Safety functions and performance targets。
-- Test cases and validation evidence。
-- Residual risk acceptance。
-- Link to SafetyOps runtime gates and RiskLedger incidents。
+中国定价：
 
-### 4. Launch Dossier Exporter
+- 预合规包：人民币 2万-5万。
+- 认证资料 / 送检项目包：人民币 8万-25万。
+- 年订阅：人民币 3万-20万 / 产品线。
+- 实验室、园区、集成商白标：人民币 20万-80万 / 年。
 
-按市场和产品类型输出可交给内部合规负责人、实验室、客户安全团队或投资人的 evidence index：
+核心 ROI：缩短上市准备周期、减少测试失败和返工、提高企业采购与保险审查通过概率、把 Qualcomm 评估板转化为可销售机器人 SKU。
 
-- EU technical file index。
-- US FCC / NRTL readiness package。
-- China CCC / SRRC / GB applicability package。
-- Cyber procurement pack。
-- Battery and logistics package。
-- Change-impact report。
+## 7. Competition & Moat
 
-### 5. Compliance Gate In CI
+相邻竞争者：
 
-每次 release 都运行合规 gate：
+- Saphira AI：机器人 / 硬件安全认证自动化，最接近。
+- Normal：YC S25，硬件认证自动化。
+- Ketryx：受监管软件 traceability 和文档自动化。
+- Vanta / Drata / Secureframe / Hyperproof：企业 GRC。
+- Assent / Sphera / Compliance & Risks / Enhesa：产品合规和材料合规。
+- CycloneDX / SPDX / Dependency-Track / Anchore / Black Duck：SBOM / VEX / software supply chain。
+- UL / TUV / Intertek / SGS / CSA：实验室和认证服务，不是被替代对象。
 
-- BOM changed?
-- radio module changed?
-- battery / charger changed?
-- enclosure / thermal changed?
-- safety parameter changed?
-- AI model changed?
-- OTA / vulnerability status changed?
-- manuals and labels still match?
+CertForge 壁垒：
 
-低风险变更只更新证据索引；高风险变更进入 reviewer queue 或实验室任务。
+- Robot-specific evidence graph：危险源、控制措施、测试、现场事件、模型版本和 release 连接在一起。
+- Dragonwing-native release integration：AI Hub / QNN、secure boot、edge benchmark、OTA、device identity 内建。
+- Field evidence loop：UptimeOS、RiskLedger、SafetyOps、ScaleFoundry 的运行、事故、维修和变更记录持续回写。
+- Channel format：实验室、ODM、集成商和生态伙伴可以复用同一预审包。
 
-## Competition Demo
+## 8. Why Qualcomm
 
-比赛可以展示一个“机器人从 release 到 launch dossier”的浏览器流程：
+Qualcomm 的价值不止是算力，而是机器人商业化底座。
 
-1. 选择产品模板：室内 AMR、桌面机械臂、家庭服务机器人、户外巡检车。
-2. 导入 ScaleFoundry release manifest：BOM、无线模组、电池、外壳、传感器、QCS / IQ 平台。
-3. 导入 EdgeRuntimeBench：AI Hub profile、QNN artifact、模型哈希、延迟、功耗、温度。
-4. 导入 SafetyOps：技能权限、速度区、急停、保护停、release gate。
-5. Standards Graph 自动生成 EU / US / China 适用路径和不适用理由。
-6. Gap view 显示缺失证据：说明书、标签、SBOM/VEX、UN 38.3、电源适配器、FCC modular grant、risk assessment review。
-7. 上传一份测试报告或 ROS bag 后，gap 关闭并写入 evidence vault。
-8. 一键导出 EU technical-file index、US readiness pack、China scope package 和 customer procurement pack。
-
-## Qualcomm Value
-
-CertForge 对 Qualcomm 的战略价值在于把“芯片能力”变成“商业准入能力”：
-
-- Secure boot / hardware root of trust：作为证据链起点。
-- AI Hub / QNN：模型 profile、compiled artifact、target device 和 benchmark 进入可复核 release record。
-- Dragonwing / QCS / IQ platforms：传感、连接、多媒体和边缘 AI 证据按平台复用。
+- Secure boot / hardware root of trust：证据链可信起点。
+- AI Hub / QNN：模型 profile、compiled artifact、target device、latency、memory、temperature 和 regression record。
+- Dragonwing platforms：连接、视觉、多媒体、边缘 AI、功耗和生命周期数据进入 launch dossier。
 - Product longevity：长期供货、BOM 生命周期和安全更新支持期成为客户采购证据。
 - Partner ecosystem：开发板、模组、ODM、实验室、集成商和云训练伙伴围绕同一证据格式协作。
 
@@ -159,37 +144,52 @@ CertForge 对 Qualcomm 的战略价值在于把“芯片能力”变成“商业
 
 > Qualcomm 不只是让机器人跑得动；CertForge 让 Qualcomm 机器人更容易进入采购、实验室、量产和全球市场。
 
+## 9. Demo & Ask
+
+比赛演示：一个 Dragonwing AMR 从 release 到三地上市证据包。
+
+1. 选择 `dragonwing-amr-iq10`，导入 ScaleFoundry digital twin、UptimeOS fleet asset、SBOM 和 QNN profile。
+2. 选择 EU + US + China、warehouse AMR、collaborative manipulator、edge AI，生成 standards list 和 requirements matrix。
+3. 导入 ROS2/MCAP、HIL 报告、QNN profile、SBOM/VEX，dashboard 显示覆盖、缺口和责任人。
+4. 展示 model/QNN evidence：模型 hash、量化误差、latency、device profile、ODD limits、fallback。
+5. 展示 safety case graph：top claim、风险控制措施、测试和残余风险签核。
+6. 注入变更：新模型版本或 OpenSSL CVE，CertForge 输出 impacted requirements、rerun tests、VEX status 和 dossier delta。
+7. 导出 `EU_Machinery_Technical_File.zip`、`CRA_Cybersecurity_File.zip`、`Safety_Case.html`、`machine_readable_dossier.jsonld`。
+
+申请方向：用 Qualcomm Dragonwing 作为机器人商业化底座，把合规证据、云训练、边缘部署和现场运行连接成一个可交付产品，而不是比赛结束就消失的 demo。
+
 ## Claims To Avoid
 
 - 不说 CertForge certifies robots。
-- 不说 pre-certified radio module makes the whole robot compliant。
-- 不说 CE certified；更稳妥是 CE marked after manufacturer conformity assessment。
-- 不说 guaranteed FCC / UL / CCC approval。
+- 不说 pre-certified module makes whole robot compliant。
+- 不说 guaranteed CE / FCC / UL / CCC / SRRC approval。
 - 不说 legal advice。
 - 不说 NIST certified、CRA compliant、hack-proof、safe by default。
+- 不说所有机器人都属于 AI Act high-risk。
 - 不把 AI 生成的判断当作最终结论；AI 只能生成 draft / checklist / gap suggestion，签核要由人完成。
+- 不复制 ISO 标准正文，只维护客户授权范围内的 mapping、evidence index 和 gap。
 
 ## Sources
 
-- EU Machinery Regulation overview：https://single-market-economy.ec.europa.eu/sectors/mechanical-engineering/machinery_en
-- EU Cyber Resilience Act：https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng
+- Qualcomm Dragonwing IQ10 Robotics Reference Design：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- Qualcomm AI Hub docs：https://workbench.aihub.qualcomm.com/docs/
+- EU Machinery Regulation：https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng
+- EU Cyber Resilience Act：https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act
+- EU CRA manufacturers：https://digital-strategy.ec.europa.eu/en/policies/cra-manufacturers
+- EU AI Act：https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng
 - EU Radio Equipment Directive：https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en
-- EU Battery Regulation：https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L:2023:191:FULL
-- FCC equipment authorization：https://www.fcc.gov/general/equipment-authorization
+- FCC Part 15：https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15
 - OSHA NRTL program：https://www.osha.gov/nationally-recognized-testing-laboratory-program
-- UL robotics safety：https://www.ul.com/services/robotic-safety-security-and-performance
-- ISO 12100：https://www.iso.org/standard/51528.html
-- ISO 13849-1：https://www.iso.org/standard/73481.html
+- UL consumer and commercial robots：https://www.ul.com/services/consumer-and-commercial-robots
 - ISO 10218-1:2025：https://www.iso.org/standard/73933.html
 - ISO 10218-2:2025：https://www.iso.org/standard/73934.html
-- ISO 3691-4:2023：https://www.iso.org/standard/82739.html
-- ANSI/A3 R15.08：https://www.automate.org/robotics/safety/robot-safety-standard-documents
+- ISO 3691-4：https://www.iso.org/standard/70660.html
+- ANSI / A3 robot safety standards：https://www.automate.org/robotics/safety/robot-safety-standard-documents
 - NIST SSDF SP 800-218：https://csrc.nist.gov/pubs/sp/800/218/final
 - CISA SBOM：https://www.cisa.gov/topics/information-communications-technology-supply-chain-security/sbom
-- OASIS CSAF / VEX：https://oasis-open.github.io/csaf-documentation/
-- ISO/IEC 29147 vulnerability disclosure：https://www.iso.org/standard/72311.html
-- CNCA official site：https://www.cnca.gov.cn/
-- MIIT official site：https://www.miit.gov.cn/
-- Qualcomm AI Hub：https://aihub.qualcomm.com/
-- Qualcomm IoT security：https://www.qualcomm.com/products/features/iot-security
-- Qualcomm product longevity：https://www.qualcomm.com/internet-of-things/products/product-longevity-program
+- CycloneDX VEX：https://cyclonedx.org/capabilities/vex/
+- SPDX specifications：https://spdx.dev/use/specifications/
+- MCAP：https://mcap.dev/
+- Saphira AI：https://www.saphira.ai/
+- Normal / YC：https://www.ycombinator.com/companies/normal
+- Ketryx：https://www.ketryx.com/

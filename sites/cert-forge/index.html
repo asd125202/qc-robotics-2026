@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CertForge | 机器人合规证据工厂</title>
+    <title>CertForge | Dragonwing 机器人合规 CI/CD</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -13,57 +13,133 @@
         <span>CertForge</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#research">研究</a>
-        <a href="#roadmap">路径</a>
-        <a href="#safety">安全</a>
-        <a href="#software">软件</a>
-        <a href="#markets">双市场</a>
+        <a href="#problem">问题</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">时机</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-cert-forge">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 40 · Compliance Evidence Factory</p>
+          <p class="eyebrow">Pitch 40 · Compliance CI/CD For Physical AI</p>
           <h1>CertForge</h1>
-          <p class="hero-lede">机器人合规证据工厂：把 Qualcomm 机器人 release 的模型、固件、BOM、无线、电池、安全策略、SBOM、测试和风险决策，锻造成可审计的认证准备证据包。</p>
+          <p class="hero-lede">不是写合规，是铸证据。CertForge 把每一次 Dragonwing 机器人 release 的代码、模型、SBOM、ROS/MCAP、HIL/真机测试、QNN profile、风险评估和供应商证明，自动编成可审计技术文件证据链。</p>
           <div class="cta-row">
-            <a class="button primary" href="#roadmap">查看证据工厂</a>
-            <a class="button" href="../scale-foundry/">连接 ScaleFoundry</a>
+            <a class="button primary" href="#solution">看解决方案</a>
+            <a class="button" href="#demo">看比赛演示</a>
           </div>
         </div>
       </section>
 
-      <section id="research" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">00 · Five-Thread Research</p>
-              <h2>从 demo 到可销售机器人，中间缺的不是更多 PPT，而是合规证据机器。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>机器人公司死在量产前夜，不是因为不知道要合规，而是因为没有证据系统。</h2>
             </div>
-            <p>五条研究线指向同一个结论：机器人合规首先是适用范围判定，其次是安全案例、软件供应链、无线/电池/电气证据和市场准入资料。CertForge 不发证，而是让团队从研发第一天就生成实验室、客户和投资人可检查的证据。</p>
+            <p>软件可以持续发布，机器人不行。每一次模型、固件、传感器、无线模组、电池、外壳、速度限制、说明书或供应商变化，都会让安全、网络、无线、电气、AI 和市场准入证据重新失效。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>Scope First</h3>
-              <p>先判断产品类型、目标市场、无线、电池、电源、用途和场景，再生成法规路径。</p>
+              <span class="claim-tag">版本风险</span>
+              <h3>每次更新都可能破坏合规假设</h3>
+              <p>QNN 模型重编译、ROS 节点升级、SBOM 漏洞、传感器换型和 OTA 策略改变，都需要重新判断影响范围。</p>
             </article>
             <article class="card">
-              <h3>Safety Case</h3>
-              <p>ISO 12100、ISO 13849、ISO 10218、ISO 3691-4 和 ANSI/A3 R15.08 的证据索引。</p>
+              <span class="claim-tag">证据散落</span>
+              <h3>证据散在十几个系统</h3>
+              <p>Git、Jira、Confluence、实验室 PDF、仿真报告、ROS bag、供应商邮件和 SBOM 工具之间没有同一个证据链。</p>
             </article>
             <article class="card">
-              <h3>Cyber Dossier</h3>
-              <p>SBOM、VEX、NIST SSDF、漏洞披露、签名 OTA 和 EU CRA readiness。</p>
+              <span class="claim-tag">末端审查</span>
+              <h3>实验室通常看到的是最后快照</h3>
+              <p>认证顾问和测试机构能审查样机，却很难追回每次设计决策、风险接受、变更影响和真实运行证据。</p>
             </article>
             <article class="card">
-              <h3>China Lane</h3>
-              <p>CCC 目录判定、SRRC、GB / GB/T 交叉映射、中文标签说明书和实验室资料。</p>
+              <span class="claim-tag">采购审查</span>
+              <h3>企业客户买的是可审计能力</h3>
+              <p>采购、EHS、保险、法务和 IT 安全团队需要看到证据包，而不是一句“我们以后会做认证”。</p>
             </article>
             <article class="card">
-              <h3>Evidence Factory</h3>
-              <p>ScaleFoundry、SafetyOps、RiskLedger 和 EdgeRuntimeBench 的证据汇入同一 vault。</p>
+              <span class="claim-tag">平台缺口</span>
+              <h3>芯片能力没有变成准入能力</h3>
+              <p>Qualcomm 的安全启动、AI profile、功耗、连接和生命周期优势，需要被包装成量产和采购能理解的证据。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="broken" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>现有工具各管一段，没有人负责“机器人 release 能不能卖”。</h2>
+            </div>
+            <p>实验室、PLM、ALM、SBOM、仿真、GRC 和认证顾问都重要，但它们没有围绕 Dragonwing 机器人版本构建一条从设计到现场的证据图谱。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>实验室 / 顾问</h3>
+              <p>擅长末端测试和解释路径，但通常太晚介入，无法自动追踪每个工程变更的影响。</p>
+            </article>
+            <article class="card">
+              <h3>PLM / ALM</h3>
+              <p>管理需求、物料和流程，却不天然理解 ROS/MCAP、模型 profile、现场事件和机器学习版本。</p>
+            </article>
+            <article class="card">
+              <h3>SBOM / SAST</h3>
+              <p>能回答软件供应链问题，无法回答机械危险源、功能安全、无线、电池和运行场景风险。</p>
+            </article>
+            <article class="card">
+              <h3>Simulation</h3>
+              <p>能产生大量测试数据，但如果没有法规条款、危险源和签核关系，数据不会自动变成审计证据。</p>
+            </article>
+            <article class="card">
+              <h3>通用合规自动化</h3>
+              <p>Saphira AI、Normal、Ketryx 等证明市场正在形成；CertForge 的切口是机器人 evidence graph + Dragonwing release integration。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>给机器人团队一条合规 CI/CD：从版本发布自动生成可审计证据。</h2>
+            </div>
+            <p>CertForge 不替代认证机构、测试实验室或律师。它连接研发、测试、运行和供应链系统，维护一张图：法规条款 -> 危险源 -> 控制措施 -> 测试 -> 证据 -> 签核人 -> release。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Classify</h3>
+              <p>选择机器人类型、用途、目标市场、无线、电池、电源、环境、用户和应用边界。</p>
+            </article>
+            <article class="step">
+              <h3>Map</h3>
+              <p>生成适用法规、标准、测试路径、不适用理由和需要人类签核的判断点。</p>
+            </article>
+            <article class="step">
+              <h3>Collect</h3>
+              <p>从 Git/CI、BOM、SBOM、QNN profile、ROS/MCAP、仿真、HIL 和真机测试收集证据。</p>
+            </article>
+            <article class="step">
+              <h3>Gate</h3>
+              <p>每次模型、固件、供应商、无线、电池、外壳、风险策略和说明书变化触发 impact review。</p>
+            </article>
+            <article class="step">
+              <h3>Export</h3>
+              <p>输出 EU、US、中国、客户采购、保险尽调和实验室沟通所需的 evidence dossier。</p>
             </article>
           </div>
           <div class="image-band">
@@ -72,107 +148,146 @@
         </div>
       </section>
 
-      <section id="roadmap" class="slide tint">
+      <section id="why-now" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Scope-To-Dossier Roadmap</p>
-              <h2>不要等到量产前夜才发现标签、说明书、无线、电池和安全证据不完整。</h2>
+              <p class="kicker">04 · Why Now</p>
+              <h2>2026-2028 是机器人从 demo 走向监管证据的窗口期。</h2>
             </div>
-            <p>CertForge 把合规工作拆成可执行的研发门禁：产品分类、标准图谱、证据缺口、责任人、实验室任务、变更影响和 launch dossier。它让合规从“最后补文档”变成持续工程系统。</p>
+            <p>Physical AI 正在同时遇到新硬件平台、新 AI 部署方式和更严格的网络安全、机械安全、无线设备和 AI 文档要求。越早把证据自动化，越容易从开发板走到量产。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Classify</h3>
-              <p>选择机器人类型、用途、目标市场、无线、电池、电源、环境和用户群。</p>
-            </article>
-            <article class="step">
-              <h3>Map</h3>
-              <p>生成法规、标准、测试路径和不适用理由，交给人类 reviewer 签核。</p>
-            </article>
-            <article class="step">
-              <h3>Collect</h3>
-              <p>从 release、BOM、SBOM、模型 profile、测试报告和供应商声明收集证据。</p>
-            </article>
-            <article class="step">
-              <h3>Gate</h3>
-              <p>每次硬件、模型、固件、无线、电池、外壳或说明书变化触发 impact review。</p>
-            </article>
-            <article class="step">
-              <h3>Export</h3>
-              <p>输出 EU、US、China、采购安全和投资尽调用的 evidence index。</p>
-            </article>
+          <div class="grid five">
+            <div class="stat">
+              <strong>2025</strong>
+              <span>EU RED 网络安全要求已从 2025-08-01 开始适用于相关无线设备。</span>
+            </div>
+            <div class="stat">
+              <strong>2026</strong>
+              <span>EU CRA 漏洞和严重事件报告义务从 2026-09-11 开始。</span>
+            </div>
+            <div class="stat">
+              <strong>2027</strong>
+              <span>EU Machinery Regulation 从 2027-01-20 开始适用，CRA 主要义务从 2027-12-11 开始。</span>
+            </div>
+            <div class="stat">
+              <strong>AI</strong>
+              <span>AI Act 让高风险 AI 的文档、日志和治理压力逐步进入实体产品。</span>
+            </div>
+            <div class="stat">
+              <strong>ISO</strong>
+              <span>ISO 10218-1/-2:2025 更新，AMR、协作和移动机器人安全证据继续细化。</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="safety" class="slide white">
+      <section id="product" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">02 · Safety Case Studio</p>
-            <h2>机器人安全不能靠一句“有急停”，必须把 hazard、控制措施和验证证据连起来。</h2>
-            <p class="lead">CertForge 不复制标准正文，也不替代安全工程师。它维护 hazard-to-evidence graph：每个危险源、风险降低措施、安全功能、测试记录、残余风险、运行策略和现场事件都能追溯到版本。</p>
+            <p class="kicker">05 · Product</p>
+            <h2>产品不是“合规问答机器人”，而是机器人证据操作系统。</h2>
+            <p class="lead">CertForge 把 Dragonwing 机器人每次 release 的上下文保存成可复用、可查询、可签名、可导出的证据节点。评委能看到一个真实产品团队会每天使用的系统，而不是一次性的申报文档。</p>
             <ul class="list">
-              <li>ISO 12100：风险评估、边界定义、危险源和残余风险。</li>
-              <li>ISO 13849 / IEC 62061：安全相关控制系统的目标、架构和验证资料。</li>
-              <li>ISO 10218-1/-2:2025：工业机器人和机器人单元的安全证据。</li>
-              <li>ISO 3691-4 / ANSI R15.08：AMR、AGV 和工业移动机器人系统证据。</li>
-              <li>SafetyOps + RiskLedger：release gate 与现场事件反哺 safety case。</li>
+              <li>Evidence Graph：版本化追踪风险、控制措施、测试、签核和 release。</li>
+              <li>Robot Run Recorder：把 ROS2/MCAP、仿真、HIL、真机测试转换成场景覆盖和安全证据。</li>
+              <li>Cyber + AI Pack：SBOM、VEX、漏洞报告、模型卡、数据 lineage、QNN profile 和回归门禁。</li>
+              <li>Technical File Export：Machinery、CRA、AI Act、RED、ISO 10218/3691-4、客户审计和 gap ticket。</li>
             </ul>
           </div>
           <div class="visual">
-            <img src="../assets/cert-forge.png" alt="安全案例、危险源、测试证据和机器人发布门禁图">
+            <img src="../assets/cert-forge.png" alt="机器人证据图谱、QNN 模型证据和技术文件导出界面">
           </div>
         </div>
       </section>
 
-      <section id="software" class="slide dark">
+      <section class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">03 · Software And Cyber Evidence</p>
-              <h2>联网机器人正在被当作软件产品、OT 资产和 AI 边缘设备同时审查。</h2>
+              <p class="kicker">06 · Evidence Artifacts</p>
+              <h2>每个输出都对应一个真实买家、审计人或实验室问题。</h2>
             </div>
-            <p>CertForge 为每个 release 生成软件合规包：SBOM、VEX、漏洞状态、签名 OTA、构建完整性、AI model dossier、运行 profile、support period、CVD / PSIRT 记录和客户安全问卷答案。</p>
+            <p>我们不说“自动认证”。我们说：让认证、采购、保险、融资和客户安全审查需要的材料，在研发过程中持续生成。</p>
           </div>
-          <div class="grid four">
-            <div class="stat">
-              <strong>SBOM</strong>
-              <span>组件、版本、许可证、CVE/KEV 状态和 affected / not affected 说明。</span>
-            </div>
-            <div class="stat">
-              <strong>CRA</strong>
-              <span>EU CRA 已在 2024-12-10 生效，主要义务从 2027-12-11 开始适用。</span>
-            </div>
-            <div class="stat">
-              <strong>OTA</strong>
-              <span>签名构建、灰度、回滚、补丁历史、EOL 和支持期证据。</span>
-            </div>
-            <div class="stat">
-              <strong>Model</strong>
-              <span>AI Hub / QNN profile、模型哈希、数据来源、benchmark 和回归测试。</span>
-            </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>requirements-matrix.json</h3>
+              <p>目标市场、适用标准、条款映射、不适用理由和签核记录。</p>
+            </article>
+            <article class="card">
+              <h3>evidence-node.json</h3>
+              <p>证据类型、产品版本、关联条款、哈希、附件、签名和状态。</p>
+            </article>
+            <article class="card">
+              <h3>qnn-model-evidence.json</h3>
+              <p>模型哈希、QNN backend、量化差异、profile、边界和安全相关性。</p>
+            </article>
+            <article class="card">
+              <h3>sbom-vex-pack.zip</h3>
+              <p>组件清单、漏洞状态、影响判断、修复计划和客户安全问卷证据。</p>
+            </article>
+            <article class="card">
+              <h3>change-impact-report.json</h3>
+              <p>某次变更影响哪些需求、风险、测试、文档、说明书和上市包。</p>
+            </article>
+            <article class="card">
+              <h3>launch-dossier-index.pdf</h3>
+              <p>给实验室、客户、投资人和 Qualcomm 生态伙伴看的证据目录。</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="markets" class="slide white">
+      <section id="business" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · China Lane / Overseas Lane</p>
-              <h2>同一台机器人，进入中国和海外市场时需要不同的证据语言。</h2>
+              <p class="kicker">07 · Business Model</p>
+              <h2>先卖给必须量产和进入企业采购的机器人 OEM，再变成实验室与生态伙伴通道。</h2>
             </div>
-            <p>中国版强调 CCC 目录判定、SRRC、GB / GB/T、安全生产、中文标签说明书和本地实验室协作。海外版强调 EU technical file、CE 自我符合性路径、FCC / NRTL readiness、软件供应链和采购安全包。</p>
+            <p>CertForge 的预算来自合规负责人、硬件负责人、创始人、企业客户安全要求和投资人尽调压力。它不是低价 SaaS，而是降低上市失败和返工风险的 commercial readiness 产品。</p>
           </div>
           <div class="grid two">
             <article class="card">
-              <h3>中国合规包</h3>
-              <p>CCC applicability、SRRC / CMIIT、GB / GB/T crosswalk、电源/电池/无线资料、中文铭牌、中文说明书、供应商声明和实验室任务流。</p>
+              <span class="claim-tag">海外版</span>
+              <h3>海外定价</h3>
+              <p>Readiness Sprint：$8k-$25k，4-6 周梳理路径和 gap。Certification Run：$30k-$100k NRE / robot / market。Continuous Assurance：$24k-$120k / year by product line。Fleet add-on：$500-$2k / site / month 或 $25-$150 / robot / month。</p>
             </article>
             <article class="card">
-              <h3>海外准入包</h3>
-              <p>EU Machinery / EMC / RED / Battery / CRA，US FCC equipment authorization、NRTL planning、UL robotics path、OSHA workplace evidence 和 customer procurement pack。</p>
+              <span class="claim-tag">中国版</span>
+              <h3>中国定价</h3>
+              <p>预合规包：人民币 2万-5万。认证资料 / 送检项目包：人民币 8万-25万。年订阅：人民币 3万-20万 / 产品线。实验室、园区、集成商白标：人民币 20万-80万 / 年。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>通用合规会变多，机器人证据图谱会变成壁垒。</h2>
+            </div>
+            <p>最强对手不是 Excel，而是专门做硬件认证自动化和 AI 安全证据的新公司。CertForge 的防线是：机器人场景、Dragonwing release、现场运行证据和实验室协作格式。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Robotics Wedge</h3>
+              <p>AMR、协作机器人、服务机器人和公共场景机器人先切入，围绕安全案例和运行证据形成模板。</p>
+            </article>
+            <article class="card">
+              <h3>Dragonwing Native</h3>
+              <p>QNN profile、AI Hub artifact、secure boot、device identity、edge benchmark 和 OTA 证据内建。</p>
+            </article>
+            <article class="card">
+              <h3>Field Evidence</h3>
+              <p>UptimeOS、RiskLedger、SafetyOps、ScaleFoundry 的运行、事故、维修和变更记录持续回写。</p>
+            </article>
+            <article class="card">
+              <h3>Channel Moat</h3>
+              <p>实验室、ODM、集成商和 Qualcomm 生态伙伴可以把 CertForge 当成统一证据格式和预审入口。</p>
             </article>
           </div>
         </div>
@@ -182,52 +297,93 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · Why Qualcomm</p>
-              <h2>合规证据越靠近硬件、模型和 release 生成，Qualcomm 的平台价值越难被替换。</h2>
+              <p class="kicker">09 · Why Qualcomm</p>
+              <h2>Qualcomm 不只是让机器人跑起来，还能让机器人更容易被购买、审查和量产。</h2>
             </div>
-            <p>CertForge 把 Qualcomm 的安全启动、硬件身份、AI Hub profile、QNN runtime、边缘 benchmark、连接能力和产品生命周期，变成客户采购、实验室沟通、融资尽调和全球市场准入都能看到的证据资产。</p>
+            <p>如果 Dragonwing 机器人从开发板开始就生成合规证据，Qualcomm 的硬件安全、边缘 AI、连接、功耗和长期供货优势，会直接变成客户采购、实验室沟通、融资尽调和全球上市能力。</p>
           </div>
           <div class="pipeline">
             <article class="step">
               <h3>Identity</h3>
-              <p>设备身份、安全启动和 release manifest 成为证据链起点。</p>
+              <p>设备身份、安全启动、签名镜像和 release manifest 成为证据链起点。</p>
             </article>
             <article class="step">
-              <h3>Profile</h3>
+              <h3>AI Profile</h3>
               <p>AI Hub / QNN 的模型 profile、latency、memory、temperature 和 artifact hash 进入模型护照。</p>
             </article>
             <article class="step">
               <h3>Runtime</h3>
-              <p>EdgeRuntimeBench 记录 Qualcomm edge 的功耗、热、回滚和稳定性证据。</p>
+              <p>Dragonwing edge 的功耗、热、稳定性、回滚和现场运行指标进入 launch dossier。</p>
             </article>
             <article class="step">
               <h3>Partners</h3>
-              <p>模组、ODM、集成商、实验室和云训练伙伴围绕同一证据格式协作。</p>
+              <p>模组、ODM、集成商、云训练伙伴和实验室围绕同一证据格式协作。</p>
             </article>
             <article class="step">
-              <h3>Market</h3>
-              <p>中国和海外 launch dossier 让 Qualcomm 机器人更容易进入企业采购和量产。</p>
+              <h3>Conversion</h3>
+              <p>把“评估开发板”转换成“可上市机器人 SKU”的路径更短，也更容易解释给客户。</p>
             </article>
           </div>
         </div>
       </section>
 
+      <section id="demo" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>八分钟演示：从一个 Dragonwing AMR release 生成三地上市证据包。</h2>
+            </div>
+            <p>比赛演示不需要真实发证。我们展示一个商业团队会马上理解的流程：选择机器人 SKU，导入数据和测试，看到缺口，触发变更影响分析，导出证据包。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>1. Import Release</h3>
+              <p>选择 dragonwing-amr-iq10，导入 ScaleFoundry digital twin、UptimeOS fleet asset、SBOM 和 QNN profile。</p>
+            </article>
+            <article class="card">
+              <h3>2. Build Matrix</h3>
+              <p>选择 EU + US + China、warehouse AMR、collaborative manipulator、edge AI，生成 requirements matrix。</p>
+            </article>
+            <article class="card">
+              <h3>3. Close Gaps</h3>
+              <p>导入 ROS2/MCAP、HIL 报告、VEX 和真机测试，dashboard 显示已覆盖条款和缺口。</p>
+            </article>
+            <article class="card">
+              <h3>4. Change Impact</h3>
+              <p>注入新模型或 OpenSSL CVE，CertForge 输出重测场景、VEX 状态、风险更新和 dossier delta。</p>
+            </article>
+          </div>
+          <p class="quote">我们的申请：用 Qualcomm Dragonwing 作为机器人商业化底座，把合规证据、云训练、边缘部署和现场运行连接成一个可交付产品，而不是比赛结束就消失的 demo。</p>
+        </div>
+      </section>
+
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">CertForge 不承诺替你拿证，也不把合规变成魔法按钮。它让机器人团队在每一次设计、训练、发布、测试和现场事件中持续产生证据，最终让产品更容易被实验室、企业客户、投资人和 Qualcomm 生态伙伴相信。</p>
+          <p class="quote">CertForge 不承诺自动拿证。它让机器人团队在每一次设计、训练、发布、测试和现场事件中持续产生证据，最终更容易被实验室、企业客户、投资人和 Qualcomm 生态伙伴相信。</p>
           <div class="source-links">
-            <a href="https://single-market-economy.ec.europa.eu/sectors/mechanical-engineering/machinery_en">EU Machinery</a>
-            <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng">EU CRA</a>
-            <a href="https://www.fcc.gov/general/equipment-authorization">FCC Authorization</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng">EU Machinery Regulation</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act">EU CRA</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/cra-manufacturers">CRA Manufacturers</a>
+            <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng">EU AI Act</a>
+            <a href="https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en">EU RED</a>
+            <a href="https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15">FCC Part 15</a>
             <a href="https://www.osha.gov/nationally-recognized-testing-laboratory-program">OSHA NRTL</a>
-            <a href="https://www.ul.com/services/robotic-safety-security-and-performance">UL Robotics</a>
+            <a href="https://www.ul.com/services/consumer-and-commercial-robots">UL Robots</a>
             <a href="https://www.iso.org/standard/73933.html">ISO 10218-1</a>
-            <a href="https://www.iso.org/standard/82739.html">ISO 3691-4</a>
+            <a href="https://www.iso.org/standard/73934.html">ISO 10218-2</a>
+            <a href="https://www.iso.org/standard/70660.html">ISO 3691-4</a>
             <a href="https://www.automate.org/robotics/safety/robot-safety-standard-documents">ANSI R15.08</a>
             <a href="https://csrc.nist.gov/pubs/sp/800/218/final">NIST SSDF</a>
             <a href="https://www.cisa.gov/topics/information-communications-technology-supply-chain-security/sbom">CISA SBOM</a>
-            <a href="https://www.cnca.gov.cn/">CNCA</a>
-            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://cyclonedx.org/capabilities/vex/">CycloneDX VEX</a>
+            <a href="https://spdx.dev/use/specifications/">SPDX</a>
+            <a href="https://mcap.dev/">MCAP</a>
+            <a href="https://www.saphira.ai/">Saphira AI</a>
+            <a href="https://www.ycombinator.com/companies/normal">Normal</a>
+            <a href="https://www.ketryx.com/">Ketryx</a>
           </div>
         </div>
       </section>
