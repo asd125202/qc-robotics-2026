@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LeRobot CloudTwin | 云训练双生</title>
+    <title>LeRobot CloudTwin | 机器人云端训练工厂</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-amber">
@@ -13,134 +13,377 @@
         <span>LeRobot CloudTwin</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#loop">闭环</a>
-        <a href="#clouds">双云</a>
-        <a href="#moat">壁垒</a>
-        <a href="#demo">演示</a>
+        <a href="#problem">问题</a>
+        <a href="#solution">解法</a>
+        <a href="#market">商业</a>
+        <a href="#qualcomm">高通</a>
+        <a href="#demo">Demo</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-cloud">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 02 · Training Flywheel</p>
+          <p class="eyebrow">Pitch 02 · LeRobot-to-Qualcomm Training Control Plane</p>
           <h1>LeRobot CloudTwin</h1>
-          <p class="hero-lede">让机器人把真实世界经验转化成可训练数据：本体采集，云端训练，边缘部署，人类纠错，再进入下一轮。</p>
+          <p class="hero-lede">RobotMac Core 的云端训练工厂：把真实机器人 episode 变成 LeRobot 数据集，路由到中国或海外 GPU，统一评测，再打包成带 lineage、runtime profile、rollback 和证据表的 Qualcomm edge policy。</p>
           <div class="cta-row">
-            <a class="button primary" href="#clouds">中国版与海外版</a>
-            <a class="button" href="../robot-mac/">查看硬件核心版本</a>
+            <a class="button primary" href="#problem">进入路演</a>
+            <a class="button" href="../train-router/">查看 TrainRouter</a>
           </div>
         </div>
       </section>
 
-      <section id="loop" class="slide white">
+      <section id="problem" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Learning Loop</p>
-              <h2>机器人最贵的不是训练一次模型，而是持续变聪明的系统。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>机器人团队能做 Demo，但很难把 Demo 变成可交付技能。</h2>
             </div>
-            <p>LeRobot 提供数据、模型和真实机器人工作流。CloudTwin 把这些能力产品化：用户不需要理解每个训练脚本，只需要选择任务、上传数据、等待评估、部署技能。</p>
+            <p>云端 notebook 不是机器人产品。商业机器人需要知道哪版数据训练了哪版模型、跑在哪块板、评测是否可比、失败能不能复现、坏版本能不能回滚、数据能不能留在正确区域。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>数据格式散</h3>
+              <p>视频、状态、动作、时间戳、操作者、任务标签、失败接管和安全事件常散在不同文件夹里。</p>
+            </article>
+            <article class="card">
+              <h3>训练云分裂</h3>
+              <p>中国和海外面对不同账号、GPU、镜像、付款、网络、数据边界和支持渠道。</p>
+            </article>
+            <article class="card">
+              <h3>评测不可比</h3>
+              <p>同一任务在不同云、不同 split、不同 seed 训练，输出结果很难被采购经理和工程负责人共同信任。</p>
+            </article>
+            <article class="card">
+              <h3>部署靠手工</h3>
+              <p>模型权重不是产品交付物，还需要输入输出契约、runtime 依赖、硬件 profile、rollback 和运行证据。</p>
+            </article>
+            <article class="card">
+              <h3>失败没进入飞轮</h3>
+              <p>部署失败、人工接管、低置信度和任务超时如果没有回流，就只是事故，不是下一轮训练资产。</p>
+            </article>
+            <article class="card">
+              <h3>边缘价值没沉淀</h3>
+              <p>Qualcomm 的价值不能只停留在“最终跑一下”，而要进入每个 policy release 的 target profile。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Why Now</p>
+              <h2>机器人学习正在从论文和 notebook 变成产品交付流程。</h2>
+            </div>
+            <p>LeRobot 已经把真实机器人数据、模仿学习、HIL 数据采集、数据集格式和策略训练推到开发者可用层；VLA、foundation policy、Physical AI data factory、robot fleet learning 都在快速推进。现在缺的是一套把这些能力送回 Qualcomm edge 的商业控制面。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>LeRobot 标准化</h3>
+              <p>LeRobotDataset v3 用 Parquet、video shards、metadata、tasks 和 episode 边界组织多模态时间序列。</p>
+            </article>
+            <article class="card">
+              <h3>HIL 变成数据资产</h3>
+              <p>人工接管和恢复动作不只是救场，而是下一轮训练的高价值样本。</p>
+            </article>
+            <article class="card">
+              <h3>GPU 供给足够碎片化</h3>
+              <p>RunPod、Lambda、Modal、阿里云 PAI、腾讯 GPU、华为 ModelArts、AutoDL 都能训练，但没有统一机器人 job contract。</p>
+            </article>
+            <article class="card">
+              <h3>Edge AI 进入生产</h3>
+              <p>Qualcomm 正在强调 prototype-to-production edge AI；CloudTwin 把云训练自然导向本体侧低延迟执行。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">03 · Insight</p>
+            <h2>机器人技能不是“下载一个模型”，而是像 SaaS release 一样发布。</h2>
+            <p class="lead">真正可卖的不是 GPU 小时，也不是模型权重，而是每个任务的可验证学习循环：episode lineage、locked split、training job record、eval gate、Qualcomm edge profile、runtime evidence、rollback 和 failure mining。</p>
+          </div>
+          <div class="visual">
+            <img src="../assets/cloud-training-loop.png" alt="LeRobot CloudTwin 云端训练和边缘部署闭环">
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Solution</p>
+              <h2>CloudTwin 是 productized LeRobot-to-Qualcomm-edge control plane。</h2>
+            </div>
+            <p>它把真实 robot episodes 变成版本化数据集，按中国或海外 GPU lane 路由训练，对 policy 做固定 gate 评测，再导出 signed Qualcomm-ready skill package，带 rollback、人类纠错反馈和运行证据模板。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <span class="claim-tag">Competition target</span>
+              <h3>Dataset Ledger</h3>
+              <p>记录 episode、robot profile、sensor manifest、task、region、rights passport、hash 和 dataset lineage。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Competition target</span>
+              <h3>TrainRouter</h3>
+              <p>同一个 LeRobot job contract 路由到 China、Overseas 或 Auto GPU lane，带预算和数据边界。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Competition target</span>
+              <h3>Eval Harness</h3>
+              <p>锁定 split、seed、指标和回放样例，让不同云训练结果可以比较。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Product target</span>
+              <h3>Edge Packager</h3>
+              <p>输出模型、输入输出契约、依赖、QNN/QAIRT/ONNX path、hardware profile、rollback 和 manifest。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Product target</span>
+              <h3>Failure Mining</h3>
+              <p>低置信、任务超时、安全事件、人工接管和客户拒收进入下一轮训练队列。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Future profile</span>
+              <h3>VLA Upgrade</h3>
+              <p>ACT 做比赛保底；SmolVLA、X-VLA、π0、GR00T-style policy 作为后续可插拔策略路线。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Product Workflow</p>
+              <h2>从真实 episode 到 Qualcomm edge policy，一条证据链。</h2>
+            </div>
+            <p>CloudTwin 不把机器人安全交给云端。云负责训练和资产管理，Qualcomm edge 负责本地低延迟执行，失败再变成下一轮训练样本。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>记录</h3>
-              <p>摄像头、状态、动作、指令和人工接管被统一打包。</p>
+              <h3>Capture</h3>
+              <p>RobotMac Core / TeleopStudio 记录视频、状态、动作、时间戳、operator、success/failure 和 takeover。</p>
             </article>
             <article class="step">
-              <h3>清洗</h3>
-              <p>数据集版本化，坏片段、成功片段、失败片段分层管理。</p>
+              <h3>Ledger</h3>
+              <p>转成 LeRobot-compatible dataset，写入版本、hash、隐私级别、region、rights passport 和 task tags。</p>
             </article>
             <article class="step">
-              <h3>训练</h3>
-              <p>ACT 保底，SmolVLA / X-VLA 作为前沿升级路线。</p>
+              <h3>Route</h3>
+              <p>TrainRouter 根据数据地域、预算、GPU class 和 provider availability 选择 China / Overseas lane。</p>
             </article>
             <article class="step">
-              <h3>评估</h3>
-              <p>回放成功率、动作平滑度、延迟预算和边缘资源需求。</p>
+              <h3>Train</h3>
+              <p>ACT 起步，扩展 Diffusion、SmolVLA、X-VLA；保存 config、seed、container digest、cost 和 logs。</p>
             </article>
             <article class="step">
-              <h3>发布</h3>
-              <p>生成 Qualcomm 边缘部署包，推送到机器人本体运行。</p>
+              <h3>Evaluate</h3>
+              <p>输出 success rate、failure type、action smoothness、latency budget、replay examples 和 fixed split report。</p>
+            </article>
+          </div>
+          <div class="pipeline pipeline-extra">
+            <article class="step">
+              <h3>Package</h3>
+              <p>生成 Qualcomm edge package：policy hash、ONNX/QNN artifacts、runtime deps、rollback 和 manifest。</p>
+            </article>
+            <article class="step">
+              <h3>Profile</h3>
+              <p>AI Hub / Device Cloud / Profiler 记录 latency、load time、memory、compute target、thermal 和 power。</p>
+            </article>
+            <article class="step">
+              <h3>Deploy</h3>
+              <p>Skill package 进入 RobotCoreOS / SkillCertKit，在本体本地执行，不依赖云端实时控制。</p>
+            </article>
+            <article class="step">
+              <h3>Recover</h3>
+              <p>坏模型、坏配置或安全 gate 失败触发 admission denial、safe mode 或 rollback。</p>
+            </article>
+            <article class="step">
+              <h3>Mine</h3>
+              <p>失败片段、低置信度、接管和客户反馈进入下一轮训练队列和 regression test。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="clouds" class="slide tint">
+      <section id="market" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · China / Global</p>
-              <h2>同一套训练规范，两套云供应商组合。</h2>
+              <p class="kicker">06 · Market</p>
+              <h2>第一批客户买的是“可交付训练闭环”，不是便宜 GPU。</h2>
             </div>
-            <p>中国团队需要国内访问、中文服务、企业付款和合规；海外团队需要全球区域、快速租卡、容器体验和开发者 API。产品层保持统一，云 adapter 分市场部署。</p>
+            <p>GPU 价格会变，但机器人团队真正缺的是 demo-to-skill 的确定性：数据能不能可信、训练能不能复现、评测能不能解释、部署能不能回滚、失败能不能继续学习。</p>
           </div>
-          <div class="grid two">
+          <div class="grid six">
             <article class="card">
-              <h3>中国版</h3>
-              <p>阿里云 PAI 做企业训练主路径，腾讯云 GPU 做弹性算力，华为 ModelArts 面向政企和工业客户，AutoDL 用于比赛和开发者快速实验。</p>
+              <h3>LeRobot 开发者</h3>
+              <p>需要低摩擦 ACT / Diffusion / SmolVLA 模板、dataset conversion、eval reports 和便宜 GPU routing。</p>
             </article>
             <article class="card">
-              <h3>海外版</h3>
-              <p>Runpod 做开发者默认 GPU，Lambda 做可信训练集群，Modal 做评估和异步 job，Paperspace 做 notebook 体验补充。</p>
+              <h3>机器人创业公司</h3>
+              <p>有 prototype，但没有可靠 data/train/deploy loop；需要 dataset ledger、regression eval、model export 和 rollback。</p>
             </article>
-          </div>
-          <div class="image-band">
-            <img src="../assets/cloud-training-loop.png" alt="LeRobot 云训练闭环图">
+            <article class="card">
+              <h3>系统集成商</h3>
+              <p>卖 4-8 周试点，需要把“采 100 条示教、训练 policy、交付 edge package”写进固定范围合同。</p>
+            </article>
+            <article class="card">
+              <h3>企业创新团队</h3>
+              <p>关心 uptime、ROI、数据地域、审计、预算 guardrail、approved rollout 和 compliance report。</p>
+            </article>
+            <article class="card">
+              <h3>RaaS 运营商</h3>
+              <p>按活跃机器人购买 failure mining、fleet replay、canary model rollout、OTA 和 success dashboard。</p>
+            </article>
+            <article class="card">
+              <h3>中国本土团队</h3>
+              <p>需要中文支持、国内账号、国内付款、数据本地训练和本地 GPU provider，而不是强制海外账号。</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="moat" class="slide dark">
+      <section class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">03 · Product Moat</p>
-              <h2>壁垒不是租 GPU，而是把训练结果稳定带回真实机器人。</h2>
+              <p class="kicker">07 · Business Model</p>
+              <h2>两段式收费：平台费 + GPU 成本 pass-through。</h2>
             </div>
-            <p>云厂商负责算力，LeRobot 负责开放工作流，Qualcomm 负责本体运行。CloudTwin 的价值在三者之间做稳定的工程桥梁和商业界面。</p>
+            <p>CloudTwin 不把“租 GPU”当核心收入，而是按 active robots、storage、teleop seats、captured demo-hours、training jobs、private data lane、eval reports、edge export targets 和 support SLA 计价。</p>
           </div>
-          <div class="grid three">
+          <div class="grid four">
             <article class="card">
-              <h3>数据契约</h3>
-              <p>每个机器人形态都有明确的观测、动作、频率、同步和安全边界，不让数据湖变成混乱文件夹。</p>
+              <span class="claim-tag">Attach</span>
+              <h3>Kit Bundle</h3>
+              <p>随 RobotMac Core、TeleopStudio、教育套件或行业 demo kit 附带初始训练额度和示例任务。</p>
             </article>
             <article class="card">
-              <h3>训练模板</h3>
-              <p>把 ACT、SmolVLA、X-VLA 等策略固化为可复现 job，减少团队之间的环境差异。</p>
+              <span class="claim-tag">SaaS</span>
+              <h3>CloudTwin Platform</h3>
+              <p>dataset ledger、training jobs、eval reports、edge export、private registry、policy lineage 和 rollout gates。</p>
             </article>
             <article class="card">
-              <h3>边缘适配</h3>
-              <p>部署包面向 Qualcomm 设备做资源预算、回放验证、降级策略和本地安全约束。</p>
+              <span class="claim-tag">Metered</span>
+              <h3>GPU Routing</h3>
+              <p>GPU 成本透传，叠加 orchestration margin、budget guard、preemption handling、logs 和 artifact storage。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Enterprise</span>
+              <h3>Private Lane</h3>
+              <p>中国/海外私有 lane、数据边界、SSO/RBAC、审计报告、on-prem artifact registry 和 edge validation sprint。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="demo" class="slide white">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">04 · Competition Demo</p>
-            <h2>3 分钟视频能讲清楚一个可扩张的训练飞轮。</h2>
-            <p class="lead">演示桌面机械臂完成一个可量化任务。视频中展示一次人类示教、一次云端训练任务、一次边缘部署、一次失败片段回收。评委看到的不是“会抓东西”，而是“每次抓失败都能变成下一轮训练数据”。</p>
+      <section class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · GTM</p>
+              <h2>先用比赛证明一条小闭环，再卖课程、试点和 SI 模板。</h2>
+            </div>
+            <p>CloudTwin 的早期销售不是大而全平台，而是固定范围学习闭环：一个任务、一个机器人形态、一份数据集、一条训练 job、一份 edge package、一组失败回流。</p>
           </div>
-          <div class="grid two">
+          <div class="pipeline">
+            <article class="step">
+              <h3>比赛闭环</h3>
+              <p>桌面机械臂 10-20 条 episode，ACT 小训练，eval，Qualcomm edge package，runtime evidence。</p>
+            </article>
+            <article class="step">
+              <h3>教育课程</h3>
+              <p>LeRobot-to-Qualcomm 课程包：第一天能跑，第一周能训练，第一月能部署。</p>
+            </article>
+            <article class="step">
+              <h3>SI 试点</h3>
+              <p>pick/place、扫码、巡检、质检、lab transfer 做成 60-90 天 bounded-task pilot。</p>
+            </article>
+            <article class="step">
+              <h3>企业私有 lane</h3>
+              <p>数据地域、预算、审计、approved rollout 和 failure mining 进入企业采购语言。</p>
+            </article>
+            <article class="step">
+              <h3>生态样例</h3>
+              <p>争取 Dragonwing Robotics Hub tutorial、AI Hub workflow 和 board profile validation checklist。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Competition</p>
+              <h2>不是模型、不是 GPU 云、不是 fleet dashboard。</h2>
+            </div>
+            <p>机器人学习平台类别正在成形，但大多数能力仍分散在开源框架、foundation model、仿真、GPU 云、fleet ops 和数据可视化里。CloudTwin 的位置是训练到 Qualcomm edge 交付的控制面。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>LeRobot</h3>
+              <p>开放机器人学习引擎；CloudTwin 是商业 job、数据边界、评测、edge packaging 和 release governance。</p>
+            </article>
+            <article class="card">
+              <h3>PI / Skild / Figure</h3>
+              <p>证明 VLA 和 generalist robot policy 方向；CloudTwin 不做另一家 foundation model，而做可插拔生产闭环。</p>
+            </article>
+            <article class="card">
+              <h3>NVIDIA Isaac / GR00T</h3>
+              <p>强 physical AI 全栈；CloudTwin 是 Qualcomm-first counter-position：双云训练、低功耗 edge、AI Hub/QNN packaging。</p>
+            </article>
+            <article class="card">
+              <h3>Viam / Formant</h3>
+              <p>强 fleet、teleop、ops 和 incident；CloudTwin 聚焦 training/evaluation/deployment loop，并导出可运维 artifact。</p>
+            </article>
+            <article class="card">
+              <h3>Foxglove</h3>
+              <p>强机器人数据观测和检索；CloudTwin 把数据观测推进到训练 gate、policy release 和 edge rollback。</p>
+            </article>
+            <article class="card">
+              <h3>GPU Clouds</h3>
+              <p>RunPod、Lambda、Modal、PAI、腾讯、华为卖算力；CloudTwin 卖 robot-aware job spec、metrics、safety bounds 和 edge export。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Moat</p>
+              <h2>护城河是 episode ledger、eval harness 和 Qualcomm edge profile。</h2>
+            </div>
+            <p>每一次成功、失败、接管、恢复、评测、发布和回滚都会增加下一次技能训练的确定性。</p>
+          </div>
+          <div class="grid four">
             <div class="stat">
-              <strong>中国</strong>
-              <span>PAI / 腾讯云 / 华为云 / AutoDL adapter。</span>
+              <strong>Ledger</strong>
+              <span>真实 episode、dataset card、robot profile、operator role、rights passport、raw/clean/train/eval/release graph。</span>
             </div>
             <div class="stat">
-              <strong>海外</strong>
-              <span>Runpod / Lambda / Modal / Paperspace adapter。</span>
+              <strong>Eval</strong>
+              <span>同一 split、同一指标、同一 replay harness，让不同云和不同模型结果可比较。</span>
             </div>
             <div class="stat">
-              <strong>ACT</strong>
-              <span>比赛落地的低风险训练策略。</span>
+              <strong>Profile</strong>
+              <span>Qualcomm board、camera、runtime、thermal、power、accelerator path、latency 和 rollback matrix。</span>
             </div>
             <div class="stat">
-              <strong>VLA</strong>
-              <span>后续产品升级和前瞻性叙事。</span>
+              <strong>Loop</strong>
+              <span>失败片段、人工接管、低置信任务和客户拒收进入下一轮 regression tests。</span>
             </div>
           </div>
         </div>
@@ -148,13 +391,172 @@
 
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">真正的云训练产品，不是把 notebook 放到云上，而是让机器人经验自动流向下一次更好的本体行为。</p>
+          <div class="section-head">
+            <div>
+              <p class="kicker">11 · Release Evidence</p>
+              <h2>每个 policy release 都要像软件发布一样可审计。</h2>
+            </div>
+            <p>CloudTwin 不能声称“自动合规”或“官方认证”，但可以提供支持审查的证据包：数据、训练、评测、部署、回滚和失败回流全链路可追踪。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <span class="claim-tag">Competition target</span>
+              <h3>Episode Schema</h3>
+              <p>episode_id、dataset hash、task、robot profile、sensor manifest、timestamps、state、action、takeover、labels、safety events。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Competition target</span>
+              <h3>Lineage</h3>
+              <p>raw、clean、train、eval、release candidate 独立版本，记录 transforms、QC rejects、dedupe、license 和 retention。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Competition target</span>
+              <h3>Job Record</h3>
+              <p>provider、lane、region、GPU SKU、image digest、command、budget cap、logs hash、checkpoint hash 和 cost estimate。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Product target</span>
+              <h3>Policy Manifest</h3>
+              <p>policy_id、algorithm、LeRobot version、git commit、dataset split、seed、hyperparams、checkpoint、ONNX/QNN artifacts、rollback。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Product target</span>
+              <h3>Data Passport</h3>
+              <p>owner、license、allowed use、region、retention、commercial-training permission、deletion/freeze 和 shared-improvement policy。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Measured label</span>
+              <h3>Metric Labels</h3>
+              <p>所有数值分成 simulated、replay-eval、measured-on-device，不能混成一个成功率或延迟数字。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">12 · Why Qualcomm</p>
+              <h2>云负责训练，Qualcomm edge 负责执行。</h2>
+            </div>
+            <p>机器人 policy 需要云 GPU 训练，但部署后的机器人需要本地推理、相机/传感器同步、低延迟、断网韧性、隐私和可测量 runtime behavior。CloudTwin 让 Qualcomm 拥有 post-training deployment standard，而不只是“机器人里的那块板”。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>AI Hub Workbench</h3>
+              <p>把 PyTorch/ONNX policy artifact 转成可 compile/profile/validate/deploy 的 Qualcomm runtime candidate。</p>
+            </article>
+            <article class="card">
+              <h3>QNN / QAIRT</h3>
+              <p>定义 target runtime、input shape、backend、quantization、calibration、context/DLC/ONNX Runtime QNN 选择。</p>
+            </article>
+            <article class="card">
+              <h3>Device Cloud + Profiler</h3>
+              <p>在 hosted Qualcomm targets 或本地板卡上记录 latency、memory、utilization、thermal、power 和 load time。</p>
+            </article>
+            <article class="card">
+              <h3>Robotics Hub</h3>
+              <p>把“teleop to Qualcomm edge deployment”整理成 Dragonwing Robotics Hub tutorial 或 reference sample。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">13 · Demo Story</p>
+              <h2>三分钟讲清楚：Cloud-trained. Qualcomm edge-deployed. Evidence-backed.</h2>
+            </div>
+            <p>比赛 demo 用桌面机械臂或小车做固定任务，展示数据、训练、评测、边缘部署和失败回流。重点不是一次动作，而是一次可复制的 policy release。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Record</h3>
+              <p>Teleop 采集 10-20 条 episode，记录 camera、state、action、timestamps、success/failure 和 takeover。</p>
+            </article>
+            <article class="step">
+              <h3>Train</h3>
+              <p>CloudTwin 生成 dataset card，提交 China/Overseas training job，展示 cost、logs、config 和 checkpoint。</p>
+            </article>
+            <article class="step">
+              <h3>Evaluate</h3>
+              <p>Eval report 展示 split、success rate、failure type、replay clips 和是否通过 release gate。</p>
+            </article>
+            <article class="step">
+              <h3>Deploy</h3>
+              <p>导出 Qualcomm edge package：policy hash、target hardware、AI Hub/QNN status、rollback package。</p>
+            </article>
+            <article class="step">
+              <h3>Improve</h3>
+              <p>机器人本地执行，触发一次失败或接管，失败片段进入下一轮 training queue。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">14 · Ask</p>
+            <h2>请求 Qualcomm 支持一个 CloudTwin validation sprint。</h2>
+            <p class="lead">6-8 周目标：跑通一个固定任务的 LeRobot episode、云训练、AI Hub/QNN workflow、Qualcomm edge package、runtime evidence 和 failure mining，并把它整理成可复用开发者样例。</p>
+          </div>
+          <div>
+            <ul class="list">
+              <li>硬件路径：RB3 Gen 2 Vision Kit、QCS6490、QCS8550、IQ-8275 / IQ10 guidance。</li>
+              <li>AI Hub / QNN：ACT-class policy export、fixed input shapes、quantization、QNN DLC / context / ONNX Runtime QNN 选择。</li>
+              <li>Device Cloud：hosted Qualcomm targets 用于 policy artifact validation。</li>
+              <li>Profiler：定义官方 evidence table，覆盖 latency、load time、memory、utilization、thermal、power。</li>
+              <li>Robotics Hub：发布 “LeRobot CloudTwin: teleop to Qualcomm edge deployment” sample。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">15 · Claim Boundaries</p>
+              <h2>可信边界：CloudTwin 是训练与发布控制面，不是认证机构或实时安全控制器。</h2>
+            </div>
+            <p>可以说 LeRobot-compatible、Qualcomm-first、dual-cloud training architecture、edge evidence workflow。不能说已获 Qualcomm/LeRobot 官方认证、自动合规、SOC 2/ISO 认证、功能安全认证、任意模型自动跑 QNN、性能优于 Jetson/x86。云端不进入 safety-critical control loop；所有延迟、功耗、温度、FPS、成功率都必须标注 simulated、replay-eval 或 measured-on-device。</p>
+          </div>
+          <p class="quote">CloudTwin 不卖“便宜 GPU”，它卖把真实机器人经验变成可部署、可回滚、可持续改进的 Qualcomm edge 技能。</p>
           <div class="source-links">
-            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
-            <a href="https://huggingface.co/docs/lerobot/act">ACT</a>
-            <a href="https://huggingface.co/docs/lerobot/smolvla">SmolVLA</a>
-            <a href="https://www.runpod.io/pricing">Runpod</a>
-            <a href="https://lambda.ai/pricing">Lambda</a>
+            <a href="https://huggingface.co/docs/lerobot/en/index">LeRobot Docs</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobotDataset v3</a>
+            <a href="https://huggingface.co/docs/lerobot/hil_data_collection">LeRobot HIL</a>
+            <a href="https://huggingface.co/blog/smolvla">SmolVLA</a>
+            <a href="https://github.com/huggingface/lerobot">LeRobot GitHub</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR industrial robots</a>
+            <a href="https://ifr.org/news/service-robots-see-global-growth-boom">IFR service robots</a>
+            <a href="https://www.runpod.io/pricing">RunPod pricing</a>
+            <a href="https://lambda.ai/instances">Lambda instances</a>
+            <a href="https://modal.com/pricing">Modal pricing</a>
+            <a href="https://www.alibabacloud.com/product/machine-learning">Alibaba PAI</a>
+            <a href="https://www.tencentcloud.com/product/gpu">Tencent GPU</a>
+            <a href="https://www.huaweicloud.com/intl/en-us/product/modelarts.html">Huawei ModelArts</a>
+            <a href="https://www.autodl.com/docs/gpu/">AutoDL GPU</a>
+            <a href="https://developer.nvidia.com/isaac">NVIDIA Isaac</a>
+            <a href="https://nvidianews.nvidia.com/news/nvidia-announces-open-physical-ai-data-factory-blueprint-to-accelerate-robotics-vision-ai-agents-and-autonomous-vehicle-development">NVIDIA Physical AI Data Factory</a>
+            <a href="https://www.pi.website/blog/pi07">Physical Intelligence pi0.7</a>
+            <a href="https://skild.ai/blogs/building-the-general-purpose-robotic-brain">Skild AI</a>
+            <a href="https://www.figure.ai/news/production-at-bmw">Figure BMW</a>
+            <a href="https://deepmind.google/models/gemini-robotics/">Gemini Robotics</a>
+            <a href="https://www.viam.com/platform/overview">Viam</a>
+            <a href="https://docs.formant.io/docs/getting-started-teleoperation">Formant Teleop</a>
+            <a href="https://foxglove.dev/">Foxglove</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">AI Hub Workbench</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html">AI Hub compile</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX QNN EP</a>
+            <a href="https://qdc.qualcomm.com/support/user-guide/overview">Qualcomm Device Cloud</a>
+            <a href="https://www.qualcomm.com/developer/software/qualcomm-profiler">Qualcomm Profiler</a>
+            <a href="https://www.qualcomm.com/developer/software/qualcomm-linux">Qualcomm Linux</a>
+            <a href="https://www.qualcomm.com/developer/blog/2026/03/what-qualcomm-dragonwing-robotics-hub-means-for-developers">Dragonwing Robotics Hub</a>
           </div>
         </div>
       </section>

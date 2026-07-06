@@ -23,7 +23,7 @@ The current first-batch pitch directions are:
 
 - `RobotMac Core`: Qualcomm-first robot computer appliance that packages edge compute, protected power, robot IO, safety boundaries, RobotCoreOS, LeRobot cloud-training hooks, fleet runtime, and release evidence.
 - `RobotCoreOS`: Qualcomm-first commercial robot runtime OS with golden images, ROS 2 / LeRobot hooks, QNN policy runner, signed OTA, rollback, fleet identity, SBOM, and release evidence.
-- `LeRobot CloudTwin`: real robot data collection, cloud GPU training, and Qualcomm edge deployment loop.
+- `LeRobot CloudTwin`: productized LeRobot-to-Qualcomm-edge control plane for episode ledgers, China/overseas GPU training, eval gates, policy manifests, edge packages, rollback, and failure mining.
 - `TrainRouter`: dual-cloud GPU training router for China/overseas provider selection, budget guards, data boundaries, evaluation, and Qualcomm edge artifact export.
 - `TeleopStudio`: productized teleoperation and demonstration-data capture station with synchronized cameras, quality gates, LeRobot dataset export, and cloud handoff.
 - `SkillDock`: robot skill marketplace where trained skills can be installed, certified, and upgraded.
