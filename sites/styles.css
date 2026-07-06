@@ -170,6 +170,10 @@ img {
   background-image: url("./assets/site-ledger.png");
 }
 
+.hero-store-loop {
+  background-image: url("./assets/store-loop.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StoreLoop 店务闭环 | 面向门店运营的边缘机器人平台</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>StoreLoop 店务闭环</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#research">研究</a>
+        <a href="#loop">闭环</a>
+        <a href="#stack">架构</a>
+        <a href="#versions">双版本</a>
+        <a href="#demo">演示</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-store-loop">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 46 · Retail Store Execution Loop</p>
+          <h1>StoreLoop 店务闭环</h1>
+          <p class="hero-lede">面向门店运营的 Qualcomm 边缘机器人与 LeRobot 数据飞轮：把货架真实状态变成店员任务、受限机器人动作、复扫验证和可训练 episode。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#loop">查看店务闭环</a>
+            <a class="button" href="../ops-connector/">连接 OpsConnector</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">00 · Five-Thread Research</p>
+              <h2>零售机器人已经真实部署，但价值不在“会逛店”，而在把货架问题闭环到动作和数据。</h2>
+            </div>
+            <p>Simbe Tally、BrainOS、Badger、Pudu、Telexistence、Galbot 等案例说明：成熟方向是货架智能、清洁 proof、受限补货、药房拣选和门店任务。StoreLoop 不做通用店员机器人，而做 shelf truth 到任务闭环的产品层。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Shelf Truth</h3>
+              <p>POS/WMS 库存不等于货架真实状态；缺货、错位、错价和陈列偏差要现场确认。</p>
+            </article>
+            <article class="card">
+              <h3>Task Closure</h3>
+              <p>扫描只是第一步，价值来自派单、修复/协助、复扫和 proof-of-closure。</p>
+            </article>
+            <article class="card">
+              <h3>China Pharmacy</h3>
+              <p>药品订单、追溯码、有效期、药师审核和取货柜，是中国版最清晰闭环。</p>
+            </article>
+            <article class="card">
+              <h3>Privacy Edge</h3>
+              <p>门店视频默认本地处理、脱敏和最小化上传，避免监控优先叙事。</p>
+            </article>
+            <article class="card">
+              <h3>Trainable Action</h3>
+              <p>错识别、遮挡、抓取失败和人工接管都进入 LeRobot 数据集。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/store-loop.png" alt="零售门店机器人在货架前巡检、识别缺货错位、生成任务和人机协作补货控制台图">
+          </div>
+        </div>
+      </section>
+
+      <section id="loop" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Store Execution Loop</p>
+              <h2>从货架真实状态到可执行任务，再到复扫验证。</h2>
+            </div>
+            <p>StoreLoop 把每次巷道巡检转成门店运营闭环。机器人发现问题后先查 POS/WMS/ERP 缓存，再生成店员任务或受限动作，完成后复扫验证，最后把异常和接管片段变成训练数据。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Scan</h3>
+              <p>多相机、depth、OCR、barcode/QR、价签和货架边缘定位。</p>
+            </article>
+            <article class="step">
+              <h3>Decide</h3>
+              <p>对比 planogram、POS 价格、库存、促销和补货优先级。</p>
+            </article>
+            <article class="step">
+              <h3>Act</h3>
+              <p>派发店员任务、指示位置、小件取放、tote handoff 或请求人工。</p>
+            </article>
+            <article class="step">
+              <h3>Verify</h3>
+              <p>复扫货架，记录任务是否关闭、是否误报、是否仍需处理。</p>
+            </article>
+            <article class="step">
+              <h3>Learn</h3>
+              <p>低置信度、失败和接管进入 LeRobot，再发布到 Qualcomm edge。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="stack" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">02 · Robot Edge + Store Services + Cloud Training</p>
+            <h2>门店需要本地可运行的机器人，不是依赖公网的摄像头玩具。</h2>
+            <p class="lead">StoreLoop 分成机器人边缘、门店本地服务和云训练三层。断网时机器人仍能按本地缓存扫描、避障、任务排队和保存证据；云端只负责训练、评估和非实时同步。</p>
+            <ul class="list">
+              <li>Robot Edge：ROS 2、Nav2、MoveIt、OCR/barcode、本地 policy、安全过滤和动作仲裁。</li>
+              <li>Store Services：StoreMap、Planogram、POS/WMS/ERP cache、任务派发、视频脱敏和操作台。</li>
+              <li>Cloud Training：LeRobot dataset、标注、训练、评估、模型注册、灰度和回滚。</li>
+              <li>Privacy：默认不做人脸识别，不做顾客画像，先边缘脱敏再上传授权片段。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/store-loop.png" alt="门店机器人边缘运行、货架识别、门店服务和 LeRobot 训练闭环图">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · First Workflows</p>
+              <h2>第一批任务选“能闭环”的店务，不承诺全自动店员。</h2>
+            </div>
+            <p>StoreLoop 把清洁、货架、补货和药房拆成可验证工作流。机器人可以先做 scan + task + verify，再逐步扩展到受限小件动作。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>缺货闭环</h3>
+              <p>发现空面，查库存，派补货，复扫验证。</p>
+            </article>
+            <article class="card">
+              <h3>错价复核</h3>
+              <p>OCR 价签，对比 POS/ESL，生成价格任务。</p>
+            </article>
+            <article class="card">
+              <h3>陈列执行</h3>
+              <p>检测错位、促销缺失和 planogram 偏差。</p>
+            </article>
+            <article class="card">
+              <h3>BOPIS 支持</h3>
+              <p>减少线上拣货时的找货、替代和取消。</p>
+            </article>
+            <article class="card">
+              <h3>药房拣选</h3>
+              <p>扫码、追溯码、批次、有效期和药师审核。</p>
+            </article>
+            <article class="card">
+              <h3>清洁证据</h3>
+              <p>把清洁路线和货架巡检合并成门店 proof-of-work。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="versions" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · China / Overseas Versions</p>
+              <h2>中国版从药房和即时零售切入，海外版从 grocery shelf intelligence 切入。</h2>
+            </div>
+            <p>中国买家关心本地价格、微信生态、药品追溯、企微/钉钉流程和私有化。海外买家关心 RaaS、OOS、BOPIS、CPG 数据、隐私、安全认证准备和 field service。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <h3>中国店务闭环</h3>
+              <p>微信小程序下单、会员、支付、取货通知；企微/钉钉/飞书处理异常；药房支持追溯码、批次、有效期、处方/药师审核和本地云/私有云。</p>
+            </article>
+            <article class="card">
+              <h3>海外 Shelf Core</h3>
+              <p>8-12 周、6-12 家门店 pilot，对照门店衡量 shelf coverage、alert precision、OOS、price/promo compliance、BOPIS 取消/替代、CPG 数据收入。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Competition Demo</p>
+              <h2>用一组 mock 货架，把货架感知、任务闭环和训练数据讲完。</h2>
+            </div>
+            <p>演示中，机器人扫描一组货架，发现空面、错位 SKU 或价签/QR 不匹配。系统生成任务，机器人执行指示灯或轻量商品移动；遇到遮挡或抓取失败时人工接管，片段进入 LeRobot dataset，最后展示 Qualcomm edge profile 和复扫验证。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>OOS</strong>
+              <span>缺货、低库存和 phantom inventory 进入优先任务队列。</span>
+            </div>
+            <div class="stat">
+              <strong>OCR</strong>
+              <span>价签、促销、条码和 GS1/QR 需要置信度和人工复核。</span>
+            </div>
+            <div class="stat">
+              <strong>HIL</strong>
+              <span>遮挡、反光、相似包装和抓取失败进入人工接管流程。</span>
+            </div>
+            <div class="stat">
+              <strong>Proof</strong>
+              <span>任务完成后复扫，形成 closure evidence 和下一轮训练数据。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Why Qualcomm</p>
+              <h2>门店是高密度、多摄像头、强隐私的边缘 AI 场景。</h2>
+            </div>
+            <p>货架识别、价签 OCR、导航避障、小件动作、隐私脱敏和门店本地缓存，都要求本体侧低延迟执行。Qualcomm 可以把 retail robot 从“联网摄像头”提升为可部署的边缘运营设备。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Vision</h3>
+              <p>多相机、深度、价签、SKU、条码、促销和货架边缘。</p>
+            </article>
+            <article class="step">
+              <h3>Runtime</h3>
+              <p>QNN / TFLite / ONNX Runtime、AI Hub profile、量化和回归验证。</p>
+            </article>
+            <article class="step">
+              <h3>Motion</h3>
+              <p>Nav2、MoveIt、低速安全区、动作仲裁和 HIL 接管。</p>
+            </article>
+            <article class="step">
+              <h3>Privacy</h3>
+              <p>边缘脱敏、最小化上传、区域数据边界和 privacy manifest。</p>
+            </article>
+            <article class="step">
+              <h3>Business</h3>
+              <p>门店 SaaS、RaaS、Brand Insights、CPG 数据和企业 fleet。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">StoreLoop 的商业承诺不是“无人商店”，而是让货架真实状态进入可执行、可复核、可训练、可部署的门店闭环。机器人越多跑一圈，门店就多一层可用的运营记忆。</p>
+          <div class="source-links">
+            <a href="https://www.simberobotics.com/about/newsroom/simbe-unveils-tally-4-0-the-next-generation-of-autonomous-retail-robot-powering-store-intelligence-via-physical-ai">Simbe Tally</a>
+            <a href="https://www.prnewswire.com/news-releases/br-stores-introduces-simbes-tally-inventory-robot-in-stores-across-nebraska-302794610.html">B&R Stores</a>
+            <a href="https://www.simberobotics.com/the-state-of-in-store-retailing-2026-coresight-research-x-simbe-robotics">Simbe/Coresight</a>
+            <a href="https://corporate.walmart.com/about/samsclub/news/2022/10/20/sams-club-finalizes-national-deployment-of-inventory-scan-brain-corp-becomes-the-worlds-largest-supplier-of-robotic-inventory-scanners">BrainOS Sam's Club</a>
+            <a href="https://www.prnewswire.com/news-releases/brain-corp-and-driveline-launch-shelfoptix-the-first-fully-managed-robot-powered-shelf-intelligence-service-302568903.html">ShelfOptix</a>
+            <a href="https://www.badger-technologies.com/news/press-releases/stop-and-shop-upgrade-marty-the-robot.html">Badger Marty</a>
+            <a href="https://www.prnewswire.com/news-releases/pudu-robotics-and-robobee-forge-strategic-partnership-with-denner-for-major-robotic-cleaning-deployment-across-swiss-stores-302795108.html">Pudu Denner</a>
+            <a href="https://tx-inc.com/en/blog/2022/08/10/11712/">Telexistence</a>
+            <a href="https://news.cgtn.com/news/2026-03-13/China-s-first-pharmacy-robot-goes-into-service-in-Beijing-1LtZ7juLcZ2/p.html">Galbot Pharmacy</a>
+            <a href="https://www.stdaily.com/web/gdxw/2026-03/17/content_486741.html">Stdaily Galbot</a>
+            <a href="https://www.simberobotics.com/store-intelligence/brand-insights">Brand Insights</a>
+            <a href="https://www.qualcomm.com/developer/hardware/robotics-rb5-development-kit">Qualcomm RB5</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset</a>
+            <a href="https://docs.opencv.org/4.x/d6/d25/tutorial_barcode_detect_and_decode.html">OpenCV Barcode</a>
+            <a href="https://www.gs1.org/standards/id-keys/gtin">GS1 GTIN</a>
+            <a href="https://docs.nav2.org/configuration/packages/configuring-collision-monitor.html">Nav2 Collision</a>
+            <a href="https://moveit.picknik.ai/">MoveIt 2</a>
+            <a href="https://design.ros2.org/articles/ros2_access_control_policies.html">ROS 2 Access</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
