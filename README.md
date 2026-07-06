@@ -90,7 +90,7 @@ The current first-batch pitch directions are:
 - `OpsConnector`: YC-style enterprise robot workflow-contract pitch for turning WMS, MES, LIMS, SCADA, ERP, operator approvals, robot execution, edge gateway evidence, exceptions, and audit writeback into reusable connector/workflow packs.
 - `LabForgePilot`: YC-style main-demo and first-commercial-wedge pitch for a desktop sample-transfer workcell that turns LeRobot data collection, ACT/HIL training, Qualcomm edge evidence, barcode/sample verification, LIMS writeback, and failure mining into a purchasable lab/QC/education product.
 - `EdgeRuntimeBench`: YC-style physical-AI runtime evidence pitch for proving LeRobot/ACT/SmolVLA policies are traceable, exportable or explicitly blocked, profiled on Qualcomm AI Hub/QNN/ONNX Runtime targets, gated by SafetyOps, packaged for SkillDock, deployed, monitored, and rolled back with signed evidence packs.
-- `BoardBringupKit`: board-to-robot bring-up package for power, camera, IO, safety, runtime image, and validation gates.
+- `BoardBringupKit`: YC-style Qualcomm board-to-robot commercialization pitch for turning Rhino X1/QCS8550, Dragon Q6A/QCS6490, power, camera, IO, safety, ROS 2, LeRobot, runtime image, HIL gates, and bring-up evidence into a reusable RobotMac Core candidate.
 - `PilotContractKit`: procurement-ready robotics pilot pitch for turning demos into paid 4-8 week or 60-90 day pilots with scope, KPIs, data rights, safety boundaries, Qualcomm edge evidence, support responsibility, and expansion path.
 
 ## Repo Layout

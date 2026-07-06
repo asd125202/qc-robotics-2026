@@ -1,163 +1,199 @@
 # BoardBringupKit Pitch
 
-更新时间：2026-07-05。
+更新时间：2026-07-06。
 
-## Core Thesis
+## One-Line Thesis
 
-比赛项目不能只写“收到开发板后接机器人”。真正可执行的计划需要把 Qualcomm 开发板变成可复用的机器人核心：
+BoardBringupKit 是 Qualcomm 机器人开发板的商业化 bring-up 层：把一块比赛开发板从“能开机”变成“能被复现、验收、交付、量产迁移的 RobotMac Core 候选核心”。
 
-> BoardBringupKit = competition board + power harness + camera rig + IO adapter + safety stop + runtime image + benchmark checklist + deployment manifest.
+比赛版本的窄切口：
 
-它把开发板从“裸板”变成 RobotMac Core 的第一版工程样机。
+> 帮参加 2026 高通具身智能与机器人开发者大赛的团队，把 Rhino Pi-X1 / QCS8550 或 Radxa Dragon Q6A / QCS6490 从开箱到跑通 ROS 2、摄像头、I/O、安全急停、LeRobot episode 和 Qualcomm runtime 证据，从一两周缩短到 48 小时内。
 
-## Why This Matters
+## 01 · Problem
 
-官方标准赛道重视系统级能力、完整闭环、稳定运行、可复现实现和真实环境部署。硬件 bring-up 是这些要求的前提：
+开发板不是机器人产品。真正危险的不是买不到板，而是收到板之后每个团队都在重复踩同一批坑：
 
-- 没有稳定供电，就没有可靠视频和控制。
-- 没有相机/IO 接口，就无法形成感知到执行闭环。
-- 没有安全急停和 watchdog，就不能把机器人任务说成商业产品。
-- 没有 runtime image 和部署 manifest，就不能复现。
-- 没有 bring-up checklist，就无法在 8-10 月快速推进复赛。
+- 电源电压、峰值电流、USB 供电和热降频不稳定。
+- 摄像头 MIPI/USB、V4L2/GStreamer、标定和帧率掉帧难复现。
+- GPIO/CAN/UART/I2C/SPI 电平、pinmux、transceiver、terminator 和驱动版本不一致。
+- ROS 2/ros2_control 生命周期、QoS、topic rate、诊断和启动顺序没有工程门禁。
+- 物理急停、watchdog、软边界和 actuator power-cut 常常在 demo 后才补。
+- runtime image、firmware、driver、QNN/QAIRT、ONNX、LeRobot、dataset hash 没有版本锁定。
 
-## Target Boards
+结果是：团队把 8-10 月复赛最宝贵的时间花在底层 bring-up，而不是机器人任务、数据飞轮和商业产品定义。
 
-### Primary: APLUX Rhino X1 / QCS8550
+## 02 · Current Alternatives Fail
 
-用途：
+现有方案都解决一部分问题，但没有把“板卡进入机器人产品”做成可复用验收工作流。
 
-- 标准赛道主目标。
-- LabForgePilot 主 demo。
-- EdgeRuntimeBench runtime profile。
-- RobotMac Core Pro 原型。
+- Vendor docs：能告诉你接口、烧录、SDK，但通常不会覆盖完整机器人 I/O、传感器、E-stop、ROS 2、HIL、部署和客户验收。
+- ROS 2 tutorials：能让节点通信，但不会验证电源、热、相机 lane、USB bandwidth、CAN transceiver、安全停机和生产镜像。
+- Jetson / Isaac ecosystem：强在 AI 和参考流程，但生产化仍需要 carrier board、pinmux、device tree、BSP、thermal 和 validation。
+- Clearpath / Husarion / AgileX / Unitree / Elephant：强在整机/教育/研发平台，不解决客户自己的 robot electronics、BOM、factory flash 和合规证据。
+- Fleet tools：Foxglove、Formant、InOrbit 能运营已有机器人，但不会替你做 first boot、硬件 fixture、IO bring-up 和安全边界。
+- One-off integrator service：可以救一个项目，但很难沉淀成可复制 board recipe、test fixture、golden image 和证据包。
 
-关注点：
+## 03 · Solution
 
-- 摄像头输入。
-- 桌面机械臂控制。
-- ACT policy 推理。
-- 安全运行时。
-- 48 TOPS INT8 作为初赛算力锚点。
+BoardBringupKit 把 board-to-robot bring-up 做成可执行产品，而不是 PDF checklist。
 
-### Fallback: Radxa Dragon Q6A / QCS6490
+核心输出：
 
-用途：
+1. `board_profile`：SoC、board revision、OS、kernel、BSP、firmware、QNN/QAIRT、ROS distro、LeRobot version、image digest。
+2. `power_harness`：输入电压、峰值电流、分路供电、保险、状态灯、E-stop power-cut、undervoltage/thermal flags。
+3. `sensor_recipe`：MIPI/USB camera、depth camera/LiDAR、V4L2/GStreamer test、标定、frame drop、timestamp 和 cable/hub matrix。
+4. `robot_io_adapter`：CAN/UART/GPIO/PWM/I2C/SPI loopback、level shifting、motor/arm/gripper ping、ros2_control hardware interface。
+5. `safety_gate`：硬急停、software watchdog、command timeout、soft boundary、SafeOps/SafetyOps decision 和 incident log。
+6. `runtime_image`：可复现镜像、依赖锁定、CloudTwin agent、EdgeRuntimeBench profiler、SkillDock bundle hook 和 rollback。
+7. `acceptance_report`：time-to-first-camera、time-to-first-actuator、time-to-first-episode、time-to-first-edge-run、失败项和复现命令。
 
-- Core Lite 和教育版。
-- 简化感知与控制任务。
-- 更紧凑的 RobotMac Core 形态。
+## 04 · Why Now
 
-### Pioneer Option: Arduino VENTUNO Q / IQ-8275
+2026 年的时机来自三件事叠加：
 
-用途：
+- 具身智能和机器人比赛把 Qualcomm board 推到更多开发者面前，但比赛窗口短，底层集成失败会直接拖垮项目。
+- QCS6490/QCS8550/RB3 Gen 2/IQ 系列让 Qualcomm 在机器人边缘 AI 上有清晰入口，但开发者需要板卡进入机器人系统的路径。
+- 企业客户正在从 demo 走向试点，采购要看的不是“我会接线”，而是 wiring map、image digest、power/thermal evidence、safety log、runtime profile 和 rollback record。
 
-- Pioneer Track 前瞻叙事。
-- 工业控制和异构计算探索。
-- 未来 Industrial SKU。
+当前板卡策略：
 
-## Bring-up Stack
+- `Dragon Q6A / QCS6490`：最现实的 immediate target，可作为 Core Lite、教育版和备用板。
+- `Rhino Pi-X1 / QCS8550`：标准赛道高性能 target，用于 LabForgePilot、EdgeRuntimeBench 和 RobotMac Core Pro。
+- `RB3 Gen 2 / QCS6490`：真实 dev kit 和生态参考，不写成官方比赛板。
+- `VENTUNO Q / IQ-8275`：先行者赛道/partner-supplied target，等实物和 SDK 稳定后接入。
+- `IQ10 RRD`：企业版 roadmap / early access ask，不作为 2026 年 7 月承诺。
 
-### 1. Power Harness
+## 05 · Product
 
-- 桌面电源和电池输入边界。
-- 稳压、保险、状态灯。
-- 机械臂、相机和开发板分路供电。
-- 故障断电和重启流程。
+BoardBringupKit 的产品不是一套线，而是一个 bring-up operating system。
 
-### 2. Camera Rig
+产品模块：
 
-- 单目/双目/深度相机安装位。
-- 固定视角和标定流程。
-- LabForgePilot 桌面任务视觉输入。
-- 数据采集同步时间戳。
+- `Board Recipe Library`：Q6A、Rhino X1、RB3 Gen 2、VENTUNO Q 的 board manifest、known-good image、接口图、版本锁。
+- `Harness BOM`：电源、E-stop、camera mount、USB/CSI cable、CAN transceiver、IO terminal、level shifter、status light。
+- `First Boot Runner`：boot、network、storage、clock、thermal、fan、USB speed、serial log、kernel flags。
+- `Sensor Gate`：camera enumerate、V4L2/GStreamer capture、frame age、drop rate、calibration snapshot。
+- `Actuator Gate`：机械臂/夹爪/底盘 ping、single-axis move、command timeout、ros2_control lifecycle。
+- `Safety Gate`：E-stop trigger、watchdog loss、soft boundary、manual takeover、incident ledger。
+- `Runtime Gate`：LeRobot episode capture、policy replay、AI Hub/QNN/ONNX profile placeholder 或真实 profile、deploy manifest。
+- `Evidence Export`：judge/enterprise audit pack、factory bring-up report、SI handoff packet。
 
-### 3. Robot IO Adapter
+## 06 · Evidence Objects
 
-- 机械臂控制接口。
-- 夹爪、急停、限位和状态读取。
-- CAN/UART/PWM/GPIO 抽象。
-- ROS 2 bridge 和 RobotAppLayer 能力映射。
+BoardBringupKit 必须让评委、工程师、SI、客户和供应链都能读懂同一组证据。
 
-### 4. Safety Harness
+- `board-bringup-manifest.json`：board、SoC、serial、OS、kernel、BSP、image digest、runtime versions。
+- `wiring-map.svg`：power rails、camera、IO、E-stop、actuator、network 和安全边界。
+- `power-thermal-log.jsonl`：input voltage、current estimate、temperature、throttling flags、fan state、load scenario。
+- `camera-gate-report.json`：device path、driver、resolution、FPS、drop rate、latency、calibration image hash。
+- `robot-io-report.json`：CAN/UART/GPIO/PWM/I2C/SPI test、motor/arm/gripper ping、ros2_control lifecycle state。
+- `safety-event-ledger.jsonl`：E-stop、watchdog、command timeout、soft-boundary deny、manual takeover。
+- `runtime-image.lock`：package versions、containers、QNN/QAIRT/ONNX/LeRobot versions、CloudTwin/EdgeRuntime hooks。
+- `acceptance-report.md`：pass/fail、failed gates、measured/proxy/simulated labels、reproduction command、next action。
+- `judge-demo-index.md`：三分钟视频时间码映射到 board profile、task run、failure recovery 和 evidence artifact。
 
-- 物理急停。
-- 软件 watchdog。
-- 软边界和低速模式。
-- SafetyOps 发布门禁。
-- 失败接管日志。
+## 07 · Market & Business Model
 
-### 5. Runtime Image
+硬件本身越来越便宜，真正贵的是一个失败 bring-up cycle。
 
-- 系统镜像和依赖版本。
-- 摄像头驱动、ROS 2 bridge、LeRobot adapter。
-- CloudTwin agent。
-- EdgeRuntimeBench profiler。
-- Deployment manifest。
+买家：
 
-### 6. Validation Checklist
+- 机器人创业公司：从 dev kit 走向第一个集成样机。
+- 系统集成商：把 AMR、机械臂、质检、实验室、教育项目做成可复用交付包。
+- SOM/dev-board 厂商：把芯片/板卡 demo 变成 reference robot package。
+- 高校、企业实验室、赛事团队：快速跑通真实机器人闭环。
+- RobotMac Core 后续客户：把 BoardBringupKit 变成硬件认证和量产迁移门槛。
 
-- 开机和网络。
-- 摄像头采集。
-- 机械臂单轴/多轴动作。
-- 数据采集 episode。
-- 策略部署和离线回放。
-- Safety trigger 和 rollback。
+定价假设：
 
-## Competition Build Plan
+- Free/open：board profile、公开 checklist、兼容矩阵。
+- Builder Kit：中国 ¥3,999-19,800，海外 $499-2,500，含镜像、BOM、诊断和模板。
+- Pilot Sprint：中国 ¥50k-180k，海外 $25k-75k，bring up 一块板 + 一个机器人 + 一套 sensor/IO。
+- Production Pack：中国 ¥180k-600k，海外 $75k-200k，含 BSP/device-tree、HIL fixture、factory flash、cert-readiness。
+- Team Pro：中国 ¥30k-120k/year，海外 $10k-25k/year，持续 CI/HIL、兼容矩阵、版本回归和远程支持。
+- Board-vendor Co-sell：每个 board recipe NRE + reference design 维护费。
 
-### Before Board Arrival
+ROI 语言：
 
-- 完成 BoardBringupKit 文档和 wiring plan。
-- 准备相机、桌面机械臂、样品托盘、急停、线束和电源。
-- 在普通 Linux 设备上验证 LeRobot dataset 和控制台。
+> 如果 BoardBringupKit 避免一次 2-8 周的 BSP/driver/power/thermal/debug 循环，它就已经比一次外包救火便宜。
 
-### Week 1 After Board Arrival
+## 08 · Competition & Moat
 
-- 系统启动、网络、存储、摄像头。
-- 跑通最小 runtime image。
-- 记录硬件 profile 和问题清单。
+不要把 BoardBringupKit 做成“又一个机器人套件”。市场上已经有很多套件。它的壁垒是 accumulated validation data。
 
-### Week 2
+竞争地图：
 
-- 接机械臂和安全急停。
-- 完成遥操作采集和固定任务回放。
-- 生成第一版 deployment manifest。
+- Jetson / Isaac：生态强，但生产 carrier/BSP/thermal/device-tree 仍要自己做。
+- ROS-Industrial：middleware 和工业驱动强，但不负责生产镜像、安全证据和硬件验收。
+- Clearpath / Husarion / AgileX / Unitree / Elephant：整机强，但用户的自研产品仍需要自己的 compute stack。
+- Foxglove / Formant / InOrbit：运营强，但通常从机器人已经存在之后开始。
+- Vendor reference designs：展示 SoC 能力，但很少沉淀跨机器人、跨传感器、跨工厂的 evidence workflow。
 
-### Week 3-4
+壁垒：
 
-- 接 CloudTwin 训练输出。
-- 跑 EdgeRuntimeBench profiler。
-- 录制 LabForgePilot 初版素材。
+- 兼容矩阵：board + carrier + camera + LiDAR + motor controller + power stack + ROS distro + kernel/BSP。
+- HIL fixture：first boot、rail/current、USB/MIPI、CAN/Ethernet、thermal soak、camera timing、motor loop。
+- Machine-readable manifests：生成 udev、ROS launch、diagnostics、factory tests、wiring report 和 deploy manifest。
+- Golden images：可复现 build、OTA hooks、secure defaults、logs、health topics、rollback。
+- Evidence corpus：每个失败项、驱动版本、BSP patch、传感器组合和客户现场问题都会增加路径依赖。
 
-## Product Value
+## 09 · Why Qualcomm
 
-BoardBringupKit 不是一次性比赛文档。它可以变成商业产品：
+Qualcomm 的战略机会不是多发一块开发板，而是让 Dragonwing board 进入机器人产品化标准。
 
-- 企业试点交付清单。
-- 系统集成商快速 bring-up 包。
-- RobotMac Core 硬件认证流程。
-- 教育套件实验指导。
-- SkillDock 技能兼容性测试前置条件。
+BoardBringupKit 对 Qualcomm 有三层价值：
 
-## Why Qualcomm Should Care
+- 比赛价值：评委能看到 Qualcomm board 在真实机器人控制闭环中，而不是只出现在 PPT 和终端截图里。
+- 生态价值：减少开发者 time-to-first-robot，让 QCS6490/QCS8550/RB3 Gen 2 更容易被创业团队和 SI 采用。
+- 商业价值：把 AI Hub/QNN/QAIRT、camera/multimedia、low-power edge、ROS guidance 和 future IQ10 RRD 连接成从比赛到产品的路线。
 
-开发者选择一个处理器，真正难的不是购买开发板，而是把它接进机器人完整系统。BoardBringupKit 把 Qualcomm board 的价值放进：
+主张边界：
 
-- 电源和 IO。
-- 相机和多媒体。
-- 机器人控制。
-- AI policy runtime。
-- 安全运行。
-- 可复现部署。
+- 不声称 Qualcomm 认证或功能安全认证。
+- 不保证所有 policy 都跑在 NPU；真实 profile 必须由 EdgeRuntimeBench 标注 measured/proxy/simulated。
+- 不把 IQ10 写成 2026 年 7 月可交付板卡。
+- 不替代 vendor BSP、AI Hub、QNN 或 ROS 2；BoardBringupKit 是把它们接成机器人验收工作流。
 
-这能把比赛支持从“提供板卡”升级为“帮助开发者把板卡变成机器人产品核心”。
+## 10 · Demo & Ask
+
+三分钟演示要证明一件事：开发板已经变成可复现机器人核心。
+
+视频结构：
+
+1. 0:00-0:15：展示裸板、线束、相机、机械臂、E-stop，然后打出“开发板不是机器人产品”。
+2. 0:15-0:40：BoardBringupKit checklist：boot、network、camera、actuator、safety、runtime、manifest。
+3. 0:40-1:20：一键 bring-up runner 过门禁：camera frame、actuator ping、E-stop/watchdog event、image digest。
+4. 1:20-2:05：LabForgePilot 执行样品识别、抓取、放置、复核和日志写入。
+5. 2:05-2:30：扰动：错样本、挪动目标、unsafe command；机器人 pause/deny/recover。
+6. 2:30-2:50：Evidence dashboard：board profile、wiring map、camera calibration、runtime image、safety log、rollback。
+7. 2:50-3:00：导出 `board-bringup-audit-pack.zip`，作为复赛和商业试点证据。
+
+向 Qualcomm / 主办方的 ask：
+
+- Rhino Pi-X1 / QCS8550 或 Dragon Q6A / QCS6490 target board。
+- AI Hub Workbench / Device Cloud quota。
+- QNN/QAIRT profiling office hours。
+- Qualcomm Linux/BSP guidance：camera、GStreamer、ROS 2、GPIO/CAN/UART、OTA、watchdog。
+- 允许提交 board bring-up artifacts、runtime profile 和三分钟 video proof。
+- IQ10 RRD roadmap review，作为企业版 RobotMac Core 的未来路线。
 
 ## Sources
 
-- Competition information：`docs/competition-info.md`
-- APLUX Rhino X1 developer page：https://developer.aidlux.com/
-- Rhino X1 docs：https://rhinopi.docs.aidlux.com/rhino-x1-aidlux/
-- Radxa Dragon Q6A：https://radxa.com/products/dragon/q6a/
+- 2026 高通具身智能与机器人开发者大赛：https://qc-robotics-dev.aidlux.com/2026/
+- Competition launch and official boards：https://ex.chinadaily.com.cn/exchange/partners/82/rss/channel/cn/columns/sz8srm/stories/WS69fea1a7a310942cc49ab5d5.html
+- Qualcomm AI Hub Workbench：https://workbench.aihub.qualcomm.com/docs/
+- Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- Qualcomm QCS8550 product brief：https://docs.qualcomm.com/doc/87-61717-1/87-61717-1_REV_D_Qualcomm_Dragonwing_QCS8550_QCM8550_Processors_Product_Brief.pdf
+- Dragonwing IQ10 Robotics Reference Design：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- Radxa Dragon Q6A docs：https://docs.radxa.com/en/dragon/q6a
+- APLUX Rhino Pi-X1 docs：https://rhinopi.docs.aidlux.com/en/rhino-x1-aidlux/
+- APLUX XLerobot-X1：https://github.com/APLUX-Official/XLerobot-X1
 - Arduino VENTUNO Q：https://www.arduino.cc/product-ventuno-q
-- Qualcomm AI Hub：https://aihub.qualcomm.com/
-- Qualcomm RB3 Gen 2 Development Kit：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- NVIDIA Jetson bring-up checklist：https://docs.nvidia.com/jetson/archives/r36.5/DeveloperGuide/HR/JetsonModuleAdaptationAndBringUp/Checklists.html
+- NVIDIA Jetson camera driver programming：https://docs.nvidia.com/jetson/archives/r35.1/DeveloperGuide/text/SD/CameraDevelopment/SensorSoftwareDriverProgramming.html
+- ROS 2 control hardware components：https://control.ros.org/rolling/doc/ros2_control/hardware_interface/doc/writing_new_hardware_component.html
+- ROS 2 controller manager：https://control.ros.org/rolling/doc/ros2_control/controller_manager/doc/userdoc.html
+- ROS safety watchdogs：https://github.com/ros-safety/software_watchdogs
+- Foxglove pricing：https://foxglove.dev/pricing
+- PickNik services and support：https://picknik.ai/licensing
