@@ -27,7 +27,7 @@ The current first-batch pitch directions are:
 - `TrainRouter`: dual-cloud GPU training router for China/overseas provider selection, budget guards, data boundaries, evaluation, and Qualcomm edge artifact export.
 - `TeleopStudio`: productized teleoperation and demonstration-data capture station with synchronized cameras, quality gates, LeRobot dataset export, and cloud handoff.
 - `SkillDock`: robot skill marketplace where trained skills can be installed, certified, and upgraded.
-- `SkillCertKit`: robot skill certification package for manifests, dataset lineage, hardware compatibility, edge benchmarks, safety gates, and marketplace publishing.
+- `SkillCertKit`: robot skill trust-layer pitch that turns policy models into marketplace-ready packages with manifests, LeRobot dataset lineage, hardware compatibility, Qualcomm edge profiles, safety boundaries, SBOM/license evidence, signatures, rollback, and version history.
 - `Embodied Kit`: procurement-ready industry kit for factories, labs, education, and service robotics teams.
 - `DragonWorks`: Qualcomm-first robotics developer workbench for devices, datasets, training, deployment, and skills.
 - `EdgeFleet`: fleet operations layer for enterprise robot maintenance, logging, updates, and training feedback.
