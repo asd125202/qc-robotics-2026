@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PilotContractKit | 让机器人试点变得可采购</title>
+    <title>PilotContractKit | 机器人试点商业操作系统</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-green">
@@ -14,24 +14,25 @@
       </a>
       <nav class="navlinks" aria-label="页面导航">
         <a href="#problem">问题</a>
-        <a href="#why-now">时机</a>
+        <a href="#broken">现状</a>
         <a href="#solution">方案</a>
-        <a href="#metrics">验收</a>
+        <a href="#why-now">时机</a>
+        <a href="#product">产品</a>
         <a href="#business">商业</a>
-        <a href="#risk">风险</a>
-        <a href="#qualcomm">Qualcomm</a>
-        <a href="#ask">Ask</a>
+        <a href="#moat">壁垒</a>
+        <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-pilot-contract">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 22 · Procurement-Ready Robotics Pilot</p>
-          <h1>企业不是不想试机器人，是不知道怎样低风险购买一次试点。</h1>
-          <p class="hero-lede">PilotContractKit 把机器人 Demo 变成可采购、可验收、可扩张的企业试点包：任务范围、KPI、数据权益、安全边界、云训练额度、Qualcomm edge 运行证据、支持责任和扩张报价一次写清。</p>
+          <p class="eyebrow">Pitch 22 · Commercial OS For Paid Robot Pilots</p>
+          <h1>PilotContractKit</h1>
+          <p class="hero-lede">企业不是不想试机器人，是不知道怎样低风险购买一次可验收试点。PilotContractKit 把 robot demo 变成采购、运营、安全、IT、法务和工程都能审查的 paid pilot，再把 paid pilot 变成 rollout contract。</p>
           <div class="cta-row">
-            <a class="button primary" href="#problem">看 Pitch 逻辑</a>
+            <a class="button primary" href="#problem">看采购断点</a>
             <a class="button" href="#demo">看试点生成器</a>
           </div>
         </div>
@@ -42,31 +43,112 @@
           <div class="section-head">
             <div>
               <p class="kicker">01 · Problem</p>
-              <h2>机器人 Demo 很多，能被采购、法务、运营、IT 和安全一起批准的试点很少。</h2>
+              <h2>机器人公司能做 demo，但企业不能采购“一个看起来不错的 demo”。</h2>
             </div>
-            <p>机器人团队通常能让本体动起来，却很难回答企业内部审批问题：到底试哪个任务、怎么算成功、谁拥有数据、失败谁处理、云端能不能看视频、现场安全边界在哪里、试点后买什么。结果是演示很热闹，合同推进很慢，试点后规模化更难。</p>
+            <p>Demo 后真正卡住的是跨部门审批：采购要价格和退出，运营要 baseline 和 KPI，IT/OT 要数据和网络边界，安全要急停和监督，法务/保险要责任分配，工程要训练版本、edge profile 和可复现证据。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <span class="claim-tag">Procurement</span>
+              <h3>担心被锁死</h3>
+              <p>没有取消权、扩张价、CapEx/OpEx 选择、付款里程碑和供应商责任。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Operations</span>
+              <h3>担心看不出 ROI</h3>
+              <p>没有人工 baseline、throughput、intervention、uptime、punch list 和班次影响。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">IT / OT</span>
+              <h3>担心数据和远程访问</h3>
+              <p>视频、遥测、云区域、保留期限、网络分段、MFA/RBAC 和日志没写清。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Safety</span>
+              <h3>担心现场责任</h3>
+              <p>急停、防护、人工监督、stop-work authority、rollback 和 operating envelope 混在一起。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Legal</span>
+              <h3>担心谁为失败买单</h3>
+              <p>数据权利、工伤/财损、保险、隐私、出口/制裁和责任限制没有结构化。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Engineering</span>
+              <h3>担心不可复现</h3>
+              <p>dataset、训练版本、runtime、latency、温度、功耗和回滚记录没有统一证据包。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="broken" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>RaaS、marketplace、OEM 生态、fleet tools 和集成商都重要，但没有中立的 pilot acceptance layer。</h2>
+            </div>
+            <p>PilotContractKit 不替代机器人厂商、SI、Formant、Viam、Foxglove、InOrbit、Formic、Locus、UR+、FANUC、ABB 或 KUKA。它把这些工具产生的证据翻译成买方能签字的试点语言。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>采购担心锁死</h3>
-              <p>一次 Demo 之后就被推向大额 CapEx，没有取消权、扩张价和退出路径。</p>
+              <h3>RaaS Vendors</h3>
+              <p>让自家或合作 stack 更可买，但通常绑定特定机器人、场景或商业模式，不是跨厂商标准。</p>
             </article>
             <article class="card">
-              <h3>运营担心无效</h3>
-              <p>没有 baseline、测试周期、产能指标、接管规则和 punch list。</p>
+              <h3>Marketplaces</h3>
+              <p>帮助找供应商、报价和组件，但 discovery 不是 bankable pilot，也不定义 success arbitration。</p>
             </article>
             <article class="card">
-              <h3>IT 担心数据</h3>
-              <p>视频、遥测、生产数据、云区域、保留期限和模型训练权没有写清。</p>
+              <h3>OEM Ecosystems</h3>
+              <p>降低某个 OEM orbit 内的集成风险，但不统一 KPI、付款、数据权利和扩张条款。</p>
             </article>
             <article class="card">
-              <h3>安全担心边界</h3>
-              <p>云 dashboard、急停、人工监督、rollback 和现场风险责任容易混在一起。</p>
+              <h3>RobOps Tools</h3>
+              <p>强在运行、遥测、调试和 fleet orchestration，但不是采购、融资、合同或保险入口。</p>
             </article>
             <article class="card">
-              <h3>工程担心证据</h3>
-              <p>没有 latency、uptime、intervention、训练版本和 edge profile 的可验收记录。</p>
+              <h3>System Integrators</h3>
+              <p>能现场交付，但每个项目都重写 SOW、验收、风险边界和扩张报价，复用弱。</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>PilotContractKit 是机器人付费试点的 neutral commercial operating system。</h2>
+            </div>
+            <p>它把一次 4-8 周轻量试点或 60-90 天复杂现场试点，组织成可采购工作包：SOW、baseline、KPI、FAT/SAT、风险边界、Qualcomm edge evidence、支持责任和 scale decision memo。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Scope</h3>
+              <p>site、zone、task、robot count、operating hours、exclusions、RACI、deliverables、timeline、price。</p>
+            </article>
+            <article class="step">
+              <h3>Baseline</h3>
+              <p>人工流程、cycle time、labor hours、错误率、停机、SKU/order mix、site constraints。</p>
+            </article>
+            <article class="step">
+              <h3>Accept</h3>
+              <p>throughput、quality、autonomy、uptime、integration、safety、edge evidence、ROI。</p>
+            </article>
+            <article class="step">
+              <h3>Boundaries</h3>
+              <p>safety、operating envelope、data/privacy、cyber/OT、insurance、change control、stop conditions。</p>
+            </article>
+            <article class="step">
+              <h3>Scale</h3>
+              <p>go/no-go、rollout price、RaaS/monthly option、support SLA、RevenueStack handoff。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/pilot-contract-kit.png" alt="PilotContractKit 试点合同、机器人工作站、KPI 验收和扩张路径图">
           </div>
         </div>
       </section>
@@ -75,434 +157,275 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Why Now</p>
-              <h2>机器人购买正在从“看演示”转向“要可量化的试点 ROI”。</h2>
+              <p class="kicker">04 · Why Now</p>
+              <h2>机器人 adoption 已经不是科幻，采购却更理性。</h2>
             </div>
-            <p>工业机器人、专业服务机器人和 RaaS 都在增长，但买方越来越关心 ROI/payback、劳动力节省、吞吐、集成、准确率和 uptime。机器人企业如果只卖愿景，很难通过企业审批；如果能先卖一个有基线、有验收、有退出、有扩张价的试点，成交阻力会小得多。</p>
+            <p>工业机器人、专业服务机器人、RaaS、cobots 和中国具身智能供给都在增长。新的瓶颈不是“能不能动”，而是企业能不能用 KPI、责任、数据、安全、SLA 和 rollout path 批准一次 paid pilot。</p>
           </div>
-          <div class="grid four">
+          <div class="grid five">
             <div class="stat">
               <strong>542K</strong>
-              <span>IFR：2024 年全球新增工业机器人约 54.2 万台，说明自动化预算真实存在。</span>
+              <span>IFR：2024 年全球新增工业机器人约 54.2 万台。</span>
             </div>
             <div class="stat">
-              <strong>199K+</strong>
-              <span>IFR：2024 年专业服务机器人销量接近 20 万台，物流/运输是最大类别。</span>
+              <strong>295K</strong>
+              <span>IFR：中国 2024 年新增约 29.5 万台工业机器人，约全球 54%。</span>
             </div>
             <div class="stat">
               <strong>31%</strong>
               <span>IFR：2024 年专业服务机器人 RaaS fleet 增长约 31%。</span>
             </div>
             <div class="stat">
-              <strong>55.6%</strong>
-              <span>A3：2026 Q1 北美 cobot 订单按台数同比增长 55.6%。</span>
+              <strong>$2.25B</strong>
+              <span>A3：2025 年北美机器人订单价值约 22.5 亿美元。</span>
+            </div>
+            <div class="stat">
+              <strong>83%</strong>
+              <span>MHI/Deloitte：五年内供应链 robotics/automation 预期采用率达 83%。</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="insight" class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">03 · Insight</p>
-              <h2>让机器人可规模化之前，先让机器人试点可采购。</h2>
-            </div>
-            <p>Formic、Locus、Brightpick 证明 RaaS/托管部署能降低 CapEx 恐惧；Formant、Viam、Foxglove、InOrbit 证明 fleet software 和运行证据有价值；UR+、FANUC、ABB、KUKA 证明认证伙伴和预测试包能降低风险。缺口是跨厂商、跨场景的试点采购层：把范围、KPI、风险、数据、训练、edge evidence 和扩张路径绑定成一个可审批包。</p>
-          </div>
-          <p class="quote">Make the robot pilot purchasable before it is scalable.</p>
-        </div>
-      </section>
-
-      <section id="solution" class="slide tint">
+      <section id="product" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">04 · Solution</p>
-            <h2>PilotContractKit 是机器人企业试点产品包，不是法律合同生成器。</h2>
-            <p class="lead">它帮助机器人厂商、系统集成商和客户把一次 4-8 周轻量试点，或复杂现场 60-90 天付费试点，变成采购、运营、安全、IT 和工程都能审查的工作包。法律、安全、保险和监管仍需要专业团队审核；PilotContractKit 负责把证据和边界组织好。</p>
+            <p class="kicker">05 · Product</p>
+            <h2>不是模板文档，而是 pilot generator + evidence binder + scale router。</h2>
+            <p class="lead">PilotContractKit 把试点状态分成 Draft、Baseline Ready、FAT Ready、SAT Ready、Risk Blocked、Pilot Passed、Scale Candidate、No-Scale。每个状态都有证据和责任人。</p>
             <ul class="list">
-              <li>Scope：机器人类型、场地范围、任务、排除项、速度/载荷/区域和 change control。</li>
-              <li>Baseline：人工流程、任务频率、当前成本、失败类型、风险和数据可用性。</li>
-              <li>Evidence：LeRobot 数据集、训练 job、edge profile、日志、运行视频和验收报告。</li>
-              <li>Risk Boundary：安全边界、人工监督、rollback、数据权利、网络安全和退出条款。</li>
-              <li>Expansion：Fleet Kit、Industry Pack、RaaS/月费、私有技能库和持续训练订阅。</li>
+              <li>Pilot SOW Builder：scope、assumptions、exclusions、site readiness、interfaces、deliverables、RACI。</li>
+              <li>Baseline Data Pack：2-4 周代表性数据、measurement calendar、variance controls、manual process map。</li>
+              <li>KPI Scorecard：operational KPIs 与 robot KPIs 分开，定义 target bands、pass/fail、exceptions。</li>
+              <li>ROI / Payback Model：CapEx vs RaaS、labor、throughput、quality、maintenance、ramp-up、sensitivity。</li>
+              <li>FAT/SAT Protocol：requirements -> test scripts -> evidence -> punch list -> retest -> signoff。</li>
+              <li>Support/Safety/Data/Cyber Addenda：SLA、site risk prompts、training、data map、MFA/RBAC、OT segmentation。</li>
             </ul>
           </div>
           <div class="visual">
-            <img src="../assets/pilot-contract-kit.png" alt="企业机器人试点合同和 KPI 验收方案图">
+            <img src="../assets/pilot-contract-kit.png" alt="机器人试点生成器、验收 scorecard、edge evidence 和合同文件图">
           </div>
         </div>
       </section>
 
-      <section id="workflow" class="slide white">
+      <section class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · Product Workflow</p>
-              <h2>不是先卖大系统，而是先帮客户内部立项。</h2>
+              <p class="kicker">06 · Product API</p>
+              <h2>把技术证据转成付款、验收和扩张证据。</h2>
             </div>
-            <p>销售动作从“请客户看技术”变成“帮客户写清审批材料”：一页 ROI、一个任务、一个验收表、一个数据边界、一个安全边界、一个试点价格、一个扩张报价。</p>
-          </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>选任务</h3>
-              <p>LabForge 样品转移、FactoryPilot 巡检、LogisticsMove 搬运或 EduForge 训练。</p>
-            </article>
-            <article class="step">
-              <h3>定基线</h3>
-              <p>记录人工流程、单位产出、失败类型、干预次数和现场约束。</p>
-            </article>
-            <article class="step">
-              <h3>生成包</h3>
-              <p>scope、KPI、数据权利、安全边界、支持 SLA、验收表和报价。</p>
-            </article>
-            <article class="step">
-              <h3>运行试点</h3>
-              <p>Teleop/HIL 数据采集、LeRobot 训练、Qualcomm edge 部署和日志。</p>
-            </article>
-            <article class="step">
-              <h3>转扩张</h3>
-              <p>用验收报告决定是否进入 fleet、industry pack 或 RaaS/月费。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="metrics" class="slide dark">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">06 · Acceptance Metrics</p>
-              <h2>验收指标必须是业务指标，不只是机器人成功率。</h2>
-            </div>
-            <p>企业买方关心 ROI/payback、劳动力节省、吞吐、准确率、集成和 uptime。PilotContractKit 把技术指标和业务指标放在同一张 scorecard 里，并写清 baseline、测试周期、测量方法、排除项、pass/fail 阈值和 punch list 处理方式。</p>
+            <p>所有指标标注来源：`measured-on-site`、`measured-on-board`、`AI-Hub-device-cloud`、`vendor-reported`、`proxy` 或 `simulated`。试点可以有模拟项，但不能把模拟项当验收结论。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>Throughput</h3>
-              <p>units/hour、picks/hour、cases/hour、单次任务耗时和 changeover time。</p>
+              <h3>pilot-sow</h3>
+              <p>customer、site、task、timeline、deliverables、assumptions、exclusions、price、RACI。</p>
             </article>
             <article class="card">
-              <h3>Quality</h3>
-              <p>订单准确率、错拣/漏检、缺陷率、返工率和客户可复现程度。</p>
+              <h3>baseline-data-request</h3>
+              <p>process map、task frequency、cycle time、labor hours、quality errors、downtime。</p>
             </article>
             <article class="card">
-              <h3>Autonomy</h3>
-              <p>任务成功率、intervention rate、人工接管时间和失败类型分布。</p>
+              <h3>acceptance-scorecard</h3>
+              <p>metric、baseline、target、measurement method、test window、owner、pass/fail。</p>
             </article>
             <article class="card">
-              <h3>Uptime</h3>
-              <p>最小运行小时、停机原因、支持响应、备件和恢复时间。</p>
+              <h3>risk-boundary</h3>
+              <p>operating envelope、safety assumptions、supervision、change control、stop conditions。</p>
             </article>
             <article class="card">
-              <h3>Integration</h3>
-              <p>WMS/MES/ERP/API 接入完成度、网络权限和操作员培训完成。</p>
+              <h3>qualcomm-edge-evidence</h3>
+              <p>board manifest、AI Hub/QNN profile、runtime report、SafetyOps gate、rollback record。</p>
             </article>
             <article class="card">
-              <h3>Edge Evidence</h3>
-              <p>p50/p95 latency、action rate、资源占用、温度、功耗和 rollback 记录。</p>
+              <h3>scale-decision-memo</h3>
+              <p>ROI、payback、risk residuals、rollout quote、RaaS option、next-stage contract path。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="market" class="slide white">
+      <section id="business" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">07 · Market Wedge</p>
-              <h2>先服务已经为机器人试点卡住的买方。</h2>
+              <p class="kicker">07 · Market & Business Model</p>
+              <h2>先卖可控试点，再转 RaaS、订阅、运维和交易抽成。</h2>
             </div>
-            <p>第一批客户不是“所有企业”。最现实的 wedge 是已经有自动化需求、已经看过 Demo、但缺采购路径的人：中型食品/CPG 工厂、3PL/电商/生命科学仓库、中国电子/汽车供应链/食品/纺织工厂、系统集成商和机器人厂商。</p>
+            <p>买方不是“想看机器人”的人，而是要把试点批下来的人。中国版帮助机器人公司和 SI 把硬件速度转成可采购材料；海外版帮助自动化买方把 labor pressure 和预算转成可控 paid pilot。</p>
           </div>
-          <div class="grid five">
+          <div class="grid two">
             <article class="card">
-              <h3>食品/CPG</h3>
-              <p>装箱、码垛、质检、上下料和物料搬运，买方关心产出、劳动力和 uptime。</p>
+              <span class="claim-tag">中国版</span>
+              <h3>让机器人厂商和 SI 更容易卖到海外和大客户</h3>
+              <p>AMR、cobot、仓储机器人、实验室自动化、工业巡检、清洁、服务机器人。痛点是 demo 多，但 SLA、数据边界、保险语言、英文 SOW 和海外采购材料弱。</p>
             </article>
             <article class="card">
-              <h3>仓储/3PL</h3>
-              <p>AMR、拣选、库存可视、tote movement 和 WMS 集成。</p>
+              <span class="claim-tag">海外版</span>
+              <h3>让 warehouse、factory、lab 买方低风险批准机器人试点</h3>
+              <p>面向 food/CPG、life sciences、semiconductor/electronics 和 3PL。强调 baseline、ROI、safety、cyber、insurance、liability、support 和 rollout option。</p>
             </article>
-            <article class="card">
-              <h3>中国工厂</h3>
-              <p>硬件供给强、价格竞争强，需要本地采购模板、数据边界和集成证据。</p>
-            </article>
-            <article class="card">
-              <h3>系统集成商</h3>
-              <p>把定制交付变成可复制试点包、FAT/SAT 式验收和支持责任矩阵。</p>
-            </article>
-            <article class="card">
-              <h3>机器人厂商</h3>
-              <p>Demo 做得出，但需要帮客户内部推进预算、法务、IT、安全和运维审批。</p>
-            </article>
+          </div>
+          <div class="grid five" style="margin-top: 16px;">
+            <div class="stat">
+              <strong>¥3万-15万</strong>
+              <span>中国 scoping / pilot readiness sprint。</span>
+            </div>
+            <div class="stat">
+              <strong>¥30万-100万</strong>
+              <span>中国 paid pilot package，按场景复杂度校准。</span>
+            </div>
+            <div class="stat">
+              <strong>$10k-50k</strong>
+              <span>海外 pilot readiness sprint。</span>
+            </div>
+            <div class="stat">
+              <strong>$50k-250k</strong>
+              <span>海外 paid pilot package + edge evidence + support planning。</span>
+            </div>
+            <div class="stat">
+              <strong>2%-5%</strong>
+              <span>未来对执行试点、RaaS 合同或 milestone payment rails 收交易费。</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="business" class="slide tint">
+      <section id="moat" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">08 · Business Model</p>
-              <h2>先卖可控试点，再转 RaaS、运维和行业模板。</h2>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>护城河不是合同文本，而是 telemetry-backed pilot knowledge base。</h2>
             </div>
-            <p>商业模式不从“大规模替代人工”开始，而从一个可衡量试点开始。试点结束后，客户用数据决定是否扩张，我们用同一套证据包转向 fleet、行业模板、持续训练和服务合同。</p>
+            <p>PilotContractKit 不做 RaaS vendor、lead marketplace、fleet dashboard 或法律事务所。它的机会是中立地回答一句商业问题：这台机器人是否满足了合同里的试点 outcome？</p>
           </div>
-          <div class="grid five">
+          <div class="grid six">
             <article class="card">
-              <h3>诊断/Scoping</h3>
-              <p>付费 discovery：现场、数据、风险、KPI、硬件和集成估算。</p>
+              <h3>Pilot Knowledge</h3>
+              <p>场景、任务、KPI、失败类型、site readiness、punch list、rollout patterns。</p>
             </article>
             <article class="card">
-              <h3>固定价试点</h3>
-              <p>30万-100万元人民币区间作为 pitch 锚点，按场景复杂度校准。</p>
+              <h3>Telemetry Acceptance</h3>
+              <p>把 Formant/Viam/Foxglove/InOrbit/vendor APIs 数据变成 milestone evidence。</p>
             </article>
             <article class="card">
-              <h3>云训练/Edge</h3>
-              <p>训练额度、数据处理、AI Hub/profile、部署包和运行报告。</p>
+              <h3>Cross-Vendor Benchmarks</h3>
+              <p>cycle time、intervention、deployment duration、ROI、support burden、contract outcome。</p>
             </article>
             <article class="card">
-              <h3>RaaS / 订阅</h3>
-              <p>试点成功后转月费、运维、备件、SLA、OTA 和持续训练。</p>
+              <h3>Risk Clause Library</h3>
+              <p>safety、data、cyber、insurance、support、change control、stop conditions。</p>
             </article>
             <article class="card">
-              <h3>SI 分成</h3>
-              <p>让系统集成商用标准包卖更多可验收项目，而不是每次重谈。</p>
+              <h3>Buyer Trust</h3>
+              <p>不卖某台机器人，先站在试点是否能被验收的中立位置。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Evidence Default</h3>
+              <p>每个试点都留下 Qualcomm runtime profile、board/runtime evidence 和 rollback path。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="gtm" class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">09 · Go To Market</p>
-              <h2>从“帮供应商成交试点”切入，而不是等企业直接买平台。</h2>
-            </div>
-            <p>机器人厂商、系统集成商和 Qualcomm 生态伙伴最痛的是 Demo 之后合同推不动。PilotContractKit 可以作为他们的销售工具、交付模板和验收 evidence binder，先帮他们拿下 paid pilot，再把成功项目转成模板。</p>
-          </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Partner</h3>
-              <p>找机器人厂商、SI、教育/工厂试点方做 2-3 个样板包。</p>
-            </article>
-            <article class="step">
-              <h3>Template</h3>
-              <p>把 LabForge、FactoryPilot、LogisticsMove 做成标准试点生成器。</p>
-            </article>
-            <article class="step">
-              <h3>Evidence</h3>
-              <p>每个试点留下数据、训练、edge profile、KPI 和风险边界。</p>
-            </article>
-            <article class="step">
-              <h3>Channel</h3>
-              <p>给 SI/OEM 一套可复用 SOW、验收表、报价和扩张路径。</p>
-            </article>
-            <article class="step">
-              <h3>Scale</h3>
-              <p>试点成功转 Fleet Kit、Industry Pack、SafetyOps 和 DataFlywheel。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="competition" class="slide dark">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">10 · Competition</p>
-              <h2>PilotContractKit 坐在 fleet tools、RaaS、集成商和采购平台之间。</h2>
-            </div>
-            <p>我们不替代 Formant、Viam、Foxglove、InOrbit、Locus、Formic、UR+、FANUC、ABB、KUKA 或系统集成商。它们证明市场需要 fleet ops、RaaS、认证伙伴和预测试包；PilotContractKit 的差异是把试点变成采购、法务、运营、安全、IT 和工程都能批准的跨厂商工作包。</p>
-          </div>
-          <div class="grid three">
-            <article class="card">
-              <h3>Fleet SaaS</h3>
-              <p>强在运行和观测；弱在试点前的采购范围、验收、数据权利和安全边界。</p>
-            </article>
-            <article class="card">
-              <h3>RaaS Vendor</h3>
-              <p>强在托管部署和月费；通常绑定自家机器人或特定仓储/工厂场景。</p>
-            </article>
-            <article class="card">
-              <h3>Integrator</h3>
-              <p>强在现场交付；弱在 LeRobot 数据、edge evidence 和跨客户模板化。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="risk" class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">11 · Risk Boundary</p>
-              <h2>把风险写清，比承诺“全都安全合规”更可信。</h2>
-            </div>
-            <p>PilotContractKit 是试点风险和证据组织工具，不是法律意见、保险意见、安全认证或出口合规结论。它把专业团队需要审查的材料整理出来，并把云 dashboard 的角色限制在运营可视、报告、维护支持和配置流程，不把它说成 safety-rated control system。</p>
-          </div>
-          <div class="grid five">
-            <article class="card">
-              <h3>安全边界</h3>
-              <p>本地急停、防护、保护停止、风险评估和现场监督仍由机器人/集成流程验证。</p>
-            </article>
-            <article class="card">
-              <h3>数据权利</h3>
-              <p>区分客户数据、遥测、视频/音频、个人信息、生产数据和聚合学习。</p>
-            </article>
-            <article class="card">
-              <h3>人工监督</h3>
-              <p>指定 site owner、vendor operator、stop-work authority、培训记录和重启权限。</p>
-            </article>
-            <article class="card">
-              <h3>Rollback / Exit</h3>
-              <p>安全事件、near miss、网络事件、严重 bug 或 KPI 未达标时的退出和复盘。</p>
-            </article>
-            <article class="card">
-              <h3>Cyber / Export</h3>
-              <p>网络分段、MFA/RBAC、日志、SBOM、区域选择、ECCN/实体清单审查入口。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="moat" class="slide tint">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">12 · Moat</p>
-              <h2>护城河不是合同文本，而是试点知识库。</h2>
-            </div>
-            <p>每完成一个试点，就积累一个行业任务模板、一套验收指标、一次失败类型库、一份数据权利模式、一条 safety boundary、一份 Qualcomm edge 证据和一条从 pilot 转 fleet 的报价路径。下一次同类客户的成交更快，风险边界更清楚。</p>
-          </div>
-          <div class="grid four">
-            <article class="card">
-              <h3>任务模板</h3>
-              <p>LabForge、FactoryPilot、LogisticsMove、EduForge 和更多行业场景。</p>
-            </article>
-            <article class="card">
-              <h3>KPI Ledger</h3>
-              <p>baseline、测试周期、pass/fail、例外项、punch list 和扩张条件。</p>
-            </article>
-            <article class="card">
-              <h3>Evidence Binder</h3>
-              <p>LeRobot dataset、training run、edge profile、运行日志、视频和验收报告。</p>
-            </article>
-            <article class="card">
-              <h3>Channel Memory</h3>
-              <p>SI/OEM 可复用 SOW、责任矩阵、报价、支持 SLA 和客户内部材料。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="qualcomm" class="slide dark">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">13 · Why Qualcomm</p>
-              <h2>每个试点都应该留下 Qualcomm edge deployment evidence。</h2>
-            </div>
-            <p>PilotContractKit 把 Qualcomm 从“选用一块开发板”推进到企业验收材料：model artifact、compile/profile、deployable asset、edge benchmark、acceptance report 和 rollback 记录。这样 Dragonwing/AI Hub/QNN/QAIRT 不只是比赛露出，而是客户试点和技能交付的默认证据层。</p>
-          </div>
-          <div class="grid four">
-            <article class="card">
-              <h3>Design-In Path</h3>
-              <p>从 QCS6490/QCS8550 级试点，到 IQ10 RRD 等 reference design 叙事。</p>
-            </article>
-            <article class="card">
-              <h3>AI Hub Evidence</h3>
-              <p>BYOM、compile/profile、目标设备、部署产物和性能报告进入验收表。</p>
-            </article>
-            <article class="card">
-              <h3>Edge Metrics</h3>
-              <p>latency、FPS/action rate、资源占用、温度、功耗、runtime 和 rollback。</p>
-            </article>
-            <article class="card">
-              <h3>Partner Pilot</h3>
-              <p>让 APLUX、Radxa、Advantech、Thundercomm、SI 和教育/工厂伙伴复用试点包。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="demo" class="slide white">
+      <section id="qualcomm" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">14 · Demo</p>
-            <h2>比赛 Demo 做成“试点生成器”，而不是合同下载页。</h2>
-            <p class="lead">输入客户场景，选择机器人任务，生成 4-8 周试点卡片：范围、KPI、数据边界、安全边界、交付物、验收表、报价区间和扩张路径。再展示 Teleop 数据采集、LeRobot dataset、训练、Qualcomm edge profile 和验收报告的模拟链路。</p>
+            <p class="kicker">09 · Why Qualcomm</p>
+            <h2>PilotContractKit 把 Qualcomm 从 competition hardware 变成 paid pilot 的 evidence standard。</h2>
+            <p class="lead">LabForgePilot 造任务，BoardBringupKit 证明板卡 ready，EdgeRuntimeBench 证明 runtime，DualCloudOps 证明本地优先和云边界，SafetyOps 管门禁，RevenueStack 管报价。PilotContractKit 把这些放进买方能签字的试点包。</p>
             <ul class="list">
-              <li>00:00-00:20 选择 LabForge 或 FactoryPilot 任务，生成任务范围和成功标准。</li>
-              <li>00:20-00:45 填入 baseline：人工流程、频率、失败类型、安全边界和当前耗时。</li>
-              <li>00:45-01:45 采集 episode、生成 LeRobot dataset、训练并导出 policy artifact。</li>
-              <li>01:45-02:50 运行机器人，展示 edge metrics、人工接管和失败回流。</li>
-              <li>02:50-03:00 输出验收报告和扩张报价。</li>
+              <li>Dragonwing/AI Hub/QNN/QAIRT 进入采购验收表，而不只出现在 demo 终端里。</li>
+              <li>QCS6490/QCS8550/RB3/未来 IQ10 RRD 进入 robot OEM/SI/customer procurement flow。</li>
+              <li>Qualcomm FAE 和生态伙伴获得从 prototype 到 paid pilot 的标准 evidence format。</li>
+              <li>LeRobot/CloudTwin 训练链路和 Qualcomm edge evidence 绑定成商业标准。</li>
+              <li>比赛材料从技术炫技升级为商业化闭环：scope、KPI、edge evidence、SLA、rollout。</li>
             </ul>
           </div>
           <div class="visual">
-            <img src="../assets/pilot-contract-kit.png" alt="机器人试点生成器、KPI 验收表和 Qualcomm 边缘证据链">
+            <img src="../assets/pilot-contract-kit.png" alt="Qualcomm edge evidence 进入机器人试点采购包和扩张报价图">
           </div>
         </div>
       </section>
 
-      <section id="ask" class="slide tint">
+      <section id="demo" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">15 · Ask</p>
-              <h2>请 Qualcomm 帮我们把一次比赛 Demo 变成可复制的机器人试点路径。</h2>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>三分钟证明：一个 robot task 可以从 demo 进入可采购 paid pilot。</h2>
             </div>
-            <p>我们请求的不是简单 logo 支持，而是把 PilotContractKit 做成 Dragonwing-first 的机器人商业化样板：有硬件 target、有 AI Hub/profile 指导、有试点模板、有伙伴样例、有指标口径。</p>
+            <p>演示不是下载合同模板，而是现场生成一个试点包：客户痛点、Qualcomm target、SOW、baseline、KPI、risk boundary、edge evidence、pilot price、rollout/RaaS/subscription path。</p>
           </div>
-          <div class="grid four">
+          <div class="pipeline">
+            <article class="step">
+              <h3>0:20</h3>
+              <p>选择 LabForgePilot 或 FactoryPilot，展示客户痛点、Qualcomm target、timeline、price anchor。</p>
+            </article>
+            <article class="step">
+              <h3>0:50</h3>
+              <p>生成 Pilot SOW：scope、baseline、KPI、site boundary、RACI、deliverables、exclusions。</p>
+            </article>
+            <article class="step">
+              <h3>1:30</h3>
+              <p>导入 BoardBringupKit 与 EdgeRuntimeBench：board、camera、NPU/runtime、p95 latency、rollback。</p>
+            </article>
+            <article class="step">
+              <h3>2:25</h3>
+              <p>SafetyOps + DualCloudOps + RevenueStack：安全门禁、数据边界、本地优先、SLA、报价。</p>
+            </article>
+            <article class="step">
+              <h3>3:00</h3>
+              <p>导出 `pilot-contract-audit-pack.zip`，包含 SOW、scorecard、risk boundary、edge evidence、scale memo。</p>
+            </article>
+          </div>
+          <div class="grid three" style="margin-top: 16px;">
             <article class="card">
-              <h3>硬件支持</h3>
-              <p>QCS8550/QCS6490/IQ 相关开发板或合作伙伴控制器测试路径。</p>
+              <span class="claim-tag">Boundary</span>
+              <h3>不声称认证</h3>
+              <p>这是试点风险和证据组织工具，不是法律意见、安全认证、出口合规或保险结论。</p>
             </article>
             <article class="card">
-              <h3>工程指导</h3>
-              <p>AI Hub、QNN/QAIRT、profiling、部署包和 edge metrics 口径。</p>
+              <span class="claim-tag">Artifacts</span>
+              <h3>评委可检查</h3>
+              <p>`pilot-sow.md`、`acceptance-scorecard.json`、`risk-boundary.md`、`qualcomm-edge-evidence.zip`。</p>
             </article>
             <article class="card">
-              <h3>生态发布</h3>
-              <p>把试点生成器、LabForgePilot、TeleopStudio 做成开发者参考项目。</p>
-            </article>
-            <article class="card">
-              <h3>伙伴试点</h3>
-              <p>连接 2-3 个教育、工厂、系统集成商或机器人厂商验证模板。</p>
+              <span class="claim-tag">Ask</span>
+              <h3>向 Qualcomm 要什么</h3>
+              <p>target hardware、AI Hub credits、QNN/QAIRT guidance、FAE review、reference pilot workflow 和设计伙伴。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="claims" class="slide white">
+      <section class="slide white">
         <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">16 · Claims & Sources</p>
-              <h2>我们组织试点证据，不替代法务、安全认证、保险或监管审核。</h2>
-            </div>
-            <p>页面主张是：PilotContractKit 帮助团队结构化机器人试点，组织数据、遥测、安全边界、人工监督、rollback、网络安全和验收指标。它不声称 ISO/OSHA/EU/China compliant，不声称 certified safe，不声称 export-control cleared，不把云 dashboard 当作安全控制系统，也不声称已获 Qualcomm 官方背书。</p>
-          </div>
-          <p class="quote">PilotContractKit turns a robot demo into a pilot that procurement, operations, safety, IT, and engineering can all inspect.</p>
+          <p class="quote">PilotContractKit turns a robot demo into a pilot that procurement, operations, safety, IT, legal, and engineering can all inspect.</p>
           <div class="source-links">
-            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR industrial robots 2025</a>
-            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR service robots growth</a>
-            <a href="https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption">A3 2025 robot orders</a>
-            <a href="https://www.automate.org/robotics/news/robot-orders-hold-steady-in-q1-2026-as-demand-broadens-across-non-automotive-industries">A3 Q1 2026 robot orders</a>
-            <a href="https://formic.co/full-service-automation">Formic full-service automation</a>
-            <a href="https://docs.formant.io/docs/getting-started-fleet-management">Formant fleet management</a>
-            <a href="https://www.viam.com/">Viam robot platform</a>
-            <a href="https://www.osha.gov/otm/section-4-safety-hazards/chapter-4">OSHA robotics technical manual</a>
-            <a href="https://www.iso.org/standard/73934.html">ISO 10218-2:2025 robot cells</a>
-            <a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">NIST SP 800-82 Rev. 3 OT security</a>
-            <a href="https://www.qualcomm.com/developer/blog/2026/03/what-qualcomm-dragonwing-robotics-hub-means-for-developers">Qualcomm Dragonwing Robotics Hub</a>
-            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10 Robotics Reference Design</a>
-            <a href="https://workbench.aihub.qualcomm.com/docs/hub/deployment.html">Qualcomm AI Hub deployment</a>
-            <a href="https://huggingface.co/docs/lerobot/index">LeRobot documentation</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Industrial Robots</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
+            <a href="https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption">A3 2025 Orders</a>
+            <a href="https://www.automate.org/robotics/news/robot-orders-hold-steady-in-q1-2026-as-demand-broadens-across-non-automotive-industries">A3 Q1 2026</a>
+            <a href="https://www.mhi.org/content/2/2285545/new-mhi-and-deloitte-report-focuses-on-orchestrating-end-to-end-digital-supply-chain-solutions">MHI/Deloitte</a>
+            <a href="https://www.sap.com/resources/what-is-statement-of-work-sow">SAP SOW</a>
+            <a href="https://locusrobotics.com/blog/true-roi-autonomous-mobile-robots">Locus ROI</a>
+            <a href="https://www.waku-robotics.com/en/robot-journey/robot-operations/initial-proof-of-concept-on-site-test/poc-define-kpis">WAKU KPIs</a>
+            <a href="https://formic.co/full-service-automation">Formic</a>
+            <a href="https://locusrobotics.com/why-locus/robots-as-a-service">Locus RaaS</a>
+            <a href="https://howtorobot.com/expert-insight/customers-pay-price-when-robot-projects-go-wrong">HowToRobot Risk</a>
+            <a href="https://foxglove.dev/">Foxglove</a>
+            <a href="https://docs.formant.io/docs/fleet-observability">Formant</a>
+            <a href="https://www.viam.com/">Viam</a>
+            <a href="https://www.inorbit.ai/unified-command">InOrbit</a>
+            <a href="https://www.osha.gov/robotics">OSHA Robotics</a>
+            <a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">NIST OT Security</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://www.qualcomm.com/developer/blog/2026/05/edge-ai-prototype-deployment-qualcomm-dragonwing-developer-ecosystem">Dragonwing Prototype To Deployment</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">RB3 Gen 2</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">IQ10 RRD</a>
           </div>
         </div>
       </section>
