@@ -4,241 +4,252 @@
 
 ## One-Line Company
 
-CleanLoop 是面向物业、保洁承包商、机场/商场/医院非临床区/园区/仓库运营团队的商业清洁运营塔台：
+CleanLoop 是商业清洁的人机协同结果操作系统：
 
-> 把人流、污染点、保洁员、清洁机器人、人工接管和清洁证据连成一条可调度、可验收、会改进的服务闭环。
+> 机器人清洁地面，CleanLoop 闭环商业清洁服务。
 
-它不卖“另一台洗地机器人”。它卖给设施负责人和保洁服务商的是：少漏扫、少投诉、少夜间盯人、能向客户/财务交付 proof-of-service。
+它面向物业集团、保洁承包商、机场、商场、医院非临床区、园区和仓库，把人流、投诉、耗材、保洁员、清洁机器人、人工接管、SLA 和客户报告连成一条可调度、可验收、会改进的服务闭环。
+
+CleanLoop 不卖“另一台洗地机器人”。它卖的是少漏扫、少投诉、少夜班盯人、能向客户和财务证明服务价值的 proof-of-clean。
 
 ## Problem
 
-商业清洁最大痛点不是“没有机器拖地”，而是现场发生了什么没人看得见：
+甲方买的是干净和合规，承包商交付的却常常是工时表、巡检表和事后扯皮。
 
-- 哪里脏？
-- 谁去清？
-- 什么时候清完？
-- 漏掉哪里？
-- 机器人卡住、缺水、低电、绕不开人群时谁接管？
-- 客户投诉、合同验收、SLA 争议时有没有证据？
+商业清洁今天仍按固定排班运行：
 
-买方痛点：
+- 空会议室被重复清洁。
+- 高流量洗手间等到客户投诉才响应。
+- 保洁员流动率高，夜班监督弱。
+- 机器人能跑大面积地面，却处理不了垃圾、补给、边角和异常。
+- 客户续约、SLA 争议、财务 review 需要证据，但现场数据散在微信群、纸表、机器人后台和工单系统里。
 
-- BSC 保洁承包商：排班难、流动率高、夜间监督弱、客户续约需要证据。
-- IFM / 物业集团：多站点、多品牌设备、多外包团队，服务质量难统一。
-- 商场/机场/地铁：高人流、突发污染、湿滑风险、公众投诉压力强。
-- 医院非临床区/校园/园区：低噪、避人、隐私和审计要求更高。
-- 仓库/制造场地：大面积硬地面、夜班、叉车/AMR 通道、SLA 和安全风险。
+核心痛点不是“有没有机器人”，而是现场发生了什么没人看得见、证明不了、学习不了。
 
 ## Why Now
 
-行业已经从“要不要机器人”进入“怎么把机器人纳入运营”。
+清洁机器人进入部署期，但行业还没拿到机器人时代的运营层。
 
 关键变化：
 
-- 美国 BLS 预计 2024-2034 年 janitors/building cleaners 每年约 351,300 个岗位空缺。
-- 2026 年美国 janitorial services market 预计约 1120 亿美元，工资占收入比例高，清洁服务商利润率有限。
-- Brain Corp 公开披露清洁机器人累计 23M+ 自主运行小时、300B+ 平方英尺覆盖。
-- Tennant 2025 年售出第 10,000 台机器人洗地机，并与 Brain Corp 延长合作推动机器人业务。
-- Pudu、Gausium、ECOVACS Commercial、SoftBank Robotics、LionsBot、Kärcher 等在 2026 年继续推新品和海外部署。
-- 中国“机器人+”政策明确提到商用/社区服务机器人；GB/T 46495-2025《商用清洁机器人》将于 2026-05-01 实施。
-- 中国地铁、物业、医院、园区已经出现规模化案例，例如 ECOVACS 在苏州地铁、Gausium 在招商积余 100+ 项目中的部署。
+- 美国 BLS 统计 janitors/building cleaners 约 240 万岗位，并预计 2024-2034 年每年约 351,300 个岗位空缺。
+- ABM 2025 年报显示 direct labor 约占收入 68%，设施服务利润长期被人工成本挤压。
+- Brain Corp 称其 AMR fleet 超 40,000 台并覆盖 250B+ 平方英尺。
+- Tennant 2025 年售出第 10,000 台机器人洗地机，并在 2026 年与 Brain Corp 延长合作、计划两年内推出 10 款机器人产品。
+- SoftBank Robotics Connect 在 2025 年推出多 OEM 清洁机器人 fleet management 平台，说明多品牌运营层正在成为独立问题。
+- 中国物业服务在管面积已达数百亿平方米，收入超过万亿元量级，行业增长从规模扩张转向效率提升。
+- 中国智慧城市、一网统管、智慧物业、AI+住建和服务机器人信息安全标准，为清洁运营数据闭环提供政策语境。
 
-## Insight
+2026 年的问题不是“机器人会不会走路线”，而是如何把需求、人、机器人、证据、SLA 和账单放进同一个系统。
 
-清洁机器人不是产品终点，清洁证据才是客户愿意续费的产品。
+## Core Insight
 
-CleanLoop 的非显而易见判断：
+这个行业真正缺的不是又一个排班软件，也不是又一台洗地机，而是一条可信作业事实链：
 
-> 清洁从固定路线，变成按真实使用量触发的服务。
+> 需求信号 -> 人机执行 -> 质量验证 -> SLA/账单 -> 训练改进。
 
-过去：按班次和路线打卡。
-现在：按人流、污染、投诉、风险、SLA 和机器人状态动态派单。
-未来：每个堵路、漏扫、缺水、人工接管和复检都会让下一班次更准。
+客户不是为“机器人跑了一圈”续费，而是为少漏扫、少投诉、少返工、少夜班盯人和可审计 proof-of-service 续费。
 
 ## Solution
 
-CleanLoop 是商业清洁的人机运营闭环。
+CleanLoop 是商业清洁的人机协同结果操作系统。
 
 产品模块：
 
-1. **Clean Priority Map**：接入楼层图、SLA、班次、人流/投诉/传感器、机器人地图，生成清洁优先级热力图。
-2. **Robot/Human Dispatch**：机器人做地面覆盖，保洁员处理边角、卫生间、垃圾、污渍、补水、异常和客户投诉。
-3. **Proof Pack**：路线覆盖、时间戳、照片/短视频、耗材、异常、人工签核、跳过区域和复检记录自动生成客户报告。
-4. **Ops Finance**：把覆盖面积、机器人小时、人工接管、投诉、返工、节省班次和 SLA 绑定到月度 ROI。
-5. **LeRobot HIL**：堵路、湿滑牌、线缆、玻璃、拥挤、电梯等待、漏扫等失败片段进入训练队列。
+1. **Demand Layer**：把人流、洗手间耗材、投诉、巡检、传感器、工单和服务合同变成清洁优先级。
+2. **Human + Robot Dispatch**：机器人做重复地面覆盖，保洁员处理边角、垃圾、耗材、异常和客户感知。
+3. **Proof-of-Clean**：覆盖热力图、跳过区域、照片、QR/NFC、时间戳、耗材、人工签核和 SLA 结论自动生成。
+4. **ROI Dashboard**：把机器人小时、人工接管、投诉、返工、节省工时、覆盖率和续约证据绑定到月度 review。
+5. **LeRobot HIL**：堵路、湿滑牌、线缆、拥挤、漏扫和人工接管片段进入训练队列。
 
 ## Product Workflow
 
 1. 导入楼层图、服务合同、SLA、禁行区、班次、机器人/人工资源和客户报告模板。
-2. 人流、投诉、相机/传感器、工单或固定巡检触发清洁需求。
-3. CleanLoop 生成 Clean Priority Map，把入口、卫生间、货架通道、餐饮区、事故点排优先级。
-4. 系统派机器人做大面积地面覆盖，派保洁员处理细节、垃圾、补给和异常。
-5. Qualcomm edge 设备在现场识别障碍、污渍、湿滑牌、人群、漏扫和低置信度事件。
+2. 占用率、客流、耗材余量、投诉、巡检和机器人覆盖率进入 CleanLoop。
+3. AI 判断哪些区域立即处理、哪些可跳过、哪些必须人工复核。
+4. 系统把任务推给最近、最合适的保洁员或机器人，并保留 SLA 倒计时。
+5. Qualcomm edge 设备在现场识别障碍、污渍、湿滑牌、人群、线缆和漏扫。
 6. 机器人卡住、缺水、低电、遇到人群或无法覆盖时，自动生成接管任务。
-7. 保洁员补做细节并上传 before/after、签核或照片证据。
+7. 保洁员补做细节并上传 before/after、QR/NFC 签到、签核或照片证据。
 8. 系统生成覆盖热力图、跳过区域、异常原因、人工接管率、SLA proof 和客户报告。
-9. 失败和人工接管片段进入 LeRobot dataset；中国版在本地云训练，海外版在 AWS/GCP/Azure 训练。
-10. 模型经 AI Hub / QNN / QAIRT / ONNX Runtime QNN profile 后回到 Qualcomm edge。
+9. 失败和人工接管片段进入 LeRobotDataset；训练产物经 AI Hub / QNN / QAIRT profile 后回到 Qualcomm edge。
 
 ## Market Wedge
 
-第一客户不是普通办公楼，而是能直接捕捉价值的大面积硬地面场景：
+第一客户不是普通小办公室，而是多站点 BSC、物业集团、机场/地铁、商场、医院公共区、大学、仓库和制造园区。
 
-- 机场、地铁、火车站、商场：高人流、公开投诉、湿滑风险和高频清洁。
-- 仓库、制造园区、3PL：大面积硬地面、夜班、叉车/AMR 通道和安全审计。
-- 医院非临床区：低噪、避人、可追溯清洁记录。
-- 高校/园区/总部：多楼、多班次、多外包团队和统一服务标准。
-- BSC/IFM 承包商：用机器人证据包赢固定价格合同和续约。
+第一 wedge：
+
+> 洗手间闭环 + 夜班硬地面。
+
+原因：
+
+- 洗手间投诉最多、耗材可测、客流明确、标准清晰，ROI 最容易验证。
+- 夜班硬地面重复路线明显，机器人能贡献可量化自主小时。
+- 两个场景都能把“是否干净”变成客户可读的 proof pack。
 
 中国版：
 
-- 物业集团、地铁/机场、商场、医院、园区、学校、制造园区。
-- 对接高仙、科沃斯商用、普渡、霞智、汤恩等设备生态。
-- 本地数据、本地云、私有部署、PIPL、视频默认不上云、脸/人形模糊。
+- 目标客户：招商积余、万物云/万物梁行、碧桂园服务、保利物业、商办运营商、地铁/机场/园区、医院公共区。
+- 渠道伙伴：高仙、普渡、科沃斯商用、擎朗、亿嘉和、智行者/蜗小白等清洁和服务机器人生态。
+- 部署要求：本地数据、本地云、私有化可选、PIPL、视频最小化、人脸/人体模糊、服务机器人信息安全。
+- 政策叙事：智慧物业、一网统管、AI+住建、城市运行平台和公共场所卫生标准。
 
 海外版：
 
-- BSC/IFM、机场/体育场、大学、仓库、医院非临床区、大型零售。
-- 对接 Brain/Tennant、Pudu、Gausium、Avidbots、LionsBot、Kärcher、SoftBank Robotics。
-- 先从一个站点、一个 night-shift floor-care route、一个 proof pack 切入。
+- 目标客户：BSC/IFM、机场/体育场、大学、仓库、医院非临床区、大型零售和多站点物业。
+- 生态伙伴：Brain/Tennant、Pudu、Gausium、Avidbots、LionsBot、Karcher、SoftBank Robotics、CMMS/IFM suite。
+- 切入方式：一个站点、一个 night-shift floor-care route、一个 proof pack，然后复制到多站点合同。
 
 ## Business Model
 
-收入模型：
+CleanLoop 不是按座席卖普通软件，而是按站点结果、机器人运营和 proof-of-clean 收费。
 
-> paid pilot + site SaaS + robot ops subscription + proof/ROI reporting + optional all-in RaaS
+建议模型：
 
-建议价格：
+- **Paid Pilot**：海外 8k-30k 美元；中国 5万-30万元。2 周 baseline + 30 天试点 + 60-90 天生产 rollout。
+- **Site SaaS**：250-750 美元 / site / month 起，企业版按多站点、SLA 报告、CMMS/BMS 集成和客户门户扩张。
+- **Robot Ops**：150-300 美元 / robot / month，叠加多品牌 fleet、路线 proof、异常接管和模型 profile。
+- **Implementation**：1.5k-5k 美元 / site；中国大型物业/园区按集成复杂度计费。
+- **RaaS Partner**：机器人由 OEM/租赁伙伴提供，CleanLoop 收软件和运营层费用，避免早期资产负债过重。
 
-- 付费试点：海外 10k-25k 美元；中国 10-40 万元，8-12 周。
-- Site SaaS：1.5k-3k 美元 / site / month，覆盖地图、工单、证据、报告和集成。
-- Robot Ops：1k-3k 美元 / robot / month，客户已有或租赁机器人时收运营层费用。
-- All-in RaaS：把机器人、维护、软件、报告和训练打包，价格锚定少一个重复地面清洁 FTE。
-- 中国租赁版：按站点、机器人、清洁面积、任务量和报告模板收费，支持 1288 元/月/台级别低门槛设备租赁生态。
+ROI 假设：
+
+- BLS median janitor wage 为 17.27 美元/小时；用 24-30 美元/小时作为 fully loaded 成本更接近采购测算。
+- 1,200 美元/月的机器人 + 软件 stack，需要每月约 40-50 小时重复劳动释放来打平。
+- 高适配站点应能展示每台机器人每月 75-150 小时重分配空间。
+- 100k sq ft 零售/仓库站点，若每月释放 100-140 小时，可能对应 2.4k-4.2k 美元/月人工基线。
 
 试点 KPI：
 
-- coverage rate。
-- skipped area。
-- intervention rate。
+- autonomous hours / month。
+- sq ft cleaned。
+- route completion。
+- interventions / hour。
+- human hours reallocated。
+- inspection score。
+- complaints per 10k sq ft。
+- work-order response time。
+- callback / rework cost。
 - proof latency。
-- complaint rate。
-- robot hours。
-- labor redeployment。
-- SLA pass rate。
-- monthly proof pack used in customer/finance review。
+- renewal / RFP impact。
 
 ## Go-To-Market
 
+像早期 Airbnb 一样，先手工跑深一个场景，再复制到多站点。
+
 第一阶段：
 
-1. 找一个 50k+ sq ft、每周 5 晚重复清洁的大面积硬地面场地。
-2. 部署一条机器人地面清洁路线 + 一个保洁员异常队列 + 一个主管证据 dashboard。
-3. 用 8-12 周数据证明 coverage、接管率、投诉、返工和服务证据。
-4. 将报告直接给设施负责人、财务或客户合同经理，而不是只给机器人运营员。
+1. 在一个城市找到 3-5 家 BSC / 物业客户，每家 5-20 个高流量站点。
+2. 团队跟夜班 cleaner 一起跑楼，手工标注最痛的 20 个清洁事件。
+3. 先做“洗手间闭环 + 一条夜班硬地面机器人路线 + 一个主管证据 dashboard”。
+4. 输出客户愿意转发给老板的 before/after、coverage、异常、耗材、投诉和 proof-of-clean 报告。
 
 第二阶段：
 
-- 复制到同一建筑的卫生间、入口、餐饮区、仓库通道、地下停车场。
-- 扩展到多楼、多站点和多品牌机器人。
+- 从洗手间扩到入口、餐饮区、仓库通道、地下停车场。
+- 从一个站点扩到多楼、多站点和多品牌机器人。
 - 与 CMMS / IFM suite / ServiceNow / Maximo / Eptura / 保洁排班软件集成。
 - 与机器人 OEM 和 BSC/IFM 服务商合作，把 CleanLoop 作为合同 proof layer。
 
 ## Competition
 
-CleanLoop 不替代清洁机器人厂商，也不替代保洁软件。它把它们连接成运营闭环。
+CleanLoop 不替代清洁机器人厂商，也不替代保洁软件。它站在它们上层，把需求、人员、机器人、证据和账单接起来。
 
-- Brain / Tennant：单机成熟、渠道强、部署规模大；CleanLoop 做跨品牌任务、证据和客户报告层。
-- Pudu / Gausium / ECOVACS：产品线和中国/海外部署强；CleanLoop 统一多品牌 fleet 和人机交接。
-- Avidbots / LionsBot / Kärcher：工业和传统清洁设备渠道强；CleanLoop 让客户看到 facility-level ROI。
-- SoftBank Robotics / Whiz：RaaS 和服务体系强；CleanLoop 做设施级 priority map 和 proof pack。
-- Mero / Swept / Optii / TEAM：保洁运营软件强；CleanLoop 原生连接机器人、edge perception 和 HIL training。
-- ServiceNow / Maximo / Eptura：设施工单和资产管理强；CleanLoop 做清洁执行层和证据层。
+- Brain / Tennant：单机成熟、渠道强、规模大；CleanLoop 做跨品牌任务、proof 和客户 ROI 层。
+- Pudu / Gausium / ECOVACS：中外部署强、产品迭代快；CleanLoop 统一多品牌 fleet 和人机交接。
+- Karcher / Nilfisk / LionsBot / Avidbots：硬件和设备渠道强；CleanLoop 提供 facility-level ROI、数据报告和 HIL 层。
+- Swept / TEAM / Otuvy / Janitorial Manager：排班、检查、沟通强；CleanLoop 原生连接机器人、edge perception 和 proof pack。
+- ServiceNow / Maximo / Eptura：工单和资产强；CleanLoop 做实时清洁执行层和结果证据层。
+- SoftBank Robotics Connect：多 OEM fleet 思路接近；CleanLoop 的差异是从清洁需求、人工异常、SLA proof 和训练数据做完整闭环。
 
 ## Moat
 
-壁垒不是某一台机器人，而是：
+壁垒不是某台机器人，而是每栋楼自己的清洁图谱和结果数据网络：
 
-> site semantic map + cleaning demand + human-robot execution + proof pack + HIL data
-
-会积累的资产：
-
-- 每栋楼的高风险区、堵点、投诉点、湿滑点、清洁频率和人工接管历史。
+- 高风险区、堵点、投诉点、湿滑点、清洁频率和人工接管历史。
 - 机器人路线、覆盖足迹、跳过区域、耗材、缺水/低电/堵塞原因。
-- before/after evidence、客户报告模板、SLA 争议记录和合同续约证据。
+- before/after evidence、QR/NFC、客户报告模板、SLA 争议记录和合同续约证据。
 - 多品牌机器人 adapters、CMMS/BMS/elevator/door/保洁软件连接器。
 - 隐私策略、视频最小化、模糊化、保留周期和本地部署 playbook。
-- LeRobot HIL 清洁恢复数据集和 Qualcomm edge profiles。
+- LeRobot HIL 清洁恢复数据集、Qualcomm edge profile、shadow validation、canary 和 rollback。
+
+时间越久，CleanLoop 越懂这栋楼该怎么清、怎么报价、怎么证明结果。
 
 ## Architecture
 
-### CleanLoop Scheduler
+### Facility Systems
 
-- 接 work-order app / CMMS / IFM suite / 保洁排班软件。
-- 生成 CleanTask、ExceptionTask、ProofPack、SLAReport。
-- 支持 ServiceNow、Maximo、Eptura、CSV/API/mock CMMS 起步。
+- CMMS / work orders。
+- BMS / BACnet / occupancy / HVAC / lighting。
+- Access control / doors / elevators。
+- 客流、耗材、投诉、巡检和服务合同。
 
-### Facility Map Layer
+### CleanLoop Orchestration Layer
 
-- 导入 CAD / floor plan / robot map。
-- 区分 traffic lane、cleaning zone、no-go zone、elevator、door、charging、water station。
-- 用 Open-RMF Traffic Editor 管理共享设施语义。
+- Task planner + SLA engine。
+- Open-RMF fleet adapter。
+- Facility map + zone graph。
+- Evidence ledger + ticket closer。
+- Model registry + OTA rollout gates。
 
 ### Robot Edge
 
-- RGB/depth camera、2D/3D LiDAR、IMU、wheel odometry、cleaning base。
-- ROS 2 / Nav2 / SLAM / opennav_coverage。
-- Qualcomm RB3 Gen 2 原型；RB6 / Dragonwing IQ10 作为多摄像头和生产级路径。
+- Qualcomm RB3 Gen 2 比赛原型；RB5/RB6 或 Dragonwing IQ10 作为多摄像头和生产级路线。
+- RGB/depth cameras、LiDAR/ToF、IMU、encoders、bumper、battery、payload sensors。
+- ROS 2、Nav2、coverage planner、cleaning controller、safety supervisor。
+- 端侧识别人、障碍、污渍、湿滑牌、线缆、漏扫和低置信度事件。
 
-### Privacy-First Perception
+### Data Loop
 
-- 人/障碍/污渍/湿滑牌/线缆/漏扫在端侧识别。
-- 默认上传事件、mask、heatmap、count、coverage，不上传原始视频。
-- 人脸/人体模糊，医院/地铁/园区支持本地数据平面。
+- MCAP / rosbag -> dataset ETL -> LeRobotDataset。
+- HIL correction -> reward classifier / policy training。
+- Offline validation -> shadow mode -> canary rollout -> rollback。
 
-### Learning Loop
+安全边界：
 
-- 记录 camera/LiDAR/costmap/pose/zone/work-order/action/human correction。
-- Nav2/RMF 仍是安全和导航权威；学习策略只建议 recovery action、zone strategy 或 task priority。
-- 中国训练：阿里云 PAI-DLC、腾讯 TI-ONE、华为 ModelArts 或私有云。
-- 海外训练：AWS SageMaker、Google managed training、Azure ML、NVIDIA DGX Cloud。
-- 区域训练产物经 AI Hub/QNN/QAIRT profile 后 OTA 到 edge fleet。
+- Nav2 / RMF / safety supervisor 仍是安全和导航权威。
+- 学习策略只能建议 recovery action、zone strategy 或 task priority。
+- 学习策略不能越过速度、急停、禁区、液体、障碍和人群安全约束。
 
 ## Competition Demo
 
 3 分钟 demo：
 
-1. 晚高峰后，商场入口热力图变红，生成 `clean_lobby` 任务。
-2. 清洁机器人执行地面覆盖，dashboard 显示覆盖轨迹和剩余区域。
-3. 货架/通道被障碍物挡住，机器人请求人工接管。
-4. 保洁员处理污渍并上传 before/after 证据。
-5. 系统生成 proof pack：覆盖面积、跳过区域、异常原因、人工接管、时间戳和 SLA 结论。
-6. 接管片段导出为 LeRobot episode，展示下一轮训练队列和 Qualcomm edge profile。
+1. Mock CMMS/BMS 创建 `Lobby spill, Zone A, SLA 10 min` 设施事件。
+2. Open-RMF 把任务分配给 Robot 1，Robot 2 显示充电或不可用。
+3. Robot 1 在楼层图上定位，Nav2 执行 coverage path，绕开行人和手推车。
+4. Qualcomm edge 在断网状态下识别人、污渍、湿滑牌、障碍和低置信区域。
+5. 机器人完成清洁，dashboard 生成 before/during/after、coverage heatmap、耗材、签名和 SLA 结论。
+6. 系统自动关闭 CMMS ticket，并附 proof bundle。
+7. 放置一个模型误判的异常物体，人工接管 20 秒；片段保存为 LeRobotDataset，进入 shadow validation。
 
 演示重点：
 
-> 不是机器人跑一圈，而是主管少看 20 个群消息，只看一个异常队列和一份证据报告。
+> 不是机器人跑一圈，而是主管少看 20 个群消息，只看一个异常队列和一份客户可读 proof report。
 
 ## Why Qualcomm
 
-CleanLoop 是 Qualcomm 在公共空间 edge AI 里的高频商业场景：
+CleanLoop 是 Qualcomm 在智能物业和公共空间 robotics 里的高频样板：
 
 - 商业清洁发生在公共空间，视频和传感器数据不适合全量上云。
 - 现场需要低延迟障碍、污渍、湿滑牌、人群和漏扫识别。
 - 弱网、电梯/门禁、夜间运行和多楼层覆盖要求本地可靠执行。
-- RB3 Gen 2 适合比赛原型，RB6/Dragonwing IQ10 适合多摄像头、多传感器、5G/private-network 的生产路线。
+- RB3 Gen 2 适合比赛原型；RB5/RB6 或 Dragonwing IQ10 适合多摄像头、多传感器、5G/private-network 的生产路线。
 - AI Hub / QNN / QAIRT 把云训练模型变成可部署、可 profile、可回滚的 edge artifact。
 - LeRobot HIL 把保洁员接管和场地异常变成下一轮机器人恢复能力。
+
+Qualcomm 的价值不是“提供一块板”，而是把端侧 AI、连接、模型部署和机器人生态变成可复制的设施级解决方案。
 
 ## Ask
 
 比赛阶段需要：
 
-- RB3 Gen 2 / RB6 + Vision Kit 或等价 Qualcomm edge dev kit。
-- 一个清洁机器人 OEM、BSC/IFM 服务商或物业/园区试点伙伴。
-- 一个真实楼层图和 2 周匿名清洁运营数据。
-- 一个 mock CMMS / work-order API。
+- RB3 Gen 2 / RB5 / RB6 + Vision Kit 或等价 Qualcomm edge dev kit。
+- 一个清洁机器人 OEM、BSC/IFM 服务商、物业集团或园区/商场试点伙伴。
+- 真实楼层图、2 周匿名清洁运营数据、洗手间/入口任务流和 mock CMMS/BMS API。
 - AI Hub / QNN profile 支持，用于展示从区域云训练到 edge deployment 的完整证据链。
+- 90 天内交付 Qualcomm-powered CleanLoop Edge Kit，并在真实商业楼宇中证明更少投诉、更少浪费、更高 SLA 可验证率。
 
 ## Claims To Avoid
 
@@ -252,36 +263,35 @@ CleanLoop 是 Qualcomm 在公共空间 edge AI 里的高频商业场景：
 
 ## Sources
 
+- Facility management market：https://www.gminsights.com/industry-analysis/facilities-management-market
+- Cleaning services market：https://www.grandviewresearch.com/industry-analysis/cleaning-services-market-report
+- Janitorial services market：https://www.grandviewresearch.com/industry-analysis/janitorial-service-market
 - BLS janitors outlook：https://www.bls.gov/ooh/building-and-grounds-cleaning/janitors-and-building-cleaners.htm
-- CMM / IBISWorld janitorial economics：https://cmmonline.com/news/u-s-janitorial-services-market-projected-to-grow-nearly-2-in-2026
-- ISSA robotics mainstream：https://www.issa.com/articles/going-mainstream/
+- ABM 2025 10-K：https://www.sec.gov/Archives/edgar/data/771497/000077149725000031/abm-20251031.htm
 - Brain Corp floor care：https://www.braincorp.com/floor-care
+- Brain map-centric workflows / AMR scale：https://www.braincorp.com/resources/brain-corp-unveils-new-map-centric-workflows-simplifying-robot-operations-and-boosting-visual-clarity
 - BrainOS Clean 2.0：https://www.braincorp.com/resources/brain-corp-launches-brainos-r-clean-2-0-with-selfpath-tm-ai-advancing-adaptive-autonomy-for-tennant-company-floor-cleaning-robots
-- Brain Corp scale：https://www.braincorp.com/resources/brain-corps-autonomous-robot-fleet-hits-250-billion-square-feet-milestone-leads-global-surge-in-robotic-automation
-- Tennant 10,000 robotic scrubbers：https://investors.tennantco.com/news/news-details/2025/Tennant-Company-Sells-10000th-Robotic-Scrubber-Underscoring-Global-Demand-for-Cleaning-Automation/default.aspx
-- Tennant / Brain 2026：https://investors.tennantco.com/news/news-details/2026/Tennant-Company-and-Brain-Corp-Agree-to-Accelerate-Robotic-Cleaning-Innovation-Advancing-Tennants-Transformation-into-a-Robotics-and-Technology-Leader/default.aspx
-- Pudu / Denner：https://www.prnewswire.com/news-releases/pudu-robotics-and-robobee-forge-strategic-partnership-with-denner-for-major-robotic-cleaning-deployment-across-swiss-stores-302795108.html
-- Pudu cleaning growth：https://www.intercleanshow.com/products-and-services/pudu-robotics/news/70-of-total-revenue-how-pudu-s-commercial-cleaning-robots-became-the-core-growth-engine
+- Tennant 10,000th robotic scrubber：https://investors.tennantco.com/news/news-details/2025/Tennant-Company-Sells-10000th-Robotic-Scrubber-Underscoring-Global-Demand-for-Cleaning-Automation/default.aspx
+- Tennant / Brain 2026 partnership：https://investors.tennantco.com/news/news-details/2026/Tennant-Company-and-Brain-Corp-Agree-to-Accelerate-Robotic-Cleaning-Innovation-Advancing-Tennants-Transformation-into-a-Robotics-and-Technology-Leader/default.aspx
+- SoftBank Robotics Connect：https://www.softbankrobotics.com/news/softbank-robotics-america-launches-heterogenous-integration-platform-for-the-commercial-cleaning-industry/
+- Pudu commercial cleaning growth：https://www.intercleanshow.com/products-and-services/pudu-robotics/news/70-of-total-revenue-how-pudu-s-commercial-cleaning-robots-became-the-core-growth-engine
 - Gausium roadmap：https://gausium.com/2026/02/25/future-of-commercial-cleaning-robots/
-- Gausium Interclean：https://gausium.com/news/gausium-introduces-two-new-outdoor-sweepers-and-industrys-largest-cleaning-robot-lineup-at-interclean-amsterdam-2026/
-- ECOVACS Commercial：https://www.ecovacsgroup.com/service/commercial-robot
-- ECOVACS Suzhou Metro：https://www.ecovacsb2b.com/news/detail?id=67
-- Gausium / 招商积余：https://www.gs-robot.com/case/招商积余100项目上岗高仙商用清洁机器人智慧清/
-- Pudu China：https://www.pudutech.com/zh-CN
-- GB/T 46495-2025：https://std.samr.gov.cn/gb/search/gbDetailed?id=17AC6A11BB1CD005E06397BE0A0AC8FC
-- PIPL：https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
-- CAC data export rules：https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm
+- ECOVACS commercial：https://www.ecovacsgroup.com/service/commercial-robot
+- China property market：https://www.cih-index.com/wy/industrydynamics/news/industryheadline/54607971.html
+- China property satisfaction：https://m.cih-index.com/wy/industrynews/news/53121895.html
+- China smart city policy：https://www.nda.gov.cn/sjj/ywpd/szsh/1031/20251031113517721281473_pc.html
+- Gausium property case：https://www.gs-robot.com/case/招商积余100项目上岗高仙商用清洁机器人智慧清/
+- GB/T 46495 commercial cleaning robots：https://std.samr.gov.cn/gb/search/gbDetailed?id=17AC6A11BB1CD005E06397BE0A0AC8FC
+- GB/T 45502 service robot information security：https://std.samr.gov.cn/gb/search/gbDetailed?id=31DA5F377BB58F08E06397BE0A0A4CFB
 - Open-RMF：https://www.open-rmf.org/
 - Nav2 coverage：https://docs.nav2.org/configuration/packages/configuring-coverage-server.html
+- MCAP：https://mcap.dev/guides
+- BACnet：https://www.ashrae.org/technical-resources/technical-faqs/question-51-what-is-bacnet
 - Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- Qualcomm RB5：https://www.qualcomm.com/developer/hardware/robotics-rb5-development-kit
 - Qualcomm RB6：https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform
+- Qualcomm IQ10 robotics reference design：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
 - Qualcomm AI Hub：https://workbench.aihub.qualcomm.com/docs/
 - QNN / QAIRT：https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-10/QNN_general_overview.html
-- Qualcomm Robotics ROS：https://www.qualcomm.com/developer/project/robotics-ros
 - LeRobot HIL：https://huggingface.co/docs/lerobot/hil_data_collection
-- LeRobotDataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
-- Alibaba PAI-DLC：https://www.alibabacloud.com/help/en/pai/what-is-dlc
-- Tencent TI-ONE：https://www.tencentcloud.com/document/product/1141
-- Huawei ModelArts：https://support.huaweicloud.com/intl/en-us/usermanual-standard-modelarts/develop-modelarts-0001.html
-- AWS SageMaker：https://docs.aws.amazon.com/sagemaker/latest/dg/train-model.html
-- Azure ML：https://learn.microsoft.com/en-us/azure/machine-learning/how-to-train-distributed-gpu
+- LeRobotDataset：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
