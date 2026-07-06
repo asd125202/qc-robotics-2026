@@ -51,6 +51,7 @@ Current batch:
 - `grid-loop/` — distribution-grid exception-closure platform for voltage anomalies, transformer overload, thermal defects, vegetation/wildfire/storm risk, DER/EV constraints, robot/drone inspection, LeRobot HIL, and Qualcomm edge evidence packets.
 - `rail-loop/` — rail/metro exception-closure platform for platform doors, escalators, water intrusion, equipment alarms, visible trackside defects, inspection robots, hidden-danger ledgers, LeRobot HIL, and Qualcomm edge evidence packets.
 - `compute-loop/` — AI data center exception-closure platform for GPU faults, liquid cooling, thermal/leak/power/PUE anomalies, robot inspection, LeRobot HIL, and Qualcomm edge evidence packets.
+- `build-loop/` — construction-site safety exception-closure platform for fall-edge, PPE, exclusion-zone, temporary electrical, hot-work, confined-space, subcontractor remediation, LeRobot HIL, and Qualcomm edge evidence packets.
 - `roboport/` — certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `business-case/` — commercialization, pricing package, and revenue flywheel story.
 - `submission-kit/` — preliminary project-book and upload-readiness page.

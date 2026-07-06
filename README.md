@@ -64,6 +64,7 @@ The current first-batch pitch directions are:
 - `GridLoop 配网异常闭环`: distribution-grid exception-closure platform for voltage anomalies, transformer overload, thermal defects, vegetation/wildfire/storm risk, DER/EV constraints, robot/drone inspection, LeRobot HIL, and Qualcomm edge evidence packets.
 - `RailLoop 轨交异常闭环`: rail/metro exception-closure platform for platform doors, escalators, water intrusion, equipment alarms, visible trackside defects, inspection robots, hidden-danger ledgers, LeRobot HIL, and Qualcomm edge evidence packets.
 - `ComputeLoop 智算异常闭环台`: AI data center exception-closure platform for GPU faults, liquid cooling, thermal/leak/power/PUE anomalies, robot inspection, LeRobot HIL, and Qualcomm edge evidence packets.
+- `BuildLoop 安闭环`: construction-site safety exception-closure platform for fall-edge, PPE, exclusion-zone, temporary electrical, hot-work, confined-space, subcontractor remediation, LeRobot HIL, and Qualcomm edge evidence packets.
 - `RoboPort`: certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.

@@ -119,6 +119,7 @@ Qualcomm 可以通过该项目获得一个端到端机器人生态样板：
 - GridLoop 配网异常闭环页：https://qc-robotics-2026.pages.dev/grid-loop/
 - RailLoop 轨交异常闭环页：https://qc-robotics-2026.pages.dev/rail-loop/
 - ComputeLoop 智算异常闭环台页：https://qc-robotics-2026.pages.dev/compute-loop/
+- BuildLoop 安闭环页：https://qc-robotics-2026.pages.dev/build-loop/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/

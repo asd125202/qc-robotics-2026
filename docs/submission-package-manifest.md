@@ -70,6 +70,7 @@ Suggested contents:
 - `docs/grid-loop.md`
 - `docs/rail-loop.md`
 - `docs/compute-loop.md`
+- `docs/build-loop.md`
 - `docs/cert-forge.md`
 
 Screenshots or exported pages from:
@@ -108,6 +109,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/grid-loop/
 - https://qc-robotics-2026.pages.dev/rail-loop/
 - https://qc-robotics-2026.pages.dev/compute-loop/
+- https://qc-robotics-2026.pages.dev/build-loop/
 - https://qc-robotics-2026.pages.dev/worldforge/
 - https://qc-robotics-2026.pages.dev/robotrust/
 - https://qc-robotics-2026.pages.dev/roboport/
