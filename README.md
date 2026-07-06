@@ -82,7 +82,7 @@ The current first-batch pitch directions are:
 - `FleetConductor`: YC-style local edge robot tower pitch for second-vendor rollout, mixed-vendor AMR orchestration, VDA 5050/Open-RMF adapters, site graph, traffic reservations, doors/elevators/chargers, incident replay, and LeRobot feedback.
 - `CareOps`: YC-style hospital logistics control-plane pitch for sealed specimen transport, medication/supply handoff, LIS/LIMS/FHIR-style workflow, privacy-first edge vision, chain-of-custody evidence, China/overseas data lanes, and Qualcomm AI Hub/QNN deployment proof.
 - `FieldOps`: YC-style new-energy field evidence pitch for solar/remote-asset exception closure, mixed drone/UGV/quadruped missions, weak-network execution, ODD safety envelopes, EvidencePackage APIs, China/overseas training lanes, and Qualcomm AI Hub/QNN release gates.
-- `SafetyOps`: safety runtime, skill permissions, model release gates, audit ledger, and compliance evidence pack.
+- `SafetyOps`: YC-style robot skill release-gate pitch for skill permissions, ODD/safety envelopes, AI Hub/QNN profile evidence, ROS/DDS command admission, incident ledgers, rollback, insurer/customer audit packs, and China/overseas trust shells.
 - `机御 Zero`: motion-level zero trust fabric for robot identity, ROS/DDS least privilege, JIT remote access, signed OTA, SBOM/VEX, SOC export, and auditable motion command policy.
 - `DualCloudOps`: China/overseas GPU-cloud provider adapters behind one LeRobot training job contract.
 - `RevenueStack`: pricing ladder, pilot contracts, recurring revenue lines, and Qualcomm ecosystem economics.
