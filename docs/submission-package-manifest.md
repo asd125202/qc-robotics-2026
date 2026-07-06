@@ -51,6 +51,7 @@ Suggested contents:
 - `docs/warehouse-loop.md`
 - `docs/quality-loop.md`
 - `docs/agri-loop.md`
+- `docs/cold-chain-loop.md`
 - `docs/cert-forge.md`
 
 Screenshots or exported pages from:
@@ -70,6 +71,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/warehouse-loop/
 - https://qc-robotics-2026.pages.dev/quality-loop/
 - https://qc-robotics-2026.pages.dev/agri-loop/
+- https://qc-robotics-2026.pages.dev/cold-chain-loop/
 - https://qc-robotics-2026.pages.dev/worldforge/
 - https://qc-robotics-2026.pages.dev/robotrust/
 - https://qc-robotics-2026.pages.dev/roboport/
@@ -130,6 +132,7 @@ Suggested values to review:
 - Warehouse exception-closure platform page: `https://qc-robotics-2026.pages.dev/warehouse-loop/`.
 - Manufacturing quality closed-loop page: `https://qc-robotics-2026.pages.dev/quality-loop/`.
 - Verified farm-work operating loop page: `https://qc-robotics-2026.pages.dev/agri-loop/`.
+- Cold-chain exception-closure page: `https://qc-robotics-2026.pages.dev/cold-chain-loop/`.
 - Simulation data factory page: `https://qc-robotics-2026.pages.dev/worldforge/`.
 - Robot data trust cloud page: `https://qc-robotics-2026.pages.dev/robotrust/`.
 - Robot module port ecosystem page: `https://qc-robotics-2026.pages.dev/roboport/`.

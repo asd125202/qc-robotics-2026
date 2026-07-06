@@ -194,6 +194,10 @@ img {
   background-image: url("./assets/agri-loop.png");
 }
 
+.hero-cold-chain-loop {
+  background-image: url("./assets/cold-chain-loop.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }
