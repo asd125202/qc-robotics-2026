@@ -41,7 +41,7 @@ The current first-batch pitch directions are:
 - `SiteLedger 工地实录`: construction-site memory and evidence platform for layout verification, progress/QA capture, safety observations, payment evidence, BIM/CDE integration, and LeRobot data loops.
 - `StoreLoop 门店异常闭环`: retail store exception-closure platform for shelf gaps, price mismatches, expiry/cold-chain issues, returns, instant-retail picking, pharmacy compliance, proof-of-closure, and LeRobot training loops.
 - `FoodLoop 餐饮异常闭环`: restaurant exception-closure platform for KDS/POS tickets, tray/bag verification, delivery/bussing, cleaning proof, food-safety logs, waste/rework attribution, and LeRobot HIL loops.
-- `护元 CareOS`: eldercare productivity platform for home, community, and facility care tasks, privacy-first Qualcomm edge execution, caregiver escalation, service evidence, and LeRobot HIL loops.
+- `护元 CareOS 照护异常闭环`: eldercare exception-closure platform for home, community, and facility care tasks, privacy-first Qualcomm edge execution, caregiver escalation, service evidence, and LeRobot HIL loops.
 - `WarehouseLoop 仓务异常闭环`: warehouse exception-closure platform for WMS mismatches, receiving/putaway errors, returns grading, photo/barcode proof, WMS writeback, and LeRobot HIL loops.
 - `QualityLoop 质检闭环`: manufacturing quality closed-loop system for defect evidence, RCA/CAPA, re-inspection, MES/QMS writeback, edge vision governance, and LeRobot HIL loops.
 - `AgriLoop 农务闭环`: verified farm-work operating loop for scouting, prescriptions, farm-service dispatch, robot/drone execution, proof-of-work, traceability, cost, and LeRobot HIL loops.

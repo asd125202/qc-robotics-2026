@@ -1,284 +1,186 @@
-# 护元 CareOS Pitch
+# 护元 CareOS 照护异常闭环 Pitch
 
-更新时间：2026-07-06。
+更新时间：2026-07-06。养老政策、长护险、护理机构支付、隐私合规、机器人安全和医疗软件边界变化很快；正式提交前需要复核客户流程、监管红线、设备认证和数据合规。
 
-## Core Thesis
+## 一句话
 
-护元 CareOS 是面向居家、社区和机构养老的护理生产力平台：
+护元 CareOS：把远方子女的担心，变成可执行的照护。
 
-> 用 Qualcomm 端侧机器人、LeRobot 人机协同训练闭环和云端模型迭代，把巡护、提醒、递送、风险上报、任务核验和人工接管变成可记录、可复盘、可持续升级的照护能力。
+它面向居家、社区、机构、长护险服务商和护理团队，把日常节律、温和提醒、非急救异常、机器人递送、人机接管、家属摘要和服务证据，变成可派单、可验证、可复盘、可训练的照护异常闭环。
 
-它不定位为“机器人护士”，也不承诺替代护工、医疗诊断、用药决策或全自动照护。更稳妥的商业叙事是：
+## Problem
 
-- 让护理员少跑腿、少重复提醒、少漏任务。
-- 让机构和社区能把服务过程记录下来。
-- 让家属看到经过授权的照护摘要，而不是原始监控视频。
-- 让每次失败、人工接管和低置信度场景进入 LeRobot-style 数据集。
-- 让 Qualcomm edge 成为养老机器人真正可部署的本体计算底座。
+养老的痛点不是缺一个聊天机器人，而是没人知道“现在该谁做什么”。
 
-## Pitch Spine
+- 父母不想被摄像头监控，也不想过早离开熟悉的家。
+- 子女每天在猜：没接电话是在睡觉、忘了提醒，还是需要人去看一眼。
+- 护理员进门前常常不知道过去 12 小时发生了什么。
+- 机构需要夜间巡视、提醒、服务记录、家属沟通和质控留痕。
+- 长护险、家庭养老床位和社区服务需要过程证据和结算材料。
 
-### One-Line Company
+现有方案碎片化：手表要戴、按钮要按、音箱太被动、摄像头太冒犯、人工护理太贵且不足。
 
-护元 CareOS helps eldercare institutions, community care stations, and home-care providers turn fragmented care tasks into safe, auditable, human-supervised robot workflows.
+## Why Now
 
-中文一句话：
+老龄化、护理缺口、政策支付和 edge AI 在同一窗口叠加。
 
-> 养老机构和社区护理团队用护元 CareOS 把巡护、提醒、递送、风险上报和人工接管交给安全可接管的边缘机器人执行，并把每次失败变成下一版可部署技能。
+- WHO 预计全球 60+ 人口从 2020 年约 10 亿增至 2030 年 14 亿、2050 年 21 亿；80+ 到 2050 年约 4.26 亿。
+- WHO 估计到 2030 年全球卫生工作者短缺 1100 万。
+- BLS 预计美国 home health and personal care aides 2024-2034 增长 17%，每年约 765,800 个岗位空缺。
+- AARP/NAC 2025 报告称美国 6300 万成人是照护者，约 1/4 成人。
+- 2025 年末中国 60 岁及以上人口 3.2338 亿，占总人口 23.0%。
+- 2024 年末中国各类养老机构和设施 40.6 万个，养老床位 799.3 万张。
+- 中国长护险正在从试点走向全国建制，2025 年底试点地区 92 个、覆盖 3.08 亿参保人。
 
-### Problem
+真正的创业窗口来自：家庭照护能力变薄、机构人力不足、长护险制度化、智能养老机器人试点和端侧机器人能力同时成熟。
 
-养老行业不是缺一个聊天机器人，而是缺可复制的护理产能：
+## Core Insight
 
-- 护理员时间被巡房、提醒、找物、递送、记录和家属沟通切碎。
-- 机构和社区需要可证明的服务记录，否则很难验收、结算和扩点。
-- 家属需要安心和摘要，但老人生活空间不能变成默认上传的监控视频。
-- 机器人如果直接承诺“替代护工”会碰到安全、伦理、监管和接受度风险。
+家庭不会为“机器人”付费，他们为“我知道下一步该谁做”付费。
 
-### Why Now
+CareOS 不是跌倒报警器、陪聊玩具或机器人护士，而是照护异常闭环系统：
 
-- 中国老龄化、养老设施、长护险制度化和“机器人+养老”政策在同一时期形成窗口。
-- Qualcomm 端侧 AI、多摄像头、连接、安全启动和低功耗能力让本地感知执行更现实。
-- LeRobot/HIL 让真实失败和人工接管可以变成可复用训练资产。
-- 海外 ElliQ、Labrador、Moxi、Relay、Nobi、Vayyar、Hero Health 已经验证多个窄场景付费入口。
+`发现异常 -> 判断严重度 -> 找到责任人 -> 远程确认/机器人辅助 -> 升级家属/护理员/机构 -> 自动文档 -> 形成支付与风控证据`
 
-### Non-Obvious Insight
+## Solution
 
-第一代可商业化养老机器人不是“机器人护士”，而是“护理团队放大器”：先把高频、低风险、可接管、可审计的碎片任务闭环，再用 HIL 数据逐步扩大技能边界。
+CareOS 在老人同意的边界内学习日常基线，先用温和提醒处理低风险任务，再按风险和权限升级给家人、护理员、机构或服务商。机器人只在安全边界内执行递送、提醒、巡护和低风险辅助。
 
-### Solution
+1. 发现异常：未回应、药盒未确认、夜间多次起身、长时间静止、离床/离房、通道障碍、服务逾期。
+2. 判断优先级：按风险等级、护理计划、时间窗口、家属偏好、机构 SOP 和服务商 SLA 排序。
+3. 自动派单：分配给老人本人、家属、邻居、护理员、机构值班人员、服务商或远程接管员。
+4. 验证结案：用确认按钮、语音回应、位置摘要、机器人状态、护理员记录和签名证据关闭任务。
+5. 训练迭代：把低置信度、人工接管、误报/漏报复盘和机器人动作失败导出为 LeRobot episode。
 
-CareOS = Robot Edge + CareOps Console + Skill Cloud + Safety Envelope。
+## Product Workflow
 
-- Robot Edge 执行低速导航、端侧感知、隐私过滤、任务核验和轻物品操作。
-- CareOps Console 管护理任务、服务记录、家属摘要、异常升级和角色权限。
-- Skill Cloud 把失败、低置信度和接管片段变成 LeRobot episode，再发布到 Qualcomm edge。
-- Safety Envelope 限制动作边界：不搬人、不诊断、不独立给药、不默认上传原始视频。
+- Care Circle：老人、子女、护理员、邻居、机构和医生联系人各自拥有不同权限和通知规则。
+- Baseline：端侧学习起居、活动、门磁、药盒、睡眠和厨房节律，只保存必要元数据。
+- Assist：温和提醒吃饭、喝水、预约、药盒确认、起夜柔光和轻物品递送。
+- Escalate：疑似跌倒、无回应、长时间静止或异常开门，先询问本人，再通知照护圈。
+- Close：确认、接管、上门、复核和下一步安排进入护理日志与训练数据。
 
-### Business Model
+## Market Wedge
 
-一句话收入模型：按“可验收的照护能力”收费，而不是一次性卖硬件。
+先从高焦虑、高支付意愿、高闭环需求的照护入口切入：
 
-- 试点包：3-6 个月、3-10 台机器人、部署培训和验收报告。
-- 机构 RaaS：硬件租赁 + CareOS 软件 + 运维 + 数据看板。
-- 居家长护包：服务商主导，机器人 + 家属小程序 + 远程看护 + 服务记录。
-- OEM SDK：CareOS runtime、Qualcomm edge profile、Skill Cloud 和任务包授权。
+- 远程子女家庭：术后恢复、行动不便、轻度记忆下降、夜间风险高和子女异地。
+- Home-care agencies：no-contact、迟到、漏记、未确认、家属沟通和班次交接闭环。
+- Senior living / memory care：wellness check、夜间离床、漏服药提醒、家属询问和人工巡查排序。
+- 中国社区养老：街道养老站、家庭养老床位、居家上门服务和补贴核销。
+- 长护险服务商：失能评估、护理项目目录、服务证据、结算材料和质量监管。
+- 医养/康复机构：出院后康复、慢病随访、康复提醒、护理机器人接入和家属摘要。
 
-### Competition
+## Business Model
 
-- ElliQ / Hyodol：陪伴提醒强，物理任务和机构工作流弱。
-- Labrador：日常递送方向务实，但缺少机构级任务和训练平台。
-- Moxi / Relay / Aethon：机构物流成熟，但主要面向医院和固定路线。
-- Nobi / Vayyar / CarePredict：监测明确，但不是可行动机器人。
-- CareOS：把感知、动作、接管、证据和训练连接成平台层。
+按可闭环照护异常收费，不按机器人硬件一次性收费。
 
-### Ask
+- 机构 / Senior Living：中国 ¥20-60/人/月 core，¥60-150 pro；海外 US$8-20 core，US$20-45 pro。
+- 护理院 / 高 acuity：中国 ¥60-150/人/月，¥150-280 高阶；海外 US$15-95/人/月。
+- 居家服务机构：中国 ¥10-30/活跃客户/月，¥30-80 带家属门户；海外 US$5-30/客户/月。
+- 出院 / 康复 episode：中国 ¥80-300/30天，¥300-800 带临床/RPM 伙伴；海外 US$25-175。
+- 家庭订阅：家庭 app、监测、concierge 月费；参考 medical alert / family care subscription 价格带。
+- OEM SDK：Qualcomm/ODM/OEM reference design + CareOS runtime + Skill Cloud + edge profile 授权。
 
-比赛阶段的 ask：
-
-- 用 Qualcomm 开发板完成安全边界 demo。
-- 形成养老机器人 reference task pack：送水、提醒、巡护、二维码核验、异常上报、人工接管。
-- 输出 LeRobot HIL 数据样例和 Qualcomm edge artifact profile。
-
-## Why This Matters
-
-养老机器人不是“3 亿老人都买一台机器人”的消费电子故事。更真实的机会在失能、半失能、高龄独居、养老机构、社区照护站、长护险服务商和护理连锁。
-
-五线程研究得到的核心信号：
-
-- WHO 指出全球 60 岁及以上人口从 2020 年约 10 亿，将到 2030 年约 14 亿、2050 年约 21 亿。
-- 中国国家统计局 2025 年末数据：60 岁及以上人口 3.2338 亿，占 23.0%；65 岁及以上 2.2365 亿，占 15.9%。
-- 民政部 2024 年统计公报：全国养老机构和设施 40.6 万个，养老床位 799.3 万张。
-- 长期护理保险正在制度化，政策鼓励居家和社区护理，并研究探索智能化服务和支持性辅具纳入支付。
-- 海外市场已验证三个付费方向：医院/机构物流、居家陪伴提醒、跌倒/活动监测和药物提醒。
-- 家庭物理辅助仍处早期，Labrador、Hello Robot、Kinova 等说明“递送和受限操作”比“全能照护”更可信。
-
-## Product Definition
-
-护元 CareOS 包含四层：
-
-### 1. 护元 Edge
-
-Qualcomm 端侧机器人核心。
-
-- 居家/试点版：RB3 Gen 2 级别，适合多传感、低功耗、Linux/Ubuntu、Wi-Fi 6E、相机和本地 AI。
-- 机构/高配版：IQ-9075 / IQ10 级别，适合多摄像头、更多 TOPS、5G/Wi-Fi、AMR 和 fleet 场景。
-- 本地完成导航避障、隐私过滤、姿态/风险识别、条码/OCR、任务核验、断网缓存和安全停机。
-- 生产版必须处理 secure boot、签名 OTA、debug 关闭、密钥注入和 SBOM/VEX。
-
-### 2. CareOps Console
-
-护理任务和服务证据系统。
-
-- 任务：巡房、送水、取物、送餐、药盒提醒、康复陪练提醒、异常上报、家属摘要。
-- 角色：护理员、护士长、机构运营、社区站、家属、远程接管员。
-- 数据：任务时间、地点、完成状态、确认人、异常、接管、隐私等级、训练授权。
-- 对接：FHIR Task-style workflow、机构系统、长护险服务记录、企微/钉钉/飞书、家属小程序。
-
-### 3. Skill Cloud
-
-LeRobot 训练和模型发布层。
-
-- 收集低风险照护任务的多模态 episode。
-- 标注成功、失败、低置信度、人工接管和安全拦截。
-- 云端训练后生成 Qualcomm edge artifact。
-- 灰度到单台/单机构，验证后再扩展，支持回滚。
-
-### 4. Safety Envelope
-
-安全边界和合规证据包。
-
-- 不搬人、不抱人、不做医疗给药、不独立处置急救。
-- 轻物品、低速、受限工作空间、软夹爪、急停、力/速度限制。
-- Nav2 keepout zones、bathroom/bedroom privacy zones、stairs/kitchen risk zones。
-- 默认上传结构化事件，不默认上传原始视频。
-- 人在回路内，远程接管始终低于本地安全监督。
-
-## China Version
-
-中国版应讲“政策试点 + 养老服务运营 + 国产化边缘 AI”。
-
-目标客户：
-
-- 民政/工信/医保相关试点牵头方。
-- 连锁养老机构、康复机构、护理院。
-- 社区养老服务中心、街道综合养老服务平台。
-- 长护险定点服务机构、家政护理连锁、物业养老服务商。
-- 机器人 OEM 和集成商。
-
-第一批场景：
-
-- 夜间巡护和异常呼叫。
-- 水杯、毛巾、餐盘、轻物品递送。
-- 药盒/康复/饮水提醒，但不做给药决策。
-- 房间、走廊、活动室的风险点巡查。
-- 护理站跑腿和家属授权摘要。
-- 居家床位和社区站的服务记录。
-
-商业包装：
-
-- 试点包：3-6 个月，3-10 台机器人，含场景调研、部署、培训、运维和数据报告。
-- 机构 RaaS：硬件租赁 + CareOS 软件 + 运维 + 数据看板。
-- 居家长护包：机器人 + 家属小程序 + 远程看护 + 服务商接管。
-- OEM 授权：CareOS SDK、Qualcomm edge profile、Skill Cloud、标准任务包。
-
-## Overseas Version
-
-海外版应讲 workforce support、aging in place、senior living、privacy-preserving edge AI 和 RaaS。
-
-目标客户：
-
-- senior living / assisted living 连锁。
-- home-care agencies。
-- long-term services payers。
-- AgeTech 渠道和医疗设备分销商。
-- 养老服务机器人 OEM。
-
-海外信号：
-
-- ElliQ 证明陪伴和提醒有真实需求，但它不是物理照护平台。
-- Labrador 证明“移动桌/货架 + 日常物品递送”是务实家庭入口。
-- Moxi、Relay、Aethon 证明机构内固定路线物流可以商业化，但不能直接代表居家照护。
-- Nobi、Vayyar、CarePredict 证明跌倒/活动监测是付费入口，但不是完全防跌倒。
-- Hero Health 证明药物提醒和药盒管理有支付意愿，但最终用药责任仍在用户和护理者。
-
-## Architecture
-
-### Runtime Nodes
-
-- `sensor_ingest`: camera, depth, radar/wearable optional, mic optional, robot state.
-- `privacy_perception`: local face/screen blur, pose-only event, raw buffer policy.
-- `fall_risk`: unusual posture, immobility, gait change, blocked path; alerting only.
-- `med_task_verify`: barcode / GS1 DataMatrix / time-window / resident confirmation.
-- `nav2_adapter`: maps, keepout zones, preferred lanes, collision monitor.
-- `manip_action_shield`: light-object policy constraints, speed/force/workspace limits.
-- `teleop_gateway`: dead-man switch, local safety override, intervention capture.
-- `local_event_store`: encrypted event log, offline cache, upload queue.
-- `policy_executor`: signed model release, confidence gate, rollback pointer.
-- `fleet_rmf_adapter`: doors, elevators, hallways, charging docks in institutions.
-
-### Data Objects
-
-- `RobotState`: robot id, battery, thermal, pose, map, safety state.
-- `ObservationFrame`: derived pose, occupancy, object detections, fall score, privacy tier.
-- `CareTask`: resident pseudonym, location, schedule, required checks, status, audit trail.
-- `MedicationCheck`: barcode, lot/expiry, resident/time match, confirmation actor, status.
-- `ManipulationAction`: proposed action, shield result, executed or blocked reason.
-- `TeleopIntervention`: reason, takeover time, recovery actions, trainable flag.
-- `LeRobotEpisode`: task label, observation/action streams, success/failure, privacy policy.
-- `SafetyEvent`: severity, trigger, local action, notifications, resolution.
-- `ModelRelease`: dataset versions, evaluation metrics, Qualcomm target, rollout ring.
-
-## Competition Demo
-
-Demo 不需要真实老人、真实药品或医疗流程。最稳妥版本：
-
-1. 在模拟养老房间里标记卧室、卫生间、厨房、楼梯和护理站。
-2. 机器人执行送水/毛巾任务，使用 Nav2 keepout zone 和碰撞监控低速运行。
-3. 机器人扫描托盘/药盒二维码，只做提醒和核验，不做给药。
-4. 机器人发现“坐姿异常 / 无回应 / 通道障碍”这类模拟事件，先本地停机并请求护理员。
-5. 页面显示只上传结构化事件和骨架/位置摘要，原始视频默认留在本地。
-6. 操作员接管一次失败的取物动作，生成 LeRobot HIL episode。
-7. 云端训练后输出 Qualcomm edge artifact，并展示灰度部署和回滚策略。
+Pilot fees：中国 ¥30k-100k/机构点位，海外 US$5k-25k/点位，周期 8-12 周。医院/出院 episode 试点按 cohort 定价。
 
 ## Pilot KPIs
 
-这些指标用于试点验收，不应写成既有成绩：
+早期只承诺工作流指标，不承诺医疗结果。
 
-- 安全：严重安全事件 0；隐私事件 0；急停和人工接管全记录。
-- 稳定：机器人在线率 >=95%；关键任务日志完整率 >=98%。
-- 使用：机构场景 >=10 个有效任务/台/日；居家场景 >=5 个有效互动或辅助任务/日。
-- 效率：护理员非核心跑腿、提醒、找物时间下降 10-20%，或每班节省 30-60 分钟，需现场实测。
-- 接受度：护理员满意度 >=80%；老人拒用率 <15%；家属 NPS >30。
-- 学习闭环：每个试点沉淀标准化任务数据集、失败案例库和下一版技能包。
+- 通用：异常确认时间、关闭时间、SLA 内关闭率、未分配异常、重复/噪声告警、每个 closed exception 的员工分钟数、审计完整率、家属升级和 adverse-event review 完成率。
+- Senior living：75%-85% exceptions closed within SLA；unresolved wellness checks 下降 15%-25%；家属咨询量下降 10%-20%。
+- Nursing homes：care-task audit completeness 90%-95%；missed med/repositioning/rounding exceptions 在窗口结束前升级。
+- Home-care agencies：迟到/漏访异常下降 15%-25%；call-off fill time 下降 10%-20%；护理记录 24h 内完成率提升 10 个百分点。
+- Hospital discharge/home rehab：48 小时内 med pickup/med-rec confirmation 80%+；7 天内首个 follow-up 确认；康复 adherence 提升 10-15 个百分点。
+- Family care：daily check-in adherence 65%-80%；urgent family acknowledgement <15 分钟；caregiver task completion 提升 15%。
 
-## Why Qualcomm Should Care
+## Competition
 
-护元 CareOS 是 Qualcomm 值得支持的场景，因为养老机器人天然需要：
+现有产品证明需求，但多数停在单点事件。
 
-- 多摄像头、多传感、低功耗、长生命周期。
-- 弱网和断网下的本地推理、导航和任务缓存。
-- 隐私优先的端侧 AI，不默认把生活空间视频上传云端。
-- ROS 2、Nav2、Open-RMF、LeRobot 和 Qualcomm AI Hub 之间的真实部署链路。
-- 可复制的参考设计：居家版、机构版、OEM SDK、Skill Cloud、试点 benchmark。
+- 跌倒/远程监测：SafelyYou、Vayyar、Nobi、CarePredict、Apple Watch、Medical Guardian 强在发现事件，弱在跨设备确认、分派、复核和服务证据。
+- 药物提醒：Hero、MedMinder、Spencer 强在提醒，弱在和起居、活动、护理任务统一排序。
+- 陪伴机器人：ElliQ、PARO、Lovot 强在陪伴，弱在物理照护任务和机构 workflow。
+- 机构软件/EHR：PointClickCare、MatrixCare、WellSky、AlayaCare 是 system of record，不是实时执行层。
+- 配送/辅助机器人：Moxi、Aethon、Relay、Labrador、Pudu 可减轻跑腿，但缺少 eldercare exception OS。
+- CareOS：把发现、确认、分派、机器人辅助、家属摘要、服务证据和 HIL 训练串起来。
 
-这比单纯炫技人形更适合讲“可靠、隐私、低延迟、人机协作和商业闭环”。
+## Moat
+
+- 信任界面：老人愿意长期放在家里，子女能理解摘要，护理员不觉得被监控。
+- 隐私边缘计算：默认输出事件、轮廓、时间线和置信度，不把生活空间变成云端摄像头。
+- 照护图谱：谁该知道什么、何时升级、谁确认、如何交接，随家庭和机构长期使用变准。
+- 多模态基线：视觉、语音、门磁、药盒、活动、环境和机器人状态融合，比单设备更稳。
+- 服务证据：任务、异常、确认、接管、上门、家属查看和服务商结算材料可审计。
+- Edge profiles：QNN/AI Hub profile、签名 OTA、回滚、模型版本、延迟和安全拦截记录。
+
+## Demo
+
+三分钟 demo：
+
+1. 护理员在 dashboard 设置药盒、水和餐食提醒；药物是 placebo prop。
+2. 机器人在本地发出 scheduled reminder，用户用机器人/平板确认，提醒可 snooze。
+3. 机器人用 ROS 2/Nav2 低速从客厅到厨房 waypoint，避开 geofenced no-go zones。
+4. 机器人带封闭水瓶或餐卡在托盘中完成低风险 handoff，HIL 操作员可用手柄接管。
+5. 演员未回应并在椅边暂停，系统标记“needs check-in / fall-risk pattern”，不说“fall detected”。
+6. 机器人后退并询问是否需要帮助，无回应则向 caregiver dashboard 发送最小必要 evidence packet。
+7. dashboard 展示 timestamp、reminder state、robot pose/path、anomaly reason、model version、HIL marker、user response 和 signed audit hash；原始视频默认本地保留，不上传。
+
+安全约束：
+
+- 不诊断、不急救派单、不配药、不发药、不提供临床建议。
+- 提醒话术是“照护计划中的提醒”，不是“必须服用某药”。
+- 只用封闭水瓶、餐卡或毛巾，不用热液体、玻璃、刀具或真实药品。
+- 低速、预建图、无楼梯、隐私区禁入、物理急停、无线 deadman、现场操作员。
+- 任何阻力、低置信度、接管触发都导致停止或后退。
+
+## Why Qualcomm
+
+CareOS 是 Qualcomm “Physical AI in the home” 的高价值样板。
+
+- Always-on Edge AI：姿态、活动、物体、条码、语音、异常节律和隐私过滤优先在本地完成。
+- Robotics Runtime：ROS 2、Nav2、Open-RMF、低速导航、HIL 接管和安全门控需要稳定 edge。
+- AI Hub / QNN：模型 profile、量化、性能证据、设备目标、签名部署和回滚可以成为试点评估材料。
+- Privacy by Design：不默认上传原始家庭视频，只上传 consented event evidence 和去标识化 HIL correction。
+- OEM Reference：RB3/RB5/IQ10 路线 + CareOS SDK 可成为养老机器人和 home-care hardware 的默认照护层。
 
 ## Claims To Avoid
 
-- 不说“替代护工/护士/医生”。
-- 不说“全自动护理”“7x24 无人照护”“老人无需子女照护”。
-- 不说“可治疗孤独、抑郁、失智”。
-- 不说“完全防跌倒”或“保证安全”。
-- 不说“自动给药、医疗诊断、急救处置”。
-- 不说“长护险已经报销机器人硬件”；只能说政策正在研究探索智能化服务和支持性辅具。
-- 不说“Qualcomm 官方背书/战略合作”，除非真实签约。
-- 不说“LeRobot 已具备通用护理能力”；只能说用于数据标准化、训练和迭代。
+- 不说防止跌倒、检测所有紧急事件或保证安全。
+- 不说诊断恶化、治疗孤独/抑郁/失智。
+- 不说替代护工、护士、医生或子女。
+- 不说自动给药、临床建议、急救处置。
+- 不说 FDA cleared、HIPAA/GDPR/PIPL compliant、可报销，除非真实完成。
+- 不说长护险已经报销机器人硬件；只能说服务费用和智能化服务存在政策探索空间。
+- 不说 Qualcomm 官方背书或 LeRobot 已具备通用护理能力。
 
 ## Sources
 
 - WHO ageing and health：https://www.who.int/news-room/fact-sheets/detail/ageing-and-health
+- WHO health workforce：https://www.who.int/health-topics/health-workforce
 - BLS home health and personal care aides：https://www.bls.gov/ooh/healthcare/home-health-aides-and-personal-care-aides.htm
-- 国家统计局 2025 年统计公报：https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html
-- 新华网 2024 年养老服务体系数据：https://www.xinhuanet.com/politics/20250725/5b74e57bc39e47099190cb8308655b21/c.html
-- 国办银发经济文件解读：https://www.ndrc.gov.cn/xwdt/spfg/mtjj/202401/t20240117_1363422.html
-- 长期护理保险制度文件：https://www.news.cn/politics/zywj/20260325/71e216ae767b487491ba1d9dbf9cf57d/c.html
-- “机器人+”应用行动实施方案：https://news.cctv.com/2023/01/20/ARTI2DLvC4ty6iotNG0vLLsj230120.shtml
-- NYSOFA ElliQ：https://aging.ny.gov/elliq-proactive-care-companion-initiative
-- Labrador Systems：https://labradorsystems.com/products/
-- Diligent Robotics Moxi：https://www.diligentrobots.com/moxi
-- Relay Robotics hospitals：https://relayrobotics.com/relay-delivery-robots-for-hospitals
-- Nobi smart lamps：https://www.nobi.life/en
+- PHI direct care workers 2025：https://www.phinational.org/resource/direct-care-workers-in-the-united-states-key-facts-2025/
+- AARP caregiving 2025：https://www.aarp.org/pri/topics/ltss/family-caregiving/caregiving-in-the-us-2025/
+- CDC falls：https://www.cdc.gov/falls/data-research/index.html
+- CareScout cost of care：https://www.carescout.com/cost-of-care
+- China NBS 2025：https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html
+- China aging report 2024：https://www.cncaprc.gov.cn/u/cms/www/202507/24154203fka1.pdf
+- People Daily caregiver gap：https://paper.people.com.cn/rmrb/pc/content/202505/09/content_30071988.html
+- China eldercare reform：https://www.news.cn/politics/zywj/20250107/d38c451b3d7f4eb1aec8ce0b4e9a4e23/c.html
+- China LTCI：https://www.nhsa.gov.cn/art/2026/3/26/art_104_20039.html
+- ElliQ：https://aging.ny.gov/elliq-proactive-care-companion-initiative
 - Vayyar Care：https://vayyar.com/care/
+- Nobi：https://www.nobi.life/en
 - Hero Health：https://herohealth.com/
+- Moxi：https://www.diligentrobots.com/moxi
+- Labrador：https://labradorsystems.com/products/
+- Qualcomm RB5：https://www.qualcomm.com/developer/hardware/robotics-rb5-development-kit
 - Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
-- Qualcomm IQ-9075：https://www.qualcomm.com/internet-of-things/products/iq9-series/iq-9075
-- Qualcomm AI Hub docs：https://workbench.aihub.qualcomm.com/docs/
-- LeRobot HIL data collection：https://huggingface.co/docs/lerobot/en/hil_data_collection
-- LeRobot Dataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
-- ROS 2 lifecycle：https://design.ros2.org/articles/node_lifecycle.html
-- Nav2 collision monitor：https://docs.nav2.org/tutorials/docs/using_collision_monitor.html
-- Open-RMF：https://www.open-rmf.org/
-- FHIR Task：https://build.fhir.org/task.html
-- HHS de-identification：https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html
+- Qualcomm IQ10 RRD：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- Qualcomm AI Hub：https://workbench.aihub.qualcomm.com/docs/
+- Qualcomm QNN SDK：https://www.qualcomm.com/developer/software/neural-processing-sdk-for-ai
+- Nav2 collision monitor：https://docs.nav2.org/configuration/packages/collision_monitor/configuring-collision-monitor-node.html
+- LeRobot HIL：https://huggingface.co/docs/lerobot/hil_data_collection
 - ISO 13482：https://www.iso.org/standard/53820.html
+- FDA low-risk wellness guidance：https://www.fda.gov/regulatory-information/search-fda-guidance-documents/general-wellness-policy-low-risk-devices

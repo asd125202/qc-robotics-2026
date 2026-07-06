@@ -96,7 +96,7 @@ Qualcomm 可以通过该项目获得一个端到端机器人生态样板：
 - SiteLedger 工地实录页：https://qc-robotics-2026.pages.dev/site-ledger/
 - StoreLoop 门店异常闭环页：https://qc-robotics-2026.pages.dev/store-loop/
 - FoodLoop 餐饮异常闭环页：https://qc-robotics-2026.pages.dev/food-loop/
-- 护元 CareOS 养老照护平台页：https://qc-robotics-2026.pages.dev/careos/
+- 护元 CareOS 照护异常闭环页：https://qc-robotics-2026.pages.dev/careos/
 - WarehouseLoop 仓务异常闭环页：https://qc-robotics-2026.pages.dev/warehouse-loop/
 - QualityLoop 质检闭环页：https://qc-robotics-2026.pages.dev/quality-loop/
 - AgriLoop 农务闭环页：https://qc-robotics-2026.pages.dev/agri-loop/
