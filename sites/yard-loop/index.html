@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YardLoop 港场异常闭环 | 集装箱、底盘车、封签和放行证据的边缘视觉操作层</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-amber">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>YardLoop 港场异常闭环</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#problem">问题</a>
+        <a href="#why-now">时机</a>
+        <a href="#solution">方案</a>
+        <a href="#product">产品</a>
+        <a href="#market">市场</a>
+        <a href="#gtm">GTM</a>
+        <a href="#moat">壁垒</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-yard-loop">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 58 · Container Yard Exception Closure</p>
+          <h1>每个滞留集装箱，都是一张没闭环的异常单。</h1>
+          <p class="hero-lede">YardLoop 是面向港口、内陆港、集装箱堆场、铁路联运场和大型货主堆场的边缘视觉异常闭环平台：把箱号、封签、损坏、底盘车、箱位和放行状态从现场事实变成可处理、可举证、可回写的操作闭环。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#product">看港场闭环</a>
+            <a class="button" href="#ask">比赛 Demo Ask</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Problem</p>
+              <h2>TOS 知道计划，现场却每天制造没有闭环的例外。</h2>
+            </div>
+            <p>港场和堆场已经有 TOS/YMS、闸口系统、预约、吊机、拖车和摄像头，但错箱、错位、封签异常、箱损、底盘车问题、查验 hold、放行争议和滞箱费仍会散落在邮件、照片、对讲机、Excel 和人工备注里。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>箱子停住</h3>
+              <p>一个箱号识别失败、状态未同步或查验 hold 没处理，会变成延误、滞箱费和客户投诉。</p>
+            </article>
+            <article class="card">
+              <h3>证据分散</h3>
+              <p>箱损、封签、底盘车、放行和进出闸照片常在不同系统里，事后争议很难还原。</p>
+            </article>
+            <article class="card">
+              <h3>现场不可信</h3>
+              <p>TOS/YMS 记录“应该在哪里”，但客户、调度和保险要的是“现在真实发生了什么”。</p>
+            </article>
+            <article class="card">
+              <h3>机器人没入口</h3>
+              <p>AMR、车载相机、无人车和固定 OCR 能看见现场，却没有统一异常语言和回写动作。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Why Now</p>
+              <h2>港口波动、滞箱费争议、自动化投资和边缘 AI 同时把现场事实推到前台。</h2>
+            </div>
+            <p>买方不是第一次数字化港场。变化在于：供应链波动让异常更贵，监管让费用证据更重要，自动化让机器视觉进入闸口和堆场，端侧 AI 让异常可以在现场实时闭环。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>$15.4B</strong>
+              <span>FMC 披露 9 家海运承运人在 2020-04 至 2025-03 收取的 detention / demurrage 费用量级。</span>
+            </div>
+            <div class="stat">
+              <strong>$75-300</strong>
+              <span>行业资料中常见的 detention / demurrage 每箱每日费用区间，争议往往来自证据不完整。</span>
+            </div>
+            <div class="stat">
+              <strong>80%+</strong>
+              <span>UNCTAD 长期指出全球贸易量大部分通过海运，港场异常会沿供应链放大。</span>
+            </div>
+            <div class="stat">
+              <strong>42 ports</strong>
+              <span>GAO 调研美国最大集装箱港口时，把闸口、堆场、岸桥和水平运输自动化列为关键议题。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="insight" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Insight</p>
+              <h2>港场自动化的第一桶金不是无人码头，而是异常闭环。</h2>
+            </div>
+            <p>一个港场可以先不重建吊机和水平运输。只要把“现场看见的例外”变成可指派、可验证、可回写的任务，就能更快减少争议、压缩滞留、提高放行可信度。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>Truth</h3>
+              <p>箱号、箱位、封签、箱损、底盘车、闸口照片、查验状态和放行证明统一成事件。</p>
+            </article>
+            <article class="card">
+              <h3>Action</h3>
+              <p>异常不是截图，而是有责任人、SLA、任务类型、复核动作和系统回写的 case。</p>
+            </article>
+            <article class="card">
+              <h3>Learning</h3>
+              <p>OCR 失败、遮挡、雨夜、坏角度、人工纠正和误报进入 LeRobot HIL 数据集。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">04 · Solution</p>
+            <h2>YardLoop 是港场现场事实到 TOS/YMS 的异常操作层。</h2>
+            <p class="lead">它接入闸口 OCR、堆场摄像头、车载相机、AMR、小型巡检车、RTK/UWB、人工复核和 TOS/YMS，把每个箱子的现场状态推进到处理完成，而不是停在“有人拍到过”。</p>
+            <ul class="list">
+              <li>Container Event Graph：箱号、封签、损坏、箱位、底盘车、预约、查验和放行状态统一到一张事件图。</li>
+              <li>Exception Dispatch：OCR 低置信度、箱损、错位、封签异常、hold 超时和底盘车异常自动生成任务。</li>
+              <li>Proof Pack：进出闸照片、damage card、seal card、chassis card、时间戳和复核记录组成争议证据包。</li>
+              <li>TOS/YMS Writeback：异常关闭后，把位置、状态、release proof 和备注回写现有系统。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/yard-loop.png" alt="港场异常闭环控制台，集装箱堆场俯视图、闸口扫描、箱损封签卡片、底盘车状态、异常路线和系统回写">
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Product Workflow</p>
+              <h2>一个错位箱，从闸口低置信度到放行 proof。</h2>
+            </div>
+            <p>比赛 demo 可以用桌面集装箱模型、摄像头、二维码/OCR mock、车载小车和 mock TOS，把港场闭环讲清楚。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Scan</h3>
+              <p>闸口、堆场相机或小车拍到箱号、封签、底盘车和箱损，端侧模型生成事件。</p>
+            </article>
+            <article class="step">
+              <h3>Compare</h3>
+              <p>YardLoop 对比 TOS/YMS 计划、预约、箱位、hold、release 和历史照片。</p>
+            </article>
+            <article class="step">
+              <h3>Dispatch</h3>
+              <p>异常进入队列：低置信度 OCR、错箱位、封签异常、damage claim、chassis roadability。</p>
+            </article>
+            <article class="step">
+              <h3>Verify</h3>
+              <p>人工复核、巡检小车或固定相机补证据，形成 before/after 和 release proof。</p>
+            </article>
+            <article class="step">
+              <h3>Writeback</h3>
+              <p>状态回写 TOS/YMS；失败视角和人工修正进入 LeRobot HIL 和下一轮 edge 模型。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Market Wedge</p>
+              <h2>先从一个闸口和一个堆场 block 开始，不从全自动码头开始。</h2>
+            </div>
+            <p>首单应该选择异常频率高、费用争议多、现有 TOS/YMS 已经存在但现场证据分散的场地。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>集装箱码头</h3>
+              <p>闸口 OCR、箱损、封签、查验 hold、放行争议和堆场错位是高频场景。</p>
+            </article>
+            <article class="card">
+              <h3>内陆港 / 铁水联运</h3>
+              <p>铁路、卡车、仓库和港口系统交接多，异常责任更容易断裂。</p>
+            </article>
+            <article class="card">
+              <h3>Chassis Pool</h3>
+              <p>底盘车 roadability、照片证据、维修任务和责任归属可独立成付费模块。</p>
+            </article>
+            <article class="card">
+              <h3>大型货主堆场</h3>
+              <p>汽车、零售、制造和跨境货主有自有堆场、滞留费用和承运商争议。</p>
+            </article>
+            <article class="card">
+              <h3>冷链港场</h3>
+              <p>reefer plug、setpoint、门封和温控证明可复用 ColdChainLoop 数据模型。</p>
+            </article>
+            <article class="card">
+              <h3>中国智慧港口</h3>
+              <p>上海、宁波舟山、深圳、青岛、天津等港口已推进自动化，仍需要跨系统异常闭环。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Business Model</p>
+              <h2>按 lane、yard block、scan volume、closed exception 和证据报告收费。</h2>
+            </div>
+            <p>YardLoop 的定价锚定减少 D&D 争议、加快闸口处理、提高 damage/chassis 证据、减少人工巡场和提升放行可信度。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>付费试点</h3>
+              <p>海外 30k-90k 美元；中国 30-100 万元，6-8 周跑通一个 gate lane + 一个 yard block。</p>
+            </article>
+            <article class="card">
+              <h3>站点订阅</h3>
+              <p>8k-25k 美元 / yard / month，按 lane、block、摄像头、小车、TOS connector 和报告分层。</p>
+            </article>
+            <article class="card">
+              <h3>按量收费</h3>
+              <p>规模化后按 scan、closed exception、damage proof、chassis inspection 或 dispute packet 加价。</p>
+            </article>
+            <article class="card">
+              <h3>ROI KPI</h3>
+              <p>gate cycle time、OCR exception rate、D&D exception resolution、damage claim cycle、yard rehandle、release latency。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gtm" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Go-To-Market</p>
+              <h2>先卖给最怕“说不清责任”的港场运营团队。</h2>
+            </div>
+            <p>YardLoop 的入口不是替换 TOS，也不是卖无人车，而是把一个高频异常流程变成客户能当天处理的队列和证据包。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>First Buyer</h3>
+              <p>中小码头、内陆港、铁路联运场、chassis pool、跨境货主堆场和 3PL yard。</p>
+            </article>
+            <article class="card">
+              <h3>First Workflow</h3>
+              <p>gate OCR low confidence + damage/seal proof + release hold queue。</p>
+            </article>
+            <article class="card">
+              <h3>Channels</h3>
+              <p>TOS/YMS 集成商、闸口 OCR 设备商、港口自动化 SI、保险/理赔服务和车队管理商。</p>
+            </article>
+            <article class="card">
+              <h3>Expansion</h3>
+              <p>从闸口扩到 yard block、reefer lane、chassis shop、rail interchange 和多站点 exception graph。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="competition" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Competition</p>
+              <h2>现有系统管理计划和设备，YardLoop 管异常生命周期。</h2>
+            </div>
+            <p>港场不是没有软件和自动化，而是现场事实、异常责任、证据包和训练数据没有形成一个独立的闭环层。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Kaleris / Navis</h3>
+              <p>TOS 主系统强；YardLoop 不替代它，只把现场异常和 proof 回写进去。</p>
+            </article>
+            <article class="card">
+              <h3>Tideworks / TBA</h3>
+              <p>码头运营软件成熟；YardLoop 补低置信度视觉、人工复核和 exception evidence。</p>
+            </article>
+            <article class="card">
+              <h3>Camco / OCR</h3>
+              <p>闸口和吊机 OCR 强；YardLoop 把 OCR 失败、箱损和封签异常变成任务。</p>
+            </article>
+            <article class="card">
+              <h3>Kalmar / ZPMC</h3>
+              <p>设备和自动化能力强；YardLoop 做跨设备现场事实层和 HIL 数据层。</p>
+            </article>
+            <article class="card">
+              <h3>Terminal Industries</h3>
+              <p>计算机视觉切入 drayage 和堆场；YardLoop 聚焦港场 exception closure 和 TOS/YMS connector。</p>
+            </article>
+            <article class="card">
+              <h3>中国智慧港</h3>
+              <p>大型港口有自研/集成系统；YardLoop 可做私有部署、边缘模型和跨系统异常图。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Moat</p>
+              <h2>壁垒是 container-event graph + TOS/YMS connector + 异常证据数据集。</h2>
+            </div>
+            <p>每关闭一个异常，系统都会学习哪类现场证据能减少争议、哪个摄像头角度容易失败、哪个客户/承运商/场站的处理路径最短。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Event Graph</h3>
+              <p>箱号、箱位、封签、damage、chassis、gate、hold、release、照片和任务状态的时间线。</p>
+            </article>
+            <article class="card">
+              <h3>Connectors</h3>
+              <p>TOS/YMS、gate OCR、预约、查验、chassis maintenance、WMS/TMS 和客户 portal。</p>
+            </article>
+            <article class="card">
+              <h3>Evidence Pack</h3>
+              <p>费用争议、damage claim、release proof、roadability 和交接责任模板。</p>
+            </article>
+            <article class="card">
+              <h3>Vision Dataset</h3>
+              <p>雨夜、反光、污损箱号、遮挡、低角度、中文/英文标识和人工纠正片段。</p>
+            </article>
+            <article class="card">
+              <h3>Ops Playbook</h3>
+              <p>gate、yard block、reefer、rail interchange、chassis pool 和客户堆场流程模板。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Profiles</h3>
+              <p>Qualcomm AI Hub / QNN / QAIRT profile、离线缓存、弱网回写和模型回滚。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">11 · Product Architecture</p>
+              <h2>多摄像头边缘视觉在现场，异常状态进系统，训练在区域云。</h2>
+            </div>
+            <p>架构目标是把高吞吐现场拍到的“模糊事实”变成可追踪事件，同时不把港场视频、客户货物、车牌和运营数据默认全量上云。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Sensors</h3>
+              <p>gate OCR、yard pole camera、车载相机、AMR、小车、RTK/UWB、RFID、二维码和人工手机补证。</p>
+            </article>
+            <article class="card">
+              <h3>Edge AI</h3>
+              <p>箱号 OCR、seal check、damage detection、chassis condition、slot verification、低置信度判断。</p>
+            </article>
+            <article class="card">
+              <h3>Robot Runtime</h3>
+              <p>ROS 2 小车/AMR、Nav2 waypoint patrol、yard geofence、human review 和安全接管。</p>
+            </article>
+            <article class="card">
+              <h3>Enterprise Bridge</h3>
+              <p>container_event -> TOS/YMS case；同步 hold、release、task owner、proof_uri 和 close reason。</p>
+            </article>
+            <article class="card">
+              <h3>Training Loop</h3>
+              <p>HIL correction -> 中国/海外云训练 -> AI Hub/QNN/QAIRT artifact -> edge OTA。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">12 · Competition Demo</p>
+              <h2>3 分钟展示一个箱子如何从异常到可放行。</h2>
+            </div>
+            <p>演示不需要真实码头，只需要一个桌面堆场、一台相机/小车、几个箱模、mock TOS 和 dashboard。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Gate</h3>
+              <p>摄像头识别箱号与封签，低置信度触发 YardLoop exception。</p>
+            </article>
+            <article class="step">
+              <h3>Yard</h3>
+              <p>小车巡检发现箱子在错误 block，damage card 自动生成。</p>
+            </article>
+            <article class="step">
+              <h3>Review</h3>
+              <p>人工确认箱损或封签，系统要求补拍一个角度并分派处理任务。</p>
+            </article>
+            <article class="step">
+              <h3>Release</h3>
+              <p>处理完成后回写 mock TOS/YMS，dashboard 显示 release proof。</p>
+            </article>
+            <article class="step">
+              <h3>Learn</h3>
+              <p>OCR 失败和坏角度导出 LeRobot episode，展示区域云训练与 QNN profile。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">13 · Why Qualcomm</p>
+              <h2>港场异常闭环需要多摄像头、弱网、本地推理和长期可靠 edge。</h2>
+            </div>
+            <p>YardLoop 把 Qualcomm 的价值放在现场：高吞吐 OCR、箱损视觉、低延迟判断、私有网络、低功耗小车和可部署模型 artifact。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Multi-Camera</h3>
+              <p>闸口、车载、吊具、堆场杆位和小车摄像头都需要本地融合。</p>
+            </article>
+            <article class="card">
+              <h3>Edge OCR</h3>
+              <p>箱号、封签、箱损和底盘状态在现场出结果，低置信度才进入复核。</p>
+            </article>
+            <article class="card">
+              <h3>Connectivity</h3>
+              <p>私有 5G / Wi-Fi 6E、弱网缓存、离线队列、站点内小车和摄像头协同。</p>
+            </article>
+            <article class="card">
+              <h3>Hardware Path</h3>
+              <p>RB3 Gen 2 做桌面 demo；RB6 / QCS8550 / Dragonwing IQ 路线做多摄像头生产版本。</p>
+            </article>
+            <article class="card">
+              <h3>Model Chain</h3>
+              <p>AI Hub、QNN、QAIRT、ONNX Runtime QNN EP 让模型可 profile、可回滚、可区域部署。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ask" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">14 · Ask</p>
+              <h2>把 YardLoop 做成 Qualcomm 港场 edge AI 的可复制样板。</h2>
+            </div>
+            <p>比赛阶段要证明的是：港场现场事实能在边缘识别、被人工复核、被系统回写，并且变成下一轮训练数据。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>Dev Kit</h3>
+              <p>RB3 Gen 2 / RB6 / Vision Kit 或 Dragonwing dev kit，用于多摄像头 OCR 和小车巡检。</p>
+            </article>
+            <article class="card">
+              <h3>Partner</h3>
+              <p>一个内陆港、堆场、chassis pool、TOS/YMS 集成商或港口自动化 SI。</p>
+            </article>
+            <article class="card">
+              <h3>Data + API</h3>
+              <p>20-50 个箱模/真实匿名样本、闸口照片样例、mock TOS API、异常状态机和复核规则。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">YardLoop 的一句话 pitch：港场运营团队用它把箱号、封签、损坏、底盘车、箱位和放行状态变成一条可处理、可举证、可回写、可训练的异常闭环。</p>
+          <div class="source-links">
+            <a href="https://www.fmc.gov/detention-and-demurrage/">FMC D&D</a>
+            <a href="https://www.federalregister.gov/documents/2024/02/26/2024-02926/demurrage-and-detention-billing-requirements">FMC Rule</a>
+            <a href="https://terminal-industries.com/all-resources/detention-and-demurrage-key-shipping-fees-explained-clearly">D&D Fees</a>
+            <a href="https://www.unognewsroom.org/teleprompter/en/2840/unctad-press-conference-review-of-maritime-transport-24-september-2025/8512">UNCTAD Maritime</a>
+            <a href="https://www.gao.gov/assets/d24106498.pdf">GAO Port Automation</a>
+            <a href="https://kaleris.com/solutions/terminal-operating-system/">Kaleris TOS</a>
+            <a href="https://tideworks.com/">Tideworks TOS</a>
+            <a href="https://camco.be/solutions/">Camco Solutions</a>
+            <a href="https://www.kalmarglobal.com/automation/">Kalmar Automation</a>
+            <a href="https://terminal-industries.com/">Terminal Industries</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform">Qualcomm RB6</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">AI Hub</a>
+            <a href="https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-10/QNN_general_overview.html">QNN / QAIRT</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX QNN EP</a>
+            <a href="https://huggingface.co/docs/lerobot/hil_data_collection">LeRobot HIL</a>
+            <a href="https://docs.nav2.org/">Nav2</a>
+            <a href="https://www.open-rmf.org/">Open-RMF</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

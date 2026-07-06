@@ -210,6 +210,10 @@ img {
   background-image: url("./assets/infra-loop.png");
 }
 
+.hero-yard-loop {
+  background-image: url("./assets/yard-loop.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }

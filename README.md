@@ -49,6 +49,7 @@ The current first-batch pitch directions are:
 - `LabLoop 实验室闭环`: lab operations and provenance layer for sample identity, instruments, robots, raw data, QC exceptions, LIMS/ELN/QMS writeback, and LeRobot HIL loops.
 - `CleanLoop 商业清洁闭环`: commercial cleaning operations tower for demand-triggered tasks, robot/human dispatch, coverage proof, SLA reports, privacy-first edge perception, and LeRobot HIL loops.
 - `InfraLoop 设施巡检闭环`: critical facility inspection loop for data centers, substations, BESS, pump stations, robots/drones/cameras, CMMS/EAM writeback, verified repair evidence, and LeRobot HIL loops.
+- `YardLoop 港场异常闭环`: container-yard exception-closure platform for gate OCR, seal/damage/chassis proof, yard slot mismatches, TOS/YMS writeback, and LeRobot HIL loops.
 - `RoboPort`: certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.

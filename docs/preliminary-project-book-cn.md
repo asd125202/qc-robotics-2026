@@ -261,6 +261,7 @@ Qualcomm 可获得：
 - LabLoop 实验室闭环页：https://qc-robotics-2026.pages.dev/lab-loop/
 - CleanLoop 商业清洁闭环页：https://qc-robotics-2026.pages.dev/clean-loop/
 - InfraLoop 设施巡检闭环页：https://qc-robotics-2026.pages.dev/infra-loop/
+- YardLoop 港场异常闭环页：https://qc-robotics-2026.pages.dev/yard-loop/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/
