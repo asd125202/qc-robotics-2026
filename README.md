@@ -29,7 +29,7 @@ The current first-batch pitch directions are:
 - `SkillDock`: trusted robot skill distribution layer with LeRobot lineage, Qualcomm edge profiles, SBOM/security evidence, install gates, staged rollout, and rollback.
 - `SkillCertKit`: pre-install robot skill trust layer that turns policy models into profile-scoped evidence packages with lineage, SBOM/VEX, Qualcomm edge profiles, policy gates, safety assumptions, signatures, and rollback.
 - `Embodied Kit`: procurement-ready industry kit for factories, labs, education, and service robotics teams.
-- `DragonWorks`: Qualcomm-first robotics developer workbench for devices, datasets, training, deployment, and skills.
+- `DragonWorks`: Qualcomm-first robotics workbench/control plane for Dragonwing devices, LeRobot datasets, TrainRouter jobs, AI Hub/QNN evidence, SkillCertKit gates, SkillDock releases, EdgeFleet feedback, and submission packets.
 - `EdgeFleet`: fleet operations layer for enterprise robot maintenance, logging, updates, and training feedback.
 - `EduForge`: education and developer kit for teaching the full LeRobot-to-Qualcomm edge deployment loop.
 - `JudgeDeck`: judge-facing scoring alignment and three-minute demo storyboard.

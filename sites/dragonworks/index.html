@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DragonWorks | Qualcomm-first 机器人开发者工作台</title>
+    <title>DragonWorks | Qualcomm-first 机器人开发工作台</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -13,9 +13,13 @@
         <span>DragonWorks</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#why">定位</a>
-        <a href="#workspace">工作台</a>
-        <a href="#qualcomm">Qualcomm</a>
+        <a href="#problem">问题</a>
+        <a href="#why-now">为什么现在</a>
+        <a href="#solution">方案</a>
+        <a href="#evidence">证据</a>
+        <a href="#market">商业</a>
+        <a href="#moat">壁垒</a>
+        <a href="#qualcomm">高通</a>
         <a href="#demo">演示</a>
       </nav>
     </header>
@@ -23,61 +27,194 @@
     <main>
       <section class="hero hero-dragonworks">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 05 · Developer Workbench</p>
+          <p class="eyebrow">Pitch 05 · Qualcomm-first Robotics Workbench</p>
           <h1>DragonWorks</h1>
-          <p class="hero-lede">一个 Qualcomm-first 机器人开发者工作台：设备、数据集、云训练、模型版本、边缘性能和技能发布不再分散在不同工具里。</p>
+          <p class="hero-lede">机器人团队不缺单点工具，缺一条从 Dragonwing 设备、LeRobot 数据、双云训练、AI Hub/QNN 证据、SkillCertKit 门禁到 SkillDock 发布的可复现流水线。DragonWorks 把这些证据放在一个 Qualcomm-first 工作台里。</p>
           <div class="cta-row">
-            <a class="button primary" href="#workspace">工作台结构</a>
-            <a class="button" href="../edgefleet/">查看队列运维版本</a>
+            <a class="button primary" href="#problem">从平台断层开始</a>
+            <a class="button" href="../prototype/">打开交互原型</a>
           </div>
         </div>
       </section>
 
-      <section id="why" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Platform Gap</p>
-              <h2>Qualcomm 需要的不只是开发板页面，而是机器人开发者的默认入口。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>机器人开发卡在“从 demo 到可复现产品”的断层。</h2>
             </div>
-            <p>NVIDIA 已经把 Jetson + Isaac ROS 讲成了 physical AI 开发路径。DragonWorks 的目标，是把 Qualcomm Dragonwing、LeRobot、云 GPU、AI Hub 和技能发布组织成一条清晰的产品旅程。</p>
+            <p>设备注册、遥操作数据、训练任务、模型版本、边缘 profile、技能证据、fleet 日志和比赛提交材料分散在不同工具里。结果是 demo 能跑，但团队无法回答：这次成功来自哪个设备、哪份数据、哪个训练 job、哪个 Qualcomm runtime，以及失败后如何回滚。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>设备</h3>
-              <p>绑定 QCS6490、QCS8550、IQ-8275 等目标硬件，查看在线状态、资源占用和运行版本。</p>
+              <span class="claim-tag">断点 1</span>
+              <h3>设备和数据脱节</h3>
+              <p>相机、传感器、执行器、runtime、firmware 和 LeRobot episode 没有统一 device lineage。</p>
             </article>
             <article class="card">
-              <h3>数据</h3>
-              <p>把真实机器人操作记录为 LeRobot-compatible 数据集，管理任务、版本和失败片段。</p>
+              <span class="claim-tag">断点 2</span>
+              <h3>云训练和边缘目标脱节</h3>
+              <p>团队能启动 GPU job，却常常忘记训练目标应该从第一天就绑定 Qualcomm profile。</p>
             </article>
             <article class="card">
-              <h3>训练</h3>
-              <p>按中国版或海外版云供应商启动 GPU job，训练 ACT / VLA 策略并生成评估报告。</p>
+              <span class="claim-tag">断点 3</span>
+              <h3>模型和技能交付脱节</h3>
+              <p>一个权重文件离可安装技能还差 edge metrics、SBOM、权限、安全边界、签名和回滚。</p>
             </article>
             <article class="card">
-              <h3>部署</h3>
-              <p>把模型转换为边缘部署包，回到 Qualcomm 设备进行本地低延迟运行。</p>
+              <span class="claim-tag">断点 4</span>
+              <h3>比赛和商业交付脱节</h3>
+              <p>视频、截图、指标、源码、BOM、证据表和答辩故事没有自动从真实项目状态生成。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="workspace" class="slide tint">
-        <div class="wrap split">
-          <div class="visual">
+      <section id="why-now" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Why Now</p>
+              <h2>Qualcomm 已经有工具链碎片，现在需要一条开发者旅程。</h2>
+            </div>
+            <p>Dragonwing Robotics Hub、AI Hub Workbench、QNN/QAIRT、Device Cloud、Profiler、Qualcomm Linux 和 Dragonwing/RB3/IQ reference designs 都在形成。机会不是再造 ROS 或仿真平台，而是把这些资产串成从真实机器人数据到可部署技能的 Qualcomm-first journey。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <span class="claim-tag">开发者时机</span>
+              <h3>LeRobot 让真实数据进入标准工作流</h3>
+              <p>TeleopStudio 和 CloudTwin 可以把 episode、失败片段、训练任务和评估报告变成可追踪资产。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">边缘时机</span>
+              <h3>AI Hub / QNN 可以成为 release gate</h3>
+              <p>模型不只要训练出来，还要有 compile、profile、runtime、latency、memory 和 fallback 证据。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">生态时机</span>
+              <h3>NVIDIA 已经讲清 Isaac 路径</h3>
+              <p>Qualcomm 也需要一条同样清晰的机器人路径：real data -> cloud train -> edge profile -> skill release。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>DragonWorks 是把真实机器人 episode 变成 Qualcomm edge skill 的控制平面。</h2>
+            </div>
+            <p>它不替代 ROS 2、LeRobot、AI Hub、Foxglove、Viam 或 Formant。它站在这些工具之上，把项目、设备、数据、训练、边缘证据、技能门禁、发布和比赛提交组织成一个可复现 release graph。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Device</h3>
+              <p>注册 Dragonwing / QCS / IQ target、robot profile、camera、actuator、runtime 和健康状态。</p>
+            </article>
+            <article class="step">
+              <h3>Dataset</h3>
+              <p>接入 TeleopStudio / LeRobot episode，锁定 dataset hash、split、失败片段和数据地域。</p>
+            </article>
+            <article class="step">
+              <h3>Train</h3>
+              <p>调用 TrainRouter，选择 China / Overseas lane、预算、GPU provider、eval gate 和 target profile。</p>
+            </article>
+            <article class="step">
+              <h3>Profile</h3>
+              <p>进入 AI Hub / QNN / QAIRT / ONNX Runtime QNN 路径，生成 Qualcomm edge evidence。</p>
+            </article>
+            <article class="step">
+              <h3>Release</h3>
+              <p>通过 SkillCertKit，上架 SkillDock，接入 EdgeFleet staged rollout、日志、失败回流和回滚。</p>
+            </article>
+          </div>
+          <div class="image-band">
             <img src="../assets/dragonworks-dashboard.png" alt="DragonWorks 机器人开发者工作台图">
           </div>
+        </div>
+      </section>
+
+      <section id="evidence" class="slide tint">
+        <div class="wrap split">
+          <div class="visual">
+            <img src="../assets/dragonworks-dashboard.png" alt="DragonWorks evidence packet release graph 概念图">
+          </div>
           <div>
-            <p class="kicker">02 · Workspace</p>
-            <h2>把研究工具变成产品界面，才可能让更多团队进入生态。</h2>
+            <p class="kicker">04 · Product</p>
+            <h2>工作台最重要的屏幕不是 dashboard，而是 evidence packet。</h2>
+            <p class="lead">DragonWorks 把分散在各页面的证据聚合成一次 release：从 device registry 到 dataset manifest，从 cloud job 到 Qualcomm export，从 skill gate 到 install audit。</p>
             <ul class="list">
-              <li>项目视图：机器人形态、传感器、任务目标、目标硬件。</li>
-              <li>数据视图：数据集版本、示教片段、失败片段、标注状态。</li>
-              <li>训练视图：GPU provider、策略模板、训练日志、评估结果。</li>
-              <li>部署视图：模型包、硬件兼容、性能预算、回滚版本。</li>
-              <li>技能视图：发布、认证、权限、售价和行业模板。</li>
+              <li>`device-registry.json`：board、SoC、OS、runtime、sensor、actuator、firmware、health。</li>
+              <li>`job_contract.v1.yaml`：dataset、policy、target profile、budget、lane、eval、export。</li>
+              <li>`qualcomm_export_manifest.json`：ONNX/QNN/QAIRT artifacts、AI Hub job、runtime、input shape。</li>
+              <li>`release-record.json`：skill digest、policy decision、staged rollout、previous-known-good 和 rollback pointer。</li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Market & Business Model</p>
+              <h2>免费入口吸引开发者，工作流证据向团队和企业收费。</h2>
+            </div>
+            <p>第一批用户是 Qualcomm/Arduino/Hackster-style 开发者、机器人课程、实验室和比赛团队；付费客户是需要复现、团队协作、私有数据、边缘 profile、fleet evidence 和技能上架材料的 OEM、SI、RaaS 和企业创新团队。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">Developer</span>
+              <h3>免费项目层</h3>
+              <p>设备模板、dataset card、训练 job、demo storyboard 和 submission builder，降低进入门槛。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Team</span>
+              <h3>团队协作层</h3>
+              <p>按 seat、设备数、私有数据集、训练 job、profile credits 和 release history 收费。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Enterprise</span>
+              <h3>企业证据层</h3>
+              <p>私有部署、SSO/RBAC、审计、regional data lanes、SkillCertKit evidence 和 EdgeFleet hooks。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Ecosystem</span>
+              <h3>生态收入层</h3>
+              <p>reference skills、SI/OEM templates、SkillDock 上架、validation services 和 training credits。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Competition & Moat</p>
+              <h2>DragonWorks 不要和 Isaac、Flowstate、Viam、Foxglove、Formant、ROS 正面互换定位。</h2>
+            </div>
+            <p>Isaac 是 GPU-first simulation/physical AI stack；Flowstate 是工业 workcell 平台；Viam/Formant 更偏 robot runtime 和 fleet ops；Foxglove 是 data observability；LeRobot 是 open robot-learning stack；ROS 是底层机器人基础设施。DragonWorks 的位置是 Qualcomm-first release journey。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <span class="claim-tag">短期壁垒</span>
+              <h3>Qualcomm target templates</h3>
+              <p>RB3/QCS6490、QCS8550、IQ-8275、IQ10 路线的 device profile、AI Hub profile 和 demo templates。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">中期壁垒</span>
+              <h3>release evidence graph</h3>
+              <p>每个 episode、training job、edge profile、skill gate、install、failure、rollback 都沉淀为可查询关系图。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">长期壁垒</span>
+              <h3>ecosystem distribution</h3>
+              <p>开发者模板、Robotics Hub reference projects、SkillDock skills、SI/OEM channels 和 competition submissions 互相强化。</p>
+            </article>
           </div>
         </div>
       </section>
@@ -86,24 +223,45 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">03 · Strategic Fit</p>
-              <h2>这页最适合讲“为什么 Qualcomm 应该支持”。</h2>
+              <p class="kicker">07 · Why Qualcomm</p>
+              <h2>DragonWorks 把 Qualcomm 从硬件选项，变成机器人开发默认路径。</h2>
             </div>
-            <p>如果比赛作品只展示一个任务，价值会停在 demo。DragonWorks 展示的是 Qualcomm 如何把开发板、AI 模型、机器人样例、训练工具和商业交付连接成一个可持续生态。</p>
+            <p>开发者不应该只在最后一步才想到部署硬件。DragonWorks 让 Qualcomm target 从项目创建开始出现：数据采集时记录 board/sensor/runtime，训练时绑定 target profile，发布前生成 AI Hub/QNN evidence，安装后回收 EdgeFleet failure data。</p>
           </div>
-          <div class="grid three">
+          <div class="grid four">
             <div class="stat">
-              <strong>入口</strong>
-              <span>让开发者从 Dragonwing 设备开始创建机器人项目。</span>
+              <strong>Start</strong>
+              <span>项目从 Dragonwing / RB3 / QCS / IQ target profile 创建。</span>
             </div>
             <div class="stat">
-              <strong>迁移</strong>
-              <span>同一项目可在 QCS6490、QCS8550、IQ-8275 间定义迁移路线。</span>
+              <strong>Train</strong>
+              <span>云训练 job 从第一天带着 Qualcomm target constraints。</span>
             </div>
             <div class="stat">
-              <strong>生态</strong>
-              <span>训练、部署、技能和认证共同扩大 Qualcomm 机器人开发者生态。</span>
+              <strong>Profile</strong>
+              <span>AI Hub / QNN / QAIRT 证据成为 release gate。</span>
             </div>
+            <div class="stat">
+              <strong>Publish</strong>
+              <span>Robotics Hub reference project 和 SkillDock skill card 共用同一 evidence packet。</span>
+            </div>
+          </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>DragonWorks validation sprint</h3>
+              <p>6-8 周跑通 2-3 个 reference skills：vision grasping、AMR inspection、visual tracking 或 sample transfer。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>AI Hub / QNN / Device Cloud quota</h3>
+              <p>把网页原型升级为真实 compile/profile/run evidence，并验证 unsupported ops 和 fallback 路径。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>Robotics Hub output path</h3>
+              <p>把 DragonWorks evidence packet 转成可发布教程、演示视频、BOM、代码步骤和 Qualcomm-edge-ready candidate。</p>
+            </article>
           </div>
         </div>
       </section>
@@ -112,43 +270,47 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · Demo Story</p>
-              <h2>初赛先做静态工作台原型，复赛接入真实设备指标。</h2>
+              <p class="kicker">08 · Demo & Evidence</p>
+              <h2>7 分钟演示：从创建项目，到生成 Qualcomm edge skill release。</h2>
             </div>
-            <p>现在即可展示一个中文工作台原型：设备列表、数据集版本、训练任务、模型包、边缘性能和技能发布。拿到开发板后，再把真实延迟、帧率、资源占用和任务成功率接入。</p>
+            <p>DragonWorks 的演示不是再展示一个仪表盘，而是证明整条链路能被复现：设备、数据、训练、边缘 profile、技能门禁、发布、失败回流和比赛提交材料都来自同一个项目状态。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>创建项目</h3>
-              <p>选择机器人形态、目标硬件和任务模板。</p>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">0:00-1:30</span>
+              <h3>创建项目和设备</h3>
+              <p>选择 tabletop manipulator、QCS/QCS8550/IQ target、camera、actuator、runtime 和 task template。</p>
             </article>
-            <article class="step">
-              <h3>上传数据</h3>
-              <p>数据集进入 LeRobot-compatible 版本管理。</p>
+            <article class="card">
+              <span class="claim-tag">1:30-3:00</span>
+              <h3>采集并训练</h3>
+              <p>导入 TeleopStudio episode，生成 LeRobot dataset，提交 TrainRouter China / Overseas job。</p>
             </article>
-            <article class="step">
-              <h3>启动训练</h3>
-              <p>按中国版或海外版云 GPU 路径启动 job。</p>
+            <article class="card">
+              <span class="claim-tag">3:00-5:00</span>
+              <h3>profile 和 certify</h3>
+              <p>展示 AI Hub/QNN evidence、EdgeRuntimeBench metrics、SkillCertKit gate 和 blocked incompatible profile。</p>
             </article>
-            <article class="step">
-              <h3>边缘评估</h3>
-              <p>在 Qualcomm 设备上回放、测延迟和资源占用。</p>
-            </article>
-            <article class="step">
-              <h3>发布技能</h3>
-              <p>生成可安装、可回滚、可认证的技能包。</p>
+            <article class="card">
+              <span class="claim-tag">5:00-7:00</span>
+              <h3>发布并导出提交包</h3>
+              <p>生成 SkillDock card、EdgeFleet rollout、rollback pointer、evidence checklist 和三分钟答辩 storyboard。</p>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section class="slide white">
-        <div class="wrap">
-          <p class="quote">DragonWorks 的意义，是把 Qualcomm 机器人生态从“硬件可用”推进到“产品可用”。</p>
+          <p class="quote pipeline-extra">DragonWorks 的一句话：把“我做了一个机器人 demo”变成“我有一条 Qualcomm-first、可复现、可发布、可回滚的机器人技能流水线”。</p>
           <div class="source-links">
             <a href="https://www.qualcomm.com/developer/blog/2026/03/what-qualcomm-dragonwing-robotics-hub-means-for-developers">Dragonwing Robotics Hub</a>
-            <a href="https://aihub.qualcomm.com/models">Qualcomm AI Hub</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html">AI Hub Compile</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX Runtime QNN</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobotDataset v3</a>
             <a href="https://developer.nvidia.com/isaac/ros">NVIDIA Isaac ROS</a>
+            <a href="https://www.intrinsic.ai/flowstate">Intrinsic Flowstate</a>
+            <a href="https://docs.viam.com/what-is-viam/">Viam</a>
+            <a href="https://foxglove.dev/product/data-management">Foxglove</a>
+            <a href="https://docs.formant.io/docs/getting-started-fleet-management">Formant</a>
+            <a href="https://www.ros.org/">ROS</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR 2025</a>
           </div>
         </div>
       </section>
