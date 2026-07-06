@@ -1,211 +1,299 @@
-# WarehouseLoop 仓务闭环 Pitch
+# WarehouseLoop 仓务异常闭环 Pitch
 
 更新时间：2026-07-06。
 
 ## One-Line Company
 
-WarehouseLoop 是给 3PL、品牌仓和跨境电商仓的 AI 仓务闭环平台：
+WarehouseLoop 是给 3PL、品牌仓、跨境海外仓和退货中心的仓务异常闭环平台：
 
-> 发现仓内异常，派单纠偏，拍照/扫码验证完成，并回写 WMS。
+> 发现错货、漏扫、破损、库位不一致，派人或机器人纠偏，拍照/扫码验证，并自动回写 WMS；每一次接管都变成 LeRobot 训练数据。
 
-它不是替代 WMS，也不是再卖一套 AMR 车队。它是现场事实到系统记录之间的闭环层。
+它不替代 WMS，不从“全自动仓库”开始，也不强卖一整套机器人。第一步是让仓库里每天发生的异常可以被发现、派单、修正、验证、回写和学习。
 
 ## Problem
 
-仓库不缺系统，缺“现场事实到系统记录”的闭环。
+买方痛点不是“机器人不够聪明”，而是：
 
-典型问题：
+> WMS 说库存正常，货架现场已经错了。
 
-- SKU 放错库位，但 WMS 还显示正常。
-- 扫码漏扫、错扫、少件、多件、串货，最后变成赔付和加班。
-- 退货质检在纸单、Excel、微信群和主管记忆里流转。
-- 损坏包裹、错货、疑似欺诈、不可售商品没有统一证据。
-- WMS、AMR、人工、相机、扫码枪之间没有统一异常闭环。
+典型客户：
+
+- 中小 3PL、多客户履约仓、跨境海外仓。
+- DTC 服饰、美妆、消费电子品牌仓。
+- 退货中心、换标/贴标/质检工位。
+- 已经有 WMS/WES/AMR，但现场异常仍靠微信群、Excel、纸单和主管记忆补洞的 brownfield 仓。
+
+高频痛点：
+
+- 错库位：SKU 被放到 B-02，WMS 仍显示 A-03。
+- 漏扫/少件：收货、上架、复核、包装缺少证据链。
+- 退货质检：破损、错货、疑似欺诈、可售/不可售判定缺标准证据。
+- 临时工和旺季：新人不熟流程，异常堆积，主管只能事后追责。
+- 机器人项目：AMR 能搬运，AS/RS 能存取，机械臂能抓取，但失败、低置信度、人工接管和 WMS 状态更新没有闭环。
 
 ## Why Now
 
-- 电商和跨境电商继续拉高 SKU、订单和退货复杂度。
-- 2025 年美国零售退货预计 8499 亿美元，线上退货率 19.3%。
-- 中国 2025 年快递业务量约 1989.5 亿件，跨境电商进出口约 2.84 万亿元。
-- 仓库自动化预算增加，但 brownfield 仓库不能都重建成全自动仓。
-- AMR、ACR、AS/RS、机械臂和固定相机都在部署，真正缺的是跨设备异常闭环。
-- Qualcomm edge AI 让现场低延迟感知和隐私更可行，LeRobot 让失败与接管能进入训练闭环。
+仓库自动化预算在上升，但客户不想先承担全仓重建风险。异常闭环是更轻、更快、更能付费的入口。
 
-## Non-Obvious Insight
+关键变化：
 
-仓库 AI 的第一桶金不是“全自动仓库”，而是“异常闭环”。
+- 退货变成 CFO 级问题。NRF 预计 2025 年美国零售退货规模约 8499 亿美元，线上退货率 19.3%。
+- 物流用工仍紧。Descartes 调查显示 76% supply chain / logistics operations 正在经历劳动力短缺。
+- 供应链技术预算打开。MHI/Deloitte 2025 报告称供应链领导者正在增加数字化、自动化和机器人投资。
+- 中国仓储成本压力明确。2025 年社会物流总费用与 GDP 比率仍在 13.9% 附近，政策目标到 2027 年降到约 13.5%。
+- 中国电商和跨境规模巨大。2025 年快递业务量约 1990 亿件，跨境电商进出口约 2.84 万亿元。
+- 机器人商业化正在从 demo 走向运营。Locus、Brightpick、Ambi、Dexterity、GXO/Agility、Geek+、海柔、快仓等证明仓库愿意为真实产能付费。
+- LeRobot 和 Qualcomm edge AI 让“失败 -> 接管 -> 训练 -> 端侧部署”有了可演示路径。
 
-WMS 记录的是应然状态，WarehouseLoop 捕捉和修正实然状态。每个错放、破损、漏扫、低置信度抓取、退货质检和人工接管，都应该变成可追责、可验证、可回写、可训练的数据资产。
+## Insight
+
+仓库自动化的第一桶金不是无人仓，而是异常闭环。
+
+WMS/WES 知道“应该发生什么”；AMR/ASRS/机械臂负责“移动或执行一部分动作”；真正缺的是：
+
+- 现场是否真的发生了？
+- 异常由谁负责？
+- 纠偏是否有照片、扫码、RFID、重量或视频证据？
+- 系统状态是否被回写？
+- 低置信度和人工接管是否成为下一轮机器人技能数据？
+
+WarehouseLoop 的数据单元不是一张库存表，而是：
+
+> exception + task + action + evidence + writeback + HIL episode
 
 ## Solution
 
-WarehouseLoop 从三个高痛工作流切入：
+WarehouseLoop 是 existing warehouse 之上的异常操作层。
 
-1. 收货 / 上架差异：ASN、到货、扫码、拍照、库位确认和异常索赔。
-2. 库位错放 / 盘点差异：相机、扫码、RFID、重量和人工复核形成 proof。
-3. 退货质检 / 可售判定：RMA、照片、条码、破损等级、可售/不可售/复检。
+核心产品：
 
-工作流：
+1. **Exception Capture**：固定相机、手持扫码、RFID、称重台、AMR、机械臂、手机拍照和 WMS 对账发现异常。
+2. **Task Dispatch**：把异常变成有负责人、SLA、优先级、目标库位、所需证据和截止时间的任务。
+3. **Human/Robot Correction**：仓员、主管、AMR、机械臂或远程协助完成纠偏。
+4. **Proof & Writeback**：扫码、照片、视频、RFID、重量变化和机器人状态组成证据包，回写 WMS/WES/ERP。
+5. **LeRobot Learning Loop**：失败、低置信度和人工接管导出为 LeRobot episode，云端训练后部署到 Qualcomm edge。
 
-- 现场设备发现异常：手机、固定相机、AMR、机械臂、扫码枪、RFID、称重台。
-- LoopCore 生成 ExceptionCase。
-- 系统派给仓员、主管或机器人。
-- 操作员扫码/拍照/视频验证。
-- WarehouseLoop 回写 WMS/WES/ERP。
-- 失败、接管和低置信度动作进入 LeRobot dataset。
+三类首发工作流：
+
+- 收货 / 上架差异：ASN、到货、扫码、拍照、库位确认和异常索赔。
+- 库位错放 / 盘点差异：相机、扫码、RFID、重量和人工复核形成 proof。
+- 退货质检 / 可售判定：RMA、照片、条码、破损等级、可售/不可售/复检。
+
+## Product Workflow
+
+1. Mock/real WMS 下发“SKU A 应在 A-03”的库存或退货任务。
+2. Edge camera / scanner / RFID 发现 SKU A 在 B-02，或退货箱破损、条码不匹配。
+3. WarehouseLoop 创建 ExceptionCase，标注异常类型、置信度、责任人、SLA 和所需证据。
+4. 系统派单给仓员、主管、AMR、机械臂或远程协助。
+5. 人或机器人纠偏：移动 SKU、复核退货、贴标、分拣、装入正确 tote/bin。
+6. 扫码、拍照、视频、RFID 或重量变化验证完成。
+7. WMS/WES/ERP 状态从 `异常` 变成 `已修正`，证据包进入审计记录。
+8. 人工接管、失败动作和低置信度片段导出为 LeRobot dataset。
+9. 中国版在阿里云 PAI / 华为 ModelArts / 腾讯 GPU 云训练；海外版在 AWS SageMaker / Google Vertex AI / Azure ML 训练。
+10. 训练结果经 AI Hub / QNN / ONNX Runtime QNN profile 后回到 Qualcomm edge device。
 
 ## Market Wedge
 
 第一客户不是所有仓库，而是：
 
-- 中小 3PL 和品牌仓。
-- 高 SKU、高退货、高临时工比例的服饰、美妆、消费电子仓。
-- 跨境电商海外仓、保税仓和退货中心。
-- 已经有 WMS，但现场执行和异常闭环混乱的 brownfield 仓。
+- 中小 3PL 和多客户履约仓：多客户、多 SLA、多系统、多临时工，最需要中立闭环层。
+- DTC 品牌仓：服饰、美妆、消费电子 SKU 多、退货多，返工和库存准确率敏感。
+- 跨境海外仓：退货分级、换标、破损、疑似欺诈和库存纠偏是高价值场景。
+- 自动化集成商：AMR/ACR/WMS/WES 项目里，异常闭环是可复制插件。
+- 制造业仓储/线边配送：MES order、kitting、QR/RFID 验证和失败接管可以复用同一闭环。
 
 中国版重点：
 
-- 跨境退货分级、贴标、换标、破损包裹、错货和海外仓库存纠偏。
-- 与 WMS/WES/RCS、AMR/ACR 厂商、自动化 EPC 和跨境服务商合作。
-- 数据本地化、私有部署、中文工单、企微/钉钉/飞书和本地运维。
+- 跨境电商、仓配一体、海外仓、保税仓、制造业仓储。
+- 本地云、本地数据、私有部署、企微/钉钉/飞书任务通知。
+- 和 Geek+、海柔、快仓、海康机器人、立镖、劢微、未来机器人、系统集成商做生态连接。
 
 海外版重点：
 
-- 中小 3PL、DTC 品牌仓、服饰/鞋履/电子产品退货中心。
-- 先卖 30-45 天单流程试点，再扩到多仓。
-- 不重建仓库，不替换 WMS，先把异常闭环做成 ROI。
+- 3PL、DTC returns center、high-SKU e-commerce、apparel/beauty/electronics。
+- 从一个退货/putwall/receiving station 切入，避免超大客户长周期全仓改造。
+- 和 WMS/WES、AMR、RaaS、系统集成商合作，而不是正面替代。
 
 ## Business Model
 
-一句话收入模型：按“闭环的仓务异常流程”收费，而不是靠硬件毛利。
+收入模型：
 
-- 付费试点：30-45 天，单仓单流程，5k-15k 美元。
-- 生产版：1.5k-5k 美元 / 仓 / 月起，按工作流、摄像头节点、闭环任务量加价。
-- 企业版：25k-75k 美元 / 仓 / 年，含集成、SLA、审计报表和私有部署。
-- 中国版：8-12 周试点，按工作站、摄像头节点、闭环任务量和 WMS 集成收费。
-- OEM/集成商：边缘视觉/异常闭环 SDK、Qualcomm profile、LeRobot 数据导出和任务模板授权。
+> pilot fee + robot/workcell monthly fee + cloud training subscription + per-closed-exception success fee
+
+建议价格：
+
+- 付费试点：中国 8-12 周，20-60 万元；海外 30k-80k 美元集成/部署费。
+- 工位订阅：中国按工作站、摄像头节点、任务量和 WMS 集成收费；海外 8k-15k 美元 / 月 / 工位。
+- 云训练订阅：中国版使用阿里云/华为/腾讯区域内训练；海外版使用 AWS/GCP/Azure。
+- 成功费：按 corrected item、closed exception、return processed、pick/orderline 成功数加价。
+- OEM/集成商授权：异常闭环 SDK、Qualcomm profile、LeRobot 数据导出、WMS 连接器和任务模板。
+
+试点 KPI：
+
+- 错货/错库位修正时间。
+- 退货返架周期。
+- 每件触点数。
+- 人工接管率。
+- WMS 回写延迟。
+- 异常关闭率。
+- 训练后同类任务成功率。
+
+## Go-To-Market
+
+第一步不是“让仓库无人化”，而是拿到一个客户愿意付费的异常流程。
+
+路径：
+
+1. 找 2-3 家 design partner：3PL、跨境退货中心、服饰/美妆品牌仓。
+2. 选择一个高频流程：退货质检、收货差异、错库位纠偏、putwall 复核。
+3. 8-12 周部署一个 workcell：相机/扫码/RFID/称重 + mock or real WMS + 人工/机器人任务。
+4. 用客户数据证明 KPI：更快关闭异常、更少返工、更短返架、更低主管追责时间。
+5. 扩展到同仓更多流程：receiving -> putaway -> return grading -> replenishment -> kitting。
+6. 再复制到多仓、多客户、多机器人 fleet。
+
+渠道：
+
+- WMS/WES/RMS 厂商：把 WarehouseLoop 作为现场 proof 和机器人训练层。
+- AMR/ACR/机械臂厂商：为其失败/异常提供任务和数据闭环。
+- 系统集成商：负责现场部署，WarehouseLoop 保留软件、数据和云训练订阅收入。
+- Qualcomm 生态：以 RB3/RB6/Dragonwing 作为 edge reference design。
 
 ## Competition
 
-现有玩家证明仓库机器人真实有市场，但它们大多没有解决跨系统异常闭环：
+竞争不是“谁有机器人”，而是谁能把异常闭环成数据资产。
 
-- Locus / 6 River / GreyOrange：AMR pick assist 强，但不负责库存真相和退货闭环。
-- AutoStore / Exotec / Ocado：goods-to-person 和 AS/RS 强，部署重，仍需要上下游异常处理。
-- Symbotic / Amazon Robotics：mega-DC 自动化强，但不适合大多数 brownfield 中小仓。
-- Covariant / Nimble / RightHand / Plus One：机械臂能力强，但 SKU、破损、退货和异常仍需闭环。
-- Geek+ / Hai Robotics / Quicktron / Cainiao：国内 AMR/ACR 竞争成熟，WarehouseLoop 应做插件式异常闭环层。
-- Dexory / Gather AI：更偏 physical AI / digital twin；WarehouseLoop 更轻、更贴近“任务派发 + proof + WMS 回写”。
+- Locus / 6 River / Robust.AI：人机协作和 AMR pick assist 强；WarehouseLoop 负责异常、proof、WMS 回写和训练回流。
+- Brightpick / Nimble / Ambi / Dexterity：机器人动作和自动化履约强；WarehouseLoop 从更轻的异常工位切入。
+- AutoStore / Exotec / Ocado：goods-to-person 和 AS/RS 强；WarehouseLoop 补上下游异常和退货闭环。
+- Symbotic / Amazon Robotics：mega-DC 自动化强；WarehouseLoop 面向 brownfield 3PL/品牌仓的渐进式闭环。
+- Geek+ / Hai Robotics / Quicktron / Hikrobot：国内 AMR/ACR 成熟；WarehouseLoop 做插件式异常和训练层。
+- Dexory / Gather AI：数字孪生和库存扫描强；WarehouseLoop 进一步把异常变成任务、纠偏、proof 和 HIL 数据。
+- WMS/WES/QMS：system of record 强；WarehouseLoop 是 system of action and evidence。
 
 ## Moat
 
-护城河不是通用视觉模型，而是“异常-动作-结果”数据集：
+核心护城河不是通用视觉模型，而是：
 
-- SKU、库位、容器、责任人、照片证据、WMS 修正、SLA、返工结果。
+> exception-action-evidence-writeback-training graph
+
+会积累的资产：
+
+- SKU、库位、tote/bin、条码、RFID、照片、重量、视频和 WMS 状态。
 - 退货等级、破损标签、欺诈风险、复检结果、可售/不可售去向。
-- 人工接管、低置信度抓取、错误识别和安全停机片段。
-- WMS/WES/ERP/RCS 连接器、行业 SOP 模板和客户运营报表。
+- 人工接管、低置信度抓取、错误识别、安全停机和恢复策略。
+- WMS/WES/ERP/RMS/RCS 连接器。
+- 客户 SOP、SLA、责任分派、审计证据和 KPI benchmark。
+- Qualcomm edge model profiles、deployment recipes、rollback records。
+- 中国/海外两套云训练和数据边界 playbook。
 
 ## Architecture
 
 ### LoopCore
 
-云端或本地服务：
-
-- WMS/ERP/WES/RCS 连接器。
+- WMS/ERP/WES/RMS/RCS 连接器。
 - ExceptionCase、WarehouseTask、VerificationEvidence、ReturnAssessment。
-- 任务规划、审计日志、SLA、报表、模型注册和回滚。
+- 任务规划、SLA、审计日志、报表、模型注册和回滚。
 - CSV/API/mock WMS 起步，后续接 Oracle、Manhattan、Blue Yonder、SAP、金蝶、用友、聚水潭等。
-
-### LoopRMF
-
-机器人和现场资源编排：
-
-- Open-RMF 任务队列、交通、门、充电、fleet adapter。
-- 把 WarehouseTask 转成 AMR API、ROS 2 Nav2、MoveIt 2 Task Constructor 或工站动作。
-- 支持混合厂商，不要求替换已有 AMR/ACR。
 
 ### LoopEdge
 
-Qualcomm 端侧运行层：
+- Qualcomm RB3 Gen 2 / RB6 / Dragonwing IQ10-class edge device。
+- 固定相机、腕部相机、手持扫码、RFID、称重、AMR、机械臂。
+- 本地识别条码、SKU、库位、包装破损、缺件、多件、错放和动作失败。
+- 弱网缓存、本地审计 buffer、离线执行门控。
 
-- RB3 Gen 2 / IQ-9075 / IQ10 级别 edge device。
-- 固定相机、手持扫码、RFID、称重、工位机械臂、AMR 相机。
-- QNN / TFLite / ONNX Runtime、AI Hub profile、离线推理和弱网缓存。
-- 本地识别条码、SKU、包装破损、错位、缺件、多件和动作失败。
+### LoopRMF
 
-## Data Objects
+- ROS 2 / Nav2 / MoveIt 2 / ros2_control / Open-RMF。
+- 把 WarehouseTask 转成 AMR route、robot arm stages、fleet task、door/charger traffic。
+- 支持混合厂商，不要求替换已有 AMR/ACR。
 
-- `WarehouseTask`: type, priority, WMS ref, source, destination, expected items, deadline.
-- `ExceptionCase`: mismatch type, confidence, owner, SLA, status, evidence refs.
-- `ItemIdentity`: SKU, GTIN, SSCC, lot, serial, barcode, RFID reads.
-- `VerificationEvidence`: photo/video, barcode, RFID, weight delta, vision result, pass/fail.
-- `ReturnAssessment`: RMA, item, grade, defect tags, disposition, human override.
-- `RobotJob`: AMR route, MoveIt stages, battery, status, recovery count.
-- `DatasetEpisode`: videos, state/action, labels, outcome, privacy flags.
-- `ModelRelease`: target SoC, runtime, quantization, metrics, signature, rollback id.
+### Learning & Cloud Split
 
-## Demo
+- LeRobotDataset v3 记录多相机视频、状态、动作、任务、episode 边界和结果。
+- HIL loop：deploy -> intervene -> record -> fine-tune -> redeploy。
+- 中国训练：阿里云 PAI、华为 ModelArts、腾讯 GPU 云；原始视频和订单数据留在中国。
+- 海外训练：AWS SageMaker、Google Vertex AI、Azure ML。
+- Qualcomm 部署：AI Hub profile、QNN/QAIRT、ONNX Runtime QNN EP、edge artifact signature 和 rollback。
 
-比赛 demo 不需要真实仓库。一个迷你货架、几个 SKU、一个破损纸箱、一个二维码退货单即可：
+## Competition Demo
+
+比赛 demo 用一个小货架、三个 SKU、一个退货箱、一个扫码器、一个相机和一台小机械臂/AMR 即可。
+
+3 分钟故事：
 
 1. Mock WMS 显示 SKU A 应在 A-03。
-2. 固定相机或手机发现 SKU A 被放在 B-02，置信度 0.82。
-3. WarehouseLoop 自动生成异常纠偏任务。
-4. 操作员扫码并拍照，把 SKU 放回 A-03。
-5. 系统回写 WMS，状态从 `异常` 变成 `已修正`。
-6. 第二个场景演示退货破损，低置信度交给人工复核。
-7. 人工接管片段导出为 LeRobot episode，生成 Qualcomm edge profile。
+2. 现场货架故意把 SKU A 放在 B-02。
+3. Qualcomm edge camera 发现库位不一致，生成异常卡。
+4. 系统派单给仓员或小机械臂纠偏。
+5. 扫码/拍照验证，WMS 从红色异常变绿色已修正。
+6. 第二个退货箱破损，低置信度触发人工复核。
+7. 人工接管片段导出为 LeRobot episode。
+8. 页面展示云训练任务、AI Hub edge profile 和下一轮模型队列。
 
 ## Why Qualcomm
 
-WarehouseLoop 是 Qualcomm edge AI 在工业现场的闭环应用样板：
+WarehouseLoop 让 Qualcomm 在仓库 physical AI 中不是装饰，而是必要基础：
 
-- 仓库现场需要低延迟视觉、弱网运行、本地隐私和多摄像头边缘推理。
-- AMR、固定相机站、退货工位和机械臂都需要低功耗、本地可维护的边缘计算。
-- AI Hub / QNN / TFLite / ONNX Runtime 可把训练模型变成可验证 edge artifact。
-- Qualcomm 不只是“跑模型”，而是让仓库异常闭环在现场可靠运行。
+- 仓库现场需要低延迟、多摄像头、弱网可运行的边缘感知。
+- 条码/RFID/相机/AMR/机械臂/安全门控需要稳定本地 gateway。
+- 客户的 SKU、订单、视频和退货数据不能都上传到公共云。
+- RB3 Gen 2 适合比赛原型；RB6/Dragonwing IQ10 适合生产级仓储移动机器人和 workcell。
+- AI Hub / QNN / QAIRT / ONNX Runtime QNN EP 让云训练模型变成可验证、可回滚的 edge artifact。
+- LeRobot HIL 把人工接管转成下一版技能，Qualcomm edge 让技能在现场可靠执行。
+
+## Ask
+
+比赛阶段的明确请求：
+
+- Qualcomm RB3 Gen 2 或 RB6 级别开发板 + Vision Kit。
+- 一个 mock WMS/API 样例和 5-10 个真实仓务异常流程样本。
+- 3 个潜在试点场景：3PL 退货中心、跨境海外仓、品牌履约仓。
+- 1-2 个 AMR/机械臂/扫码/RFID 生态伙伴用于 demo。
+- AI Hub / QNN profile 支持，用于展示“云训模型到 edge deployment”的完整证据链。
 
 ## Claims To Avoid
 
 - 不说替代 WMS。
-- 不说完全无人仓、lights-out warehouse 或零错误。
+- 不说完全无人仓、lights-out、零错误、0 人力。
 - 不说一天接入所有系统。
-- 不说中国仓储机器人无人竞争；中国已经非常拥挤。
-- 不说通用机器人已经能处理所有 SKU、软包、破损和退货。
+- 不说中国仓储机器人无人竞争。
+- 不说通用机器人能处理所有 SKU、软包、破损和退货。
 - 不说 Qualcomm 官方合作/认证，除非真实签约。
-- 不说固定 ROI；试点指标必须由现场数据验证。
+- 不承诺固定 ROI；只承诺试点验证指标。
 
 ## Sources
 
-- MHI/Deloitte supply chain report：https://www.mhi.org/media/news/48246
-- NRF returns 2025：https://nrf.com/research/2025-retail-returns-landscape
-- U.S. Census ecommerce Q1 2026：https://www.census.gov/retail/ecommerce.html
-- IFR service robots 2025：https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom
-- 国家邮政局 2026 Jan-May：https://www.mot.gov.cn/shuju/tongjishuju/youzheng/202606/t20260624_4208155.html
-- 新华网 2025 快递业务：https://www.news.cn/politics/20260122/d5b9076f70cb4cc5a6f7958bc2b6f3ad/c.html
-- 国家统计局 2026 Jan-May online retail：https://www.stats.gov.cn/sj/zxfb/202606/t20260616_1963949.html
-- 中国跨境电商数据：https://english.www.gov.cn/news/202606/16/content_WS685033abc6d0868f4e8eeabc.html
-- 物流降本增效行动方案：https://www.mee.gov.cn/zcwj/zyygwj/202411/t20241128_1097450.shtml
-- Geek+ investor relations：https://ir.geekplus.com/zh-cn/investor-relations
-- Hai Robotics prospectus：https://www1.hkexnews.hk/app/sehk/2026/108202/documents/sehk26021300409_c.pdf
-- Quicktron：https://www.quicktron.com/zh_CN/about-us
-- Locus Robotics 7B picks：https://locusrobotics.com/blog/seven-billion-picks-warehouse
-- AutoStore Q1 2026：https://www.autostoresystem.com/investors
-- Symbotic filings：https://www.sec.gov/Archives/edgar/data/1837240/000183724025000113/sym-20250927.htm
-- Amazon robotics：https://www.aboutamazon.com/news/operations/amazon-million-robots-ai-foundation-model
-- Nimble Series C：https://nimble.ai/news/nimble-closes-106-million-series-c-funding-round-at-1b-valuation-scales-fully-autonomous-fulfillment-with-fedex
-- Plus One Robotics：https://www.plusonerobotics.com/
-- Pickle Robot：https://www.picklerobot.com/news/series-b-press-release
-- Blue Yonder Optoro：https://blueyonder.com/media/2025/blue-yonder-acquires-optoro
-- Dexory：https://www.dexory.com/en-us
-- Gather AI：https://gather.ai/
-- Oracle WMS Cloud APIs：https://docs.oracle.com/en/cloud/saas/warehouse-management/25d/owmre/
+- NRF 2025 retail returns：https://nrf.com/research/2025-retail-returns-landscape
+- Descartes labor shortage：https://www.descartes.com/resources/news/descartes-study-reveals-76-supply-chain-and-logistics-operations-are-experiencing
+- MHI/Deloitte supply chain tech investment：https://www.mhi.org/content/2/2285545/new-mhi-and-deloitte-report-focuses-on-orchestrating-end-to-end-digital-supply-chain-solutions
+- Warehouse picking economics：https://www2.isye.gatech.edu/~jjb/wh/book/editions/wh-sci-0.97.pdf
+- Locus AMR scale：https://locusrobotics.com/blog/seven-billion-picks-warehouse
+- Brightpick RaaS / fulfillment：https://brightpick.ai/brightpick-unlocks-lights-out-fulfillment/
+- GXO / Agility RaaS：https://www.agilityrobotics.com/content/gxo-signs-industry-first-multi-year-agreement-with-agility-robotics
+- GXO / Dexterity pilot：https://gxo.com/news_article/gxo-pilots-ai-enhanced-robotics-in-warehouse/
+- NDRC logistics cost：https://www.ndrc.gov.cn/fggz/202602/t20260209_1403645.html
+- Logistics cost action plan：https://www.mee.gov.cn/zcwj/zyygwj/202411/t20241128_1097450.shtml
+- 2025 express parcels：https://www.news.cn/fortune/20260107/c0945bd4d0094139be638cf1dfd86e21/c.html
+- 2025 cross-border ecommerce：https://www.stdaily.com/web/gdxw/2026-06/23/content_535756.html
+- Geek+ HKEX listing：https://www.geekplus.com/zh-cn/resources/news/geekplus-lists-on-hkex-main-board-pioneering-the-global-smart-logistics-transformation-with-robotics
+- Quicktron profile：https://www.quicktron.com/zh_CN/about-us
+- GLP RaaS：https://www.glp.com.cn/information/555.html
+- Oracle WMS REST APIs：https://docs.oracle.com/en/cloud/saas/supply-chain-and-manufacturing/26b/faips/wm-rest-apis.html
+- Manhattan automation APIs：https://developer.manh.com/docs/reference/app/mawm/automation-and-robotics/
+- GS1 EPCIS 2.0：https://www.gs1.org/standards/epcis
 - Open-RMF：https://www.open-rmf.org/
-- ROS 2 Jazzy：https://docs.ros.org/en/jazzy/
-- Nav2：https://docs.nav2.org/
-- MoveIt Task Constructor：https://moveit.picknik.ai/main/doc/concepts/moveit_task_constructor/moveit_task_constructor.html
-- GS1 Application Identifiers：https://www.gs1.org/standards/barcodes/application-identifiers
+- ROS 2 control：https://control.ros.org/rolling/doc/ros2_control/controller_manager/doc/userdoc.html
 - Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
-- Qualcomm AI Hub docs：https://workbench.aihub.qualcomm.com/docs/
+- Qualcomm RB6：https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform
+- Qualcomm AI Hub：https://workbench.aihub.qualcomm.com/docs/
+- QNN / AI Engine Direct：https://www.qualcomm.com/developer/software/qualcomm-ai-engine-direct-sdk
+- ONNX Runtime QNN EP：https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html
 - LeRobot Dataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
-- LeRobot HIL：https://huggingface.co/docs/lerobot/en/hil_data_collection
+- LeRobot HIL：https://huggingface.co/docs/lerobot/hil_data_collection
+- Alibaba Cloud PAI：https://www.alibabacloud.com/help/zh/pai/product-overview/what-is-machine-learning-platform-for-ai/
+- Huawei ModelArts：https://www.huaweicloud.com/product/modelarts.html
+- Tencent GPU cloud：https://cloud.tencent.com/product/gpu
+- AWS SageMaker training：https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-training.html
+- Google Cloud custom training：https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute
+- Azure Machine Learning：https://learn.microsoft.com/en-us/azure/machine-learning/

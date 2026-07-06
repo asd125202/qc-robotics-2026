@@ -254,7 +254,7 @@ Qualcomm 可获得：
 - StoreLoop 店务闭环页：https://qc-robotics-2026.pages.dev/store-loop/
 - FoodLoop 餐务闭环页：https://qc-robotics-2026.pages.dev/food-loop/
 - 护元 CareOS 养老照护平台页：https://qc-robotics-2026.pages.dev/careos/
-- WarehouseLoop 仓务闭环页：https://qc-robotics-2026.pages.dev/warehouse-loop/
+- WarehouseLoop 仓务异常闭环页：https://qc-robotics-2026.pages.dev/warehouse-loop/
 - QualityLoop 质检闭环页：https://qc-robotics-2026.pages.dev/quality-loop/
 - AgriLoop 农务闭环页：https://qc-robotics-2026.pages.dev/agri-loop/
 - ColdChainLoop 冷链闭环页：https://qc-robotics-2026.pages.dev/cold-chain-loop/

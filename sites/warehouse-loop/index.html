@@ -3,21 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WarehouseLoop 仓务闭环 | 仓库异常到 WMS 回写的边缘 AI 平台</title>
+    <title>WarehouseLoop 仓务异常闭环 | 错货、漏扫、退货到 WMS 回写的 AI 操作层</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
     <header class="topbar">
       <a class="brand" href="../index.html" aria-label="项目首页">
         <span class="brand-mark"></span>
-        <span>WarehouseLoop 仓务闭环</span>
+        <span>WarehouseLoop 仓务异常闭环</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
         <a href="#problem">问题</a>
+        <a href="#why-now">时机</a>
         <a href="#solution">方案</a>
+        <a href="#product">产品</a>
         <a href="#market">市场</a>
-        <a href="#business">商业</a>
-        <a href="#competition">竞争</a>
+        <a href="#gtm">GTM</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
       </nav>
     </header>
@@ -25,12 +27,12 @@
     <main>
       <section class="hero hero-warehouse-loop">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 51 · Warehouse Exception Closure Platform</p>
-          <h1>把每个仓内异常，闭环到系统。</h1>
-          <p class="hero-lede">WarehouseLoop 是给 3PL、品牌仓和跨境电商仓的 AI 仓务闭环平台：发现仓内异常，派单纠偏，拍照/扫码验证完成，并回写 WMS。</p>
+          <p class="eyebrow">Pitch 51 · Warehouse Exception Closure</p>
+          <h1>WMS 说库存正常，货架现场已经错了。</h1>
+          <p class="hero-lede">WarehouseLoop 是给 3PL、品牌仓、跨境海外仓和退货中心的仓务异常闭环平台：发现错货、漏扫、破损、库位不一致，派人或机器人纠偏，拍照/扫码验证，并自动回写 WMS。</p>
           <div class="cta-row">
-            <a class="button primary" href="#solution">看异常闭环</a>
-            <a class="button" href="../ops-connector/">连接 OpsConnector</a>
+            <a class="button primary" href="#product">看异常闭环</a>
+            <a class="button" href="#ask">比赛 Demo Ask</a>
           </div>
         </div>
       </section>
@@ -40,26 +42,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">01 · Problem</p>
-              <h2>仓库不缺系统，缺“现场事实到系统记录”的闭环。</h2>
+              <h2>仓库最贵的不是拣货，而是发现错了以后没人能闭环。</h2>
             </div>
-            <p>错放、漏扫、退货质检、库位不准通常散落在纸单、Excel、微信群和主管记忆里，最后变成缺货、赔付、返工和加班。WMS 记录的是应然状态，仓库现场每天产生的是实然偏差。</p>
+            <p>仓库已经有 WMS、扫码枪、AMR、货架和 SOP，但错放、漏扫、退货破损和低置信度抓取仍散落在纸单、Excel、微信群和主管记忆里。一件错货会变成一次赔付、一次加班、一次库存不可信。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>错放</h3>
-              <p>SKU 在 B-02，系统还显示 A-03；拣货员、机器人和客户都被错误库存拖慢。</p>
+              <h3>库位错了</h3>
+              <p>SKU 在 B-02，WMS 仍显示 A-03；拣货员、AMR 和客户都被错误库存拖慢。</p>
             </article>
             <article class="card">
-              <h3>漏扫</h3>
-              <p>收货、上架、复核、包装缺少证据链，错件和少件变成售后成本。</p>
+              <h3>扫描断了</h3>
+              <p>收货、上架、复核、包装少一次扫码或照片，问题只能事后追责。</p>
             </article>
             <article class="card">
-              <h3>退货</h3>
-              <p>破损、错货、疑似欺诈、可售/不可售判定需要照片、扫码和人工复核闭环。</p>
+              <h3>退货堆了</h3>
+              <p>破损、错货、疑似欺诈、可售/不可售判定缺标准证据和回写。</p>
             </article>
             <article class="card">
-              <h3>孤岛</h3>
-              <p>WMS、AMR、相机、扫码枪、人工和机械臂之间没有统一异常任务语言。</p>
+              <h3>系统孤岛</h3>
+              <p>WMS 知道应然，AMR 负责搬运，相机看到现场，但异常没有统一任务语言。</p>
             </article>
           </div>
         </div>
@@ -70,26 +72,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">02 · Why Now</p>
-              <h2>电商、退货、跨境和机器人部署同时把异常闭环推到前台。</h2>
+              <h2>退货、用工、跨境和机器人商业化同时把异常闭环推到前台。</h2>
             </div>
-            <p>仓库自动化预算正在上升，但绝大多数 brownfield 仓不能直接重建成全自动仓。最短路径不是“买一整套机器人”，而是先把最痛的异常流程闭环。</p>
+            <p>客户不想先承担全仓重建风险。更短的付费路径是：先把退货、收货差异、错库位和 putwall 复核这些高频异常闭环，再逐步扩展机器人能力。</p>
           </div>
           <div class="grid four">
             <div class="stat">
               <strong>$849.9B</strong>
-              <span>NRF 预计 2025 年美国零售退货规模，线上退货率 19.3%。</span>
+              <span>NRF 预计 2025 年美国零售退货规模；线上退货率 19.3%。</span>
             </div>
             <div class="stat">
-              <strong>1989.5 亿件</strong>
-              <span>中国 2025 年快递业务量约 1989.5 亿件，峰值和成本压力持续存在。</span>
+              <strong>76%</strong>
+              <span>Descartes 调查中正在经历 supply chain / logistics 劳动力短缺的运营占比。</span>
+            </div>
+            <div class="stat">
+              <strong>1990 亿件</strong>
+              <span>中国 2025 年快递业务量量级，峰值、临时工和错件压力持续存在。</span>
             </div>
             <div class="stat">
               <strong>2.84 万亿</strong>
-              <span>中国 2025 年跨境电商进出口额，海外仓和退货处理成为产业刚需。</span>
-            </div>
-            <div class="stat">
-              <strong>102,900</strong>
-              <span>IFR 口径下 2024 年物流/运输类专业服务机器人销量领先。</span>
+              <span>中国 2025 年跨境电商进出口额，海外仓退货、换标、质检成为刚需。</span>
             </div>
           </div>
         </div>
@@ -100,22 +102,22 @@
           <div class="section-head">
             <div>
               <p class="kicker">03 · Insight</p>
-              <h2>仓库 AI 的第一桶金不是全自动仓，而是异常闭环。</h2>
+              <h2>仓库自动化的第一桶金不是无人仓，而是异常闭环。</h2>
             </div>
-            <p>AMR、ACR、AS/RS、机械臂和固定相机都在部署，但异常仍然跨越 WMS、人工、设备、库存、质检和退货。WarehouseLoop 把每个偏差变成可追责、可验证、可回写、可训练的数据资产。</p>
+            <p>WMS/WES 知道“应该发生什么”；AMR/ASRS/机械臂执行一部分动作。真正缺的是把现场偏差变成任务、证据、系统回写和下一轮机器人训练数据。</p>
           </div>
           <div class="grid three">
             <article class="card">
-              <h3>从实然到应然</h3>
-              <p>现场相机、扫码和人工证据先发现偏差，再驱动系统修正。</p>
+              <h3>Action</h3>
+              <p>异常不是 dashboard 红点，而是有负责人、SLA、目标库位和所需证据的任务。</p>
             </article>
             <article class="card">
-              <h3>从异常到任务</h3>
-              <p>异常不是 dashboard 红点，而是有负责人、SLA、proof 和回写的任务。</p>
+              <h3>Evidence</h3>
+              <p>扫码、照片、视频、RFID、重量变化和机器人状态一起证明“已经纠正”。</p>
             </article>
             <article class="card">
-              <h3>从失败到训练</h3>
-              <p>低置信度、抓取失败和人工复核进入 LeRobot episode，变成下一版技能。</p>
+              <h3>Learning</h3>
+              <p>失败、低置信度和人工接管进入 LeRobot episode，变成下一版 edge skill。</p>
             </article>
           </div>
         </div>
@@ -125,75 +127,148 @@
         <div class="wrap split">
           <div>
             <p class="kicker">04 · Solution</p>
-            <h2>WarehouseLoop 用三类高痛流程切入，不替换 WMS，也不强卖整仓机器人。</h2>
-            <p class="lead">输入来自手机、固定相机、扫码枪、RFID、称重台、AMR 和机械臂。系统生成异常任务，派给仓员、主管或机器人，要求扫码/照片/视频证明，最后回写 WMS 并沉淀 KPI。</p>
+            <h2>WarehouseLoop 是 existing warehouse 之上的异常操作层。</h2>
+            <p class="lead">它不替代 WMS，也不强卖整仓机器人。它连接相机、扫码、RFID、称重、AMR、机械臂、人工复核和 WMS/WES/ERP，把每个异常从现场发现推进到系统闭环。</p>
             <ul class="list">
-              <li>收货 / 上架差异：ASN、到货、扫码、拍照、库位确认和异常索赔。</li>
-              <li>库位错放 / 盘点差异：相机、扫码、RFID、重量和人工复核形成 proof。</li>
-              <li>退货质检 / 可售判定：RMA、照片、条码、破损等级、可售/不可售/复检。</li>
+              <li>Exception Capture：固定相机、手持扫码、RFID、称重台、AMR、机械臂、手机拍照和 WMS 对账发现异常。</li>
+              <li>Task Dispatch：异常变成有负责人、SLA、优先级、目标库位和证据要求的任务。</li>
+              <li>Proof & Writeback：扫码、照片、视频、RFID、重量变化和机器人状态组成证据包，回写系统。</li>
+              <li>LeRobot Learning Loop：失败、低置信度和人工接管导出为训练 episode。</li>
             </ul>
           </div>
           <div class="visual">
-            <img src="../assets/warehouse-loop.png" alt="仓库退货异常工位里操作员扫码拍照、AMR 送料、固定相机验证、WMS 回写和训练闭环图">
+            <img src="../assets/warehouse-loop.png" alt="仓库异常闭环工位，仓员扫码、AMR 送料、机械臂纠偏、固定相机验证、WMS 回写和训练队列">
           </div>
         </div>
       </section>
 
-      <section id="market" class="slide white">
+      <section id="product" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · Market Wedge</p>
-              <h2>先打中小 3PL、品牌仓和跨境退货，不从“所有仓库”开始。</h2>
+              <p class="kicker">05 · Product Workflow</p>
+              <h2>一个异常从红色卡片，到绿色回写，再到训练队列。</h2>
             </div>
-            <p>最好的首单不是全仓智能化，而是 30-45 天把一个异常流程闭环：高 SKU、临时工多、退货多、WMS 已有但现场执行混乱。</p>
+            <p>第一版只需一个小货架、三个 SKU、一个退货箱、一个扫码器、一台相机和一个 mock WMS，就能展示完整商业闭环。</p>
           </div>
-          <div class="grid four">
+          <div class="pipeline">
+            <article class="step">
+              <h3>Detect</h3>
+              <p>Edge camera / scanner / RFID 发现 SKU 在错误库位，或退货箱破损、条码不匹配。</p>
+            </article>
+            <article class="step">
+              <h3>Dispatch</h3>
+              <p>WarehouseLoop 创建 ExceptionCase，标注类型、置信度、责任人、SLA 和证据要求。</p>
+            </article>
+            <article class="step">
+              <h3>Correct</h3>
+              <p>仓员、主管、AMR、机械臂或远程协助完成移动、复核、贴标、分拣。</p>
+            </article>
+            <article class="step">
+              <h3>Verify</h3>
+              <p>扫码、拍照、视频、RFID 或重量变化验证完成。</p>
+            </article>
+            <article class="step">
+              <h3>Learn</h3>
+              <p>WMS 回写已修正；接管和失败片段进入 LeRobot dataset 与下一轮 edge deployment。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Market Wedge</p>
+              <h2>先打中小 3PL、品牌仓和跨境退货，不从所有仓库开始。</h2>
+            </div>
+            <p>最好的首单不是全仓智能化，而是 8-12 周把一个高频异常流程闭环：高 SKU、临时工多、退货多、WMS 已有但现场执行混乱。</p>
+          </div>
+          <div class="grid six">
             <article class="card">
               <h3>中小 3PL</h3>
-              <p>多客户、多 SLA、多系统、多临时工，最需要中立闭环层。</p>
+              <p>多客户、多 SLA、多系统、多临时工，需要中立闭环层。</p>
             </article>
             <article class="card">
               <h3>DTC 品牌仓</h3>
-              <p>服饰、美妆、消费电子 SKU 多、退货多，返工和库存准确率敏感。</p>
+              <p>服饰、美妆、消费电子 SKU 多、退货多，返架周期影响收入。</p>
             </article>
             <article class="card">
               <h3>跨境海外仓</h3>
               <p>退货分级、换标、破损、疑似欺诈和库存纠偏是高价值场景。</p>
             </article>
             <article class="card">
+              <h3>退货中心</h3>
+              <p>RMA、破损等级、可售/不可售、复检和照片证据需要流程化。</p>
+            </article>
+            <article class="card">
+              <h3>制造仓储</h3>
+              <p>MES order、kitting、QR/RFID 验证和线边配送失败接管可以复用。</p>
+            </article>
+            <article class="card">
               <h3>自动化集成商</h3>
-              <p>AMR/ACR/WMS/WES 集成商把 WarehouseLoop 当异常闭环插件销售。</p>
+              <p>AMR/ACR/WMS/WES 项目里，异常闭环是可复制插件。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="business" class="slide tint">
+      <section id="business" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">06 · Business Model</p>
-              <h2>按“闭环的仓务异常流程”收费，而不是靠硬件毛利。</h2>
+              <p class="kicker">07 · Business Model</p>
+              <h2>按闭环异常收费，而不是按硬件 BOM 收费。</h2>
             </div>
-            <p>先卖小试点，再随工作流、摄像头节点、闭环任务量、WMS 集成和多仓复制扩张。</p>
+            <p>收入模型是 pilot fee + robot/workcell monthly fee + cloud training subscription + per-closed-exception success fee。</p>
           </div>
           <div class="grid four">
             <article class="card">
               <h3>付费试点</h3>
-              <p>30-45 天，单仓单流程，5k-15k 美元；中国版 8-12 周工作站试点。</p>
+              <p>中国 8-12 周 20-60 万元；海外 30k-80k 美元集成/部署费。</p>
             </article>
             <article class="card">
-              <h3>生产版</h3>
-              <p>1.5k-5k 美元 / 仓 / 月起，按流程、节点和任务量扩展。</p>
+              <h3>工位订阅</h3>
+              <p>海外 8k-15k 美元/月/工位；中国按工作站、节点、任务量和集成收费。</p>
             </article>
             <article class="card">
-              <h3>企业版</h3>
-              <p>25k-75k 美元 / 仓 / 年，含私有部署、SLA、审计报表和集成。</p>
+              <h3>训练订阅</h3>
+              <p>中国版接阿里云/华为/腾讯；海外版接 AWS/GCP/Azure，按训练和部署队列收费。</p>
             </article>
             <article class="card">
-              <h3>OEM SDK</h3>
-              <p>边缘视觉、异常闭环 SDK、Qualcomm profile 和 LeRobot 数据导出授权。</p>
+              <h3>成功费</h3>
+              <p>按 corrected item、closed exception、return processed、pick/orderline 成功数加价。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gtm" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Go-To-Market</p>
+              <h2>先赢一个异常流程，再扩到整个仓。</h2>
+            </div>
+            <p>第一单不是“无人仓”，而是一个客户愿意用现场 KPI 验收的流程：更快关闭异常、更少返工、更短返架、更低主管追责时间。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Design Partners</h3>
+              <p>2-3 家 3PL、跨境退货中心、服饰/美妆品牌仓。</p>
+            </article>
+            <article class="card">
+              <h3>First Workflow</h3>
+              <p>退货质检、收货差异、错库位纠偏或 putwall 复核。</p>
+            </article>
+            <article class="card">
+              <h3>Expansion</h3>
+              <p>receiving -> putaway -> return grading -> replenishment -> kitting -> 多仓复制。</p>
+            </article>
+            <article class="card">
+              <h3>Channel</h3>
+              <p>WMS/WES/RMS、AMR/ACR/机械臂厂商、系统集成商和 Qualcomm edge 生态。</p>
             </article>
           </div>
         </div>
@@ -203,114 +278,138 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">07 · Competition</p>
-              <h2>现有玩家证明仓库机器人市场真实，但异常闭环仍是空白层。</h2>
+              <p class="kicker">09 · Competition</p>
+              <h2>他们让仓库更自动化，我们让仓库的错误被闭环。</h2>
             </div>
             <p>WarehouseLoop 不和所有机器人硬拼。它坐在 WMS/WES/AMR/ASRS/机械臂之上，把异常、证据、人工和训练连接起来。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>Locus / 6 River</h3>
-              <p>AMR pick assist 强，但不负责退货、库存真相和跨系统纠偏。</p>
+              <h3>Locus / Robust.AI</h3>
+              <p>人机协作和 AMR pick assist 强；WarehouseLoop 管异常、proof、WMS 回写。</p>
+            </article>
+            <article class="card">
+              <h3>Brightpick / Nimble</h3>
+              <p>机器人动作和履约自动化强；WarehouseLoop 从更轻的异常工位切入。</p>
             </article>
             <article class="card">
               <h3>AutoStore / Exotec</h3>
-              <p>AS/RS 强，部署重，仍需要上下游异常处理和质量闭环。</p>
+              <p>AS/RS 强，部署重；仍需要上下游异常、退货和质量闭环。</p>
             </article>
             <article class="card">
               <h3>Symbotic / Amazon</h3>
-              <p>mega-DC 自动化强，但不适合多数 brownfield 中小仓。</p>
-            </article>
-            <article class="card">
-              <h3>Nimble / RightHand</h3>
-              <p>机械臂能力强，但 SKU、破损、退货和异常仍需系统闭环。</p>
+              <p>mega-DC 自动化强；WarehouseLoop 面向 brownfield 3PL/品牌仓。</p>
             </article>
             <article class="card">
               <h3>Geek+ / Hai / Quicktron</h3>
-              <p>中国 AMR/ACR 成熟，WarehouseLoop 做插件式异常和训练层。</p>
+              <p>中国 AMR/ACR 成熟；WarehouseLoop 做插件式异常和训练层。</p>
             </article>
             <article class="card">
-              <h3>Dexory / Gather</h3>
-              <p>偏 physical AI / digital twin；WarehouseLoop 更靠近任务派发、proof 和 WMS 回写。</p>
+              <h3>WMS / WES</h3>
+              <p>system of record 强；WarehouseLoop 是 system of action and evidence。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="architecture" class="slide white">
+      <section id="moat" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">08 · Architecture</p>
-              <h2>三层运行面：LoopCore、LoopRMF、LoopEdge。</h2>
+              <p class="kicker">10 · Moat</p>
+              <h2>壁垒是 exception-action-evidence-writeback-training graph。</h2>
             </div>
-            <p>技术架构服务于一个商业目标：现场发现异常，系统派单纠偏，证据回写 WMS，失败进入训练。</p>
+            <p>每个闭环异常都把 SKU、库位、动作、证据、回写、人工接管和模型版本变成可积累资产。</p>
           </div>
-          <div class="grid three">
+          <div class="grid six">
             <article class="card">
-              <h3>LoopCore</h3>
-              <p>WMS/ERP/WES/RCS 连接器、ExceptionCase、任务规划、SLA、审计、模型注册和回滚。</p>
+              <h3>SKU Evidence</h3>
+              <p>SKU、库位、tote/bin、条码、RFID、照片、重量、视频和 WMS 状态。</p>
             </article>
             <article class="card">
-              <h3>LoopRMF</h3>
-              <p>Open-RMF 编排 AMR、门、充电、交通和不同厂商 fleet adapter。</p>
+              <h3>Return Semantics</h3>
+              <p>退货等级、破损标签、欺诈风险、复检结果、可售/不可售去向。</p>
+            </article>
+            <article class="card">
+              <h3>HIL Data</h3>
+              <p>人工接管、低置信度抓取、错误识别、安全停机和恢复策略。</p>
+            </article>
+            <article class="card">
+              <h3>Connectors</h3>
+              <p>WMS/WES/ERP/RMS/RCS、AMR、RFID、扫码、称重和工位系统连接器。</p>
+            </article>
+            <article class="card">
+              <h3>Ops Benchmarks</h3>
+              <p>客户 SOP、SLA、责任分派、审计证据和 KPI benchmark。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Profiles</h3>
+              <p>Qualcomm edge model profiles、deployment recipes、rollback records。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">11 · Product Architecture</p>
+              <h2>LoopCore、LoopEdge、LoopRMF、Learning Cloud。</h2>
+            </div>
+            <p>架构服务于商业闭环：现场发现异常，系统派单纠偏，证据回写 WMS，失败进入训练。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>LoopCore</h3>
+              <p>WMS/ERP/WES/RMS/RCS 连接器、ExceptionCase、WarehouseTask、SLA、审计和回滚。</p>
             </article>
             <article class="card">
               <h3>LoopEdge</h3>
-              <p>Qualcomm edge device 连接固定相机、扫码、RFID、称重、AMR 和机械臂。</p>
+              <p>Qualcomm edge device 连接固定相机、腕部相机、扫码、RFID、称重、AMR、机械臂。</p>
             </article>
-          </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Detect</h3>
-              <p>相机/扫码/RFID/重量发现错放、破损、缺件、多件或低置信度。</p>
+            <article class="card">
+              <h3>LoopRMF</h3>
+              <p>ROS 2、Nav2、MoveIt 2、ros2_control、Open-RMF 和混合厂商 fleet adapter。</p>
             </article>
-            <article class="step">
-              <h3>Assign</h3>
-              <p>生成 ExceptionCase，派给仓员、主管、AMR 或机械臂工作站。</p>
-            </article>
-            <article class="step">
-              <h3>Verify</h3>
-              <p>照片、视频、条码、RFID、重量和人工复核形成 proof。</p>
-            </article>
-            <article class="step">
-              <h3>Writeback</h3>
-              <p>WMS 状态、库存、库位、RMA、可售状态和 SLA 自动回写。</p>
-            </article>
-            <article class="step">
-              <h3>Train</h3>
-              <p>失败、低置信度和接管导出 LeRobot episode，发布 edge artifact。</p>
+            <article class="card">
+              <h3>Learning Cloud</h3>
+              <p>LeRobotDataset、HIL loop、中国/海外训练云、AI Hub / QNN / ONNX Runtime QNN 部署。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="demo" class="slide tint">
+      <section id="demo" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">09 · Competition Demo</p>
-              <h2>用迷你货架证明“发现之后真的闭环”。</h2>
+              <p class="kicker">12 · Competition Demo</p>
+              <h2>用一个货架、三个 SKU、一个退货箱，证明仓库异常可以闭环。</h2>
             </div>
-            <p>比赛演示不需要真实仓库。一个迷你货架、几个 SKU、一个破损纸箱、一个二维码退货单即可证明产品逻辑。</p>
+            <p>不要只展示机器人移动。展示一个红色异常如何被检测、派单、纠偏、验证、回写，并变成训练数据。</p>
           </div>
-          <div class="grid four">
-            <div class="stat">
-              <strong>WMS</strong>
-              <span>Mock WMS 显示 SKU A 应在 A-03，现场相机发现它在 B-02。</span>
-            </div>
-            <div class="stat">
-              <strong>Task</strong>
-              <span>系统自动生成异常纠偏任务，分配给操作员或 AMR 工位。</span>
-            </div>
-            <div class="stat">
-              <strong>Proof</strong>
-              <span>操作员扫码拍照完成，系统要求证据并回写状态。</span>
-            </div>
-            <div class="stat">
-              <strong>HIL</strong>
-              <span>低置信度退货破损场景进入人工复核和 LeRobot episode。</span>
-            </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Mismatch</h3>
+              <p>Mock WMS 显示 SKU A 应在 A-03，现场故意放在 B-02。</p>
+            </article>
+            <article class="step">
+              <h3>Edge Detect</h3>
+              <p>Qualcomm edge camera 发现库位不一致，生成异常卡。</p>
+            </article>
+            <article class="step">
+              <h3>Correct</h3>
+              <p>系统派单给仓员或小机械臂，完成纠偏并扫码/拍照。</p>
+            </article>
+            <article class="step">
+              <h3>Writeback</h3>
+              <p>WMS 从红色异常变绿色已修正，证据包进入审计记录。</p>
+            </article>
+            <article class="step">
+              <h3>Train</h3>
+              <p>退货破损低置信度触发人工复核，接管片段导出为 LeRobot episode。</p>
+            </article>
           </div>
         </div>
       </section>
@@ -319,31 +418,57 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">10 · Why Qualcomm</p>
-              <h2>WarehouseLoop 是 Qualcomm edge AI 在工业现场的闭环应用样板。</h2>
+              <p class="kicker">13 · Why Qualcomm</p>
+              <h2>Qualcomm 是现场执行层，不是页面上的 logo。</h2>
             </div>
-            <p>仓库现场需要低延迟视觉、弱网运行、本地隐私、多摄像头推理和可验证 edge artifact。Qualcomm 让固定工位、AMR、退货台和机械臂在现场执行，而云端负责训练和 fleet 学习。</p>
+            <p>仓库现场需要低延迟、多摄像头、弱网可运行的边缘感知；客户的 SKU、订单、视频和退货数据也不能都上传到公共云。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Vision Edge</h3>
-              <p>SKU、条码、破损、错位、缺件、多件和动作失败的本地识别。</p>
+          <div class="grid five">
+            <article class="card">
+              <h3>Edge Vision</h3>
+              <p>库位、条码、包装破损、缺件、多件、错放和动作失败在现场判断。</p>
             </article>
-            <article class="step">
+            <article class="card">
+              <h3>Gateway</h3>
+              <p>条码/RFID/相机/AMR/机械臂/安全门控需要稳定本地 gateway。</p>
+            </article>
+            <article class="card">
               <h3>Runtime</h3>
-              <p>QNN / TFLite / ONNX Runtime、AI Hub profile、NPU/HTP artifact。</p>
+              <p>AI Hub、QNN、QAIRT、ONNX Runtime QNN EP 把模型变成 edge artifact。</p>
             </article>
-            <article class="step">
-              <h3>Robotics</h3>
-              <p>ROS 2、Nav2、MoveIt、Open-RMF 和多厂商 AMR/工站接入。</p>
+            <article class="card">
+              <h3>Hardware Path</h3>
+              <p>RB3 Gen 2 做比赛原型，RB6/Dragonwing IQ10 做生产级仓储机器人参考。</p>
             </article>
-            <article class="step">
-              <h3>Security</h3>
-              <p>本地推理、签名模型、SBOM、mTLS、SROS2、最小权限 WMS token。</p>
+            <article class="card">
+              <h3>LeRobot HIL</h3>
+              <p>人工接管转成下一版技能，Qualcomm edge 让技能在现场可靠执行。</p>
             </article>
-            <article class="step">
-              <h3>Developer Story</h3>
-              <p>从仓内异常到 LeRobot dataset，再到 Qualcomm edge artifact 的完整样板。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ask" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">14 · Ask</p>
+              <h2>把 WarehouseLoop 做成 Qualcomm 仓储 physical AI 的可复制样板。</h2>
+            </div>
+            <p>比赛阶段需要证明完整闭环，而不是证明一个单点模型。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>Dev Kit</h3>
+              <p>RB3 Gen 2 或 RB6 级别开发板 + Vision Kit，用于多摄像头边缘感知。</p>
+            </article>
+            <article class="card">
+              <h3>Scenario Data</h3>
+              <p>mock WMS/API 样例和 5-10 个真实仓务异常流程样本。</p>
+            </article>
+            <article class="card">
+              <h3>Partners</h3>
+              <p>3PL 退货中心、跨境海外仓、品牌履约仓，以及 AMR/机械臂/扫码/RFID 伙伴。</p>
             </article>
           </div>
         </div>
@@ -351,33 +476,41 @@
 
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">WarehouseLoop 的一句话 pitch：3PL 和品牌仓用它把错放、漏扫、退货和破损从现场异常变成可派单、可验证、可回写、可训练的仓务闭环。</p>
+          <p class="quote">WarehouseLoop 的一句话 pitch：3PL 和品牌仓用它把错货、漏扫、退货和破损从现场异常变成可派单、可验证、可回写、可训练的仓务闭环。</p>
           <div class="source-links">
-            <a href="https://www.mhi.org/media/news/48246">MHI/Deloitte</a>
             <a href="https://nrf.com/research/2025-retail-returns-landscape">NRF Returns</a>
-            <a href="https://www.census.gov/retail/ecommerce.html">U.S. Census</a>
-            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR</a>
-            <a href="https://www.mot.gov.cn/shuju/tongjishuju/youzheng/202606/t20260624_4208155.html">国家邮政局</a>
-            <a href="https://www.news.cn/politics/20260122/d5b9076f70cb4cc5a6f7958bc2b6f3ad/c.html">新华快递</a>
-            <a href="https://english.www.gov.cn/news/202606/16/content_WS685033abc6d0868f4e8eeabc.html">跨境电商</a>
-            <a href="https://ir.geekplus.com/zh-cn/investor-relations">Geek+</a>
-            <a href="https://www1.hkexnews.hk/app/sehk/2026/108202/documents/sehk26021300409_c.pdf">Hai Robotics</a>
+            <a href="https://www.descartes.com/resources/news/descartes-study-reveals-76-supply-chain-and-logistics-operations-are-experiencing">Labor Shortage</a>
+            <a href="https://www.mhi.org/content/2/2285545/new-mhi-and-deloitte-report-focuses-on-orchestrating-end-to-end-digital-supply-chain-solutions">MHI Deloitte</a>
+            <a href="https://www2.isye.gatech.edu/~jjb/wh/book/editions/wh-sci-0.97.pdf">Picking Economics</a>
+            <a href="https://locusrobotics.com/blog/seven-billion-picks-warehouse">Locus Scale</a>
+            <a href="https://brightpick.ai/brightpick-unlocks-lights-out-fulfillment/">Brightpick</a>
+            <a href="https://www.agilityrobotics.com/content/gxo-signs-industry-first-multi-year-agreement-with-agility-robotics">GXO Agility</a>
+            <a href="https://gxo.com/news_article/gxo-pilots-ai-enhanced-robotics-in-warehouse/">GXO Dexterity</a>
+            <a href="https://www.ndrc.gov.cn/fggz/202602/t20260209_1403645.html">NDRC Logistics Cost</a>
+            <a href="https://www.mee.gov.cn/zcwj/zyygwj/202411/t20241128_1097450.shtml">Cost Action Plan</a>
+            <a href="https://www.news.cn/fortune/20260107/c0945bd4d0094139be638cf1dfd86e21/c.html">Express Parcels</a>
+            <a href="https://www.stdaily.com/web/gdxw/2026-06/23/content_535756.html">Cross-Border Ecommerce</a>
+            <a href="https://www.geekplus.com/zh-cn/resources/news/geekplus-lists-on-hkex-main-board-pioneering-the-global-smart-logistics-transformation-with-robotics">Geek+</a>
             <a href="https://www.quicktron.com/zh_CN/about-us">Quicktron</a>
-            <a href="https://locusrobotics.com/blog/seven-billion-picks-warehouse">Locus</a>
-            <a href="https://www.autostoresystem.com/investors">AutoStore</a>
-            <a href="https://www.sec.gov/Archives/edgar/data/1837240/000183724025000113/sym-20250927.htm">Symbotic</a>
-            <a href="https://www.aboutamazon.com/news/operations/amazon-million-robots-ai-foundation-model">Amazon Robotics</a>
-            <a href="https://nimble.ai/news/nimble-closes-106-million-series-c-funding-round-at-1b-valuation-scales-fully-autonomous-fulfillment-with-fedex">Nimble</a>
-            <a href="https://www.dexory.com/en-us">Dexory</a>
-            <a href="https://gather.ai/">Gather AI</a>
-            <a href="https://docs.oracle.com/en/cloud/saas/warehouse-management/25d/owmre/">Oracle WMS APIs</a>
+            <a href="https://www.glp.com.cn/information/555.html">GLP RaaS</a>
+            <a href="https://docs.oracle.com/en/cloud/saas/supply-chain-and-manufacturing/26b/faips/wm-rest-apis.html">Oracle WMS APIs</a>
+            <a href="https://developer.manh.com/docs/reference/app/mawm/automation-and-robotics/">Manhattan Robotics</a>
+            <a href="https://www.gs1.org/standards/epcis">GS1 EPCIS</a>
             <a href="https://www.open-rmf.org/">Open-RMF</a>
-            <a href="https://docs.ros.org/en/jazzy/">ROS 2 Jazzy</a>
-            <a href="https://docs.nav2.org/">Nav2</a>
-            <a href="https://moveit.picknik.ai/main/doc/concepts/moveit_task_constructor/moveit_task_constructor.html">MoveIt MTC</a>
-            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">RB3 Gen 2</a>
+            <a href="https://control.ros.org/rolling/doc/ros2_control/controller_manager/doc/userdoc.html">ros2_control</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform">Qualcomm RB6</a>
             <a href="https://workbench.aihub.qualcomm.com/docs/">AI Hub</a>
-            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset</a>
+            <a href="https://www.qualcomm.com/developer/software/qualcomm-ai-engine-direct-sdk">QNN</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX QNN</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobotDataset</a>
+            <a href="https://huggingface.co/docs/lerobot/hil_data_collection">LeRobot HIL</a>
+            <a href="https://www.alibabacloud.com/help/zh/pai/product-overview/what-is-machine-learning-platform-for-ai/">Alibaba PAI</a>
+            <a href="https://www.huaweicloud.com/product/modelarts.html">Huawei ModelArts</a>
+            <a href="https://cloud.tencent.com/product/gpu">Tencent GPU</a>
+            <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-training.html">AWS SageMaker</a>
+            <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute">Google Cloud Training</a>
+            <a href="https://learn.microsoft.com/en-us/azure/machine-learning/">Azure ML</a>
           </div>
         </div>
       </section>
