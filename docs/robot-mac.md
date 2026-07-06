@@ -1,277 +1,258 @@
 # RobotMac Core Pitch
 
-更新时间：2026-07-06。所有硬件接口、电源、热、性能、QNN/QAIRT 路径和安全相关表述必须在最终开发板、SDK、散热、电源、执行器和传感器组合上重新验证。
+更新时间：2026-07-06。
 
-## One-Liner
+所有硬件、电源、热、性能、QNN/QAIRT 路径、camera、I/O 和安全相关表述都必须在最终开发板、SDK、散热、电源、执行器和传感器组合上重新验证。
 
-RobotMac Core 是装进商业机器人身体里的“机器人电脑”：把 Qualcomm 边缘计算、电源、机器人 IO、安全边界、RobotCoreOS、LeRobot 云训练接口和 fleet runtime 打包成一体，让团队直接做机器人应用，而不是从电源板、开发板、驱动、OTA 和现场恢复重新拼起。
+## One-Line Thesis
 
-## Problem
+RobotMac Core 是装进商业机器人身体里的“机器人电脑”：把 Qualcomm edge AI、12-24V robot power、camera/robot I/O、安全边界、ROS 2 runtime、LeRobot data loop、AI Hub/QNN deployment、fleet telemetry、signed OTA 和 rollback 打包成一个可购买的 robot compute appliance。
 
-机器人团队不缺 demo，缺的是可交付底座。
+关键判断：
 
-开发板解决“能跑”，不解决“能卖”。每个团队仍要重复处理：
+> Robots are no longer scarce. Deployment engineers are scarce.
 
-- 电池/外部电源、稳压、逻辑/电机供电隔离、保险丝、急停、过流、低压、散热和状态灯。
-- 相机、以太网、USB、CAN、UART、PWM、GPIO、IMU、LiDAR、ToF、音频和传感器同步。
-- ROS 2、driver、lifecycle、time sync、日志、设备身份和本地安全状态机。
-- LeRobot 数据采集、模型部署、QNN/QAIRT/ONNX runtime、policy package、rollback 和 failure episode。
-- OTA、A/B rollback、SBOM、审计、现场恢复、客户归属、远程诊断和企业 IT 问答。
+## 01 · Problem
 
-买方真正担心的不是算法不够酷，而是版本不可追溯、更新不可恢复、安全边界不清、现场没人能修、20 台机器没人维护。
+机器人团队不缺开发板，缺的是能从 demo 走到现场部署的产品底座。
 
-## Why Now
+开发板解决“能跑”，不解决“能卖、能维护、能扩张”。每个团队仍要重复处理：
 
-- LeRobot 正在把真实机器人数据、模仿学习、数据集和策略训练流程推向标准化。
-- RaaS 和多机试点把 uptime、远程诊断、staged OTA、proof-of-work 和 SLA 变成采购问题。
-- Qualcomm Dragonwing、AI Hub、QNN/QAIRT、Qualcomm Linux、Device Cloud、Profiler 和 IQ10 Robotics Reference Design 正在形成从 prototype 到 production 的边缘 AI 路径。
-- IFR 报告 2024 年工业机器人安装量约 54.2 万台，全球运行存量约 466.4 万台；中国占全球工业机器人安装量过半。
-- 专业服务机器人 2024 年销量接近 20 万台，物流机器人和 RaaS 持续增长。
+- 12/24V power、brownout、reverse polarity、motor/logic rail isolation、E-stop、watchdog、thermal。
+- cameras、USB、Ethernet、CAN/CAN-FD、UART、PWM、GPIO、IMU、LiDAR、ToF、time sync。
+- ROS 2 lifecycle、drivers、DDS QoS、SROS2 security、logs、device identity、local safety state。
+- LeRobot episode capture、cloud training、ONNX/QNN/QAIRT、policy package、runtime profile、rollback。
+- signed OTA、SBOM、audit trail、remote diagnostics、fleet update、field recovery、enterprise IT review。
 
-现在缺的是一个 Qualcomm-first 的 robot core appliance，让机器人团队不再从裸板、电源、IO、运行时和云训练接口开始。
+买方真正担心的不是“机器人能不能动”，而是版本不可追溯、更新不可恢复、安全边界不清、现场没人能修、5-100 台 fleet 没人能维护。
 
-## Insight
+## 02 · Current Alternatives Fail
 
-机器人应用的最小商业单元不是“模型”，也不是“底盘”，而是一个可验证 runtime slot：
+现有方案都重要，但没有把机器人从 prototype 带到 fieldable product。
 
-- 电源预算。
-- IO 拓扑。
-- 传感器时序。
-- 模型 hash。
-- 动作权限。
-- 安全边界。
-- 运行日志。
-- OTA 和 rollback。
-- 现场恢复路径。
+- SBC / dev kit：RB3、Q6A、Jetson、Raspberry Pi 类产品适合原型和开发，但团队仍要做 enclosure、power、camera、safety I/O、OTA、rollback、fleet ops。
+- ROS 2：事实标准中间件，但不是产品。install drift、driver quality、networking、security、observability 和 update discipline 仍然难。
+- Viam / Formant / Foxglove / InOrbit：强在 RobOps、fleet、telemetry、visualization，但通常假设一台可靠 robot computer 已经存在。
+- Balena / Mender / Ubuntu Core / Yocto：强在 IoT OS 和 OTA，但不理解 robot action space、ROS graph health、sensor timing、safety gate 和 autonomy rollback。
+- Unitree / AgileX / Husarion / Clearpath：整机或 chassis 强，但每个 robot body 都有自己的 compute/runtime 差异。
+- PLC / industrial controllers：确定性控制和 safety 强，但不是围绕 LeRobot/VLA/AI Hub/cloud training loop 设计的 AI autonomy appliance。
 
-PC 普及不是因为每个人会装主板；机器人普及也不会靠每个团队重新做电源、驱动和运行时。
+RobotMac Core 不替代这些层。它把这些能力组织成一个 robot-native deployment appliance。
 
-## Solution
+## 03 · Solution
 
-> RobotMac Core = Qualcomm compute + protected power plane + robot IO plane + safety supervisor + RobotCoreOS + LeRobot / AI Hub deployment bridge + fleet runtime。
+RobotMac Core 是 dev kit 和全定制 electronics 之间的 robot compute box。
 
-它不是另一块 SBC，也不是另一个云 dashboard。它是 Qualcomm-first 的机器人核心，把 edge AI hardware 变成可交付机器人产品：
+> RobotMac Core = Qualcomm compute + robot-native power + camera/I/O carrier + safety supervisor boundary + RobotCoreOS + LeRobot/AI Hub bridge + fleet runtime + release evidence.
 
-- compute。
-- power。
-- IO。
-- safety。
-- runtime。
-- data capture。
-- cloud training handoff。
-- edge skill deployment。
-- fleet hooks。
-- release evidence。
+它的承诺不是 raw TOPS，而是减少从 prototype 到 field fleet 的集成时间和现场失败：
 
-## Product Architecture
+1. `Known-good hardware`：12-24V input、brownout handling、camera carrier、CAN-FD、USB3、2.5GbE、M.2、debug/service port。
+2. `RobotCoreOS`：Ubuntu/Yocto base、ROS 2 LTS、lifecycle services、device identity、signed A/B OTA、rollback。
+3. `AI edge path`：LeRobot -> ONNX -> AI Hub compile/profile/validate -> QNN/QAIRT or ONNX Runtime QNN where verified。
+4. `Safety boundary`：Linux/ROS/AI 不作为 certified safety controller；E-stop、watchdog、motor enable、safe state 走独立边界。
+5. `Fleet evidence`：OpenTelemetry、ROS diagnostics、MCAP/logs、runtime manifest、SBOM、episode capture、incident ledger。
+6. `Pilot handoff`：EdgeRuntimeBench、SafetyOps 和 PilotContractKit 直接生成客户验收材料。
 
-### Hardware Layers
+## 04 · Why Now
 
-- Qualcomm edge compute module。
-- Power carrier。
-- Robot IO carrier。
-- Safety IO harness。
-- Thermal enclosure。
-- Runtime image。
-- Policy package layer。
+机器人供给变多，部署工程师变少。
 
-### Power
+- IFR 报告 2024 年全球工业机器人新增约 542,000 台，运行存量约 4.66M 台。
+- 中国 2024 年新增约 295,000 台工业机器人，约占全球 54%，国产供应商份额继续上升。
+- 2024 年专业服务机器人销量超过 199,000 台，logistics、cleaning、medical 和 RaaS 都在增长。
+- ROS 2、LeRobot、AI Hub、QNN/QAIRT、ONNX Runtime、OTA 工具和 robot fleet tools 已经成熟到可以被产品化。
+- NVIDIA、Intel、Qualcomm、Canonical、Viam、Formant、Foxglove 等都在验证“edge AI + ROS + fleet + lifecycle”方向。
+- 企业和 SI 的瓶颈不是买不到机器人，而是 power、camera、I/O、security、updates、logs、SLA 和现场支持拼不起来。
 
-产品目标是 separate logic / motor rails、fused input、reverse-polarity / overcurrent / brownout monitoring、battery telemetry 和 safe-state handling。最终 voltage range 不能在 carrier 验证前承诺。
+现在需要一个 Qualcomm-first 的 robot appliance，把低功耗 edge AI、多摄像头、连接、端侧隐私和 prototype-to-production tooling 压成可交付产品。
 
-### Safety IO
+## 05 · Product
 
-产品目标是 physical e-stop、watchdog、limit / door / bumper inputs、safety-state GPIO、cloud-disconnect safe state。RobotMac Core 不是 certified safety controller，工业风险降低仍需要外部 safety-rated controller 或合规安全架构。
+RobotMac Core 的产品体验应该像 appliance 开箱，而不是工程板 bring-up。
 
-### Interfaces
+产品模块：
 
-比赛 baseline：USB、Ethernet、camera。
+- `Core S`：QCS6490-class，12 TOPS，8-16GB RAM，128GB storage，12-24V input，2.5GbE，CAN-FD，USB3，M.2，2-3 validated cameras。
+- `Core Vision`：Core S + CSI/GMSL camera carrier、sync trigger、IMU、calibrated camera bundle、vision dataset templates。
+- `Core Pro`：QCS8550-class，48 INT8 TOPS target，16GB RAM，128/256GB storage，4-6 cameras，Wi-Fi 7，higher thermal envelope。
+- `Core Dev`：RB3/Q6A/Rhino/VENTUNO-compatible SDK image 和 harness，只卖开发，不假装是量产 appliance。
+- `Core Max`：IQ10-based roadmap/reference design exploration，不在 2026 年 7 月写成近期开售 SKU。
 
-扩展：UART、I2C、SPI、PWM、GPIO 经 GPIO / MCU adapters。
+软件/运行层：
 
-Industrial / future profile：CAN/CAN-FD、GMSL2、多摄像头、TSN/EtherCAT 或 safety island 依赖具体板卡与 carrier。
+- Base OS：Ubuntu/Yocto、secure boot、signed A/B rootfs、watchdog mark-good、immutable runtime partitions。
+- ROS runtime：ROS 2 LTS、lifecycle nodes、DDS QoS profiles、SROS2/DDS-Security、driver health。
+- AI runtime：LeRobot data、ONNX interchange、AI Hub compile/profile/validate、QAIRT/QNN/ONNX Runtime QNN where verified。
+- Fleet runtime：hardware-bound identity、mTLS、device twin、OpenTelemetry、ROS diagnostics、selective bag/video upload。
+- Update runtime：signed OTA bundles、phased rollout、canary cohorts、rollback、separate model/map/app artifacts。
 
-### Software
+## 06 · Evidence Objects
 
-- RobotCoreOS。
-- board profile。
-- hardware self-test。
-- ROS 2 bridge。
-- lifecycle-managed services。
-- LeRobot data hooks。
-- QNN/QAIRT/ONNX policy runner path。
-- signed skill package。
-- telemetry。
-- OTA and rollback。
-- runtime manifest。
+RobotMac Core 要让客户买到的不是盒子，而是可验收的 robot runtime slot。
 
-## SKU Strategy
+- `robotmac-board-profile.json`：SoC、board、carrier、OS、kernel、BSP、camera stack、runtime versions、image digest。
+- `power-io-manifest.yaml`：12/24V rails、motor/logic isolation、E-stop、watchdog、CAN/UART/GPIO/PWM、camera topology。
+- `runtime-slot.manifest`：ROS graph、LeRobot dataset schema、policy hash、model runtime、permissions、safety envelope。
+- `edge-profile.qualcomm.json`：AI Hub/QNN/QAIRT/ONNX path、latency p50/p95、memory、temperature、power、fallback labels。
+- `fleet-identity.sbom`：device identity、cert chain、SBOM、container/image digest、CVE review status。
+- `ota-rollback-record.json`：bundle signature、cohort、install result、mark-good、rollback pointer、previous-known-good。
+- `episode-ledger.mcap`：camera frames、state/action、operator takeover、failure clip、safety event、dataset lineage。
+- `pilot-audit-pack.zip`：BoardBringupKit + EdgeRuntimeBench + SafetyOps + PilotContractKit evidence bundle。
 
-- Core Lite：教育、开发者、小车、简单机械臂。方向：QCS6490 / Radxa Dragon Q6A。目标价格区间可在 $799-$1,199，教育补贴版可更低。
-- Core Pro：比赛主线、服务机器人、桌面机械臂、商业试点。方向：QCS8550 / APLUX Rhino X1。目标价格区间可在 $1,999-$3,499。
-- Core Industrial：AMR、人形、工业控制、高端机械臂。方向：IQ-8275 / Arduino VENTUNO Q + STM32H5，或后续 IQ9/IQ10 路线。目标 eval 价可在 $4,999-$9,999，加 NRE。
-- Core IQ10 Future：前瞻路线，围绕 IQ10 Robotics Reference Design 的 AMR、humanoid、collaborative robot、sensor-heavy systems 和 functional-safety framing。
+Metric labels：
 
-以上价格是 pitch anchor，不是正式报价。
+- `validated-on-board`
+- `AI-Hub-device-cloud`
+- `proxy`
+- `simulated`
+- `product-target`
+- `future-profile`
 
-## Product Workflow
+## 07 · Market & Business Model
 
-1. 选择机器人形态：桌面机械臂、移动底盘、巡检车、教学套件或行业夹具。
-2. 接入 RobotMac Core：电源、相机、执行器、急停、网络和传感器。
-3. 运行硬件自检：camera、IMU、USB、Ethernet、GPIO、UART、PWM、CAN adapter、motor/gripper smoke test。
-4. 采集 LeRobot episode：视频、状态、动作、人类示教、接管、成功/失败标签。
-5. CloudTwin / TrainRouter 调度中国或海外 GPU，训练 policy 并生成评估报告。
-6. AI Hub / QNN / QAIRT / ONNX 路径进行 compile/profile/deploy，产出 signed skill package。
-7. 本体本地执行感知、策略、安全检查和控制，云端不进入 safety-critical loop。
-8. 导出 runtime evidence：FPS、p50/p95 latency、placement、memory、power、temperature、success rate、safety events。
-9. 坏模型、坏配置或传感器异常触发 admission denial、safe mode 或 rollback。
-10. 失败 episode 回流到下一轮数据和策略训练。
+RobotMac Core 不按 Raspberry Pi 或 cheap SBC 定价。它按“避免几个月集成和一次现场失败”定价。
 
-## Market
+第一批买家：
 
-第一批买家不是“所有机器人公司”，而是最怕基础集成拖慢商业化的人：
+- 中国 robot OEM：AMR、service robot、lab automation、industrial inspection、清洁、教育、具身智能创业公司。
+- 系统集成商：需要可重复交付的 robot core、harness、runtime、logs、remote support 和 acceptance pack。
+- 海外 robotics startup / SI：需要更强 security、lifecycle、documentation、support、cert-readiness 和 long-term supply story。
+- RaaS/fleet operator：需要 staged OTA、remote diagnostics、incident replay、SLA evidence、field recovery。
+- 教育/比赛/开发者：需要 day-one working、classroom reset、safe I/O、LeRobot-to-edge curriculum。
 
-- 机器人 OEM platform lead：需要 reproducible hardware profile、BSP、ROS 2 image、drivers、OTA rollback、telemetry 和 camera/IO validation。
-- 机器人 OEM GM / product lead：需要对企业客户证明可以 update、recover、audit、support fleet。
-- 系统集成商：需要 known-good core、harness map、ROS package set、remote support 和 repeatable install checklist。
-- RaaS / fleet operator：需要 uptime、remote diagnostics、staged OTA、logs、incident replay、teleop hooks 和 SLA evidence。
-- Enterprise IT / Security：需要 identity、patching、SBOM、CVE、access control、audit logs 和 lifecycle support。
-- 教育 / dev kit buyer：需要 day-one working、classroom reset、sample skills、curriculum 和 safe IO。
+收入结构：
 
-## Business Model
+- Hardware margin：Core S / Vision / Pro / Industrial kit。
+- Per-device runtime license：signed image、hardware profile、SBOM、runtime manifest、rollback channel。
+- Fleet plan：robot/month，覆盖 telemetry、OTA stages、model/skill deployment、logs、diagnostics、episode capture。
+- Cloud training add-on：TrainRouter/CloudTwin 按项目、训练任务、团队席位或 GPU pass-through 加服务费。
+- Integration / certification-readiness：custom carrier、camera tuning、safety validation support、private registry、regulated evidence。
+- Certified robot packs：Unitree、AgileX、Husarion、Clearpath、UR arms、LiDAR、depth camera、电池、传感器组合。
 
-- Hardware：Core Lite / Pro / Industrial 分层销售。
-- Runtime license：按设备/年收取 signed image、hardware profile、rollback channel、SBOM/exported runtime manifest。
-- Fleet plan：按机器人/月收取 telemetry、OTA stages、rollback、logs、diagnostics、model/skill deployment、episode capture。
-- Cloud training：按团队、项目或训练任务收费；GPU 成本 pass-through，叠加数据/训练/评估工作流服务费。
-- Enterprise integration：board/profile bring-up、custom carrier、safety validation support、private registry、regulated deployment evidence 和长期维护。
+定价 pitch anchor：
 
-买方不是把 RobotMac Core 和 $169 SBC 或 $249 Jetson 直接比较，而是和几个月集成、现场失败、远程支持缺口、定制 OTA、SBOM/security 和企业采购风险比较。
+- Core S dev/education：$799-$1,499 or ¥4,999-12,999。
+- Core Pro pilot kit：$2,499-$5,999 or ¥19,800-49,800。
+- Industrial / Vision pack：$7,500-$25,000 or ¥60,000-200,000。
+- Runtime/fleet：$20-$200 per robot/month or ¥50-800 per robot/month。
+- 90-day pilot pack：$50k-$250k or ¥30万-150万，含 3-5 台 Core、2 个技能、fleet evidence 和 support。
 
-## Go-To-Market
+## 08 · Competition & Moat
 
-1. 比赛样板：用 Rhino X1/QCS8550 或 RB3/Q6A 跑通采集、训练、部署、运行、故障回流和 runtime manifest。
-2. 教育入口：做 Qualcomm robot core starter kit，配课程、示例技能、刷机恢复、课堂安全和 LeRobot-to-edge 教学闭环。
-3. 系统集成商模板：把 power/IO/safety/runtime 做成可重复交付包。
-4. 90 天试点：给 1 个实验室或 SI 交付 3-5 台 Core、2 个技能、fleet dashboard、rollback demo 和验收报告。
-5. 双云销售：中国适配阿里云、腾讯云、华为、AutoDL；海外适配 RunPod、Lambda、Modal、AWS；边缘 runtime 保持一致。
+不要打“谁的板子更便宜”，要打“谁能把机器人变成可交付产品”。
 
-## Competition
+竞争地图：
 
-- NVIDIA Jetson / Isaac：强 GPU 与 robotics 软件生态。RobotMac 避免 TOPS 战，强调 Qualcomm-first、低功耗 connected edge、power/IO/safety/runtime 和训练闭环。
-- ROS 2：事实标准中间件。RobotMac 不替代 ROS，而是把 ROS 放进可采购、可维护、可回滚的产品边界。
-- Viam / Formant / InOrbit：强 fleet、telemetry、remote control 和 RobOps。RobotMac 从本体侧 compute、IO、power、runtime、data capture 开始。
-- Foxglove：强 multimodal data、MCAP、visualization 和 log search。RobotMac 默认生成干净 sensor/action episodes、runtime metrics、safety events、model versions 和 Qualcomm accelerator placement。
-- Mender / Balena / Ubuntu Core / Yocto：强 OTA、OS、IoT 管理。RobotMac 增加机器人动作空间、安全边界、LeRobot lineage、Qualcomm profile 和 runtime manifest。
-- Unitree / AgileX / modular robot kits：卖具体机器人本体、移动底盘、机械臂或 ROS-ready 套件。RobotMac 卖跨形态 core，可以接入这些本体。
-- Industrial controllers / PLCs：可靠、安全、现场工程强，但不是围绕 LeRobot / VLA / AI Hub / cloud training loop 设计的新型 robot learning core。
+- NVIDIA Jetson / Isaac：强 GPU 和 robotics 软件生态。RobotMac 不打 TOPS 战，强调 Qualcomm-first、低功耗 connected edge、camera-rich I/O、power/safety/runtime。
+- ROS / ROS-Industrial：事实标准中间件。RobotMac 把 ROS 放进可采购、可维护、可回滚、可审计的产品边界。
+- Viam / Formant / Foxglove / InOrbit：强 fleet/data/ops。RobotMac 是它们可以运行或接入的 trusted edge substrate。
+- Balena / Mender / Ubuntu Core / Yocto：强 OTA/OS/IoT。RobotMac 增加 robot action space、LeRobot lineage、safety gate、runtime evidence。
+- Unitree / AgileX / Husarion / Clearpath：强 robot bodies。RobotMac 提供跨 chassis 的 common core。
+- PLC / industrial controllers：强 deterministic control 和 safety。RobotMac 是旁边的 AI/autonomy appliance，不替代 safety PLC。
 
-## Moat
+护城河：
 
-- Board profile library：Qualcomm board、camera、IO、sensor timing、thermal、power、accelerator path 的验证矩阵。
-- Skill compatibility graph：技能包与硬件、ROS graph、模型 runtime、动作权限、安全 envelope、rollback package 的兼容关系。
-- Runtime evidence：SBOM、签名、OTA、rollback、latency、thermal、power、episode、incident report。
-- Field data flywheel：失败片段、人工接管、传感器漂移、更新事故和现场恢复都会变成下一版 runtime rule。
-- Ecosystem wedge：比赛、课程、开发套件、系统集成商和 Qualcomm Dragonwing 伙伴形成复用网络。
+- `Compatibility matrix`：board + carrier + camera + LiDAR + motor controller + power stack + ROS distro + kernel/BSP。
+- `Robot I/O carrier`：proprietary harness、timing、watchdog、recovery、diagnostics、safe-state interface。
+- `Certified robot packs`：tested configs for common chassis, arms, cameras, LiDAR, batteries, fieldbus。
+- `Fleet failure memory`：OTA failure、driver drift、thermal throttling、sensor mismatch、runtime fallback、incident patterns。
+- `Evidence standard`：每个 skill 和 update 都绑定 hardware、runtime、data、safety、rollback 和 acceptance packet。
+- `Channel network`：比赛、课程、SI、OEM、Qualcomm ecosystem、developer tutorials 和 reference projects。
 
-## Evidence Matrix
+## 09 · Why Qualcomm
 
-使用 claim label：
+RobotMac Core 把 Dragonwing 从开发板变成机器人产品核心。
 
-- `Validated`：已经在当前 repo / demo / 本地环境验证。
-- `Competition target`：比赛阶段要完成并标注模拟/实测。
-- `Product target`：产品化阶段目标，不在初赛承诺已完成。
-- `Future profile`：依赖未来板卡、reference design 或 partner。
-- `Standards reference`：用于论证方向，不等于认证通过。
+Qualcomm-specific strategy：
 
-验收项目：
+- `QCS6490 / Core S`：low-power robotics/AI vision baseline，适合教育、AMR、service robot、smart camera 和 fallback target。
+- `QCS8550 / Core Pro`：高性能视觉和多模型边缘 AI target，适合 LabForgePilot、robot arm、multi-camera inspection。
+- `RB3 Gen 2`：成熟 dev kit 和 robotics ecosystem reference，可做海外 Core S validation path。
+- `Dragon Q6A / Rhino Pi-X1`：比赛和中国开发者生态里的现实 target，用 BoardBringupKit 转成 RobotMac candidate。
+- `VENTUNO Q / IQ-8275`：AI + MCU/deterministic control 的 industrial story，但作为 partner-supplied / roadmap target。
+- `IQ10 RRD`：enterprise/future Max path，不能写成 2026 年 7 月已量产可用。
+- `AI Hub / QNN / QAIRT / Qualcomm Linux / Profiler`：让模型、runtime、latency、memory、thermal、power 和 deployment evidence 进入客户验收。
 
-- Bring-up：boot、network、storage、camera enumeration、USB/Ethernet、GPIO/UART/PWM、CAN adapter、IMU、motor/gripper smoke test。
-- Safety：E-stop blocks actuator command path、watchdog restart、thermal/brownout safe state、cloud disconnect safe behavior。
-- Runtime：ROS graph active、lifecycle transitions、LeRobot episode export、QNN/QAIRT profile、p50/p95 latency、CPU/GPU/NPU/memory、power、temperature。
-- OTA：signed install、failed-update rollback、previous-known-good restore、manifest audit。
-- Burn-in：competition target 4-8h soak；product target 24h acceptance plus 72h pilot burn-in。
+对 Qualcomm 的价值：
 
-## Why Qualcomm
+- 从“提供 board”升级为“帮助开发者把 board 变成 robot product core”。
+- 给 FAE、Robotics Hub、FIRST/education、SI 和 OEM 一套 reproducible evidence workflow。
+- 让 LeRobot/Hugging Face 开源机器人学习和 Qualcomm edge runtime 形成可信桥梁。
+- 把低功耗、多摄像头、connected edge、端侧隐私和长生命周期变成可购买产品语言。
 
-RobotMac Core 把 Dragonwing 从开发板变成机器人产品核心：
+## 10 · Demo & Ask
 
-- QCS8550 / Core Pro：适合比赛主线和性能型 service robot / desktop arm demo。
-- RB3 Gen 2 / QCS6490 / Core Lite：适合 robotics、AI vision、smart security、multi-OS、camera、USB、Ethernet、GPIO 和 AI Hub 入口。
-- IQ-8275 / VENTUNO Q / Core Industrial：适合 AI compute + MCU deterministic control 的工业叙事。
-- IQ10 / Future：支持更高端 AMR、humanoid、sensor-heavy systems 和 reference design 路线。
-- Qualcomm Linux：提供更可信的 production Linux / Yocto / OTA / security / ROS 2 / AI SDK hook 叙事。
-- AI Hub + QNN/QAIRT + Profiler + Device Cloud：把“模型能跑”变成可测量的 compile、profile、validate、deploy、latency、memory、compute-unit、thermal、power 和 real-device test 证据。
+三分钟 demo 证明：RobotMac Core 是 competition-to-production proof harness，不是开发板实验。
 
-## Demo Storyboard
+Demo flow：
 
-三分钟 demo：
+1. 0:00-0:20：展示 RobotMac Core appliance、board profile、image digest、device identity、power/I/O/safety map。
+2. 0:20-0:50：BoardBringupKit 过门禁：camera、network、runtime、NPU/AI path、watchdog、E-stop。
+3. 0:50-1:25：LeRobot CloudTwin 采集 episode：synced video、state/action、operator takeover、task label。
+4. 1:25-2:05：EdgeRuntimeBench 展示 AI Hub/QNN/ONNX status、latency p50/p95、memory、thermal、power、model hash。
+5. 2:05-2:35：SafetyOps 触发 stale sensor、confidence drop 或 unsafe zone，RobotMac pause/deny/rollback。
+6. 2:35-3:00：PilotContractKit 导出 pilot packet：BOM、setup checklist、dataset policy、safety checklist、benchmark report、ask sheet。
 
-1. Open：展示 RobotMac Core appliance、board profile、image digest、device identity、power/IO/safety map。
-2. Capture：桌面机械臂或移动底盘记录 LeRobot episode。
-3. Train：CloudTwin/TrainRouter 提交 GPU job，生成 model artifact、dataset lineage 和评估报告。
-4. Deploy：AI Hub/QNN/QAIRT 或 ONNX path profile 后，signed skill package 推送到本体。
-5. Run local：机器人本地执行，网络不进入 safety/control loop。
-6. Evidence：展示 p50/p95 latency、memory、compute target、model version、rollback package、safety trigger、failure clip。
-7. Recover：坏模型或传感器异常触发 admission denial、safe mode 或 rollback。
-8. Loop：失败 episode 进入下一轮训练队列。
+向 Qualcomm 的 ask：
 
-## Ask
-
-请求 Qualcomm 支持一个 6-8 周 Dragonwing Robot Core validation sprint：
-
-- Hardware access：Rhino X1/QCS8550、RB3 Gen 2 Vision Kit、Radxa Q6A 或 VENTUNO Q。
-- AI Hub / Device Cloud quota。
-- QNN / QAIRT workflow guidance。
-- Qualcomm Linux / BSP guidance for camera、GStreamer、ROS 2、CAN/UART/GPIO、OTA、local safety services。
-- Qualcomm Profiler guidance for CPU/GPU/DSP/NPU、memory、thermal、latency、power 和 long-run stability。
-- Dragonwing Robotics Hub reference runtime project 或 developer tutorial 机会。
-- Partner introductions for board/SOM/carrier/accessory suppliers。
+- Hardware：Rhino X1/QCS8550、RB3 Gen 2 Vision Kit、Radxa Q6A、VENTUNO Q 或 future IQ10 RRD validation path。
+- AI Hub / Device Cloud credits。
+- QNN / QAIRT / ONNX Runtime QNN profiling office hours。
+- Qualcomm Linux/BSP guidance：camera、GStreamer、ROS 2、CAN/UART/GPIO、OTA、watchdog。
+- Profiler methodology review before public performance claims。
+- Permission/path to publish Dragonwing Robotics Hub reference runtime project。
+- Intro to APLUX、Radxa、Thundercomm、Lantronix、Arduino、education/FIRST-style partners、robot SI/OEM partners。
 
 ## Claim Boundaries
 
 可以说：
 
-- RobotMac Core 是 Qualcomm-first 的机器人 compute/power/IO/runtime 原型。
-- RobotMac Core 的目标是降低机器人团队从 demo 到部署的工程成本。
-- RobotMac Core 把 LeRobot 数据、云训练、Qualcomm edge deployment、runtime evidence 和 fleet hooks 接到同一产品路径。
+- RobotMac Core 是 Qualcomm-first robot compute/power/I/O/runtime appliance concept。
+- 目标是降低机器人从 demo 到 deployment 的工程成本。
+- 它把 LeRobot data、cloud training、Qualcomm edge deployment、runtime evidence 和 fleet hooks 接到同一产品路径。
 
 不能说：
 
 - 已获 Qualcomm 官方认证、合作、投资或官方背书。
-- 已通过安全认证、工业 IP rating、functional safety 认证。
+- 已通过 safety certification、SIL、PL、IP rating、functional safety。
+- RobotMac 替代 safety PLC / safety controller。
 - 开箱支持所有机器人。
-- 保证零停机。
 - 性能优于 Jetson/x86。
-- 任意 PyTorch / VLA / LeRobot policy 都能自动跑到 QNN。
+- 任意 PyTorch/VLA/LeRobot policy 都能自动跑到 QNN。
 - 云端控制可以替代本地 safety。
 
 所有 TOPS、功耗、延迟、温度、FPS、成功率、加速路径和 rollback time 必须标注日期、开发板、SDK、散热、电源、模型版本和是否模拟。
 
 ## Sources
 
-- Competition：https://qc-robotics-dev.aidlux.com/2026/
 - IFR industrial robots：https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years
 - IFR service robots：https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom
-- LeRobot docs：https://huggingface.co/docs/lerobot/index
-- Rhino X1：https://rhinopi.docs.aidlux.com/en/rhino-x1-aidlux/
-- Radxa Dragon Q6A：https://docs.radxa.com/en/dragon/q6a
-- Arduino VENTUNO Q：https://www.arduino.cc/product-ventuno-q
+- China industrial robots：https://chinapower.csis.org/china-industrial-robots/
+- ROS 2 Jazzy LTS：https://www.openrobotics.org/blog/2024/5/ros-jazzy-jalisco-released
+- ROS 2 lifecycle：https://design.ros2.org/articles/node_lifecycle.html
+- ROS 2 DDS security：https://design.ros2.org/articles/ros2_dds_security.html
+- SROS2：https://github.com/ros2/sros2
+- LeRobot docs：https://huggingface.co/docs/lerobot/en/index
+- LeRobot Dataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
+- Qualcomm AI Hub：https://aihub.qualcomm.com/
+- ONNX Runtime QNN：https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html
 - Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
-- Qualcomm QCS6490：https://www.qualcomm.com/internet-of-things/products/q6-series/qcs6490
-- Qualcomm QCS8550：https://www.qualcomm.com/internet-of-things/products/q8-series/qcs8550
-- Qualcomm IQ-8275：https://www.qualcomm.com/internet-of-things/products/iq8-series/iq-8275
-- Qualcomm IQ10 Series：https://www.qualcomm.com/internet-of-things/products/iq10-series
+- Qualcomm RB3 Gen 2 product brief：https://docs.qualcomm.com/doc/87-74789-1/87-74789-1_REV_A_Qualcomm_RB3_Gen_2_Development_Kit_Product_Brief.pdf
+- Qualcomm QCS8550 product brief：https://docs.qualcomm.com/doc/87-61717-1/87-61717-1_REV_D_Qualcomm_Dragonwing_QCS8550_QCM8550_Processors_Product_Brief.pdf
+- Open-Q 8550CS SOM：https://www.lantronix.com/products/open-q-8550cs-som/
+- Radxa Dragon Q6A：https://docs.radxa.com/en/dragon/q6a
+- Rhino Pi-X1：https://rhinopi.docs.aidlux.com/en/rhino-x1-aidlux/
+- Arduino VENTUNO Q：https://www.arduino.cc/product-ventuno-q
 - IQ10 Robotics Reference Design：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
 - Qualcomm Linux：https://www.qualcomm.com/developer/software/qualcomm-linux
-- AI Hub Workbench：https://workbench.aihub.qualcomm.com/docs/
 - Qualcomm Profiler：https://www.qualcomm.com/developer/software/qualcomm-profiler
-- Qualcomm Device Cloud：https://qdc.qualcomm.com/support/user-guide/overview
+- FoundriesFactory for Qualcomm：https://www.qualcomm.com/developer/software/foundriesfactory
 - NVIDIA Isaac ROS：https://developer.nvidia.com/isaac/ros
-- NVIDIA Jetson Thor：https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/
 - Viam Fleet Management：https://www.viam.com/platform/fleet-management
 - Formant Fleet Observability：https://docs.formant.io/docs/fleet-observability
 - Foxglove：https://foxglove.dev/
-- Ubuntu ROS ESM：https://ubuntu.com/robotics/ros-esm
-- Balena pricing：https://www.balena.io/pricing
+- Ubuntu Core：https://ubuntu.com/core
+- RAUC：https://rauc.io/
+- Mender：https://github.com/mendersoftware/mender
 - NIST SSDF：https://csrc.nist.gov/pubs/sp/800/218/final

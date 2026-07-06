@@ -14,103 +14,108 @@
       </a>
       <nav class="navlinks" aria-label="页面导航">
         <a href="#problem">问题</a>
-        <a href="#solution">产品</a>
-        <a href="#market">商业</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">时机</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
-        <a href="#demo">Demo</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-robotmac">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 01 · Qualcomm-first Robot Computer</p>
+          <p class="eyebrow">Pitch 01 · Qualcomm-first Robot Compute Appliance</p>
           <h1>RobotMac Core</h1>
-          <p class="hero-lede">装进商业机器人身体里的“机器人电脑”：把 Qualcomm 边缘计算、电源、机器人 IO、安全边界、RobotCoreOS、LeRobot 云训练接口和 fleet runtime 打包成一体。</p>
+          <p class="hero-lede">机器人不再稀缺，部署工程师才稀缺。RobotMac Core 把 Qualcomm edge AI、12-24V robot power、camera/I/O、安全边界、ROS 2、LeRobot、AI Hub/QNN、fleet telemetry、signed OTA 和 rollback 打包成一个可购买的机器人电脑。</p>
           <div class="cta-row">
-            <a class="button primary" href="#problem">进入路演</a>
-            <a class="button" href="../robot-core-os/">查看 RobotCoreOS</a>
+            <a class="button primary" href="#problem">看部署断点</a>
+            <a class="button" href="../labforge-pilot/">看主 Demo</a>
           </div>
         </div>
       </section>
 
-      <section id="problem" class="slide tint">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
               <p class="kicker">01 · Problem</p>
-              <h2>机器人团队不缺开发板，缺的是可交付的产品底座。</h2>
+              <h2>机器人团队不缺开发板，缺的是能从 demo 走到现场部署的产品底座。</h2>
             </div>
-            <p>开发板解决“能跑”，不解决“能卖”。每个团队仍要重复处理供电、散热、相机、CAN/UART/PWM、急停、ROS 2、模型部署、日志、OTA、回滚、设备身份和现场恢复。买方真正担心的是版本不可追溯、更新不可恢复、安全边界不清和 20 台机器没人维护。</p>
+            <p>开发板解决“能跑”，不解决“能卖、能维护、能扩张”。进入 5-100 台 fleet 后，真正拖垮团队的是电源、相机、I/O、ROS、更新、日志、回滚、安全边界和企业 IT 问答。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>电源先绊倒团队</h3>
-              <p>电池、外部 DC、稳压轨、逻辑/电机隔离、保险丝、急停和状态灯常被当作样机小事，最后变成现场事故源。</p>
+              <span class="claim-tag">Power</span>
+              <h3>机器人不是 USB 设备</h3>
+              <p>12/24V、brownout、reverse polarity、motor/logic rail isolation、E-stop、watchdog 和 thermal 必须产品化。</p>
             </article>
             <article class="card">
-              <h3>IO 每次重做</h3>
-              <p>相机、以太网、USB、CAN、UART、PWM、GPIO、IMU、LiDAR、ToF 和电机控制没有统一产品边界。</p>
+              <span class="claim-tag">I/O</span>
+              <h3>每个本体接口都不同</h3>
+              <p>cameras、USB、Ethernet、CAN、UART、PWM、GPIO、IMU、LiDAR、ToF 和 time sync 每次重做。</p>
             </article>
             <article class="card">
-              <h3>模型难落地</h3>
-              <p>云上训练出的 policy 要落到本体，还要处理输入规格、QNN/QAIRT、fallback、温度、功耗和延迟。</p>
+              <span class="claim-tag">Runtime</span>
+              <h3>ROS 能跑不等于能交付</h3>
+              <p>ROS 2 lifecycle、DDS QoS、SROS2、driver health、logs、device identity 和 local safety state 需要统一边界。</p>
             </article>
             <article class="card">
-              <h3>安全边界分散</h3>
-              <p>急停、watchdog、限位、门禁、云断连、热失控和低电压不应该散落在应用代码里。</p>
+              <span class="claim-tag">AI</span>
+              <h3>模型不是部署包</h3>
+              <p>LeRobot policy 还要经过 ONNX、AI Hub/QNN/QAIRT、runtime profile、fallback、签名和 rollback。</p>
             </article>
             <article class="card">
-              <h3>现场不可运营</h3>
-              <p>没有 OTA、rollback、device identity、日志、SBOM 和恢复镜像，企业客户很难把试点扩大成队列。</p>
+              <span class="claim-tag">Fleet</span>
+              <h3>试点后才暴露运维成本</h3>
+              <p>OTA、SBOM、audit trail、remote diagnostics、fleet update 和 field recovery 常常不是第一版考虑。</p>
             </article>
             <article class="card">
-              <h3>生态无法复用</h3>
-              <p>没有统一 robot core，技能包、课程、集成商模板和行业套件都很难跨形态复用。</p>
+              <span class="claim-tag">Buyer</span>
+              <h3>客户买的是可恢复能力</h3>
+              <p>买方担心版本不可追溯、更新不可恢复、安全边界不清、现场没人能修。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="slide white">
+      <section id="broken" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Why Now</p>
-              <h2>机器人正在从“能做动作”进入“能被采购、部署和维护”。</h2>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>现有方案都重要，但没有把机器人从 prototype 带到 fieldable product。</h2>
             </div>
-            <p>LeRobot 把真实机器人数据、模仿学习和数据集流程推向标准化；机器人队列和 RaaS 让 uptime、远程诊断、灰度更新和审计变成采购问题；Qualcomm Dragonwing、AI Hub、QNN/QAIRT、Qualcomm Linux、Device Cloud 和 IQ10 reference design 正在形成从 prototype 到 production 的边缘 AI 路径。</p>
+            <p>RobotMac Core 不替代开发板、ROS、fleet tools、OTA tools、整机平台或 PLC。它把这些能力组织成一个 robot-native deployment appliance。</p>
           </div>
-          <div class="grid four">
+          <div class="grid six">
             <article class="card">
-              <h3>市场已经够大</h3>
-              <p>IFR 报告 2024 年工业机器人安装量约 54.2 万台，全球运行存量约 466.4 万台，服务机器人也在持续增长。</p>
+              <h3>SBC / Dev Kit</h3>
+              <p>适合原型，但 enclosure、power、camera、safety I/O、OTA、rollback 和 fleet ops 仍要自己做。</p>
             </article>
             <article class="card">
-              <h3>中国是主战场</h3>
-              <p>中国占 2024 年全球工业机器人安装量过半。一个中文、双云、Qualcomm-first 的机器人核心有本土落地价值。</p>
+              <h3>ROS 2</h3>
+              <p>事实标准中间件，但 install drift、driver quality、networking、security 和 observability 仍然难。</p>
             </article>
             <article class="card">
-              <h3>开发者要省时间</h3>
-              <p>高校、系统集成商和机器人创业公司愿意为 ready-to-develop 套件付费，因为它省掉机械、电气、OS、ROS 和远程支持时间。</p>
+              <h3>RobOps Tools</h3>
+              <p>Viam、Formant、Foxglove、InOrbit 强在云和数据，但通常假设可靠 robot computer 已经存在。</p>
             </article>
             <article class="card">
-              <h3>Qualcomm 有窗口</h3>
-              <p>NVIDIA 已经把 robot brain 讲清楚。Qualcomm 需要一个低功耗、camera-rich、connected edge 的机器人产品化样板。</p>
+              <h3>IoT OTA</h3>
+              <p>Balena、Mender、Ubuntu Core、Yocto 不理解 robot action space、safety gate 和 autonomy rollback。</p>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide dark">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">03 · Insight</p>
-            <h2>机器人应用的最小商业单元，不是模型，也不是底盘，而是可验证 runtime slot。</h2>
-            <p class="lead">这个 slot 必须同时声明电源预算、IO 拓扑、传感器时序、模型 hash、动作权限、安全边界、运行日志、OTA、rollback 和现场恢复路径。PC 普及不是因为每个人会装主板；机器人普及也不会靠每个团队重新做电源、驱动和运行时。</p>
-          </div>
-          <div class="visual">
-            <img src="../assets/robot-mac-core.png" alt="一体化 RobotMac Core 机器人电脑概念图">
+            <article class="card">
+              <h3>Robot Bodies</h3>
+              <p>Unitree、AgileX、Husarion、Clearpath 本体强，但每个 body 都有不同 compute/runtime 差异。</p>
+            </article>
+            <article class="card">
+              <h3>PLC / Controllers</h3>
+              <p>确定性控制和 safety 强，但不是围绕 LeRobot/VLA/AI Hub/cloud training loop 设计。</p>
+            </article>
           </div>
         </div>
       </section>
@@ -119,431 +124,317 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · Solution</p>
-              <h2>RobotMac Core 是 Qualcomm-first 的机器人电脑，不是另一块裸板。</h2>
+              <p class="kicker">03 · Solution</p>
+              <h2>RobotMac Core 是 dev kit 和全定制 electronics 之间的 robot compute box。</h2>
             </div>
-            <p>它把 edge compute、protected power plane、robot IO plane、safety supervisor、RobotCoreOS、LeRobot / AI Hub deployment bridge 和 fleet runtime 放进一个产品边界。用户接上机器人身体，就能围绕任务、数据和技能迭代，而不是从底层硬件开始。</p>
-          </div>
-          <div class="grid six">
-            <article class="card">
-              <span class="claim-tag">Product target</span>
-              <h3>Compute</h3>
-              <p>Qualcomm Dragonwing edge AI module，承载视觉、策略推理、日志、设备身份和本体运行时。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">Product target</span>
-              <h3>Power</h3>
-              <p>电池/外部 DC、受保护稳压轨、逻辑/电机隔离、过流/低压监控、状态灯和现场恢复供电策略。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">Competition target</span>
-              <h3>Robot IO</h3>
-              <p>USB/Ethernet/camera baseline，UART/I2C/SPI/PWM/GPIO 经 adapter；CAN/CAN-FD 作为工业或扩展 profile。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">Product target</span>
-              <h3>Safety IO</h3>
-              <p>物理急停、watchdog、限位/门/bumper 输入、cloud-disconnect safe state 和 local safety service。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">Competition target</span>
-              <h3>Runtime</h3>
-              <p>RobotCoreOS、ROS 2 bridge、QNN/QAIRT/ONNX path、signed skill package、telemetry、OTA 和 rollback。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">Future profile</span>
-              <h3>Industrial</h3>
-              <p>IQ-8275 / IQ10 路线扩展多摄像头、实时 MCU、安全 island、GMSL2、工业温度和长生命周期。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide tint">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">05 · Product Workflow</p>
-              <h2>从选机器人形态到导出运行证据，一条闭环。</h2>
-            </div>
-            <p>RobotMac Core 的产品体验应该像电脑开箱，而不是工程板 bring-up。它先让机器可接、可测、可录、可训、可部署，再让客户把失败 episode 变成下一轮技能改进。</p>
+            <p>它的承诺不是 raw TOPS，而是减少 prototype 到 field fleet 的集成时间和现场失败：known-good hardware、RobotCoreOS、AI edge path、safety boundary、fleet evidence 和 pilot handoff。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>选择形态</h3>
-              <p>桌面机械臂、移动底盘、巡检车、教学套件或行业夹具。</p>
+              <h3>Hardware</h3>
+              <p>12-24V input、brownout、camera carrier、CAN-FD、USB3、2.5GbE、M.2、debug/service port。</p>
             </article>
             <article class="step">
-              <h3>接入 Core</h3>
-              <p>电源、相机、执行器、急停、网络和传感器一次接好，运行硬件自检。</p>
+              <h3>RobotCoreOS</h3>
+              <p>Ubuntu/Yocto base、ROS 2 LTS、lifecycle services、device identity、signed A/B OTA、rollback。</p>
             </article>
             <article class="step">
-              <h3>采集数据</h3>
-              <p>LeRobotDataset 记录视频、状态、动作、人类示教、接管和失败片段。</p>
+              <h3>AI Edge</h3>
+              <p>LeRobot -> ONNX -> AI Hub compile/profile/validate -> QNN/QAIRT or ONNX Runtime QNN where verified。</p>
             </article>
             <article class="step">
-              <h3>云端训练</h3>
-              <p>CloudTwin/TrainRouter 调度中国或海外 GPU，生成评估报告和模型 artifact。</p>
+              <h3>Safety Boundary</h3>
+              <p>Linux/ROS/AI 不作为 certified safety controller；E-stop、watchdog、motor enable 走独立边界。</p>
             </article>
             <article class="step">
-              <h3>边缘部署</h3>
-              <p>通过 AI Hub / QNN / QAIRT / ONNX 路径 profiling，签名成 skill package 回到本体。</p>
+              <h3>Evidence</h3>
+              <p>OpenTelemetry、ROS diagnostics、MCAP/logs、runtime manifest、SBOM、episode capture、incident ledger。</p>
             </article>
           </div>
-          <div class="pipeline pipeline-extra">
-            <article class="step">
-              <h3>本地运行</h3>
-              <p>本体执行感知、策略、安全检查和控制，云端不进入 safety-critical loop。</p>
-            </article>
-            <article class="step">
-              <h3>记录证据</h3>
-              <p>输出 FPS、p95 latency、placement、memory、power、temperature、success 和 safety events。</p>
-            </article>
-            <article class="step">
-              <h3>异常回滚</h3>
-              <p>坏模型、坏配置或传感器异常触发 admission gate、safe mode 或 rollback。</p>
-            </article>
-            <article class="step">
-              <h3>回流训练</h3>
-              <p>失败片段、低置信度和人工接管进入下一轮数据与策略训练。</p>
-            </article>
-            <article class="step">
-              <h3>导出 Manifest</h3>
-              <p>SoC、OS、IO 拓扑、模型 hash、功耗、温度、rollback、SBOM 和审计记录。</p>
-            </article>
+          <div class="image-band">
+            <img src="../assets/robot-mac-core.png" alt="RobotMac Core Qualcomm-first robot compute appliance 图">
           </div>
         </div>
       </section>
 
-      <section id="market" class="slide white">
+      <section id="why-now" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">06 · Market</p>
-              <h2>第一批买家，是不想再花 3-6 个月做基础集成的人。</h2>
+              <p class="kicker">04 · Why Now</p>
+              <h2>机器人供给变多，部署工程师变少。</h2>
             </div>
-            <p>RobotMac Core 不该拿自己和一块低价 SBC 比。买方真正比较的是几个月系统集成、现场失败、定制 OTA、远程支持缺口和企业采购风险。</p>
-          </div>
-          <div class="grid six">
-            <article class="card">
-              <h3>机器人 OEM</h3>
-              <p>需要 reproducible hardware profile、BSP、ROS 2 image、drivers、OTA rollback 和 telemetry。</p>
-            </article>
-            <article class="card">
-              <h3>系统集成商</h3>
-              <p>需要 known-good core、harness map、ROS packages、远程支持和可重复安装 checklist。</p>
-            </article>
-            <article class="card">
-              <h3>RaaS 运营方</h3>
-              <p>需要 uptime、少出现场、远程诊断、staged OTA、incident replay、teleop hooks 和 SLA evidence。</p>
-            </article>
-            <article class="card">
-              <h3>企业 IT / 安全</h3>
-              <p>需要 identity、patching、SBOM、CVE、访问控制、审计日志和 lifecycle support。</p>
-            </article>
-            <article class="card">
-              <h3>高校与开发套件</h3>
-              <p>需要 day-one working、课堂重置、示例技能、安全 IO、课程和可复用实验环境。</p>
-            </article>
-            <article class="card">
-              <h3>行业试点客户</h3>
-              <p>工厂、仓库、实验室、园区和服务机器人试点需要先把 5-50 台机器可靠运营起来。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide tint">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">07 · Business Model</p>
-              <h2>硬件建立入口，runtime 和 fleet 才是长期收入。</h2>
-            </div>
-            <p>RobotMac Core 的价格要覆盖它节省的工程拖累：硬件、供电、IO、安全、OS、ROS、QNN deployment、OTA、日志、SBOM 和现场恢复。业务上应从套件收入走向设备授权、fleet 订阅、云训练和企业集成。</p>
-          </div>
-          <div class="grid four">
-            <article class="card">
-              <span class="claim-tag">Packaging</span>
-              <h3>Core Lite</h3>
-              <p>面向教育、开发者、小车和简单机械臂。Qualcomm-class SBC、基础电源/IO、camera option、RobotMac runtime、LeRobot capture。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">Packaging</span>
-              <h3>Core Pro</h3>
-              <p>面向比赛主线和商业试点。更强 compute、enclosure、thermal、12/24V target、watchdog/e-stop、signed OTA、rollback。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">Packaging</span>
-              <h3>Core Industrial</h3>
-              <p>面向 AMR、工业控制和高端机器人。多摄像头、CAN-FD/TSN、safety MCU/island、private update channel、pilot burn-in。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">Recurring</span>
-              <h3>Runtime + Fleet</h3>
-              <p>按设备授权和按机器人/月订阅，覆盖 signed image、profile、rollback、telemetry、OTA stages、logs、diagnostics 和 audit。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">08 · GTM</p>
-              <h2>先做 Qualcomm robot core starter kit，再进入 SI 和行业试点。</h2>
-            </div>
-            <p>比赛不是最终销售渠道，但可以制造可信样板：用 Core Pro 原型证明采集、训练、部署、运行、异常回滚和 runtime manifest；随后用课程、开发套件和系统集成商模板扩大复用。</p>
-          </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>比赛样板</h3>
-              <p>Rhino X1/QCS8550 或 RB3/Q6A 跑通采集、训练、部署、回滚和 manifest。</p>
-            </article>
-            <article class="step">
-              <h3>教育入口</h3>
-              <p>课程、示例技能、刷机恢复、课堂安全和 LeRobot-to-edge 教学闭环。</p>
-            </article>
-            <article class="step">
-              <h3>SI 模板</h3>
-              <p>把 power/IO/safety/runtime 做成可重复交付包，减少系统集成项目脏活。</p>
-            </article>
-            <article class="step">
-              <h3>90 天试点</h3>
-              <p>交付 3-5 台 Core、2 个技能、fleet dashboard、rollback demo 和验收报告。</p>
-            </article>
-            <article class="step">
-              <h3>双云销售</h3>
-              <p>中国适配阿里云/腾讯云/华为/AutoDL，海外适配 RunPod/Lambda/Modal/AWS，边缘 runtime 保持一致。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide tint">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">09 · Competition</p>
-              <h2>不要打“谁的板子更便宜”，要打“谁能把机器人变成可交付产品”。</h2>
-            </div>
-            <p>竞品已经证明每个层都有人愿意买：Jetson/Isaac 证明 robot brain 叙事，ROS 证明中间件，Viam/Formant/Foxglove 证明 fleet/data，Mender/Balena/Ubuntu Core 证明 OTA/OS。空位是把这些压进 Qualcomm-first 的 robot core 产品边界。</p>
-          </div>
-          <div class="grid six">
-            <article class="card">
-              <h3>NVIDIA Jetson / Isaac</h3>
-              <p>强 GPU 与 robotics 软件生态；RobotMac 避免 TOPS 战，强调低功耗 connected edge、power/IO/safety 和训练闭环。</p>
-            </article>
-            <article class="card">
-              <h3>ROS 2</h3>
-              <p>事实标准中间件；RobotMac 不替代 ROS，而是把 ROS 放进可采购、可维护、可回滚的产品边界。</p>
-            </article>
-            <article class="card">
-              <h3>Viam / Formant</h3>
-              <p>强 robot ops、fleet、telemetry 和 cloud control；RobotMac 从本体侧 compute、IO、power、runtime 开始。</p>
-            </article>
-            <article class="card">
-              <h3>Foxglove</h3>
-              <p>强机器人数据可视化；RobotMac 默认生成同步 sensor/action episodes、runtime metrics、safety events 和 model versions。</p>
-            </article>
-            <article class="card">
-              <h3>Unitree / AgileX</h3>
-              <p>卖具体机器人本体或 ROS 套件；RobotMac 卖跨形态核心，可插入机械臂、小车、巡检车和教育平台。</p>
-            </article>
-            <article class="card">
-              <h3>工业控制器 / PLC</h3>
-              <p>可靠、安全、现场工程强；RobotMac 借鉴 trust vocabulary，但服务新一代 AI 学习型机器人。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide dark">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">10 · Moat</p>
-              <h2>护城河来自硬件 profile、技能兼容图和现场失败记忆。</h2>
-            </div>
-            <p>RobotMac Core 的复利不是外壳，而是每一次 bring-up、每一种 IO、每个模型部署、每次失败回滚和每个行业模板形成的可复用证据。</p>
-          </div>
-          <div class="grid four">
-            <div class="stat">
-              <strong>Profiles</strong>
-              <span>Qualcomm board、camera、IO、sensor timing、thermal、power 和 accelerator 路径验证矩阵。</span>
-            </div>
-            <div class="stat">
-              <strong>Skills</strong>
-              <span>技能包与硬件、ROS graph、runtime、动作权限、安全 envelope 和 rollback 的兼容关系。</span>
-            </div>
-            <div class="stat">
-              <strong>Evidence</strong>
-              <span>SBOM、签名、OTA、rollback、latency、thermal、power、episode 和 incident report。</span>
-            </div>
-            <div class="stat">
-              <strong>Channels</strong>
-              <span>比赛、课程、开发套件、系统集成商和 Qualcomm 生态伙伴形成复用网络。</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide white">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">11 · Evidence Matrix</p>
-              <h2>可信硬件故事必须用验收证据说话。</h2>
-            </div>
-            <p>页面上的硬件 claim 必须区分已经验证、比赛目标、产品目标、未来 profile 和标准参考。复赛拿到开发板后，用实测数据替换模拟值。</p>
+            <p>工业机器人、服务机器人、RaaS、LeRobot、ROS 2、AI Hub/QNN、OTA 工具和 fleet observability 都已经成熟到可以被产品化。现在缺的是一个 Qualcomm-first appliance，把这些压成可交付、可维护、可审计的机器人核心。</p>
           </div>
           <div class="grid five">
+            <div class="stat">
+              <strong>542K</strong>
+              <span>IFR：2024 年全球工业机器人新增约 54.2 万台。</span>
+            </div>
+            <div class="stat">
+              <strong>295K</strong>
+              <span>中国 2024 年新增约 29.5 万台工业机器人，约占全球 54%。</span>
+            </div>
+            <div class="stat">
+              <strong>199K+</strong>
+              <span>2024 年专业服务机器人销量超过 19.9 万台。</span>
+            </div>
+            <div class="stat">
+              <strong>31%</strong>
+              <span>专业服务机器人 RaaS fleet 2024 年增长约 31%。</span>
+            </div>
+            <div class="stat">
+              <strong>2033</strong>
+              <span>QCS8550 product brief 给出到 2033 年 4 月的 IoT product longevity 方向。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">05 · Product</p>
+            <h2>产品体验应该像 appliance 开箱，而不是工程板 bring-up。</h2>
+            <p class="lead">RobotMac Core 把硬件、OS、ROS、AI runtime、identity、OTA、telemetry 和 safety boundary 组合成可验收 runtime slot。</p>
+            <ul class="list">
+              <li>Core S：QCS6490-class，12 TOPS，12-24V，2.5GbE，CAN-FD，USB3，M.2，2-3 validated cameras。</li>
+              <li>Core Vision：Core S + CSI/GMSL camera carrier、sync trigger、IMU、calibrated camera bundle。</li>
+              <li>Core Pro：QCS8550-class，48 INT8 TOPS target，16GB RAM，4-6 cameras，higher thermal envelope。</li>
+              <li>Core Dev：RB3/Q6A/Rhino/VENTUNO-compatible SDK image 和 harness，只卖开发，不假装量产 appliance。</li>
+              <li>Core Max：IQ10-based roadmap/reference design exploration，不作为 2026 年 7 月近期开售 SKU。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/robot-mac-core.png" alt="RobotMac Core 机器人电脑硬件、端口、执行器和安全接口图">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Product API</p>
+              <h2>客户买到的不是盒子，而是可验收的 robot runtime slot。</h2>
+            </div>
+            <p>所有指标标注来源：`validated-on-board`、`AI-Hub-device-cloud`、`proxy`、`simulated`、`product-target` 或 `future-profile`。这比假装所有能力都已量产更可信。</p>
+          </div>
+          <div class="grid six">
             <article class="card">
-              <span class="claim-tag">Competition target</span>
-              <h3>Bring-up</h3>
-              <p>boot、network、storage、camera enumeration、USB/Ethernet、GPIO/UART/PWM、CAN adapter、IMU、motor/gripper smoke test。</p>
+              <h3>board-profile</h3>
+              <p>SoC、board、carrier、OS、kernel、BSP、camera stack、runtime versions、image digest。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Competition target</span>
-              <h3>Safety</h3>
-              <p>E-stop 阻断 actuator command path、watchdog restart、thermal/brownout safe state、cloud disconnect safe behavior。</p>
+              <h3>power-io-manifest</h3>
+              <p>12/24V rails、motor/logic isolation、E-stop、watchdog、CAN/UART/GPIO/PWM、camera topology。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Competition target</span>
-              <h3>Runtime</h3>
-              <p>ROS graph active、lifecycle transitions、LeRobot episode export、QNN/QAIRT profile、latency、memory、power、temperature。</p>
+              <h3>runtime-slot</h3>
+              <p>ROS graph、LeRobot dataset schema、policy hash、model runtime、permissions、safety envelope。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Product target</span>
-              <h3>OTA</h3>
-              <p>signed install、failed-update rollback、previous-known-good restore、manifest audit 和 offline recovery package。</p>
+              <h3>edge-profile</h3>
+              <p>AI Hub/QNN/QAIRT/ONNX path、latency p50/p95、memory、temperature、power、fallback labels。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Product target</span>
-              <h3>Burn-in</h3>
-              <p>比赛目标 4-8 小时 soak；产品目标 24 小时 acceptance 加 72 小时 pilot burn-in，记录 crash、throttle、drops 和 recovery。</p>
+              <h3>fleet-identity.sbom</h3>
+              <p>device identity、cert chain、SBOM、container/image digest、CVE review status。</p>
+            </article>
+            <article class="card">
+              <h3>ota-rollback-record</h3>
+              <p>bundle signature、cohort、install result、mark-good、rollback pointer、previous-known-good。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="qualcomm" class="slide tint">
+      <section id="business" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">12 · Why Qualcomm</p>
-              <h2>RobotMac Core 把 Dragonwing 从开发板变成机器人产品核心。</h2>
+              <p class="kicker">07 · Market & Business Model</p>
+              <h2>不按 cheap SBC 定价，按避免几个月集成和一次现场失败定价。</h2>
             </div>
-            <p>Qualcomm 的优势不只是 TOPS，而是低功耗异构 AI、多摄像头/多媒体、连接、端侧隐私、长期供货和 prototype-to-production 工具链。RobotMac Core 把这些能力组织成可购买、可演示、可迁移的机器人核心。</p>
+            <p>第一批买家是 robot OEM、SI、RaaS/fleet operator、教育/比赛团队和海外 robotics startup。中国版强调硬件速度和出口支持，海外版强调 security、lifecycle、documentation、support 和 lower integration risk。</p>
           </div>
-          <div class="grid four">
+          <div class="grid two">
             <article class="card">
-              <h3>QCS8550 / Core Pro</h3>
-              <p>适合作为比赛主线和性能型 service robot/desktop arm demo，承载 vision、policy、runtime 和数据记录。</p>
+              <span class="claim-tag">中国版</span>
+              <h3>机器人 OEM + SI + 教育/比赛</h3>
+              <p>AMR、service robot、lab automation、industrial inspection、清洁、具身智能创业公司。卖点是缩短 bring-up、形成可复用线束/runtime、支持中文双云训练和本地 SI 交付。</p>
             </article>
             <article class="card">
-              <h3>RB3 Gen 2 / QCS6490</h3>
-              <p>适合 Core Lite：robotics、AI vision、smart security、multi-OS、camera/USB/Ethernet/GPIO 和 AI Hub 入口。</p>
+              <span class="claim-tag">海外版</span>
+              <h3>机器人创业公司 + fleet operator + integrator</h3>
+              <p>卖点不是低价，而是 secure OTA、SBOM、fleet audit、lifecycle support、edge evidence、support SLA 和 cert-readiness。</p>
+            </article>
+          </div>
+          <div class="grid five" style="margin-top: 16px;">
+            <div class="stat">
+              <strong>$799-1.5k</strong>
+              <span>Core S dev/education 或中国 ¥4,999-12,999。</span>
+            </div>
+            <div class="stat">
+              <strong>$2.5k-6k</strong>
+              <span>Core Pro pilot kit 或中国 ¥19,800-49,800。</span>
+            </div>
+            <div class="stat">
+              <strong>$7.5k-25k</strong>
+              <span>Industrial / Vision pack 或中国 ¥60k-200k。</span>
+            </div>
+            <div class="stat">
+              <strong>$20-200</strong>
+              <span>runtime/fleet per robot/month，覆盖 OTA、logs、telemetry、episode capture。</span>
+            </div>
+            <div class="stat">
+              <strong>90 days</strong>
+              <span>$50k-250k 或 ¥30万-150万 pilot pack，含 3-5 台 Core 和 evidence。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>不要打“谁的板子更便宜”，要打“谁能把机器人变成可交付产品”。</h2>
+            </div>
+            <p>RobotMac Core 的复利不是外壳，而是每一次 board bring-up、camera tuning、runtime deployment、OTA failure、safety event 和现场恢复形成的验证语料库。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Compatibility Matrix</h3>
+              <p>board、carrier、camera、LiDAR、motor controller、power stack、ROS distro、kernel/BSP。</p>
             </article>
             <article class="card">
-              <h3>IQ-8275 / VENTUNO Q</h3>
-              <p>适合 Core Industrial：AI 负责感知与策略，MCU/real-time path 负责确定性动作和工业 IO。</p>
+              <h3>Robot I/O Carrier</h3>
+              <p>harness、timing、watchdog、recovery、diagnostics、safe-state interface。</p>
             </article>
             <article class="card">
-              <h3>AI Hub + QNN</h3>
-              <p>把 LeRobot/ONNX policy artifact 变成可 profile、可部署、可记录 runtime evidence 的 Qualcomm edge package。</p>
+              <h3>Certified Robot Packs</h3>
+              <p>tested configs for chassis、arms、cameras、LiDAR、batteries、fieldbus。</p>
+            </article>
+            <article class="card">
+              <h3>Fleet Failure Memory</h3>
+              <p>OTA failure、driver drift、thermal throttling、sensor mismatch、runtime fallback、incident patterns。</p>
+            </article>
+            <article class="card">
+              <h3>Evidence Standard</h3>
+              <p>每个 skill/update 绑定 hardware、runtime、data、safety、rollback 和 acceptance packet。</p>
+            </article>
+            <article class="card">
+              <h3>Channel Network</h3>
+              <p>比赛、课程、SI、OEM、Qualcomm ecosystem、developer tutorials 和 reference projects。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="demo" class="slide white">
+      <section id="qualcomm" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">09 · Why Qualcomm</p>
+            <h2>RobotMac Core 把 Dragonwing 从开发板变成机器人产品核心。</h2>
+            <p class="lead">Qualcomm 的优势不只是 TOPS，而是低功耗 edge AI、多摄像头、多媒体、连接、端侧隐私、长期供货和 prototype-to-production tooling。RobotMac Core 把这些能力变成买方能理解的 robot appliance。</p>
+            <ul class="list">
+              <li>QCS6490 / Core S：low-power robotics/AI vision baseline，适合教育、AMR、service robot 和 fallback target。</li>
+              <li>QCS8550 / Core Pro：高性能视觉和多模型边缘 AI target，适合 LabForgePilot、robot arm、inspection。</li>
+              <li>RB3 Gen 2：成熟 dev kit 和 robotics ecosystem reference，可做海外 Core S validation path。</li>
+              <li>Dragon Q6A / Rhino Pi-X1：比赛和中国开发者生态里的现实 target，用 BoardBringupKit 转成 RobotMac candidate。</li>
+              <li>VENTUNO Q / IQ-8275 与 IQ10 RRD：作为 industrial / future roadmap，不写成 2026 年 7 月量产 SKU。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/robot-mac-core.png" alt="RobotMac Core 把 Qualcomm Dragonwing 开发板变成机器人产品核心图">
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">13 · Demo Story</p>
-              <h2>三分钟证明：这不是开发板实验，而是产品底座。</h2>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>三分钟证明：RobotMac Core 是 competition-to-production proof harness。</h2>
             </div>
-            <p>比赛 demo 选择桌面机械臂抓取/分拣或移动底盘巡检。重点不是炫技动作，而是展示从硬件自检、LeRobot 数据、云训练、Qualcomm edge deployment 到坏模型回滚的商业闭环。</p>
+            <p>演示不追求泛化人形炫技，而是可复现闭环：board bring-up、LeRobot dataset、edge runtime benchmark、safety event、rollback 和 pilot packet。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>Open</h3>
-              <p>展示 RobotMac Core appliance、board profile、image digest、device identity、power/IO/safety map。</p>
+              <h3>0:20</h3>
+              <p>展示 appliance、board profile、image digest、device identity、power/I/O/safety map。</p>
             </article>
             <article class="step">
-              <h3>Capture</h3>
-              <p>记录 LeRobot episode：camera frames、robot state、actions、success/failure labels、human takeover。</p>
+              <h3>0:50</h3>
+              <p>BoardBringupKit 过门禁：camera、network、runtime、NPU/AI path、watchdog、E-stop。</p>
             </article>
             <article class="step">
-              <h3>Train</h3>
-              <p>CloudTwin/TrainRouter 提交 GPU job，生成 model artifact、dataset lineage 和评估报告。</p>
+              <h3>1:25</h3>
+              <p>LeRobot CloudTwin 采集 episode：synced video、state/action、operator takeover、task label。</p>
             </article>
             <article class="step">
-              <h3>Deploy</h3>
-              <p>AI Hub/QNN/QAIRT 或 ONNX path profile 后，签名成 skill package 推送到本体。</p>
+              <h3>2:05</h3>
+              <p>EdgeRuntimeBench 展示 AI Hub/QNN/ONNX status、p95 latency、memory、thermal、power、model hash。</p>
             </article>
             <article class="step">
-              <h3>Recover</h3>
-              <p>坏模型或传感器异常触发 admission denial、safe mode 或 rollback，失败 episode 回到训练队列。</p>
+              <h3>3:00</h3>
+              <p>SafetyOps 触发 pause/deny/rollback，PilotContractKit 导出 `pilot-audit-pack.zip`。</p>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section class="slide dark">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">14 · Ask</p>
-            <h2>请求 Qualcomm 支持一个 6-8 周 Dragonwing Robot Core validation sprint。</h2>
-            <p class="lead">我们不需要泛泛赞助，而需要让比赛原型变成可验证 reference project：硬件访问、AI Hub/QNN 工作流、Qualcomm Linux/BSP 指导、Profiler evidence、Device Cloud quota 和 Robotics Hub 发布支持。</p>
-          </div>
-          <div>
-            <ul class="list">
-              <li>硬件：Rhino X1/QCS8550、RB3 Gen 2 Vision Kit、Radxa Q6A 或 VENTUNO Q 测试路径。</li>
-              <li>Runtime：LeRobot/ONNX policy artifact 到 QNN/QAIRT 的转换、profiling、fallback 和 manifest 格式。</li>
-              <li>Linux：camera、GStreamer、ROS 2、CAN/UART/GPIO、OTA 和 local safety services 的 BSP 指导。</li>
-              <li>证据：CPU/GPU/DSP/NPU、memory、thermal、latency、power 和 long-run stability 的 Profiler 方法。</li>
-              <li>生态：Dragonwing Robotics Hub reference runtime project、partner intro 和 developer tutorial 机会。</li>
-            </ul>
+          <div class="grid three" style="margin-top: 16px;">
+            <article class="card">
+              <span class="claim-tag">Boundary</span>
+              <h3>不替代安全控制</h3>
+              <p>RobotMac Core 是 AI/autonomy appliance beside your PLC，不是 certified safety PLC 或 safety controller。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Artifacts</span>
+              <h3>可检查输出</h3>
+              <p>`robotmac-board-profile.json`、`power-io-manifest.yaml`、`edge-profile.qualcomm.json`、`ota-rollback-record.json`。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Ask</span>
+              <h3>向 Qualcomm 要什么</h3>
+              <p>target hardware、AI Hub credits、QNN/QAIRT guidance、Linux/BSP office hours、Profiler review、Robotics Hub publishing path。</p>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="slide white">
         <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">15 · Claim Boundaries</p>
-              <h2>RobotMac Core 是机器人电脑产品架构，不是已认证的成品机器人。</h2>
-            </div>
-            <p>我们可以说它是 Qualcomm-first compute/power/IO/runtime 原型，目标是降低从 demo 到部署的工程成本。不能说已获 Qualcomm 官方认证、官方合作、官方投资、安全认证、IP rating、零停机、开箱支持所有机器人，或性能优于 Jetson/x86。所有 TOPS、功耗、延迟、温度和加速路径必须按最终开发板、SDK、散热、电源和模型版本实测标注。</p>
-          </div>
           <p class="quote">如果个人电脑的价值是让用户不再从主板开始，RobotMac Core 的价值就是让机器人团队不再从开发板、电源和运行时开始。</p>
           <div class="source-links">
-            <a href="https://qc-robotics-dev.aidlux.com/2026/">比赛官网</a>
-            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR industrial robots</a>
-            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR service robots</a>
-            <a href="https://huggingface.co/docs/lerobot/index">LeRobot</a>
-            <a href="https://rhinopi.docs.aidlux.com/en/rhino-x1-aidlux/">Rhino X1</a>
-            <a href="https://docs.radxa.com/en/dragon/q6a">Radxa Dragon Q6A</a>
-            <a href="https://www.arduino.cc/product-ventuno-q">Arduino VENTUNO Q</a>
-            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2</a>
-            <a href="https://www.qualcomm.com/internet-of-things/products/q8-series/qcs8550">Qualcomm QCS8550</a>
-            <a href="https://www.qualcomm.com/internet-of-things/products/iq8-series/iq-8275">Qualcomm IQ-8275</a>
-            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">IQ10 Robotics RRD</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Industrial Robots</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
+            <a href="https://chinapower.csis.org/china-industrial-robots/">China Industrial Robots</a>
+            <a href="https://www.openrobotics.org/blog/2024/5/ros-jazzy-jalisco-released">ROS 2 Jazzy</a>
+            <a href="https://design.ros2.org/articles/node_lifecycle.html">ROS Lifecycle</a>
+            <a href="https://design.ros2.org/articles/ros2_dds_security.html">ROS DDS Security</a>
+            <a href="https://huggingface.co/docs/lerobot/en/index">LeRobot</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset</a>
+            <a href="https://aihub.qualcomm.com/">AI Hub</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX Runtime QNN</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">RB3 Gen 2</a>
+            <a href="https://docs.qualcomm.com/doc/87-61717-1/87-61717-1_REV_D_Qualcomm_Dragonwing_QCS8550_QCM8550_Processors_Product_Brief.pdf">QCS8550 Brief</a>
+            <a href="https://www.lantronix.com/products/open-q-8550cs-som/">Open-Q 8550CS</a>
+            <a href="https://docs.radxa.com/en/dragon/q6a">Dragon Q6A</a>
+            <a href="https://rhinopi.docs.aidlux.com/en/rhino-x1-aidlux/">Rhino Pi-X1</a>
+            <a href="https://www.arduino.cc/product-ventuno-q">VENTUNO Q</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">IQ10 RRD</a>
             <a href="https://www.qualcomm.com/developer/software/qualcomm-linux">Qualcomm Linux</a>
-            <a href="https://workbench.aihub.qualcomm.com/docs/">AI Hub Workbench</a>
             <a href="https://www.qualcomm.com/developer/software/qualcomm-profiler">Qualcomm Profiler</a>
-            <a href="https://qdc.qualcomm.com/support/user-guide/overview">Device Cloud</a>
+            <a href="https://www.qualcomm.com/developer/software/foundriesfactory">FoundriesFactory</a>
             <a href="https://developer.nvidia.com/isaac/ros">NVIDIA Isaac ROS</a>
-            <a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/">Jetson Thor</a>
             <a href="https://www.viam.com/platform/fleet-management">Viam Fleet</a>
             <a href="https://docs.formant.io/docs/fleet-observability">Formant Fleet</a>
             <a href="https://foxglove.dev/">Foxglove</a>
-            <a href="https://ubuntu.com/robotics/ros-esm">Ubuntu ROS ESM</a>
-            <a href="https://www.balena.io/pricing">Balena pricing</a>
+            <a href="https://ubuntu.com/core">Ubuntu Core</a>
+            <a href="https://rauc.io/">RAUC</a>
+            <a href="https://github.com/mendersoftware/mender">Mender</a>
             <a href="https://csrc.nist.gov/pubs/sp/800/218/final">NIST SSDF</a>
           </div>
         </div>
