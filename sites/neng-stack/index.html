@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>能栈 NengStack | 机器人补能操作系统</title>
+    <title>能栈 NengStack | 机器人能源运营层</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -13,57 +13,133 @@
         <span>能栈 NengStack</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#research">研究</a>
-        <a href="#scheduler">调度</a>
-        <a href="#passport">护照</a>
-        <a href="#china">中国</a>
-        <a href="#demo">演示</a>
+        <a href="#problem">问题</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">时机</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-neng-stack">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 43 · Robot Energy OS</p>
+          <p class="eyebrow">Pitch 43 · Robot Energy Operations</p>
           <h1>能栈 NengStack</h1>
-          <p class="hero-lede">机器人补能操作系统：连接机器人、充电桩、换电柜、无线补能点和园区电网，用 Qualcomm 边缘 AI 调度何时充、去哪充、充多少。</p>
+          <p class="hero-lede">机器人规模化之后，瓶颈不是“能跑多久”，而是“能不能一直干活”。能栈把 AMR/AGV/自动叉车的电量、充电、任务、站点功率和电池健康统一调度，让客户用更少备用机器人、更少充电桩、更低峰值功率，完成同样吞吐。</p>
           <div class="cta-row">
-            <a class="button primary" href="#scheduler">查看能源调度</a>
-            <a class="button" href="../uptime-os/">连接 UptimeOS</a>
+            <a class="button primary" href="#problem">看能源瓶颈</a>
+            <a class="button" href="#demo">看比赛演示</a>
           </div>
         </div>
       </section>
 
-      <section id="research" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">00 · Five-Thread Research</p>
-              <h2>机器人正在成群落地。下一个瓶颈不是算法，是补能。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>客户买机器人是为了吞吐，不是为了管理低电量、排队和电池衰减。</h2>
             </div>
-            <p>五条研究线显示：充电基础设施正在成为 AMR/AGV 独立市场；机会充电、自动对接、换电、SoH、热安全、站点峰值功率和 charger queue 会直接影响吞吐与 RaaS 毛利。</p>
+            <p>当仓库、工厂、医院和冷链站点从 5 台机器人走到 50 台、500 台，能源会变成隐藏的 ROI 阀门：机器人低电离线、充电桩排队、充电区功率超限、电池提前衰减，最后都表现为 SLA 风险、备用机器人成本和 RaaS 毛利下降。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>Energy ROI</h3>
-              <p>机器人 ROI 不只看续航，而看整支车队每天稳定完成多少任务。</p>
+              <span class="claim-tag">吞吐风险</span>
+              <h3>低电不是状态，是业务中断</h3>
+              <p>机器人任务队列看起来正常，但 40 分钟后可能出现集体回桩、拣选延迟、产线等待或夜班补货失败。</p>
             </article>
             <article class="card">
-              <h3>Opportunity</h3>
-              <p>在装卸、排队、低峰和 staging 时补能，减少离线长充对吞吐的影响。</p>
+              <span class="claim-tag">资产浪费</span>
+              <h3>多买机器人掩盖能源问题</h3>
+              <p>客户为了覆盖充电停机而买备用机器人，增加 CapEx、租赁月费、地面拥堵和维护复杂度。</p>
             </article>
             <article class="card">
-              <h3>Dock Uptime</h3>
-              <p>对接成功率、握手失败、能量交付、接触电阻、热故障都要监控。</p>
+              <span class="claim-tag">充电拥堵</span>
+              <h3>多装桩也不是答案</h3>
+              <p>充电桩占地、占电路、占消防/安全区；错误的桩比和排程会制造新的峰值负荷。</p>
             </article>
             <article class="card">
-              <h3>Battery Twin</h3>
-              <p>SOC、SOH、循环数、温度、内阻、异常、认证和更换窗口进入电池护照。</p>
+              <span class="claim-tag">电池责任</span>
+              <h3>电池老化会吃掉 RaaS 毛利</h3>
+              <p>高温快充、深度放电、错配充电器和异常循环会影响质保、残值、换电计划和事故责任。</p>
             </article>
             <article class="card">
-              <h3>Site Power</h3>
-              <p>充电槽、峰值 kW、配电容量、换电柜、无线补能和园区电力策略联动。</p>
+              <span class="claim-tag">站点功率</span>
+              <h3>设施团队不懂机器人 SLA</h3>
+              <p>楼宇 EMS 懂 kW，机器人 FMS 懂任务，但客户需要的是“哪些机器人现在能充，不能让站点超功率”。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="broken" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>现在的系统各管一段，没有一个层负责 robot energy operations。</h2>
+            </div>
+            <p>机器人 FMS、充电硬件、BMS、楼宇 EMS、EV 充电管理和 RobOps 平台都重要，但它们没有同时理解任务 SLA、机器人交通、充电排队、电池健康、站点功率和 RaaS 财务。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>OEM Fleet Manager</h3>
+              <p>MiR、OTTO、Geek+、Hikrobot、HAI 等系统会考虑电量，但能源通常只是调度约束，不是跨品牌站点能源产品。</p>
+            </article>
+            <article class="card">
+              <h3>充电硬件</h3>
+              <p>导电桩、无线垫、换电柜和移动充电车解决“怎么充”，不解决“谁、何时、为了哪个 SLA 去充”。</p>
+            </article>
+            <article class="card">
+              <h3>Battery Analytics</h3>
+              <p>TWAICE、ACCURE、Voltaiq 等偏 EV/BESS/制造，机器人小电池包的任务上下文和停机成本没有被产品化。</p>
+            </article>
+            <article class="card">
+              <h3>Building EMS</h3>
+              <p>楼宇能源系统理解电表、电价和负荷，但不了解 ROS2/VDA5050、地图区域、任务队列和机器人交通。</p>
+            </article>
+            <article class="card">
+              <h3>RobOps Dashboard</h3>
+              <p>InOrbit、Formant 等强在可观测和互操作，但不天然负责电池衰减、charger contention、demand charge 和能源证据。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>能栈不是充电桩，而是机器人能源运营层。</h2>
+            </div>
+            <p>能栈接入机器人、充电器、BMS、WMS/WES、站点电表、PV/储能和楼宇 EMS，把电量预测、任务调度、充电预约、电池 SoH、站点功率上限和安全联锁放进同一个优化器。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Measure</h3>
+              <p>采集 ROS BatteryState、BMS、dock、charger、Qualcomm edge workload、WMS 任务和站点电力。</p>
+            </article>
+            <article class="step">
+              <h3>Forecast</h3>
+              <p>预测每个任务的能耗、回桩 reserve、dock queue、热余量、电池衰减和未来能源缺口。</p>
+            </article>
+            <article class="step">
+              <h3>Reserve</h3>
+              <p>为导电桩、无线垫、换电柜、移动充电车和不同功率档预约补能槽。</p>
+            </article>
+            <article class="step">
+              <h3>Enforce</h3>
+              <p>NengEdge 在本地执行功率 envelope、充电安全边界和断网时的保守策略。</p>
+            </article>
+            <article class="step">
+              <h3>Prove</h3>
+              <p>输出 charger utilization、battery passport、SLA risk、RaaS margin 和合规证据。</p>
             </article>
           </div>
           <div class="image-band">
@@ -72,107 +148,147 @@
         </div>
       </section>
 
-      <section id="scheduler" class="slide tint">
+      <section id="why-now" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Fleet Energy Scheduler</p>
-              <h2>把“低电量回桩”升级成车队级能源路由。</h2>
+              <p class="kicker">04 · Why Now</p>
+              <h2>2026 年以后，机器人能源会从“附件问题”变成“运营平台问题”。</h2>
             </div>
-            <p>能栈根据 SOC/SOH、任务优先级、充电桩可用性、队列、路线成本、热状态和园区峰值功率，决定哪台机器人该接任务、该补多少电、该去哪种补能点。</p>
+            <p>专业服务机器人销量继续增长，物流/运输机器人已经是最大类别之一；RaaS 把 uptime、维护、电池和备件变成供应商毛利；EU Battery Regulation 又把电池生命周期证据推到企业采购桌面上。</p>
           </div>
-          <div class="pipeline">
-            <article class="step">
-              <h3>Measure</h3>
-              <p>BMS、dock、charger、ROS BatteryState、Qualcomm workload 和站点电力数据进入同一流。</p>
-            </article>
-            <article class="step">
-              <h3>Forecast</h3>
-              <p>预测任务能耗、回桩 reserve、热余量、充电队列和电池老化风险。</p>
-            </article>
-            <article class="step">
-              <h3>Reserve</h3>
-              <p>为导电桩、无线垫、换电柜和移动充电车预约补能槽。</p>
-            </article>
-            <article class="step">
-              <h3>Derate</h3>
-              <p>热或电量不足时降低非关键模型 FPS、切换 compute profile 或延后任务。</p>
-            </article>
-            <article class="step">
-              <h3>Prove</h3>
-              <p>输出 uptime、TCO、SLA、质保、认证和电池残值证据。</p>
-            </article>
+          <div class="grid five">
+            <div class="stat">
+              <strong>199K+</strong>
+              <span>IFR：2024 年专业服务机器人销售接近 20 万台。</span>
+            </div>
+            <div class="stat">
+              <strong>102.9K</strong>
+              <span>运输/物流类服务机器人 2024 年销量约 102,900 台。</span>
+            </div>
+            <div class="stat">
+              <strong>RaaS</strong>
+              <span>机器人月租把低电停机、电池寿命和充电桩利用率直接变成毛利问题。</span>
+            </div>
+            <div class="stat">
+              <strong>2027</strong>
+              <span>EU 电池护照义务从 2027-02-18 起适用于特定 EU 市场电池类别。</span>
+            </div>
+            <div class="stat">
+              <strong>Edge</strong>
+              <span>站点能源决策不能完全依赖云；仓库、医院、港口和工厂需要本地安全边界。</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="passport" class="slide white">
+      <section id="product" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">02 · Battery Passport + Dock Mesh</p>
-            <h2>电池和充电桩都必须变成可审计资产。</h2>
-            <p class="lead">能栈跟踪电池身份、化学体系、容量、UN38.3、循环数、SoH、温度异常、维修、复用和回收；同时把每个 dock 当作 fleet endpoint，监控对接、握手、热、接触和维护状态。</p>
+            <p class="kicker">05 · Product</p>
+            <h2>先做能源 ROI 副驾驶，再进入闭环能源调度。</h2>
+            <p class="lead">第一阶段只读接入，不和 OEM dispatch 正面冲突：告诉客户需要多少机器人、多少桩、什么充电窗口、哪里会超功率、哪批电池会提前退役。第二阶段才进入闭环预约和功率控制。</p>
             <ul class="list">
-              <li>Battery Twin：SOC / SOH、cycle count、energy throughput、internal resistance、temperature。</li>
-              <li>Dock Mesh：导电、无线、换电、移动充电和小型机器人 USB-C PD 场景。</li>
-              <li>Safety：禁快充、禁放电、compute derate、return now、safe shutdown。</li>
-              <li>Evidence：连接 CertForge、RiskLedger、RobotLeaseOps 和 UptimeOS。</li>
+              <li>Energy Graph：统一建模机器人、电池、dock、charger、任务、地图区域、站点功率和电价。</li>
+              <li>NengEdge：站点控制器，负责离线 scheduler、dock mesh broker、power envelope 和本地安全观察。</li>
+              <li>Battery Passport Lite：电池 ID、化学体系、容量、SoH、循环、温度事件、维修、复用和 EU passport-ready 字段。</li>
+              <li>Site Power Planner：把 OCPP、Modbus、OPC UA、OpenADR、PV/储能、楼宇 EMS 和 robot charge budget 接起来。</li>
             </ul>
           </div>
           <div class="visual">
-            <img src="../assets/neng-stack.png" alt="电池护照、充电桩网格和机器人能源安全控制台图">
+            <img src="../assets/neng-stack.png" alt="机器人能源图谱、NengEdge 控制器、电池护照和站点功率 envelope 界面">
           </div>
         </div>
       </section>
 
-      <section id="china" class="slide dark">
+      <section class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">03 · China Lane / Overseas Lane</p>
-              <h2>中国版要把电池安全、充电区消防和本地运营讲清楚。</h2>
+              <p class="kicker">06 · Architecture</p>
+              <h2>能栈要站在 FMS/WMS 旁边，暴露一个统一能源 API。</h2>
             </div>
-            <p>中国客户会问：电池标准、UN38.3、CCC 适用性、充电区消防、漏保、急停、损坏电池隔离、换电责任和本地 fleet dispatch。海外客户更关注 OCPP-style charger management、EU Battery Regulation、UL battery safety 和 energy savings。</p>
+            <p>关键不是替换 MiR、OTTO、Geek+、Hikrobot 或 InOrbit，而是给它们一层共同能源语言：机器人状态、电池状态、充电桩状态、功率 envelope、任务 SLA 和安全事件。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>RobotState</h3>
+              <p>mode、pose、task、battery_id、soc、soh、energy_rate、faults、autonomy confidence。</p>
+            </article>
+            <article class="card">
+              <h3>Dock</h3>
+              <p>capabilities、connector、max_kw、allowed_kw、reserved、occupied、faulted、alignment。</p>
+            </article>
+            <article class="card">
+              <h3>PowerEnvelope</h3>
+              <p>site cap、robot charge budget、tariff、demand response、PV/ESS 和 operator override。</p>
+            </article>
+            <article class="card">
+              <h3>BatteryPassport</h3>
+              <p>UID、chemistry、rated_kWh、cycles、negative events、service history 和 restricted claims。</p>
+            </article>
+            <article class="card">
+              <h3>SchedulePlan</h3>
+              <p>dock reservation、charge session、task delay、reserve SOC、expected queue 和 SLA risk。</p>
+            </article>
+            <article class="card">
+              <h3>QualcommEdgeSample</h3>
+              <p>NPU/GPU/CPU load、QNN model hash、latency、thermal throttling、joules/inference。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Market & Business Model</p>
+              <h2>卖给停机时真正亏钱的人，而不是卖“省电”。</h2>
+            </div>
+            <p>AMR 电费通常不是最大支出。真正有预算的是：少买备用机器人、少装充电桩、减少充电排队、保护电池质保、降低扩容风险、保住 RaaS / leasing 毛利和客户 SLA。</p>
           </div>
           <div class="grid two">
             <article class="card">
-              <h3>中国补能包</h3>
-              <p>GB 31241、SJ/T 11852、GB/T 40013、GB/T 41527、UN38.3、充电区 SOP、烟温监测、漏电保护、急停、损坏电池隔离和本地云。</p>
+              <span class="claim-tag">海外版</span>
+              <h3>Robot / Site SaaS</h3>
+              <p>Energy audit + deployment simulation：$10k-$50k / site。SaaS orchestration：$20-$80 / robot / month + $50-$150 / charger / month，或 $2k-$15k / site / month。OEM/RaaS embedded：$5-$25 / robot / month + value share。</p>
             </article>
             <article class="card">
-              <h3>海外能源包</h3>
-              <p>Battery passport、UL battery safety、EU Battery Regulation、OCPP-style charger management、demand response readiness 和 energy savings share。</p>
+              <span class="claim-tag">中国版</span>
+              <h3>OEM / SI 交付包</h3>
+              <p>更适合随项目交付：人民币 5万-30万 / site 的规划、仿真、调试和验收包；人民币 20-100 / robot / month 的轻量软件；或与机器人 OEM、集成商、充电桩伙伴打包。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="demo" class="slide white">
+      <section id="moat" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · Demo Flow</p>
-              <h2>同一批任务、同一组充电点，打开能栈后看吞吐和峰值怎么变化。</h2>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>市场被切成五块，能栈要拥有中间那块能源控制面。</h2>
             </div>
-            <p>比赛演示可以用浏览器模拟 10 台机器人、3 个补能点和一个峰值功率限制。关闭能栈时出现排队、低电任务失败和负载超限；打开后系统预约充电槽、安排机会充电、换电和延迟补能。</p>
+            <p>能栈的壁垒不是某一种充电硬件，而是真实运行数据、跨 OEM connector、电池老化模型、站点级优化器和接入 WMS/WES 后形成的运营黏性。</p>
           </div>
           <div class="grid four">
-            <div class="stat">
-              <strong>SOC</strong>
-              <span>每台机器人有任务能耗、回桩 reserve、充电目标和热余量。</span>
-            </div>
-            <div class="stat">
-              <strong>Dock</strong>
-              <span>每个充电点有队列、可用性、握手、热和维护状态。</span>
-            </div>
-            <div class="stat">
-              <strong>Peak</strong>
-              <span>园区峰值 kW 不再被所有机器人同时快充推高。</span>
-            </div>
-            <div class="stat">
-              <strong>TCO</strong>
-              <span>输出 charger utilization、battery replacement window、SLA risk 和 RaaS margin。</span>
-            </div>
+            <article class="card">
+              <h3>跨品牌能源图谱</h3>
+              <p>机器人、pack、dock、charger、site feeder、任务 SLA 和电价在同一张图里。</p>
+            </article>
+            <article class="card">
+              <h3>任务感知充电</h3>
+              <p>不是看 SOC 低不低，而是看哪个任务会受影响、哪个充电窗口最不伤吞吐。</p>
+            </article>
+            <article class="card">
+              <h3>电池责任数据</h3>
+              <p>把快速循环、热事件、错配充电、深度放电和换电历史接到质保、残值和保险。</p>
+            </article>
+            <article class="card">
+              <h3>本地边缘执行</h3>
+              <p>站点断网或数据不能出域时，Dragonwing gateway 仍能保守执行安全和功率边界。</p>
+            </article>
           </div>
         </div>
       </section>
@@ -181,10 +297,10 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · Why Qualcomm</p>
+              <p class="kicker">09 · Why Qualcomm</p>
               <h2>Qualcomm 可以从机器人“大脑”，延伸到机器人能源基础设施“大脑”。</h2>
             </div>
-            <p>能栈把 Qualcomm 的边缘 AI、低功耗 compute、5G / Wi-Fi / private network、安全身份和 AI Hub profile 引入补能系统：本体侧做 docking perception、热/电池异常检测和 joules/inference，云端做车队与园区调度。</p>
+            <p>能栈给 Dragonwing 一个新的高价值边缘 AI 工作负载：不是识别一个物体，而是实时预测哪些机器人会缺电、哪些电池在加速衰减、哪个站点会超功率、怎样调度才能保住 SLA。</p>
           </div>
           <div class="pipeline">
             <article class="step">
@@ -197,38 +313,76 @@
             </article>
             <article class="step">
               <h3>Network</h3>
-              <p>机器人、桩、换电柜和站点控制台通过专网/5G/Wi-Fi 同步。</p>
+              <p>机器人、桩、换电柜、BMS、WMS 和站点控制台通过专网/5G/Wi-Fi 同步。</p>
             </article>
             <article class="step">
               <h3>Trust</h3>
               <p>电池、dock、charger、机器人都有身份、签名 OTA 和审计证据。</p>
             </article>
             <article class="step">
-              <h3>Business</h3>
-              <p>RaaS 残值、SLA、质保、电池更换和能源节省进入商业闭环。</p>
+              <h3>Ecosystem</h3>
+              <p>Qualcomm 可以发布 robot energy operations reference architecture，帮助 OEM 走向量产。</p>
             </article>
           </div>
         </div>
       </section>
 
+      <section id="demo" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>八分钟演示：同一批任务，打开能栈后看吞吐、排队和峰值怎么变化。</h2>
+            </div>
+            <p>浏览器模拟一个 fulfillment site：24 台 AMR、8 个 dock、36 个 3.2 kWh LFP pack、500 个任务、600 kW 正常站点 cap、420 kW demand-response cap、一个 dock fault 和一段高峰波次。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>1. Baseline</h3>
+              <p>无能栈：低电机器人集中回桩，充电排队，dock fault 被晚发现，站点功率冲高。</p>
+            </article>
+            <article class="card">
+              <h3>2. Read-Only Copilot</h3>
+              <p>只读接入 FMS/WMS/BMS/电表，输出缺口预测、需要的桩比、备用机器人风险和电池退役窗口。</p>
+            </article>
+            <article class="card">
+              <h3>3. Closed Loop</h3>
+              <p>启用预约、机会充电、延迟非关键任务、power envelope 和保守安全边界。</p>
+            </article>
+            <article class="card">
+              <h3>4. Evidence</h3>
+              <p>导出 battery-passport-lite.json、charge-session-ledger.csv、site-power-report.pdf 和 RaaS margin view。</p>
+            </article>
+          </div>
+          <p class="quote">我们的申请：用 Qualcomm Dragonwing 作为 NengEdge 站点控制器，连接机器人能源、云训练、边缘推理和商业运营，把机器人从“会动”推进到“能持续赚钱”。</p>
+        </div>
+      </section>
+
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">能栈不承诺零停机，也不押注某一种充电方式。它让机器人车队把每一次任务、补能、电池老化、热事件和园区功率限制都变成可调度、可审计、可计费的运营数据。</p>
+          <p class="quote">能栈不承诺零停机，也不押注某一种充电方式。它让机器人车队把每一次任务、补能、电池老化、热事件和站点功率限制都变成可调度、可审计、可计费的运营数据。</p>
           <div class="source-links">
             <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
-            <a href="https://interactanalysis.com/mobile-robots-market-outpaces-fixed-automation/">Interact Analysis</a>
-            <a href="https://www.futuremarketinsights.com/reports/amr-docking-and-charging-stations-market">AMR Docking Market</a>
-            <a href="https://onepointech.com/opportunity-charging-agv-amr/">Opportunity Charging</a>
-            <a href="https://mobile-industrial-robots.com/products/applications/mir-charge-48v">MiR Charge</a>
-            <a href="https://ottomotors.com/fleet-manager/">OTTO Fleet</a>
-            <a href="https://www.autostoresystem.com/news/autostore-launches-new-r5-pro-robot">AutoStore R5 Pro</a>
-            <a href="https://www.wibotic.com/">WiBotic</a>
+            <a href="https://www.thelogisticsiq.com/research/automated-guided-vehicles-agv-market">LogisticsIQ AGV/AMR</a>
+            <a href="https://mobile-industrial-robots.com/products/robots/mir250/specifications">MiR250 Specs</a>
+            <a href="https://locusrobotics.com/locusone/fleet/locus-origin-collaborative-robot">Locus Origin</a>
+            <a href="https://www.wiferion.com/en/opportunity-charging-industry-standard-power-supply-agvs-amr/">Wiferion Opportunity Charging</a>
             <a href="https://openchargealliance.org/protocols/open-charge-point-protocol/">OCPP</a>
-            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3</a>
-            <a href="https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform">Qualcomm RB6</a>
-            <a href="https://docs.kernel.org/power/power_supply_class.html">Linux Power</a>
+            <a href="https://www.openadr.org/">OpenADR</a>
+            <a href="https://eur-lex.europa.eu/eli/reg/2023/1542/oj/eng">EU Battery Regulation</a>
+            <a href="https://www.iso.org/standard/83545.html">ISO 3691-4</a>
+            <a href="https://www.automate.org/robotics/industry-insights/mobile-robot-standard-r15-08-1-2020-what-you-need-to-know">ANSI R15.08</a>
+            <a href="https://ulse.org/insight/ul-standards-engagement-robotics-introducing-standard-safety-automated-mobile-platforms-amps/">UL 3100</a>
+            <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.178">OSHA Battery Charging</a>
+            <a href="https://www.phmsa.dot.gov/training/hazmat/new-un-requirement-test-summaries">PHMSA UN 38.3</a>
+            <a href="https://www.energy.gov/cmei/femp/managed-ev-charging-federal-fleets">DOE Managed Charging</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
             <a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/BatteryState.msg">ROS BatteryState</a>
-            <a href="https://eur-lex.europa.eu/eli/reg/2023/1542/oj/eng">EU Battery</a>
+            <a href="https://docs.kernel.org/power/power_supply_class.html">Linux Power Supply</a>
+            <a href="https://www.inorbit.ai/interoperability">InOrbit</a>
+            <a href="https://docs.formant.io/docs/fleet-observability">Formant</a>
+            <a href="https://www.wibotic.com/">WiBotic</a>
           </div>
         </div>
       </section>

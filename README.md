@@ -78,7 +78,7 @@ The current first-batch pitch directions are:
 - `RiskLedger`: Physical AI EDR / robot claims exchange pitch for tamper-evident incident capture, MCAP/QNN evidence bundles, insurance underwriting data, finance diligence, warranty disputes, SLA evidence, and redacted incident replay.
 - `ScaleFoundry`: Dragonwing prototype-to-SKU productization layer for BOM/AVL, EVT/DVT/PVT gates, factory tests, certification evidence, golden images, FRU/spares, PCN/PDN, lifecycle ledgers, and field CAPA loops.
 - `CertForge`: YC-style Dragonwing robot compliance CI/CD pitch for turning every model, firmware, SBOM/VEX, ROS/MCAP, QNN profile, HIL/field test, risk decision, and supplier proof into auditable launch dossiers for labs, customers, investors, and market-entry workflows.
-- `能栈 NengStack`: robot energy OS for fleet charging schedules, dock/charger mesh, battery passports, site power planning, Qualcomm power budgets, and RaaS energy evidence.
+- `能栈 NengStack`: YC-style robot energy operations pitch for coordinating robot battery state, charging reservations, tasks, site power envelopes, battery health, Dragonwing edge energy telemetry, and RaaS/leasing margin evidence.
 - `FleetConductor`: local edge robot tower for mixed-vendor fleet orchestration, maps, traffic, doors, elevators, chargers, incidents, and LeRobot feedback.
 - `CareOps`: hospital and lab operations robot workflow platform for non-clinical logistics, specimen chain-of-custody, privacy-first edge AI, and audit evidence.
 - `FieldOps`: outdoor inspection, agriculture, energy, and infrastructure robotics platform with rugged kits, sensor pods, resilient connectivity, teleoperation fallback, evidence packages, and a LeRobot field-data flywheel.
