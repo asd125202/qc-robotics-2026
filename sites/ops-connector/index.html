@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OpsConnector | 企业机器人集成桥</title>
+    <title>OpsConnector | 企业机器人工作流合约层</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -13,198 +13,415 @@
         <span>OpsConnector</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#research">研究</a>
-        <a href="#contract">合约</a>
-        <a href="#workflows">流程</a>
+        <a href="#problem">问题</a>
+        <a href="#broken">现状</a>
+        <a href="#solution">方案</a>
+        <a href="#why-now">时机</a>
+        <a href="#product">产品</a>
+        <a href="#business">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-ops-connector">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 27 · Enterprise Robot Workflow Bridge</p>
+          <p class="eyebrow">Pitch 27 · Enterprise Robot Workflow Contract</p>
           <h1 class="long-word-title">OpsConnector</h1>
-          <p class="hero-lede">企业不会为“会动的机器人”买单，而是为能进入现有流程的机器人买单。OpsConnector 把 WMS、MES、ERP、LIMS、PLC/SCADA、operator approval 和机器人技能连接成可审计工作流。</p>
+          <p class="hero-lede">机器人已经会看、会走、会抓。企业真正缺的是：谁能让它安全接单、按流程执行、断网不停、异常可处理、结果可审计。OpsConnector 把机器人动作变成 WMS、MES、LIMS、SCADA 和 ERP 里的可信企业记录。</p>
           <div class="cta-row">
-            <a class="button primary" href="#contract">查看任务合约</a>
-            <a class="button" href="../robot-app-layer/">连接 AppLayer</a>
+            <a class="button primary" href="#problem">看集成断点</a>
+            <a class="button" href="#demo">看工作流演示</a>
           </div>
         </div>
       </section>
 
-      <section id="research" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">00 · Five-Thread Research</p>
-              <h2>机器人商业化的瓶颈不是会不会动，而是能不能接进业务系统。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>企业机器人部署失败，不是因为机器人不会动，而是因为它进不了企业流程。</h2>
             </div>
-            <p>五条研究线指向同一个结论：标准、仓储、实验室、机器人平台公司和买家经济学都说明，连接器与工作流本身就是产品。OpsConnector 不做另一个 dashboard，而做 enterprise task 到 robot task 的可信翻译层。</p>
+            <p>仓库有 WMS，工厂有 MES/SCADA，实验室有 LIMS/ELN，医院有 LIS/EHR，财务和供应链有 ERP。机器人任务如果不能接收业务意图、遵守审批和安全边界、处理异常、把结果写回系统记录，最终就会变成现场脚本、人工补录和一次性集成项目。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>Standards</h3>
-              <p>ISA-95、OPC UA、MQTT/Sparkplug、VDA 5050、MassRobotics、Open-RMF。</p>
+              <span class="claim-tag">Warehouse</span>
+              <h3>WMS 不会直接控制机器人</h3>
+              <p>WMS 管订单、库存、波次、库位和报表；机器人需要秒级位置、路径、拥堵、充电、工位容量和异常恢复。</p>
             </article>
             <article class="card">
-              <h3>Warehouse</h3>
-              <p>WMS / WES / WCS / RCS 负责订单、库存、批次、搬运和异常确认。</p>
+              <span class="claim-tag">Lab</span>
+              <h3>机器人动作没有变成记录</h3>
+              <p>移液、扫码、交接、称重和样本转移如果不写回 LIMS/ELN，就会破坏 sample lineage、chain of custody 和审计。</p>
             </article>
             <article class="card">
-              <h3>Lab</h3>
-              <p>LIMS / ELN 管理样品、协议、结果和 lineage，机器人执行物理流程。</p>
+              <span class="claim-tag">Factory</span>
+              <h3>工单和设备状态断裂</h3>
+              <p>MES/eBR 需要材料、人员、设备、批次、质量和偏差记录；机器人平台通常只返回 mission done。</p>
             </article>
             <article class="card">
-              <h3>Platforms</h3>
-              <p>Viam、Formant、InOrbit、Foxglove 等验证 API、ops、incident 和日志价值。</p>
+              <span class="claim-tag">Exception</span>
+              <h3>异常靠人工补救</h3>
+              <p>缺货、条码不符、温度越界、工位满、门禁未放行、机器人阻塞和人工接管经常掉进微信群、电话和 Excel。</p>
             </article>
             <article class="card">
-              <h3>Buyers</h3>
-              <p>客户关心 TCO、停机、IT/OT 安全、项目周期和系统集成风险。</p>
+              <span class="claim-tag">Scale</span>
+              <h3>每个现场重做集成</h3>
+              <p>换一个 WMS、机器人品牌、仓库流程、样本规则或安全区，项目就重新写接口，无法复制到下一站点。</p>
             </article>
-          </div>
-          <div class="image-band">
-            <img src="../assets/ops-connector.png" alt="企业系统与机器人工作流集成桥概念图">
           </div>
         </div>
       </section>
 
-      <section id="contract" class="slide tint">
+      <section id="broken" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Robot Task Contract</p>
-              <h2>把企业任务翻译成机器人可以执行、可以回写、可以审计的合约。</h2>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>现在的方案都解决了一部分，但没有拥有“企业任务到机器人执行再到系统写回”的闭环。</h2>
             </div>
-            <p>OpsConnector 的核心不是接入某一个 API，而是定义一份跨工厂、仓库、实验室都能理解的任务合约，再通过 adapter 接入不同企业系统和机器人执行层。</p>
+            <p>OpsConnector 不替代 WMS、MES、LIMS、SCADA、机器人厂商 fleet manager 或系统集成商。它把这些系统之间最难复用的语义、状态、异常、权限和审计写成可复制的工作流合约。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>SI 项目制</h3>
+              <p>系统集成商能让一个现场上线，但接口、异常处理和回写逻辑常常沉没在项目代码里，下一站点还要再卖人天。</p>
+            </article>
+            <article class="card">
+              <h3>机器人 OEM 软件</h3>
+              <p>Locus、Geek+、Hai、Exotec、OTTO、MiR 等证明 fleet 软件有价值，但通常优先服务自家车队和任务模型。</p>
+            </article>
+            <article class="card">
+              <h3>WMS / MES 扩展</h3>
+              <p>SAP EWM、Manhattan、Blue Yonder、Körber 或定制 WMS 能发业务任务，但不应直接承担机器人实时控制和 OT 安全。</p>
+            </article>
+            <article class="card">
+              <h3>iPaaS</h3>
+              <p>MuleSoft、Boomi、Workato 懂 SaaS API 和数据流，但不懂机器人地图、任务状态、低延迟、离线执行、PLC interlock 和安全停机。</p>
+            </article>
+            <article class="card">
+              <h3>标准协议</h3>
+              <p>VDA 5050、MassRobotics、Open-RMF、OPC UA Robotics 是好基础，但不覆盖订单语义、样本 lineage、库存写回和商业 SLA。</p>
+            </article>
+            <article class="card">
+              <h3>Ops Dashboard</h3>
+              <p>Formant、InOrbit、Foxglove 等验证了可观测性和运维需求；企业仍需要任务合约、审批、异常补偿和系统记录写回。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>OpsConnector 是企业系统和机器人执行层之间的工作流合约层。</h2>
+            </div>
+            <p>它把 WMS/MES/ERP/LIMS/SCADA/人工审批里的业务请求，编译成可验证、可追踪、可审计的 Robot Task Contract，再分发给 RobotAppLayer、EdgeFleet、Open-RMF、VDA 5050、MassRobotics、OPC UA 或厂商 fleet API。</p>
           </div>
           <div class="pipeline">
             <article class="step">
               <h3>Intent</h3>
-              <p>订单、工单、实验请求、异常处理或人工审批。</p>
+              <p>订单、工单、样本请求、FHIR Task、SCADA interlock、QMS 偏差或人工审批进入统一入口。</p>
             </article>
             <article class="step">
               <h3>Contract</h3>
-              <p>任务类型、对象、目标、优先级、技能、权限和验收。</p>
+              <p>任务 ID、对象、位置、设备需求、审批、验收规则、超时、回滚、审计目标和 trace context。</p>
             </article>
             <article class="step">
               <h3>Dispatch</h3>
-              <p>通过 RobotAppLayer、EdgeFleet、Open-RMF 或厂商 fleet 执行。</p>
+              <p>按能力注册表选择 RobotAppLayer、VDA 5050、Open-RMF、OPC UA、厂商 API 或人工队列。</p>
             </article>
             <article class="step">
-              <h3>Events</h3>
-              <p>状态、位置、健康、异常、接管、结果和证据持续回传。</p>
+              <h3>Evidence</h3>
+              <p>采集条码、时间戳、robot run id、传感器、图片、模型版本、异常、接管和签名事件。</p>
             </article>
             <article class="step">
               <h3>Writeback</h3>
-              <p>成功、失败、库存、样品、质量、日志和审计结果回写。</p>
+              <p>把完成、失败、库存移动、样本状态、批记录、QMS 偏差和审计包写回企业系统。</p>
             </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/ops-connector.png" alt="OpsConnector 企业系统、边缘网关、机器人工作流和系统写回架构图">
           </div>
         </div>
       </section>
 
-      <section id="workflows" class="slide white">
+      <section id="why-now" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Workflow Packs</p>
-              <h2>连接器要卖成行业工作流，而不是卖成一堆 API 文档。</h2>
+              <p class="kicker">04 · Why Now</p>
+              <h2>机器人规模已经上来，下一场竞争是把一次性集成变成可复用软件。</h2>
             </div>
-            <p>系统集成商和企业客户需要可复用模板：SOP、UI、权限、事件、验收指标、异常处理和回写路径。OpsConnector 把这些包装成 workflow pack。</p>
+            <p>IFR 报告 2024 年全球工业机器人安装 54.2 万台，在役机器人 466.4 万台；中国占 2024 年安装量 54%，在役超过 200 万台。与此同时，机器人系统集成服务池已经是数百亿美元级别，说明客户一直在为“接进流程”付费。</p>
+          </div>
+          <div class="grid five">
+            <div class="stat">
+              <strong>542K</strong>
+              <span>IFR 报告 2024 年全球工业机器人安装约 54.2 万台。</span>
+            </div>
+            <div class="stat">
+              <strong>4.664M</strong>
+              <span>全球在役工业机器人数量约 466.4 万台，存量 fleet 正在变成软件市场。</span>
+            </div>
+            <div class="stat">
+              <strong>54%</strong>
+              <span>中国占 2024 年全球工业机器人安装量 54%，适合验证多品牌、快交付、私有云版本。</span>
+            </div>
+            <div class="stat">
+              <strong>$40B+</strong>
+              <span>多个市场报告把机器人/工业系统集成服务池估在数百亿美元，方向比精确数字更重要。</span>
+            </div>
+            <div class="stat">
+              <strong>VDA 3.0</strong>
+              <span>VDA 5050 v3.0.0、Open-RMF、MassRobotics、OPC UA 等标准让通用合约层更可行。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">05 · Product</p>
+            <h2>先卖行业工作流包，再沉淀成企业机器人 iPaaS。</h2>
+            <p class="lead">OpsConnector 的第一批产品不是空泛 connector marketplace，而是带 SOP、UI、权限、事件、验收指标、异常处理和写回路径的 workflow pack。每一个付费试点都要产出一个可复用包。</p>
+            <ul class="list">
+              <li>WMS Bridge Pack：订单、波次、拣选、补货、移库、入库、出库、盘点、异常和库存写回。</li>
+              <li>Lab Sample Transfer Pack：LIMS/Benchling 样本、plate map、协议、审批、条码核验、结果和 audit package。</li>
+              <li>MES / eBR Pack：工单、批次、设备、物料、操作员、quality hold、deviation 和 electronic batch record 写回。</li>
+              <li>SCADA / OPC Pack：OPC UA、Sparkplug、PLC interlock、设备状态、门禁放行、alarm 和 historian event。</li>
+              <li>Exception Pack：缺货、工位满、条码不符、温度越界、机器人阻塞、超时、人工接管、retry/skip/abort。</li>
+              <li>SI Sandbox：模拟 WMS/LIMS/MES、测试 robot task、dead-letter queue、回归测试和认证培训。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/ops-connector.png" alt="OpsConnector workflow pack、edge gateway、企业系统和机器人任务图">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Product API</p>
+              <h2>核心对象不是 API endpoint，而是可恢复、可审计、可写回的任务合约。</h2>
+            </div>
+            <p>企业客户不只问“机器人有没有完成”，还会问谁批准、用哪个版本、是否符合前置条件、异常怎么处理、系统记录如何更新、证据是否可以导出。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>Warehouse</h3>
-              <p>WMS pick、putaway、transport、confirmation、exception 和 inventory update。</p>
+              <h3>TaskContract</h3>
+              <p>source、idempotency key、business object、robot capability、location、priority、due time、acceptance rule、rollback。</p>
             </article>
             <article class="card">
-              <h3>Factory</h3>
-              <p>MES work order、OPC UA asset telemetry、PLC signal 和 quality record。</p>
+              <h3>ObjectMap</h3>
+              <p>样本、容器、货架、托盘、库位、设备、人员、工单、批次、条码、plate/well 和企业系统 ID 映射。</p>
             </article>
             <article class="card">
-              <h3>Lab</h3>
-              <p>LIMS request、protocol compile、sample lineage、result artifact 和 audit。</p>
+              <h3>ApprovalGate</h3>
+              <p>operator、reviewer、role、e-signature、quality hold、SCADA interlock、override reason 和 release token。</p>
             </article>
             <article class="card">
-              <h3>Operator</h3>
-              <p>人工审批、异常确认、retry / skip / abort 和 incident handoff。</p>
+              <h3>AdapterProfile</h3>
+              <p>VDA 5050 order/state、Open-RMF task、MassRobotics telemetry、OPC UA job、Sparkplug、REST/gRPC。</p>
             </article>
             <article class="card">
-              <h3>Security</h3>
-              <p>SSO、RBAC、TLS、certificate、broker ACL、schema validation 和 audit log。</p>
+              <h3>EvidenceLedger</h3>
+              <p>barcode/RFID、timestamp、run id、command log、sensor reading、photo、QNN inference、exception 和 signature。</p>
             </article>
             <article class="card">
-              <h3>Sandbox</h3>
-              <p>模拟订单、模拟 LIMS、测试 robot task、dead-letter queue 和回归测试。</p>
+              <h3>AuditWriteback</h3>
+              <p>Job Response、inventory update、sample lineage、FHIR Task/Specimen、QMS deviation、eBR record 和 export pack。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="slide dark">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">03 · Edge Gateway</p>
-            <h2>企业集成不能依赖一条永远稳定的公网连接。</h2>
-            <p class="lead">OpsConnector 的现场 edge gateway 运行在 RobotCoreOS / Qualcomm edge 环境里。它负责本地缓存、断网继续运行、低延迟任务下发、OT/IT 网络分区、idempotency、retry 和审计事件签名。</p>
-            <ul class="list">
-              <li>Northbound：WMS / MES / ERP / LIMS / ELN / SCADA。</li>
-              <li>Sideways：OPC UA / Sparkplug telemetry 和 enterprise observability。</li>
-              <li>Southbound：RobotMac skill runtime、VDA 5050、Open-RMF、MassRobotics。</li>
-              <li>Governance：device identity、schema validation、audit trail 和 permission policy。</li>
-            </ul>
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Market & Business Model</p>
+              <h2>把一次性 SI 人天，产品化成年度订阅、连接器包和工作流包。</h2>
+            </div>
+            <p>机器人集成服务池是巨大的，但项目制收入不可复制。OpsConnector 的商业模型是：用 SI/OEM 做交付渠道，同时把工作流合约、edge gateway、连接器、异常处理和审计写回留在软件层。</p>
           </div>
-          <div class="visual">
-            <img src="../assets/ops-connector.png" alt="企业集成边缘网关和机器人任务回写图">
+          <div class="grid two">
+            <article class="card">
+              <span class="claim-tag">中国版</span>
+              <h3>快接入、低改造、多品牌、私有化</h3>
+              <p>中国机器人厂商多、项目交付快、WMS/ERP 定制重。包装成样板间 PoC、OEM/SI white-label、私有云、国产系统适配、固定范围交付和 25%-40% 渠道毛利。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">海外版</span>
+              <h3>标准合规、on-prem、审计和年度合同</h3>
+              <p>海外企业更看重 SAP/Manhattan/Blue Yonder 集成、IT/OT 网络隔离、网络安全、审计、SSO、数据驻留、可预测用量和采购安全的年度订阅。</p>
+            </article>
+          </div>
+          <div class="grid five" style="margin-top: 16px;">
+            <div class="stat">
+              <strong>$25k-60k</strong>
+              <span>90 天 pilot：1 个站点、2-3 个连接器、1 个 workflow pack。</span>
+            </div>
+            <div class="stat">
+              <strong>$60k-180k</strong>
+              <span>海外生产站点年费：control plane、workflow builder、RBAC、audit 和 observability。</span>
+            </div>
+            <div class="stat">
+              <strong>$10k-50k</strong>
+              <span>连接器包或工作流包年费：WMS、MES、LIMS、QMS、PLC、robot brand 或异常包。</span>
+            </div>
+            <div class="stat">
+              <strong>30万-120万</strong>
+              <span>中国单工厂私有化订阅人民币年费区间，按现场、网关和行业包扩展。</span>
+            </div>
+            <div class="stat">
+              <strong>3 + 2 + 5</strong>
+              <span>早期目标：3 个灯塔客户、2 个机器人 OEM connector partner、5 个认证 SI。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>壁垒不是某一个连接器，而是不断扩大的机器人工作流地图。</h2>
+            </div>
+            <p>InOrbit、Viam、Formant、Foxglove、Intrinsic、MoveIt Pro、Wandelbots、MuleSoft、Boomi、Workato 都证明需求存在。OpsConnector 的壁垒在于把 robot state、OT 安全、业务语义、异常处理、审计写回和 SI 交付资产放在同一个产品对象里。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Connector Library</h3>
+              <p>WMS/MES/LIMS/ERP/SCADA/QMS/robot brand 的已验证 adapter 越多，下一次交付越快。</p>
+            </article>
+            <article class="card">
+              <h3>Workflow Templates</h3>
+              <p>订单到机器人、样本到记录、工单到 eBR、异常到 QMS、库存到 ERP 的模板不断复用。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Runtime</h3>
+              <p>on-prem gateway 处理离线缓存、低延迟、幂等、dead-letter queue、OT/IT 网络分区和本地签名。</p>
+            </article>
+            <article class="card">
+              <h3>Audit Corpus</h3>
+              <p>每个现场积累异常、审批、写回、失败原因和验收证据，形成可学习的部署知识。</p>
+            </article>
+            <article class="card">
+              <h3>SI Network</h3>
+              <p>认证培训、sandbox、partner portal、私有 connector 发布和收入分成让集成商愿意沉淀资产。</p>
+            </article>
+            <article class="card">
+              <h3>Compliance Readiness</h3>
+              <p>NIST SP 800-82、ISA/IEC 62443、Part 11、GxP、FHIR、ISA-95 让企业采购更容易通过审查。</p>
+            </article>
           </div>
         </div>
       </section>
 
       <section id="qualcomm" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">09 · Why Qualcomm</p>
+            <h2>OpsConnector 让 Dragonwing 从机器人推理芯片，升级为企业现场可信执行节点。</h2>
+            <p class="lead">Qualcomm 的机器人叙事已经不只是 TOPS，而是 compute、sensing、networking、real-time control、security、Linux、OTA 和 fleet lifecycle。OpsConnector 把这些能力放进企业工作流：离线接单、协议网关、本地 AI 证据、设备身份和审计同步。</p>
+            <ul class="list">
+              <li>RB3 Gen 2 / QCS6490：比赛 demo 的轻量 on-prem gateway 基线，证明本地 AI、协议网关和工作流执行不是云端 mock。</li>
+              <li>QCS8550：面向多摄像头、高性能 edge AI box、工业无人机和 AMR 运营盒的升级 profile。</li>
+              <li>IQ10 RRD：作为 2026 年后的高级机器人参考目标；截至 2026-07-06 应表述为 roadmap / early access，不写成现货量产。</li>
+              <li>AI Hub / QAIRT / QNN：把模型版本、profile、latency、输入摘要、置信度、任务 ID 和设备身份写入 evidence packet。</li>
+              <li>Qualcomm Linux / Ubuntu / Security：支持 secure boot、TEE、安全存储、证书、OTA、容器、实时和本地缓存的企业边缘运行时。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/ops-connector.png" alt="Dragonwing edge gateway 连接企业系统、OT 协议、机器人任务和本地 AI 证据链">
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · Qualcomm Business Value</p>
-              <h2>让 Qualcomm edge 成为企业 IT/OT 流程里的可信执行节点。</h2>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>7 分钟证明：机器人任务可以从企业系统来，也能把结果写回企业系统。</h2>
             </div>
-            <p>OpsConnector 把 Qualcomm 的价值从“机器人本体推理”扩展到企业流程执行。任务来自业务系统，本体在 Qualcomm edge 执行，结果回写到客户记录，失败片段回到 CloudTwin / TrainRouter。</p>
+            <p>比赛 demo 可以用两个场景讲清楚商业价值：仓库 WMS 派单和 LabForge 样本转移。重点不是机器人动作炫技，而是完整任务合约、异常处理、离线边缘执行和审计写回。</p>
           </div>
-          <div class="grid four">
-            <div class="stat">
-              <strong>On-prem</strong>
-              <span>现场 edge gateway 支持本地缓存、断网运行和 OT/IT 网络隔离。</span>
-            </div>
-            <div class="stat">
-              <strong>Workflow</strong>
-              <span>企业任务、机器人技能、人工审批和回写路径被绑定在一起。</span>
-            </div>
-            <div class="stat">
-              <strong>Audit</strong>
-              <span>状态、异常、接管、结果、版本和安全事件进入可导出证据链。</span>
-            </div>
-            <div class="stat">
-              <strong>Channel</strong>
-              <span>系统集成商可购买 connector pack、workflow pack 和认证培训。</span>
-            </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Create</h3>
+              <p>模拟 WMS 补货单或 LIMS 样本转移请求，带货位/样本/条码/审批/验收条件。</p>
+            </article>
+            <article class="step">
+              <h3>Compile</h3>
+              <p>OpsConnector 生成 TaskContract、ObjectMap、ApprovalGate、AdapterProfile 和 idempotency key。</p>
+            </article>
+            <article class="step">
+              <h3>Execute</h3>
+              <p>Dragonwing edge gateway 断网仍能执行已授权任务，调用 RobotAppLayer 或 VDA 5050/Open-RMF adapter。</p>
+            </article>
+            <article class="step">
+              <h3>Exception</h3>
+              <p>条码不符、工位满或温度越界触发人工审批，不写成功结果，只写 deviation 和 incident。</p>
+            </article>
+            <article class="step">
+              <h3>Writeback</h3>
+              <p>任务完成后把库存移动、样本 lineage、QNN evidence、operator、版本和 audit pack 写回系统。</p>
+            </article>
+          </div>
+          <div class="grid two" style="margin-top: 16px;">
+            <article class="card">
+              <span class="claim-tag">Ask</span>
+              <h3>向高通要什么</h3>
+              <p>RB3 Gen 2 Vision/Core Kit、QCS8550 合作渠道、IQ10 RRD early access 或 roadmap 指导、AI Hub/QNN/QAIRT office hours、Qualcomm Linux/Ubuntu/ROS2 指导，以及 secure boot/device identity/OTA 推荐路径。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Outcome</span>
+              <h3>比赛交付物</h3>
+              <p>一个可运行 Dragonwing edge workflow demo、两个 connector/workflow pack 原型、一个企业审计证据包、一个 SI sandbox，以及中国/海外两套商业包装和报价模型。</p>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">OpsConnector 把“机器人能完成任务”变成“机器人能进入企业流程，并把结果写回系统记录”。</p>
+          <p class="quote">OpsConnector 的价值不是让机器人“完成任务”，而是让企业系统知道任务为什么发生、谁批准、如何执行、哪里异常、结果写回了什么。</p>
           <div class="source-links">
-            <a href="https://reference.opcfoundation.org/specs/OPC-40010-1">OPC UA Robotics</a>
-            <a href="https://reference.opcfoundation.org/specs/OPC-10031-4">ISA-95 Job Control</a>
-            <a href="https://www.vda.de/vda-5050">VDA 5050</a>
-            <a href="https://github.com/MassRobotics-AMR/AMR_Interop_Standard">MassRobotics</a>
+            <a href="https://www.isa.org/standards-and-publications/isa-standards/isa-95-standard">ISA-95</a>
+            <a href="https://reference.opcfoundation.org/specs/OPC-40010-1/">OPC UA Robotics</a>
+            <a href="https://reference.opcfoundation.org/specs/OPC-10031-4/1">OPC UA ISA-95 Job Control</a>
+            <a href="https://sparkplug.eclipse.org/specification/">Sparkplug</a>
+            <a href="https://www.vda.de/en/topics/automotive-industry/vda-5050">VDA 5050</a>
+            <a href="https://github.com/MassRobotics-AMR/AMR_Interop_Standard">MassRobotics AMR</a>
             <a href="https://www.open-rmf.org/">Open-RMF</a>
-            <a href="https://docs.opentrons.com/http/api_reference.html">Opentrons API</a>
-            <a href="https://www.benchling.com/automation">Benchling</a>
-            <a href="https://www.inorbit.ai/orchestration">InOrbit</a>
-            <a href="https://docs.formant.io/en_US/docs/integrations-overview">Formant</a>
-            <a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">NIST OT Security</a>
+            <a href="https://www.cncf.io/projects/cloudevents/">CloudEvents</a>
+            <a href="https://opentelemetry.io/docs/">OpenTelemetry</a>
+            <a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">NIST SP 800-82</a>
+            <a href="https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards">IEC 62443</a>
+            <a href="https://docs.benchling.com/docs/developer-platform-overview">Benchling API</a>
+            <a href="https://docs.opentrons.com/python-api/">Opentrons API</a>
+            <a href="https://hl7.org/fhir/task.html">FHIR Task</a>
+            <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11">21 CFR Part 11</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Robots</a>
+            <a href="https://www.viam.com/pricing">Viam Pricing</a>
+            <a href="https://www.inorbit.ai/bes">InOrbit BES</a>
+            <a href="https://foxglove.dev/pricing">Foxglove Pricing</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">RB3 Gen 2</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/q8-series/qcs8550">QCS8550</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Dragonwing IQ10</a>
           </div>
         </div>
       </section>
