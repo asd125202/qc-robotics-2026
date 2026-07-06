@@ -52,7 +52,7 @@ The current first-batch pitch directions are:
 - `YardLoop 港场异常闭环`: container-yard exception-closure platform for gate OCR, seal/damage/chassis proof, yard slot mismatches, TOS/YMS writeback, and LeRobot HIL loops.
 - `ShipyardLoop 船厂生产证据闭环`: shipyard work-package trust layer that turns weld, coating, QA, rework, acceptance, settlement, robot telemetry, MES/QMS/ERP writeback, and LeRobot HIL loops into auditable evidence closure.
 - `CircularLoop 城市矿山价值路由`: asset-level electronics circularity router that sends each retired phone, laptop, SSD, server module, and battery to the highest-value compliant next step with data-wipe proof, battery quarantine, audit packets, and LeRobot HIL loops.
-- `RampLoop 机坪异常闭环`: airport ramp and aircraft turnaround exception-closure platform for GSE/FOD/baggage/service blockers, owner assignment, evidence packets, and LeRobot HIL loops.
+- `RampLoop 机坪异常闭环`: airport ramp exception-closure layer that turns FOD, late GSE, baggage/catering/cleaning blockers, safety-zone violations, SLA disputes, owner assignment, verified evidence, and LeRobot HIL loops into controllable delay-minute reduction.
 - `SterileLoop 手术器械异常闭环`: sterile processing and OR instrument-tray exception-closure platform for missing/wrong instruments, cycle evidence, UDI/RFID proof, human signoff, and LeRobot HIL loops.
 - `TouchForge 触觉力控技能工厂`: tactile and force-control data factory for last-centimeter contact skills, LeRobot HIL episodes, Qualcomm edge deployment, and industrial ROI evidence.
 - `HarnessLoop 线束异常闭环`: EV wire-harness and connector exception-closure platform for half-mated connectors, misroutes, missing clips, continuity failures, rework evidence, LeRobot HIL recovery, and Qualcomm edge verification.

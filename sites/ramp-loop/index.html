@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RampLoop 机坪异常闭环 | 每个过站异常，起飞前闭环</title>
+    <title>RampLoop 机坪异常闭环 | 把会拖延离港的小异常，在起飞前关掉</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-amber">
@@ -16,23 +16,24 @@
         <a href="#problem">问题</a>
         <a href="#why-now">时机</a>
         <a href="#solution">方案</a>
+        <a href="#product">产品</a>
         <a href="#market">市场</a>
         <a href="#business">商业</a>
+        <a href="#gtm">GTM</a>
         <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
-        <a href="#ask">Ask</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-ramp-loop">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 61 · Airport Ramp Exception Closure OS</p>
-          <h1>每个过站异常，起飞前闭环。</h1>
-          <p class="hero-lede">RampLoop 是给航空公司、机场和地面代理的机坪异常闭环系统：用 Qualcomm 边缘视觉、GSE 信号、机器人/人工任务和 LeRobot HIL，把皮带车晚到、行李转运风险、FOD、安全区占用、加油/配餐阻塞和 SLA 争议变成有责任人、有倒计时、有证据的关闭记录。</p>
+          <p class="eyebrow">Pitch 61 · Ramp Exception Closure Layer</p>
+          <h1>航班延误不是突然发生的，而是从一个个没人真正关掉的小异常开始。</h1>
+          <p class="hero-lede">RampLoop 帮航空公司、机场和地服团队把机坪周转里的 FOD、GSE 迟到、行李/配餐/清洁阻塞、安全区占用和 SLA 争议，在变成离港延误前闭环：有人负责、有倒计时、有升级、有证据。</p>
           <div class="cta-row">
-            <a class="button primary" href="#solution">看异常闭环</a>
-            <a class="button" href="#ask">比赛 Demo Ask</a>
+            <a class="button primary" href="#problem">看延误账本</a>
+            <a class="button" href="#demo">看桌面机坪 Demo</a>
           </div>
         </div>
       </section>
@@ -42,26 +43,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">01 · Problem</p>
-              <h2>航班不是被一个大故障延误，而是被几十个小异常拖到起飞后才算账。</h2>
+              <h2>机坪主管不是缺数据，而是高峰波次里没有一个系统真正拥有异常闭环。</h2>
             </div>
-            <p>一次窄体机过站有廊桥、轮挡、锥桶、卸行李、加油、清洁、配餐、登机、装载、推出和安全检查。今天很多异常仍靠对讲机、微信群、人工巡场和事后时间戳处理：看见了不等于有人接，接了不等于关掉，关掉了不等于能举证。</p>
+            <p>加油窗口错过、行李装卸没到位、清洁队还在上一架飞机、客梯车没准备好、配餐晚到、FOD 没清、舱单信息卡住。每个人都知道一点情况，但延误发生后才开始补截图、追电话、争 delay code。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>延误原因太晚</h3>
-              <p>皮带车、清洁、配餐、加油、登机桥和装载节点任何一个慢几分钟，都会变成离港延误代码。</p>
+              <h3>航司损失准点率</h3>
+              <p>可控延误分钟直接影响 D0/D15、飞机利用率、旅客体验和后续航班恢复。</p>
             </article>
             <article class="card">
-              <h3>责任人不清</h3>
-              <p>航空公司、机场、地服、油料、配餐和清洁都有局部视角，异常在组织缝隙里滚大。</p>
+              <h3>地服损失 SLA 信任</h3>
+              <p>服务晚到、责任不清、证据不足，会变成罚款、争议、复盘会和续约压力。</p>
             </article>
             <article class="card">
-              <h3>证据不完整</h3>
-              <p>地服 SLA、行李错运、GSE 碰擦、FOD、安全区占用和 TOBT 偏差都需要事前证据，而不是事后争议。</p>
+              <h3>机场损失机位效率</h3>
+              <p>站位被异常占住、GSE 找不到、FOD/安全区风险未闭环，会降低高峰波次吞吐。</p>
             </article>
             <article class="card">
-              <h3>AI 只看不闭环</h3>
-              <p>摄像头、AODB、A-CDM、GSE GPS 和机器人正在增加，但缺少把异常派给人并证明关闭的操作层。</p>
+              <h3>安全记录不够闭环</h3>
+              <p>FOD、GSE 近距、无人值守设备和机坪区域占用需要发现、处置、溯源和整改记录。</p>
             </article>
           </div>
         </div>
@@ -72,26 +73,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">02 · Why Now</p>
-              <h2>客流恢复、机位紧张、地勤短缺、GSE 自动化和 AI 转场产品正在同时发生。</h2>
+              <h2>航班量继续增长，但机位、人手和周转时间没有同步变宽。</h2>
             </div>
-            <p>机场已经在买自动拖车、视觉转场系统和智能摄像头。下一步不是再造一个看板，而是把每个可控异常在 STD/off-block 前变成可关闭任务。</p>
+            <p>买方现在愿意为减少可避免延误、减少 SLA 争议、提升机位利用率和安全取证付费，而不是为一个漂亮监控屏付费。</p>
           </div>
           <div class="grid four">
             <div class="stat">
               <strong>10.2B</strong>
-              <span>ACI 预计 2026 年全球机场旅客量约 102 亿人次，长期需求继续增长。</span>
+              <span>ACI 预测 2026 年全球机场旅客量约 102 亿人次，容量约束继续加剧。</span>
             </div>
             <div class="stat">
               <strong>$100.76/min</strong>
-              <span>A4A 估算 2024 年美国客运航司直接飞机运营成本约 100.76 美元/区块分钟。</span>
-            </div>
-            <div class="stat">
-              <strong>24M</strong>
-              <span>SITA 报告 2025 年全球约 2400 万件行李错运，平均成本约 260 美元/件。</span>
+              <span>A4A 估算 2024 年美国客运航司直接 aircraft block time 成本约 100.76 美元/分钟。</span>
             </div>
             <div class="stat">
               <strong>1.529B</strong>
-              <span>中国 2025 年运输机场旅客吞吐量约 15.29 亿人次，货邮吞吐量 2186.4 万吨。</span>
+              <span>中国 2025 年运输机场旅客吞吐量约 15.29 亿人次，机场运行进入高强度阶段。</span>
+            </div>
+            <div class="stat">
+              <strong>2026-07-01</strong>
+              <span>中国运输机场运行安全管理新规生效，强化 SMS、FOD、机坪全链条检查和记录。</span>
             </div>
           </div>
         </div>
@@ -102,22 +103,22 @@
           <div class="section-head">
             <div>
               <p class="kicker">03 · Insight</p>
-              <h2>机坪的最小经营单元不是“一个航班”，而是一个有倒计时的异常。</h2>
+              <h2>机坪的关键产品单位不是“检测到一个事件”，而是“把一个会拖延离港的异常关掉”。</h2>
             </div>
-            <p>RampLoop 的判断是：机场和航司不会先为“全自动机坪”买单，但会为可控延误分钟减少、行李错运下降、GSE/FOD 风险关闭、SLA 争议变少和 TOBT 更准付费。</p>
+            <p>机场已经有航班系统、排班、CCTV、无线电、微信群和人工经验。缺的是一个跨航司、机场、地服、GSE、货站和 AOCC/APOC 的异常闭环层：谁现在必须做什么，最晚什么时候完成，没完成谁接手，完成证据是什么。</p>
           </div>
           <div class="grid three">
             <article class="card">
-              <h3>Exception</h3>
-              <p>异常必须有类型、严重度、离港倒计时、责任人、升级路径和关闭条件。</p>
+              <h3>Observation 不是 Case</h3>
+              <p>看到 FOD、车辆、人员或服务节点，只是 observation；只有关联航班、区域、倒计时和责任方，才是 case。</p>
             </article>
             <article class="card">
-              <h3>Closure</h3>
-              <p>关闭不是点一个完成，而是摄像头、GSE 信号、人工确认和任务记录共同满足验收条件。</p>
+              <h3>Task 不是 Closure</h3>
+              <p>派单只是开始；连续帧、GSE 状态、照片、主管确认和 SLA 标签满足条件后才算 verified closed。</p>
             </article>
             <article class="card">
-              <h3>Learning</h3>
-              <p>每次误报、漏报、人工接管和恢复动作都进入 LeRobot HIL，让下一个站位更稳。</p>
+              <h3>AI 不是 Buyer Value</h3>
+              <p>买方买的是 fewer open exceptions、avoidable delay minutes、SLA 复盘速度和安全证据。</p>
             </article>
           </div>
         </div>
@@ -127,13 +128,13 @@
         <div class="wrap split">
           <div>
             <p class="kicker">04 · Solution</p>
-            <h2>RampLoop 是过站异常的关闭操作系统。</h2>
-            <p class="lead">它不替代 AODB、A-CDM、地服调度、BHS 或自动拖车。它把边缘摄像头、GSE 位置/状态、地服任务、机器人巡检和人工审批连接起来，让每个影响离港的异常从“有人看见”变成“有人负责、正在处理、已验证关闭”。</p>
+            <h2>RampLoop 是离港倒计时下的机坪异常闭环层。</h2>
+            <p class="lead">它不替代 AODB、A-CDM、OCC、地服排班、BHS 或对讲系统。它贴着现有周转流程，把每架飞机的关键任务和异常变成可追责、可升级、可举证、可复盘的 closure loop。</p>
             <ul class="list">
-              <li>Detect：边缘视觉识别轮挡、锥桶、皮带车、行李车、FOD、安全区、人员和关键服务节点。</li>
-              <li>Assign：按航班倒计时、SLA、责任方、严重度和站位规则自动派给航空公司、地服、机场或机器人队列。</li>
-              <li>Close：人工/机器人完成动作后，用连续帧、GSE 信号、扫码、照片和主管审批生成关闭证据。</li>
-              <li>Learn：低置信度、人工纠错、机器人接管和实际延误结果进入 LeRobot HIL 与云训练。</li>
+              <li>Detect：固定摄像头、GSE telematics、扫码、BHS/RFID 和人工 App 产生 observations。</li>
+              <li>Compile：规则引擎把 observations 变成 FOD、GSE out-of-zone、service blocker、milestone risk 等 cases。</li>
+              <li>Assign：每个 case 有 owner、倒计时、下一步动作、升级路径和关闭条件。</li>
+              <li>Verify：系统用 before/after clip、GSE 状态、人工审批和 hash 证据证明 case 已关闭。</li>
             </ul>
           </div>
           <div class="visual">
@@ -147,30 +148,30 @@
           <div class="section-head">
             <div>
               <p class="kicker">05 · Product Workflow</p>
-              <h2>从进港到推出，异常按分钟被关闭。</h2>
+              <h2>从航班落地前到推出后复盘，异常按分钟被关闭。</h2>
             </div>
-            <p>第一版不控制真实 GSE，不接触飞机系统。它做的是安全的感知、派单、证据和人工监督闭环。</p>
+            <p>第一版不控制真实飞机或 GSE，不接管安全关键动作。它做的是“先轻集成、先人工审批、先可证据化”的机坪异常闭环。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>Import</h3>
-              <p>导入航班、机位、STD/ETD、TOBT、服务清单、SLA、站位规则和责任方。</p>
+              <h3>1. Build Turn</h3>
+              <p>导入航班、机位、机型、SOBT/EOBT、TOBT、航司 SOP、地服 SLA、关键节点和责任团队。</p>
             </article>
             <article class="step">
-              <h3>Sense</h3>
-              <p>边缘摄像头、GSE MQTT/定位、BHS/RFID、扫码和人工 App 形成实时机坪状态。</p>
+              <h3>2. Watch</h3>
+              <p>站位摄像头、GSE 位置、BHS/RFID、扫码、人工 App 和现有系统共同更新机坪状态。</p>
             </article>
             <article class="step">
-              <h3>Detect</h3>
-              <p>识别 FOD、安全区占用、皮带车未到、轮挡/锥桶状态、行李转运风险和服务阻塞。</p>
+              <h3>3. Create Case</h3>
+              <p>异常被编译成 case：类型、航班、区域、严重度、置信度、owner、倒计时、证据 clip。</p>
             </article>
             <article class="step">
-              <h3>Dispatch</h3>
-              <p>异常进入负责人队列，按离港倒计时和影响范围升级到地服主管、TOC 或机场运控。</p>
+              <h3>4. Escalate</h3>
+              <p>未按时关闭就升级给班组长、地服主管、航司站长、OCC 或 AOCC/APOC。</p>
             </article>
             <article class="step">
-              <h3>Verify</h3>
-              <p>连续帧、GSE 状态、现场照片、机器人检查和主管审批满足关闭条件后生成审计包。</p>
+              <h3>5. Verify</h3>
+              <p>关闭后输出异常账本：哪些提前关掉，哪些拖成延误，哪个流程反复卡住。</p>
             </article>
           </div>
         </div>
@@ -181,34 +182,34 @@
           <div class="section-head">
             <div>
               <p class="kicker">06 · Market Wedge</p>
-              <h2>先切最可控、最贵、最能举证的站点异常。</h2>
+              <h2>先切一个航司站点 + 一个核心地服供应商 + 5-15 个高频窄体机位。</h2>
             </div>
-            <p>RampLoop 不从全机场数字化替换开始，而从一个站点、一家航司或一个地服团队的前三类延误/争议切入。</p>
+            <p>不要先卖全机场操作系统。先在一个延误敏感站点、一个高峰波次、6-10 类高频异常里证明：open exceptions 更少，关闭更快，SLA 复盘更可信。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>Turn-Critical</h3>
-              <p>廊桥、轮挡、锥桶、皮带车、清洁、加油、配餐、登机和推出的节点异常。</p>
+              <h3>Airline Station</h3>
+              <p>站长和机场运营团队拥有可控延误痛点，可以通过 SLA 机制拉地服参与。</p>
             </article>
             <article class="card">
-              <h3>Baggage / Load</h3>
-              <p>中转行李风险、晚到行李、ULD/装载差错、装卸节点缺证和 BHS/RFID 异常。</p>
+              <h3>Ground Handler</h3>
+              <p>地服 GM 关心罚款、复盘、人员调度、SLA 证据和跨班组响应速度。</p>
             </article>
             <article class="card">
-              <h3>GSE / FOD</h3>
-              <p>设备未到、错误停放、等待时间、FOD、安全区未清空和近距离风险事件。</p>
-            </article>
-            <article class="card">
-              <h3>Cargo Hubs</h3>
-              <p>跨境电商、货站、冷链 ULD、查验滞留、单证不一致和地面车辆协同。</p>
+              <h3>Airport AOCC/APOC</h3>
+              <p>机场扩张买方：共享异常队列、机位利用率、SMS 证据、租户问责。</p>
             </article>
             <article class="card">
               <h3>China Airports</h3>
-              <p>浦东、广州、深圳、首都/大兴、鄂州花湖、郑州、成都、杭州和重庆等高密度枢纽。</p>
+              <p>千万级枢纽、机场集团、主基地航司和地服保障公司，需要安全闭环和本地化部署。</p>
             </article>
             <article class="card">
-              <h3>Handlers</h3>
-              <p>地服公司可以把 SLA、人员调度、车辆利用率和事故证据变成可续费产品。</p>
+              <h3>GSE / eGSE</h3>
+              <p>电动 GSE、共享设备、充电排班、占位预警和设备利用率是机场绿色化后的新痛点。</p>
+            </article>
+            <article class="card">
+              <h3>Cargo Ramp</h3>
+              <p>货站、ULD、冷链、查验、单证和机坪车辆协同可以作为独立模块扩张。</p>
             </article>
           </div>
         </div>
@@ -219,26 +220,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">07 · Business Model</p>
-              <h2>按站点、航班量和被验证的节省收费。</h2>
+              <h2>按站点、航班量、机位和被验证的节省收费。</h2>
             </div>
-            <p>买方不会为“漂亮大屏”长期付费，但会为每分钟延误、每件错运行李、每个 GSE/FOD 事件和每个 SLA 争议减少付费。</p>
+            <p>硬件尽量可选和低毛利；核心收入是 SaaS、集成、异常模块和经验证的节省。卖点是 delay-minute reduction，不是 innovation theater。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>90 天试点</h3>
-              <p>4.5 万美元/站点起，覆盖一个航司或地服团队、最多约 3000 个 turn、三类异常工作流。</p>
+              <h3>10-12 周付费试点</h3>
+              <p>5-15 万美元，5-15 个 gate/stand，6-10 类异常，接入航班、人工证据、GSE 或摄像头。</p>
             </article>
             <article class="card">
-              <h3>站点订阅</h3>
-              <p>按 active stand、航班量和参与方收费，包含异常队列、证据包、SLA 分析和模型发布。</p>
+              <h3>Station SaaS</h3>
+              <p>7.5-25 万美元 / station / year，按 annual departures、stand 数和异常模块定价。</p>
             </article>
             <article class="card">
-              <h3>成功分成</h3>
-              <p>可选收取经验证硬节省的 12%，试点封顶；正式期按延误分钟、错运行李和争议减少计算。</p>
+              <h3>Hub / AOCC Tier</h3>
+              <p>30-120 万美元 / airport / year，作为多租户机场运行异常层。</p>
             </article>
             <article class="card">
-              <h3>Edge Node</h3>
-              <p>Qualcomm edge node、摄像头接入、GSE adapter、私有部署和运维支持作为年度模块。</p>
+              <h3>Vision / GSE Modules</h3>
+              <p>已有摄像头 1000-3000 美元 / stand / month；GSE 模块 10-35 美元 / powered asset / month。</p>
             </article>
           </div>
         </div>
@@ -249,26 +250,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">08 · Go-To-Market</p>
-              <h2>90 天证明：0.5 分钟/turn，就足以付回试点。</h2>
+              <h2>先做 delay autopsy，再赢一个波次、一个站点、一个网络合同。</h2>
             </div>
-            <p>以 25 个 turn/天、90 天约 2250 个 turn 计算，若每个 turn 只减少 0.5 分钟直接延误，按约 100 美元/分钟就是十万美元级节省，还不含行李、SLA、人工和地面损伤。</p>
+            <p>YC/Airbnb 式打法：创始团队先亲自去站点值班，拿过去 30 天延误航班拆成未闭环异常，给站长和地服 GM 看每天损失在哪里。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <h3>Baseline</h3>
-              <p>记录 D0/D15、TOBT 准确率、可控延误分钟、错运行李、GSE 等待、FOD/SLA 争议。</p>
+              <h3>Pilot KPI</h3>
+              <p>85%+ selected exception precision，70%+ exceptions assigned and closed in RampLoop。</p>
             </article>
             <article class="card">
-              <h3>Top 5 Exceptions</h3>
-              <p>只做最常见、最可控的五类异常，避免第一版陷入全流程机场系统替换。</p>
+              <h3>Hard Proof</h3>
+              <p>1-2 avoidable minutes saved per turn，或 late critical tasks 下降 10-20%。</p>
             </article>
             <article class="card">
-              <h3>Closure KPI</h3>
-              <p>90%+ 关键异常 2 分钟内分配责任人，关闭时间降 20%，95%+ SLA 异常有证据包。</p>
+              <h3>ROI Formula</h3>
+              <p>100 daily departures x 365 x 1 minute x $100.76 = $3.68M gross annual value。</p>
             </article>
             <article class="card">
               <h3>Expansion</h3>
-              <p>从一个站位扩到一个指廊，从一个航司扩到多方协作，再接自动 GSE 和机器人队列。</p>
+              <p>从 handler SLA 模块扩到多站点、AOCC/APOC、GSE、cargo 和机场-wide exception network。</p>
             </article>
           </div>
         </div>
@@ -279,22 +280,34 @@
           <div class="section-head">
             <div>
               <p class="kicker">09 · Competition</p>
-              <h2>视觉系统看见机坪，RampLoop 负责把异常关掉。</h2>
+              <h2>视觉系统看得见，机场系统管计划；RampLoop 管“关得掉”。</h2>
             </div>
-            <p>Assaia、Deep Turnaround、Synaptic Aviation、INFORM、A-CDM、AODB、地服调度、自动拖车和智能 GSE 都证明市场存在。RampLoop 的差异是把这些信号变成责任人、倒计时、动作、证据和训练数据。</p>
+            <p>AODB/RMS 管航班和资源，视觉系统管事件识别，GSE telematics 管车辆，通用工单管任务。RampLoop 管的是离港倒计时下的跨组织异常闭环、升级和证据链。</p>
           </div>
-          <div class="grid three">
+          <div class="grid six">
             <article class="card">
-              <h3>不是另一个摄像头看板</h3>
-              <p>我们关心异常是否在 off-block 前被验证关闭，而不是只记录某个节点发生过。</p>
+              <h3>Assaia / Deep Turnaround</h3>
+              <p>AI turnaround visibility 强；RampLoop 强调 case ownership、verified closure、SLA evidence 和 HIL。</p>
             </article>
             <article class="card">
-              <h3>不是自动拖车公司</h3>
-              <p>自动 GSE 是执行方之一，RampLoop 做跨品牌调度、异常派发和闭环审计。</p>
+              <h3>SITA / Amadeus / INFORM</h3>
+              <p>AODB、A-CDM、资源管理强；RampLoop 把现场 blocker feed 回这些系统。</p>
             </article>
             <article class="card">
-              <h3>不是替代 A-CDM</h3>
-              <p>A-CDM 协同计划和时刻，RampLoop 处理现场异常到 TOBT/TSAT/TTOT 的实时风险。</p>
+              <h3>Veovo / AeroCloud</h3>
+              <p>机场运营系统强；RampLoop 是站位级 exception accountability layer。</p>
+            </article>
+            <article class="card">
+              <h3>Targa / Undagrid / TCR</h3>
+              <p>GSE telematics 强；RampLoop 把设备状态绑定到具体航班、SLA 和离港风险。</p>
+            </article>
+            <article class="card">
+              <h3>FOD Systems</h3>
+              <p>QinetiQ、Xsight、iFerret、ADB SAFEGATE AiPRON FOD 偏检测；RampLoop 负责处置和证据。</p>
+            </article>
+            <article class="card">
+              <h3>Aurrigo / Auto GSE</h3>
+              <p>自动 GSE 是执行层；RampLoop 先做 assistive automation，再逐步接入自动设备。</p>
             </article>
           </div>
         </div>
@@ -305,14 +318,14 @@
           <div class="section-head">
             <div>
               <p class="kicker">10 · Moat</p>
-              <h2>护城河是异常到结果的数据闭环，不是一张机坪照片。</h2>
+              <h2>壁垒不是模型，而是站点级运营记忆和跨组织信任。</h2>
             </div>
-            <p>每一次异常、责任分配、人工/机器人动作、关闭证据和最终航班表现，都会变成下一次推荐更准的运营数据。站点越多，异常图谱和处理 playbook 越难复制。</p>
+            <p>每个航司、机型、地服合同、机位和高峰波次都有不同的异常分类、升级规则、关闭证据和复盘结果。一旦 RampLoop 成为 SLA 复盘和准点改善的日常记录，切换成本来自流程、责任链和历史基准。</p>
           </div>
           <div class="grid four">
             <article class="card">
               <h3>Exception Graph</h3>
-              <p>航班、机位、GSE、人员、服务节点、SLA、TOBT 和延误原因构成图谱。</p>
+              <p>航班、机位、GSE、人员、服务节点、SLA、TOBT、延误原因和责任方。</p>
             </article>
             <article class="card">
               <h3>Closure Dataset</h3>
@@ -320,11 +333,11 @@
             </article>
             <article class="card">
               <h3>Airport Connectors</h3>
-              <p>AODB、A-CDM、BHS/RFID、GSE telematics、地服 App、SLA 和运控系统接口形成切换成本。</p>
+              <p>AODB/AIDX、A-CDM、BHS/RFID、GSE telematics、地服 App、SLA 和 AOCC/APOC 接口。</p>
             </article>
             <article class="card">
-              <h3>Regional Deployment</h3>
-              <p>中国本地化/私有云、海外云、数据最小化、弱网缓存和边缘部署 profile 形成交付壁垒。</p>
+              <h3>Evidence Vault</h3>
+              <p>before/after clip、模型版本、人工审批、SHA-256 hash chain、WORM 存证和审计包。</p>
             </article>
           </div>
         </div>
@@ -334,31 +347,31 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">11 · Architecture</p>
-              <h2>机坪数据不默认上云，先在站位边缘闭环。</h2>
+              <p class="kicker">11 · Product Architecture</p>
+              <h2>Observation 进来，Case 出去；只把已验证关闭的状态回写机场系统。</h2>
             </div>
-            <p>生产版不接管飞机或 GSE 控制，只接收感知和状态；动作由人、地服系统、机器人或受控自动 GSE 执行并确认。</p>
+            <p>生产版不接管飞机或 GSE 控制。它接收感知和状态，生成 case，由人或既有系统执行，RampLoop 负责监督、验证、存证和学习。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>Sensors</h3>
-              <p>站位摄像头、FOD 摄像头、GSE GPS/UWB/BLE、扫码、BHS/RFID、AODB/A-CDM 和人工 App。</p>
+              <h3>Edge Perception</h3>
+              <p>RB3/RB5 站位节点，2-3 路摄像头，检测 FOD、GSE、人员、安全区、cargo-side blocker 和 milestone risk。</p>
             </article>
             <article class="step">
-              <h3>Edge</h3>
-              <p>RB3 Gen 2 / QCS6490 / Dragonwing 运行 QNN/QAIRT 视觉、跟踪、区域占用和异常规则。</p>
+              <h3>Case Compiler</h3>
+              <p>Observation 关联 flight_leg_id、stand_id、zone、severity、confidence、assignee_role 和 evidence。</p>
             </article>
             <article class="step">
-              <h3>FSM</h3>
-              <p>turnaround_id、stand_id、phase、observation、gse_signal、exception、closure_action 统一成状态机。</p>
+              <h3>Airport Adapter</h3>
+              <p>AODB/AIDX、A-CDM、TOBT/TSAT、turnaround API、GSE MQTT 和 BHS/RFID 只收/回写必要状态。</p>
             </article>
             <article class="step">
-              <h3>HIL</h3>
-              <p>低置信度、机器人偏航、误报和人工纠错进入 LeRobot episode，用于下一轮训练。</p>
+              <h3>Verification</h3>
+              <p>10-20 秒 before/after clips、标注帧、camera pose、stand polygon、人工审批和 WORM evidence。</p>
             </article>
             <article class="step">
-              <h3>Cloud</h3>
-              <p>中国站点走国内云/私有云，海外站点走海外云；只同步合规 artifact、指标和匿名样例。</p>
+              <h3>LeRobot Loop</h3>
+              <p>桌面机坪/仿真机器人 HIL 记录多相机、状态、动作和人工接管，训练下一次巡检/取证策略。</p>
             </article>
           </div>
         </div>
@@ -369,30 +382,30 @@
           <div class="section-head">
             <div>
               <p class="kicker">12 · Competition Demo</p>
-              <h2>桌面机坪就能演示完整闭环。</h2>
+              <h2>桌面机坪演示完整闭环：发现、分派、处置、验证、存证、学习。</h2>
             </div>
-            <p>比赛 demo 不需要真实机场权限：用打印机位图、玩具飞机、带标签 GSE、FOD token、摄像头和小机器人，就能展示边缘感知、异常派发、HIL 接管和证据关闭。</p>
+            <p>不需要真实机场权限：打印机位图、玩具飞机、带标签 GSE、FOD token、摄像头和小机器人即可展示 edge AI + HIL + evidence closure。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>Start Turn</h3>
-              <p>系统载入航班、机位、STD、轮挡、锥桶、皮带车、行李和 FOD 清空的预期步骤。</p>
+              <h3>Load Flight</h3>
+              <p>AODB mock 加载 B12 机位、TOBT/TSAT、服务任务和实时 camera tiles。</p>
             </article>
             <article class="card">
-              <h3>Detect Exception</h3>
-              <p>放入 FOD token 或让皮带车先于轮挡进入区域，Qualcomm edge 本地识别异常。</p>
+              <h3>Create Cases</h3>
+              <p>摄像头发现 nose gear 附近 FOD 和挡住 cargo-side belt-loader path 的行李车。</p>
             </article>
             <article class="card">
-              <h3>Approve Action</h3>
-              <p>主管在 UI 中批准机器人/人工处理任务，系统记录责任人、倒计时和关闭条件。</p>
+              <h3>Approve</h3>
+              <p>ramp lead 批准，FOD 派给 sweeper/robot，baggage blocker 派给 baggage lead。</p>
             </article>
             <article class="card">
-              <h3>HIL Recovery</h3>
-              <p>机器人偏离时人工暂停、遥操作纠正并返回策略，LeRobot 记录修正片段。</p>
+              <h3>HIL Inspect</h3>
+              <p>机器人/仿真 drone 进入 supervised LeRobot HIL，拍摄近景证据，等待人工确认。</p>
             </article>
             <article class="card">
-              <h3>Verify Close</h3>
-              <p>连续三帧区域清空、GSE 状态正确、主管确认后，生成异常关闭证据包。</p>
+              <h3>Verified Closed</h3>
+              <p>清除后进入 verified_closed，WORM 存证显示 hash、模型版本、审批人、前后帧和 case status。</p>
             </article>
           </div>
         </div>
@@ -403,26 +416,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">13 · Why Qualcomm</p>
-              <h2>机坪需要低延迟、弱网、本地隐私和多传感器边缘 AI。</h2>
+              <h2>机场需要可部署的边缘 AI，而不是把所有机坪视频送到云端再等结果。</h2>
             </div>
-            <p>机场不能把每路机坪视频、人员位置、航班节点、行李状态和安全事件都发到公网云再等待推理。Qualcomm 可以把视觉、跟踪、异常判断、设备身份和机器人 HIL 放在站位边缘。</p>
+            <p>Qualcomm 的价值不是芯片背书，而是让 RampLoop 变成机场可部署的工业级系统：本地推理、多相机、低功耗、私有/可靠连接、机器人 HIL 和产业伙伴生态。</p>
           </div>
           <div class="grid four">
             <article class="card">
               <h3>Edge Vision</h3>
-              <p>站位摄像头、FOD 检测、GSE/人员/区域占用和低置信度队列都需要本地实时处理。</p>
+              <p>FOD、GSE、人员、区域占用、milestone risk 和低置信度队列需要站位本地推理。</p>
             </article>
             <article class="card">
-              <h3>AI Hub / QNN</h3>
-              <p>比赛可展示 PyTorch/ONNX 到 AI Hub profile、QNN/QAIRT artifact 和边缘回滚的证据链。</p>
+              <h3>Private Connectivity</h3>
+              <p>机场网络、专网、弱网缓存和区域云部署，比公网云视频流更符合机场数据边界。</p>
             </article>
             <article class="card">
-              <h3>Private Deployment</h3>
-              <p>中国机场、海外枢纽和地服公司都有数据边界，边缘节点和区域云正好匹配。</p>
+              <h3>Model Chain</h3>
+              <p>AI Hub、Neural Processing SDK、QNN/QAIRT 可以展示 profile、签名、回滚和边缘发布。</p>
             </article>
             <article class="card">
               <h3>Ecosystem Pull</h3>
-              <p>RampLoop 把 Qualcomm 机器人能力连接到机场、航司、地服、自动 GSE、智能摄像头和民航物流。</p>
+              <p>连接机场、航司、地服、自动 GSE、智能摄像头、航空物流和交通基础设施 design partner。</p>
             </article>
           </div>
         </div>
@@ -433,26 +446,26 @@
           <div class="section-head">
             <div>
               <p class="kicker">14 · Ask</p>
-              <h2>比赛阶段要一个可信 tabletop ramp，而不是未经认证的真实机坪控制系统。</h2>
+              <h2>请 Qualcomm 帮我们把桌面闭环推到 3 个真实付费试点。</h2>
             </div>
-            <p>目标是让评委看到：Qualcomm edge AI 能识别现场异常，LeRobot HIL 能记录纠错，系统能把异常真正关掉并留下证据。</p>
+            <p>比赛阶段证明 tabletop ramp；赛后 18 个月目标是 3 个付费试点、10 个站点部署、形成可复用的站点 playbook。</p>
           </div>
           <div class="grid four">
             <article class="card">
               <h3>Hardware</h3>
-              <p>RB3 Gen 2 / RB6 / Dragonwing dev kit，广角摄像头、可选深度摄像头、小型 AMR 或桌面机械臂。</p>
+              <p>RB3 Gen 2 / RB5 / Dragonwing dev kit，广角摄像头、可选深度摄像头、小型 AMR 或桌面机械臂。</p>
             </article>
             <article class="card">
-              <h3>Mock Ramp</h3>
-              <p>打印机位图、玩具飞机、GSE token、FOD token、轮挡/锥桶和 MQTT 模拟状态。</p>
+              <h3>Partner</h3>
+              <p>1-2 个航空/交通基础设施 design partner：航司站点、地服、机场 AOCC/APOC 或 cargo ramp。</p>
             </article>
             <article class="card">
-              <h3>Partner Data</h3>
-              <p>一组匿名过站节点、延误原因、行李/GSE/SLA 异常样例和站位 SOP。</p>
+              <h3>Data</h3>
+              <p>匿名过站节点、延误原因、GSE/BHS/SLA 异常、站位 SOP 和 30 天 delay autopsy 样例。</p>
             </article>
             <article class="card">
-              <h3>Boundary</h3>
-              <p>不控制真实飞机或 GSE，不宣称机场认证，不做无人值守机坪自动驾驶。</p>
+              <h3>Funding</h3>
+              <p>pre-seed 150 万美元；请 Qualcomm 参与 50-75 万美元并提供 edge AI reference support。</p>
             </article>
           </div>
         </div>
@@ -462,24 +475,29 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">Claims To Avoid</p>
-              <h2>可信边界要讲清楚。</h2>
+              <p class="kicker">Claims / Sources</p>
+              <h2>可信边界：减少可避免异常拖延，不承诺消除航班延误。</h2>
             </div>
-            <p>不声称 FAA/EASA/CAAC 认证，不声称可安全用于真实机坪无人值守，不控制飞机系统，不承诺杜绝所有延误、FOD 或事故，不引用未实测的 NPU FPS，不说 LeRobot tabletop policy 可以直接泛化到机场。</p>
+            <p>不声称 FAA/EASA/CAAC 认证，不控制真实飞机或 GSE，不承诺杜绝所有延误/FOD/事故，不说 AI 自动管理机坪，不说 tabletop policy 可直接泛化到机场，不引用未实测 NPU FPS。</p>
           </div>
           <div class="source-links">
             <a href="https://aci.aero/2026/01/28/aci-world-releases-global-airport-traffic-forecasts-as-long-term-demand-growth-continues-to-reshape-aviation/">ACI Traffic Forecast</a>
+            <a href="https://www.iata.org/en/iata-repository/publications/economic-reports/global-outlook-for-air-transport-june-2026/">IATA 2026 Outlook</a>
+            <a href="https://www.sita.aero/resources/surveys-reports/air-transport-it-insights-2025/airports/">SITA Airport IT</a>
             <a href="https://www.airlines.org/dataset/u-s-passenger-carrier-delay-costs/">A4A Delay Costs</a>
-            <a href="https://www.sita.aero/about-us/pressroom/news-releases/tech-drove-down-mishandled-bag-rates-by-23-in-2025-but-mishandling-still-costs-the-industry-%246.3-billion-a-year">SITA Baggage IT Insights</a>
-            <a href="https://www.iata.org/en/pressroom/2025-speeches/2025-05-13-01/">IATA Ground Ops</a>
-            <a href="https://www.assaia.com/resources/assaia-raises-26-6-million-in-series-b-funding-to-enhance-global-ai-leadership-in-airport-operations">Assaia Series B</a>
-            <a href="https://www.dnata.com/media-centre/dnata-rolls-out-autonomous-vehicles-in-airport-operations/">dnata Autonomous GSE</a>
-            <a href="https://news.yvr.ca/yvr-launches-ai-powered-innovation-to-optimize-the-aircraft-turnaround-process/">YVR Deep Turnaround</a>
-            <a href="https://www.caac.gov.cn/XXGK/XXGK/TJSJ/">CAAC Statistics</a>
-            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://www.sita.aero/resources/surveys-reports/sita-baggage-it-insights-2025/">SITA Baggage</a>
+            <a href="https://www.iata.org/en/programs/ops-infra/ground-operations/ground-support-equipment/enhanced-gse-recognition-program/">IATA GSE Damage</a>
+            <a href="https://www.caac.gov.cn/XWZX/MHYW/202604/t20260417_230603.html">CAAC 2025 Bulletin</a>
+            <a href="https://xxgk.mot.gov.cn/gz/202511/t20251127_4180546.html">China Airport Safety Rule</a>
+            <a href="https://www.assaia.com/turnaround-report-2025">Assaia Turnaround Report</a>
+            <a href="https://www.assaia.com/customer-stories/assaia-helps-alaska-airlines-increase-on-time-performance-by-17-at-sea">Assaia Alaska Case</a>
+            <a href="https://www.iata.org/en/publications/info-data-exchange/">IATA AIDX</a>
+            <a href="https://www.eurocontrol.int/concept/airport-collaborative-decision-making">EUROCONTROL A-CDM</a>
+            <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">S3 Object Lock</a>
             <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2</a>
-            <a href="https://docs.qualcomm.com/bundle/publicresource/topics/80-63442-10/general_introduction.html">QNN / QAIRT</a>
-            <a href="https://huggingface.co/docs/lerobot/en/hil_data_collection">LeRobot HIL</a>
+            <a href="https://www.qualcomm.com/developer/hardware/robotics-rb5-development-kit">Qualcomm RB5</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://huggingface.co/docs/lerobot/en/hilserl">LeRobot HIL-SERL</a>
           </div>
         </div>
       </section>
