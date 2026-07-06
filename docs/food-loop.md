@@ -1,209 +1,190 @@
-# FoodLoop 餐务闭环 Pitch
+# FoodLoop 餐饮异常闭环 Pitch
 
-更新时间：2026-07-06。餐饮机器人、食品安全要求、POS/KDS 接口、服务机器人认证、地方监管和餐饮经营成本变化很快；真实商业材料应在提交前复核客户系统、设备认证、食品安全 SOP 和当地法规。
+更新时间：2026-07-06。餐饮机器人、食品安全、POS/KDS 接口、服务机器人安全、平台外卖规则和餐饮成本变化很快；正式提交前需要复核客户系统、设备认证、食品安全 SOP 和本地法规。
 
-## Core Thesis
+## 一句话
 
-FoodLoop 餐务闭环是面向餐饮运营的 Qualcomm 边缘机器人与 LeRobot 数据飞轮：
+FoodLoop：让每一单从“做好了”走到“正确交付”。
 
-> 不是“另一个机器人服务员”，而是把 KDS/POS 订单、安全托盘交接、机器人配送/回收、异常接管、清洁证据和训练数据连成一条可运营闭环。
+连锁餐饮用 FoodLoop 把 KDS/POS 票据、托盘/外卖袋、跑菜机器人、回盘清洁、食安证据、浪费重做和人机接管，变成可派单、可验证、可复盘、可训练的餐饮异常闭环。
 
-餐饮机器人已经真实部署，但成熟场景不是“全自动餐厅”：
+## Problem
 
-- 前厅：送餐、回收、引导、排队区配送和宴会/自助餐厅巡回。
-- 后厨：受限菜单的炒制、炸制、饮品、装配线、洗碗/回收、清洁日志。
-- 酒店/园区：房间/会议/机场/办公楼最后 30 米配送。
-- 运营系统：POS/KDS、扫码点餐、Meituan/Douyin/WeChat、任务调度、SLA、维护和 ROI。
+餐厅高峰最贵的不是没有机器人，而是每个异常都靠人盯人。
 
-FoodLoop 的产品判断：
+- KDS 记录“票据完成”，但不证明托盘、外卖袋和桌号正确。
+- 错托盘、漏饮料、过敏原漏检、外卖交接不清，会导致退款、差评和复购损失。
+- 回盘慢、清洁漏项、温度/持有时间记录不完整，会带来翻台和食安风险。
+- 过量备餐、重做、超时废弃和报损很难追溯到具体流程。
+- 机器人如果只负责跑路线，就只是搬运“被装上去的东西”。
 
-- 餐饮买家不买“炫技机器人”，而买更少瓶颈、更稳交付和可衡量的高峰效率。
-- 机器人不能只跑路线，必须和 KDS/POS、托盘验证、清洁证据、异常处理和服务工单连接。
-- LeRobot 的价值在于把错托盘、堵路、抓取失败和人工恢复变成可训练 episode。
-- Qualcomm 的价值在于本地感知、低延迟导航、隐私过滤、连接、边缘部署 profile 和安全降级。
+## Why Now
 
-## Five-Thread Research Synthesis
+餐饮进入低毛利、高外卖、高连锁化的效率战。
 
-### 1. Global Market
+- 美国餐饮业 2026 年预计销售额 1.55 万亿美元、就业 1580 万人，但 2025 年 45% 经营者未盈利，60% 遇到客流下滑。
+- 美国全服务/有限服务餐厅中，95%/94% 认为食材成本是重大挑战，96%/94% 认为人工成本是重大挑战。
+- 中国 2025 年餐饮收入 57,982 亿元，同比增长 3.2%；2026 年 1-5 月餐饮收入 23,488 亿元，同比增长 3.1%。
+- 中国 2025 年餐饮连锁化率达 25%，美团系统中 2025 年标记停业商户 339 万家，同比增长 9.4%。
+- UNEP 估算 2022 年全球 food service 食物浪费约 2.90 亿吨。
+- 2025 年 QSR drive-thru 准确率约 87%，漏项、错项、定制项和饮料细节仍是直接利润黑洞。
+- 服务机器人已进入商用阶段，IFR 报告 2024 年专业服务机器人销量接近 20 万台。
 
-餐饮机器人商业化已经跨过“新奇展示”阶段，但主要是窄任务工具。Bear、Pudu、Keenon 等送餐/回收机器人是最成熟类别；Richtech、Cafe X、Nala、Miso/Flippy、Botinkit、Sweetgreen/Spyce、Hyphen 等证明厨房和饮品自动化在受限菜单、受限工位中可行；Picnic 的关闭也提醒我们，单点厨房机器人如果没有强运营闭环和服务经济性，很容易失败。
+这些信号说明：餐饮买家现在不是为“炫技机器人”付费，而是为更少错单、浪费、重做、等待、清洁漏项和食安证据缺失付费。
 
-安全表达：餐饮机器人已经是运营工具，但赢家是可靠、可服务、可度量的窄系统，不是泛化机器人厨师。
+## Core Insight
 
-### 2. China F&B Lane
+餐厅不缺会走路的机器人，缺的是把异常关掉的操作系统。
 
-中国餐饮规模巨大但价格竞争激烈，连锁化提升让标准化自动化更有机会。Pudu 和 Keenon 证明送餐、回收、酒店配送和清洁机器人在中国及海外都有规模化；Botinkit 代表标准化智能厨房；Meituan 已经把 AI agent、机器人、商户、位置和配送场景连接到具体订单工作流。
+机会不是再造一个机器人服务员，也不是做一个单点厨房视觉模型，而是把：
 
-中国版 FoodLoop 应优先面向：
+- ticket：POS/KDS/外卖订单。
+- tray/bag：托盘、外卖袋、菜品、封签、过敏原、重量和温度。
+- motion：机器人路线、堵路、等待、回盘和清洁。
+- proof：交接、桌号、清洁、食安、废弃和主管确认。
+- learning：人工接管、低置信度、错单纠正和复发异常。
 
-- 火锅/宴会/自助餐：跑菜、回盘、清洁 proof。
-- QSR / 标准化炒锅站：数字菜谱、出餐节拍、异常日志。
-- 酒店/机场/办公园区：最后 30 米配送、门/梯/柜/房号集成。
-- 连锁总部：门店对比、远程健康、峰值吞吐、培训周期和服务商网络。
+连接成同一条闭环。
 
-### 3. Technical Architecture
+## Solution
 
-FoodLoop 的技术栈：
+FoodLoop 是 existing restaurant 之上的餐饮异常闭环层。
 
-- Qualcomm edge runtime：ROS 2、Nav2、Open-RMF、MoveIt、相机/托盘/重量/二维码/温度传感器、签名模型和本地任务状态机。
-- POS/KDS connector：Square、Toast、Oracle/NCR、Meituan RMS、Douyin、WeChat 等订单事件规范化。
-- Food safety service：HACCP-style checkpoint、TCS timer、温度日志、过期/废弃/过敏原约束和清洁记录。
-- LeRobot HIL：自动段、人工接管段、恢复段和结果标签进入 LeRobotDataset v3。
-- Cloud training：同一 schema 分中国/海外数据平面，训练、评估、AI Hub profile、灰度和回滚。
+它不替代 POS、KDS、机器人、清洁设备或食安系统，而是连接它们：
 
-### 4. Business Model
+1. 识别异常：漏项、错项、过敏原、封签、温度/持有时间、堵路、无人取餐、回盘超时、清洁逾期、重做报废。
+2. 判断优先级：按票据时间、客诉风险、食安风险、桌台周转、浪费金额和人力状态排序。
+3. 自动派单：分配给出餐口、跑菜员、店长、清洁员、机器人、后厨工位或人工复核。
+4. 验证结案：用 QR、重量、视觉、桌号确认、路线状态、清洁照片、温度日志和员工签名形成证据包。
+5. 训练迭代：把低置信度、堵路、人机接管、错单纠正和重做归因导出为 LeRobot episode。
 
-餐饮机器人 GTM 要卖 ROI，不卖机器人：
+## Market Wedge
 
-- Runner Starter：送餐/回盘 AMR、地图、基础 dashboard。
-- Service Pro：POS/KDS、托盘 ID、桌号/柜号、清洁 proof、服务分析。
-- Kitchen Assist：炸锅/装配/炒锅/饮品/洗碗站的受限工位自动化。
-- Multi-Site Fleet：连锁总部、区域门店、SLA、服务备机和季度 ROI。
-- Distributor SKU：给设备经销商/服务商的安装、维护、备件和软件分成。
+首发不做全自动餐厅，而做高峰明显、路线固定、托盘/袋子多、人工步数高、异常可定义的场景。
 
-### 5. Product Design
+- QSR / fast casual：出餐袋核验、漏项提醒、定制项、第三方司机交接和 drive-thru 准确率。
+- 连锁茶饮/咖啡：出杯节拍、封签、外卖交接、原料过期、培训一致性和低成本复制。
+- 火锅/自助/宴会：跑菜、回盘、补餐、清洁 proof、盘余浪费和高峰人力调度。
+- 酒店/客房送餐：房号、门禁、电梯、托盘回收、客诉证据和夜间低人力配送。
+- 高校/医院/园区食堂：菜单稳定、空间封闭、审计强，适合餐盘分拣、取餐柜和室内配送。
+- 中央厨房/档口厨房：称重、分装、贴标、追溯、冷链交接、明厨亮灶和出品一致性。
 
-名称：FoodLoop 餐务闭环。
+中国第一优先是 100-1000 家门店的区域连锁茶饮/咖啡/QSR；第二优先是美团/淘宝闪购生态里的品牌卫星店、外卖专门店和档口厨房；第三优先是高校、医院、产业园、交通枢纽食堂。
 
-一句话：
+## Business Model
 
-> Ticket -> tray -> table -> exception -> training loop.
+定价按站点、机器人、任务量、证据模块和总部管理收费。年费应落在保守已验证节省的 25%-35%，买方目标回本小于 6 个月。
 
-产品不是替代服务员，而是把餐厅里最重复、最耗步数、最容易在高峰出错的工作连接到边缘机器人和数据闭环。
+- Starter：中国 ¥399-799/点/月；海外 US$99-199/点/月。适合 QSR、ghost kitchen、小连锁；手机/平板确认 + KDS 旁路 + 异常工单。
+- Pro：中国 ¥1,200-2,800/点/月；海外 US$299-699/点/月。适合连锁餐厅、中型食堂；1 个 AI/称重/托盘站 + POS/KDS + 清洁 proof。
+- Enterprise：中国 ¥3,000-8,000/点/月；海外 US$900-1,800/点/月。适合酒店自助、大型食堂、food court；多站点、多机器人、总部看板和 API。
+- Paid Pilot：中国 ¥8,000-30,000/点；海外 US$1,500-6,000/点。60-90 天基线、试点、ROI 和部署方案。
 
-## Product Modules
+试点经济模型：
 
-### 1. KDS / POS Task Bridge
+`年收益 = 减少错单/退款 + 减少重做/报废 + 减少备餐浪费 + 缩短回盘/清洁周期 + 降低经理追踪工时 + 食安证据价值 - 年化订阅/硬件/实施成本`
 
-把订单系统变成机器人任务：
+## 60-90 天试点指标
 
-- 接收订单、桌号、取餐柜、外卖取餐号、房间号、门店区域和 promised time。
-- 支持重复 webhook、取消、改单、缺货和 KDS 手动覆盖。
-- 生成 RobotTask：出餐、送餐、回盘、清洁、补料、洗碗、取货柜、房间配送。
-- 中国版接入微信扫码点餐、Meituan/Dianping、Douyin 本地生活、Alipay/WeChat Pay 和门店 RMS/POS。
+- Baseline：先做 10-14 天被动测量。
+- 覆盖率：85%-90%+ 营业日和主要 dayparts 有数据。
+- 异常关闭：第 30 天 60%+ 异常同班次关闭；第 90 天 80%+ 异常带 owner、原因、动作和验证。
+- 浪费/重做：第 60 天 measured avoidable exception cost 下降 8%-15%；第 90 天下降 15%-25%。
+- 经济性：第 90 天 verified savings run-rate 达到月费 2x，或展示明确 3x annual ROI 路径。
+- 人员负担：人工确认事件采集 15-30 秒内，店长每班复核 <10 分钟。
+- 交付质量：错托盘/漏项拦截、handoff delay、route wait、回盘周期、清洁覆盖、robot uptime 和 HIL intervention reason。
 
-### 2. Tray Verification
+这些是试点目标，不是未经客户验证的公开承诺。
 
-送餐机器人要知道自己拿的是什么：
+## Competition
 
-- QR/条码/桌号/托盘 ID。
-- 相机识别菜品/容器/缺件。
-- 重量传感器或托盘槽位检测。
-- 过敏原、温度、持有时间、封签和是否需要人工确认。
-- 错托盘、缺菜、超时和未锁托盘时不派车。
+FoodLoop 不替代 POS/KDS，也不重新造一台送餐机器人。
 
-### 3. Dining-Floor AMR
+- POS/KDS：Toast、Square、Oracle MICROS、NCR Aloha、PAR Brink、QSR Automations 负责票据和厨房屏，但不验证物理交付。
+- 订单聚合：Olo、DoorDash、Uber Eats、Deliverect、Otter、Chowly/Checkmate 管订单流，但缺少店内托盘/袋子和交接证据。
+- 厨房视觉 AI：Agot AI、PreciTaste、Yum Byte/Dragontail 优化站位、产能和品牌自有系统，偏单点。
+- 做餐机器人：Miso、Hyphen、Botinkit、Nala 等适合受限工位，但仍需要交付验证、清洁和异常处理。
+- 送餐/回盘机器人：Bear、Pudu、Keenon、Richtech、Relay 负责移动，FoodLoop 决定什么时候该动、为何停、如何结案。
+- 食物浪费 AI：Winnow、Leanpath、Orbisk、Kitro、Phood 做称重和统计，FoodLoop 把浪费追溯到错单、超时和重做。
 
-前厅机器人只做安全、低速、可接管工作：
+## Moat
 
-- Nav2 路线、Open-RMF 调度、桌区/通道/厨房口/回盘点/清洁区语义地图。
-- 动态避障、堵路等待、人工接管、慢行区和临时 wet-floor zone。
-- 支持送餐、回盘、桌边停靠、取餐架、宴会巡回和酒店最后 30 米配送。
+护城河来自：
 
-### 4. Kitchen Assist Cells
-
-后厨自动化必须被限定在工位里：
-
-- 炸锅/烤炉/炒锅：计时、温度、篮筐/锅具、烟雾/异常、硬 interlock。
-- 装配线：碗/堡/饮品/配菜、视觉+称重验证。
-- 洗碗/回收：脏/净分离、托盘/杯/餐具识别、消毒/温度日志。
-- LeRobot policy 只控制受限动作，安全 PLC/MCU 永远有最高优先级。
-
-### 5. Service Evidence Ledger
-
-最终交付是运营证据：
-
-- 订单：ticket time、promise time、出餐、送达、回盘、异常。
-- 机器人：路线、等待、接管、堵路、低电、清洁、维护。
-- 食安：温度、TCS timer、过敏原、封签、清洁、废弃/重做。
-- ROI：步数减少、峰值 ticket time、table turn、回盘周转、清洁覆盖、停机和服务工单。
-- 训练：失败原因、人工恢复、低置信度、模型版本和部署门禁。
-
-## China / Overseas Versions
-
-中国版：
-
-- 主张：`餐务闭环：机器人不是表演，而是连锁门店标准化工具`。
-- 优先场景：火锅、宴会、自助餐、酒店、机场、园区食堂、医院食堂、QSR、标准化炒锅站。
-- 本地系统：WeChat Mini Program、Meituan/Dianping、Douyin POI/团购/点餐、Alipay/WeChat Pay、门店 RMS/POS、中文工单。
-- 商业打法：低摩擦、低 CAPEX、经销商/服务商渠道、月租/买断+软件、本地云/私有化。
-
-海外版：
-
-- 主张：`Restaurant ops robot platform: service assurance, not robot novelty`。
-- 优先客户：QSR、casual dining、hotel、cafeteria/campus、cloud kitchen、facility service、equipment distributor。
-- 首批包：Runner Starter、Service Pro、Kitchen Assist、Multi-Site Fleet、Distributor SKU。
-- 商业打法：RaaS/SLA、POS/KDS integration、保险/安全/隐私、安装维护、备机和 ROI dashboard。
+- 餐饮异常库：漏项、错项、封签、过敏原、持有时间、堵路、无人取餐、回盘、清洁和重做归因。
+- 连接器：Toast、Square、Oracle/NCR、扫码点餐、美团、抖音、微信、机器人 fleet 和清洁设备。
+- 证据标准：Order ID、托盘 ID、重量差、图像 crop、封签、温度、路线状态、员工签名和模型版本。
+- HIL 数据：堵路恢复、错托盘纠正、客人未取、低置信度、路线等待和人工接管轨迹。
+- 门店 benchmarks：同品牌、同菜单、同班次、同店型的异常密度、关闭率、浪费金额和训练收益。
+- Edge profiles：QNN/AI Hub profile、延迟、内存、NPU 命中、fallback、签名部署和回滚记录。
 
 ## Competition Demo
 
-三分钟 demo 可以这样做：
+三分钟 demo：
 
-1. Mock KDS/POS 生成订单：桌号、菜品、过敏原、预计出餐时间。
-2. 桌面机械臂或操作员把 sealed bowl 放到托盘；相机/QR/重量验证 tray。
-3. AMR 从厨房口到桌号/取餐架，遇到 blocked aisle 或 wet-floor zone 时本地避障或等待。
-4. 制造异常：缺少配菜、错托盘、路线被挡、托盘识别失败或客人未取。
-5. 人工接管并完成恢复，系统保存 HIL episode。
-6. Dashboard 显示 OrderEvent、RobotTask、FoodSafetyEvent、LeRobot dataset、Qualcomm edge profile 和 proof-of-service。
-7. 复盘页输出：ticket time、handoff delay、intervention reason、training data version 和 next deployment gate。
+1. Mock POS/KDS 创建订单 T12-047：主餐、饮料、过敏原标记、桌号 12。
+2. KDS 标记 ready 后，FoodLoop edge gate 不允许派车，先做托盘验证。
+3. Qualcomm edge 用相机 + 重量/load cells + QR/RFID 检测出饮料缺失，KDS 变红，生成异常证据包。
+4. 员工补齐饮料，验证通过，AMR 低速送到桌号。
+5. 桌面 QR 或员工平板确认送达，机器人切换回盘，把假脏托盘送回洗碗区。
+6. 清洁站扫码 sanitizer/wipe checklist，空托盘传感器和短视频生成清洁 proof。
+7. 人为制造堵路，人工接管恢复；系统保存 LeRobot HIL episode。
+8. Dashboard 展示 order event、robot task、food-safety event、exception evidence、AI Hub/QNN profile 和下一次部署门禁。
 
-演示不要假装从零实时训练，而是展示已经预计算 artifact 如何通过评估和部署门禁。
+安全约束：
 
-## Why Qualcomm Should Care
+- 使用封闭假餐，无热液体，无开放烹饪。
+- 低速、限定路线、围挡、物理急停、无线 deadman、现场安全员。
+- ML 不能直接越过安全 supervisor；动作被限制在允许区域和允许速度。
+- 不做人脸识别、顾客画像或员工监控叙事。
+- 不声称食品安全认证，只展示可审计辅助记录。
 
-餐饮场景能把 Qualcomm 的边缘价值讲得很具体：
+## Why Qualcomm
 
-- 现场弱网也要继续送餐、回盘、清洁和记录。
-- 多摄像头、托盘/菜品识别、二维码、语音、避障和地面异常都需要本地推理。
-- 低延迟导航和动作仲裁决定能否安全穿过高峰餐厅。
-- 机器人相机不能默认把顾客视频上传云端，隐私过滤应在边缘完成。
-- AI Hub / QNN / ONNX / TFLite profile 可以成为每次模型上线的性能证据。
-- IQ10 RRD 适合生产路线，RB3/RB5/RB6 等适合比赛和开发者路线。
+餐厅高峰是 Qualcomm edge AI 的真实压力测试：
 
-一句话：
+- Edge Vision：托盘、菜品/容器、QR、封签、桌号、湿滑地面、障碍和清洁站都在本地识别。
+- AI Runtime：AI Hub、QNN、QAIRT、ONNX Runtime QNN EP 和量化 profile 让模型上线可验证。
+- Robotics Stack：ROS 2、Nav2、Open-RMF、多机器人调度、keepout/speed zones 和接管记录可在 edge 上整合。
+- Privacy / Offline：顾客和员工画面边缘脱敏；断网时仍可核验、派单、缓存证据和安全停靠。
+- Hardware Path：RB3 Gen 2/QCS6490 做比赛原型，RB5/RB6/IQ10 RRD 形成多摄像头和生产路线。
 
-> Qualcomm 不只是让送餐机器人会走路，而是让餐厅每一次出餐、异常、回盘和清洁都进入可学习、可审计、可部署的餐务闭环。
+Qualcomm 的战略价值：把“机器人开发板”升级成“餐饮服务机器人参考架构”，把低延迟感知、连接、隐私、模型部署和 fleet lifecycle 放到同一个可复制样板里。
 
 ## Claims To Avoid
 
-- 不说全自动餐厅、替代服务员、替代厨师。
+- 不说全自动餐厅、替代服务员或替代厨师。
 - 不承诺固定 ROI、固定节省 FTE、固定吞吐提升。
 - 不声称 NSF/UL/HACCP/FDA/CE 等认证，除非具体硬件已认证。
-- 不做开放式烹饪或危险热源自主操作承诺。
-- 不做 face recognition、顾客画像或监控优先叙事。
+- 不承诺开放式烹饪或危险热源自主操作。
+- 不做人脸识别、顾客画像或监控优先叙事。
+- 不说 99% 菜品识别、零误报、无需员工行为改变。
 - 不声称实时从零训练或 Qualcomm/LeRobot 官方认证。
 
 ## Sources
 
-- National Restaurant Association 2026：https://restaurant.org/research-and-media/media/press-releases/persistent-cost-increases-and-enduring-demand-will-shape-the-restaurant-industry-in-2026/
-- Pudu Robotics funding：https://www.pudurobotics.com/en/news/pudu-robotics-raises-150-million-exceeds-1-5-billion-valuation
-- Pudu BellaBot Pro：https://www.pudurobotics.com/en/products/bellabotpro
-- Pudu Open Platform：https://open.pudutech.com/en
-- Keenon / Xinhua：https://www.news.cn/20250528/bd49185b0c8740dcb8a4eed8cffe3276/c.html
-- Bear Robotics：https://www.bearrobotics.ai/
-- Richtech 10-K：https://www.sec.gov/Archives/edgar/data/1963685/000121390025003458/ea0226831-10k_richtech.htm
-- Richtech Walmart locations：https://www.globenewswire.com/news-release/2024/10/17/2964874/0/en/richtech-robotics-expands-agreement-with-ghost-kitchens-to-manage-20-additional-walmart-located-restaurants-growing-its-restaurant-operations-model.html
-- Sweetgreen / Spyce sale：https://www.businesswire.com/news/home/20251106759339/en/Sweetgreen-Announces-Strategic-Sale-of-Spyce-to-Wonder
-- Chipotle Hyphen：https://newsroom.chipotle.com/2024-09-16-CHIPOTLE-DEBUTS-AUTOCADO-AND-THE-AUGMENTED-MAKELINE-BY-HYPHEN-IN-RESTAURANTS
-- Miso SEC deployment count：https://www.sec.gov/Archives/edgar/data/1710670/000110465926001520/tm262179d1_partiiandiii.htm
-- Armstrong dishwashing robots：https://www.newswire.com/news/armstrong-raises-12m-to-bring-general-purpose-robots-to-kitchens-22659296
-- Botinkit：https://botinkit.ai/
-- Nala Wingman：https://nalarobotics.com/the-wingman.html
-- Cafe X：https://www.cafexapp.com/locations
-- Picnic shutdown：https://www.nrn.com/restaurant-technology/pizza-robot-company-picnic-shuts-down
+- NRA 2026 State of Restaurant Industry：https://restaurant.org/research-and-media/research/research-reports/state-of-the-industry/
+- Restaurant margins：https://restaurant.org/issues-and-advocacy/policy-agenda/tax-policy/
+- China Catering 2025：https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html
+- China Catering 2026 YTD：https://www.stats.gov.cn/sj/zxfb/202606/t20260616_1963949.html
+- UNEP Food Waste Index 2024：https://www.unep.org/resources/publication/food-waste-index-report-2024
+- Champions 12.3 restaurant food waste：https://champions123.org/publication/business-case-reducing-food-loss-and-waste-restaurants
+- ReFED restaurants and foodservice：https://refed.org/stakeholders/restaurants-and-foodservice/
+- QSR Drive-Thru Report：https://www.qsrmagazine.com/story/the-2025-qsr-drive-thru-report/
+- Order accuracy study summary：https://www.restaurantdive.com/news/study-diners-are-dependent-on-food-delivery-but-are-sensitive-to-order-inaccuracies/623372/
 - IFR service robots：https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom
-- China catering 2025：https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html
-- Meituan robot delivery：https://www.meituan.com/news/NN260227211002715
-- Meituan RMS：https://rms.meituan.com/
-- Douyin catering solution：https://developer.open-douyin.com/docs/resource/zh-CN/local-life/solution/catering
-- Qualcomm IQ10 RRD：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
-- Qualcomm Robotics ROS：https://www.qualcomm.com/developer/project/robotics-ros
-- Qualcomm AI Hub：https://workbench.aihub.qualcomm.com/docs/
-- Nav2：https://docs.nav2.org/
-- Open-RMF：https://openrmf.readthedocs.io/
-- MoveIt 2：https://moveit.picknik.ai/
+- Keenon / Xinhua：https://www.news.cn/20250528/bd49185b0c8740dcb8a4eed8cffe3276/c.html
+- Bear Servi Plus：https://www.bearrobotics.ai/servi-plus
+- Pudu BellaBot：https://www.pudurobotics.com/en/products/bellabot
+- Chipotle Hyphen：https://newsroom.chipotle.com/2024-09-16-CHIPOTLE-DEBUTS-AUTOCADO-AND-THE-AUGMENTED-MAKELINE-BY-HYPHEN-IN-RESTAURANTS
+- Botinkit：https://botinkit.ai/
 - Square Orders API：https://developer.squareup.com/docs/orders-api/what-it-does
 - Toast order webhooks：https://doc.toasttab.com/doc/devguide/devOrdersWebhookRef.html
 - FDA Food Code 2022：https://www.fda.gov/food/fda-food-code/food-code-2022
+- Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- Qualcomm IQ10 RRD：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- Qualcomm QNN SDK：https://www.qualcomm.com/developer/software/neural-processing-sdk-for-ai
+- Qualcomm AI Hub：https://workbench.aihub.qualcomm.com/docs/
+- Nav2 Collision Monitor：https://docs.nav2.org/configuration/packages/collision_monitor/configuring-collision-monitor-node.html
+- Open-RMF：https://openrmf.readthedocs.io/
 - LeRobot HIL：https://huggingface.co/docs/lerobot/en/hil_data_collection
-- LeRobot Dataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
