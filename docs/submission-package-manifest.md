@@ -54,6 +54,7 @@ Suggested contents:
 - `docs/cold-chain-loop.md`
 - `docs/lab-loop.md`
 - `docs/clean-loop.md`
+- `docs/infra-loop.md`
 - `docs/cert-forge.md`
 
 Screenshots or exported pages from:
@@ -76,6 +77,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/cold-chain-loop/
 - https://qc-robotics-2026.pages.dev/lab-loop/
 - https://qc-robotics-2026.pages.dev/clean-loop/
+- https://qc-robotics-2026.pages.dev/infra-loop/
 - https://qc-robotics-2026.pages.dev/worldforge/
 - https://qc-robotics-2026.pages.dev/robotrust/
 - https://qc-robotics-2026.pages.dev/roboport/
@@ -139,6 +141,7 @@ Suggested values to review:
 - Cold-chain exception-closure page: `https://qc-robotics-2026.pages.dev/cold-chain-loop/`.
 - Lab operations and provenance loop page: `https://qc-robotics-2026.pages.dev/lab-loop/`.
 - Commercial cleaning operations loop page: `https://qc-robotics-2026.pages.dev/clean-loop/`.
+- Critical facility inspection loop page: `https://qc-robotics-2026.pages.dev/infra-loop/`.
 - Simulation data factory page: `https://qc-robotics-2026.pages.dev/worldforge/`.
 - Robot data trust cloud page: `https://qc-robotics-2026.pages.dev/robotrust/`.
 - Robot module port ecosystem page: `https://qc-robotics-2026.pages.dev/roboport/`.

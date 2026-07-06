@@ -35,6 +35,7 @@ Current batch:
 - `cold-chain-loop/` — temperature-sensitive logistics exception-closure platform for excursions, dwell, proof-of-recovery, WMS/TMS/QMS writeback, audit bundles, and LeRobot HIL loops.
 - `lab-loop/` — lab operations and provenance layer for sample identity, instruments, robots, raw data, QC exceptions, LIMS/ELN/QMS writeback, and LeRobot HIL loops.
 - `clean-loop/` — commercial cleaning operations tower for demand-triggered tasks, robot/human dispatch, coverage proof, SLA reports, privacy-first edge perception, and LeRobot HIL loops.
+- `infra-loop/` — critical facility inspection loop for data centers, substations, BESS, pump stations, robots/drones/cameras, CMMS/EAM writeback, verified repair evidence, and LeRobot HIL loops.
 - `roboport/` — certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `business-case/` — commercialization, pricing package, and revenue flywheel story.
 - `submission-kit/` — preliminary project-book and upload-readiness page.
