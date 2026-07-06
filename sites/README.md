@@ -39,6 +39,7 @@ Current batch:
 - `yard-loop/` — container-yard exception-closure platform for gate OCR, seal/damage/chassis proof, yard slot mismatches, TOS/YMS writeback, and LeRobot HIL loops.
 - `shipyard-loop/` — shipyard production evidence layer for weld, grind, coat, QA, rework, work-package traceability, MES/ERP/Ship OS writeback, and LeRobot HIL loops.
 - `circular-loop/` — electronics circularity value-routing platform for ITAD, refurb, trade-in, battery quarantine, data-wipe evidence, audit packets, and LeRobot HIL loops.
+- `ramp-loop/` — airport ramp and aircraft turnaround exception-closure platform for GSE/FOD/baggage/service blockers, owner assignment, evidence packets, and LeRobot HIL loops.
 - `roboport/` — certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `business-case/` — commercialization, pricing package, and revenue flywheel story.
 - `submission-kit/` — preliminary project-book and upload-readiness page.

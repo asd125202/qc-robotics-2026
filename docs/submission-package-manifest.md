@@ -58,6 +58,7 @@ Suggested contents:
 - `docs/yard-loop.md`
 - `docs/shipyard-loop.md`
 - `docs/circular-loop.md`
+- `docs/ramp-loop.md`
 - `docs/cert-forge.md`
 
 Screenshots or exported pages from:
@@ -84,6 +85,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/yard-loop/
 - https://qc-robotics-2026.pages.dev/shipyard-loop/
 - https://qc-robotics-2026.pages.dev/circular-loop/
+- https://qc-robotics-2026.pages.dev/ramp-loop/
 - https://qc-robotics-2026.pages.dev/worldforge/
 - https://qc-robotics-2026.pages.dev/robotrust/
 - https://qc-robotics-2026.pages.dev/roboport/
@@ -151,6 +153,7 @@ Suggested values to review:
 - Container-yard exception closure page: `https://qc-robotics-2026.pages.dev/yard-loop/`.
 - Shipyard production evidence loop page: `https://qc-robotics-2026.pages.dev/shipyard-loop/`.
 - Electronics circularity value-routing page: `https://qc-robotics-2026.pages.dev/circular-loop/`.
+- Airport ramp exception closure page: `https://qc-robotics-2026.pages.dev/ramp-loop/`.
 - Simulation data factory page: `https://qc-robotics-2026.pages.dev/worldforge/`.
 - Robot data trust cloud page: `https://qc-robotics-2026.pages.dev/robotrust/`.
 - Robot module port ecosystem page: `https://qc-robotics-2026.pages.dev/roboport/`.
