@@ -56,6 +56,7 @@ Suggested contents:
 - `docs/clean-loop.md`
 - `docs/infra-loop.md`
 - `docs/yard-loop.md`
+- `docs/shipyard-loop.md`
 - `docs/cert-forge.md`
 
 Screenshots or exported pages from:
@@ -80,6 +81,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/clean-loop/
 - https://qc-robotics-2026.pages.dev/infra-loop/
 - https://qc-robotics-2026.pages.dev/yard-loop/
+- https://qc-robotics-2026.pages.dev/shipyard-loop/
 - https://qc-robotics-2026.pages.dev/worldforge/
 - https://qc-robotics-2026.pages.dev/robotrust/
 - https://qc-robotics-2026.pages.dev/roboport/
@@ -145,6 +147,7 @@ Suggested values to review:
 - Commercial cleaning operations loop page: `https://qc-robotics-2026.pages.dev/clean-loop/`.
 - Critical facility inspection loop page: `https://qc-robotics-2026.pages.dev/infra-loop/`.
 - Container-yard exception closure page: `https://qc-robotics-2026.pages.dev/yard-loop/`.
+- Shipyard production evidence loop page: `https://qc-robotics-2026.pages.dev/shipyard-loop/`.
 - Simulation data factory page: `https://qc-robotics-2026.pages.dev/worldforge/`.
 - Robot data trust cloud page: `https://qc-robotics-2026.pages.dev/robotrust/`.
 - Robot module port ecosystem page: `https://qc-robotics-2026.pages.dev/roboport/`.
