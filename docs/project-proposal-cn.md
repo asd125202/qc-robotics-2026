@@ -95,6 +95,7 @@ Qualcomm 可以通过该项目获得一个端到端机器人生态样板：
 - 骁工 XiaoGong 商用人形平台页：https://qc-robotics-2026.pages.dev/xiaogong/
 - SiteLedger 工地实录页：https://qc-robotics-2026.pages.dev/site-ledger/
 - StoreLoop 店务闭环页：https://qc-robotics-2026.pages.dev/store-loop/
+- FoodLoop 餐务闭环页：https://qc-robotics-2026.pages.dev/food-loop/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/

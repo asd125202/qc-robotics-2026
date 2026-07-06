@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FoodLoop 餐务闭环 | 面向餐饮运营的边缘机器人平台</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>FoodLoop 餐务闭环</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#research">研究</a>
+        <a href="#loop">闭环</a>
+        <a href="#stack">架构</a>
+        <a href="#versions">双版本</a>
+        <a href="#demo">演示</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-food-loop">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 47 · Restaurant Operations Loop</p>
+          <h1>FoodLoop 餐务闭环</h1>
+          <p class="hero-lede">面向餐饮运营的 Qualcomm 边缘机器人与 LeRobot 数据飞轮：从 KDS/POS ticket 到托盘验证、机器人配送、异常接管、清洁证据和下一轮技能更新。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#loop">查看餐务闭环</a>
+            <a class="button" href="../store-loop/">连接 StoreLoop</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">00 · Five-Thread Research</p>
+              <h2>餐饮机器人已经从新奇展示进入运营工具，但赢家不是“机器人厨师”。</h2>
+            </div>
+            <p>Bear、Pudu、Keenon、Richtech、Miso、Botinkit、Hyphen、Sweetgreen/Spyce、Nala 和 Cafe X 的信号很一致：成熟市场是跑菜、回盘、清洁、饮品、受限厨房工位和窄菜单自动化。FoodLoop 把这些机器人连接到餐厅订单、证据和训练闭环。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Runner / Busser</h3>
+              <p>送餐和回盘机器人已规模化，但需要接入桌号、托盘验证、堵路和服务证据。</p>
+            </article>
+            <article class="card">
+              <h3>Kitchen Assist</h3>
+              <p>炸锅、炒锅、饮品和装配线适合受限菜单，不适合泛化烹饪承诺。</p>
+            </article>
+            <article class="card">
+              <h3>China Stack</h3>
+              <p>微信、Meituan、Douyin、RMS/POS、中文工单和本地服务网络决定落地速度。</p>
+            </article>
+            <article class="card">
+              <h3>Food Safety</h3>
+              <p>温度、持有时间、过敏原、封签、清洁日志和废弃/重做必须结构化。</p>
+            </article>
+            <article class="card">
+              <h3>HIL Data</h3>
+              <p>错托盘、堵路、抓取失败和人工恢复都变成 LeRobot 训练片段。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/food-loop.png" alt="餐饮送餐机器人在出餐口验证托盘、路线调度、人机接管和清洁证据控制台图">
+          </div>
+        </div>
+      </section>
+
+      <section id="loop" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Ticket To Table To Training</p>
+              <h2>把一张订单变成机器人可执行、可验证、可学习的餐务任务。</h2>
+            </div>
+            <p>FoodLoop 从 KDS/POS 接收订单事件，拆成出餐、托盘验证、配送、回盘、清洁和异常任务。每一步都有状态、证据、人工接管和训练数据，不再只是让机器人“送一趟”。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Ticket</h3>
+              <p>订单、桌号、取餐柜、过敏原、promise time 和取消/改单。</p>
+            </article>
+            <article class="step">
+              <h3>Verify</h3>
+              <p>相机、QR、重量、托盘槽位、封签和人工确认。</p>
+            </article>
+            <article class="step">
+              <h3>Move</h3>
+              <p>Nav2 / Open-RMF 路线、堵路等待、慢行区和 HIL 接管。</p>
+            </article>
+            <article class="step">
+              <h3>Proof</h3>
+              <p>送达、回盘、清洁、温度、超时、废弃和维护日志。</p>
+            </article>
+            <article class="step">
+              <h3>Learn</h3>
+              <p>异常片段进入 LeRobot，经 AI Hub profile 后回到边缘部署。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="stack" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">02 · Edge Restaurant Runtime</p>
+            <h2>餐厅高峰不等云端，机器人必须在本地判断和降级。</h2>
+            <p class="lead">FoodLoop 把餐饮工作流拆成本地边缘运行和云端训练。安全、导航、托盘验证、堵路处理和食品安全日志留在门店；云端负责训练、评估、模型注册、灰度和 fleet 分析。</p>
+            <ul class="list">
+              <li>KDS / POS Bridge：Square、Toast、Oracle/NCR、Meituan、Douyin、WeChat。</li>
+              <li>Dining AMR：桌区、通道、厨房口、回盘点、清洁区、取餐柜和酒店房间。</li>
+              <li>Kitchen Cells：炸锅、炒锅、饮品、装配线、洗碗和受限机械臂工位。</li>
+              <li>Food Safety：TCS timer、温度、过敏原、封签、清洁、废弃和重做。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/food-loop.png" alt="餐饮机器人边缘运行、KDS/POS、托盘验证、LeRobot 训练和服务证据图">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · First Workflows</p>
+              <h2>第一批任务选择高峰期重复、可验证、可接管的工作。</h2>
+            </div>
+            <p>FoodLoop 不从全自动厨房开始，而从餐厅真实瓶颈开始：走路、端托盘、回盘、清洁、取餐柜、标准化工位和异常恢复。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>跑菜</h3>
+              <p>出餐口到桌号/取餐架/包间/酒店房间。</p>
+            </article>
+            <article class="card">
+              <h3>回盘</h3>
+              <p>桌边回收、脏/净分离、洗碗入口和周转时间。</p>
+            </article>
+            <article class="card">
+              <h3>清洁证据</h3>
+              <p>清洁路线、wet-floor zone、照片、时间戳和 SLA。</p>
+            </article>
+            <article class="card">
+              <h3>托盘验证</h3>
+              <p>QR、菜品视觉、重量、槽位、封签和过敏原。</p>
+            </article>
+            <article class="card">
+              <h3>后厨工位</h3>
+              <p>炸锅、炒锅、饮品、配菜、装配线和洗碗单元。</p>
+            </article>
+            <article class="card">
+              <h3>异常训练</h3>
+              <p>堵路、错单、缺菜、抓取失败和人工接管。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="versions" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · China / Overseas Versions</p>
+              <h2>中国版讲标准化和本地平台，海外版讲 SLA、集成和可量化 ROI。</h2>
+            </div>
+            <p>中国餐饮机器人市场价格竞争激烈，必须靠本地服务、二维码生态和连锁标准化取胜。海外市场则更看重 POS/KDS 集成、安全、隐私、维护响应和试点数据。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <h3>中国餐务闭环</h3>
+              <p>火锅、宴会、自助餐、酒店、机场、园区食堂和 QSR。接入微信扫码点餐、Meituan/Dianping、Douyin POI/团购、中文工单、本地云和经销商服务网络。</p>
+            </article>
+            <article class="card">
+              <h3>海外 Service Pro</h3>
+              <p>QSR、casual dining、hotel、cafeteria、cloud kitchen。用 6-12 周 paid pilot 衡量 mission success、ticket time、labor hours、accuracy、waste、cleaning proof 和 uptime。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Competition Demo</p>
+              <h2>用 mock KDS、托盘和小车，展示完整餐务数据闭环。</h2>
+            </div>
+            <p>比赛演示不需要真实厨房热源。用封闭碗、QR、桌号、托盘、路线地图和一个堵路异常即可证明产品逻辑：订单进入、托盘验证、机器人配送、异常接管、LeRobot episode、edge profile 和服务证据。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>KDS</strong>
+              <span>订单状态、桌号、取餐柜、过敏原和改单取消进入任务合约。</span>
+            </div>
+            <div class="stat">
+              <strong>Tray</strong>
+              <span>菜品、重量、QR、封签和缺菜检测先验证再出发。</span>
+            </div>
+            <div class="stat">
+              <strong>HIL</strong>
+              <span>堵路、错单、客人未取、抓取失败进入人工接管。</span>
+            </div>
+            <div class="stat">
+              <strong>ROI</strong>
+              <span>输出步数、等待、ticket time、异常、清洁覆盖和停机。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Why Qualcomm</p>
+              <h2>餐厅高峰是边缘 AI 的真实压力测试。</h2>
+            </div>
+            <p>餐厅里有拥挤人流、弱网、反光地面、临时障碍、热源、食品安全和隐私边界。Qualcomm 的价值在于本地多模态感知、低延迟导航、隐私过滤、连接和部署证据。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Perception</h3>
+              <p>托盘、菜品、QR、桌号、湿滑地面、障碍和人员检测。</p>
+            </article>
+            <article class="step">
+              <h3>Runtime</h3>
+              <p>ROS 2、Nav2、Open-RMF、MoveIt、QNN/ONNX/TFLite。</p>
+            </article>
+            <article class="step">
+              <h3>Privacy</h3>
+              <p>顾客画面边缘脱敏，只上传授权片段和任务元数据。</p>
+            </article>
+            <article class="step">
+              <h3>Service</h3>
+              <p>签名 OTA、灰度、回滚、维护工单、备件和 SLA。</p>
+            </article>
+            <article class="step">
+              <h3>Learning</h3>
+              <p>每次异常恢复都进入 LeRobot，形成下一版技能。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">FoodLoop 的商业承诺不是“无人餐厅”，而是把餐厅里最重复、最耗步数、最容易出错的任务变成可执行、可复盘、可训练、可部署的运营闭环。</p>
+          <div class="source-links">
+            <a href="https://restaurant.org/research-and-media/media/press-releases/persistent-cost-increases-and-enduring-demand-will-shape-the-restaurant-industry-in-2026/">NRA 2026</a>
+            <a href="https://www.pudurobotics.com/en/news/pudu-robotics-raises-150-million-exceeds-1-5-billion-valuation">Pudu Funding</a>
+            <a href="https://www.pudurobotics.com/en/products/bellabotpro">BellaBot Pro</a>
+            <a href="https://open.pudutech.com/en">Pudu Open</a>
+            <a href="https://www.news.cn/20250528/bd49185b0c8740dcb8a4eed8cffe3276/c.html">Keenon Xinhua</a>
+            <a href="https://www.bearrobotics.ai/">Bear Robotics</a>
+            <a href="https://www.globenewswire.com/news-release/2024/10/17/2964874/0/en/richtech-robotics-expands-agreement-with-ghost-kitchens-to-manage-20-additional-walmart-located-restaurants-growing-its-restaurant-operations-model.html">Richtech</a>
+            <a href="https://newsroom.chipotle.com/2024-09-16-CHIPOTLE-DEBUTS-AUTOCADO-AND-THE-AUGMENTED-MAKELINE-BY-HYPHEN-IN-RESTAURANTS">Chipotle Hyphen</a>
+            <a href="https://www.newswire.com/news/armstrong-raises-12m-to-bring-general-purpose-robots-to-kitchens-22659296">Armstrong</a>
+            <a href="https://botinkit.ai/">Botinkit</a>
+            <a href="https://nalarobotics.com/the-wingman.html">Nala Wingman</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
+            <a href="https://www.meituan.com/news/NN260227211002715">Meituan Robots</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">IQ10 RRD</a>
+            <a href="https://www.qualcomm.com/developer/project/robotics-ros">Qualcomm ROS</a>
+            <a href="https://docs.nav2.org/">Nav2</a>
+            <a href="https://openrmf.readthedocs.io/">Open-RMF</a>
+            <a href="https://moveit.picknik.ai/">MoveIt 2</a>
+            <a href="https://developer.squareup.com/docs/orders-api/what-it-does">Square Orders</a>
+            <a href="https://doc.toasttab.com/doc/devguide/devOrdersWebhookRef.html">Toast Webhooks</a>
+            <a href="https://www.fda.gov/food/fda-food-code/food-code-2022">FDA Food Code</a>
+            <a href="https://huggingface.co/docs/lerobot/en/hil_data_collection">LeRobot HIL</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
