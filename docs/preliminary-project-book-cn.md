@@ -274,6 +274,7 @@ Qualcomm 可获得：
 - MineLoop 智矿异常闭环页：https://qc-robotics-2026.pages.dev/mine-loop/
 - WaterLoop 水务异常闭环页：https://qc-robotics-2026.pages.dev/water-loop/
 - GridLoop 配网异常闭环页：https://qc-robotics-2026.pages.dev/grid-loop/
+- RailLoop 轨交异常闭环页：https://qc-robotics-2026.pages.dev/rail-loop/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/

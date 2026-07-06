@@ -62,6 +62,7 @@ The current first-batch pitch directions are:
 - `MineLoop 智矿异常闭环`: mine-site exception-closure platform for alarms, robot inspection, conveyor/haulage downtime, slope/tailings monitoring, hidden-danger ledgers, LeRobot HIL, and Qualcomm edge evidence packets.
 - `WaterLoop 水务异常闭环`: water-utility exception-closure platform for leaks, pressure drops, pump anomalies, water-quality drift, sewer/stormwater risk, robot inspection, LeRobot HIL, and Qualcomm edge evidence packets.
 - `GridLoop 配网异常闭环`: distribution-grid exception-closure platform for voltage anomalies, transformer overload, thermal defects, vegetation/wildfire/storm risk, DER/EV constraints, robot/drone inspection, LeRobot HIL, and Qualcomm edge evidence packets.
+- `RailLoop 轨交异常闭环`: rail/metro exception-closure platform for platform doors, escalators, water intrusion, equipment alarms, visible trackside defects, inspection robots, hidden-danger ledgers, LeRobot HIL, and Qualcomm edge evidence packets.
 - `RoboPort`: certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.
