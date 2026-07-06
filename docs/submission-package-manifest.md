@@ -43,6 +43,7 @@ Suggested contents:
 - `docs/motion-zero.md`
 - `docs/neng-stack.md`
 - `docs/xiaogong.md`
+- `docs/site-ledger.md`
 - `docs/cert-forge.md`
 
 Screenshots or exported pages from:
@@ -55,6 +56,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/edge-runtime-bench/
 - https://qc-robotics-2026.pages.dev/home-core/
 - https://qc-robotics-2026.pages.dev/xiaogong/
+- https://qc-robotics-2026.pages.dev/site-ledger/
 - https://qc-robotics-2026.pages.dev/worldforge/
 - https://qc-robotics-2026.pages.dev/robotrust/
 - https://qc-robotics-2026.pages.dev/roboport/
@@ -108,6 +110,7 @@ Suggested values to review:
 - Qualcomm runtime evidence page: `https://qc-robotics-2026.pages.dev/edge-runtime-bench/`.
 - Home robot skill layer page: `https://qc-robotics-2026.pages.dev/home-core/`.
 - Commercial humanoid platform page: `https://qc-robotics-2026.pages.dev/xiaogong/`.
+- Construction site memory page: `https://qc-robotics-2026.pages.dev/site-ledger/`.
 - Simulation data factory page: `https://qc-robotics-2026.pages.dev/worldforge/`.
 - Robot data trust cloud page: `https://qc-robotics-2026.pages.dev/robotrust/`.
 - Robot module port ecosystem page: `https://qc-robotics-2026.pages.dev/roboport/`.

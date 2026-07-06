@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SiteLedger 工地实录 | 施工现场边缘 AI 记忆层</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>SiteLedger 工地实录</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#research">研究</a>
+        <a href="#ledger">账本</a>
+        <a href="#stack">架构</a>
+        <a href="#versions">双版本</a>
+        <a href="#demo">演示</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-site-ledger">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 45 · Construction Site Memory Layer</p>
+          <h1>SiteLedger 工地实录</h1>
+          <p class="hero-lede">施工现场的边缘 AI 记忆层：用小型工地机器人把放线、巡检、进度、实测实量和人工复核变成可审计数据，再回流到 LeRobot 与 Qualcomm edge。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#ledger">查看项目证据账本</a>
+            <a class="button" href="../field-ops/">连接 FieldOps</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">00 · Five-Thread Research</p>
+              <h2>施工机器人已经商业化，但最强机会不是“自动盖楼”，而是现场证据和学习闭环。</h2>
+            </div>
+            <p>Dusty、HP SitePrint、Rugged Robotics、Built Robotics、Canvas/JLG、Hilti Jaibot、TyBOT、Spot/DroneDeploy 说明：成熟市场集中在窄任务、可验收 KPI 和重复场景。SiteLedger 把这些任务连接到 BIM、进度、质量、安全、付款和训练数据。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Layout</h3>
+              <p>放线机器人已经证明客户愿意为 BIM/CAD 到现场的准确转换付费。</p>
+            </article>
+            <article class="card">
+              <h3>Reality Capture</h3>
+              <p>每日 360、点云、路线、照片和模型对比正在成为企业级施工数据流。</p>
+            </article>
+            <article class="card">
+              <h3>China Wedge</h3>
+              <p>中国版先做实测实量、巡检和放线辅助，避开民营商品房周期压力。</p>
+            </article>
+            <article class="card">
+              <h3>Payment Proof</h3>
+              <p>业主、总包和分包需要 work-in-place 证据，而不是更多未结构化照片。</p>
+            </article>
+            <article class="card">
+              <h3>Learning Loop</h3>
+              <p>人工复核、低置信度和误报都变成 LeRobot episode，现场越跑越懂。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/site-ledger.png" alt="小型工地机器人在施工现场巡检、BIM 路线、进度证据和人工复核控制台图">
+          </div>
+        </div>
+      </section>
+
+      <section id="ledger" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Project Ledger</p>
+              <h2>交付物不是视频流，而是项目可用的证据账本。</h2>
+            </div>
+            <p>工地每天都在变化。SiteLedger 把机器人巡检路线、位置、图纸版本、照片、检测结果、人工复核和责任分包连成可以写回 BIM/CDE/工单系统的结构化记录。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Capture</h3>
+              <p>多相机、IMU、里程计、RTK、LiDAR/雷达采集路线、照片、点云和位置。</p>
+            </article>
+            <article class="step">
+              <h3>Compare</h3>
+              <p>把现场观测与 IFC、CAD、PDF、点云、计划工区和控制点对齐。</p>
+            </article>
+            <article class="step">
+              <h3>Flag</h3>
+              <p>标出通道阻塞、错位、缺失检查点、护栏/洞口、材料堆放和进度差异。</p>
+            </article>
+            <article class="step">
+              <h3>Review</h3>
+              <p>工程师确认、驳回或修正，生成 BCF-style issue 和每日实录。</p>
+            </article>
+            <article class="step">
+              <h3>Learn</h3>
+              <p>复核片段进入 LeRobot dataset，再部署到 Qualcomm edge。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="stack" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">02 · Edge + BIM + LeRobot Stack</p>
+            <h2>用 Qualcomm 做边缘大脑，用 BIM/CDE 做工地事实源，用 LeRobot 做学习闭环。</h2>
+            <p class="lead">SiteLedger 不把云端放进安全关键闭环。机器人本地完成感知、定位、安全降级和任务缓存；云端负责训练、评估、项目报告和非实时同步。</p>
+            <ul class="list">
+              <li>Safety MCU：急停、制动、bumper、watchdog、motor inhibit 和硬 geofence。</li>
+              <li>ROS 2 / Nav2：路线、costmap、keepout、定位融合、teleop 和任务状态。</li>
+              <li>BIM/CDE：IFC、openCDE、BCF、图纸版本、点云和责任工区。</li>
+              <li>LeRobot：episode、HIL、训练、评估、模型卡、灰度发布和回滚。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/site-ledger.png" alt="施工机器人边缘运行、BIM/CDE、LeRobot 训练和项目证据账本架构图">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · First Workflows</p>
+              <h2>第一批任务选择低操纵风险、高证据价值的工作。</h2>
+            </div>
+            <p>SiteLedger 不从重型无人施工机械开始，而从工地每天都要做、且容易用数据验收的任务开始。后续可以连接放线机器人、喷涂机器人、钻孔机器人和巡检机器人。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>放线复核</h3>
+              <p>验证控制点、墙线、门洞、设备基础、机电点位和图纸版本。</p>
+            </article>
+            <article class="card">
+              <h3>实测实量</h3>
+              <p>记录偏差、照片、位置、责任分包、闭环状态和验收证据。</p>
+            </article>
+            <article class="card">
+              <h3>进度实录</h3>
+              <p>按工区/构件记录 work-in-place，支持支付、争议和业主报告。</p>
+            </article>
+            <article class="card">
+              <h3>安全观察</h3>
+              <p>通道阻塞、临边洞口、材料堆放、受限区进入和复核提醒。</p>
+            </article>
+            <article class="card">
+              <h3>材料定位</h3>
+              <p>识别材料区、设备、托盘、二维码和错放位置，减少现场寻找。</p>
+            </article>
+            <article class="card">
+              <h3>机器人数据</h3>
+              <p>把路线失败、误报、低置信度和人工接管变成训练样本。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="versions" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · China / Overseas Versions</p>
+              <h2>中国版讲智能建造示范，海外版讲 layout、progress、QA 和 payment evidence。</h2>
+            </div>
+            <p>同一套底层技术可以服务两种市场语言。中国版强调政策、央国企、公共项目、本地云和数字档案；海外版强调工期、返工、劳动力短缺、业主证据和 SaaS/RaaS 计费。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <h3>中国智能建造版</h3>
+              <p>面向试点城市、央国企、公共建筑、轨交机场、医院学校、城市更新和产业园。交付实测实量、巡检、放线辅助、数字档案、本地云、中文工单和数据不跨境策略。</p>
+            </article>
+            <article class="card">
+              <h3>海外项目证据版</h3>
+              <p>面向 GC、subcontractor、owner、layout crew、safety team 和 rental channel。用 6-8 周试点验证 sq ft/day、issues closed、payment support、crew-hours 和 rework risk。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Competition Demo</p>
+              <h2>用小车和模拟工地，三分钟讲清现场数据闭环。</h2>
+            </div>
+            <p>演示不需要重型机械。用小型机器人巡检一个 mock 工地：楼层图、锥桶、梯子、材料堆、错位标记和受限区。机器人发现低置信度事件，人工复核，生成 issue，保存 LeRobot episode，再展示 Qualcomm edge 部署证据。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>IFC</strong>
+              <span>模型、图纸、控制点和现场坐标必须版本化。</span>
+            </div>
+            <div class="stat">
+              <strong>BCF</strong>
+              <span>每个问题都链接位置、照片、构件、责任人和复核状态。</span>
+            </div>
+            <div class="stat">
+              <strong>HIL</strong>
+              <span>人工修正误报和漏报，形成可训练 episode。</span>
+            </div>
+            <div class="stat">
+              <strong>Edge</strong>
+              <span>断网、RTK 丢失和图纸过期时，本体安全降级。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Why Qualcomm</p>
+              <h2>施工现场是边缘 AI、连接和低功耗机器人平台的天然压力测试。</h2>
+            </div>
+            <p>工地有粉尘、弱网、临时照明、临时墙体、频繁变化的路线和安全边界。Qualcomm 的价值不是单次推理，而是多传感器、实时视频、低功耗、连接、安全身份、AI Hub profile 和长期量产路线。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Vision</h3>
+              <p>多相机、GStreamer、视觉预处理、本地检测和场景理解。</p>
+            </article>
+            <article class="step">
+              <h3>Fusion</h3>
+              <p>IMU、轮速、RTK、VIO、LiDAR/雷达和定位协方差融合。</p>
+            </article>
+            <article class="step">
+              <h3>Runtime</h3>
+              <p>ROS 2 / Nav2 / AI Hub / QNN / TFLite / ONNX Runtime 路线。</p>
+            </article>
+            <article class="step">
+              <h3>Network</h3>
+              <p>5G / Wi-Fi / private network 支持远程复核和 store-and-forward。</p>
+            </article>
+            <article class="step">
+              <h3>Trust</h3>
+              <p>模型、地图、图纸、日志、issue 和训练数据都有版本证据。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">SiteLedger 的商业承诺不是“无人施工”，而是把每一次巡检、复核、进度、偏差、误报和接管变成项目可用的证据与下一轮训练数据。它让施工机器人从单点工具进入项目级平台。</p>
+          <div class="source-links">
+            <a href="https://www.dustyrobotics.com/">Dusty Robotics</a>
+            <a href="https://www.hp.com/us-en/printers/site-print/layout-robot.html">HP SitePrint</a>
+            <a href="https://www.therobotreport.com/rugged-robotics-raises-9-4m-to-automate-construction-layout/">Rugged Robotics</a>
+            <a href="https://www.builtrobotics.com/solutions/solar-piling">Built Robotics</a>
+            <a href="https://www.universal-robots.com/case-stories/canvas/">Canvas / UR</a>
+            <a href="https://www.hilti.com/content/hilti/W1/US/en/business/business/trends/jaibot.html">Hilti Jaibot</a>
+            <a href="https://www.constructionrobots.com/news/rebar-tying-robot-now-available-for-direct-purchase-as-robotics-firm-gains-industry-acceptance">TyBOT</a>
+            <a href="https://bostondynamics.com/industry/construction/">Spot Construction</a>
+            <a href="https://www.dronedeploy.com/blog/turner-construction">DroneDeploy Turner</a>
+            <a href="https://www.abc.org/News-Media/News-Releases/abc-construction-industry-must-attract-349000-workers-in-2026-despite-macroeconomic-headwinds">ABC Workforce</a>
+            <a href="https://www.autodesk.com/blogs/construction/reduce-construction-rework/">Autodesk Rework</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform">Qualcomm RB6</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">IQ10 RRD</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset</a>
+            <a href="https://docs.nav2.org/tutorials/docs/navigation2_with_keepout_filter.html">Nav2 Keepout</a>
+            <a href="https://mcap.dev/guides/getting-started/ros-2">MCAP ROS 2</a>
+            <a href="https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/">IFC</a>
+            <a href="https://github.com/buildingSMART/BCF-API">BCF API</a>
+            <a href="https://app.www.gov.cn/govdata/gov/202211/10/494092/article.html">智能建造试点城市</a>
+            <a href="https://en.bm-robot.com/about.html">BrightMaster</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>

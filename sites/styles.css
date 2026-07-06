@@ -166,6 +166,10 @@ img {
   background-image: url("./assets/xiaogong.png");
 }
 
+.hero-site-ledger {
+  background-image: url("./assets/site-ledger.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }
