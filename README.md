@@ -25,7 +25,7 @@ The current first-batch pitch directions are:
 - `RobotCoreOS`: Qualcomm-first commercial robot runtime OS with golden images, ROS 2 / LeRobot hooks, QNN policy runner, signed OTA, rollback, fleet identity, SBOM, and release evidence.
 - `LeRobot CloudTwin`: productized LeRobot-to-Qualcomm-edge control plane for episode ledgers, China/overseas GPU training, eval gates, policy manifests, edge packages, rollback, and failure mining.
 - `TrainRouter`: YC-style robot training delivery pitch for LeRobot job contracts, China/overseas GPU routing, budget/data-boundary guards, reproducible evaluation, and Qualcomm edge skill releases.
-- `TeleopStudio`: productized teleoperation and demonstration-data capture station with synchronized cameras, quality gates, LeRobot dataset export, and cloud handoff.
+- `TeleopStudio`: Qualcomm-first robot-learning episode factory that turns teleoperation sessions into quality-gated LeRobot datasets, TrainRouter handoffs, and edge-origin evidence.
 - `SkillDock`: robot skill marketplace where trained skills can be installed, certified, and upgraded.
 - `SkillCertKit`: robot skill trust-layer pitch that turns policy models into marketplace-ready packages with manifests, LeRobot dataset lineage, hardware compatibility, Qualcomm edge profiles, safety boundaries, SBOM/license evidence, signatures, rollback, and version history.
 - `Embodied Kit`: procurement-ready industry kit for factories, labs, education, and service robotics teams.

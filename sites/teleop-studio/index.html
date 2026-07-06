@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TeleopStudio | 机器人示教数据采集工位</title>
+    <title>TeleopStudio | 机器人示教数据工厂</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -13,55 +13,121 @@
         <span>TeleopStudio</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#station">工位</a>
-        <a href="#quality">质检</a>
-        <a href="#contract">合约</a>
+        <a href="#problem">问题</a>
+        <a href="#why-now">为什么现在</a>
+        <a href="#solution">方案</a>
+        <a href="#market">商业</a>
+        <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-teleop">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 24 · Demonstration Data Factory</p>
+          <p class="eyebrow">Pitch 24 · Robot-Learning Episode Factory</p>
           <h1 class="long-word-title">TeleopStudio</h1>
-          <p class="hero-lede">云训练之前，先要有可信数据。TeleopStudio 把遥操作、相机同步、episode 记录、数据质检、LeRobot dataset adapter 和云端交接做成可购买的数据采集工位。</p>
+          <p class="hero-lede">录一段机器人视频不是数据资产。TeleopStudio 把遥操作、相机同步、动作状态记录、失败接管、质量门禁和 LeRobot dataset export 做成可购买的示教数据工位，为 CloudTwin、TrainRouter 和 Qualcomm edge skill release 提供干净输入。</p>
           <div class="cta-row">
-            <a class="button primary" href="#station">查看采集工位</a>
-            <a class="button" href="../data-flywheel/">连接 DataFlywheel</a>
+            <a class="button primary" href="#problem">从数据问题开始</a>
+            <a class="button" href="../train-router/">连接 TrainRouter</a>
           </div>
         </div>
       </section>
 
-      <section id="station" class="slide white">
+      <section id="problem" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Capture Station</p>
-              <h2>机器人平台的第一台机器，应该是数据生产机器。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>机器人团队不缺 demo，缺的是可训练、可复现、可验收的 episode。</h2>
             </div>
-            <p>TeleopStudio 不是简单录屏工具，而是标准化采集工位：操作员输入、机器人执行、双相机同步、边缘缓存、episode 时间轴和云端上传都在同一张工作台上完成。</p>
+            <p>相机不同步、reset 不一致、失败没标注、动作流丢帧、操作者差异过大，最后 CloudTwin 拿到的不是数据资产，而是一堆不可比较的文件。后面的云训练再强，也救不回来坏数据。</p>
           </div>
-          <div class="grid five">
+          <div class="grid four">
             <article class="card">
-              <h3>Operator</h3>
-              <p>手柄、leader arm、键鼠、手机或 3D mouse，优先选择比赛阶段最稳输入。</p>
+              <span class="claim-tag">痛点 1</span>
+              <h3>录制流程靠人记</h3>
+              <p>任务说明、起点、目标、reset、变化维度和成功标准没有写进 session，换一个操作员就变成另一个数据分布。</p>
             </article>
             <article class="card">
-              <h3>Capture Cell</h3>
-              <p>机械臂、托盘、固定光照、相机支架、标定板和 reset tray。</p>
+              <span class="claim-tag">痛点 2</span>
+              <h3>视频和动作不同步</h3>
+              <p>多相机、关节状态、夹爪状态、base motion、teleop action 和安全事件没有统一时间轴，训练时无法判断动作原因。</p>
             </article>
             <article class="card">
-              <h3>Edge Recorder</h3>
-              <p>Qualcomm edge box 记录相机、动作、状态、时间戳和本地缓存。</p>
+              <span class="claim-tag">痛点 3</span>
+              <h3>失败样本被浪费</h3>
+              <p>人工接管、碰撞前停止、遮挡、动作抖动和 reset 失败常常被删掉，错过了最有价值的 HIL recovery 数据。</p>
             </article>
             <article class="card">
-              <h3>Dataset</h3>
-              <p>自动生成 LeRobot-compatible episode、任务说明和 robot profile。</p>
+              <span class="claim-tag">痛点 4</span>
+              <h3>训练前没有验收</h3>
+              <p>数据没有 frame count、timestamp skew、metadata、visibility、action shape 和 privacy gate，就会把 GPU 预算浪费在坏数据上。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Why Now</p>
+              <h2>机器人学习的竞争正在从模型 demo，转向真实数据供应链。</h2>
+            </div>
+            <p>LeRobot 已经把真实机器人 teleoperate、record、replay、train 和 evaluate 变成开发者可用工作流；ALOHA、Mobile ALOHA、DROID 和 Open X-Embodiment 证明了高质量示教数据的价值；Qualcomm Dragonwing 和 AI Hub 则给端侧采集、预处理和部署证据提供了硬件落点。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <span class="claim-tag">开源时机</span>
+              <h3>LeRobot 给了统一出口</h3>
+              <p>TeleopStudio 不替代 LeRobot，而是把现场 session、operator workflow、质量门禁和 provenance 接到 LeRobotDataset v3。</p>
             </article>
             <article class="card">
-              <h3>Cloud Handoff</h3>
-              <p>中国云或海外云 adapter 接收数据，启动 CloudTwin 训练队列。</p>
+              <span class="claim-tag">数据时机</span>
+              <h3>真实 episode 成为稀缺供给</h3>
+              <p>DROID、Open X-Embodiment 等项目说明行业正在向大规模、多机器人、可复用的真实轨迹数据靠拢。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">边缘时机</span>
+              <h3>采集端也需要边缘 AI</h3>
+              <p>低延迟预览、多相机同步、本地缓存、隐私过滤和质量检查都发生在机器人旁边，天然适合 Qualcomm edge box。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Solution</p>
+              <h2>把遥操作 session 变成一条可审计的数据生产线。</h2>
+            </div>
+            <p>TeleopStudio 的核心洞察是：真正稀缺的不是又一个遥操作 UI，而是合格的人机交互 episode 供应。每条 episode 都要有任务、相机、动作、状态、操作员、reset、成功/失败、接管、hash、region 和可训练性评分。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Plan</h3>
+              <p>选择任务、robot profile、variation plan、操作员、相机、reset 协议和数据地域。</p>
+            </article>
+            <article class="step">
+              <h3>Capture</h3>
+              <p>同步记录多相机、state/action、teleop input、时间戳、安全事件和本地缓存。</p>
+            </article>
+            <article class="step">
+              <h3>Gate</h3>
+              <p>自动拒绝遮挡、丢帧、metadata 缺失、动作跳变、过短 episode 和隐私违规。</p>
+            </article>
+            <article class="step">
+              <h3>Export</h3>
+              <p>输出 LeRobotDataset、MCAP/ROS bag、dataset card、manifest 和训练 job contract。</p>
+            </article>
+            <article class="step">
+              <h3>Loop</h3>
+              <p>进入 TrainRouter 训练，失败和接管片段回流为下一轮高价值示教样本。</p>
             </article>
           </div>
           <div class="image-band">
@@ -70,103 +136,181 @@
         </div>
       </section>
 
-      <section id="quality" class="slide tint">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <p class="kicker">02 · Data Quality Gates</p>
-              <h2>不是每条示教都应该进入训练集。</h2>
-            </div>
-            <p>商业客户不会接受“多录一点再说”。TeleopStudio 在采集时就检查画面、动作、结果、重置、接管和权限，让数据在进入 GPU 训练前先具备最低可信度。</p>
-          </div>
-          <div class="grid six">
-            <article class="card">
-              <h3>Sync</h3>
-              <p>相机帧、关节状态、夹爪状态和 action stream 对齐。</p>
-            </article>
-            <article class="card">
-              <h3>Visibility</h3>
-              <p>检查样品、末端执行器、目标位和关键动作是否被遮挡。</p>
-            </article>
-            <article class="card">
-              <h3>Outcome</h3>
-              <p>每个 episode 标注成功、失败、接管、异常和重置原因。</p>
-            </article>
-            <article class="card">
-              <h3>Motion</h3>
-              <p>识别过度抖动、动作跳变、速度越界和非任务动作。</p>
-            </article>
-            <article class="card">
-              <h3>Lineage</h3>
-              <p>保留操作员、设备、任务、场景、版本和客户数据边界。</p>
-            </article>
-            <article class="card">
-              <h3>Privacy</h3>
-              <p>本地脱敏、私有数据隔离和企业项目权限管理。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="contract" class="slide dark">
+      <section class="slide tint">
         <div class="wrap split">
           <div>
-            <p class="kicker">03 · LeRobot Contract</p>
-            <h2>把人类示教转成云训练能直接消费的数据合约。</h2>
-            <p class="lead">TeleopStudio 的输出不是一堆视频文件，而是带 metadata、robot profile、任务描述、成功标签、失败样本和版本号的 LeRobot-compatible dataset。</p>
+            <p class="kicker">04 · Product</p>
+            <h2>第一版不追求万能，先把 50 条干净 episode 做成产品。</h2>
+            <p class="lead">从桌面机械臂样品转移、扫码、pick-place 这类窄任务开始，像早期 marketplace 一样先手工把供给标准化。目标不是录最多数据，而是提高每小时 valid episode yield。</p>
             <ul class="list">
-              <li>每个 episode 绑定 robot profile、相机配置和 action schema。</li>
-              <li>每个任务绑定自然语言描述、起点、目标、重置协议和验收标准。</li>
-              <li>每个 dataset 绑定客户权限、版本记录、训练 job 和回滚路径。</li>
-              <li>失败片段自动回流，成为下一轮 DataFlywheel 的最高价值样本。</li>
+              <li>操作员工位：手柄、leader arm、SpaceMouse、键鼠或移动端输入。</li>
+              <li>采集单元：固定光照、相机支架、标定板、reset tray 和任务道具。</li>
+              <li>Qualcomm Edge Recorder：低延迟预览、时间戳、本地缓存、断网保护和边缘质量检查。</li>
+              <li>LeRobot Adapter：输出数据集、dataset card、训练命令和 CloudTwin handoff。</li>
             </ul>
           </div>
           <div class="visual">
-            <img src="../assets/teleop-studio.png" alt="LeRobot 示教数据采集和云训练交接图">
+            <img src="../assets/teleop-studio.png" alt="遥操作工位、边缘记录器和 LeRobot 数据导出流程图">
           </div>
         </div>
       </section>
 
-      <section id="qualcomm" class="slide white">
+      <section id="market" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · Qualcomm Edge Value</p>
-              <h2>数据采集工位也应该强化 Qualcomm 的必要性。</h2>
+              <p class="kicker">05 · Market & Business Model</p>
+              <h2>客户买的不是遥控器，而是更快得到可训练数据。</h2>
             </div>
-            <p>TeleopStudio 让 Qualcomm 参与训练闭环的第一步：低延迟预览、相机同步、本地缓存、安全状态、边缘预处理和断网可运行，都发生在机器人本体侧。</p>
+            <p>首批客户不是所有机器人公司，而是正在把 demo 变成交付的团队：机器人初创、AI manipulation lab、OEM、系统集成商、高校课程和企业 4-8 周试点。IFR 2025 的工业机器人和服务机器人数据说明市场已有机器人存量，缺的是把机器人变成持续学习资产的工作流。</p>
           </div>
           <div class="grid four">
-            <div class="stat">
-              <strong>Low Latency</strong>
-              <span>操作员需要稳定预览和即时反馈，不能把控制闭环交给不稳定公网。</span>
-            </div>
-            <div class="stat">
-              <strong>Sensor Sync</strong>
-              <span>多相机、关节状态、夹爪状态和动作流在边缘侧统一记录。</span>
-            </div>
-            <div class="stat">
-              <strong>Private Data</strong>
-              <span>企业客户可以先本地缓存、脱敏、筛选，再决定是否上云训练。</span>
-            </div>
-            <div class="stat">
-              <strong>Skill Path</strong>
-              <span>数据进入 CloudTwin、EdgeRuntimeBench、SkillCertKit 和 SkillDock。</span>
-            </div>
+            <article class="card">
+              <span class="claim-tag">Developer / BYO</span>
+              <h3>软件订阅</h3>
+              <p>面向已有机器人团队，提供 teleop UI、recorder、dataset export、ROS 2/Python adapter 和基础 QA。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Research Station</span>
+              <h3>单臂/双臂工位</h3>
+              <p>面向实验室和初创团队，按工作站销售硬件、相机、标定、采集软件、支持和数据质量报告。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">SI Pilot</span>
+              <h3>集成商试点</h3>
+              <p>4-8 周固定交付包，把客户现场任务采成数据集，并接入 CloudTwin / TrainRouter 训练。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Enterprise Lane</span>
+              <h3>企业私有部署</h3>
+              <p>私有存储、权限、审计、数据不出域、操作员管理、质量门禁和 China / Overseas 双版本。</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="slide white">
+      <section id="moat" class="slide tint">
         <div class="wrap">
-          <p class="quote">TeleopStudio 把“我们录了一些示教”变成“客户拥有一台持续生产机器人技能数据的机器”。</p>
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Competition & Moat</p>
+              <h2>我们不做第 N 个遥操作工具，而做机器人学习的数据运营层。</h2>
+            </div>
+            <p>LeRobot 是开源格式和训练底座；Trossen/ALOHA、GELLO、Quest/SpaceMouse 是硬件和输入方式；Formant、Viam 是更宽的 fleet ops；Foxglove、Rerun 是数据可视化和日志；NVIDIA Isaac/GR00T 强在仿真与合成数据。TeleopStudio 的位置是：真实世界 human-in-the-loop session 到 model-ready dataset 的质量控制层。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <span class="claim-tag">短期壁垒</span>
+              <h3>任务模板和 QC gate</h3>
+              <p>每个任务都有 variation plan、reset protocol、相机配置、成功标准、拒绝规则和 dataset card 模板。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">中期壁垒</span>
+              <h3>operator yield 和 failure taxonomy</h3>
+              <p>记录每小时有效 episode、失败原因、接管类型、reset 摩擦和操作员质量，持续提高数据产出效率。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">长期壁垒</span>
+              <h3>skill release graph</h3>
+              <p>追踪哪些任务、相机、硬件、数据质量和 policy 组合能稳定部署到哪些 Qualcomm edge target。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Why Qualcomm</p>
+              <h2>Qualcomm 不只应该是推理目标，也应该成为数据原点。</h2>
+            </div>
+            <p>TeleopStudio 让 Dragonwing / RB3 / QCS edge board 站在机器人学习闭环第一步：相机接入、时间戳、低延迟预览、边缘预处理、隐私过滤、断网缓存和数据 lineage 都从端侧开始。这样后续 AI Hub、QNN/QAIRT 和 SkillDock 才有可信输入。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Record</strong>
+              <span>多相机、state/action、teleop input 和安全事件在端侧形成 episode manifest。</span>
+            </div>
+            <div class="stat">
+              <strong>Check</strong>
+              <span>端侧检测模糊、遮挡、丢帧、动作抖动、隐私风险和本地存储状态。</span>
+            </div>
+            <div class="stat">
+              <strong>Train</strong>
+              <span>合格数据进入 CloudTwin 和 TrainRouter，按 China / Overseas lane 训练。</span>
+            </div>
+            <div class="stat">
+              <strong>Deploy</strong>
+              <span>训练结果回到 AI Hub / QNN / QAIRT / ONNX Runtime QNN 证据链。</span>
+            </div>
+          </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>多相机与时间戳验证</h3>
+              <p>确认 RB3 / Dragonwing 采集链路、编码、预览、同步和断网缓存的推荐实现。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>AI Hub / QNN 导出路径</h3>
+              <p>把由 TeleopStudio 采集的数据训练出的一个策略组件，跑通 compile/profile/deploy 证据。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>Robotics Hub 样例</h3>
+              <p>把“LeRobot capture to Qualcomm edge deployment”做成可复用开发者教程和比赛展示资产。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Demo & Evidence</p>
+              <h2>3 分钟演示证明：这不是机械臂表演，而是数据工厂。</h2>
+            </div>
+            <p>评委需要看到端到端证据：一次真实遥操作如何变成可训练 episode，坏数据如何被拒绝，接管如何变成高价值样本，最后如何交给 TrainRouter 和 Qualcomm edge release。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">0:00-0:45</span>
+              <h3>连接工位</h3>
+              <p>选择 robot profile、任务、三路相机、operator、variation plan、reset protocol 和数据地域。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">0:45-1:30</span>
+              <h3>采集 episode</h3>
+              <p>同屏展示相机预览、action/state timeline、timestamp skew、FPS、dropped frame 和安全状态。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">1:30-2:15</span>
+              <h3>拒绝坏数据</h3>
+              <p>故意制造遮挡或丢帧，QC gate 拒绝该 episode；人工接管片段变成 HIL recovery 样本。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">2:15-3:00</span>
+              <h3>导出训练合约</h3>
+              <p>生成 LeRobot dataset card、manifest、TrainRouter job 和 Qualcomm target profile。</p>
+            </article>
+          </div>
+          <p class="quote pipeline-extra">TeleopStudio 的一句话：把“我们录了一些示教”变成“客户拥有一台持续生产机器人技能数据的机器”。</p>
           <div class="source-links">
-            <a href="https://huggingface.co/docs/lerobot/index">LeRobot Docs</a>
+            <a href="https://huggingface.co/docs/lerobot/en/il_robots">LeRobot Robots</a>
             <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobotDataset v3</a>
-            <a href="https://arxiv.org/abs/2304.13705">ACT / ALOHA</a>
+            <a href="https://huggingface.co/blog/lerobot-datasets-v3">LeRobot dataset blog</a>
+            <a href="https://tonyzhaozh.github.io/aloha/">ALOHA / ACT</a>
             <a href="https://arxiv.org/abs/2401.02117">Mobile ALOHA</a>
-            <a href="https://arxiv.org/abs/2605.19138">COBALT</a>
-            <a href="../cloud-training/">CloudTwin</a>
+            <a href="https://droid-dataset.github.io/">DROID</a>
+            <a href="https://robotics-transformer-x.github.io/">Open X-Embodiment</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR 2025</a>
+            <a href="https://www.trossenrobotics.com/aloha-stationary">Trossen ALOHA</a>
+            <a href="https://docs.formant.io/docs/getting-started-teleoperation">Formant Teleop</a>
+            <a href="https://docs.viam.com/monitor/teleop-workspaces/">Viam Teleop</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">RB3 Gen 2</a>
           </div>
         </div>
       </section>
