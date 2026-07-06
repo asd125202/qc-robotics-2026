@@ -1,133 +1,190 @@
 # RobotAppLayer Pitch
 
-更新时间：2026-07-05。
+更新时间：2026-07-06。
 
-## Core Thesis
+## One-Line Thesis
 
-如果目标是“机器人世界的 Mac/Windows”，最终用户不应该每天处理开发板、电源、驱动、ROS topic、训练脚本和 GPU 云细节。
+RobotAppLayer 是 ROS 2 和 LeRobot 之上的机器人应用 ABI：让开发者像发布手机应用一样发布机器人技能，并把签名包、权限、兼容性、仿真评测、Qualcomm edge profile、上架、计费和回滚做成统一流程。
 
-RobotAppLayer 是放在底座之上的应用层：
+## 01 · Problem
 
-- 给应用开发者一个稳定 SDK。
-- 把 ROS 2、LeRobot、SkillDock、EdgeFleet 和 Qualcomm edge deployment 封装在后面。
-- 让上层开发者写“任务应用”，而不是从硬件接口开始集成。
+今天写一个机器人应用，仍然像重新做系统集成。
 
-一句话：
+- 应用开发者想写巡检、配送、实验室样品转移、教学课程或现场运维，却先被相机、夹爪、电机、ROS topic、launch file、QoS、driver bring-up 和模型部署拦住。
+- 企业客户需要权限、安全边界、审计、数据归属、回滚和责任证明，但机器人应用通常还停留在脚本和项目文件夹阶段。
+- 开发者没有可信兼容性、认证、分发、试用、授权、用量计费和收入分成，生态就很难越过一次性项目。
 
-> 硬件底座解决机器人能不能跑，AppLayer 解决开发者能不能像写软件一样构建机器人应用。
+## 02 · Current Alternatives Fail
 
-## Why It Matters
+RobotAppLayer 不应该被描述成“另一个 robot OS”。更强的定位是：中立应用层和分发层。
 
-机器人商业化很难扩张的一个原因是：每个项目都像系统集成。
+- ROS 2：必要中间件，提供 topic、service、action、lifecycle、QoS 和 DDS security，但不是 app store、权限系统、计费系统或认证市场。
+- Open-RMF / VDA 5050：适合多机调度、设施协调和 AMR/AGV 协议，不负责技能包、模型、权限、上架和收益分成。
+- Foxglove / MCAP：强化观测、日志和物理 AI 数据，但不决定应用能否安装、运行、回滚和收费。
+- Viam / Intrinsic：最接近机器人开发平台方向，但更偏自有 runtime、企业工作站或工业自动化。
+- NVIDIA Isaac / GR00T：强化 GPU-first 仿真、ROS 加速和 foundation model，不是 Qualcomm-native 的技能分发和边缘证据层。
+- OEM app stores：UR+、KUKA、FANUC、ABB、PUDU、Unitree 都证明生态方向成立，但多数锁在单一硬件品牌。
 
-开发者必须理解：
+## 03 · Solution
 
-- 机器人型号。
-- 相机和电机接口。
-- ROS 2 通信。
-- 数据采集格式。
-- 模型训练和部署。
-- 任务调度和日志。
+RobotAppLayer 定义 `.rap` 应用包和 RobotKit 稳定 API。
 
-如果这些都暴露给应用开发者，平台就很难像 Mac/Windows/手机那样形成生态。
+`.rap` bundle 包含：
 
-RobotAppLayer 的目标是让开发者调用高层能力：
+- app id、publisher signature、version、SBOM。
+- container image、launch graph、ROS interface map。
+- LeRobot policy/model references。
+- supported robot profiles、resource budgets、simulation tests。
+- safety limits、permission declarations、billing SKU、rollback target。
 
-- observe：看见场景。
-- move：移动或执行动作。
-- grasp：抓取和放置。
-- train：用现场数据训练技能。
-- deploy：把技能部署到本体。
-- monitor：观察任务结果和失败。
+RobotKit facade 暴露：
 
-## Layer Model
+- `observe`
+- `move`
+- `grasp`
+- `speak`
+- `record`
+- `train`
+- `profile`
+- `install`
+- `monitor`
+- `rollback`
 
-### 1. Hardware Abstraction
+底层仍然可以映射到 ROS 2 nodes/actions/services、Open-RMF、VDA 5050、MCAP/Foxglove、LeRobot Dataset v3、Qualcomm AI Hub/QNN/ONNX Runtime QNN 和 EdgeFleet。
 
-把机械臂、移动底盘、相机、夹爪、电源和 IO 归一化成设备能力，而不是裸驱动。
+## 04 · Why Now
 
-### 2. ROS Bridge
+机器人正在进入“应用生态”阶段，但还没有通用运行时。
 
-保留 ROS 2 的生态价值，但不要求每个上层开发者直接处理 topic、service、action 和 launch 文件。
+- ROS 2 基础设施已经足够成熟，可以作为应用层映射的底座。
+- LeRobot 把数据采集、策略训练、HIL 和低成本机器人带给更大开发者群体。
+- Foxglove / MCAP 把物理 AI 数据工作流标准化。
+- VDA 5050 v3.0.0、Open-RMF 和 fleet orchestration 让多机器人部署更接近标准化。
+- UR+、KUKA、FANUC、ABB、PUDU、Unitree、Hugging Face Reachy Mini 和 OpenMind 等信号表明“机器人应用商店”正在成为用户能理解的形态。
+- Qualcomm Dragonwing / RB3 / IQ10 RRD 给了 edge-first 机器人应用一个清晰硬件 target。
 
-### 3. Skill Runtime
+## 05 · Product
 
-把训练出的策略和手写任务逻辑封装成技能包，统一安装、权限、版本和回滚。
+第一版不要宣称支持所有机器人。先服务 ROS 2 + LeRobot + Qualcomm edge 的可控子集，从低风险应用开始：
 
-### 4. Data API
+- 数据采集和现场失败回流。
+- 巡检和远程运维。
+- 实验室样品转移。
+- 教学和开发者课程。
+- 低力矩操作技能。
 
-现场数据、失败片段、任务结果和评估指标进入 DataFlywheel，而不是散落在项目文件夹里。
+产品模块：
 
-### 5. Fleet API
+- RobotApp SDK：Python / TypeScript API。
+- Permission Manifest：物理权限、ODD、ROS/DDS 边界、网络和云训练授权。
+- Compatibility Registry：robot profile、sensor、effector、ROS distro、LeRobot version、Qualcomm target、runtime、compute budget。
+- Certification CI：MCAP replay、Gazebo/Isaac 仿真、HIL、碰撞/接管/成功率门槛、QNN profile、SBOM、rollback test。
+- SkillDock Store：公开市场、企业私有商店、OEM 商店、试用、订阅、用量计费和开发者分成。
+- EdgeFleet Runtime：签名安装、灰度、遥测、事故包、数据回流、版本回滚和客户现场审计。
 
-单机任务和多机运维都通过 EdgeFleet 管理设备状态、日志、更新和异常。
+## 06 · Product API Objects
 
-### 6. Edge Deployment
+- `RobotProfile`：ROS domain、namespace、lifecycle、传感器、夹爪、底盘、机械臂、E-stop、RB3/QCS6490/QCS8550/IQ10 target。
+- `TaskContract`：任务阶段、前置条件、成功标准、人工接管、失败标签、MCAP 记录和 LeRobot episode 生成策略。
+- `SkillManifest`：app id、publisher、签名、版本、容器、ROS interface map、LeRobot policy、rollback target 和 billing SKU。
+- `PermissionPolicy`：允许 camera/map/navigate/grasp；禁止 raw motor、E-stop reset、人体接触和未授权 cloud upload。
+- `LeRobotPolicyBinding`：dataset、checkpoint、processors、action Hz、HIL/DAgger 策略和失败样本回流。
+- `QualcommEdgeProfile`：QNN context binary、ONNX Runtime QNN、input shape、p95 latency、memory、compute unit 和 AI Hub profile evidence。
+- `EvalHook`：MCAP replay、Gazebo/Isaac、hardware-in-loop、扰动测试和 success/intervention/collision gates。
+- `AppRelease`：install checks、canary rollout、active/degraded 状态、incident capsule、fleet metrics、entitlement 和 rollback。
 
-最终模型部署目标是 Qualcomm edge runtime。云端训练不改变本体侧执行 API。
+## 07 · Market & Business Model
 
-## Developer Personas
+买方不是普通终端消费者，而是 robot OEM、系统集成商、企业开发团队、教育/研究机构和应用开发者。
 
-### Robotics Builder
+中国版：
 
-想要接底层能力，但不想重复搭建电源、相机、驱动和部署链路。
+- OEM bundle。
+- SI 私有部署。
+- 教育/比赛套件。
+- 低 take-rate 技能市场。
+- 云训练和边缘部署用量。
 
-### AI Researcher
+海外版：
 
-想要快速采集 LeRobot 数据、训练策略、部署到真实机器人验证。
+- 企业控制平面。
+- 认证 marketplace。
+- 私有商店、SSO、审计和合规。
+- 支持 SLA。
+- certified partner app 和集成包。
 
-### Enterprise Integrator
+定价假设：
 
-想要把机器人接入客户流程、权限、日志和验收文档。
+- 免费 SDK、模拟器适配、样例应用和公开 listing。
+- Team / Pro：每开发者每月 49-149 美元，包含私有应用、CI 验证、日志、权限和仿真任务。
+- Production runtime：每台活跃机器人每月 50-250 美元，包含部署、遥测、权限、回滚和审计。
+- Enterprise site license：每站点每年 25k-150k 美元，包含私有市场、SSO、合规、on-prem/private cloud、WMS/MES 集成和 SLA。
+- Marketplace take rate：付费应用/技能 15%-30%，工业场景可以降低 take rate 并增加认证费。
+- Certification fees：标准应用 1k-5k 美元，高安全/高合规应用 10k+ 美元。
 
-### App Developer
+## 08 · Competition & Moat
 
-想要写具体应用：巡检、配送、实验室流程、教学课程，而不是重写机器人底层。
+壁垒不是“封装 ROS”。壁垒是可信应用生态的复利。
 
-## Product Surface
+- App ABI：比 topic 更稳定的 RobotKit 能力接口。
+- Permission taxonomy：物理动作、数据、网络、云训练和人工接管形成可审计权限图。
+- Compatibility matrix：机器人型号、传感器、执行器、ROS distro、LeRobot policy 和 Qualcomm target 的兼容证据。
+- Certification corpus：仿真、HIL、MCAP replay、事故回放和安全门禁积累失败模式。
+- Marketplace gravity：开发者、SI、OEM、企业客户和教育用户共享安装、试用、授权和分成流程。
+- Qualcomm evidence：AI Hub/QNN profile、低功耗边缘运行、连接、安全启动和 device attestation 成为上架门槛。
 
-RobotAppLayer 可以呈现为：
+## 09 · Why Qualcomm
 
-- Web 控制台。
-- Python SDK。
-- ROS 2 bridge package。
-- Skill manifest。
-- Dataset schema。
-- Edge deployment CLI。
-- 企业权限和日志 API。
+Qualcomm 的机会不是只把开发板卖给机器人开发者，而是成为机器人应用默认 target。
 
-初赛不需要全部实现，但需要把接口边界画清楚。
+RobotAppLayer 可以把 Qualcomm 放进每个 app release：
 
-## Competition Demo
+- `target_profile`: `rb3-gen2`, `qcs6490`, `qcs8550`, `iq10-rrd`
+- `runtime`: `qnn_context_binary`, `onnxruntime-qnn`, `tflite`, `qairt`
+- `evidence`: AI Hub compile/profile/inference metrics, latency, memory, compute-unit use
+- `secure_install`: signed skill bundle, permissions, rollback, device attestation
+- `marketplace`: Dragonwing-ready skill cards
 
-建议 demo 做一个可解释的三层结构：
+近期目标用 RB3 Gen 2 / QCS6490 做比赛和早期验证。IQ10 RRD 作为 forward profile，不把 2026 年 7 月的 demo 绑定在尚未大规模可得的未来硬件上。
 
-1. 上层应用：LabForge 样品转移 app。
-2. 中间层：RobotAppLayer 调用 observe、grasp、train、deploy、monitor。
-3. 底层：ROS 2 / LeRobot / Qualcomm edge runtime。
+## 10 · Demo & Ask
 
-评委看到的是：
+7 分钟 demo：
 
-- 这不是一次性机械臂脚本。
-- 这是一套能让其他应用复用的机器人软件平台。
-- Qualcomm 支持这个平台，能获得更多默认部署目标。
+1. `robotapp init lab-transfer --target rb3-gen2` 生成 `.rap`、RobotProfile、权限和 TaskContract。
+2. 展示应用代码调用 `observe / grasp / record`，而不是直接操纵 raw motor topic。
+3. 运行 LabForge 样品转移任务并生成 MCAP + LeRobot Dataset v3 episode。
+4. 模拟失败和人工接管，把失败片段送回训练。
+5. 导出策略，通过 AI Hub / QNN / ONNX Runtime QNN 生成 edge evidence。
+6. SkillCertKit 通过后进入 SkillDock skill card。
+7. EdgeFleet 灰度安装；异常时生成 incident capsule 并回滚。
 
-## Why Qualcomm Should Care
+向高通要：
 
-开发者生态不是让大家买一次开发板，而是让应用开发者默认把 Qualcomm edge 当作机器人策略运行目标。
-
-RobotAppLayer 能把 Qualcomm 放在三个入口：
-
-- SDK 默认 target。
-- Skill package 默认 edge runtime。
-- 企业部署默认设备 profile。
-
-这比单个 demo 更有生态价值。
+- 6-8 周联合验证 sprint。
+- RB3 Gen 2 / QCS6490 硬件 target。
+- AI Hub / QNN / QAIRT office hours。
+- Robotics Hub 发布指导。
+- IQ10 RRD roadmap 指导。
+- 5-10 个 OEM/SI/开发者访谈。
 
 ## Sources
 
-- ROS 2 documentation：https://docs.ros.org/
-- OSRF multi-robot / Open-RMF book：https://osrf.github.io/ros2multirobotbook/
-- LeRobot documentation：https://huggingface.co/docs/lerobot/index
-- Qualcomm AI Hub：https://aihub.qualcomm.com/
-- Qualcomm RB3 Gen 2 Development Kit：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- ROS 2 Actions：https://design.ros2.org/articles/actions.html
+- ROS 2 Lifecycle：https://design.ros2.org/articles/node_lifecycle.html
+- ROS 2 DDS Security：https://design.ros2.org/articles/ros2_dds_security.html
+- Open-RMF：https://www.open-rmf.org/
+- VDA 5050：https://www.vda.de/en/topics/automotive-industry/vda-5050
+- MCAP：https://mcap.dev/
+- Foxglove：https://foxglove.dev/
+- Viam：https://docs.viam.com/what-is-viam/
+- Intrinsic Flowstate：https://www.intrinsic.ai/flowstate
+- NVIDIA Isaac ROS：https://developer.nvidia.com/isaac/ros
+- LeRobot：https://huggingface.co/docs/lerobot/en/index
+- LeRobot Dataset v3：https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3
+- Qualcomm AI Hub：https://workbench.aihub.qualcomm.com/docs/
+- ONNX Runtime QNN：https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html
+- Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
+- Dragonwing IQ10 RRD：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
+- Universal Robots UR+：https://www.universal-robots.com/marketplace/
+- PUDU Open Platform：https://open.pudutech.com/en
