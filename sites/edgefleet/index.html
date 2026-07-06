@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EdgeFleet | 机器人队列运维平台</title>
+    <title>EdgeFleet | Qualcomm-first 机器人队列证据控制平面</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-green">
@@ -14,21 +14,25 @@
       </a>
       <nav class="navlinks" aria-label="页面导航">
         <a href="#problem">问题</a>
-        <a href="#fleet">队列</a>
-        <a href="#safety">安全</a>
-        <a href="#value">商业</a>
+        <a href="#why-now">为什么现在</a>
+        <a href="#solution">方案</a>
+        <a href="#evidence">证据</a>
+        <a href="#market">商业</a>
+        <a href="#moat">壁垒</a>
+        <a href="#qualcomm">高通</a>
+        <a href="#demo">演示</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-edgefleet">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 06 · Fleet Operations</p>
+          <p class="eyebrow">Pitch 06 · Fleet Evidence Control Plane</p>
           <h1>EdgeFleet</h1>
-          <p class="hero-lede">企业买机器人之后，真正的挑战才开始：谁在运行、哪个模型在跑、故障片段在哪里、下一次训练如何改进。EdgeFleet 把机器人队列变成可维护的边缘设备。</p>
+          <p class="hero-lede">机器人商业化的瓶颈正在从“能不能训练”转向“能不能运营”。EdgeFleet 把 LeRobot 数据、AI Hub/QNN 产物、Dragonwing 设备、灰度发布、远程协助、事故回放和训练回流串成一条 Qualcomm-first 队列证据链。</p>
           <div class="cta-row">
-            <a class="button primary" href="#fleet">队列能力</a>
-            <a class="button" href="../eduforge/">查看教育套件版本</a>
+            <a class="button primary" href="#problem">从上线风险开始</a>
+            <a class="button" href="../dragonworks/">连接 DragonWorks</a>
           </div>
         </div>
       </section>
@@ -37,119 +41,346 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">01 · Enterprise Risk</p>
-              <h2>机器人商业化失败，常常不是因为模型不会跑，而是因为运维不可控。</h2>
+              <p class="kicker">01 · Problem</p>
+              <h2>客户不买 demo 视频，客户买可运营、可回滚、可审计的机器人劳动。</h2>
             </div>
-            <p>工厂、园区、学校和实验室不是买一台机器人拍视频，而是要让多台设备长期运行。EdgeFleet 把在线状态、日志、模型版本、技能版本、故障回放和训练回流放进同一个运维界面。</p>
+            <p>一台机器人能跑一次已经不够。企业真正追问的是：哪台机器在跑哪个模型？这次失败来自传感器、模型、网络、现场还是操作员？更新后表现变差能否回滚？事故前后有没有证据？这些问题回答不了，机器人就停在试点。</p>
           </div>
-          <div class="grid three">
+          <div class="grid five">
             <article class="card">
-              <h3>运行不可见</h3>
-              <p>设备在线，但不知道当前技能版本、模型版本、资源占用和异常原因。</p>
+              <span class="claim-tag">风险 1</span>
+              <h3>版本黑箱</h3>
+              <p>技能、模型、QNN artifact、OS image、地图、相机和参数分散记录，现场没人能还原真实状态。</p>
             </article>
             <article class="card">
-              <h3>更新不可控</h3>
-              <p>模型更新后表现变差，缺少回滚、灰度、兼容性和边缘性能检查。</p>
+              <span class="claim-tag">风险 2</span>
+              <h3>更新失控</h3>
+              <p>云端训练的新策略直接上线，缺少 shadow、canary、健康门、previous-known-good 和 rollback 证据。</p>
             </article>
             <article class="card">
-              <h3>经验不回流</h3>
-              <p>失败片段没有进入下一轮训练，真实运行数据无法持续改善机器人能力。</p>
+              <span class="claim-tag">风险 3</span>
+              <h3>事故不可复盘</h3>
+              <p>视频、ROS topic、MCAP、操作员动作、模型 hash 和设备状态没有被打包成可校验时间线。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">风险 4</span>
+              <h3>远程协助无边界</h3>
+              <p>远程接管容易变成“人在公网开机器人”，没有 TTL、权限、速率限制、本体安全门和审计日志。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">风险 5</span>
+              <h3>现场经验不回流</h3>
+              <p>失败片段、低置信度、人工接管和站点瓶颈没有进入下一轮 LeRobot 数据集与训练任务。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="fleet" class="slide tint">
-        <div class="wrap split">
-          <div>
-            <p class="kicker">02 · Fleet Loop</p>
-            <h2>监控不是目的，持续变好才是目的。</h2>
-            <p class="lead">EdgeFleet 的核心不是远程遥控机器人，而是让机器人运行状态变成可评估、可训练、可部署的产品数据。</p>
-            <ul class="list">
-              <li>设备视图：在线、温度、电量、算力占用、传感器状态。</li>
-              <li>技能视图：已安装技能、版本、目标硬件、评估报告。</li>
-              <li>事件视图：失败片段、人类接管、异常日志、视频回放。</li>
-              <li>更新视图：灰度部署、回滚、边缘性能验证。</li>
-              <li>训练视图：把运行数据送回 LeRobot CloudTwin。</li>
-            </ul>
-          </div>
-          <div class="visual">
-            <img src="../assets/edgefleet-ops.png" alt="EdgeFleet 机器人队列运维图">
-          </div>
-        </div>
-      </section>
-
-      <section id="safety" class="slide dark">
+      <section id="why-now" class="slide dark">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">03 · Safety Boundary</p>
-              <h2>可以云端管理，但不能公网闭环控制。</h2>
+              <p class="kicker">02 · Why Now</p>
+              <h2>机器人从试点走向队列，运维证据会先商业化。</h2>
             </div>
-            <p>这是比赛方案必须清楚写出的安全原则：云端负责监控、日志、训练、模型发布和远程演示；机器人本体的感知、策略、安全边界和运动控制必须在 Qualcomm 边缘设备本地运行。</p>
+            <p>IFR 2025 报告显示，2024 年全球工业机器人新增安装约 54.2 万台，中国占全球新增部署约 54%；专业服务机器人销量接近 20 万台，RaaS fleet 增长 31%。LeRobot Dataset v3 把多模态 episode、传感器信号、多相机视频和元数据标准化；Qualcomm AI Hub Workbench 可以把模型 compile/profile 到目标设备。市场需要的下一层，是从 checkpoint 到客户现场的证据控制平面。</p>
           </div>
           <div class="grid four">
             <div class="stat">
-              <strong>本地</strong>
-              <span>感知、策略、控制、急停和安全回退在本体运行。</span>
+              <strong>542K</strong>
+              <span>IFR：2024 年全球工业机器人新增安装约 54.2 万台。</span>
             </div>
             <div class="stat">
-              <strong>云端</strong>
-              <span>训练、评估、版本、日志和非安全关键监控。</span>
+              <strong>RaaS +31%</strong>
+              <span>IFR：专业服务机器人租赁/订阅队列增长，买家正在接受运营化采购。</span>
             </div>
             <div class="stat">
-              <strong>回滚</strong>
-              <span>每个技能更新都保留稳定版本和失败回退路径。</span>
+              <strong>LeRobot v3</strong>
+              <span>多模态时间序列、传感器动作、视频和元数据给训练血缘提供基础。</span>
             </div>
             <div class="stat">
-              <strong>审计</strong>
-              <span>企业客户可以追踪模型、数据、操作和运行结果。</span>
+              <strong>AI Hub/QNN</strong>
+              <span>边缘延迟、内存、NPU 使用和 runtime profile 可以成为上线门禁。</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="value" class="slide white">
+      <section id="solution" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">04 · Commercial Value</p>
-              <h2>这条叙事最适合说服企业客户和系统集成商。</h2>
+              <p class="kicker">03 · Solution</p>
+              <h2>EdgeFleet 是 Qualcomm-powered robots 的 fleet evidence control plane。</h2>
             </div>
-            <p>EdgeFleet 让机器人不只是卖出硬件，而是进入长期维护合同、云训练订阅、技能更新和行业服务。它把一次性项目变成持续收入。</p>
+            <p>它不替代 OEM fleet manager、ROS 2、Open-RMF、Viam、Formant 或 Foxglove。它站在生产发布链路上，记录“这个技能为什么可以上线、在哪些 Dragonwing 设备上运行、出了问题如何复盘、下一轮训练如何改进”。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>卖套件</h3>
-              <p>Embodied Kit 作为硬件进入客户现场。</p>
+              <h3>Register</h3>
+              <p>注册 robot profile、Dragonwing/QCS/IQ target、OS image、ROS graph、sensor、actuator 和证书。</p>
             </article>
             <article class="step">
-              <h3>跑任务</h3>
-              <p>技能在本体运行，云端只做非安全关键监控。</p>
+              <h3>Release</h3>
+              <p>绑定 LeRobot dataset、training run、model digest、AI Hub profile、QNN/QAIRT artifact 和 SkillCertKit gate。</p>
             </article>
             <article class="step">
-              <h3>收数据</h3>
-              <p>失败、异常和接管片段进入训练回流。</p>
+              <h3>Rollout</h3>
+              <p>按站点、机型、任务和风险级别做 shadow、canary、staged rollout、pause 和 rollback。</p>
             </article>
             <article class="step">
-              <h3>发更新</h3>
-              <p>云训练生成新技能，边缘验证后灰度部署。</p>
+              <h3>Operate</h3>
+              <p>采集 autonomy rate、intervention rate、latency、thermal、battery、QoS、operator session 和 incident。</p>
             </article>
             <article class="step">
-              <h3>续收入</h3>
-              <p>运维、训练、技能和行业模板形成订阅。</p>
+              <h3>Learn</h3>
+              <p>把失败片段、接管片段和现场标签回流到 TeleopStudio、TrainRouter 和下一版 LeRobot dataset。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/edgefleet-ops.png" alt="EdgeFleet fleet evidence rollout and incident replay 控制台图">
+          </div>
+        </div>
+      </section>
+
+      <section id="evidence" class="slide tint">
+        <div class="wrap split">
+          <div class="visual">
+            <img src="../assets/edgefleet-ops.png" alt="机器人队列运行、灰度发布、事故回放和训练回流图">
+          </div>
+          <div>
+            <p class="kicker">04 · Product</p>
+            <h2>最核心的产品不是看板，而是 incident-to-training evidence loop。</h2>
+            <p class="lead">每台机器人运行 `edgefleet-agent` 作为 ROS 2 旁路代理：不替代本体 autonomy stack，不绕过安全控制器，只采集、门禁、协助、回放和回流。</p>
+            <ul class="list">
+              <li>`fleet-event.schema.json`：CloudEvents + OpenTelemetry 事件，包含 robot、skill、model、artifact、operator、safety state。</li>
+              <li>`skill-release.manifest.json`：dataset -> checkpoint -> AI Hub/QNN profile -> release cohort -> robot instance。</li>
+              <li>`incident-capsule.mcap`：触发前后 5-15 分钟 ROS/MCAP 缓冲、视频片段、控制命令、地图和参数快照。</li>
+              <li>`remote-assist.audit.jsonl`：WebRTC 会话、TTL、操作员身份、命令白名单、速率限制、本体 safety gate。</li>
+              <li>`rollback-record.json`：停止新技能、恢复 previous-known-good、运行 smoke test、发布 rollback completed 事件。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Market & Business Model</p>
+              <h2>先卖可用率、远程运维和证据，再扩成机器人劳动平台。</h2>
+            </div>
+            <p>第一批买家不是单店和个人开发者，而是已经把机器人放进生产、试点或售后体系的人：AMR/物流、巡检、清洁/物业、能源、制造、人形试点、机器人 OEM、系统集成商和 RaaS operator。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">中国版</span>
+              <h3>OEM/SI 出海运维层</h3>
+              <p>绑定中国机器人厂商、系统集成商和行业渠道，按设备/月、站点/年、私有化和白标收费，强调内网、国产云、企微/钉钉、权限审计和本地服务。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">海外版</span>
+              <h3>3PL/能源/制造 fleet ops</h3>
+              <p>面向 5-50 台 commercial pilot 和 50-500 台 rollout，按 robot/month、site/month、integration、evidence retention 和 remote ops 收费。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">平台化</span>
+              <h3>从观测到生产链路</h3>
+              <p>先做 fleet observability 和 incident capsule，再接 task orchestration、remote assist、SLA report、CMMS/WMS/ERP 和 outcome billing。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">渠道</span>
+              <h3>让集成商赚持续收入</h3>
+              <p>集成商不只赚一次性交付，EdgeFleet 给他们售后订阅、客户门户、远程诊断、升级记录和 SLA 复盘包。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="slide white">
+      <section class="slide dark">
         <div class="wrap">
-          <p class="quote">EdgeFleet 把机器人从“买回来的机器”变成“持续运营的边缘智能资产”。</p>
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · China / Global Stack</p>
+              <h2>同一套产品抽象，两套隔离部署。</h2>
+            </div>
+            <p>中国版默认独立 control plane，账号、密钥、遥测、视频、日志、模型输入输出、对象存储和审计留在中国区；全球版使用 Cloudflare 做入口和安全边界，AWS/GCP/Azure 与 GPU cloud 做控制面、训练和企业集成。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">中国 POC</span>
+              <h3>阿里云 / 腾讯云</h3>
+              <p>适合快速完成 ICP、K8s、对象存储、CDN/WAF、AI 服务、企微/钉钉集成和本地客户演示。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">强合规</span>
+              <h3>华为云 / 私有化</h3>
+              <p>面向工业、政企、园区和等保协同，输出系统边界、资产清单、日志留存、访问控制和测评材料。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">全球</span>
+              <h3>Cloudflare + Hyperscaler</h3>
+              <p>Cloudflare 负责 DNS/CDN/WAF/Zero Trust，控制面和企业集成走 AWS/GCP/Azure，GPU 训练走弹性 provider。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">边界</span>
+              <h3>跨境只同步低敏摘要</h3>
+              <p>默认不同步原始视频和工业遥测，只同步匿名指标、版本号、artifact hash、模型性能和非敏感运营摘要。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Competition & Moat</p>
+              <h2>EdgeFleet 不做又一个 RobOps dashboard，而做发布证据和现场复盘的系统记录。</h2>
+            </div>
+            <p>Formant、Viam、Foxglove、InOrbit、Boston Dynamics Orbit、NVIDIA Isaac、Open-RMF、MassRobotics、VDA 5050、中国 AMR/OEM 云平台都证明机器人运维有预算。EdgeFleet 的切入点是 Qualcomm-first edge evidence、LeRobot lineage、技能发布记录、远程协助审计和 incident-to-training loop。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <span class="claim-tag">短期壁垒</span>
+              <h3>release evidence schema</h3>
+              <p>把 model、skill、QNN artifact、robot profile、canary cohort、incident 和 rollback 放进同一证据图。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">中期壁垒</span>
+              <h3>connector compound</h3>
+              <p>WMS/MES/CMMS/ERP、ROS 2、Open-RMF、VDA 5050、MassRobotics、OEM API 和 charger/door/elevator adapters。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">长期壁垒</span>
+              <h3>field incident memory</h3>
+              <p>每次失败、接管、回滚、热降频、QoS deadline miss 和客户复盘都变成下一版门禁规则。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">生态壁垒</span>
+              <h3>Qualcomm hardware profile library</h3>
+              <p>Dragonwing / RB / QCS / IQ 设备的 runtime、camera、NPU、thermal、network 和离线运行证据持续积累。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Why Qualcomm</p>
+              <h2>EdgeFleet 把 Qualcomm 从“能跑模型的边缘芯片”提升为“能运营机器人队列的默认底座”。</h2>
+            </div>
+            <p>Qualcomm 的竞争位置不应只停在单机 benchmark。EdgeFleet 让每次客户上线都带着 Dragonwing target、AI Hub/QNN evidence、Device Cloud/Profile job、离线运行、远程诊断、回滚记录和现场失败回流。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>Attach</strong>
+              <span>每个 reference workflow 都绑定 Dragonwing / RB / QCS / IQ 设备和边缘 runtime profile。</span>
+            </div>
+            <div class="stat">
+              <strong>Adopt</strong>
+              <span>AI Hub / QNN / QAIRT 从开发工具变成上线门禁和客户证据。</span>
+            </div>
+            <div class="stat">
+              <strong>Prove</strong>
+              <span>比赛 demo 不只展示推理，而展示灰度、回滚、断网、远程协助和事故回放。</span>
+            </div>
+            <div class="stat">
+              <strong>Scale</strong>
+              <span>中国数据驻留版、全球多云版和离线私有版形成企业级参考架构。</span>
+            </div>
+          </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>Fleet validation sprint</h3>
+              <p>6-8 周用 2-3 台 Qualcomm target 跑通 skill install、canary、incident replay、rollback 和 QNN profile。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>AI Hub / Device Cloud quota</h3>
+              <p>把当前网页证据替换为真实 compile/profile/run logs，并标注 SDK、板卡、散热、电源和模型版本。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">需要高通支持</span>
+              <h3>Robotics Hub reference path</h3>
+              <p>把 EdgeFleet 作为 DragonWorks -> SkillCertKit -> SkillDock -> EdgeFleet 的生产闭环样板。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Demo & Evidence</p>
+              <h2>三分钟演示要证明：机器人出了问题，我们知道发生了什么、能回滚、还能训练下一版。</h2>
+            </div>
+            <p>初赛网页可以模拟完整证据；复赛拿到开发板后补真实 Qualcomm profile、端侧日志、视频、功耗、温度和回滚记录。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Enroll</h3>
+              <p>注册三台机器人：一台 canary、一台 stable、一台离线缓存。</p>
+            </article>
+            <article class="step">
+              <h3>Release</h3>
+              <p>上传 `dock-assist-v2`，展示 LeRobot dataset、QNN profile、SBOM、签名和兼容矩阵。</p>
+            </article>
+            <article class="step">
+              <h3>Canary</h3>
+              <p>只有电量、任务空闲、硬件 profile 和 safety gate 通过，才允许激活。</p>
+            </article>
+            <article class="step">
+              <h3>Incident</h3>
+              <p>触发低置信度或 QoS deadline miss，生成 MCAP、OTel、CloudEvents 和 operator audit。</p>
+            </article>
+            <article class="step">
+              <h3>Rollback</h3>
+              <p>回退到 previous-known-good，并把失败片段送回 TrainRouter。</p>
+            </article>
+          </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">可讲</span>
+              <h3>audit-ready</h3>
+              <p>EdgeFleet 帮助生成上线、运维、远程协助和事故复盘证据。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">谨慎</span>
+              <h3>不是安全认证</h3>
+              <p>它支持安全案例准备和审计，不替代 ISO/IEC/UL/TUV、现场风险评估或法律责任判断。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">边界</span>
+              <h3>不是万能 fleet controller</h3>
+              <p>MVP 先支持明确 robot profile、ROS 2/MCAP、指定 Qualcomm target 和受限技能类别。</p>
+            </article>
+          </div>
+          <p class="quote pipeline-extra">EdgeFleet 的一句话：把“机器人上线了”变成“每个模型、每次发布、每次失败、每次回滚都有 Qualcomm-first 证据”。</p>
           <div class="source-links">
-            <a href="https://ifr.org/worldrobotics/">IFR World Robotics</a>
-            <a href="https://www.qualcomm.com/developer/blog/2026/05/edge-ai-prototype-deployment-qualcomm-dragonwing-developer-ecosystem">Qualcomm Edge AI Deployment</a>
-            <a href="https://huggingface.co/docs/lerobot/index">LeRobot</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Industrial Robots 2025</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots 2025</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/profile_examples.html">Qualcomm AI Hub Profiling</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html">Qualcomm AI Hub Compile</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX Runtime QNN EP</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Dragonwing IQ10 Robotics Reference Design</a>
+            <a href="https://mcap.dev/spec">MCAP Spec</a>
+            <a href="https://cloudevents.io/">CloudEvents</a>
+            <a href="https://opentelemetry.io/docs/specs/semconv/">OpenTelemetry</a>
+            <a href="https://www.viam.com/platform/fleet-management">Viam Fleet</a>
+            <a href="https://docs.formant.io/docs/fleet-observability">Formant Fleet Observability</a>
+            <a href="https://foxglove.dev/product">Foxglove Product</a>
+            <a href="https://www.inorbit.ai/overview">InOrbit RobOps</a>
+            <a href="https://www.open-rmf.org/">Open-RMF</a>
+            <a href="https://www.massrobotics.org/what-is-the-massrobotics-amr-interoperability-standard/">MassRobotics AMR Interop</a>
+            <a href="https://www.vda.de/en/topics/automotive-industry/vda-5050">VDA 5050</a>
+            <a href="https://developers.cloudflare.com/china-network/">Cloudflare China Network</a>
+            <a href="https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm">CAC Data Export Rules 2024</a>
           </div>
         </div>
       </section>
