@@ -1,187 +1,231 @@
 # 机御 Zero Pitch
 
-更新时间：2026-07-05。网络安全、OT 安全、机器人安全、数据合规和远程运维要求变化很快；真实交付前必须按目标市场、客户等级、机器人类型和部署网络重新做威胁建模与合规复核。
+更新时间：2026-07-06。网络安全、OT 安全、机器人安全、数据合规和远程运维要求变化很快；真实交付前必须按目标市场、客户等级、机器人类型和部署网络重新做威胁建模与合规复核。
 
-## Core Thesis
+## One-Line Pitch
 
-机御 Zero 是面向机器人机群的动作级零信任安全平台：
+机御 Zero 是机器人动作级零信任平台：
 
-> 把零信任从“谁能访问系统”推进到“谁能让机器人动、能动到哪里、在什么状态下能动、动完如何取证”。
+> 远程运维能不能让机器人动，动了谁负责，出事后能不能回放。
 
-它不是通用 OT 安全仪表盘，也不是机器人杀毒软件。它解决的是具身智能商业化里的新问题：
+它不是通用 OT 安全大屏，也不是机器人杀毒软件。它把机器人、ROS/DDS 节点、操作员、更新包、模型、地图和远程会话都绑定到硬件根身份与运行时策略上，让每一次高风险动作先验证、再执行、可追溯。
 
-- 机器人不只是联网设备，它会移动、抓取、搬运、靠近人和连接产线。
-- ROS / DDS 节点、远程运维、OTA、模型、传感器、PLC、WMS/MES、微信工单和云训练都可能影响真实动作。
-- 企业采购正在从“能不能跑”转向“身份、固件、远程访问、漏洞、日志、数据和动作是否可信”。
-- Qualcomm 的安全启动、硬件身份、边缘 AI、连接和本体实时能力，适合做机器人信任根。
+## Required Deck Spine
 
-一句话：机御 Zero 让每台机器人、每个节点、每条运动指令都先验证、再执行、可追溯。
+### 01 · Problem
 
-## Five-Thread Research Synthesis
+机器人安全的终点不是网络访问，而是物理动作。
 
-### 1. Regulation And Threat Landscape
+- AMR、协作臂、服务机器人和巡检机器人会移动、抓取、升降、靠近人、进出门梯和连接产线。
+- ROS/DDS 节点、远程运维、OTA、模型、标定、地图、WMS/MES 和云训练都可能影响真实动作。
+- 客户要问的是：谁能发布 `/cmd_vel`、抓取、轨迹、地图、OTA 或接管命令？为什么被允许？出事后如何回放？
+- 普通日志很难回答身份、证书、策略、上下文、拒绝原因、远程会话和恢复路径。
 
-机器人安全正在从可选能力变成产品生命周期和市场准入要求：
+### 02 · Current Alternatives Fail
 
-- EU CRA 已于 2024-12-10 生效；2026-09-11 起漏洞和严重事件报告义务开始适用；2027-12-11 主要产品义务开始适用。
-- NIST SSDF、NIST IoT、NIST OT、CISA Secure by Design / Secure by Demand 和 ISA/IEC 62443 正在成为采购语言。
-- ROS 2 / DDS 支持安全机制，但不是默认自动安全。
-- 机器人漏洞、远程访问暴露和 OT 勒索已经是真实业务连续性风险。
+现有工具各管一层，但没有把“机器人动作”作为授权对象。
 
-安全表述：支持合规准备、对齐安全工程框架、降低风险；不说“保证合规”或“完全防黑客”。
+- VPN / bastion：证明谁能登录，不证明这次会话能不能让机器人动。
+- OT/xOT security：Claroty、Nozomi、Dragos、Armis、Forescout、Defender for IoT 擅长资产、流量、暴露面和 SOC 工作流，但通常不做动作前 ROS/DDS 语义授权。
+- ROS 2 / DDS Security：提供 authentication、access control 和 crypto primitives，但企业还需要 fleet policy、证书生命周期、策略编译、运行时门禁和 SOC evidence。
+- Safety controller：保护功能安全底线，但不负责软件供应链、远程访问审批、SBOM/VEX、OTA 和客户审计。
+- OTA / SBOM tools：证明包和组件状态，但没有把漏洞状态、更新状态与机器人当前动作权限联动。
 
-### 2. Market And Competitors
+### 03 · Solution
 
-OT/IoT 安全正在向 CPS / xOT exposure management 集中：
+机御 Zero 是机器人动作级零信任证据层。
 
-- Claroty、Nozomi、Dragos、Armis、Forescout、Microsoft Defender for IoT、AWS IoT Device Defender 解决资产、网络、暴露、威胁和 SOC 工作流。
-- Alias Robotics 等机器人安全团队强调 robot-native threat model、ROS 图、运动、远程控制和传感器风险。
-- 市场已经有通用 OT 可视化平台；Qualcomm 的机会是让机器人在被这些平台看到之前，先有硬件根、ROS 图、动作策略和证据链。
+架构：
 
-### 3. Zero Trust Architecture
+1. Qualcomm secure boot / hardware root 采集启动链、rootfs、firmware、ROS graph、model/QNN profile 和 policy hash。
+2. Robot Passport 记录机器人身份、站点、数据区域、SBOM/VEX、OTA ring、远程访问策略和最近风险状态。
+3. SafetyOps 策略编译成 DDS governance、SROS2 enclave、topic/service/action 权限和现场动作边界。
+4. Motion Firewall 在动作发生前结合身份、任务、地图、人距、传感器、网络、电池、热状态和风险等级做 allow / limit_speed / require_approval / deny / quarantine。
+5. RiskLedger 记录证书、命令、策略、拒绝原因、远程会话、OTA receipt 和恢复路径。
+6. SOC Export 把 robot-native 事件输出给 Sentinel、Splunk、ServiceNow、Claroty、Nozomi、Dragos、国内 SIEM / SOC 和客户审计包。
 
-核心规则：
+### 04 · Why Now
 
-> 机器人、ROS 节点、操作员、更新包和网络路径，都必须证明身份与状态，才获得权限。
+机器人规模、远程运维和监管时间表同时把动作级零信任推到台前。
 
-架构流：
+- IFR 报告 2024 年全球工业机器人在役量约 466.4 万台；中国新增安装约 29.5 万台，继续是最大市场。
+- IFR 报告 2024 年专业服务机器人接近 20 万台，物流/运输是最大类别之一。
+- EU CRA 已于 2024-12-10 生效；漏洞和严重事件报告义务从 2026-09-11 开始；主要产品义务从 2027-12-11 开始。
+- NIST SSDF、NIST OT、NIST Zero Trust、IEC 62443、CISA Secure by Design / Secure by Demand 正在进入企业采购语言。
+- 中国客户还会要求 MLPS-style evidence、PIPL/DSL 数据清单、网络数据安全、远程运维审批、数据驻留和工业/服务机器人信息安全材料。
+- 机器人控制器漏洞和远程访问风险正在变成业务连续性、质保、保险和出口问题。
 
-1. RobotCoreOS 在 Qualcomm edge 上启动，验证 boot chain，采集 measurement。
-2. TrustAnchorAgent 输出 attestation evidence。
-3. CertForge 验证证据，签发短期 device / workload / SROS2 / operator session 证书。
-4. SafetyOps 作为 policy decision layer，处理 JIT access、远程命令、异常响应和 quarantine。
-5. RiskLedger 保存 SBOM、VEX、漏洞、例外、证据和 fleet risk posture。
-6. UptimeOS 处理 signed OTA、canary、health gate、rollback 和服务工单。
+### 05 · Product
 
-### 4. China Lane
+第一版做两个商业形态：
 
-中国版不能只讲设备安全，要按“联网设备 + 工业互联网节点 + 数据处理系统 + 售后服务系统”设计：
+- `机御 Zero OEM Embedded`：SDK/agent 给 robot OEM。包括 robot passport、secure boot / attestation hooks、ROS/DDS least privilege、motion firewall、signed OTA、SBOM/VEX、PSIRT evidence。商业模式：NRE + per-robot royalty/subscription。
+- `机御 Zero Site/Fleet Gateway`：edge appliance 或私有化 SaaS 给仓库、工厂、医院、能源、RaaS fleet。包括 JIT vendor access、session recording、SOC/SIEM export、motion-event replay、WMS/MES/CMMS connectors、insurer/audit reports。商业模式：4-8 周付费 pilot + per-site + per-robot subscription。
 
-- 网络安全法、数据安全法、个人信息保护法、网络数据安全管理条例。
-- MLPS 2.0：云、移动互联、物联网、工业控制等扩展要求。
-- GB/T 39404-2020 工业机器人控制单元信息安全通用要求。
-- GB/T 45502-2025 服务机器人信息安全通用要求。
-- 中国数据默认留在中国；地图、视频、语音、工单、日志、训练样本要做分级、脱敏、审批和留痕。
-- 远程维护默认关闭、工单审批、限时授权、MFA、堡垒机、会话录屏、命令审计和客户一键断开。
+核心模块：
 
-### 5. Product Positioning
+- Robot Passport：设备身份、Qualcomm SKU、secure boot、firmware / OS / rootfs hash、ROS graph hash、SROS2 enclave、SBOM/VEX、OTA ring、站点和数据区域。
+- ROS/DDS Least Privilege：按 enclave 管 topic / service / action；高风险 publishers 单独证书和策略。
+- Motion Firewall：速度、抓取、升降、转向、越区、靠近人、远程接管和禁区进入都经过策略检查。
+- JIT Remote Access：默认无入站 SSH；工单审批、MFA、短期证书、命令 allowlist、会话录屏和文件传输审计。
+- Signed OTA：TUF/Uptane 风格 metadata、A/B slot、canary、health gate、防回滚、rollback receipt。
+- SBOM/VEX：SPDX / CycloneDX / OpenVEX 状态进入机器人运行策略。
 
-名称：机御 Zero / MotionZero。
+### 06 · Product API
 
-核心新意：
+关键对象：
 
-- 不是“OT 资产扫描”。
-- 不是“机器人杀毒”。
-- 是 Motion-Level Zero Trust：谁能让机器人动，能动到哪里，什么状态能动，谁签了授权，哪里被拦截，如何回放证据。
+- `RobotPassport`: robot_id、owner、site、chip_target、boot_state、rootfs_hash、ros_graph_hash、model_hash、sbom_digest、ota_ring。
+- `MotionAuthorize`: subject、topic/action、task_id、zone、human_distance、sensor_health、network_state、policy_version、decision。
+- `RemoteAccessGrant`: ticket、operator、MFA、short_cert、allowed_commands、recording_ref、break_glass_reason。
+- `OTARelease`: targets metadata、snapshot、timestamp、A/B slot、canary gate、rollback receipt、anti_rollback。
+- `VEXPolicy`: affected、not_affected、fixed、under_investigation、robot rings、motion restrictions、expiry。
+- `SOCEvent`: attestation.failed、dds.authz.denied、rogue.publisher、unsafe_motion.blocked、jit.session.started、ota.rollback。
 
-## Product Modules
+示例：
 
-### 1. Robot Passport
+```yaml
+motion_authorize.v1:
+  robot_id: mz-rb3-042
+  command: {type: base_velocity, topic: /cmd_vel, vx: 0.8, wz: 0.2}
+  subject: {kind: ros_node, spiffe_id: spiffe://motionzero/site-a/nav2}
+  context: {task_id: dock_778, zone: judge_table, human_distance_m: 0.9}
+  evidence: {passport_id: rp_042, attestation: trusted, policy: safetyops_17}
+  decision: {action: limit_speed, max_vx: 0.25, reason: human_distance_below_policy}
+```
 
-- 设备身份、Qualcomm SKU、secure boot 状态、firmware / OS / rootfs hash。
-- ROS graph hash、SROS2 enclave、证书状态、SBOM / VEX、OTA ring。
-- 站点、区域、数据驻留、服务合同和远程访问策略。
+### 07 · Market & Business Model
 
-### 2. ROS / DDS Least Privilege
+第一批买家：
 
-- 按 enclave 管 topic / service / action 权限，而不是只看主机 IP。
-- navigation 节点可发布 `/odom`、订阅 `/scan`，但不能发布 `/cmd_vel`，除非证书、任务和策略允许。
-- 自动生成 DDS governance / permissions、证书轮换和过期拒绝。
+- Robot OEM：VP Product、Security、PSIRT、Compliance、field service。
+- Enterprise operator：CISO、OT security、plant GM、automation director、warehouse operations。
+- System integrator：project director、managed service owner、commissioning risk owner。
+- Insurer / warranty：risk engineering、claims、product liability、SLA owner。
 
-### 3. Motion Firewall
+预算线：
 
-- 对速度、抓取、升降、转向、靠近人、越区、禁区和远程接管做策略检查。
-- 结合身份、任务、地图、现场状态、传感器置信度、SafetyOps 权限和风险等级。
-- 异常时不直接“黑屏停机”，而是限速、降级、拒绝高风险动作或进入 quarantine。
+- OEM：product security、PSIRT、CRA/CE/Machinery preparation、OTA platform、field service、warranty reserve。
+- Operator：OT security、ZTNA/PAM/vendor access、SOC/SIEM、robot fleet management、cyber insurance、safety/compliance。
+- SI：commissioning package、remote support、managed service SLA。
 
-### 4. JIT Remote Access
+Pricing hypothesis:
 
-- 默认无入站 SSH；远程访问走工单审批和短期证书。
-- MFA、RBAC、session recording、命令 allowlist、文件传输审计和 break-glass 绑定事件。
-- 支持 ServiceNow / Jira / 中国工单门户 / 企微入口，但日志和附件进入受控工单系统。
+- China OEM Embedded：人民币 100-500 / controller 一次性 + 人民币 2-10 / robot / month。
+- China Site/Fleet Gateway：人民币 20k-80k / site-year 起；企业私有化人民币 100k-500k / year。
+- Overseas OEM Embedded：$100-500 / robot one-time/NRE/royalty + $1-5 / robot / month。
+- Overseas Operator SaaS：$10-50 / robot / month 基础身份/OTA/SOC；$50-150 / robot / month 高风险命令授权、会话录制和 compliance pack；site minimum $25k-75k / year。
 
-### 5. Signed OTA And SBOM
+### 08 · Competition & Moat
 
-- TUF / Uptane 风格签名元数据。
-- OS、应用、ROS 包、模型、skill、calibration 分层发布。
-- canary、health gate、rollback、防回滚、SBOM / VEX、CertForge 合规证据。
+定位句：
 
-### 6. SOC Export
+> Claroty 可以告诉你机器人暴露了；机御 Zero 决定它现在能不能动。
 
-- 向 Sentinel、Splunk、Defender、ServiceNow、Claroty / Nozomi / Dragos、国内 SIEM / SOC 输出 robot-native 事件。
-- 事件包括 attestation failed、DDS authz denied、rogue publisher、remote access started、unsafe motion blocked、OTA rollback 和 certificate expired。
+竞争地图：
 
-## Demo
+- OT/CPS platforms：Claroty、Nozomi、Dragos、Armis、Forescout、Microsoft Defender for IoT、AWS IoT Device Defender。
+- Robot-native security：Alias Robotics/RIS 等。
+- ROS 2 / SROS2 / DDS Security：机器人通信安全 primitives。
+- Workload identity：SPIFFE/SPIRE、Teleport Machine Identity。
+- Remote access / ZTNA：Tailscale SSH、Teleport、Cloudflare Access、AWS SSM Session Manager。
+- OTA / signed update：TUF、Uptane、Foundries.io、Torizon 等。
+- SBOM/VEX：SPDX、CycloneDX、OpenVEX、Dependency-Track、Syft/Grype。
 
-比赛演示可以做一条机器人攻防闭环：
+壁垒：
 
-1. 两台机器人启动：一台 measurement 正常，一台 rootfs 被篡改。
-2. CertForge 拒绝篡改机器人证书，SafetyOps 放入 quarantine。
-3. 攻击者模拟 ROS 节点发布 `/cmd_vel` 或远程抓取命令。
-4. Motion Firewall 判断身份不可信、任务不匹配、动作越界，拦截危险动作。
-5. 机器人进入安全降级：停止危险动作、保留低风险读数据和取证。
-6. RiskLedger 回放证据链：谁发起、哪个节点、哪个证书、为什么拒绝、如何恢复。
-7. UptimeOS 发起 signed OTA 恢复，canary health gate 通过后重新入队。
+- Qualcomm hardware-rooted Robot Passport。
+- ROS/DDS graph hash 与 least-privilege policy compiler。
+- Motion Firewall 结合身份、任务、地图、现场状态、传感器置信度和安全策略。
+- RiskLedger 形成 motion decision corpus、insurance evidence、warranty evidence 和 LeRobot failure-mining 数据。
+- China/overseas 双 lane：同一 schema，不同数据驻留、工单、SOC、合规和云训练接入。
 
-## China / Overseas Positioning
+### 09 · Why Qualcomm
 
-中国版：
-
-- MLPS 支持包、PIPL / DSL 数据清单、国内云/私有化部署、中文隐私政策。
-- 国内工单、400、企微/小程序服务治理、远程运维审批留痕。
-- SRRC / CCC / NAL 准入判断和安全资料交接。
-- 默认本地自治，云端不直接控制安全关键链路。
-
-海外版：
-
-- EU CRA readiness、NIST SSDF、NIST OT、IEC 62443、SOC 2 / ISO 27001 evidence。
-- Defender / Sentinel / Splunk / ServiceNow / AWS IoT / Claroty / Nozomi / Dragos integrations。
-- SBOM/VEX、VDP/PSIRT、security.txt、signed OTA、JIT remote access、tenant isolation。
-
-## Qualcomm Value
-
-机御 Zero 是 Qualcomm 机器人生态的安全底座：
+Qualcomm 不能只被定义成算力供应商。机御 Zero 把 Qualcomm 变成机器人动作可信根。
 
 - Secure Boot / root of trust：把机器人身份建立在硬件和启动链上。
 - QTEE / SPU / crypto：保护密钥、证书、measurement 和签名操作。
-- Edge AI：本体侧检测异常动作、命令/里程计不一致、传感器伪造和远程接管异常。
+- Edge AI：本体侧检测命令/里程计不一致、传感器异常、远程接管异常和 model drift。
 - Connectivity：5G / Wi-Fi / BLE / 专网安全遥测和远程运维。
-- AI Hub / QNN：模型哈希、runtime profile 和 release evidence 进入机器人护照。
+- AI Hub / QNN：模型 hash、runtime profile、latency evidence 和 release record 进入机器人护照。
 
 一句话：
 
 > Qualcomm 不只是让机器人计算更快，还可以让机器人每一次动作更可信。
 
-## Claims To Avoid
+### 10 · Demo & Ask
+
+5-8 分钟演示：
+
+1. 买方痛点：企业不怕机器人不聪明，怕不知道谁能让它动。
+2. 注册两台机器人；一台 trusted，一台 rootfs / ROS graph measurement 异常。
+3. 篡改机器人无法拿到短期 DDS 证书，被 SafetyOps 标记 quarantine。
+4. rogue node 发布 `/cmd_vel` 或 gripper 命令；DDS deny first，Motion Firewall deny/limit second。
+5. JIT remote access 会话批准后只允许 diagnostics，拒绝 raw motion 和未签名 OTA。
+6. UptimeOS stages signed OTA，health gate pass，机器人重新进入 canary ring。
+7. RiskLedger 回放证据：boot hash、cert decision、blocked motion、operator session、OTA rollback。
+8. 导出 SOC JSON、RiskLedger bundle、OTA receipt、Judge Audit Pack，并切换中国/海外 lane 展示数据驻留。
+
+对 Qualcomm 的请求：
+
+- 比赛开发板和 secure boot / attestation profile。
+- QNN / AI Hub model evidence hook。
+- 一家 robot OEM 或仓库/工厂/医院/能源现场 pilot。
+- 协助把 Robot Passport 变成 Qualcomm robot ecosystem 的标准接口。
+
+## China / Overseas Positioning
+
+中国版：
+
+- 国内控制面/存储，默认视频、音频、地图、日志、工单、训练样本和 operator session 留在中国境内。
+- MLPS-style evidence、PIPL/DSL 数据清单、网络数据安全、GB/T 39404、GB/T 45502、远程运维审批、会话录屏、客户一键断开。
+- 企微/工单/400/小程序服务治理，国内云或私有化 GPU 训练，原始数据跨境默认关闭。
+
+海外版：
+
+- EU CRA readiness、NIST SSDF、NIST OT、NIST ZTA、IEC 62443、SOC 2 / ISO 27001-style evidence。
+- VDP/PSIRT、SBOM/VEX、signed OTA、JIT remote access、tenant isolation、Splunk/Sentinel/ServiceNow/Claroty/Nozomi/Dragos export。
+- US/EU regional tenants，RunPod/Lambda/AWS/Hugging Face LeRobot training lane，但训练云只能产出签名 model/skill package，不能绕过边缘 Motion Firewall。
+
+## Claim Guardrails
 
 - 不说“完全防止黑客/勒索/误动作”。
 - 不说“已通过 EU CRA / IEC 62443 / 等保认证”。
-- 不说替代 safety controller 或 functional safety。
+- 不说替代 safety controller、Safety PLC 或 functional safety。
 - 不说 ROS 2 开启后天然安全。
+- 不说 SBOM 单独解决供应链风险。
 - 不做无审批远程控制、隐藏远控或 AI 自动修复生产系统。
 
 ## Sources
 
+- IFR industrial robots：https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years
+- IFR service robots：https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom
 - EU CRA：https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act
-- EUR-Lex CRA：https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ%3AL_202402847
+- CRA reporting：https://digital-strategy.ec.europa.eu/en/policies/cra-reporting
 - NIST SSDF：https://csrc.nist.gov/pubs/sp/800/218/final
 - NIST OT Security：https://csrc.nist.gov/pubs/sp/800/82/r3/final
-- CISA OT procurement guide：https://media.defense.gov/2025/Jan/13/2003626906/-1/-1/0/JOINT-GUIDE-SECURE-BY-DEMAND-PRIORITY-CONSIDERATIONS-OT-OWNERS-OPERATORS.PDF
+- NIST Zero Trust：https://csrc.nist.gov/pubs/sp/800/207/final
+- CISA Secure by Design：https://www.cisa.gov/securebydesign
+- CISA remote access guide：https://www.cisa.gov/resources-tools/resources/guide-securing-remote-access-software
 - ISA/IEC 62443：https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards
 - ROS 2 DDS Security：https://design.ros2.org/articles/ros2_dds_security.html
+- ROS 2 access control：https://design.ros2.org/articles/ros2_access_control_policies.html
 - ROS 2 threat model：https://design.ros2.org/articles/ros2_threat_model.html
+- OMG DDS Security：https://www.omg.org/spec/DDS-SECURITY/1.2/About-DDS-SECURITY
 - Universal Robots CVE-2026-8153：https://www.universal-robots.com/articles/ur/cybersecurity/cve-2026-8153-command-injection-in-the-polyscope-5-dashboard-server/
-- Dragos 2026 OT cybersecurity review：https://www.dragos.com/blog/dragos-2026-ot-cybersecurity-year-in-review
-- Claroty：https://claroty.com/
-- Nozomi Networks：https://www.nozominetworks.com/platform
-- Alias Robotics：https://aliasrobotics.com/
-- SPIFFE：https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/
+- Claroty asset inventory：https://claroty.com/platform/asset-inventory
+- Nozomi Guardian：https://www.nozominetworks.com/platform/guardian
+- Dragos platform：https://www.dragos.com/cybersecurity-platform/
+- Alias RIS：https://aliasrobotics.com/ris.php
+- SPIFFE：https://spiffe.io/
+- Teleport workload identity：https://goteleport.com/platform/machine-and-workload-identity/
 - The Update Framework：https://theupdateframework.io/
 - Uptane：https://uptane.org/docs/latest/standard/uptane-standard
+- CISA SBOM：https://www.cisa.gov/topics/information-communications-technology-supply-chain-security/sbom
+- CISA VEX：https://www.cisa.gov/resources-tools/resources/minimum-requirements-vulnerability-exploitability-exchange-vex
 - Qualcomm secure boot：https://www.qualcomm.com/developer/blog/2024/12/secure-boot-as-part-of-platform-security-architecture-modern-system-on-chip
 - Qualcomm RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
-- Qualcomm RB6：https://www.qualcomm.com/internet-of-things/products/robotics-rb6-platform
-- 中国网络安全法修正：https://www.cac.gov.cn/2025-12/29/c_1768735112911946.htm
 - 数据安全法：https://www.cac.gov.cn/2021-06/11/c_1624994566919140.htm
 - 个人信息保护法：https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
 - 网络数据安全管理条例：https://www.gov.cn/zhengce/zhengceku/202409/content_6977767.htm
