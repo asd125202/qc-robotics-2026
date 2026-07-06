@@ -202,6 +202,10 @@ img {
   background-image: url("./assets/lab-loop.png");
 }
 
+.hero-clean-loop {
+  background-image: url("./assets/clean-loop.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }

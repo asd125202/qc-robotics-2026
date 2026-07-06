@@ -259,6 +259,7 @@ Qualcomm 可获得：
 - AgriLoop 农务闭环页：https://qc-robotics-2026.pages.dev/agri-loop/
 - ColdChainLoop 冷链闭环页：https://qc-robotics-2026.pages.dev/cold-chain-loop/
 - LabLoop 实验室闭环页：https://qc-robotics-2026.pages.dev/lab-loop/
+- CleanLoop 商业清洁闭环页：https://qc-robotics-2026.pages.dev/clean-loop/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/
