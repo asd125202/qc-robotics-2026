@@ -66,6 +66,7 @@ Suggested contents:
 - `docs/battery-router.md`
 - `docs/solar-loop.md`
 - `docs/mine-loop.md`
+- `docs/water-loop.md`
 - `docs/cert-forge.md`
 
 Screenshots or exported pages from:
@@ -100,6 +101,7 @@ Screenshots or exported pages from:
 - https://qc-robotics-2026.pages.dev/battery-router/
 - https://qc-robotics-2026.pages.dev/solar-loop/
 - https://qc-robotics-2026.pages.dev/mine-loop/
+- https://qc-robotics-2026.pages.dev/water-loop/
 - https://qc-robotics-2026.pages.dev/worldforge/
 - https://qc-robotics-2026.pages.dev/robotrust/
 - https://qc-robotics-2026.pages.dev/roboport/
@@ -175,6 +177,7 @@ Suggested values to review:
 - Battery intake routing page: `https://qc-robotics-2026.pages.dev/battery-router/`.
 - Solar-site exception closure page: `https://qc-robotics-2026.pages.dev/solar-loop/`.
 - Mine-site exception closure page: `https://qc-robotics-2026.pages.dev/mine-loop/`.
+- Water-utility exception closure page: `https://qc-robotics-2026.pages.dev/water-loop/`.
 - Simulation data factory page: `https://qc-robotics-2026.pages.dev/worldforge/`.
 - Robot data trust cloud page: `https://qc-robotics-2026.pages.dev/robotrust/`.
 - Robot module port ecosystem page: `https://qc-robotics-2026.pages.dev/roboport/`.

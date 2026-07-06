@@ -254,6 +254,10 @@ img {
   background-image: url("./assets/mine-loop.png");
 }
 
+.hero-water-loop {
+  background-image: url("./assets/water-loop.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }

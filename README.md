@@ -60,6 +60,7 @@ The current first-batch pitch directions are:
 - `BatteryRouter 电池入仓路由`: first-hour battery intake routing workcell for retired lithium packs/modules, mock diagnostics, human-approved reuse/repair/recycle/quarantine routing, LeRobot HIL, and Qualcomm edge evidence packets.
 - `SolarLoop 光场异常闭环`: solar-site exception-closure platform for RGB/thermal inspection, soiling and fault work orders, robot cleaning/verification, LeRobot HIL, and Qualcomm edge evidence packets.
 - `MineLoop 智矿异常闭环`: mine-site exception-closure platform for alarms, robot inspection, conveyor/haulage downtime, slope/tailings monitoring, hidden-danger ledgers, LeRobot HIL, and Qualcomm edge evidence packets.
+- `WaterLoop 水务异常闭环`: water-utility exception-closure platform for leaks, pressure drops, pump anomalies, water-quality drift, sewer/stormwater risk, robot inspection, LeRobot HIL, and Qualcomm edge evidence packets.
 - `RoboPort`: certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.

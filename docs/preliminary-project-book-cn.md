@@ -272,6 +272,7 @@ Qualcomm 可获得：
 - BatteryRouter 电池入仓路由页：https://qc-robotics-2026.pages.dev/battery-router/
 - SolarLoop 光场异常闭环页：https://qc-robotics-2026.pages.dev/solar-loop/
 - MineLoop 智矿异常闭环页：https://qc-robotics-2026.pages.dev/mine-loop/
+- WaterLoop 水务异常闭环页：https://qc-robotics-2026.pages.dev/water-loop/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/
