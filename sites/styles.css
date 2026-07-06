@@ -162,6 +162,10 @@ img {
   background-image: url("./assets/home-core.png");
 }
 
+.hero-xiaogong {
+  background-image: url("./assets/xiaogong.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }

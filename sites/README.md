@@ -24,6 +24,7 @@ Current batch:
 - `cloud-plan/` — cloud GPU provider execution and budget story.
 - `hardware-map/` — hardware SKU and BOM story.
 - `home-core/` — privacy-first home robot skill layer for app-like skills, local perception, family co-care, LeRobot training, and Qualcomm edge execution.
+- `xiaogong/` — task-bounded commercial humanoid platform for factory, logistics, retail and campus pilots, with task capability ledgers, human-assist loops, LeRobot data flywheels, and Qualcomm edge autonomy.
 - `roboport/` — certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `business-case/` — commercialization, pricing package, and revenue flywheel story.
 - `submission-kit/` — preliminary project-book and upload-readiness page.

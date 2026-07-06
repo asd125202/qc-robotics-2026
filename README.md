@@ -37,6 +37,7 @@ The current first-batch pitch directions are:
 - `CloudPlan`: provider execution and budget story for China and overseas cloud GPU training.
 - `HardwareMap`: physical product-line and BOM story for QCS6490, QCS8550, IQ-8275, and future IQ10.
 - `HomeCore`: privacy-first home robot skill layer for app-like skills, local perception, family co-care, LeRobot training, and Qualcomm edge execution.
+- `骁工 XiaoGong`: task-bounded commercial humanoid platform for factory, logistics, retail and campus pilots, with task capability ledgers, human-assist loops, LeRobot data flywheels, and Qualcomm edge autonomy.
 - `RoboPort`: certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.

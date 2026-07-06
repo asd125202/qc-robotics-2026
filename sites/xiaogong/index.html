@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>骁工 XiaoGong | 面向真实工序的商用人形平台</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>骁工 XiaoGong</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#research">研究</a>
+        <a href="#workos">WorkOS</a>
+        <a href="#loop">协助闭环</a>
+        <a href="#versions">双版本</a>
+        <a href="#demo">演示</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-xiaogong">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 44 · Task-Bounded Humanoid Platform</p>
+          <h1>骁工 XiaoGong</h1>
+          <p class="hero-lede">面向真实工序的商用人形平台：用 Qualcomm edge + LeRobot 数据闭环，把人形机器人从演示带入工厂质检、料箱搬运、巡检接待等可验证任务。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#workos">查看任务 WorkOS</a>
+            <a class="button" href="../scale-foundry/">连接 ScaleFoundry</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">00 · Five-Thread Research</p>
+              <h2>人形机器人开始进场，但最成熟的产品不是“万能人”，而是可验证工序。</h2>
+            </div>
+            <p>Figure/BMW、Agility/GXO、Apptronik、Boston Dynamics、Unitree、UBTECH、AgiBot 和中国政策共同指向一个窗口：人形机器人正在进入付费试点和窄场景部署。骁工选择把商业化第一步定义为任务包、能力账本和人机协助闭环。</p>
+          </div>
+          <div class="grid five">
+            <article class="card">
+              <h3>Market Reality</h3>
+              <p>当前证据支持 paid pilot、narrow deployment 和工厂/仓储早期场景，不支持泛化替人叙事。</p>
+            </article>
+            <article class="card">
+              <h3>Industrial Proof</h3>
+              <p>汽车零部件加载、tote handling、产线物流和 sequencing 是最容易被 KPI 验收的入口。</p>
+            </article>
+            <article class="card">
+              <h3>China Lane</h3>
+              <p>政策、地方场景、数据训练中心和本体厂商加速，但客户需要本地云、交付和合规路径。</p>
+            </article>
+            <article class="card">
+              <h3>Platform Gap</h3>
+              <p>同步传感器、确定性控制、功耗热、安全证据、OTA 和售后才是从视频到产品的门槛。</p>
+            </article>
+            <article class="card">
+              <h3>Task Ledger</h3>
+              <p>每个任务都记录成功率、周期、接管率、适用环境、禁用条件和模型/数据版本。</p>
+            </article>
+          </div>
+          <div class="image-band">
+            <img src="../assets/xiaogong.png" alt="商用人形机器人在工厂物流工位执行质检搬运任务、任务能力账本和人机协助闭环控制台图">
+          </div>
+        </div>
+      </section>
+
+      <section id="workos" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Humanoid WorkOS</p>
+              <h2>先卖任务包，再谈通用智能。</h2>
+            </div>
+            <p>骁工把人形机器人拆成可采购、可验收、可升级的任务工作单元。客户购买的不是“一个像人的机器”，而是 30 天现场建模、90 天试点、任务 KPI、远程协助、训练回流和分阶段扩队。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Map</h3>
+              <p>建模工位、货架、托盘、门禁、电梯、人员动线、安全区和禁区。</p>
+            </article>
+            <article class="step">
+              <h3>Package</h3>
+              <p>定义任务 manifest：输入、输出、传感器、工具、前置条件、失败处理。</p>
+            </article>
+            <article class="step">
+              <h3>Operate</h3>
+              <p>Qualcomm edge 本地执行感知、策略推理、安全状态机和低延迟控制。</p>
+            </article>
+            <article class="step">
+              <h3>Assist</h3>
+              <p>低置信度时减速、保持、请求人工协助，并记录接管全过程。</p>
+            </article>
+            <article class="step">
+              <h3>Scale</h3>
+              <p>用能力账本决定是否扩到更多工位、班次、任务包和机器人队列。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="loop" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">02 · Human-Assist Data Flywheel</p>
+            <h2>骁工不假装真实世界不会失败；它把失败变成下一轮训练资产。</h2>
+            <p class="lead">每一次低置信度、暂停、接管和恢复都会变成带上下文的 LeRobot episode。云端训练和评估输出签名 artifact，再通过灰度发布回到 Qualcomm edge runtime。</p>
+            <ul class="list">
+              <li>Autonomy Segment：机器人自主执行、传感器帧、策略输出和安全状态。</li>
+              <li>Intervention Segment：人工协助、远程视角、操作轨迹和原因标签。</li>
+              <li>Recovery Segment：恢复路径、任务是否完成、是否进入禁用条件。</li>
+              <li>Capability Ledger：按任务显示接管率下降、失败类型收敛和可扩展边界。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/xiaogong.png" alt="人形机器人工作单元、人机协助闭环和训练数据飞轮图">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · First Task Packs</p>
+              <h2>第一批任务包选择高频、可计量、可接管的工作。</h2>
+            </div>
+            <p>骁工避开“家庭万能助理”这种不可控承诺，先做企业能定义 KPI 的任务。每个任务包都带场地限制、成功指标、接管策略、数据授权和扩展路径。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>产线物流</h3>
+              <p>料箱搬运、工位递送、物料 sequencing、空箱回收。</p>
+            </article>
+            <article class="card">
+              <h3>质检巡检</h3>
+              <p>读取标签、拍摄异常、检查缺件、生成工单。</p>
+            </article>
+            <article class="card">
+              <h3>仓储分拣</h3>
+              <p>tote handoff、轻载搬运、传送带上下料协作。</p>
+            </article>
+            <article class="card">
+              <h3>接待巡逻</h3>
+              <p>园区引导、访客验证、夜间巡检和异常上报。</p>
+            </article>
+            <article class="card">
+              <h3>工具递送</h3>
+              <p>把工具、样品、耗材递送到人工工位或 review zone。</p>
+            </article>
+            <article class="card">
+              <h3>数据采集</h3>
+              <p>为客户私有场景采集多模态 episode 和失败恢复样本。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="versions" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · China / Overseas Versions</p>
+              <h2>同一个 WorkOS，分成中国试点版和海外 RaaS 版。</h2>
+            </div>
+            <p>中国版强调政策、制造业场景、本地云、中文工单、企业系统集成和本地服务；海外版强调 RaaS、仓储/制造劳动力缺口、保险融资、fleet uptime 和可审计部署。</p>
+          </div>
+          <div class="grid two">
+            <article class="card">
+              <h3>中国试点版</h3>
+              <p>汽车/3C 工厂、物流分拣、药房零售、园区接待、教育科研和数据训练中心。默认支持私有化、本地云、中文工单、企业微信/钉钉/飞书、WMS/MES/ERP 和数据合规边界。</p>
+            </article>
+            <article class="card">
+              <h3>海外 RaaS 版</h3>
+              <p>围绕 paid pilot、per-shift RaaS、task ROI、warehouse safety、SLA、service ledger、insurance evidence 和 customer expansion。对接 Agility/Figure/Apptronik 证明的制造与物流商业叙事。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Competition Demo</p>
+              <h2>不必造完整人形，也能证明商业平台逻辑。</h2>
+            </div>
+            <p>比赛主 demo 可以用桌面机械臂或移动底盘模拟骁工任务包：识别料箱、抓取/递送、异常标记、低置信度接管、episode 记录、云训练评估和 edge artifact 发布。评委看到的是任务闭环，而不是单个动作视频。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>30D</strong>
+              <span>现场建模、任务定义、数据授权、风险边界和试点验收标准。</span>
+            </div>
+            <div class="stat">
+              <strong>90D</strong>
+              <span>试点运行、接管记录、能力账本、训练回流和扩展建议。</span>
+            </div>
+            <div class="stat">
+              <strong>HIL</strong>
+              <span>低置信度触发人工协助，接管片段成为下一轮训练数据。</span>
+            </div>
+            <div class="stat">
+              <strong>KPI</strong>
+              <span>成功率、周期、接管率、停机、扩展工位和 RaaS 毛利。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Why Qualcomm</p>
+              <h2>人形机器人越接近商业化，越需要一套边缘标准件。</h2>
+            </div>
+            <p>骁工把 Qualcomm 变成商用人形机器人最关键的边缘底座：多传感器本地融合、低延迟策略推理、确定性控制、安全身份、连接、OTA、模型 profile 和生命周期管理。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Sense</h3>
+              <p>相机、深度、IMU、力/触觉、LiDAR/ToF 和安全传感器同步。</p>
+            </article>
+            <article class="step">
+              <h3>Think</h3>
+              <p>QNN / AI Hub / ExecuTorch 路线支持本地视觉、VLA/策略和低置信度判断。</p>
+            </article>
+            <article class="step">
+              <h3>Move</h3>
+              <p>ROS 2、实时 I/O、CAN-FD/EtherCAT、whole-body control 和安全降级。</p>
+            </article>
+            <article class="step">
+              <h3>Connect</h3>
+              <p>5G / Wi-Fi / private network 支持远程协助、fleet telemetry 和云训练回路。</p>
+            </article>
+            <article class="step">
+              <h3>Prove</h3>
+              <p>模型版本、数据来源、运行日志、接管证据和安全案例进入审计包。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">骁工的商业主张不是“人形机器人已经万能”，而是“人形机器人必须先变成可采购、可验收、可接管、可训练、可审计的工序平台”。这正是 Qualcomm 边缘 AI、LeRobot 数据闭环和云训练产品化可以共同定义的新市场。</p>
+          <div class="source-links">
+            <a href="https://www.figure.ai/news/production-at-bmw">Figure / BMW</a>
+            <a href="https://www.agilityrobotics.com/content/gxo-signs-industry-first-multi-year-agreement-with-agility-robotics">Agility / GXO</a>
+            <a href="https://www.agilityrobotics.com/content/digit-moves-over-100k-totes">Agility Totes</a>
+            <a href="https://bostondynamics.com/blog/boston-dynamics-unveils-new-atlas-robot-to-revolutionize-industry/">Boston Dynamics Atlas</a>
+            <a href="https://apptronik.com/news-collection/apptronik-closes-over-935-million-series-a">Apptronik</a>
+            <a href="https://www.unitree.com/g1/">Unitree G1</a>
+            <a href="https://www.1x.tech/discover/neo-home-robot">1X NEO</a>
+            <a href="https://nvidianews.nvidia.com/news/nvidia-isaac-gr00t-n1-open-humanoid-robot-foundation-model-simulation-frameworks">NVIDIA GR00T</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10 RRD</a>
+            <a href="https://aihub.qualcomm.com/get-started">Qualcomm AI Hub</a>
+            <a href="https://huggingface.co/docs/lerobot/hil_data_collection">LeRobot HIL</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset v3</a>
+            <a href="https://droid-dataset.github.io/">DROID Dataset</a>
+            <a href="https://robotics-transformer-x.github.io/">Open X-Embodiment</a>
+            <a href="https://www.xinhuanet.com/tech/20231103/e4d37192a8de419d9c2bc24b9d87dcdb/c.html">MIIT Guidance</a>
+            <a href="https://www.ubtrobot.com/cn/humanoid/products/walker-s2">UBTECH Walker S2</a>
+            <a href="https://www.agibot.com/article/231/detail/31.html">AgiBot</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
