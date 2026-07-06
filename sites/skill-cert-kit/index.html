@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SkillCertKit | 机器人技能上架前信任层</title>
+    <title>SkillCertKit | 机器人技能安装前信任门</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -13,23 +13,25 @@
         <span>SkillCertKit</span>
       </a>
       <nav class="navlinks" aria-label="页面导航">
-        <a href="#problem">问题</a>
-        <a href="#why-now">为什么现在</a>
-        <a href="#solution">方案</a>
-        <a href="#evidence">证据</a>
-        <a href="#market">商业</a>
-        <a href="#moat">壁垒</a>
-        <a href="#qualcomm">高通</a>
-        <a href="#demo">演示</a>
+        <a href="#problem">Problem</a>
+        <a href="#alternatives">Alternatives</a>
+        <a href="#solution">Solution</a>
+        <a href="#why-now">Why Now</a>
+        <a href="#product">Product</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#market">Market</a>
+        <a href="#moat">Moat</a>
+        <a href="#qualcomm">Qualcomm</a>
+        <a href="#demo">Demo</a>
       </nav>
     </header>
 
     <main>
       <section class="hero hero-skill-cert">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 23 · Pre-Install Trust Layer</p>
+          <p class="eyebrow">Pitch 23 · Pre-Install Trust Gate For Robot Skills</p>
           <h1>SkillCertKit</h1>
-          <p class="hero-lede">企业不会把陌生模型随手装进真实机器人。SkillCertKit 把一个策略模型变成 profile-scoped evidence package：数据血缘、硬件兼容、Qualcomm edge profile、安全边界、SBOM、签名、安装门禁、回滚和版本记录，先过信任门，再进 SkillDock。</p>
+          <p class="hero-lede">机器人技能市场不会先靠 SKU 数量成功，而会先靠信任成功。SkillCertKit 把策略模型、ROS 包或机器人 app 变成 signed Skill Passport，证明它能否在某个 robot profile、Qualcomm edge target 和现场边界下被安装、灰度发布和回滚。</p>
           <div class="cta-row">
             <a class="button primary" href="#problem">从安装风险开始</a>
             <a class="button" href="../skill-marketplace/">连接 SkillDock</a>
@@ -42,66 +44,81 @@
           <div class="section-head">
             <div>
               <p class="kicker">01 · Problem</p>
-              <h2>机器人技能如果没有安装前证据，就只能停留在一次性集成。</h2>
+              <h2>企业不会把陌生模型随手装进真实机器人。</h2>
             </div>
-            <p>Demo 能跑，不代表企业敢安装。买家不知道技能是否适配自己的相机、机械臂、底盘、runtime、网络、安全 IO、数据权限和现场边界；开发者卖不了第二次，集成商重复验证，IT/安全无法审计。</p>
+            <p>Demo 能跑，不代表它适合买家的相机、机械臂、夹爪、AMR、runtime、网络、安全 IO、数据权限和现场边界。普通 App 崩溃是软件问题；机器人技能失败会影响设备、人员、现场和责任。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <span class="claim-tag">买家风险</span>
-              <h3>陌生模型接触真实设备</h3>
-              <p>普通 App 崩溃是软件问题；机器人技能失败会影响设备、人员、现场和责任边界。</p>
+              <span class="claim-tag">Developer</span>
+              <h3>技能卖不了第二次</h3>
+              <p>没有兼容矩阵、证据等级、安装门禁和支持边界，同一个技能很难复用给下一个客户。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">开发者风险</span>
-              <h3>技能无法产品化</h3>
-              <p>没有兼容矩阵、证据等级、安装手册和支持边界，同一个技能很难卖给第二个客户。</p>
+              <span class="claim-tag">Integrator</span>
+              <h3>每个项目重复验证</h3>
+              <p>相机、payload、速度、工作空间、网络、回滚和人工接管都要一遍遍重做。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">集成商风险</span>
-              <h3>每个客户重新验收</h3>
-              <p>相机、执行器、速度、工作空间、网络、回滚和安全接管都要一遍遍重做。</p>
+              <span class="claim-tag">Enterprise</span>
+              <h3>安全和 IT 无法审计</h3>
+              <p>SBOM、漏洞、许可证、云依赖、数据流、签名、日志和升级策略没有统一格式。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">IT 风险</span>
-              <h3>无法审计依赖与权限</h3>
-              <p>SBOM、许可证、漏洞、云依赖、数据流、签名、日志和升级策略没有统一格式。</p>
+              <span class="claim-tag">Fleet</span>
+              <h3>升级影响 uptime</h3>
+              <p>每次 skill update 都可能影响 SLA、责任边界、support load、incident replay 和 rollback。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">生态风险</span>
-              <h3>Qualcomm 价值不沉淀</h3>
-              <p>如果技能不声明并验证 edge target，Dragonwing 只是一块板，不是技能分发标准。</p>
+              <span class="claim-tag">Qualcomm</span>
+              <h3>edge 价值不沉淀</h3>
+              <p>如果技能不声明并验证 target profile，Dragonwing 只是一块板，不是技能分发标准。</p>
             </article>
           </div>
+          <p class="quote pipeline-extra">没有安装前信任门，机器人技能就无法像软件一样分发。</p>
         </div>
       </section>
 
-      <section id="why-now" class="slide dark">
+      <section id="alternatives" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">02 · Why Now</p>
-              <h2>机器人技能正在软件化，但物理世界还缺信任层。</h2>
+              <p class="kicker">02 · Current Alternatives Fail</p>
+              <h2>市场、仿真、开源包、OEM 生态和正式认证都重要，但中间缺一层。</h2>
             </div>
-            <p>UR+ 和 MiR Go 证明企业买家接受认证生态来降低部署风险；LeRobot、DROID、Open X-Embodiment 让数据和策略可复用；Qualcomm AI Hub、QNN/QAIRT、Device Cloud、Profiler、Dragonwing Robotics Hub 让端侧 profile 和部署证据可以产品化。</p>
+            <p>真正缺口不是“skill exists”，而是“skill may run here”：这个技能是否能在这个 robot profile、这个站点、这个数据规则和这个 Qualcomm edge target 上被允许安装。</p>
           </div>
-          <div class="grid four">
-            <div class="stat">
-              <strong>542K</strong>
-              <span>IFR 2025：2024 年全球工业机器人新增安装约 54.2 万台。</span>
-            </div>
-            <div class="stat">
-              <strong>160+</strong>
-              <span>MiR Go 已有 160+ AMR 应用/模块，说明买家重视已测试生态。</span>
-            </div>
-            <div class="stat">
-              <strong>SBOM</strong>
-              <span>企业采购、CRA readiness、SSDF 和安全审查正在要求更清晰软件证据。</span>
-            </div>
-            <div class="stat">
-              <strong>QNN</strong>
-              <span>Qualcomm edge artifact 可以从开发工具变成技能上架证据。</span>
-            </div>
+          <div class="grid three">
+            <article class="card">
+              <span class="claim-tag">App Store</span>
+              <h3>下载按钮不等于物理信任</h3>
+              <p>机器人 app store 证明需求存在，但工业客户还需要 safety evidence、site approval、rollback 和采购包。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">OEM Ecosystem</span>
+              <h3>信任被锁在单一品牌</h3>
+              <p>UR+、MiR Go、KUKA、FANUC、ABB 都证明认证生态有价值，但很难成为跨机器人 skill passport。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Open Stack</span>
+              <h3>ROS/MoveIt/LeRobot 不是安装批准</h3>
+              <p>包、模型和数据集不会自动回答 SBOM、回滚、相机、安全 IO、权限和现场边界问题。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Fleet Ops</span>
+              <h3>观测发生在部署后</h3>
+              <p>Viam、Formant、InOrbit、Foxglove 能看到发生了什么；SkillCertKit 决定下一版是否可以发生。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Physical AI</span>
+              <h3>仿真通过不等于生产安全</h3>
+              <p>Isaac、GR00T、Cosmos、Flowstate 帮助创建技能，但还需要安装前证据和客户 policy gate。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Formal Labs</span>
+              <h3>正式认证不是日常 release gate</h3>
+              <p>UL、TUV、Intertek、A3 很重要，但每个 skill version 仍需要版本、签名、SBOM、profile 和 rollback。</p>
+            </article>
           </div>
         </div>
       </section>
@@ -111,30 +128,30 @@
           <div class="section-head">
             <div>
               <p class="kicker">03 · Solution</p>
-              <h2>SkillCertKit 不是法律认证机构，而是 marketplace-readiness evidence engine。</h2>
+              <h2>SkillCertKit 是机器人技能的 CI/CD trust gate。</h2>
             </div>
-            <p>它为命名 robot profile 和测试条件生成结构化证据：这个技能来自哪些数据、在哪些硬件上验证过、能否在 Qualcomm edge 上运行、有什么安全假设、哪些安装会被阻止、失败后如何回滚。</p>
+            <p>它生成一个 `Skill Passport`：digest-addressed、signed、profile-scoped evidence bundle。输出不是永久安全证书，而是可执行的 `allow / warn / block` 安装决策。</p>
           </div>
           <div class="pipeline">
             <article class="step">
               <h3>Submit</h3>
-              <p>提交 policy artifact、`skill.yaml`、task boundary、依赖、目标 robot profile 和证据等级。</p>
+              <p>提交 policy/model/container/ROS package、`skill.yaml`、任务边界、目标 robot profile、权限和支持方。</p>
             </article>
             <article class="step">
               <h3>Trace</h3>
-              <p>绑定 LeRobot dataset、episode hashes、训练版本、model card、dataset card 和 license。</p>
+              <p>绑定 LeRobot/TrainRouter lineage、dataset card、model card、eval report、license 和 train run hash。</p>
             </article>
             <article class="step">
               <h3>Profile</h3>
-              <p>生成 AI Hub / QNN / QAIRT / ONNX Runtime QNN evidence、latency、memory、fallback。</p>
+              <p>生成 Qualcomm AI Hub / QNN / QAIRT evidence、latency、memory、thermal、fallback 和 unsupported-op 状态。</p>
             </article>
             <article class="step">
               <h3>Gate</h3>
-              <p>运行 SBOM、VEX、签名、runtime constraints、safety boundary、OPA policy 和 rollback gate。</p>
+              <p>运行 signature、SBOM/VEX、runtime constraints、safety boundary、customer policy 和 rollback gate。</p>
             </article>
             <article class="step">
               <h3>Publish</h3>
-              <p>生成 SkillDock 技能卡：兼容范围、证据等级、价格、支持方和 claim boundaries。</p>
+              <p>生成 SkillDock 技能卡：兼容范围、证据等级、价格、支持方、claim boundaries 和 install gate。</p>
             </article>
           </div>
           <div class="image-band">
@@ -143,17 +160,48 @@
         </div>
       </section>
 
-      <section id="evidence" class="slide tint">
+      <section id="why-now" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">04 · Why Now</p>
+              <h2>机器人技能正在软件化，采购和法规正在要求软件证据。</h2>
+            </div>
+            <p>IFR 装机基数、LeRobot/Physical AI 数据循环、SBOM/VEX/SSDF/EU CRA/EU Machinery 风险文档，以及 Qualcomm Dragonwing reference platform 同时成熟，让安装前 trust gate 变成商业机会。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>542K</strong>
+              <span>IFR 2025：2024 年全球工业机器人新增安装约 54.2 万台。</span>
+            </div>
+            <div class="stat">
+              <strong>~200K</strong>
+              <span>专业服务机器人销量接近 20 万台，物流 RaaS 继续增长。</span>
+            </div>
+            <div class="stat">
+              <strong>SBOM</strong>
+              <span>企业采购和法规正在把软件依赖、漏洞、签名、更新和责任前置。</span>
+            </div>
+            <div class="stat">
+              <strong>QNN</strong>
+              <span>Qualcomm edge artifact 可以从工程产物变成技能上架证据字段。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
         <div class="wrap split">
           <div>
-            <p class="kicker">04 · Evidence Bundle</p>
-            <h2>技能包应该是 digest-addressed evidence graph，不是一个模型文件。</h2>
-            <p class="lead">根对象是 `skill_id:version@sha256`。模型、容器、`skill.yaml`、SBOM、VEX、签名、SLSA/in-toto provenance、edge profile、safety evidence、policy decision 和 rollback metadata 都挂在同一个 digest 上。</p>
+            <p class="kicker">05 · Product</p>
+            <h2>第一版只做一件事：让一个机器人技能在一个明确 profile 上被批准或阻止。</h2>
+            <p class="lead">不要一开始做大而全 app store。先手工帮 10 个技能、2 个 robot profiles、3 个 launch partners 做 evidence pack，把重复 review checklist 变成 API。</p>
             <ul class="list">
-              <li>证据等级：`simulated`、`hardware_in_loop`、`bench_real`、`field_real`。</li>
-              <li>兼容标签：`tested_on`、`expected_compatible`、`not_validated`。</li>
-              <li>安全语言：记录 assumptions，支持 safety-case preparation，不声称法定安全认证。</li>
-              <li>区域路径：中国版、海外版分别维护 GB/GB/T、EU CRA/Machinery、NIST/IEC 等证据映射。</li>
+              <li>Skill Submit：模型、ROS 包、`skill.yaml`、任务边界、权限、target profile、support owner。</li>
+              <li>Evidence Builder：LeRobot lineage、SBOM/VEX、SLSA/in-toto、签名、TUF/Uptane metadata、Qualcomm edge profile。</li>
+              <li>Gate Engine：按 robot profile、site、region、customer policy 返回 allow/warn/block。</li>
+              <li>Skill Passport：面向 SkillDock、采购、安全、集成商、OEM 和保险的证据室。</li>
+              <li>Runtime Gate：preflight、staged rollout、health thresholds、rollback、recertification trigger。</li>
             </ul>
           </div>
           <div class="visual">
@@ -162,46 +210,64 @@
         </div>
       </section>
 
-      <section class="slide dark">
+      <section id="evidence" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">05 · Trust Gates</p>
-              <h2>安装前要能说“不”，否则 SkillDock 只是高风险模型仓库。</h2>
+              <p class="kicker">06 · Product API/Evidence</p>
+              <h2>机器人技能包应该是 signed release bundle，不是一个模型文件。</h2>
             </div>
-            <p>SkillCertKit 的价值不是生成漂亮报告，而是把证据变成可执行门禁。每一次允许、阻止、警告、回滚都成为后续 compatibility graph 的训练数据。</p>
+            <p>根对象是 `skill_id:version@sha256`。模型、容器、ROS 包、`skill.yaml`、SBOM、VEX、provenance、edge profile、safety boundary、policy decision 和 rollback metadata 都挂在同一个 digest 上。</p>
           </div>
-          <div class="grid six">
+          <div class="grid three">
             <article class="card">
-              <span class="claim-tag">Gate 1</span>
-              <h3>Signature</h3>
-              <p>验证 root artifact、SBOM、edge profile 和 policy decision 的签名。</p>
+              <span class="claim-tag">API</span>
+              <h3>Gate as a service</h3>
+              <p>`POST /v1/gates:evaluate` 按 skill digest、robot profile、site、region 和 customer policy 返回 pass/block/warn。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Gate 2</span>
-              <h3>Lineage</h3>
-              <p>检查 dataset、training run、model export、container build 和 QNN compile 的 provenance。</p>
+              <span class="claim-tag">Passport</span>
+              <h3>机器可读证据室</h3>
+              <p>`GET /v1/skills/{digest}/evidence` 导出采购、审计、SkillDock 和 runtime gate 共用的证据包。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Gate 3</span>
-              <h3>Profile</h3>
-              <p>确认 robot profile 满足 camera、actuator、firmware、calibration、安全 IO 和 edge target。</p>
+              <span class="claim-tag">Runtime</span>
+              <h3>合法回滚，不绕过安全</h3>
+              <p>`POST /v1/rollbacks` 发布新的签名 rollback metadata，回到 previous-known-good digest。</p>
             </article>
-            <article class="card">
-              <span class="claim-tag">Gate 4</span>
-              <h3>Security</h3>
-              <p>SBOM、license、VEX、CVE、container privilege、network egress 和 cloud dependency。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">Gate 5</span>
-              <h3>Safety</h3>
-              <p>工作空间、速度/力假设、急停、人工接管、fail-closed 和禁用动作。</p>
-            </article>
-            <article class="card">
-              <span class="claim-tag">Gate 6</span>
-              <h3>Rollback</h3>
-              <p>previous-known-good、健康阈值、状态清理、操作员确认和审计日志。</p>
-            </article>
+          </div>
+          <div class="table-wrap pipeline-extra">
+            <table>
+              <thead>
+                <tr>
+                  <th>Evidence</th>
+                  <th>Purpose</th>
+                  <th>Claim boundary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SBOM / VEX</td>
+                  <td>依赖、漏洞、许可证、可达性和修复状态。</td>
+                  <td>SBOM 是 inventory，不等于 secure。</td>
+                </tr>
+                <tr>
+                  <td>SLSA / in-toto</td>
+                  <td>source、builder、build recipe、artifact digest 和发布流程。</td>
+                  <td>签名不等于 SLSA 合规。</td>
+                </tr>
+                <tr>
+                  <td>Qualcomm edge profile</td>
+                  <td>AI Hub/QNN/QAIRT latency、memory、runtime、fallback、unsupported-op。</td>
+                  <td>模型 benchmark 不等于完整机器人延迟。</td>
+                </tr>
+                <tr>
+                  <td>Safety boundary</td>
+                  <td>ODD/SOE、速度/力、workspace、takeover、fail-closed、rollback trigger。</td>
+                  <td>支持 safety-case preparation，不替代正式认证。</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -210,33 +276,34 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">06 · Market & Business Model</p>
+              <p class="kicker">07 · Market & Business Model</p>
               <h2>先卖 evidence pack，再开技能市场。</h2>
             </div>
-            <p>第一批客户不是消费者，而是为部署信任付费的人：skill developers、robot OEM、系统集成商、RaaS/fleet operator、企业 IT/安全、教育/研究实验室。SkillCertKit 让技能可卖，SkillDock 让技能可买、可装、可升级、可回滚。</p>
+            <p>第一批客户不是消费者，而是为部署信任付费的人：skill developers、Robot OEM、system integrators、RaaS/fleet operators、enterprise IT/EHS/security、insurers 和教育/研究实验室。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <span class="claim-tag">Open Dev</span>
-              <h3>免费/低价开发者层</h3>
-              <p>manifest、本地检查、教学样例和 simulated evidence，不声称企业 readiness。</p>
+              <span class="claim-tag">Beachhead</span>
+              <h3>Lab sample transfer / light QA</h3>
+              <p>工作空间受控、文档价值高、安全边界清楚，能串起 TeleopStudio、TrainRouter、QNN profile 和 SkillDock。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Marketplace Ready</span>
-              <h3>上架准备包</h3>
-              <p>按 skill、robot profile、Qualcomm target 收取验证费，生成技能页和安装门禁证据。</p>
+              <span class="claim-tag">Overseas</span>
+              <h3>Security/EHS-led adoption</h3>
+              <p>映射 NIST SSDF、SBOM/VEX、EU CRA、EU Machinery technical docs、AI Act 和 Data Act。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Enterprise Trust</span>
-              <h3>企业信任包</h3>
-              <p>SBOM、VEX、签名、漏洞流程、采购问卷、网络图、审计日志和 rollback plan。</p>
+              <span class="claim-tag">China</span>
+              <h3>技能上架证据包</h3>
+              <p>面向 OEM、SI、园区、实验室、教育套件和数据工厂，支持本地/BYOC 数据平面和 GB/GB/T 映射。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Private Library</span>
-              <h3>私有技能库</h3>
-              <p>企业/OEM/RaaS 私有审批流、版本冻结、SSO/RBAC、recertification 和 per-robot runtime gate。</p>
+              <span class="claim-tag">Revenue</span>
+              <h3>Evidence + runtime gate</h3>
+              <p>Marketplace Ready Pack、profile test、HIL validation、private library、per-robot runtime gate 和 marketplace take。</p>
             </article>
           </div>
+          <p class="quote pipeline-extra">YC wedge：帮 SI/OEM 把一个技能从“能跑”变成“企业安全/采购可以接受”，不要一开始泛泛做机器人 app store。</p>
         </div>
       </section>
 
@@ -244,26 +311,26 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">07 · Competition & Moat</p>
-              <h2>SkillCertKit 不替代 ROS、LeRobot、Viam、Isaac 或认证实验室。</h2>
+              <p class="kicker">08 · Competition & Moat</p>
+              <h2>SkillCertKit 不替代认证实验室，也不替代机器人开发平台。</h2>
             </div>
-            <p>ROS 解决包和依赖；LeRobot 解决数据/训练；Viam 解决 registry 和 fleet rollout；NVIDIA Isaac/GR00T 解决 GPU-first physical AI 工具链；UL/TUV/Intertek 做正式安全/法规认证。SkillCertKit 的位置是安装前 marketplace-readiness evidence，帮助技能进入这些流程，而不是冒充它们。</p>
+            <p>ROS、LeRobot、Isaac、Flowstate、Viam、Formant、UR+、MiR Go、KUKA、FANUC、ABB、UL/TUV/Intertek 都是生态的一部分。SkillCertKit 的位置是安装前 marketplace-readiness evidence，帮助技能进入这些流程。</p>
           </div>
           <div class="grid three">
             <article class="card">
               <span class="claim-tag">短期壁垒</span>
-              <h3>evidence schema</h3>
-              <p>`skill.yaml`、Dragonwing Skill Profile、safety boundary、SBOM/VEX、policy decision 和 rollback 模板。</p>
+              <h3>Open spec + validator</h3>
+              <p>`skill.yaml`、Skill Passport、Dragonwing Skill Profile、safety boundary、SBOM/VEX/provenance adapters。</p>
             </article>
             <article class="card">
               <span class="claim-tag">中期壁垒</span>
-              <h3>compatibility graph</h3>
-              <p>技能、数据集、模型、robot profile、sensor、runtime、Qualcomm target、现场失败的关系图。</p>
+              <h3>Compatibility graph</h3>
+              <p>技能、数据集、模型、robot profile、sensor、runtime、edge target、现场失败、buyer acceptance 的关系图。</p>
             </article>
             <article class="card">
               <span class="claim-tag">长期壁垒</span>
-              <h3>recertification network</h3>
-              <p>硬件变更、runtime 更新、现场失败、漏洞和新数据触发再验证，形成持续收入与信任数据。</p>
+              <h3>Continuous recertification</h3>
+              <p>代码、模型、相机标定、夹爪、site layout、漏洞、runtime 更新和 incident 都触发再验证。</p>
             </article>
           </div>
         </div>
@@ -273,44 +340,44 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">08 · Why Qualcomm</p>
+              <p class="kicker">09 · Why Qualcomm</p>
               <h2>把 Qualcomm 工具链变成机器人技能信任标准。</h2>
             </div>
-            <p>SkillCertKit 不只是“跑在高通板子上”。它把 AI Hub compile/profile/inference、QNN/QAIRT artifact、Device Cloud run、Profiler trace、Dragonwing profile 和 Robotics Hub reference skill 变成每个技能上架前的证据字段。</p>
+            <p>SkillCertKit 把 AI Hub compile/profile/inference、QNN/QAIRT artifact、ONNX Runtime QNN fallback、Device run、Profiler trace、Dragonwing profile 和 Robotics Hub reference skill 变成每个技能上架前的证据字段。</p>
           </div>
           <div class="grid four">
             <div class="stat">
-              <strong>AI Hub</strong>
-              <span>compile/profile/inference job、runtime、quantization、numerical validation 和 asset hash。</span>
+              <strong>Model</strong>
+              <span>model hash、quantization、input/output specs、AI Hub job、accuracy and calibration evidence。</span>
             </div>
             <div class="stat">
-              <strong>QNN</strong>
-              <span>QNN DLC、context binary、ONNX Runtime QNN fallback、unsupported-op status。</span>
+              <strong>Runtime</strong>
+              <span>QNN artifact、QAIRT/ORT version、unsupported-op status、fallback path 和 cold/warm load。</span>
             </div>
             <div class="stat">
               <strong>Device</strong>
-              <span>Device Cloud 或真实板卡 session、target chipset、run logs 和 profiler metrics。</span>
+              <span>RB3/QCS6490、QCS8550、IQ-8275、IQ10 RRD target profile 和 run logs。</span>
             </div>
             <div class="stat">
-              <strong>Profile</strong>
-              <span>RB3/QCS6490、QCS8550、IQ-8275、IQ10 RRD 路线成为技能兼容矩阵。</span>
+              <strong>Robot</strong>
+              <span>camera-to-action latency、ROS 2 timing、missed deadline、thermal drift、rollback trigger。</span>
             </div>
           </div>
           <div class="grid three pipeline-extra">
             <article class="card">
-              <span class="claim-tag">需要高通支持</span>
+              <span class="claim-tag">Validation</span>
               <h3>Dragonwing Skill Profile v0.1</h3>
-              <p>共同定义 target device、runtime、model artifact、profiler metrics、evidence level、rollback 和 safety boundary。</p>
+              <p>共同定义 target device、runtime、model artifact、profile metrics、evidence level、rollback 和 safety boundary。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">需要高通支持</span>
-              <h3>AI Hub / QNN / Device Cloud quota</h3>
-              <p>为 2-3 个 reference skills 生成真实 compile/profile/run evidence，而不是网页 mock。</p>
+              <span class="claim-tag">Reference Skills</span>
+              <h3>2-3 个候选技能</h3>
+              <p>object detect、visual tracking、sample transfer / light QA，生成真实 AI Hub/QNN/run evidence。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">需要高通支持</span>
+              <span class="claim-tag">Claims</span>
               <h3>谨慎公开标签</h3>
-              <p>比赛阶段使用 `Dragonwing-profiled` 或 `Qualcomm-edge-ready candidate`，不声称官方认证。</p>
+              <p>使用 `Dragonwing-profiled candidate` 或 `Qualcomm-edge-ready candidate`，不声称官方认证或合作。</p>
             </article>
           </div>
         </div>
@@ -320,48 +387,63 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">09 · Demo & Evidence</p>
-              <h2>3 分钟演示：从模型文件，到可阻止、可发布、可回滚的技能证据包。</h2>
+              <p class="kicker">10 · Demo & Ask</p>
+              <h2>3 分钟演示：从模型文件，到可阻止、可发布、可回滚的 Skill Passport。</h2>
             </div>
-            <p>演示主线必须证明 SkillCertKit 真正能改变安装决策，而不是生成静态报告。评委要看到不兼容 profile 被阻止，兼容 Qualcomm target 被允许 staged rollout，失败后能回滚并触发再验证。</p>
+            <p>评委要看到 SkillCertKit 真正改变安装决策：不兼容 profile 被阻止，兼容 Dragonwing profile 被允许 staged rollout，health/safety event 后能回滚并触发再验证。</p>
           </div>
           <div class="grid four">
             <article class="card">
-              <span class="claim-tag">0:00-0:45</span>
-              <h3>打开 skill.yaml</h3>
-              <p>展示 `labforge.sample-transfer.v1` 的 task boundary、camera、arm、gripper、workspace、permissions 和 target profile。</p>
+              <span class="claim-tag">0:00-0:55</span>
+              <h3>提交技能</h3>
+              <p>打开 `labforge.sample-transfer.v1`，展示没有证据的模型文件，再提交 `skill.yaml`、任务边界和 target profile。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">0:45-1:30</span>
-              <h3>生成证据图</h3>
-              <p>绑定 LeRobot lineage、model hash、SBOM、VEX、SLSA/in-toto provenance、signature 和 safety boundary。</p>
+              <span class="claim-tag">0:55-1:45</span>
+              <h3>生成证据</h3>
+              <p>绑定 LeRobot lineage、model hash、SBOM、VEX、SLSA/in-toto、signature、safety boundary 和 Qualcomm edge profile。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">1:30-2:15</span>
-              <h3>运行安装门禁</h3>
-              <p>不兼容 profile 被阻止；兼容 Qualcomm target 生成 AI Hub/QNN latency、memory、runtime 和 fallback 证据。</p>
+              <span class="claim-tag">1:45-2:25</span>
+              <h3>门禁决策</h3>
+              <p>不兼容 robot profile 被 block；兼容 Dragonwing profile 允许 one-robot canary，并明确证据等级。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">2:15-3:00</span>
-              <h3>发布并回滚</h3>
-              <p>生成 SkillDock 技能卡，允许 staged rollout；模拟 safety event 后回滚到 previous-known-good。</p>
+              <span class="claim-tag">2:25-3:00</span>
+              <h3>发布与回滚</h3>
+              <p>生成 SkillDock 技能卡；模拟 safety/health event，回滚到 previous-known-good digest 并记录 audit log。</p>
             </article>
           </div>
           <p class="quote pipeline-extra">SkillCertKit 的一句话：不是给机器人技能盖法律章，而是让每个技能在安装前说清“证据、边界和回滚”。</p>
           <div class="source-links">
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR industrial robots</a>
+            <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR service robots</a>
             <a href="https://www.universal-robots.com/marketplace/">UR Marketplace</a>
-            <a href="https://mobile-industrial-robots.com/products/mir-go">MiR Go</a>
-            <a href="https://huggingface.co/docs/lerobot/en/index">LeRobot</a>
-            <a href="https://index.ros.org/">ROS Index</a>
-            <a href="https://opencontainers.org/posts/blog/2024-03-13-image-and-distribution-1-1/">OCI 1.1</a>
-            <a href="https://slsa.dev/spec/v1.2/">SLSA v1.2</a>
-            <a href="https://in-toto.io/">in-toto</a>
-            <a href="https://cyclonedx.org/specification/overview/">CycloneDX</a>
-            <a href="https://openpolicyagent.org/docs">OPA</a>
-            <a href="https://theupdateframework.github.io/specification/latest/">TUF</a>
+            <a href="https://www.kuka.com/en-us/future-production/iiqka-robots-for-the-people/creator-portal/certification">KUKA certification</a>
+            <a href="https://www.fanuc.co.jp/en/product/robot/function/plugindevice/">FANUC plug-in devices</a>
+            <a href="https://www.abb.com/global/en/areas/robotics/products/software/appstudio">ABB AppStudio</a>
+            <a href="https://www.intrinsic.ai/flowstate">Intrinsic Flowstate</a>
+            <a href="https://developer.nvidia.com/isaac">NVIDIA Isaac</a>
+            <a href="https://www.viam.com/platform/fleet-management">Viam Fleet</a>
+            <a href="https://docs.formant.io/docs/fleet-observability">Formant Observability</a>
+            <a href="https://foxglove.dev/">Foxglove</a>
+            <a href="https://www.ros.org/">ROS</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobotDataset v3</a>
             <a href="https://www.iso.org/standard/73933.html">ISO 10218-1</a>
+            <a href="https://www.iso.org/standard/83545.html">ISO 3691-4</a>
+            <a href="https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng">EU Machinery Regulation</a>
+            <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act">EU CRA</a>
+            <a href="https://spdx.github.io/spdx-spec/v3.0.1/">SPDX</a>
+            <a href="https://cyclonedx.org/specification/overview/">CycloneDX</a>
+            <a href="https://slsa.dev/spec/v1.2/">SLSA</a>
+            <a href="https://in-toto.io/">in-toto</a>
+            <a href="https://docs.sigstore.dev/quickstart/quickstart-cosign/">Sigstore cosign</a>
+            <a href="https://theupdateframework.github.io/specification/latest/">TUF</a>
+            <a href="https://uptane.org/docs/2.1.0/standard/uptane-standard">Uptane</a>
             <a href="https://csrc.nist.gov/pubs/sp/800/218/final">NIST SSDF</a>
-            <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
+            <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">RB3 Gen 2</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">IQ10 RRD</a>
             <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX Runtime QNN</a>
           </div>
         </div>
