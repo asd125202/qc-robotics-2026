@@ -43,6 +43,7 @@ The current first-batch pitch directions are:
 - `FoodLoop 餐务闭环`: restaurant operations platform for KDS/POS tickets, tray verification, delivery/bussing, cleaning proof, food-safety logs, exception capture, and LeRobot HIL loops.
 - `护元 CareOS`: eldercare productivity platform for home, community, and facility care tasks, privacy-first Qualcomm edge execution, caregiver escalation, service evidence, and LeRobot HIL loops.
 - `WarehouseLoop 仓务闭环`: warehouse exception-closure platform for WMS mismatches, receiving/putaway errors, returns grading, photo/barcode proof, WMS writeback, and LeRobot HIL loops.
+- `QualityLoop 质检闭环`: manufacturing quality closed-loop system for defect evidence, RCA/CAPA, re-inspection, MES/QMS writeback, edge vision governance, and LeRobot HIL loops.
 - `RoboPort`: certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.

@@ -186,6 +186,10 @@ img {
   background-image: url("./assets/warehouse-loop.png");
 }
 
+.hero-quality-loop {
+  background-image: url("./assets/quality-loop.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }

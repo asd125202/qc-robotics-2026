@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QualityLoop 质检闭环 | 制造业 AI 质量操作系统</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-cyan">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>QualityLoop 质检闭环</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#problem">问题</a>
+        <a href="#why-now">时机</a>
+        <a href="#solution">方案</a>
+        <a href="#market">市场</a>
+        <a href="#gtm">GTM</a>
+        <a href="#moat">壁垒</a>
+        <a href="#competition">竞争</a>
+        <a href="#qualcomm">高通</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-quality-loop">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 52 · Manufacturing Quality Closed Loop</p>
+          <h1>别人帮你看到坏件，我们让坏件不再发生。</h1>
+          <p class="hero-lede">QualityLoop 是制造业的 AI 质检闭环系统：把每一次 NG 从“发现缺陷”推进到“定位根因、派发纠正动作、验证不再复发”。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#solution">看质检闭环</a>
+            <a class="button" href="../ops-connector/">连接 MES/QMS</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Problem</p>
+              <h2>工厂不只是漏检，而是缺陷无法形成闭环。</h2>
+            </div>
+            <p>缺陷图片、工站数据、MES/QMS、工程复盘和 CAPA 分散在不同系统里。视觉系统发现 NG 只是第一步；真正的财务损失来自返工、报废、保修、投诉、退货、召回和同类问题反复发生。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>证据分散</h3>
+              <p>图像、工单、批次、设备、工艺参数、供应商和人员没有连成一条质量链。</p>
+            </article>
+            <article class="card">
+              <h3>RCA 慢</h3>
+              <p>工程师用 Excel、截图、微信群和会议追根因，问题跨班次跨产线反复出现。</p>
+            </article>
+            <article class="card">
+              <h3>CAPA 虚</h3>
+              <p>纠正动作派发后缺少复检证据，不知道 FPY、PPM 和复发率是否真的改善。</p>
+            </article>
+            <article class="card">
+              <h3>模型乱</h3>
+              <p>阈值、模型版本、缺陷 taxonomy 和 station recipe 缺乏可审计治理。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Why Now</p>
+              <h2>质量成本、智能制造预算和边缘 AI 能力同时成熟。</h2>
+            </div>
+            <p>制造业已经不满足于“多装一个相机”。买家开始关心 warranty、recall、audit、MES/QMS writeback、模型治理和跨线复用。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>$58B</strong>
+              <span>McKinsey 估算 2024 年全球汽车保修相关成本约 580 亿美元。</span>
+            </div>
+            <div class="stat">
+              <strong>997</strong>
+              <span>NHTSA 2025 年全年召回事件数，受影响规模 3127 万。</span>
+            </div>
+            <div class="stat">
+              <strong>28%</strong>
+              <span>Deloitte 调查中制造商未来两年把 vision systems 列为投资重点。</span>
+            </div>
+            <div class="stat">
+              <strong>542k</strong>
+              <span>IFR 统计 2024 年全球工厂新装工业机器人约 54.2 万台。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="insight" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Insight</p>
+              <h2>检测框不是产品，闭环才是产品。</h2>
+            </div>
+            <p>真正有防御性的质量数据不是更多缺陷图片，而是“缺陷图片 + 工站/批次/设备/人员/物料 + 根因判断 + 纠正动作 + 复发结果”。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>检测之后</h3>
+              <p>bbox 和分类只是入口；质量团队要的是 disposition、RCA、CAPA 和审计。</p>
+            </article>
+            <article class="card">
+              <h3>跨系统</h3>
+              <p>相机、AOI、测试、MES、QMS、SPC、PLC 和人工覆判必须说同一种缺陷语言。</p>
+            </article>
+            <article class="card">
+              <h3>可复用</h3>
+              <p>每次覆判、复检和复发结果都变成模型、recipe 和质量流程的下一轮资产。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">04 · Solution</p>
+            <h2>QualityLoop 是检测之后的质量操作系统。</h2>
+            <p class="lead">边缘视觉检测站捕获 NG，Issue Graph 聚合同类缺陷，RCA Copilot 提出候选根因，CAPA workflow 派发纠正动作，复检模块验证改善是否真实发生。</p>
+            <ul class="list">
+              <li>EdgeVision：本地检测、热力图、缺陷码、置信度和 station recipe。</li>
+              <li>Issue Graph：批次、工站、设备、供应商、历史缺陷和复发聚合。</li>
+              <li>RCA/CAPA：5 Why、鱼骨图、责任人、纠正动作、复检证据。</li>
+              <li>Learning Loop：人工覆判、低置信度和复检失败进入主动学习和 LeRobot HIL。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/quality-loop.png" alt="制造质检工位里机器人相机检测缺陷、工程师查看热力图、RCA CAPA 和 MES QMS 回写闭环图">
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Market Wedge</p>
+              <h2>先打高混低量、返工昂贵、图片证据强的产线。</h2>
+            </div>
+            <p>不要从“所有制造业”开始。先用一个缺陷族、一条线、一个工厂证明：RCA 变快、CAPA 关闭变实、复发率下降、审计时间缩短。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>3C / EMS</h3>
+              <p>连接器、摄像头模组、FPC/PCB/SMT、显示外观，缺陷图片和批次数据丰富。</p>
+            </article>
+            <article class="card">
+              <h3>EV Battery</h3>
+              <p>极片、电芯、焊接、模组/PACK，质量追溯和供应商反馈压力强。</p>
+            </article>
+            <article class="card">
+              <h3>Automotive Tier 1</h3>
+              <p>焊接、压铸、涂装、EOL、扭矩/装配验证，保修和召回成本可量化。</p>
+            </article>
+            <article class="card">
+              <h3>NPI / 试产</h3>
+              <p>新缺陷多、工程复盘密集、模型漂移快，最需要跨线学习模板。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Business Model</p>
+              <h2>按“闭环的质量问题族”和检测站收费。</h2>
+            </div>
+            <p>QualityLoop 不卖泛化模型调用，而卖能进入质量例会、CAPA 审核和 MES/QMS 的闭环结果。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>付费试点</h3>
+              <p>6-8 周，单线单缺陷族，15k-50k 美元。</p>
+            </article>
+            <article class="card">
+              <h3>检测站订阅</h3>
+              <p>每站 1k-3k 美元/月 + 实施费，按 station recipe 和接口扩展。</p>
+            </article>
+            <article class="card">
+              <h3>工厂版</h3>
+              <p>100k-300k 美元/厂/年，含 MES/QMS 集成、审计包和模型治理。</p>
+            </article>
+            <article class="card">
+              <h3>成功费</h3>
+              <p>对 scrap、rework、warranty 节省可选按验证金额分成。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gtm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Go-To-Market</p>
+              <h2>从一个高频缺陷族切入，卖给已经为质量损失买单的人。</h2>
+            </div>
+            <p>第一步不是“全厂 AI 化”，而是在一条线证明 NG 到 RCA/CAPA/复检闭环能缩短质量会议和问题关闭周期。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>第一买方</h3>
+              <p>质量总监、制造工程负责人、厂长、数字化工厂负责人。</p>
+            </article>
+            <article class="card">
+              <h3>第一试点</h3>
+              <p>6-8 周，一条线、一个高频缺陷族、一个 MES/QMS 回写接口。</p>
+            </article>
+            <article class="card">
+              <h3>扩张路径</h3>
+              <p>缺陷族 -> 检测站 -> 产线 -> 工厂模板 -> 集团供应商质量网络。</p>
+            </article>
+            <article class="card">
+              <h3>渠道伙伴</h3>
+              <p>MES/QMS 实施商、机器视觉集成商、自动化集成商、Qualcomm 生态硬件伙伴。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="competition" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Competition</p>
+              <h2>检测层很拥挤，闭环层才是机会。</h2>
+            </div>
+            <p>QualityLoop 不替换视觉硬件或 QMS/MES，而是把它们连接起来：多厂商检测结果、质量记录、人工覆判、CAPA、复检和模型治理。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>Cognex / Keyence</h3>
+              <p>视觉硬件和检测强，缺少跨厂商 RCA/CAPA 操作层。</p>
+            </article>
+            <article class="card">
+              <h3>Hikrobot / OPT</h3>
+              <p>国内机器视觉和 AOI 强，QualityLoop 做证据湖和闭环协同。</p>
+            </article>
+            <article class="card">
+              <h3>Landing / Robovision</h3>
+              <p>模型训练强，但工厂流程、MES/QMS 和复检闭环仍需要落地。</p>
+            </article>
+            <article class="card">
+              <h3>Instrumental</h3>
+              <p>NPI 和电子质量洞察强；QualityLoop 可扩到电池、Tier 1 和供应商质量。</p>
+            </article>
+            <article class="card">
+              <h3>Siemens / Zebra</h3>
+              <p>工业平台强，但异构工厂需要轻量 vendor-neutral overlay。</p>
+            </article>
+            <article class="card">
+              <h3>QMS / MES</h3>
+              <p>记录和流程强，但缺少图像、模型、工站上下文和主动学习。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Moat</p>
+              <h2>壁垒不在单张图片，而在闭环质量记忆。</h2>
+            </div>
+            <p>每一次检测、覆判、根因、纠正动作和复检结果都会让 QualityLoop 更懂这条产线和这个客户的质量语言。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>缺陷本体</h3>
+              <p>跨产品、工站、供应商和客户统一缺陷 taxonomy。</p>
+            </article>
+            <article class="card">
+              <h3>闭环数据</h3>
+              <p>缺陷 -> 根因 -> CAPA -> 复检 -> 复发结果持续积累。</p>
+            </article>
+            <article class="card">
+              <h3>工站上下文</h3>
+              <p>批次、设备、工艺参数、人员、供应商和检验计划一起沉淀。</p>
+            </article>
+            <article class="card">
+              <h3>集成壁垒</h3>
+              <p>MES/QMS/PLC/SPC/OPC UA Vision/SAP/Odoo adapter 带来切换成本。</p>
+            </article>
+            <article class="card">
+              <h3>模型治理</h3>
+              <p>station recipe、阈值、模型版本、灰度、回滚和审计绑定。</p>
+            </article>
+            <article class="card">
+              <h3>工作流嵌入</h3>
+              <p>质量例会、CAPA 审核、供应商反馈和 NPI ramp 模板形成习惯。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Product Architecture</p>
+              <h2>QualityCore、EdgeVision Station、Robot Re-Inspection、Learning Loop。</h2>
+            </div>
+            <p>技术架构服务于一个商业目标：从 NG 证据到 RCA/CAPA，再到复检和模型更新。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>QualityCore</h3>
+              <p>DefectObservation、QualityEvent、CAPA、TraceEvent、MES/QMS/SPC adapter。</p>
+            </article>
+            <article class="card">
+              <h3>EdgeVision</h3>
+              <p>Qualcomm IM SDK、QNN、ONNX QNN EP、GenICam、光源 recipe、OPC UA Vision。</p>
+            </article>
+            <article class="card">
+              <h3>Robot Re-Inspection</h3>
+              <p>ROS 2 + MoveIt 2 规划复检视角，安全由机器人控制器和 PLC 负责。</p>
+            </article>
+            <article class="card">
+              <h3>Learning Loop</h3>
+              <p>CVAT/Label Studio 主动学习，AI Hub profile，灰度发布和回滚。</p>
+            </article>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Inspect</h3>
+              <p>相机和光源按 station recipe 捕获图像，本地模型检测缺陷。</p>
+            </article>
+            <article class="step">
+              <h3>Trace</h3>
+              <p>关联 serial、lot、work order、设备、工艺参数和供应商。</p>
+            </article>
+            <article class="step">
+              <h3>Act</h3>
+              <p>生成 nonconformance / CAPA，分配工程、制程或供应商责任。</p>
+            </article>
+            <article class="step">
+              <h3>Verify</h3>
+              <p>返工后复检，跟踪 FPY、PPM、复发率和关闭周期。</p>
+            </article>
+            <article class="step">
+              <h3>Learn</h3>
+              <p>低置信度、人工覆判和复检失败进入下一轮训练。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">11 · Competition Demo</p>
+              <h2>现场展示同一张缺陷图，QualityLoop 继续走到闭环。</h2>
+            </div>
+            <p>竞品视角停在 bbox / 分类；QualityLoop 展示相似历史缺陷、可能根因、责任工站、CAPA、复检结果和模型更新队列。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>NG</strong>
+              <span>Qualcomm edge 本地识别表面划伤，展示热力图和缺陷码。</span>
+            </div>
+            <div class="stat">
+              <strong>RCA</strong>
+              <span>Issue Graph 找到同批次和同设备历史缺陷，生成候选根因。</span>
+            </div>
+            <div class="stat">
+              <strong>CAPA</strong>
+              <span>派发 mock 纠正动作，返工后机器人复检并写回 QMS。</span>
+            </div>
+            <div class="stat">
+              <strong>HIL</strong>
+              <span>人工覆判样本进入 active learning 和 LeRobot HIL episode。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">12 · Why Qualcomm</p>
+              <h2>工厂质量是 Qualcomm edge AI 最应该赢的场景之一。</h2>
+            </div>
+            <p>工厂不想把所有缺陷图、产品图纸和工艺数据上传公有云。Qualcomm edge station 让多相机、低延迟、弱网、本地推理和模型治理在产线现场运行。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Vision</h3>
+              <p>IM SDK / GStreamer 连接相机、ISP、视频和 AI pipeline。</p>
+            </article>
+            <article class="step">
+              <h3>Runtime</h3>
+              <p>QNN、ONNX QNN EP、AI Hub compile/profile 和 edge artifact。</p>
+            </article>
+            <article class="step">
+              <h3>Robotics</h3>
+              <p>ROS 2 / MoveIt 2 控制复检视角，安全由 PLC 和机器人控制器负责。</p>
+            </article>
+            <article class="step">
+              <h3>Privacy</h3>
+              <p>缺陷图、工艺参数和供应商数据默认留在厂内或私有云。</p>
+            </article>
+            <article class="step">
+              <h3>Learning</h3>
+              <p>LeRobot HIL 把复检动作和人工接管变成可迭代技能。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ask" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">13 · Ask</p>
+              <h2>我们希望把它做成 Qualcomm 工业 edge AI 的参考应用。</h2>
+            </div>
+            <p>比赛阶段需要的不只是开发板，而是一个能证明“质检从检测走向闭环”的端侧样板。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>开发板与 profile</h3>
+              <p>多相机质检、QNN/ONNX artifact、延迟、功耗和本地部署证据。</p>
+            </article>
+            <article class="card">
+              <h3>工业 demo 数据</h3>
+              <p>1-2 个缺陷族或试点工位，用于验证 NG -> RCA/CAPA -> 复检闭环。</p>
+            </article>
+            <article class="card">
+              <h3>生态联合展示</h3>
+              <p>把 QualityLoop 展示为 Qualcomm edge AI + LeRobot HIL 的工业产品样板。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide white">
+        <div class="wrap">
+          <p class="quote">QualityLoop 的一句话 pitch：制造工厂用它把每一次 NG 从检测证据变成 RCA、CAPA、复检、MES/QMS 回写和下一轮 edge 模型更新。</p>
+          <div class="source-links">
+            <a href="https://asq.org/quality-resources/cost-of-quality">ASQ COPQ</a>
+            <a href="https://www.mckinsey.com/industries/automotive-and-assembly/our-insights/when-warranty-costs-rival-r-and-d-spend-remaking-vehicle-quality-with-ai">McKinsey Warranty</a>
+            <a href="https://www.nhtsa.gov/sites/nhtsa.gov/files/2026-03/2025-annual-recalls-report.pdf">NHTSA Recalls</a>
+            <a href="https://www.deloitte.com/us/en/insights/industry/manufacturing/2025-smart-manufacturing-survey.html">Deloitte</a>
+            <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR</a>
+            <a href="https://www.marketsandmarkets.com/Market-Reports/industrial-machine-vision-market-234246734.html">Machine Vision</a>
+            <a href="https://gxt.fujian.gov.cn/jdhy/zxzcfg/gjzcfg/202506/t20250611_6923864.htm">智能制造</a>
+            <a href="https://www.news.cn/sci-tech/20260302/c9d0eb0e334345919c4d905c94c2cb53/c.html">深圳 AI+制造</a>
+            <a href="https://cn.aqrose.com/">Aqrose</a>
+            <a href="https://www.prnewswire.com/news-releases/cognex-reports-first-quarter-2026-results-302764643.html">Cognex</a>
+            <a href="https://www.keyence.com/products/vision/vision-sys/vs-g/">Keyence</a>
+            <a href="https://instrumental.com/">Instrumental</a>
+            <a href="https://www.elementaryml.com/">Elementary</a>
+            <a href="https://www.qualcomm.com/developer/software/qualcomm-intelligent-multimedia-sdk">Qualcomm IM SDK</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html">AI Hub</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX QNN</a>
+            <a href="https://opcfoundation.org/markets-collaboration/machine-vision/">OPC UA Vision</a>
+            <a href="https://www.isa.org/standards-and-publications/isa-standards/isa-95-standard">ISA-95</a>
+            <a href="https://docs.humansignal.com/guide/active_learning">Active Learning</a>
+            <a href="https://huggingface.co/docs/lerobot/hil_data_collection">LeRobot HIL</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span><a href="../index.html">返回网站组合</a> · 2026 高通具身智能与机器人大赛产品概念探索</span>
+    </footer>
+  </body>
+</html>
