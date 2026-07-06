@@ -45,6 +45,7 @@ Current batch:
 - `harness-loop/` — EV wire-harness and connector exception-closure platform for half-mated connectors, misroutes, missing clips, continuity failures, rework evidence, LeRobot HIL recovery, and Qualcomm edge verification.
 - `surface-loop/` — industrial surface-prep, coating inspection, rework, release-packet, LeRobot HIL, and Qualcomm edge evidence platform for shipyards, steel assets, wind blades, auto paint, rail, and aerospace MRO.
 - `battery-router/` — first-hour battery intake routing workcell for retired lithium packs/modules, mock diagnostics, human-approved reuse/repair/recycle/quarantine routing, LeRobot HIL, and Qualcomm edge evidence packets.
+- `solar-loop/` — solar-site exception-closure platform for RGB/thermal inspection, soiling and fault work orders, robot cleaning/verification, LeRobot HIL, and Qualcomm edge evidence packets.
 - `roboport/` — certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `business-case/` — commercialization, pricing package, and revenue flywheel story.
 - `submission-kit/` — preliminary project-book and upload-readiness page.

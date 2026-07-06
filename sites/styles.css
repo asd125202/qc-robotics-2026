@@ -246,6 +246,10 @@ img {
   background-image: url("./assets/battery-router.png");
 }
 
+.hero-solar-loop {
+  background-image: url("./assets/solar-loop.png");
+}
+
 .hero-businesscase {
   background-image: url("./assets/business-case-flywheel.png");
 }

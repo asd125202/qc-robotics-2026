@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SolarLoop 光场异常闭环 | 热斑不是一张图，而是一张必须关闭的工单</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="tone-green">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="项目首页">
+        <span class="brand-mark"></span>
+        <span>SolarLoop 光场异常闭环</span>
+      </a>
+      <nav class="navlinks" aria-label="页面导航">
+        <a href="#problem">问题</a>
+        <a href="#why-now">时机</a>
+        <a href="#solution">方案</a>
+        <a href="#business">商业</a>
+        <a href="#competition">竞争</a>
+        <a href="#qualcomm">高通</a>
+        <a href="#ask">Ask</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-solar-loop">
+        <div class="hero-inner">
+          <p class="eyebrow">Pitch 67 · Solar Exception Closure</p>
+          <h1>热斑不是一张图，而是一张必须关闭的工单。</h1>
+          <p class="hero-lede">SolarLoop 把光伏电站的热斑、遮挡、积灰、掉串、汇流箱和跟踪器异常，从无人机/机器人发现，变成按收益排序的工单、执行复核、索赔证据和 LeRobot HIL 数据闭环。</p>
+          <div class="cta-row">
+            <a class="button primary" href="#solution">看闭环方案</a>
+            <a class="button" href="#demo">看比赛 Demo</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 · Problem</p>
+              <h2>光伏电站不缺告警，缺的是把告警变成已关闭收益缺口。</h2>
+            </div>
+            <p>业主、资产管理人和 O&M 承包商每天看到 SCADA 告警、热像图片、无人机报告和人工巡检记录，但“哪里少发电、值不值得派人、清洗还是维修、修完有没有恢复、证据能不能用于质保和保险”经常分散在不同系统里。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>谁痛</h3>
+              <p>集中式电站业主、沙戈荒基地运维、C&I 园区屋顶、O&M 承包商、保险/质保团队和 PV+BESS 资产经理。</p>
+            </article>
+            <article class="card">
+              <h3>告警太碎</h3>
+              <p>无人机、热像、逆变器、汇流箱、清洗机器人和人工表格都能发现问题，但很少形成同一张可关闭工单。</p>
+            </article>
+            <article class="card">
+              <h3>派工不按钱排</h3>
+              <p>一个热斑、一个离线串和一片积灰区的优先级，应该由发电损失、风险、天气、电价和路程共同决定。</p>
+            </article>
+            <article class="card">
+              <h3>修完缺证据</h3>
+              <p>清洗、维修、替换、隔离之后，客户需要前后对比、时间戳、模型版本、人工签核和系统回写。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 · Why Now</p>
+              <h2>2026 年，光伏已经从装机竞赛变成资产运营竞赛。</h2>
+            </div>
+            <p>全球和中国光伏装机已经进入 TW 级存量，运维人员没有同步扩张；同时电力市场化、消纳压力、积灰损失、设备故障和质保争议让“多发一度、少跑一趟、证据完整”变得更值钱。</p>
+          </div>
+          <div class="grid four">
+            <div class="stat">
+              <strong>3TW+</strong>
+              <span>2025 年全球太阳能装机跨过 3TW，全年新增约 664GW，巡检和运维从项目问题变成存量资产问题。</span>
+            </div>
+            <div class="stat">
+              <strong>1.2TW</strong>
+              <span>中国 2025 年光伏累计约 1.2TW，新增约 317GW，沙戈荒基地和分布式都需要少人化运维。</span>
+            </div>
+            <div class="stat">
+              <strong>5.08%</strong>
+              <span>Raptor Maps 2026 数据显示设备驱动功率损失约 5.08%，高频检查站点损失显著更低。</span>
+            </div>
+            <div class="stat">
+              <strong>4-7%</strong>
+              <span>IEA PVPS 估算积灰造成全球平均 4-7% 发电损失，干旱和农业地区波动更大。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="insight" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 · Core Insight</p>
+              <h2>有价值的不是“巡检”，而是关闭收入漏洞。</h2>
+            </div>
+            <p>一张热像图本身不创造价值。只有当它被定位到组件/串/逆变器，和发电损失、电价、天气窗口、派工成本、清洗/维修动作和复核证据连接起来，它才是资产管理工具。</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>Detection-to-Closure</h3>
+              <p>从异常检测开始，但终点必须是已关闭、已复核、已回写的工单。</p>
+            </article>
+            <article class="card">
+              <h3>MWh Before Alarm Count</h3>
+              <p>不按告警数量排序，而按可恢复 MWh、风险和派工成本排序。</p>
+            </article>
+            <article class="card">
+              <h3>Every Fix Trains The Fleet</h3>
+              <p>人工确认、错误派工、机器人失败和修复复核都变成 LeRobot HIL 训练片段。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="slide white">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">04 · Solution</p>
+            <h2>SolarLoop 是光伏电站的异常闭环操作系统。</h2>
+            <p class="lead">它不替代无人机、清洗机器人、逆变器监控或 CMMS，而是把它们串成一个闭环：发现异常、判断根因、计算经济性、派发人/机器人任务、复核恢复、导出证据包。</p>
+            <ul class="list">
+              <li>Find：融合 RGB、热像、逆变器/汇流箱、气象和站点地图，定位热斑、遮挡、积灰、掉串和跟踪器异常。</li>
+              <li>Value：把异常转成可恢复 MWh、风险等级、清洗/维修成本和最佳处理窗口。</li>
+              <li>Act：生成工单给运维人员、无人机、地面清洗机器人或人工复核队列。</li>
+              <li>Prove：修完后复扫，输出前后对比、证据包、质保/保险材料和系统回写。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/solar-loop.png" alt="光伏电站异常闭环，沙漠光伏阵列、无人机热像巡检、地面清洁机器人、运维人员平板、热斑积灰工单和复核证据">
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">05 · Product Workflow</p>
+              <h2>从一次热像扫描到一个已关闭工单，只走五步。</h2>
+            </div>
+            <p>第一版不追求全自动大规模替代人工，而是把最容易漏掉的异常处理链条产品化。客户先看到同一套系统里有损失、责任人、处理动作和复核证据。</p>
+          </div>
+          <div class="pipeline">
+            <article class="step">
+              <h3>Map</h3>
+              <p>导入电站组件、串、逆变器、汇流箱、道路、气象和清洗分区。</p>
+            </article>
+            <article class="step">
+              <h3>Inspect</h3>
+              <p>无人机、固定相机、热像和地面机器人采集异常，边缘侧先做初筛。</p>
+            </article>
+            <article class="step">
+              <h3>Rank</h3>
+              <p>按可恢复 MWh、电价、天气、消纳、清洗成本和安全风险排优先级。</p>
+            </article>
+            <article class="step">
+              <h3>Dispatch</h3>
+              <p>派给地面清洗机器人、维修班组、复测无人机或人工专家审批。</p>
+            </article>
+            <article class="step">
+              <h3>Verify</h3>
+              <p>复扫并回写工单，生成前后对比、证据包和下一轮训练数据。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">06 · Market Wedge</p>
+              <h2>先切最痛的光场：大、脏、远、少人、需要证据。</h2>
+            </div>
+            <p>SolarLoop 的第一批客户不是所有光伏业主，而是异常闭环价值最高的资产：沙漠基地、炎热/多尘/多风区域、远离城市的 50-500MW 子区域，以及运维承包商同时管理的多站点组合。</p>
+          </div>
+          <div class="grid six">
+            <article class="card">
+              <h3>中国沙戈荒基地</h3>
+              <p>灰尘、水资源、远距离巡检、无人化场站和集中式业主是天然切口。</p>
+            </article>
+            <article class="card">
+              <h3>海外 utility PV</h3>
+              <p>美国、中东、澳洲、印度等大电站需要减少巡检、清洗和派工浪费。</p>
+            </article>
+            <article class="card">
+              <h3>C&I 园区屋顶</h3>
+              <p>屋顶分散、上人困难、报表和质保争议多，适合轻量化异常账本。</p>
+            </article>
+            <article class="card">
+              <h3>PV+BESS</h3>
+              <p>清洗和维修要对齐高价值发电/充放电窗口，而不是按固定日历执行。</p>
+            </article>
+            <article class="card">
+              <h3>O&M 承包商</h3>
+              <p>用一个队伍覆盖更多 MW，用证据包证明 SLA 和续约价值。</p>
+            </article>
+            <article class="card">
+              <h3>保险 / 质保</h3>
+              <p>冰雹、组件缺陷、热斑和批次问题需要时间戳、影像、性能和处理记录。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="business" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">07 · Business Model</p>
+              <h2>按已验证的发电恢复、运维节省和证据价值收费。</h2>
+            </div>
+            <p>100MWdc 电站若年发电 170,000MWh、均价 29 美元/MWh，年收入约 493 万美元；每恢复 1% 发电量约 4.9 万美元。SolarLoop 的商业模型必须围绕这个数，而不是围绕“买一台机器人”。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>90 天付费试点</h3>
+              <p>以 100MW 子区域为单位，约 3.5 万美元起，交付损失基线、异常队列、清洗/维修建议和证据包。</p>
+            </article>
+            <article class="card">
+              <h3>年度软件</h3>
+              <p>按站点和 MW 阶梯计费，覆盖异常闭环、资产图谱、工单回写、证据存储和 API。</p>
+            </article>
+            <article class="card">
+              <h3>边缘站 / 机器人租赁</h3>
+              <p>对需要低延迟、弱网运行、固定相机、热像和地面机器人任务的站点收硬件服务费。</p>
+            </article>
+            <article class="card">
+              <h3>Verified Upside</h3>
+              <p>对已复核的恢复 MWh、避免清洗、合并 truck roll、质保/保险证据支持收成功费。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gtm" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">08 · Go-To-Market</p>
+              <h2>试点只承诺一件事：把开放异常年龄和经济优先级降下来。</h2>
+            </div>
+            <p>第一个 lighthouse 不应该追求整场替换运维系统，而是在一个 50-100MW 区块中证明：数据接入快、异常排序可信、清洗/维修决策有经济性、复核证据完整、人工团队愿意每天使用。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>10 个工作日接入</h3>
+              <p>完成站点地图、逆变器/汇流箱、无人机影像、气象和工单字段对齐。</p>
+            </article>
+            <article class="card">
+              <h3>2.5x 试点机会值</h3>
+              <p>试点输出年化可验证机会值至少为试点费用 2.5 倍，否则不扩场。</p>
+            </article>
+            <article class="card">
+              <h3>25-40% 异常年龄下降</h3>
+              <p>减少长期未关闭 underperformance ticket，而不是只生成新告警。</p>
+            </article>
+            <article class="card">
+              <h3>3 次以上现场行程优化</h3>
+              <p>避免、合并或证明现场出车必要性，并记录水耗、里程和复核结果。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="competition" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">09 · Competition</p>
+              <h2>竞争对手证明需求真实，空白在“闭环”。</h2>
+            </div>
+            <p>Raptor Maps、Zeitview/Heliolytics、Percepto、DJI、Ecoppia、Sunpure、逆变器厂商和 SCADA/CMMS 都在解决部分问题。SolarLoop 不从“又一个巡检工具”切入，而从异常到复核的操作闭环切入。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>巡检软件</h3>
+              <p>强在发现和报告，弱在机器人/人工执行、派工经济性和修后复核一体化。</p>
+            </article>
+            <article class="card">
+              <h3>无人机平台</h3>
+              <p>强在采集效率，弱在工单回写、现场执行和长期资产记忆。</p>
+            </article>
+            <article class="card">
+              <h3>清洗机器人</h3>
+              <p>强在执行清洗，弱在判断何时、哪里、为什么清洗才赚钱。</p>
+            </article>
+            <article class="card">
+              <h3>SCADA / 逆变器</h3>
+              <p>强在性能监控，弱在可视根因、现场证据、机器人动作和 HIL 数据飞轮。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="moat" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">10 · Moat</p>
+              <h2>护城河不是热像数据，而是“异常到结果”的闭环图谱。</h2>
+            </div>
+            <p>单张图片会商品化。难复制的是每个站点长期积累的异常、根因、动作、复核、收益、质保和人为纠错记录，这些记录能训练下一代机器人，也能绑定运维流程。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Closure Graph</h3>
+              <p>异常、根因、执行动作、恢复 MWh、索赔证据和人工签核形成资产级知识图谱。</p>
+            </article>
+            <article class="card">
+              <h3>HIL Data Flywheel</h3>
+              <p>人类纠正、误报、失败清洗、复检结果都回流成 LeRobot 数据集。</p>
+            </article>
+            <article class="card">
+              <h3>Workflow Switching Cost</h3>
+              <p>对接 SCADA、逆变器、CMMS、无人机、清洗机器人、质保和保险系统后，替换成本上升。</p>
+            </article>
+            <article class="card">
+              <h3>China / Global Dual Lane</h3>
+              <p>中国版本地数据面和海外版云训练共享训练合约，但满足数据本地化与客户采购差异。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">11 · Architecture</p>
+              <h2>Qualcomm edge 负责现场闭环，云端负责训练和组合分析。</h2>
+            </div>
+            <p>现场弱网、粉尘、高温和大面积资产决定了推理不能完全依赖云。SolarLoop 把低延迟视觉、热像、多传感器融合和任务安全留在边缘，把跨站点训练、报告和模型迭代放在云端。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Edge Capture</h3>
+              <p>RGB、热像、固定相机、无人机、PV telemetry、气象和机器人状态同步采集。</p>
+            </article>
+            <article class="card">
+              <h3>QNN Candidates</h3>
+              <p>组件检测、热斑/积灰分割、可清洗/不可清洗分类、小型传感器融合模型。</p>
+            </article>
+            <article class="card">
+              <h3>ROS 2 Loop</h3>
+              <p>检查、清洗、复检用 action 表达，安全状态、相机流和工单事件可追踪。</p>
+            </article>
+            <article class="card">
+              <h3>CloudTwin</h3>
+              <p>训练 PyTorch 模型、导出 ONNX/QNN artifact、管理数据集、评估和跨站点模型回放。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="slide tint">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">12 · Competition Demo</p>
+            <h2>比赛 Demo 用低压光伏桌面工位证明完整闭环。</h2>
+            <p class="lead">不做高压串、不声称 IEC 合规、不承诺现场收益。Demo 只证明低风险闭环：发现模拟热斑/积灰，人工纠错，机器人干式清洁，复检前后变化，导出证据包和 LeRobotDataset episode。</p>
+            <ul class="list">
+              <li>一个 6-24V 小型 PV 面板，带保险、限流、遮挡和相对功率读取。</li>
+              <li>一个死板/假面板，低压加热片模拟热斑，避免制造真实危险缺陷。</li>
+              <li>一个小型龙门/轨道机器人，带软刷、限力、硬限位和急停。</li>
+              <li>输出 evidence_packet.zip：图像、热像、telemetry、HIL 修正、模型版本、QNN profile 和安全边界。</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <img src="../assets/solar-loop.png" alt="SolarLoop 桌面 demo 的视觉方向，低压光伏板、热像异常、地面清洁机器人、证据包和人工复核控制台">
+          </div>
+        </div>
+      </section>
+
+      <section id="qualcomm" class="slide dark">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">13 · Why Qualcomm</p>
+              <h2>这是 Dragonwing 最容易讲清的工业边缘 AI 故事之一。</h2>
+            </div>
+            <p>光伏电站是典型的“多传感器、弱网络、户外机器人、长期运维、商业价值可量化”场景。Qualcomm 的价值不是一块通用算力板，而是把现场机器人和边缘 AI 做成可规模部署的硬件与软件生态。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>Local Inference</h3>
+              <p>热像/RGB 初筛、机器人路径和安全状态需要本地运行，不能等云端返回。</p>
+            </article>
+            <article class="card">
+              <h3>Multi-Camera Robotics</h3>
+              <p>光伏场景天然需要多摄像头、热像、定位、无线连接和低功耗边缘计算。</p>
+            </article>
+            <article class="card">
+              <h3>AI Hub / QNN Evidence</h3>
+              <p>比赛可展示模型从云训练到 Qualcomm edge profile，再到现场推理的证据链。</p>
+            </article>
+            <article class="card">
+              <h3>China + Global Story</h3>
+              <p>中国沙戈荒基地和海外 utility PV 都成立，同一架构能演示双云训练与本地数据面。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ask" class="slide white">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">14 · Ask</p>
+              <h2>我们向 Qualcomm 申请的不只是开发板，而是一个边缘 AI 场景样板。</h2>
+            </div>
+            <p>SolarLoop 可以作为 RobotMac Core + CloudTwin 的行业样板页：同一底座，落到一个商业价值明确、可量化、可演示、适合边缘 AI 的场景。</p>
+          </div>
+          <div class="grid four">
+            <article class="card">
+              <h3>开发板与传感器建议</h3>
+              <p>QCS8550/QCS6490 选型、RGB/热像接入、低功耗无线和户外机器人扩展建议。</p>
+            </article>
+            <article class="card">
+              <h3>AI Hub / QNN 支持</h3>
+              <p>帮助把分割/检测/分类模型编译、profile、量化，并形成评委可看的边缘证据。</p>
+            </article>
+            <article class="card">
+              <h3>行业试点引荐</h3>
+              <p>连接光伏 O&M、能源央企、无人机/清洗机器人伙伴或工业边缘 AI 客户。</p>
+            </article>
+            <article class="card">
+              <h3>Demo 评审路径</h3>
+              <p>允许我们用低压安全工位证明闭环，不夸大成现场认证或高压电站自动运维。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="sources" class="slide tint">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">15 · Claims / Sources</p>
+              <h2>页面主张建立在公开资料和可验证边界上。</h2>
+            </div>
+            <p>SolarLoop 的竞赛表述严格保留安全边界：不宣称 IEC 合规热像诊断、不宣称自动防火、不宣称现场收益保证、不在 demo 中操作高压光伏串。</p>
+          </div>
+          <div class="source-links">
+            <a href="https://www.solarpowereurope.org/press-releases/new-report-global-solar-market-hits-new-record-of-664-gw-installation-in-2025-as-global-solar-fleet-passes-3-tw">SolarPower Europe 2026</a>
+            <a href="https://www.iea.org/reports/global-energy-review-2026/technology-solar-pv-and-wind">IEA Global Energy Review 2026</a>
+            <a href="https://www.nea.gov.cn/20260212/742b8c6a078347b0b39de676c05c5d58/c.html">NEA 2025 China PV</a>
+            <a href="https://www.pv-tech.org/pv-project-power-loss-doubled-in-last-five-years-raptor-maps/">PV Tech / Raptor Maps 2026</a>
+            <a href="https://iea-pvps.org/fact-sheets/fs-soiling-losses/">IEA PVPS Soiling</a>
+            <a href="https://sunspec.org/wp-content/uploads/2025/01/BestPracticesforOperationandMaintenanceofPhotovoltaicandEnergyStorageSystems3rdEdition.pdf">NREL / Sandia PV O&M</a>
+            <a href="https://news.mit.edu/2022/solar-panels-dust-magnets-0311">MIT Solar Dust Cleaning</a>
+            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit/hardware">Qualcomm RB3 Gen 2</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/03/how-qualcomm-dragonwing-powers-industrial-edge-ai">Qualcomm Dragonwing Edge AI</a>
+            <a href="https://huggingface.co/docs/lerobot/hil_data_collection">LeRobot HIL</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>SolarLoop is part of the RobotMac Core + LeRobot CloudTwin competition package. <a href="../index.html">返回首页</a></span>
+    </footer>
+  </body>
+</html>

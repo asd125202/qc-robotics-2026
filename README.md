@@ -58,6 +58,7 @@ The current first-batch pitch directions are:
 - `HarnessLoop 线束异常闭环`: EV wire-harness and connector exception-closure platform for half-mated connectors, misroutes, missing clips, continuity failures, rework evidence, LeRobot HIL recovery, and Qualcomm edge verification.
 - `SurfaceLoop 表面工程证据闭环`: industrial surface-prep, coating inspection, rework, release-packet, LeRobot HIL, and Qualcomm edge evidence platform for shipyards, steel assets, wind blades, auto paint, rail, and aerospace MRO.
 - `BatteryRouter 电池入仓路由`: first-hour battery intake routing workcell for retired lithium packs/modules, mock diagnostics, human-approved reuse/repair/recycle/quarantine routing, LeRobot HIL, and Qualcomm edge evidence packets.
+- `SolarLoop 光场异常闭环`: solar-site exception-closure platform for RGB/thermal inspection, soiling and fault work orders, robot cleaning/verification, LeRobot HIL, and Qualcomm edge evidence packets.
 - `RoboPort`: certified robot module port ecosystem for sensors, tools, drives, safety IO, ROS 2 drivers, LeRobot metadata, and compatibility evidence.
 - `BusinessCase`: commercialization, buyer personas, package strategy, and recurring revenue flywheel.
 - `SubmissionKit`: preliminary project-book structure, official upload constraints, and submission readiness checklist.
