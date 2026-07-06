@@ -268,6 +268,7 @@ Qualcomm 可获得：
 - SterileLoop 手术器械异常闭环页：https://qc-robotics-2026.pages.dev/sterile-loop/
 - TouchForge 触觉力控技能工厂页：https://qc-robotics-2026.pages.dev/touchforge/
 - HarnessLoop 线束异常闭环页：https://qc-robotics-2026.pages.dev/harness-loop/
+- SurfaceLoop 表面工程证据闭环页：https://qc-robotics-2026.pages.dev/surface-loop/
 - WorldForge 仿真数据工厂页：https://qc-robotics-2026.pages.dev/worldforge/
 - RoboTrust 具身数信云页：https://qc-robotics-2026.pages.dev/robotrust/
 - RoboPort 机器人模组港页：https://qc-robotics-2026.pages.dev/roboport/
