@@ -30,7 +30,7 @@ The current first-batch pitch directions are:
 - `SkillCertKit`: YC-style pre-install robot skill trust-gate pitch that turns policy models, ROS packages, LeRobot lineage, SBOM/VEX, signatures, Qualcomm edge profiles, safety boundaries, rollout gates, and rollback metadata into a signed Skill Passport.
 - `Embodied Kit`: procurement-ready industry kit for factories, labs, education, and service robotics teams.
 - `DragonWorks`: Qualcomm-first robotics workbench/control plane for Dragonwing devices, LeRobot datasets, TrainRouter jobs, AI Hub/QNN evidence, SkillCertKit gates, SkillDock releases, EdgeFleet feedback, and submission packets.
-- `EdgeFleet`: Qualcomm-first fleet evidence control plane for LeRobot lineage, AI Hub/QNN artifacts, Dragonwing devices, staged rollout, remote assist, incident replay, rollback, and training feedback.
+- `EdgeFleet`: YC-style Qualcomm-first robot progressive delivery and fleet evidence pitch for staged rollout, QNN artifact traceability, remote-assist boundaries, incident capsules, rollback, RaaS uptime, warranty evidence, and failure feedback into TeleopStudio / TrainRouter.
 - `EduForge`: education and developer kit for teaching the full LeRobot-to-Qualcomm edge deployment loop.
 - `JudgeDeck`: judge-facing scoring alignment and three-minute demo storyboard.
 - `Prototype`: interactive static dashboard that simulates devices, datasets, cloud training, model deployment, and skill packages.
