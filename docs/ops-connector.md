@@ -1,190 +1,240 @@
 # OpsConnector Pitch
 
-更新时间：2026-07-06。企业系统、标准、厂商 API 和高通平台发布节奏变化较快，真实交付前必须按客户现场的 WMS / MES / LIMS / ERP / SCADA / robot fleet 版本重新验证。
+更新时间：2026-07-07。企业系统、机器人 fleet API、WMS/MES/LIMS/SCADA 标准、VDA 5050、Open-RMF、OPC UA、Qualcomm Linux / AI Hub / QNN / QAIRT 和中国/海外数据合规变化较快；正式交付前必须按客户现场版本重新验证。
 
 ## One-Line Thesis
 
-OpsConnector 是企业系统和机器人执行层之间的工作流合约层：把 WMS/MES/ERP/LIMS/SCADA/人工审批里的业务请求，编译成可验证、可追踪、可审计的 Robot Task Contract，再分发给 RobotAppLayer、EdgeFleet、Open-RMF、VDA 5050、MassRobotics、OPC UA 或厂商 fleet API。
+> OpsConnector 把企业系统里的业务请求，变成可执行、可审计、可复用、可写回的机器人工作流包。
 
-一句话：
+机器人已经有 fleet manager。企业缺的是 workflow connector：把 WMS/MES/ERP/LIMS/SCADA/CMMS intent 转成 robot work，处理人工审批和异常补偿，用 Qualcomm edge 生成证据，再把结果写回 system of record。
 
-> OpsConnector 把机器人动作变成企业记录。
+## Required Deck Spine
 
-## 01 · Problem
+### 01 · Problem
 
-企业机器人部署失败，不是因为机器人不会动，而是因为它进不了企业流程。
+企业机器人部署失败，通常不是因为机器人不会动，而是因为机器人动作没有变成企业记录。
 
+- WMS / MES / LIMS / SCADA / ERP 需要任务来源、审批、异常、验收、写回和责任边界；机器人系统通常只返回 `mission done`。
 - WMS 管订单、库存、波次、库位和报表；机器人需要秒级位置、路径、拥堵、充电、工位容量和异常恢复。
-- LIMS/ELN 管样本、协议、结果和 lineage；机器人移液、扫码、交接、称重和样本转移如果不写回系统，就会破坏审计。
-- MES/eBR 管材料、人员、设备、批次、质量和偏差记录；机器人平台通常只返回 mission done。
-- 缺货、条码不符、温度越界、工位满、门禁未放行、机器人阻塞和人工接管，经常掉进微信群、电话和 Excel。
-- 每换一个 WMS、机器人品牌、仓库流程、样本规则或安全区，项目就重新写接口。
+- LIMS / ELN 管样本、协议、结果和 lineage；机器人扫码、交接、称重和样本转移如果不写回系统，就会破坏审计。
+- MES / eBR 管材料、人员、设备、批次、质量和偏差；机器人平台通常不会自动生成 eBR、deviation 或 CMMS work order。
+- 缺货、条码不符、温度越界、工位满、门禁未放行、机器人阻塞和人工接管，经常掉进微信群、电话、Excel 和手工补录。
+- 每换一个 WMS、机器人品牌、仓库流程、样本规则或安全区，项目就重新写接口，无法复制到下一站点。
 
-## 02 · Current Alternatives Fail
+### 02 · Current Alternatives Fail
 
-现有方案都解决了一部分，但没有拥有“企业任务到机器人执行再到系统写回”的闭环。
+现在的方案各有价值，但没有拥有“企业任务 -> 机器人执行 -> 异常处理 -> 审计写回”的闭环。
 
-- SI 项目制：能让一个现场上线，但接口、异常处理和回写逻辑常常沉没在项目代码里。
-- 机器人 OEM 软件：交付快，但通常服务自家车队和任务模型，容易形成单一厂商锁定。
-- WMS / MES 扩展：能发业务任务，但不应承担机器人实时控制、离线执行、地图、路径、PLC interlock 和 OT 安全。
-- iPaaS：MuleSoft、Boomi、Workato 懂 SaaS API 和数据流，但不懂 robot state、mission、safety、latency、on-prem edge 和 OT 网络。
-- 标准协议：VDA 5050、MassRobotics、Open-RMF、OPC UA Robotics 是好基础，但不覆盖订单语义、样本 lineage、库存写回和商业 SLA。
-- Ops dashboards：Formant、InOrbit、Foxglove 等验证了可观测性和运维需求；企业仍需要任务合约、审批、异常补偿和系统记录写回。
+- SI 项目制：能让一个现场上线，但接口、异常和写回逻辑沉没在项目代码里，下一站点继续卖人天。
+- Robot OEM fleet software：Locus、GreyOrange、MiR、Geek+、Hikrobot、Quicktron 等能调度自家场景，但通常优先服务自家车队、WES/WCS/RCS 和任务模型。
+- InOrbit / Formant / Orbit：验证了多品牌 robot ops、workflow AI、incident、inspection-to-work-order 需求；OpsConnector 应集成它们，而不是假装替代。
+- WMS / MES 扩展：SAP EWM、Manhattan、Blue Yonder、Siemens Opcenter、国产 WMS/MES 能发业务任务，但不应直接承担机器人实时执行、离线控制、OT 网络和 safety interlock。
+- iPaaS：MuleSoft、Boomi、Workato 懂 SaaS API，不懂 robot state、mission、safety、latency、on-prem edge、OPC UA、PLC 和离线 authority。
+- 标准协议：VDA 5050、MassRobotics、Open-RMF、OPC UA Robotics 是好基础，但它们不覆盖订单语义、样本 lineage、库存写回、人工审批和商业 SLA。
 
-## 03 · Solution
+### 03 · Solution
 
-OpsConnector 的核心不是“接一个 API”，而是定义一份企业能验收、机器人能执行、系统能写回的任务合约。
+OpsConnector 是企业系统和机器人执行层之间的 workflow contract compiler。
+
+核心原则：workflow-first, adapter-second.
 
 主流程：
 
-1. `Intent`：订单、工单、样本请求、FHIR Task、SCADA interlock、QMS 偏差或人工审批进入统一入口。
-2. `Contract`：任务 ID、对象、位置、设备需求、审批、验收规则、超时、回滚、审计目标和 trace context。
-3. `Dispatch`：按能力注册表选择 RobotAppLayer、VDA 5050、Open-RMF、OPC UA、厂商 API 或人工队列。
-4. `Evidence`：采集条码、时间戳、robot run id、传感器、图片、模型版本、异常、接管和签名事件。
-5. `Writeback`：把完成、失败、库存移动、样本状态、批记录、QMS 偏差和审计包写回企业系统。
+1. `Intent`：WMS 补货单、cycle count、MES 工单、LIMS 样本请求、SCADA interlock、CMMS work order、FHIR Task 或人工审批进入统一入口。
+2. `Contract`：生成 TaskContract、ObjectMap、ApprovalGate、AdapterProfile、idempotency key、acceptance rule、timeout、rollback 和 trace context。
+3. `Dispatch`：按 capability registry 选择 RobotAppLayer、EdgeFleet、VDA 5050、Open-RMF、OPC UA、vendor fleet API 或人工队列。
+4. `Execute`：Dragonwing edge gateway 本地执行已授权任务，store-and-forward，断网期间只执行有效 lease 和 local-authority-safe command。
+5. `Evidence`：采集条码/RFID、timestamp、robot run id、sensor reading、photo、QNN inference、operator approval、exception、signature。
+6. `Writeback`：把完成、失败、库存移动、样本 lineage、CMMS work order、QMS deviation、eBR record 和 audit pack 写回企业系统。
 
-## 04 · Why Now
+一句话：OpsConnector 把一次性集成沉淀成可售卖、可复用、可测试的 workflow pack。
 
-机器人规模已经上来，下一场竞争是把一次性集成变成可复用软件。
+### 04 · Why Now
 
-- IFR 报告 2024 年全球工业机器人安装约 54.2 万台，在役约 466.4 万台。
-- 中国占 2024 年全球工业机器人安装量 54%，在役超过 200 万台，适合验证多品牌、快交付、私有云版本。
-- 多个市场报告把机器人/工业系统集成服务池估在数百亿美元。不要把它作为精确 TAM，而要作为服务池信号：客户一直在为“接进流程”付费。
-- VDA 5050 v3.0.0、Open-RMF、MassRobotics、OPC UA Robotics、CloudEvents、OpenTelemetry 等让通用合约层更可行。
-- Qualcomm Dragonwing / RB3 / QCS8550 / IQ10 RRD 给 on-prem robot gateway 提供了更清晰的 edge target。
+机器人进入运营规模后，下一场竞争是把集成服务池产品化。
 
-## 05 · Product
+- IFR 2025 service robots 报告称 2024 年专业服务机器人销量接近 20 万台，transport/logistics robots 约 10.29 万台，RaaS fleet 增长 31%。
+- IFR 2025 industrial robots 报告称中国 2024 年新增工业机器人安装约 29.5 万台，占全球 54%；中国是验证多品牌、快交付、私有化和 SI-led integration 的最大市场。
+- AMR / warehouse robotics software 市场报告已经把 WMS/MES/ERP integration 列为增长驱动；买方问题从“机器人会不会动”转向“能否接单、审批、对账和写回”。
+- Blue Yonder、InOrbit、Formant、Boston Dynamics Orbit、GreyOrange、Locus、MiR、Tulip、Biosero 等都在从 robot ops 走向 business execution / workflow / writeback，说明品类正在形成。
+- VDA 5050 3.0.0、Open-RMF、MassRobotics、OPC UA、ISA-95、CloudEvents、OpenTelemetry、OpenAPI / AsyncAPI、FHIR 等给通用合约层提供标准土壤。
+- Qualcomm Dragonwing、Qualcomm Linux 2.0、RB3 / QCS6490、QCS8550、AI Hub、QNN/QAIRT 和 IQ / Dragonwing roadmap 让 on-prem robot workflow gateway 有现实 edge target。
 
-第一批产品不做空泛 connector marketplace，而是带 SOP、UI、权限、事件、验收指标、异常处理和写回路径的 workflow pack。
+### 05 · Product
 
-- `WMS Bridge Pack`：订单、波次、拣选、补货、移库、入库、出库、盘点、异常和库存写回。
-- `Lab Sample Transfer Pack`：LIMS/Benchling 样本、plate map、协议、审批、条码核验、结果和 audit package。
-- `MES / eBR Pack`：工单、批次、设备、物料、操作员、quality hold、deviation 和 electronic batch record 写回。
-- `SCADA / OPC Pack`：OPC UA、Sparkplug、PLC interlock、设备状态、门禁放行、alarm 和 historian event。
-- `Exception Pack`：缺货、工位满、条码不符、温度越界、机器人阻塞、超时、人工接管、retry/skip/abort。
-- `SI Sandbox`：模拟 WMS/LIMS/MES、测试 robot task、dead-letter queue、回归测试和认证培训。
+第一批产品不是空泛 connector marketplace，而是带 SOP、UI、权限、事件、验收指标、异常处理和写回路径的 workflow pack。
 
-## 06 · Product API Objects
+优先 wedges：
 
-- `TaskContract`：source、idempotency key、business object、robot capability、location、priority、due time、acceptance rule、rollback。
-- `EnterpriseObjectMap`：样本、容器、货架、托盘、库位、设备、人员、工单、批次、条码、plate/well 和企业系统 ID 映射。
-- `ApprovalGate`：operator、reviewer、role、e-signature、quality hold、SCADA interlock、override reason 和 release token。
-- `AdapterProfile`：VDA 5050 order/state、Open-RMF task、MassRobotics telemetry、OPC UA job、Sparkplug、REST/gRPC。
-- `EvidenceLedger`：barcode/RFID、timestamp、run id、command log、sensor reading、photo、QNN inference、exception 和 signature。
-- `AuditWriteback`：Job Response、inventory update、sample lineage、FHIR Task/Specimen、QMS deviation、eBR record 和 export pack。
+1. Warehouse first：WMS-driven cycle count、replenishment、pick-exception sweeps。ROI 清晰、重复性高、低操作风险。
+2. Factory second：inspection-to-work-order loop。视觉/热/声学异常 -> MES/CMMS ticket，最适合 Qualcomm edge AI，但 OT integration 更慢。
+3. Lab / hospital third：secure specimen / supply courier with chain-of-custody into LIMS/LIS/EHR，故事强但合规和集成负担更高。
 
-## 07 · Market & Business Model
+产品模块：
 
-把一次性 SI 人天，产品化成年度订阅、连接器包和工作流包。
+- `WMS Bridge Pack`：cycle count、补货、拣选异常、移库、入库、出库、盘点、库存写回、GS1 EPCIS traceability。
+- `Factory Inspection Pack`：视觉/热/声学检测、SCADA/OPC 状态、CMMS work order、MES deviation、OEE/downtime evidence。
+- `Lab Sample Transfer Pack`：LIMS/Benchling/LabWare 样本、plate map、协议、审批、条码核验、结果和 audit package。
+- `SCADA / OPC Pack`：OPC UA、MQTT/Sparkplug、PLC interlock、设备状态、门禁放行、alarm、historian event。
+- `Exception Compensation Pack`：缺货、工位满、条码不符、温度越界、机器人阻塞、超时、人工接管、retry/skip/abort。
+- `SI Sandbox & Certification Pack`：模拟 WMS/LIMS/MES、robot task simulator、dead-letter queue、回归测试、partner certification。
 
-中国版：
+### 06 · Product API/Evidence
 
-- 快接入、低改造、多品牌、私有化。
-- 包装成样板间 PoC、OEM/SI white-label、私有云、国产系统适配、固定范围交付和 25%-40% 渠道毛利。
-- 参考定价：PoC/样板间 10万-30万人民币；单工厂私有化订阅 30万-120万人民币/年；边缘网关 5万-20万人民币/站点/年；连接器包 5万-20万人民币/年；工作流包 8万-30万人民币/年。
+核心对象不是 endpoint，而是可恢复、可审计、可写回的任务合约。
 
-海外版：
+Core objects：
 
-- 标准合规、on-prem、审计和年度合同。
-- 强调 SAP/Manhattan/Blue Yonder 集成、IT/OT 网络隔离、网络安全、审计、SSO、数据驻留和采购安全的年度订阅。
-- 参考定价：90 天 pilot 25k-60k 美元；生产站点年费 60k-180k 美元；edge gateway 12k-36k 美元/站点/年；connector pack 10k-30k 美元/年；workflow pack 15k-50k 美元/年；enterprise/on-prem/compliance 150k-500k+ 美元/年。
+- `WorkflowPack`: vertical、version、systems、adapters、SOP、acceptance tests、pricing、support boundary。
+- `TaskContract`: source、idempotency key、business object、robot capability、location、priority、due time、acceptance rule、rollback。
+- `EnterpriseObjectMap`: sample、container、shelf、pallet、bin、equipment、personnel、work order、batch、barcode、plate/well、system IDs。
+- `ApprovalGate`: requested_by、required_role、approver、decision、reason_code、e-signature、quality hold、SCADA interlock、expires_at。
+- `CommandRequest`: lease、TTL、safety policy、local authority、approval status、max offline window、revalidation rule。
+- `AdapterProfile`: VDA 5050 order/state、Open-RMF task、MassRobotics telemetry、OPC UA job、Sparkplug、FHIR、REST/gRPC/webhook。
+- `ExceptionRaised`: category、severity、retryable、safe_to_retry、source_system、source_code、human_action_required、next_allowed_actions。
+- `EvidencePacket`: barcode/RFID、timestamp、run id、command log、sensor reading、photo、QNN inference、operator approval、signature。
+- `AuditWriteback`: inventory update、sample lineage、FHIR Task/Specimen/Observation、CMMS work order、QMS deviation、eBR record、export pack。
 
-早期目标：
+Event fabric：
 
-- 3 个灯塔客户。
-- 2 个机器人 OEM connector partner。
-- 5 个认证 SI。
-- 每个 pilot 都沉淀 1 个 reusable connector pack 和 1 个 reusable workflow pack。
+- CloudEvents envelope with `tenant_id`, `site_id`, `edge_gateway_id`, `adapter_id`, `workflow_instance_id`, `correlation_id`, `causation_id`, `idempotency_key`, `schema_version`, `actor`, `approval_id`, `offline_window`。
+- REST contracts via OpenAPI 3.1.1；async contracts via AsyncAPI 3.x；HTTP errors via RFC 9457 Problem Details。
+- Edge pattern：read many, write narrowly。所有写操作都通过 lease、TTL、idempotency key、approval status 和 safety policy。
 
-## 08 · Competition & Moat
+Qualcomm evidence：
 
-壁垒不是某一个连接器，而是不断扩大的机器人工作流地图。
+- `device_id`, `model_hash`, `AI_Hub_profile_id`, `ONNX/QNN/QAIRT artifact`, `backend`, `latency`, `memory`, `thermal`, `QNN context binary`, `barcode/image/sensor evidence`, `writeback receipt`。
+- AI inference evidence 不能替代业务验收；必须跟 acceptance rule 和 enterprise writeback receipt 绑定。
 
-竞争/参照：
+### 07 · Market & Business Model
 
-- InOrbit：最接近 robot orchestration / business execution system。
-- Viam / Wandelbots / Intrinsic：robotics platform 和开发平台。
-- Formant / Foxglove：robot ops、teleop、data、observability。
-- MuleSoft / Boomi / Workato：企业 iPaaS 类比。
-- SI 和 robot OEM：最大渠道，也可能是竞争者。
+目标客户不是“还没买机器人”的客户，而是已经买机器人、已有企业系统、但每个现场仍靠 SI 胶水的仓库、实验室、工厂和园区。
 
-壁垒：
+China distribution：
 
-- Connector library。
-- Workflow templates。
-- On-prem edge runtime。
-- Audit corpus。
-- Certified SI network。
-- Compliance/private-cloud readiness。
-- Qualcomm edge evidence。
+- `OpsConnector CN`：local-first，不是 global SKU 加几个开关。
+- On-prem / edge gateway inside warehouse/factory；optional China control plane；China tenant/logs/secrets/KMS；PIPL/data-export controls；ICP/App filing metadata for hosted services。
+- 优先适配 Geek+、Hikrobot、Hai Robotics、Quicktron、SEER/Standard Robots/ForwardX style WES/WCS/RCS；VDA 5050 是 optional，不是 baseline。
+- 企业系统优先 Yonyou、Kingdee、Digiwin、SAP China、Oracle China、本地 WMS/OMS/TMS/MES、project-specific WCS。
+- 内建 e-fapiao / procurement pack：VAT special/general invoice metadata、red-letter invoice、PO/GRN/invoice matching、supplier master、company tax ID。
+- 渠道：robot OEM、warehouse automation SI、ERP/MES implementer、本地云/服务伙伴；中文 SI toolkit、handover docs、partner certification。
 
-## 09 · Why Qualcomm
+Global distribution：
 
-OpsConnector 让 Dragonwing 从机器人推理芯片，升级为企业现场可信执行节点。
+- `OpsConnector Global`：standards-first, cloud-first, edge connector for plants。
+- Multi-region SaaS + edge gateway；private cloud/on-prem for regulated customers。
+- Standards: VDA 5050、MassRobotics AMR、OPC UA、MQTT/Sparkplug、REST/webhooks、Open-RMF、ISA-95、GS1 EPCIS、FHIR/HL7 for healthcare/lab。
+- Enterprise adapters: SAP EWM、Manhattan Active WM、Blue Yonder、Körber、Infor、Oracle WMS Cloud、Siemens Opcenter、LabWare、Coupa、ServiceNow、SAP Ariba。
+- Regional e-invoicing / compliance packs：EU ViDA/Peppol、GDPR/SCC、EU Data Act、SOC 2 / ISO 27001 posture。
 
-Qualcomm-native 架构：
+Pricing:
 
-1. `Dragonwing Edge Node`：RB3 Gen 2 / QCS6490 作为开发和轻量网关基线；QCS8550 作为高性能 edge AI box / 多摄像头网关；IQ10 RRD 作为高级 AMR / humanoid / 工业机器人参考目标。
-2. `Qualcomm Linux / Ubuntu Runtime`：基于 Qualcomm Linux 或 Ubuntu on Qualcomm IoT，承接 container、OTA、security hardening、real-time 和 local services。
-3. `OpsConnector Local Execution Core`：workflow engine、policy engine、capability registry、local queue/cache、idempotent task runner。
-4. `Protocol Gateway`：southbound ROS2/DDS、OPC UA、MQTT Sparkplug、Modbus、EtherCAT、CAN-FD、REST/gRPC、vendor SDK；northbound SAP、MES、WMS、SCADA、Kafka、AMQP、REST/webhook、MQTT。
-5. `AI Evidence Layer`：AI Hub / QAIRT / QNN 把模型版本、profile、latency、输入摘要、置信度、任务 ID 和设备身份写入 evidence packet。
+- 90-day paid pilot：$25k-60k overseas；RMB 100k-300k China。
+- Production site subscription：$60k-180k / year overseas；RMB 300k-1.2M / year China。
+- Edge gateway：$12k-36k / site / year；China RMB 50k-200k / site / year。
+- Connector pack：$10k-30k / year；workflow pack：$15k-50k / year。
+- Enterprise / on-prem / compliance package：$150k-500k+ / year。
+- Early target：3 lighthouse customers, 2 robot OEM connector partners, 5 certified SI partners.
 
-谨慎表述：
+### 08 · Competition & Moat
 
-- RB3 Gen 2 / QCS6490 是近期比赛 demo 的现实基线。
-- QCS8550 是高性能 on-prem robot operations box profile。
-- IQ10 RRD 作为 2026 年后的 Qualcomm robotics roadmap / early-access reference，不写成 2026-07-06 已量产可买。
+竞争来自 SI、robot OEM fleet software、robot ops platforms、enterprise iPaaS 和 enterprise system extensions。
 
-## 10 · Demo & Ask
+Positioning:
 
-7 分钟 demo：
+- Integrate with InOrbit / Formant / Orbit / MiR / Open-RMF / VDA 5050 rather than replacing them。
+- Connect them to Tulip / Ignition / MaintainX / Biosero / SAP / Oracle / Manhattan / Siemens / LabWare / local China WMS/MES。
+- White space: standards move robot orders and status; OT/lab platforms manage human workflows and records; robot vendors expose APIs. OpsConnector owns cross-system choreography, approval gates, exception handling, and audit-grade writeback.
 
-1. 模拟 WMS 补货单或 LIMS 样本转移请求，带货位/样本/条码/审批/验收条件。
-2. OpsConnector 生成 TaskContract、ObjectMap、ApprovalGate、AdapterProfile 和 idempotency key。
-3. Dragonwing edge gateway 断网仍能执行已授权任务，调用 RobotAppLayer 或 VDA 5050/Open-RMF adapter。
-4. 条码不符、工位满或温度越界触发人工审批，不写成功结果，只写 deviation 和 incident。
-5. 任务完成后把库存移动、样本 lineage、QNN evidence、operator、版本和 audit pack 写回系统。
+Moat:
 
-向高通要：
+- Connector library：WMS/MES/LIMS/ERP/SCADA/QMS/robot brand 的已验证 adapter 越多，下一次交付越快。
+- Workflow templates：订单到机器人、样本到记录、工单到 eBR、异常到 QMS、库存到 ERP 的模板不断复用。
+- Exception corpus：vendor error、normalized error、approval decision、retry outcome、writeback receipt 形成部署知识。
+- Edge runtime：on-prem gateway 处理离线缓存、低延迟、幂等、dead-letter queue、OT/IT 网络分区和本地签名。
+- Audit corpus：每个现场积累异常、审批、写回、失败原因、验收证据和 Qualcomm edge benchmark。
+- Certified SI network：sandbox、partner portal、connector SDK、培训和收入分成让 SI 愿意沉淀资产。
+- Data graph：`enterprise object -> robot capability -> Qualcomm edge profile -> exception -> audit writeback -> ROI evidence`。
 
-- RB3 Gen 2 Vision/Core Kit。
-- QCS8550 合作渠道。
-- IQ10 RRD early access 或 roadmap 指导。
-- AI Hub / QNN / QAIRT office hours。
-- Qualcomm Linux / Ubuntu / ROS2 指导。
-- secure boot、device identity、OTA 推荐路径。
+### 09 · Why Qualcomm
 
-比赛交付物：
+OpsConnector 让 Dragonwing 从机器人推理芯片，升级为企业现场可信执行和证据节点。
 
-- 一个可运行 Dragonwing edge workflow demo。
-- 两个 connector/workflow pack 原型。
-- 一个企业审计证据包。
-- 一个 SI sandbox。
-- 中国/海外两套商业包装和报价模型。
+Qualcomm value:
+
+- Qualcomm 2026 investor messaging emphasizes non-handset growth, IoT, industrial/networking/robotics and Physical AI. OpsConnector directly turns robotics edge compute into enterprise workflow attach.
+- RB3 Gen 2 / QCS6490 is the realistic competition gateway baseline：robotics、AI vision、edge AI、sensor I/O、Linux/Android、AI Hub support。
+- QCS8550 is the high-performance on-prem robot operations box profile：multi-camera、inspection AI、edge inference、gateway workloads。
+- IQ / Dragonwing robotics reference designs should be presented as roadmap / early-access production-forward profiles, not “already generally available” in July 2026.
+- Qualcomm Linux 2.0 strengthens the story: unified software stack, real-time capability, OTA and security for industrial edge deployments.
+- AI Hub / QNN / QAIRT evidence becomes business evidence: model version、profile、latency、input summary、confidence、task ID、device identity and writeback receipt in one packet.
+
+Narrative:
+
+`Enterprise task -> Dragonwing edge gateway -> robot adapter -> local AI verification -> audit writeback -> ROI dashboard`
+
+This is stronger than “Qualcomm runs a model”: it makes Qualcomm the trusted edge node between enterprise systems and robot work.
+
+### 10 · Demo & Ask
+
+7-minute demo：one robot, two vertical configs.
+
+1. Warehouse mode：WMS cycle-count / replenishment task enters OpsConnector with bin、SKU、barcode、acceptance rule。
+2. OpsConnector generates TaskContract、ObjectMap、ApprovalGate、AdapterProfile、idempotency key and CloudEvents trace。
+3. Dragonwing edge gateway executes locally via RobotAppLayer / VDA 5050 / Open-RMF adapter；network loss does not break authorized local task。
+4. Robot scans bin/location with on-device vision；detects mismatch；does not write false success。
+5. ExceptionRaised triggers human approval；approval decision and reason code become audit record。
+6. Writeback updates inventory exception / CMMS work order / sample lineage with QualcommEdgeProfile and EvidencePacket。
+7. ROI panel shows labor minutes saved、exceptions closed、system updates、audit trail、edge latency、rollback readiness。
+
+Ask to Qualcomm:
+
+- RB3 Gen 2 Vision/Core Kit for gateway demo.
+- QCS8550 partner/channel guidance for high-performance edge profile.
+- IQ / Dragonwing roadmap or early-access feedback.
+- AI Hub / QNN / QAIRT office hours.
+- Qualcomm Linux / ROS 2 / GStreamer / security / OTA guidance.
+- Secure boot, device identity, and OTA recommended path.
+- 5-10 robot OEM / SI / warehouse/lab/factory developer introductions.
+
+Claim boundary:
+
+- 不声称 Qualcomm 官方合作、认证或量产承诺；只说 Qualcomm-first validation candidate。
+- 不说 OpsConnector 替代 WMS/MES/LIMS/SCADA/robot fleet manager；它是 workflow contract and evidence layer。
 
 ## Sources
 
-- ISA-95：https://www.isa.org/standards-and-publications/isa-standards/isa-95-standard
-- OPC UA Robotics：https://reference.opcfoundation.org/specs/OPC-40010-1/
-- OPC UA ISA-95 Job Control：https://reference.opcfoundation.org/specs/OPC-10031-4/1
-- Sparkplug：https://sparkplug.eclipse.org/specification/
-- VDA 5050：https://www.vda.de/en/topics/automotive-industry/vda-5050
-- MassRobotics AMR Interop：https://github.com/MassRobotics-AMR/AMR_Interop_Standard
-- Open-RMF：https://www.open-rmf.org/
-- CloudEvents：https://www.cncf.io/projects/cloudevents/
-- OpenTelemetry：https://opentelemetry.io/docs/
-- NIST SP 800-82：https://csrc.nist.gov/pubs/sp/800/82/r3/final
-- ISA/IEC 62443：https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards
-- Benchling Developer Platform：https://docs.benchling.com/docs/developer-platform-overview
-- Opentrons Python API：https://docs.opentrons.com/python-api/
-- FHIR Task：https://hl7.org/fhir/task.html
-- 21 CFR Part 11：https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11
-- IFR robot demand：https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years
-- Viam pricing：https://www.viam.com/pricing
+- IFR industrial robots：https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years
+- IFR service robots：https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom
 - InOrbit BES：https://www.inorbit.ai/bes
-- Foxglove pricing：https://foxglove.dev/pricing
-- Qualcomm AI Hub：https://workbench.aihub.qualcomm.com/docs/
+- InOrbit warehouse automation：https://www.inorbit.ai/warehouseautomation
+- Formant：https://formant.io/
+- Formant intervention requests：https://docs.formant.io/docs/intervention-requests
+- Boston Dynamics Orbit：https://bostondynamics.com/products/orbit/
+- Open-RMF：https://www.open-rmf.org/
+- VDA 5050 releases：https://github.com/VDA5050/VDA5050/releases
+- MassRobotics AMR：https://www.massrobotics.org/what-is-the-massrobotics-amr-interoperability-standard/
+- MiR VDA 5050：https://mobile-industrial-robots.com/news-center/mir-supports-interoperability-with-vda5050
+- ISA-95：https://www.isa.org/standards-and-publications/isa-standards/isa-95-standard
+- B2MML：https://mesa.org/topics-resources/b2mml/
+- OPC UA reference：https://reference.opcfoundation.org/
+- MQTT 5：https://www.oasis-open.org/standard/mqtt-v5-0-os/
+- Sparkplug：https://sparkplug.eclipse.org/specification/version/3.0/
+- GS1 EPCIS / CBV：https://ref.gs1.org/guidelines/epcis-cbv/
+- CloudEvents：https://cloudevents.io/
+- OpenAPI：https://swagger.io/specification/
+- AsyncAPI：https://github.com/asyncapi/spec/releases
+- RFC 9457：https://www.rfc-editor.org/info/rfc9457/
+- HL7 FHIR R4：https://blog.hl7.org/hl7-publishes-fhir-release-4
+- NIST SP 800-82：https://csrc.nist.gov/pubs/sp/800/82/r3/final
+- China e-fapiao：https://english.www.gov.cn/news/202411/25/content_WS6743b13ac6d0868f4e8ed5e1.html
+- EU ViDA：https://taxation-customs.ec.europa.eu/taxation/vat/vat-digital-age-vida_en
+- EU Data Act：https://digital-strategy.ec.europa.eu/en/policies/data-act
+- Qualcomm strategy：https://www.qualcomm.com/news/releases/2026/06/qualcomm-accelerates-diversification-with-comprehensive-strategy
+- Qualcomm Linux 2.0：https://www.qualcomm.com/developer/blog/2026/06/qualcomm-linux-2-now-available
+- Qualcomm AI Hub：https://aihub.qualcomm.com/
+- Qualcomm AI Hub explained：https://www.qualcomm.com/developer/blog/2025/11/qualcomm-ai-hub-explained-workbench-models-apps
+- Qualcomm ONNX Runtime Plugin EP：https://www.qualcomm.com/developer/blog/2026/05/qualcomm-launches-the-first-onnx-runtime-plugin-execution-provider
 - RB3 Gen 2：https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit
 - QCS8550：https://www.qualcomm.com/internet-of-things/products/q8-series/qcs8550
 - Dragonwing IQ10 RRD：https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design
