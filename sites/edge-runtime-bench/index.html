@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EdgeRuntimeBench | 边缘运行证据层</title>
+    <title>EdgeRuntimeBench | Physical AI 运行时证据层</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-amber">
@@ -18,6 +18,7 @@
         <a href="#solution">方案</a>
         <a href="#why-now">时机</a>
         <a href="#product">产品</a>
+        <a href="#evidence">证据</a>
         <a href="#business">商业</a>
         <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
@@ -28,12 +29,12 @@
     <main>
       <section class="hero hero-edge-runtime">
         <div class="hero-inner">
-          <p class="eyebrow">Pitch 20 · Physical AI Runtime Evidence Layer</p>
+          <p class="eyebrow">Pitch 20 · CI Benchmark · Safety Gate · Procurement Scorecard</p>
           <h1 class="long-word-title">EdgeRuntimeBench</h1>
-          <p class="hero-lede">把机器人策略从“能跑”变成“有证据地跑在 Qualcomm 边缘设备上”。EdgeRuntimeBench 为每个 LeRobot / ACT / SmolVLA 策略生成可复现证据包：lineage、compile、profile、fallback、runtime、SafetyOps gate、部署和回滚。</p>
+          <p class="hero-lede">把机器人策略从“demo 能跑”，变成“有证据地在 Qualcomm Dragonwing 边缘设备上上线、门禁、验收、计费和回滚”。它是 Physical AI 的运行时证据层。</p>
           <div class="cta-row">
-            <a class="button primary" href="#problem">看证据缺口</a>
-            <a class="button" href="#demo">看比赛证据包</a>
+            <a class="button primary" href="#problem">看上线证据缺口</a>
+            <a class="button" href="#demo">看证据包演示</a>
           </div>
         </div>
       </section>
@@ -43,35 +44,35 @@
           <div class="section-head">
             <div>
               <p class="kicker">01 · Problem</p>
-              <h2>机器人 demo 能跑，不代表企业敢买、集成商敢交付、评委相信用了高通。</h2>
+              <h2>机器人团队现在不缺模型，缺的是“能上线的证据”。</h2>
             </div>
-            <p>模型更新、固件变化、热降频、相机替换、客户现场光照、ROS pipeline、CPU fallback 或量化误差，都可能让一个看起来成功的 robot policy 失效。买家需要的不是截图，而是能复现、能审计、能回滚的运行时证据。</p>
+            <p>同一技能在不同设备、运行时、量化路径、温度、电量、相机、固件和网络条件下，结果会变。采购、CTO、安全负责人和评委真正问的不是 TOPS，而是 p99 延迟、热降频、断网、fallback、成本、安全门和回滚。</p>
           </div>
           <div class="grid five">
             <article class="card">
               <span class="claim-tag">Runtime</span>
-              <h3>NPU claim 容易失真</h3>
-              <p>模型可能静默 fallback 到 CPU；没有 QNN profile、backend report 和 fallback 记录，就不能说“跑在 NPU”。</p>
+              <h3>NPU claim 很容易失真</h3>
+              <p>ONNX/QNN 不等于自动走 NPU；量化、provider options、backend、context cache 和 fallback 都必须记录。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">Robot</span>
-              <h3>模型延迟不是机器人延迟</h3>
-              <p>真正决定动作的是 camera frame age、preprocess、inference、postprocess、action serialization 和 actuator ack。</p>
+              <span class="claim-tag">Robot Loop</span>
+              <h3>模型延迟不是动作延迟</h3>
+              <p>camera frame age、preprocess、inference、postprocess、action serialization 和 actuator ack 共同决定机器人行为。</p>
             </article>
             <article class="card">
               <span class="claim-tag">Lineage</span>
-              <h3>策略来源不可追溯</h3>
-              <p>dataset revision、LeRobot version、checkpoint step、camera config、normalization stats 和 action schema 必须锁定。</p>
+              <h3>策略来源经常断链</h3>
+              <p>dataset revision、LeRobot version、checkpoint、camera schema、normalization stats 和 action schema 没锁定，策略不可追溯。</p>
             </article>
             <article class="card">
               <span class="claim-tag">Safety</span>
               <h3>性能变化会变成安全问题</h3>
-              <p>p95 延迟、jitter、frame reuse、memory leak 和热降频都可能让机器人越过 ODD 或错过安全停机窗口。</p>
+              <p>p99 延迟、jitter、frame reuse、memory leak 和热降频都可能让机器人越过 ODD 或错过安全停机窗口。</p>
             </article>
             <article class="card">
               <span class="claim-tag">Buyer</span>
-              <h3>验收缺少共同语言</h3>
-              <p>OEM、SI、企业、保险、marketplace 和评委都需要同一份 evidence pack，而不是各看一堆脚本和日志。</p>
+              <h3>采购缺共同语言</h3>
+              <p>OEM、SI、企业、保险、marketplace 和评委都需要同一份 evidence pack，而不是各看一堆脚本和截图。</p>
             </article>
           </div>
         </div>
@@ -82,34 +83,34 @@
           <div class="section-head">
             <div>
               <p class="kicker">02 · Current Alternatives Fail</p>
-              <h2>AI Hub、QNN、MLOps、fleet tools 和认证实验室都重要，但没有覆盖机器人运行证据闭环。</h2>
+              <h2>底层工具都很重要，但没人把它们翻译成机器人上线证据。</h2>
             </div>
-            <p>EdgeRuntimeBench 不替代 Qualcomm AI Hub、QAIRT/QNN、ONNX Runtime、Foxglove、Formant、InOrbit 或测试认证。它把这些结果组织成面向机器人策略发布和商业验收的 evidence graph。</p>
+            <p>EdgeRuntimeBench 不替代 Qualcomm AI Hub、QAIRT/QNN、ONNX Runtime、LiteRT、ExecuTorch、Edge Impulse、MLPerf、Roboflow、Greengrass、Viam 或测试认证。它把这些能力组织成一个能被客户、SI、保险和 marketplace 共同接受的 evidence graph。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>Qualcomm AI Hub</h3>
-              <p>能 compile、profile、run inference，但更像模型工作台；不覆盖 ROS pipeline、机器人动作、长时运行和部署审计。</p>
-            </article>
-            <article class="card">
-              <h3>QAIRT / QNN Scripts</h3>
-              <p>能生成 context binary、CSV、QHAS/optrace，但证据分散在命令、bin、log 和 wrapper 里，难以交付给客户。</p>
-            </article>
-            <article class="card">
-              <h3>ONNX Runtime QNN</h3>
-              <p>能接入 QNN backend，但团队仍要证明 provider options、context cache、profiling、fallback 和 unsupported ops。</p>
-            </article>
-            <article class="card">
-              <h3>MLOps / Eval Tools</h3>
-              <p>擅长软件模型追踪和云端 eval；对 device power、thermal、firmware、ROS/PLC/CAN、FAT/SAT 和安全记录较弱。</p>
-            </article>
-            <article class="card">
               <h3>MLPerf / MLMark</h3>
-              <p>适合标准芯片/模型比较；不是客户项目、机器人 workload、site acceptance 或 marketplace 上架证据。</p>
+              <p>权威，但定位是标准化推理性能，不是客户私有机器人任务、运行时选择、安全门和采购决策。</p>
             </article>
             <article class="card">
-              <h3>Fleet Ops</h3>
-              <p>Foxglove、Formant、InOrbit 能运营 fleet，但不是独立证明每个模型/runtime 更新能安全部署的报告层。</p>
+              <h3>Qualcomm AI Hub</h3>
+              <p>能 optimize、compile、profile、run inference；但不是端到端机器人技能认证、fleet 回归和 ROI 报告层。</p>
+            </article>
+            <article class="card">
+              <h3>ONNX / LiteRT / ExecuTorch QNN</h3>
+              <p>运行时入口越来越多。开发者需要知道哪条 route 可上线，而不是继续把 SDK 文档拼成 spreadsheet。</p>
+            </article>
+            <article class="card">
+              <h3>Edge Impulse</h3>
+              <p>真实数据、训练、优化、部署和 drift workflow 很强；更适合作为输入/渠道，而不是独立采购证据层。</p>
+            </article>
+            <article class="card">
+              <h3>Roboflow / Ultralytics</h3>
+              <p>视觉模型 workflow 强，但不覆盖机器人 release dossier、SafetyOps gate、ODD、fleet rollback 和验收。</p>
+            </article>
+            <article class="card">
+              <h3>Greengrass / Viam / Peridio</h3>
+              <p>部署和 fleet 能力强，但不回答某个 model/runtime/device/OS/thermal envelope 是否适合这个物理任务。</p>
             </article>
           </div>
         </div>
@@ -120,30 +121,30 @@
           <div class="section-head">
             <div>
               <p class="kicker">03 · Solution</p>
-              <h2>EdgeRuntimeBench 是 physical AI 的运行时证据层。</h2>
+              <h2>EdgeRuntimeBench = 边缘 AI 运行时的 CI benchmark + safety gate + procurement scorecard。</h2>
             </div>
-            <p>它接收 LeRobot policy、ONNX、QNN artifact 或已部署包，锁定 lineage，运行 export matrix、replay parity、edge profile、live loop、soak test 和 rollback trial，最后输出 buyer-facing Evidence Pack。</p>
+            <p>输入模型、机器人技能、目标设备、运行时、量化策略和场景约束；输出 `ship / no-ship` 证据卡、最佳 runtime route、成本评分、安全评分和可签名 release dossier。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>Lineage</h3>
-              <p>锁定 dataset repo、policy revision、LeRobot version、checkpoint、camera config、FPS、task prompt、normalization。</p>
+              <h3>Lineage Lock</h3>
+              <p>锁定 LeRobotDataset v3、训练命令、checkpoint、model card、camera schema、normalization 和 license。</p>
             </article>
             <article class="step">
-              <h3>Compile</h3>
-              <p>AI Hub / QAIRT / QNN / ONNX Runtime QNN：生成 context binary、precompiled QNN ONNX 或标记 unsupported。</p>
+              <h3>Runtime Matrix</h3>
+              <p>比较 device x runtime x quantization x firmware x thermal profile x network profile。</p>
             </article>
             <article class="step">
-              <h3>Benchmark</h3>
-              <p>model microbench、pipeline replay、live edge loop、soak、rollback trial，分开标记 measured/proxy/simulated。</p>
+              <h3>Live Edge Loop</h3>
+              <p>记录 camera -> preprocess -> inference -> postprocess -> action commit -> actuator ack 的端到端 trace。</p>
             </article>
             <article class="step">
-              <h3>Gate</h3>
-              <p>SafetyOps 根据 p95 latency、deadline miss、frame age、jitter、memory、thermal、fallback 和 ODD 决定能否发布。</p>
+              <h3>Release Gate</h3>
+              <p>SafetyOps 根据 p99、jitter、frame age、cloud calls、unsafe stop、fallback 和 ODD 决定能否发布。</p>
             </article>
             <article class="step">
-              <h3>Pack</h3>
-              <p>生成 `judge-audit-pack.zip`、SkillDock bundle、RobotAppLayer adapter、rollback record 和 video proof index。</p>
+              <h3>Commercial Pack</h3>
+              <p>进入 SkillDock certification、EdgeFleet canary、RevenueStack ROI 和客户验收包。</p>
             </article>
           </div>
           <div class="image-band">
@@ -157,30 +158,30 @@
           <div class="section-head">
             <div>
               <p class="kicker">04 · Why Now</p>
-              <h2>边缘 AI 进入机器人采购，证据层会成为新的验收语言。</h2>
+              <h2>Edge AI 已进入采购窗口，机器人策略上线需要新的验收语言。</h2>
             </div>
-            <p>工业机器人已经大规模部署，edge AI 软硬件支出继续增长。AI Act、ISO 10218、ISO 3691-4、保险、RFP、marketplace 和 SkillDock 上架都会要求更多技术文档、日志、准确性、鲁棒性、网络安全和 post-market monitoring 证据。</p>
+            <p>LeRobot v0.6.0、Qualcomm AI Hub/QAIRT/QNN、ONNX Runtime QNN、LiteRT-QNN、ExecuTorch-QNN 和 Dragonwing 生态正在同时成熟。硬件已经够强，问题转向软件证据和商业验收。</p>
           </div>
           <div class="grid five">
             <div class="stat">
-              <strong>542K</strong>
-              <span>IFR 报告 2024 年全球工业机器人安装约 54.2 万台。</span>
+              <strong>$46.96B</strong>
+              <span>Fortune Business Insights 估算 2026 年全球 Edge AI 市场约 469.6 亿美元。</span>
             </div>
             <div class="stat">
-              <strong>295K</strong>
-              <span>中国 2024 年安装约 29.5 万台工业机器人，占全球 54%。</span>
+              <strong>$26.1B</strong>
+              <span>Grand View Research 估算 2026 年 AI in Robotics 市场约 261 亿美元。</span>
             </div>
             <div class="stat">
-              <strong>QNN</strong>
-              <span>AI Hub、QAIRT/QNN、ONNX Runtime QNN 和 Plugin EP 正在形成 Qualcomm runtime 入口。</span>
+              <strong>v0.6.0</strong>
+              <span>LeRobot 2026-07-06 release 加强 rollout、HIL corrections、eval、benchmarks 和 dataset tooling。</span>
             </div>
             <div class="stat">
-              <strong>LeRobot</strong>
-              <span>机器人策略 lineage、dataset、rollout、HIL 和 policy card 需要接到 edge evidence。</span>
+              <strong>50+</strong>
+              <span>Qualcomm AI Hub/Workbench 可在 50+ hosted Qualcomm device types 上 profile，但仍需标注 real/proxy。</span>
             </div>
             <div class="stat">
-              <strong>RFP</strong>
-              <span>企业采购、FAT/SAT、保险和上架审核都可以被 evidence pack 加速。</span>
+              <strong>2026-06-24</strong>
+              <span>Qualcomm 宣布拟收购 Modular，强化 edge-to-cloud、开放、异构 AI 软件生态方向。</span>
             </div>
           </div>
         </div>
@@ -191,14 +192,14 @@
           <div>
             <p class="kicker">05 · Product</p>
             <h2>不是单一 benchmark，而是策略上线前后的证据工作流。</h2>
-            <p class="lead">EdgeRuntimeBench 把一个 policy package 分成明确状态：Ready、Needs Quantization、Unsupported、Runtime Risk、Blocked by SafetyOps。每个判断都能追到原始 artifact。</p>
+            <p class="lead">EdgeRuntimeBench 把一个 policy package 分成明确状态：Ready、Needs Quantization、Unsupported、Runtime Risk、Blocked by SafetyOps、Rollback Required。每个判断都能追到原始 artifact。</p>
             <ul class="list">
-              <li>Lineage Graph：dataset -> train config -> checkpoint -> policy card -> export candidate -> eval -> edge package -> HIL feedback。</li>
-              <li>Contract Inspector：检查 camera names、image size、FPS、state/action shape、task prompt、control mode、normalization stats。</li>
-              <li>Export Matrix：PyTorch native、ONNX、ONNX+QNN、ONNX+TensorRT、native RTC，标记 supported / experimental / blocked。</li>
+              <li>Runtime Matrix：比较设备、runtime、量化、firmware、热状态、网络状态和 camera pipeline。</li>
+              <li>Scenario Lab：把 LabForgePilot、AMR picking、巡检、安防、零售货架和 smart camera 变成真实任务包。</li>
+              <li>Evidence Card：p50/p95/p99、jitter、load time、memory、compute utilization、energy/task、thermal throttle、task success、unsafe stop、cloud calls、cost/1k tasks。</li>
               <li>Replay Parity：用 held-out LeRobot episode 比较 PyTorch vs export 的 action chunks、drift、latency 和 queue gaps。</li>
-              <li>Live Edge Loop：camera -> preprocess -> inference -> postprocess -> action commit -> actuator ack 的端到端 trace。</li>
-              <li>Evidence Pack：device registry、policy manifest、Qualcomm export manifest、edge profile、install audit、SafetyOps gate、rollback。</li>
+              <li>Fleet Rollout：通过 EdgeFleet 做 canary；SafetyOps 失败即阻断；通过后写入 SkillDock 认证版本。</li>
+              <li>Release Dossier：device registry、policy manifest、Qualcomm export manifest、edge profile、install audit、SBOM、provenance、rollback。</li>
             </ul>
           </div>
           <div class="visual">
@@ -207,39 +208,56 @@
         </div>
       </section>
 
-      <section class="slide tint">
+      <section id="evidence" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">06 · Product API</p>
-              <h2>证据对象必须能被评委、客户、SI、保险和 marketplace 同时读懂。</h2>
+              <p class="kicker">06 · Product API/Evidence</p>
+              <h2>把低层 profile 升级成“这个技能能否上线、采购哪块板、卖多少钱”的证据。</h2>
             </div>
-            <p>所有指标都标注来源：`measured-on-board`、`AI-Hub-device-cloud`、`proxy`、`replay-eval` 或 `simulated`。诚实标注比假装全链路 NPU 更可信。</p>
+            <p>所有指标都标注来源：`measured-on-board`、`AI-Hub-device-cloud`、`proxy`、`replay-eval`、`simulated` 或 `customer-site`。诚实标注比假装全链路 NPU 更可信。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>sut_manifest</h3>
-              <p>board、SoC、OS、kernel、firmware、runtime、ORT/QNN version、model hash、dataset hash、container digest。</p>
+              <h3>RunSpec</h3>
+              <p>scenario、robot、policy、device targets、runtime targets、gates、ODD、network mode。</p>
             </article>
             <article class="card">
-              <h3>cycle_events</h3>
-              <p>capture、preprocess、inference、postprocess、action commit、actuator ack、deadline、safety state、backend used。</p>
+              <h3>LineageManifest</h3>
+              <p>LeRobot version、dataset repo/hash、model card、checkpoint、training command、camera schema、normalization。</p>
             </article>
             <article class="card">
-              <h3>profile_summary</h3>
-              <p>latency p50/p95/p99、action rate、control FPS、jitter、deadline miss、frame age、memory、thermal、power。</p>
+              <h3>SUTManifest</h3>
+              <p>board、SoC、OS、kernel、firmware、runtime、ORT/QNN/LiteRT/ExecuTorch version、driver stack。</p>
             </article>
             <article class="card">
-              <h3>qnn_backend_report</h3>
+              <h3>CycleTrace</h3>
+              <p>capture、preprocess、inference、postprocess、action commit、actuator ack、deadline、backend used。</p>
+            </article>
+            <article class="card">
+              <h3>BackendReport</h3>
               <p>HTP/GPU/CPU backend、fallback、unsupported ops、context cache、QNN profile CSV、optrace/QHAS links。</p>
             </article>
             <article class="card">
-              <h3>release_gate</h3>
-              <p>ODD、permissions、thresholds、SafetyOps decision、fail reasons、rollback pointer、previous-known-good。</p>
+              <h3>ReleaseDossier</h3>
+              <p>SBOM、SLSA/provenance、model/system card、AI RMF mapping、SSDF checks、VEX/KEV status、approvals。</p>
+            </article>
+          </div>
+          <div class="grid three" style="margin-top: 16px;">
+            <article class="card">
+              <span class="claim-tag">CLI</span>
+              <h3>一条命令跑 matrix</h3>
+              <p>`edgebench run lab_transfer.yaml --targets rb3-qcs6490:onnx-qnn,qcs8550:onnx-qnn --gates "p99&lt;80ms,unsafe_stop=0,cloud_calls=0"`</p>
             </article>
             <article class="card">
-              <h3>video_proof_index</h3>
-              <p>把三分钟视频时间码映射到 model hash、device log、profile chart、incident 和 rollback artifact。</p>
+              <span class="claim-tag">Output</span>
+              <h3>ship / no-ship 结果</h3>
+              <p>`ship_score=91`、winner route、p99、thermal throttle、fallback status、SafetyOps decision、rollback pointer。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Pack</span>
+              <h3>judge-audit-pack.zip</h3>
+              <p>device registry、policy manifest、runtime matrix、Qualcomm profile、release gate、incident ledger、rollback record、video proof index。</p>
             </article>
           </div>
         </div>
@@ -250,20 +268,20 @@
           <div class="section-head">
             <div>
               <p class="kicker">07 · Market & Business Model</p>
-              <h2>证据在钱发生的地方收费：采购、验收、保险、上架和更新。</h2>
+              <h2>证据在钱发生的地方收费：采购、验收、保险、上架、更新和持续回归。</h2>
             </div>
-            <p>EdgeRuntimeBench 的买家不是只想看 dashboard 的工程师，而是要签字的人：机器人 OEM、系统集成商、企业工厂、受监管实验室、保险、测试机构和 marketplace operator。</p>
+            <p>EdgeRuntimeBench 的买家不是只想看 dashboard 的工程师，而是要签字的人：机器人 OEM、系统集成商、企业工厂、受监管实验室、保险、融资方、测试机构和 marketplace operator。</p>
           </div>
           <div class="grid two">
             <article class="card">
-              <span class="claim-tag">中国版</span>
+              <span class="claim-tag">China Edition</span>
               <h3>交付验收 + 国产边缘适配 + SI 项目包</h3>
               <p>围绕机器人 OEM、SI、工厂和高校赛事交付。收费点是 SKU 证据包、FAT/SAT 项目包、持续设备监控、国产/Qualcomm/Jetson 对比和上架 badge。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">海外版</span>
+              <span class="claim-tag">Global Edition</span>
               <h3>RFP + 合规 + 保险 + marketplace trust</h3>
-              <p>围绕企业采购、ISO/AI Act 文档、保险 underwriting、marketplace seller evidence 和 site acceptance。强调 signed evidence pack 和 continuous runtime drift。</p>
+              <p>围绕企业采购、AI Act readiness、ISO safety case support、保险 underwriting、marketplace seller evidence 和 site acceptance。</p>
             </article>
           </div>
           <div class="grid five" style="margin-top: 16px;">
@@ -281,11 +299,11 @@
             </div>
             <div class="stat">
               <strong>$60k-250k</strong>
-              <span>海外 enterprise site license，含持续 runtime monitoring 和 audit archive。</span>
+              <span>海外 enterprise site license，含 runtime monitoring 和 audit archive。</span>
             </div>
             <div class="stat">
-              <strong>2+2+2</strong>
-              <span>设计伙伴目标：2 个 OEM、2 个 SI、2 个工厂，再加 1 个 insurer/lab 和 1 个 marketplace。</span>
+              <strong>10 partners</strong>
+              <span>90 天目标：10 个 design partners、30 个 certified skills、评估周期降到 48 小时内。</span>
             </div>
           </div>
         </div>
@@ -296,9 +314,9 @@
           <div class="section-head">
             <div>
               <p class="kicker">08 · Competition & Moat</p>
-              <h2>壁垒不是 benchmark 脚本，而是跨硬件、模型、现场和结果的证据图。</h2>
+              <h2>壁垒不是 profiler，而是上线、验收、保险和 marketplace 共同接受的证据格式。</h2>
             </div>
-            <p>最大威胁可能来自 MLCommons/EEMBC、Foxglove/Formant/InOrbit、NVIDIA/Qualcomm trust badge、测试实验室数字化。EdgeRuntimeBench 的机会是站在买方和发布流程上，把证据做成独立、可复现、可签名、可续更的商业对象。</p>
+            <p>NVIDIA 的公开证明姿态很强，Qualcomm AI Hub 和 Edge Impulse 是底层 substrate，Roboflow/Ultralytics 拥有视觉 workflow，Greengrass/Viam/Peridio 管 fleet。EdgeRuntimeBench 要占据的是“采购级运行证据包”。</p>
           </div>
           <div class="grid six">
             <article class="card">
@@ -307,23 +325,23 @@
             </article>
             <article class="card">
               <h3>Raw Artifacts</h3>
-              <p>不是截图，而是 profile CSV、QNN log、optrace、rosbag、JSONL、hash、manifest 和复现命令。</p>
+              <p>profile CSV、QNN log、optrace、rosbag、JSONL、hash、manifest 和复现命令，而不是截图。</p>
             </article>
             <article class="card">
-              <h3>Robot Connectors</h3>
-              <p>ROS、RobotAppLayer、SafetyOps、SkillDock、PLC/CAN/OPC、camera pipeline 和 fleet logs 连接。</p>
+              <h3>Scenario Packs</h3>
+              <p>LabForgePilot、AMR picking、inspection、retail shelf、security patrol、smart camera 等真实任务包。</p>
+            </article>
+            <article class="card">
+              <h3>SafetyOps Labels</h3>
+              <p>unsafe stop、human override、ODD violation、latency miss、fallback 和 rollback 事件成为验收资产。</p>
             </article>
             <article class="card">
               <h3>Acceptance Language</h3>
-              <p>进入 RFP、FAT/SAT、marketplace、保险和客户验收模板后，证据格式会形成路径依赖。</p>
+              <p>进入 RFP、FAT/SAT、marketplace、保险和客户验收模板后，证据格式形成路径依赖。</p>
             </article>
             <article class="card">
-              <h3>Partner Loop</h3>
-              <p>OEM、SI、企业、保险、测试机构和生态平台共同定义可信阈值。</p>
-            </article>
-            <article class="card">
-              <h3>Update History</h3>
-              <p>每次模型、firmware、runtime、camera、site 条件变化都要求 refresh evidence，形成持续收入。</p>
+              <h3>Continuous Revenue</h3>
+              <p>每次模型、firmware、runtime、camera、site 条件变化都要求 refresh evidence。</p>
             </article>
           </div>
         </div>
@@ -336,11 +354,12 @@
             <h2>EdgeRuntimeBench 把“用了 Qualcomm”变成比赛和商业都能检查的证据链。</h2>
             <p class="lead">LabForgePilot 提供真实任务，EdgeRuntimeBench 证明策略被编译、profile、部署到 Qualcomm target，SafetyOps 决定它能不能控制机器人。这样 Qualcomm 不只是硬件选择，而是技能发布和验收标准。</p>
             <ul class="list">
-              <li>RB3 Gen 2 / QCS6490：2026 年 7 月最现实的比赛 MVP target，能做板端/AI Hub proxy evidence。</li>
-              <li>QCS8550：高性能扩展 target，可展示多相机、多模型和更高 edge AI workload。</li>
-              <li>IQ10 RRD：作为 roadmap / early access ask，不能在 2026-07-06 写成已量产可用。</li>
-              <li>AI Hub / QAIRT / QNN / ONNX Runtime QNN：生成 compile、profile、backend、context cache、fallback 和 latency evidence。</li>
-              <li>QIR / QRB ROS：把 QNN 推理接入 ROS camera/inference nodes，并记录 topic timing 和 pipeline delay。</li>
+              <li>RB3 Gen 2 / QCS6490：2026 年 7 月最现实的比赛 MVP target，可做本地板端或 AI Hub device-cloud evidence。</li>
+              <li>QCS8550：高性能扩展 target；AI Hub 中常见为 QCS8550 Proxy，必须标注 proxy，不写成真实板端性能。</li>
+              <li>IQ-8275 / IQ-9075 / IQ9：工业高端 bridge，适合 rugged robot runtime story。</li>
+              <li>QAIRT / QNN：QAIRT 是整体 SDK；QNN 是当前设备端 runtime API/tools，证据应包含 backend、fallback、context cache 和 provider options。</li>
+              <li>ONNX Runtime QNN / LiteRT-QNN / ExecuTorch-QNN：比较不同 deployment route，给出上线建议。</li>
+              <li>安全边界：dev kit secure boot/debug 状态、real/proxy device、QCS8550 proxy、CPU fallback、unsupported ops 都必须显式标注。</li>
             </ul>
           </div>
           <div class="visual">
@@ -354,30 +373,30 @@
           <div class="section-head">
             <div>
               <p class="kicker">10 · Demo & Ask</p>
-              <h2>三分钟视频里只要证明一件事：Qualcomm 在控制闭环的关键路径上。</h2>
+              <h2>三分钟视频只证明一件事：Qualcomm 在控制闭环的关键路径上，而且证据可复现。</h2>
             </div>
             <p>评委必须看到物理板卡、相机、机器人、E-stop、终端、live camera feed、模型 hash、runtime log、latency chart、SafetyOps deny 和 rollback receipt。每个指标都要标注 measured-on-board、AI-Hub-device-cloud、proxy、replay-eval 或 simulated。</p>
           </div>
           <div class="pipeline">
             <article class="step">
-              <h3>0:12</h3>
-              <p>硬件亮相：LabForgePilot bench、Qualcomm target board、camera、robot、E-stop、OS/runtime terminal。</p>
+              <h3>0:00</h3>
+              <p>LabForgePilot 导入样本转移任务，展示 board、camera、robot、E-stop、runtime terminal。</p>
+            </article>
+            <article class="step">
+              <h3>0:20</h3>
+              <p>读取 LeRobotDataset v3、ACT checkpoint、model card 和 training command，生成 lineage。</p>
             </article>
             <article class="step">
               <h3>0:55</h3>
-              <p>一镜到底执行：本地感知、pick/place/verify/log，明确标注 cloud not in control loop。</p>
+              <p>选择 RB3/QCS6490 和 QCS8550 target，运行 ONNX-QNN、LiteRT-QNN、CPU fallback 路线对比。</p>
             </article>
             <article class="step">
-              <h3>1:30</h3>
-              <p>EdgeRuntimeBench dashboard：policy hash、QNN/ONNX status、p95 latency、action rate、runtime path。</p>
+              <h3>1:25</h3>
+              <p>RobotAppLayer 执行本地感知、pick/place/verify/log，明确 cloud not in control loop。</p>
             </article>
             <article class="step">
-              <h3>1:55</h3>
-              <p>扰动：错样本、keepout、latency miss 或 unsafe raw command；SafetyOps pause/deny 并记录 incident。</p>
-            </article>
-            <article class="step">
-              <h3>2:45</h3>
-              <p>导出 `judge-audit-pack.zip`：dataset -> policy -> Qualcomm profile -> SafetyOps gate -> LabForge log。</p>
+              <h3>2:20</h3>
+              <p>展示 winner route、p99、thermal throttle、cloud_calls、fallback status、ship_score 和 release gate。</p>
             </article>
           </div>
           <div class="grid three" style="margin-top: 16px;">
@@ -389,12 +408,12 @@
             <article class="card">
               <span class="claim-tag">Artifacts</span>
               <h3>统一文件名</h3>
-              <p>`device-registry.json`、`policy-artifact-manifest.json`、`qualcomm-export-manifest.json`、`edge-profile.qualcomm.json`、`rollback-record.json`。</p>
+              <p>`runtime-matrix.csv`、`edge-profile.qualcomm.json`、`release-dossier.json`、`safetyops-release-gate.json`、`rollback-record.json`。</p>
             </article>
             <article class="card">
               <span class="claim-tag">Ask</span>
               <h3>向高通要什么</h3>
-              <p>RB3/QCS6490 或 QCS8550 target、AI Hub/QNN office hours、QIR/ROS guidance、允许提交 QNN profiling artifacts、IQ10 RRD roadmap review。</p>
+              <p>RB3/QCS6490 或 QCS8550 target、AI Hub/QNN office hours、QRB ROS/QIR guidance、允许提交 profiling artifacts、IQ10 RRD roadmap review。</p>
             </article>
           </div>
         </div>
@@ -402,26 +421,42 @@
 
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">EdgeRuntimeBench 的目的，是把“我们会用 Qualcomm”变成“每个策略都能被编译、评测、部署、监控、门禁和回滚”。</p>
+          <p class="quote">EdgeRuntimeBench 的目的，是把“我们会用 Qualcomm”变成“每个策略都能被编译、评测、部署、监控、门禁、验收和回滚”。</p>
           <div class="source-links">
             <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
-            <a href="https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html">AI Hub Compile</a>
-            <a href="https://workbench.aihub.qualcomm.com/docs/hub/profile_examples.html">AI Hub Profile</a>
-            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX Runtime QNN</a>
-            <a href="https://onnxruntime.ai/docs/execution-providers/plugin-ep-libraries/">ONNX Plugin EP</a>
-            <a href="https://github.com/onnxruntime/onnxruntime-qnn">onnxruntime-qnn</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/faq.html">AI Hub FAQ</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/devices.html">AI Hub Devices</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/release_notes.html">AI Hub Release Notes</a>
+            <a href="https://aihub.qualcomm.com/get-started">AI Hub Get Started</a>
             <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">RB3 Gen 2</a>
+            <a href="https://www.qualcomm.com/internet-of-things/products/q6-series/qcs6490">QCS6490</a>
             <a href="https://www.qualcomm.com/internet-of-things/products/q8-series/qcs8550">QCS8550</a>
-            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Dragonwing IQ10</a>
-            <a href="https://www.qualcomm.com/developer/project/robotics-ros">Qualcomm Robotics ROS</a>
-            <a href="https://github.com/qualcomm-qrb-ros/qrb_ros_nn_inference">QRB ROS NN</a>
-            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobot Dataset</a>
+            <a href="https://www.qualcomm.com/developer/blog/2026/06/accelerate-industrial-iot-development-dragonwing-iq8-iq9">Dragonwing IQ8/IQ9</a>
+            <a href="https://www.qualcomm.com/news/releases/2026/06/qualcomm-to-acquire-modular">Qualcomm Modular</a>
+            <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX Runtime QNN</a>
+            <a href="https://github.com/onnxruntime/onnxruntime-qnn/releases/tag/v2.3.0">onnxruntime-qnn 2.3.0</a>
+            <a href="https://developers.google.com/edge/litert/next/qualcomm">LiteRT Qualcomm QNN</a>
+            <a href="https://docs.pytorch.org/executorch/stable/backends-qualcomm.html">ExecuTorch Qualcomm</a>
+            <a href="https://huggingface.co/blog/lerobot-release-v060">LeRobot v0.6.0</a>
+            <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">Dataset v3</a>
+            <a href="https://huggingface.co/docs/lerobot/en/act">ACT</a>
             <a href="https://huggingface.co/docs/lerobot/main/inference">LeRobot Rollout</a>
+            <a href="https://huggingface.co/docs/lerobot/rtc">LeRobot RTC</a>
+            <a href="https://docs.edgeimpulse.com/studio/projects/deployment">Edge Impulse Deploy</a>
             <a href="https://mlcommons.org/benchmarks/inference-edge/">MLPerf Edge</a>
-            <a href="https://www.eembc.org/mlmark/">EEMBC MLMark</a>
-            <a href="https://github.com/robotperf/benchmarks">RobotPerf</a>
-            <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-11">EU AI Act Art. 11</a>
-            <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72">EU AI Act Art. 72</a>
+            <a href="https://docs.roboflow.com/deploy/device-manager">Roboflow Deploy</a>
+            <a href="https://docs.ultralytics.com/modes/benchmark">Ultralytics Benchmark</a>
+            <a href="https://aws.amazon.com/greengrass/">AWS Greengrass</a>
+            <a href="https://www.viam.com/platform/fleet-management">Viam Fleet</a>
+            <a href="https://www.peridio.com/ai-ready">Peridio AI-ready</a>
+            <a href="https://www.fortunebusinessinsights.com/edge-ai-market-107023">Edge AI Market</a>
+            <a href="https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-ai-robotics-market-report">AI Robotics Market</a>
+            <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng">EU AI Act</a>
+            <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF</a>
+            <a href="https://csrc.nist.gov/pubs/sp/800/218/final">NIST SSDF</a>
+            <a href="https://slsa.dev/spec/v1.2/">SLSA</a>
+            <a href="https://www.cisa.gov/sbom">CISA SBOM</a>
+            <a href="https://theupdateframework.github.io/specification/latest/">TUF</a>
           </div>
         </div>
       </section>
