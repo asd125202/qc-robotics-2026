@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SafetyOps | 机器人技能安全门禁</title>
+    <title>SafetyOps | 机器人技能上线安全门禁</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-coral">
@@ -14,11 +14,12 @@
       </a>
       <nav class="navlinks" aria-label="页面导航">
         <a href="#problem">问题</a>
-        <a href="#broken">现状</a>
+        <a href="#alternatives">替代方案</a>
         <a href="#solution">方案</a>
         <a href="#why-now">时机</a>
         <a href="#product">产品</a>
-        <a href="#business">商业</a>
+        <a href="#api">API</a>
+        <a href="#market">商业</a>
         <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
         <a href="#demo">演示</a>
@@ -30,7 +31,7 @@
         <div class="hero-inner">
           <p class="eyebrow">Pitch 47 · Robot Skill Release Gate</p>
           <h1>SafetyOps</h1>
-          <p class="hero-lede">机器人不是训练完就上线。SafetyOps 是机器人模型和技能上线前的安全门禁：谁批准、能控制什么、在哪些场景运行、失败后如何停用、证据如何交给客户、认证和保险。</p>
+          <p class="hero-lede">机器人不是训练完就上线。SafetyOps 让每次模型、技能、远程协助和 OTA 变更都有权限、ODD、安全包络、Qualcomm edge profile、SBOM/VEX、事故回放、回滚和客户/保险/审计证据。</p>
           <div class="cta-row">
             <a class="button primary" href="#problem">看上线阻力</a>
             <a class="button" href="#demo">看门禁演示</a>
@@ -45,7 +46,7 @@
               <p class="kicker">01 · Problem</p>
               <h2>企业不是怕机器人不聪明，而是怕策略不可控。</h2>
             </div>
-            <p>Demo 阶段只要机器人能动；生产阶段必须回答：这个模型是谁批准的？能发哪些 ROS/DDS 指令？在哪个 ODD 生效？如果撞到人、越界、延迟飙升、传感器失效，如何停用、回滚、追责和给保险/客户看证据？</p>
+            <p>Demo 阶段只要机器人能动；生产阶段必须回答：谁批准了这个技能？它能控制哪些传感器、执行器、ROS/DDS topic？远程接管是谁批准的？事故后如何证明版本、命令、传感器状态、人工接管、停机和回滚？</p>
           </div>
           <div class="grid five">
             <article class="card">
@@ -56,7 +57,12 @@
             <article class="card">
               <span class="claim-tag">Permission</span>
               <h3>技能边界不清</h3>
-              <p>一个技能到底能读哪些传感器、写哪些 topic、控制哪些执行器、在哪些区域运行，经常写在文档里。</p>
+              <p>一个技能到底能读哪些传感器、写哪些 topic、控制哪些执行器、在哪些区域运行，经常留在文档里。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Remote</span>
+              <h3>远程接管缺责任链</h3>
+              <p>客户需要知道谁接入、为什么接入、允许哪些命令、持续多久、是否录像、能否紧急撤销。</p>
             </article>
             <article class="card">
               <span class="claim-tag">Release</span>
@@ -68,44 +74,39 @@
               <h3>保险和客户要事件链</h3>
               <p>事故后需要证明版本、权限、传感器状态、命令、停机、人工接管和恢复动作。</p>
             </article>
-            <article class="card">
-              <span class="claim-tag">Export</span>
-              <h3>出海要安全证据</h3>
-              <p>ISO/ANSI/EU/OSHA/NIST/GB 语境下，客户要的不是口头承诺，而是可导出的 safety-case artifacts。</p>
-            </article>
           </div>
         </div>
       </section>
 
-      <section id="broken" class="slide tint">
+      <section id="alternatives" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
               <p class="kicker">02 · Current Alternatives Fail</p>
-              <h2>今天的工具各管一层，但没人把“模型变更到现场事故”串成证据链。</h2>
+              <h2>现有工具都重要，但没有把模型变更、远程接管、现场命令、事故证据和回滚串成产品链路。</h2>
             </div>
-            <p>SafetyOps 不替代 Safety PLC，不替代 ISO 认证，也不替代 Formant、InOrbit 或 Foxglove。它把训练、权限、发布、运行时边界、incident replay 和审计包连接起来，服务 robot OEM、SI、企业客户、保险和评委。</p>
+            <p>SafetyOps 不替代 Safety PLC，不替代认证实验室，也不替代 Formant、InOrbit、Foxglove 或 OT security 工具。它把 release gate、command authorization、SBOM/VEX、incident replay 和客户审计包连接起来。</p>
           </div>
           <div class="grid five">
             <article class="card">
-              <h3>PDF / Spreadsheet</h3>
-              <p>风险评估和验收材料很难跟上模型版本、skill permissions、OTA、site config 和现场日志。</p>
+              <h3>Safety PLC</h3>
+              <p>认证安全控制器保护机器和产线，但不记录 AI model lineage、dataset、QNN profile、skill approval 或 remote-assist session。</p>
             </article>
             <article class="card">
-              <h3>Safety PLC</h3>
-              <p>认证安全控制器保护机器和产线，但不记录 AI model lineage、dataset、QNN profile 和 skill approval。</p>
+              <h3>PDF / Spreadsheet</h3>
+              <p>风险评估材料能支撑交付，但部署后跟不上模型更新、OTA、site config、漏洞处置和 incident replay。</p>
             </article>
             <article class="card">
               <h3>Fleet Ops</h3>
-              <p>Formant、InOrbit 管 fleet 和 incident，但不是以 release gate、safety-case evidence 和 certification support 为核心。</p>
+              <p>Formant、InOrbit、Viam 和 OEM clouds 管 fleet，但不是以 release gate、权限和 standards evidence 为核心。</p>
             </article>
             <article class="card">
               <h3>Robot Logs</h3>
-              <p>Foxglove、MCAP、ROS bag 很适合调试，但还需要权限、审批、回滚和客户可读的 audit pack。</p>
+              <p>Foxglove、MCAP、ROS bag 很适合调试，但还需要 approval、permission、rollback、chain-of-custody 和客户摘要。</p>
             </article>
             <article class="card">
-              <h3>AI Governance</h3>
-              <p>Credo、IBM、Holistic 等管数字 AI 风险，但通常不理解 ROS topics、执行器、E-stop、ODD 和边缘延迟。</p>
+              <h3>Cyber / GRC</h3>
+              <p>OT security、SBOM、AI governance 能回答一部分风险问题，但不回答 learned policy 是否应该移动 actuator。</p>
             </article>
           </div>
         </div>
@@ -116,32 +117,33 @@
           <div class="section-head">
             <div>
               <p class="kicker">03 · Solution</p>
-              <h2>SafetyOps 是机器人技能上线前的安全门禁和事故证据层。</h2>
+              <h2>SafetyOps 是 robot skill release gate + remote-assist evidence governance。</h2>
             </div>
-            <p>第一阶段只做一个强 wedge：Skill Release Safety Gate。每个技能上线前，必须声明权限、ODD、安全包络、模型证据、QNN profile、回放评测、审批人、灰度策略和回滚包；运行时再用 command admission 和 incident ledger 记录边界触发。</p>
+            <p>每个技能上线前必须声明 permissions、ODD、model evidence、Qualcomm edge profile、SBOM/VEX、approvals、canary scope 和 rollback target。运行时，边缘 agent 做 command admission、boundary monitoring、incident capture 和 rollback proof。</p>
           </div>
           <div class="pipeline">
             <article class="step">
               <h3>Declare</h3>
-              <p>技能声明 sensors、actuators、ROS/DDS allow/deny、ODD、risk level 和 rollback target。</p>
+              <p>技能声明 sensors、actuators、ROS/DDS allow-deny、ODD、risk level 和 rollback target。</p>
             </article>
             <article class="step">
               <h3>Evaluate</h3>
-              <p>固定 eval split、replay tests、HIL clips、QNN/AI Hub profile 和 robot compatibility。</p>
+              <p>绑定 dataset hash、eval split、HIL clips、replay regressions、SBOM/VEX 和 AI Hub/QNN profile。</p>
             </article>
             <article class="step">
               <h3>Approve</h3>
-              <p>safety owner、fleet admin、site owner 对 canary、scope 和 rollout gate 签名。</p>
+              <p>safety owner、fleet admin、site owner 对 remote assist、canary scope 和 rollout gate 签名。</p>
             </article>
             <article class="step">
               <h3>Enforce</h3>
-              <p>边缘 safety-agent 阻止 raw command、越界速度、禁区、传感器失效和延迟异常。</p>
+              <p>边缘 safety-agent 阻止 raw command、越界速度、禁区、传感器失效、延迟异常和未授权远程动作。</p>
             </article>
             <article class="step">
               <h3>Replay</h3>
-              <p>事件进入 MCAP ring buffer、incident ledger、rollback record 和 LeRobot/HIL 数据队列。</p>
+              <p>事件进入 MCAP ring buffer、access evidence、incident ledger、rollback record 和 LeRobot/HIL 数据队列。</p>
             </article>
           </div>
+          <p class="quote pipeline-extra">No cloud in the safety loop. SafetyOps 支持证据、策略、监测和有限 command admission；认证安全功能仍属于机器人 OEM / integrator 的本体安全架构。</p>
           <div class="image-band">
             <img src="../assets/safety-ops.png" alt="机器人技能发布门禁、安全运行时、审计账本和回滚控制台">
           </div>
@@ -153,30 +155,30 @@
           <div class="section-head">
             <div>
               <p class="kicker">04 · Why Now</p>
-              <h2>机器人规模、AI 策略更新和监管压力同时把 release gate 变成刚需。</h2>
+              <h2>机器人规模、AI 策略更新、监管周期和远程运维同时把 release gate 变成刚需。</h2>
             </div>
-            <p>全球工业机器人在役量已达数百万级，服务机器人和 RaaS fleet 也在扩张。与此同时，ISO 10218:2025、EU Machinery Regulation、Cyber Resilience Act、EU AI Act、NIST AI RMF 和中国 GB/AI 安全治理都在把“软件更新、网络安全和 AI 风险”推入机器人安全文件。</p>
+            <p>机器人已经进入客户现场，skill 更新越来越快，EU Machinery Regulation、EU CRA、ISO 10218:2025、NIST OT/Zero Trust、IEC 62443 和中国 GB/漏洞规则都在把软件更新、远程接入、网络安全和证据留存推入采购语言。</p>
           </div>
           <div class="grid five">
             <div class="stat">
               <strong>542K</strong>
-              <span>IFR 报告 2024 年全球工业机器人新增安装约 542,000 台。</span>
+              <span>IFR 2025：2024 年全球工业机器人新增安装约 542,000 台。</span>
             </div>
             <div class="stat">
-              <strong>4.66M</strong>
-              <span>全球工业机器人在役量约 4.66M，变更治理不再是小众问题。</span>
+              <strong>200K</strong>
+              <span>2024 年专业服务机器人销量接近 200,000 台，RaaS fleet 增长 31%。</span>
             </div>
             <div class="stat">
-              <strong>2025</strong>
-              <span>ISO 10218 于 2025 更新，安全、软件和网络攻击语境更突出。</span>
+              <strong>2026-09-11</strong>
+              <span>EU CRA vulnerability / incident reporting obligations 开始适用。</span>
             </div>
             <div class="stat">
-              <strong>2027</strong>
-              <span>EU Machinery Regulation 将于 2027-01-20 适用，自动移动机械进入更清晰监管周期。</span>
+              <strong>2027-01-20</strong>
+              <span>EU Machinery Regulation 开始适用，technical documentation 和 software safety evidence 更重要。</span>
             </div>
             <div class="stat">
-              <strong>$165K</strong>
-              <span>2026 年 OSHA willful/repeat 最高罚款超过 $165k，事故证据影响真实成本。</span>
+              <strong>OT</strong>
+              <span>机器人 fleet 是 cyber-physical OT system，不是普通 IoT dashboard。</span>
             </div>
           </div>
         </div>
@@ -186,14 +188,14 @@
         <div class="wrap split">
           <div>
             <p class="kicker">05 · Product</p>
-            <h2>从 release gate 切入，再扩展到 fleet safety passport。</h2>
-            <p class="lead">SafetyOps 不做认证机构。它交付的是 safety-case workflow：让 robot OEM、SI 和企业客户把每次 robot/model/skill change 变成可追踪、可审批、可回滚、可导出的证据包。</p>
+            <h2>第一版只做一个强 wedge：Skill Release Safety Gate。</h2>
+            <p class="lead">SafetyOps 不做认证机构。它交付的是 safety-case workflow：让 robot OEM、SI 和企业客户把每次 robot/model/skill/remote-assist change 变成可追踪、可审批、可回滚、可导出的证据包。</p>
             <ul class="list">
-              <li>Skill Registry：signed manifest、SBOM、model lineage、robot profile compatibility 和 rollback target。</li>
-              <li>Release Gate：eval、replay、HIL、AI Hub/QNN profile、approvals、canary rules 和 rollout stop 条件。</li>
-              <li>Safety Agent：在 ROS 2 stack 旁运行，观察 ODD、sensor health、thermal、network、E-stop 和 QNN runtime。</li>
-              <li>Command Admission：阻止 raw cmd_vel、arm trajectory、gripper force、map change、OTA 等高风险命令。</li>
-              <li>Incident Ledger：append-only timeline、MCAP/video ring buffer、replay pointer、hashes、custody 和 rollback proof。</li>
+              <li>SkillManifest：权限、ODD、安全包络、known limitations、rollback target。</li>
+              <li>ReleaseGate：dataset hash、eval、HIL、replay、AI Hub/QNN profile、approvals、canary rules。</li>
+              <li>RemoteAssist：JIT access、MFA、command scope、TTL、dual approval、break-glass reason。</li>
+              <li>SafetyAgent：观察 ODD、sensor health、thermal、network、QoS、E-stop 和 QNN runtime。</li>
+              <li>EvidenceVault：signed logs、MCAP/video ring buffer、access decisions、SBOM/VEX、incident timeline。</li>
             </ul>
           </div>
           <div class="visual">
@@ -202,14 +204,14 @@
         </div>
       </section>
 
-      <section class="slide tint">
+      <section id="api" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">06 · Product API</p>
-              <h2>安全不是一个勾选框，而是一组版本化 artifact。</h2>
+              <p class="kicker">06 · Product API/Evidence</p>
+              <h2>安全不是一个 checkbox，而是一组版本化 artifact。</h2>
             </div>
-            <p>所有 release 都绑定 skill manifest、dataset hash、evaluation、edge profile、approvals、runtime policy、incident ledger 和 audit pack。LeRobot/AI policy 永远不绕过认证安全控制器；ROS policy 是软件 guardrail，不是 Safety PLC。</p>
+            <p>所有 release 都绑定 skill manifest、dataset hash、edge profile、approvals、remote-access policy、runtime command decision、SBOM/VEX、incident ledger 和 audit pack。ROS policy 是软件 guardrail，不是 Safety PLC。</p>
           </div>
           <div class="grid six">
             <article class="card">
@@ -222,43 +224,70 @@
             </article>
             <article class="card">
               <h3>EdgeProfile</h3>
-              <p>AI Hub job、target device、QNN runtime、latency p95、memory、compute units、numeric delta。</p>
+              <p>AI Hub job、target device、QNN runtime、latency p95、memory、compute units、fallback status。</p>
             </article>
             <article class="card">
-              <h3>RuntimePolicy</h3>
-              <p>DDS enclave、command TTL、speed/force/geofence、confidence/OOD、sensor/thermal/network state。</p>
+              <h3>AccessSession</h3>
+              <p>operator、MFA、device posture、allowed commands、expiry、approver、session recording pointer。</p>
             </article>
             <article class="card">
-              <h3>IncidentEvent</h3>
-              <p>policy violation、near miss、E-stop、manual takeover、QoS miss、rollback action、MCAP pointer。</p>
+              <h3>SBOM / VEX</h3>
+              <p>firmware、container、ROS packages、edge agent、operator app 的组件清单和 exploitability status。</p>
             </article>
             <article class="card">
               <h3>AuditPack</h3>
               <p>buyer pack、judge pack、insurer pack、standards map、claim boundaries、data lane summary。</p>
             </article>
           </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">API</span>
+              <h3>Command authorization</h3>
+              <p><code>POST /v1/robots/{id}/commands:authorize</code> 用 robot state、operator scope、ODD 和 runtime policy 决定 allow / deny。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">API</span>
+              <h3>Cyber posture</h3>
+              <p><code>GET /v1/robots/{id}/cyber-posture</code> 返回 firmware、containers、cert age、open CVEs、VEX status 和 remote access state。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">API</span>
+              <h3>Evidence export</h3>
+              <p><code>POST /v1/incidents/{id}/evidence-pack</code> 导出 timeline、logs、SBOM/VEX snapshot、access sessions、hashes 和 custody。</p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section id="business" class="slide white">
+      <section id="market" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
               <p class="kicker">07 · Market & Business Model</p>
-              <h2>卖给机器人公司的是更快进 pilot，卖给企业的是更少部署风险。</h2>
+              <h2>卖给 OEM 的是更快进 pilot；卖给企业的是更少部署风险；卖给保险/RaaS 的是可核验风险证据。</h2>
             </div>
-            <p>第一批买家是正在从 demo 走向付费 pilot 的机器人 OEM、系统集成商和企业自动化团队。SafetyOps 帮他们减少 release review 时间、降低 warranty/SLA 争议、生成 insurer-ready evidence，并让客户验收更快。</p>
+            <p>第一批买家是正在从 demo 走向付费 pilot 的机器人 OEM、RaaS operators、系统集成商和企业自动化团队。SafetyOps 帮他们减少 release review 时间、降低 warranty/SLA 争议、生成 insurer-ready evidence，并让客户验收更快。</p>
           </div>
-          <div class="grid two">
+          <div class="grid four">
             <article class="card">
-              <span class="claim-tag">中国版</span>
-              <h3>数据驻留 + 中文审计包</h3>
-              <p>OEM pilot：人民币 20k-80k / year。工厂/仓库站点：人民币 50k-150k / site-year + 人民币 50-200 / robot / month。企业/OEM scale：人民币 200k-800k / year。强调 GB/T、等保/PIPL、私有化、国内云训练和本地 SI 交付。</p>
+              <span class="claim-tag">Buyer</span>
+              <h3>Robot OEM / RaaS</h3>
+              <p>CTO、VP Safety、VP Product、customer success，需要证明每次技能更新、远程接管和事故复盘。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">海外版</span>
-              <h3>Compliance-Ready Evidence Layer</h3>
-              <p>OEM/SI：$10k-$50k / year + $2k-$10k / formal release pack。Enterprise：$25k-$100k / site-year + $20-$100 / robot / month。Insurer/RaaS API：2%-5% of robot subscription 或 $20-$150 / robot / month。</p>
+              <span class="claim-tag">Buyer</span>
+              <h3>Enterprise deployer</h3>
+              <p>EHS、automation engineering、OT security、legal/risk、procurement 需要责任链和验收证据。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">China</span>
+              <h3>机器人事故黑匣子</h3>
+              <p>人民币 50k-150k / site-year + 50-200 / robot / month，强调 GB/T readiness、数据驻留和私有化。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Global</span>
+              <h3>Compliance-ready evidence</h3>
+              <p>$25k-$100k / site-year + $20-$100 / robot / month；formal release pack 和 insurer/RaaS API 另收费。</p>
             </article>
           </div>
         </div>
@@ -269,9 +298,9 @@
           <div class="section-head">
             <div>
               <p class="kicker">08 · Competition & Moat</p>
-              <h2>竞争证明需求真实，但 SafetyOps 的位置在“物理 AI 发布证据”。</h2>
+              <h2>竞争证明需求真实，但 SafetyOps 的位置在 physical AI release evidence。</h2>
             </div>
-            <p>FORT、3Laws、Veo、NVIDIA Halos、Formant、InOrbit、Foxglove、Viam、Safety PLC vendors、AI governance platforms 都解决一层。SafetyOps 的 wedge 是 Qualcomm-edge robot skills 的 release gate、runtime command evidence 和 cross-OEM safety event schema。</p>
+            <p>FORT、3Laws、Veo、NVIDIA Halos、Formant、InOrbit、Foxglove、Viam、Safety PLC vendors、AI governance 和 SBOM vendors 都解决一层。SafetyOps 的 wedge 是 robot skill release gate、remote-assist responsibility chain 和 cross-OEM safety event schema。</p>
           </div>
           <div class="grid four">
             <article class="card">
@@ -280,15 +309,15 @@
             </article>
             <article class="card">
               <h3>Hazard / Skill Library</h3>
-              <p>dock assist、pick、carry、clean、patrol、elevator、charging 等技能逐步沉淀权限和安全包络模板。</p>
+              <p>dock assist、pick、carry、clean、patrol、elevator、charging 等技能沉淀权限和安全包络模板。</p>
             </article>
             <article class="card">
-              <h3>Insurer Graph</h3>
+              <h3>Remote Evidence Vault</h3>
+              <p>operator identity、MFA、command scope、session recording、break-glass、vendor access 和 revocation 形成责任链。</p>
+            </article>
+            <article class="card">
+              <h3>Insurer Risk Ledger</h3>
               <p>版本、地点、触发、停机、人工接管和恢复形成 underwriting / claims 可读的风险图谱。</p>
-            </article>
-            <article class="card">
-              <h3>Edge-Signed Evidence</h3>
-              <p>Qualcomm target 上的 latency、memory、thermal、QNN runtime、signed logs 和 replay evidence 形成上线门槛。</p>
             </article>
           </div>
         </div>
@@ -301,28 +330,28 @@
               <p class="kicker">09 · Why Qualcomm</p>
               <h2>Qualcomm 不只需要机器人跑 AI，还需要 AI 策略能被批准上线。</h2>
             </div>
-            <p>SafetyOps 把 Qualcomm edge 从推理目标升级成物理 AI release target：每个模型都有 AI Hub/QNN profile、runtime artifact、latency/memory、numeric delta、target device、rollback 和 incident evidence。</p>
+            <p>SafetyOps 把 Qualcomm edge 从推理目标升级成 physical AI release target：每个模型都有 AI Hub/QNN profile、runtime artifact、latency/memory、numeric delta、fallback status、rollback 和 incident evidence。</p>
           </div>
           <div class="pipeline">
             <article class="step">
               <h3>Profile</h3>
-              <p>AI Hub / QNN profile 进入 release gate，不再只说 TOPS 或 demo FPS。</p>
+              <p>AI Hub / QAIRT / QNN profile 进入 release gate，不再只说 TOPS 或 demo FPS。</p>
             </article>
             <article class="step">
-              <h3>Enforce</h3>
-              <p>本体侧 safety-agent 检查 ODD、sensor health、network、thermal 和 command policy。</p>
+              <h3>Sensor Trust</h3>
+              <p>Dragonwing target 记录 camera health、frame age、thermal、power、network、QoS 和 sensor confidence。</p>
+            </article>
+            <article class="step">
+              <h3>Identity</h3>
+              <p>device identity、secure boot、OTA、key management 和 signed logs 支撑 edge evidence custody。</p>
             </article>
             <article class="step">
               <h3>Rollback</h3>
               <p>release manifest 绑定 previous-known-good，事故时一键停用和回滚。</p>
             </article>
             <article class="step">
-              <h3>Evidence</h3>
-              <p>signed logs、MCAP replay、QNN runtime、incident timeline 进入客户验收包。</p>
-            </article>
-            <article class="step">
               <h3>Ecosystem</h3>
-              <p>OEM、SI、企业客户、认证实验室、保险和 RaaS financier 围绕 Qualcomm-ready evidence 协作。</p>
+              <p>DragonWorks、EdgeRuntimeBench、SkillCertKit、SkillDock、EdgeFleet 串成完整 Qualcomm edge AI lifecycle。</p>
             </article>
           </div>
         </div>
@@ -333,63 +362,68 @@
           <div class="section-head">
             <div>
               <p class="kicker">10 · Demo & Ask</p>
-              <h2>八分钟演示：dock-assist-v2 技能被门禁拦截、限权上线、触发 incident、再回滚。</h2>
+              <h2>八分钟演示：dock-assist-v2 被门禁拦截、限权上线、触发 incident、再回滚。</h2>
             </div>
-            <p>比赛 demo 可以用桌面 AMR/机械臂模拟器：上传新技能，缺少 human-proximity eval 被挡住；补上 HIL/replay/QNN profile 后只允许 canary；运行时 raw /cmd_vel 被拒绝；人进入 keepout zone 触发停机、replay、回滚和 audit pack。</p>
+            <p>比赛 demo 可以用桌面 AMR/机械臂模拟器：上传新技能，缺少 human-proximity eval 被挡住；补上 HIL/replay/QNN/SBOM/VEX 后只允许 canary；运行时 raw /cmd_vel 被拒绝；人进入 keepout zone 触发停机、replay、回滚和 audit pack。</p>
           </div>
-          <div class="grid four">
+          <div class="grid five">
             <article class="card">
               <h3>1. Gate</h3>
               <p>技能卡显示 sensors、actuators、ROS allow/deny、ODD、risk、rollback target 和 missing evidence。</p>
             </article>
             <article class="card">
-              <h3>2. Profile</h3>
-              <p>发布门禁读取 dataset hash、replay pass、HIL clips、AI Hub/QNN latency、memory 和 approvals。</p>
+              <h3>2. Access</h3>
+              <p>JIT remote-assist session 显示 operator、MFA、command scope、TTL、approver 和 recording pointer。</p>
             </article>
             <article class="card">
-              <h3>3. Incident</h3>
-              <p>canary 部署后，unsafe raw command 被拒绝；keepout 事件触发 slow/stop 和 incident ledger。</p>
+              <h3>3. Profile</h3>
+              <p>发布门禁读取 dataset hash、replay pass、HIL clips、AI Hub/QNN latency、memory、fallback status。</p>
             </article>
             <article class="card">
-              <h3>4. Rollback</h3>
+              <h3>4. Incident</h3>
+              <p>canary 部署后，unsafe raw command 被拒绝；keepout 或 QoS 事件触发 slow/stop 和 incident ledger。</p>
+            </article>
+            <article class="card">
+              <h3>5. Rollback</h3>
               <p>打开 MCAP replay，失败片段进入 LeRobot/HIL 队列，一键回滚并导出 judge-audit-pack.zip。</p>
             </article>
           </div>
-          <p class="quote">我们的申请：用 Qualcomm edge target 打造 robot skill release gate reference workflow，让评委看到机器人从训练到上线、事故到回滚、证据到保险/客户验收，如何成为商业产品的一部分。</p>
+          <p class="quote pipeline-extra">我们的申请：请 Qualcomm 提供 RB3/QCS/IQ target guidance、AI Hub/QNN office hours、device identity / secure lifecycle 建议和 1-2 个 OEM/SI 试点引荐。我们交付一个从技能提交、边缘评测、远程接管、运行时拦截、事故回放到审计包导出的 Qualcomm-first reference demo。</p>
         </div>
       </section>
 
       <section class="slide white">
         <div class="wrap">
-          <p class="quote">SafetyOps 不声称通过 ISO/CE/OSHA/EU AI Act，不替代 safety PLC 或认证实验室，也不保证零事故。它卖的是物理 AI 发布证据层：让每个机器人技能在上线前后都有权限、边界、评测、运行时证据、回滚和审计包。</p>
+          <p class="quote">SafetyOps 不声称 certifies robots，不保证 safety，不替代 safety PLC、E-stop、scanner、STO、risk assessment、notified body、TÜV/UL/Intertek 或法律合规审查。它卖的是 audit-ready release evidence：让每个机器人技能在上线前后都有权限、边界、评测、远程接管记录、运行时证据、回滚和审计包。</p>
           <div class="source-links">
+            <a href="https://www.osha.gov/robotics">OSHA Robotics</a>
+            <a href="https://www.osha.gov/penalties">OSHA Penalties</a>
             <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years">IFR Industrial Robots</a>
             <a href="https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom">IFR Service Robots</a>
-            <a href="https://www.osha.gov/robotics">OSHA Robotics</a>
-            <a href="https://www.osha.gov/robotics/standards">OSHA Robot Standards</a>
-            <a href="https://www.osha.gov/penalties">OSHA Penalties</a>
-            <a href="https://injuryfacts.nsc.org/work/work-overview/work-safety-introduction/">NSC Work Injury Cost</a>
-            <a href="https://www.iso.org/standard/51528.html">ISO 12100</a>
-            <a href="https://www.iso.org/standard/73481.html">ISO 13849-1</a>
-            <a href="https://www.iso.org/standard/73933.html">ISO 10218-1</a>
-            <a href="https://www.iso.org/standard/83545.html">ISO 3691-4</a>
-            <a href="https://www.automate.org/robotics/blogs/updated-iso-10218-faq">A3 ISO 10218 FAQ</a>
             <a href="https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng">EU Machinery Regulation</a>
-            <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">EU AI Act</a>
-            <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act">EU CRA</a>
-            <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF</a>
-            <a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">NIST OT Security</a>
-            <a href="https://design.ros2.org/articles/ros2_dds_security.html">ROS 2 DDS Security</a>
+            <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng">EU Cyber Resilience Act</a>
+            <a href="https://www.iso.org/standard/73933.html">ISO 10218-1:2025</a>
+            <a href="https://www.iso.org/standard/73934.html">ISO 10218-2:2025</a>
+            <a href="https://www.iso.org/standard/73481.html">ISO 13849-1</a>
+            <a href="https://doi.org/10.6028/NIST.SP.800-207">NIST Zero Trust</a>
+            <a href="https://doi.org/10.6028/NIST.SP.800-82r3">NIST OT Security</a>
+            <a href="https://doi.org/10.6028/NIST.SP.800-61r3">NIST Incident Response</a>
+            <a href="https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards">IEC 62443</a>
+            <a href="https://www.cisa.gov/topics/information-communications-technology-supply-chain-security/sbom">CISA SBOM</a>
+            <a href="https://www.cisa.gov/resources-tools/resources/minimum-requirements-vulnerability-exploitability-exchange-vex">CISA VEX</a>
+            <a href="https://www.cac.gov.cn/2021-07/13/c_1627761607640342.htm">China Vulnerability Rules</a>
+            <a href="https://design.ros2.org/articles/ros2_security_enclaves.html">ROS 2 Security Enclaves</a>
+            <a href="https://docs.ros.org/en/rolling/Concepts/Intermediate/About-Security.html">ROS 2 Security</a>
             <a href="https://mcap.dev/guides/getting-started/ros-2">MCAP ROS 2</a>
-            <a href="https://huggingface.co/docs/lerobot/en/hil_data_collection">LeRobot HIL</a>
             <a href="https://workbench.aihub.qualcomm.com/docs/">Qualcomm AI Hub</a>
-            <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3 Gen 2</a>
-            <a href="https://www.fortrobotics.com/">FORT Robotics</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/profile_examples.html">AI Hub Profile</a>
+            <a href="https://www.qualcomm.com/news/onq/2026/06/dragonwing-iq10-robotics-reference-design">Qualcomm IQ10 RRD</a>
+            <a href="https://www.qualcomm.com/developer/blog/2026/06/qualcomm-linux-2-now-available">Qualcomm Linux 2.0</a>
+            <a href="https://www.fortrobotics.com/platform">FORT Robotics</a>
             <a href="https://www.nvidia.com/en-us/ai-trust-center/halos/robotics/">NVIDIA Halos</a>
-            <a href="https://foxglove.dev/">Foxglove</a>
-            <a href="https://www.inorbit.ai/">InOrbit</a>
             <a href="https://formant.io/">Formant</a>
-            <a href="https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm">CAC Data Export</a>
+            <a href="https://www.inorbit.ai/robops">InOrbit</a>
+            <a href="https://foxglove.dev/">Foxglove</a>
           </div>
         </div>
       </section>
