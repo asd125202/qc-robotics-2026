@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DualCloudOps | 双云机器人训练执行层</title>
+    <title>DualCloudOps | LeRobot 双云训练到高通边缘发布</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tone-cyan">
@@ -14,11 +14,12 @@
       </a>
       <nav class="navlinks" aria-label="页面导航">
         <a href="#problem">问题</a>
-        <a href="#broken">现状</a>
+        <a href="#alternatives">替代方案</a>
         <a href="#solution">方案</a>
         <a href="#why-now">时机</a>
         <a href="#product">产品</a>
-        <a href="#business">商业</a>
+        <a href="#api">API</a>
+        <a href="#market">商业</a>
         <a href="#moat">壁垒</a>
         <a href="#qualcomm">高通</a>
         <a href="#demo">演示</a>
@@ -30,7 +31,7 @@
         <div class="hero-inner">
           <p class="eyebrow">Pitch 16 · LeRobot To Qualcomm Release Layer</p>
           <h1>DualCloudOps</h1>
-          <p class="hero-lede">一个 LeRobot 训练任务，自动选择中国云或海外云，最后生成可验签的 Qualcomm 边缘部署包。我们不卖另一朵 GPU 云；我们卖机器人训练从数据、算力、评估到上板的可审计执行层。</p>
+          <p class="hero-lede">一个 LeRobot 训练任务，按数据边界、预算、GPU 可用性和采购策略自动选择中国云或海外云，最后生成可验签、可评估、可回滚的 Qualcomm edge release package。</p>
           <div class="cta-row">
             <a class="button primary" href="#problem">看训练断点</a>
             <a class="button" href="#demo">看 8 分钟演示</a>
@@ -45,18 +46,18 @@
               <p class="kicker">01 · Problem</p>
               <h2>机器人团队不是缺 GPU，而是缺一条能交付的训练流水线。</h2>
             </div>
-            <p>LeRobot、低成本机械臂和云 GPU 让原型更快，但商业客户要的是另一件事：工厂视频能不能留在本地？换云后结果能不能复现？训练花费能不能封顶？模型能不能变成 Qualcomm edge 上可验签、可回滚、可审计的部署包？</p>
+            <p>LeRobot、低成本机械臂和云 GPU 让原型更快，但商业客户要的是另一件事：数据能不能去那朵云？训练能不能复现？成本能不能封顶？checkpoint 能不能变成 Qualcomm 边缘上可验签、可评估、可回滚的部署包？</p>
           </div>
           <div class="grid five">
             <article class="card">
               <span class="claim-tag">Data</span>
               <h3>真实机器人数据很敏感</h3>
-              <p>视频、音频、地图、工艺流程、人员和动作轨迹可能涉及个人信息、商业秘密、重要数据和客户现场安全。</p>
+              <p>视频、地图、工艺流程、人员、动作轨迹、工牌、operator log 和 failure clips 可能涉及隐私、商业秘密和安全区域。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">GPU</span>
-              <h3>算力选择不可预测</h3>
-              <p>大云可信但贵且有 quota；neocloud 快但采购和合规要解释；租卡平台便宜但不适合敏感生产数据。</p>
+              <span class="claim-tag">Cloud</span>
+              <h3>算力选择不是价格表问题</h3>
+              <p>大云可信但重；neocloud 快；marketplace 便宜但风险高。机器人团队需要 policy-aware routing。</p>
             </article>
             <article class="card">
               <span class="claim-tag">Repro</span>
@@ -65,51 +66,51 @@
             </article>
             <article class="card">
               <span class="claim-tag">Eval</span>
-              <h3>仿真、真实回放和客户验收断裂</h3>
-              <p>模型 loss 下降不等于机器人任务成功；客户要 success rate、intervention rate、latency、failure replay 和 rollback。</p>
+              <h3>loss 下降不等于任务成功</h3>
+              <p>客户要 success rate、intervention rate、failure replay、latency、deadline misses 和 rollback target。</p>
             </article>
             <article class="card">
               <span class="claim-tag">Edge</span>
               <h3>云端 checkpoint 不是上板部署包</h3>
-              <p>Qualcomm 目标需要 ONNX/QNN/Qualcomm AI Runtime profile、延迟/内存报告、签名、SBOM 和设备配置。</p>
+              <p>Qualcomm 目标需要 ONNX/QAIRT/QNN candidate、AI Hub profile、SBOM、签名、SafetyOps gate 和设备配置。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="broken" class="slide tint">
+      <section id="alternatives" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
               <p class="kicker">02 · Current Alternatives Fail</p>
               <h2>GPU 云、MLOps 和机器人 fleet 工具各自强，但没有把机器人策略变成可发布 artifact。</h2>
             </div>
-            <p>DualCloudOps 不和 AWS、阿里云、RunPod、Lambda、CoreWeave、Run:ai、Weights & Biases、Foxglove 或 Formant 争同一个位置。它站在这些工具之上，定义机器人训练任务、数据边界、评估门禁和 Qualcomm edge release。</p>
+            <p>DualCloudOps 不和 AWS、阿里云、RunPod、Lambda、CoreWeave、Run:ai、Weights & Biases、Foxglove 或 Formant 争同一个位置。它站在这些工具之上，定义机器人训练合同、数据边界、评估门禁和 Qualcomm edge release。</p>
           </div>
           <div class="grid six">
             <article class="card">
-              <h3>Hyperscaler</h3>
-              <p>AWS、GCP、Azure、阿里云、腾讯云可信，但 quota、成本、区域、销售流程和机器人上板链路都要团队自己拼。</p>
+              <h3>Hyperscalers</h3>
+              <p>AWS、GCP、Azure、阿里云、腾讯云、华为云可信，但 quota、成本、区域、数据出境和上板链路要自己拼。</p>
             </article>
             <article class="card">
-              <h3>Neocloud</h3>
-              <p>Lambda、RunPod、CoreWeave、Modal 很快，但客户仍要决定数据能不能去、如何复现、如何审计和如何交付。</p>
+              <h3>Neoclouds</h3>
+              <p>CoreWeave、Lambda、RunPod、Modal、HF Jobs 很快，但不判断 robot video 能不能去或 release 是否可审计。</p>
             </article>
             <article class="card">
-              <h3>GPU Marketplace</h3>
-              <p>Vast、AutoDL、潞晨云等适合非敏感实验，但敏感 robot video、客户工厂数据和长期 SLA 需要更强分类和隔离。</p>
+              <h3>Marketplaces</h3>
+              <p>Vast、AutoDL、潞晨云便宜，适合低敏实验；敏感客户数据需要分类、隔离和 support。</p>
             </article>
             <article class="card">
               <h3>MLOps</h3>
-              <p>W&B、MLflow、SageMaker、Vertex 追踪实验很好，但不天然理解 LeRobot episode、robot body、动作成功率和 QNN profile。</p>
+              <p>W&B、MLflow、SageMaker、Vertex 追踪实验，但不理解 LeRobotDataset、robot body、intervention rate 和 QNN profile。</p>
             </article>
             <article class="card">
-              <h3>Fleet Ops</h3>
-              <p>Foxglove、Formant、Viam、InOrbit 收集和观察机器人数据，但不是以 train/eval/export release 为核心。</p>
+              <h3>Robot Data</h3>
+              <p>Foxglove、Formant、Viam、InOrbit 观察机器人，但不是以 train -> eval -> export -> edge release 为核心。</p>
             </article>
             <article class="card">
               <h3>Self Build</h3>
-              <p>自建脚本最快启动，最慢商业化；一旦进入中国/海外双市场、客户审计和边缘量产，维护成本迅速上升。</p>
+              <p>自建脚本启动最快，商业化最慢；进入双市场、客户审计、edge package 和回滚后维护成本迅速上升。</p>
             </article>
           </div>
         </div>
@@ -122,30 +123,31 @@
               <p class="kicker">03 · Solution</p>
               <h2>DualCloudOps 用一份 Robot Training Contract 连接双云训练和 Qualcomm edge release。</h2>
             </div>
-            <p>同一个 LeRobot job 可以路由到中国云、海外云、企业专有云或低成本实验云；但数据合约、训练配置、评估门禁、artifact 签名和 Qualcomm 设备 profile 保持一致。</p>
+            <p>同一个 LeRobot job 可以路由到中国云、海外云、HF Jobs、企业 BYOC 或低敏 marketplace lane；但数据合同、训练配置、评估门禁、artifact 签名和 Qualcomm 设备 profile 保持一致。</p>
           </div>
           <div class="pipeline">
             <article class="step">
               <h3>Contract</h3>
-              <p>数据集、policy、预算、区域、隐私等级、robot body、Qualcomm target 和验收指标。</p>
+              <p>dataset、policy、robot body、sensor schema、预算、隐私等级、区域、目标芯片、验收指标。</p>
             </article>
             <article class="step">
               <h3>Route</h3>
-              <p>按数据敏感度、区域、成本、GPU 可用性和企业采购策略选择中国或海外 provider。</p>
+              <p>按数据敏感度、区域、GPU 可用性、成本、interconnect、provider trust 和采购策略选择 lane。</p>
             </article>
             <article class="step">
               <h3>Train</h3>
-              <p>生成 provider runner，固定 container、LeRobot version、seed、dataset commit 和 checkpoint cadence。</p>
+              <p>固定 container、LeRobot version、Git SHA、seed、dataset revision、checkpoint cadence 和 provider receipt。</p>
             </article>
             <article class="step">
               <h3>Gate</h3>
-              <p>用 sim、real rollout、failure replay、latency、intervention rate 和 rollback 规则做 release decision。</p>
+              <p>用 lerobot-eval、rollout、HIL、failure replay、intervention rate、latency 和 rollback rule 做发布决策。</p>
             </article>
             <article class="step">
               <h3>Ship</h3>
-              <p>输出 ONNX/QNN candidate、runtime config、profile report、SBOM、provenance、签名和回滚包。</p>
+              <p>输出 ONNX/QNN candidate、AI Hub profile、SBOM、provenance、签名、SafetyOps gate 和回滚包。</p>
             </article>
           </div>
+          <p class="quote pipeline-extra">Cloud training is not in the safety loop. Cross-border access can be a data export event. DualCloudOps 默认把 raw robot data、model registry、logs、keys 和 support access 按区域隔离，只移动经过策略批准的 hash、summary、derivative 或 signed artifact。</p>
           <div class="image-band">
             <img src="../assets/dual-cloud-ops.png" alt="中国云、海外云、训练合约和 Qualcomm 边缘部署包架构图">
           </div>
@@ -157,30 +159,30 @@
           <div class="section-head">
             <div>
               <p class="kicker">04 · Why Now</p>
-              <h2>LeRobot 开源动量、GPU 供应碎片化和边缘 AI 上板需求同时成熟。</h2>
+              <h2>2026 年机会不是再租一张 GPU，而是把机器人训练变成可治理、可审计、可上板的工业流程。</h2>
             </div>
-            <p>2026 年的机会不是“训练一个更大模型”，而是把机器人策略训练变成可重复、可采购、可审计、可上板的工业流程。云 GPU 访问已经不是稀缺能力；被治理的 GPU 路由才是商业化能力。</p>
+            <p>LeRobot v0.6、LeRobotDataset v3、HF Jobs、H100/H200/B200 供应碎片化、中国/海外数据边界、Qualcomm AI Hub / QAIRT / QNN 和 Dragonwing 机器人生态同时成熟。云 GPU 访问已经不是稀缺能力；被治理的 GPU 路由才是商业化能力。</p>
           </div>
           <div class="grid five">
             <div class="stat">
               <strong>LeRobot</strong>
-              <span>数据集、teleoperation、ACT/SmolVLA、rollout、sim eval 和 Hub workflow 形成可用开源底座。</span>
+              <span>eval、rollout、HIL correction、FSDP、HF Jobs 和 Dataset v3 形成可产品化底座。</span>
             </div>
             <div class="stat">
-              <strong>双市场</strong>
-              <span>中国客户要数据驻留、ICP/等保式材料和国内云采购；海外客户要 SOC2-style evidence 和已有 MLOps 集成。</span>
+              <strong>China</strong>
+              <span>国内云、数据驻留、发票、账号采购、PIPL/数据出境评估和本地支持成为交付条件。</span>
             </div>
             <div class="stat">
-              <strong>碎片化</strong>
-              <span>AWS/GCP/Azure 可信但重；Lambda/RunPod/Modal 快；CoreWeave 适合大规模；Vast/AutoDL 适合低敏实验。</span>
+              <strong>Global</strong>
+              <span>hyperscaler 可信但重，neocloud 快，marketplace 便宜但只适合低敏可重跑实验。</span>
             </div>
             <div class="stat">
-              <strong>边缘化</strong>
-              <span>机器人实时控制不能绕过本体；云端训练必须回到 Qualcomm edge 的低延迟、低功耗和离线执行。</span>
+              <strong>Edge</strong>
+              <span>AI Hub / QAIRT / QNN profile 让云端训练结果有清晰 Qualcomm 目标。</span>
             </div>
             <div class="stat">
-              <strong>证据化</strong>
-              <span>客户、评委、保险和质量团队需要 dataset hash、model hash、SBOM、签名、profile 和可回滚 release。</span>
+              <strong>Evidence</strong>
+              <span>客户、评委和质量团队需要 dataset hash、model hash、SBOM、签名、profile 和可回滚 release。</span>
             </div>
           </div>
         </div>
@@ -190,14 +192,14 @@
         <div class="wrap split">
           <div>
             <p class="kicker">05 · Product</p>
-            <h2>把 LeRobot 原型变成跨区域、跨 provider、可上板的训练执行系统。</h2>
-            <p class="lead">第一版不追求接入所有 GPU 云，而是把一个 bounded robot task 跑完整：采集 episode，生成 LeRobotDataset，选择中国/海外 lane，训练 ACT/SmolVLA，跑 sim/real eval，再导出 Qualcomm edge release package。</p>
+            <h2>第一版只做一个完整闭环，不做万能云平台。</h2>
+            <p class="lead">MVP 是一条可演示的 robot policy release：50-100 个 SO-101 / tabletop episode，LeRobotDataset v3，China 或 Overseas lane，ACT 训练，固定 eval gate，再导出 Qualcomm edge release package。SmolVLA / VLA 是 forward-looking candidate，不承诺全部上 NPU。</p>
             <ul class="list">
-              <li>Training Contract Builder：dataset、policy、robot body、camera schema、预算、区域、隐私等级、目标芯片和验收指标。</li>
-              <li>Provider Router：阿里云/腾讯云/华为云/百度、AWS/GCP/Azure、Lambda/RunPod/CoreWeave/Modal、Hugging Face Jobs。</li>
-              <li>Cost & Risk Guard：训练前预算、训练中 spend cap、spot/preempt retry、data egress rule、敏感数据 provider blocklist。</li>
-              <li>Eval Harness：固定 split、sim benchmark、real rollout、intervention labels、failure replay、latency 和 rollback gate。</li>
-              <li>Edge Release Exporter：ONNX/QNN candidate、Qualcomm AI Hub / QNN profile、SBOM、SLSA/in-toto provenance、cosign signature。</li>
+              <li>Training Contract Builder：dataset、policy type、robot body、camera schema、privacy tier、region lane、budget cap、target device。</li>
+              <li>Provider Router：中国 CUDA Fast Path、中国 Domestic Compliance Path、Overseas Enterprise Trust、AI Native、Marketplace Low-Sensitivity。</li>
+              <li>Cost & Risk Guard：GPU quote、duration、storage、egress、spot retry、checkpoint cadence、provider allow/block list。</li>
+              <li>Eval Harness：lerobot-eval、rollout / HIL correction、replay eval、success rate、intervention rate、failure classes。</li>
+              <li>Edge Release Exporter：ONNX/PT2 candidate、AI Hub compile/profile receipts、QNN backend report、SafetyOps gate、signed rollback。</li>
             </ul>
           </div>
           <div class="visual">
@@ -206,23 +208,23 @@
         </div>
       </section>
 
-      <section class="slide tint">
+      <section id="api" class="slide tint">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="kicker">06 · Product API</p>
+              <p class="kicker">06 · Product API/Evidence</p>
               <h2>卖点不是接了几朵云，而是每次训练都有合同、账本和 release evidence。</h2>
             </div>
-            <p>DualCloudOps 的数据结构把 GPU 供应商变成可替换资源，把 robot policy release 变成可审计资产。它可以接入 W&B、Hugging Face Hub、企业对象存储和 Qualcomm AI Hub，但核心记录留在我们自己的 release ledger。</p>
+            <p>DualCloudOps 的数据结构把 GPU 供应商变成可替换资源，把 robot policy release 变成可审计资产。所有指标标注来源：simulated、replay-eval、AI-Hub-device-cloud、proxy 或 measured-on-board。</p>
           </div>
           <div class="grid six">
             <article class="card">
               <h3>TrainingContract</h3>
-              <p>dataset_repo、policy_type、robot_body、sensors、privacy_tier、region_lane、budget_cap、target_device。</p>
+              <p>dataset、policy、robot_body、sensors、privacy_tier、region_lane、budget_cap、target_device。</p>
             </article>
             <article class="card">
               <h3>DatasetLedger</h3>
-              <p>LeRobotDataset v3 schema、episode ids、rights、redaction、calibration hash、firmware hash、train/val/test split。</p>
+              <p>LeRobotDataset version、episode ids、rights、redaction、calibration hash、firmware hash、split。</p>
             </article>
             <article class="card">
               <h3>ProviderRun</h3>
@@ -230,39 +232,66 @@
             </article>
             <article class="card">
               <h3>EvalGate</h3>
-              <p>sim success、real rollout、intervention rate、latency p95、failure class、rollback target、release decision。</p>
+              <p>sim success、real rollout、intervention rate、latency p95、failure class、release decision。</p>
             </article>
             <article class="card">
               <h3>EdgeProfile</h3>
-              <p>Qualcomm target、ONNX/QNN artifact、runtime、CPU/NPU fallback、memory、thermal envelope、offline mode。</p>
+              <p>Qualcomm target、AI Hub compile/profile IDs、ONNX/QNN artifact、runtime、backend、memory、fallback。</p>
             </article>
             <article class="card">
               <h3>SignedRelease</h3>
-              <p>model hash、dataset hash、SBOM、provenance、signature、attestation note、install manifest、rollback receipt。</p>
+              <p>model hash、dataset hash、SBOM、SLSA/in-toto provenance、signature、install manifest、rollback receipt。</p>
+            </article>
+          </div>
+          <div class="grid three pipeline-extra">
+            <article class="card">
+              <span class="claim-tag">Policy</span>
+              <h3>Cross-border gate</h3>
+              <p>海外访问中国存储数据也可能是 export event；默认只移动 hash、summary、approved derivative 和签名 artifact。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Evidence</span>
+              <h3>Cost and egress report</h3>
+              <p>训练前预算、训练中花费、storage、egress、idle disk、reservation commitment 和 checkpoint retry 都进入账本。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Release</span>
+              <h3>Edge audit pack</h3>
+              <p>dataset-ledger、provider receipt、eval_info、AI Hub jobs、QNN backend report、SafetyOps gate 和 rollback record。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="business" class="slide white">
+      <section id="market" class="slide white">
         <div class="wrap">
           <div class="section-head">
             <div>
               <p class="kicker">07 · Market & Business Model</p>
-              <h2>先服务从 LeRobot demo 走向客户 pilot 的机器人团队。</h2>
+              <h2>先卖给从 LeRobot demo 走向客户 pilot 的机器人团队。</h2>
             </div>
-            <p>第一批买家不是大模型实验室，而是机器人 OEM、系统集成商、具身智能实验室、制造业自动化团队、教育套件和 Qualcomm 生态开发者。他们需要的是“capture, train, evaluate, export”的 4-8 周交付闭环。</p>
+            <p>第一批买家不是大模型实验室，而是机器人 OEM、系统集成商、具身智能实验室、制造业自动化团队、教育套件和 Qualcomm 生态开发者。他们需要的是 capture, train, evaluate, export 的 4-8 周交付闭环。</p>
           </div>
-          <div class="grid two">
+          <div class="grid four">
             <article class="card">
-              <span class="claim-tag">中国版</span>
-              <h3>数据驻留 + 国内云训练 + 上板证据</h3>
-              <p>销售给机器人 OEM、实验室、SI 和制造客户。开发者版：训练模板 + GPU 代付/抽成。团队版：人民币 3k-20k / month + compute pass-through。企业/私有化：人民币 100k-800k / year，包含国内云 adapter、SSO、审计、对象存储、内网 runner 和本地发票/支持。</p>
+              <span class="claim-tag">China</span>
+              <h3>数据驻留 + 国内云训练</h3>
+              <p>团队版 RMB 3k-20k / month + compute pass-through；pilot package RMB 20k-80k；企业私有 lane RMB 100k-800k / year。</p>
             </article>
             <article class="card">
-              <span class="claim-tag">海外版</span>
-              <h3>LeRobot-To-Edge Release SaaS</h3>
-              <p>开发者/教育版：starter credits、dataset conversion、basic eval report。团队版：$499-$5k / month + compute pass-through。SI pilot package：$20k-$80k / 4-8 weeks。Enterprise lane：$100k-$500k / year for SSO/RBAC、private registry、audit logs、provider policies and support SLA。</p>
+              <span class="claim-tag">Global</span>
+              <h3>LeRobot-to-edge SaaS</h3>
+              <p>团队版 $499-$5k / month + compute pass-through；SI pilot $20k-$80k；enterprise lane $100k-$500k / year。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Revenue</span>
+              <h3>不是 GPU 差价</h3>
+              <p>收入重点是 training ops、procurement intelligence、private lane、validation、edge release 和 support SLA。</p>
+            </article>
+            <article class="card">
+              <span class="claim-tag">Buyers</span>
+              <h3>AI 负责人 + 法务 + 采购</h3>
+              <p>CTO 关心模型，法务关心数据边界，采购关心 provider 和发票，Qualcomm FAE 关心能否上板。</p>
             </article>
           </div>
         </div>
@@ -273,9 +302,9 @@
           <div class="section-head">
             <div>
               <p class="kicker">08 · Competition & Moat</p>
-              <h2>Provider adapter 很容易复制；机器人 release evidence graph 不容易复制。</h2>
+              <h2>Provider adapter 容易复制；机器人 release evidence graph 不容易复制。</h2>
             </div>
-            <p>DualCloudOps 的壁垒不是“我也能开一台 H100”，而是每次训练和部署留下的机器人上下文：哪个 robot body、哪个 sensor schema、哪个任务、哪个数据区域、哪个失败模式、哪个 Qualcomm target、什么延迟和功耗。</p>
+            <p>DualCloudOps 的壁垒不是开 H100，而是每次训练和部署留下的机器人上下文：robot body、sensor schema、任务、数据区域、失败模式、Qualcomm target、延迟、内存、backend 和回滚。</p>
           </div>
           <div class="grid six">
             <article class="card">
@@ -288,19 +317,19 @@
             </article>
             <article class="card">
               <h3>Edge Graph</h3>
-              <p>policy type + robot body + sensor config + Qualcomm target + latency/power/runtime evidence 形成兼容性图谱。</p>
+              <p>policy + robot body + sensor config + Qualcomm target + latency/memory/backend/thermal evidence。</p>
             </article>
             <article class="card">
               <h3>Dual-Region Playbook</h3>
-              <p>中国和海外 provider 的数据边界、预算上限、artifact 移动规则、发票和支持语言沉淀成 playbook。</p>
-            </article>
-            <article class="card">
-              <h3>Distribution</h3>
-              <p>LeRobot 社区、Qualcomm 机器人生态、教育套件、SI pilot 模板和云市场形成低成本获客入口。</p>
+              <p>中国和海外 provider 的数据边界、预算上限、artifact 移动规则、发票和支持语言。</p>
             </article>
             <article class="card">
               <h3>Procurement Evidence</h3>
-              <p>每个 policy release 都带 lineage、cost、eval、safety gate、rollback、SBOM 和 edge profile。</p>
+              <p>每个 release 带 lineage、cost、eval、SafetyOps gate、rollback、SBOM 和 edge profile。</p>
+            </article>
+            <article class="card">
+              <h3>Distribution</h3>
+              <p>LeRobot 社区、Qualcomm 机器人生态、教育套件、SI pilot 模板和云市场形成入口。</p>
             </article>
           </div>
         </div>
@@ -322,15 +351,15 @@
             </article>
             <article class="step">
               <h3>AI Hub</h3>
-              <p>模型编译、量化、profile 和 hosted-device validation 成为训练 job 的标准最后一步。</p>
+              <p>compile、quantize、profile 和 hosted-device validation 成为训练 job 的标准最后一步。</p>
             </article>
             <article class="step">
               <h3>QNN Runtime</h3>
-              <p>把 PyTorch/ONNX checkpoint 转成 Qualcomm AI Runtime/QNN 候选 artifact，并记录 fallback 策略。</p>
+              <p>把 PyTorch/ONNX checkpoint 转成 QAIRT/QNN 候选 artifact，并记录 unsupported ops 和 fallback。</p>
             </article>
             <article class="step">
               <h3>FAE Demo</h3>
-              <p>同一份 LeRobot job，切换中国/海外云，最后上同一块 Qualcomm board，适合销售和比赛演示。</p>
+              <p>同一份 LeRobot job，切换中国/海外云，最后上同一块 Qualcomm board。</p>
             </article>
             <article class="step">
               <h3>Ecosystem</h3>
@@ -347,27 +376,27 @@
               <p class="kicker">10 · Demo & Ask</p>
               <h2>8 分钟演示：同一份 LeRobot job，两条云路径，一份可验签边缘包。</h2>
             </div>
-            <p>Demo 不需要真的训练大模型。它要让评委看到一个真实商业闭环：数据边界、云路由、训练日志、评估门禁、Qualcomm profile、签名 release 和本体部署验证。</p>
+            <p>Demo 不需要真的训练大模型。它要让评委看到商业闭环：数据边界、云路由、训练日志、评估门禁、Qualcomm profile、签名 release 和本体部署验证。</p>
           </div>
           <div class="grid four">
             <div class="stat">
               <strong>0-2m</strong>
-              <span>选择 SO-101/桌面臂任务、LeRobotDataset、ACT/SmolVLA、预算、数据等级和 Qualcomm RB3/IQ10 target。</span>
+              <span>选择 SO-101/桌面臂任务、LeRobotDataset v3、ACT、预算、数据等级和 RB3/QCS target。</span>
             </div>
             <div class="stat">
               <strong>2-4m</strong>
-              <span>切换中国云/海外云；系统展示数据驻留、provider runner、GPU、dataset hash、日志和成本守卫。</span>
+              <span>切换中国云/海外云；展示数据驻留、provider runner、GPU、dataset hash、成本守卫和 egress policy。</span>
             </div>
             <div class="stat">
               <strong>4-6m</strong>
-              <span>训练完成后跑 sim/real eval，选择通过 gate 的 checkpoint，导出 ONNX/QNN candidate 和 profile report。</span>
+              <span>训练完成后跑 lerobot-eval / rollout / replay gate，导出 ONNX candidate 和 AI Hub/QNN profile report。</span>
             </div>
             <div class="stat">
               <strong>6-8m</strong>
-              <span>生成 signed edge package：SBOM、provenance、cosign signature、install manifest、rollback receipt，并在边缘端验证。</span>
+              <span>生成 signed edge package：SBOM、provenance、cosign signature、SafetyOps gate、rollback receipt，并在 edge 端验签。</span>
             </div>
           </div>
-          <p class="quote">对 Qualcomm 的请求：提供开发板、AI Hub/QNN profile hook、云训练额度和一个 OEM/SI 试点，让 LeRobot 社区第一次把“云端训练”自然落到 Qualcomm 机器人边缘。</p>
+          <p class="quote">对 Qualcomm 的请求：提供 QCS6490 / QCS8550 / RB3 / IQ target guidance、AI Hub / QAIRT / QNN office hours、云训练额度和一个 OEM/SI/教育套件试点，让 LeRobot 社区第一次把“云端训练”自然落到 Qualcomm 机器人边缘。</p>
         </div>
       </section>
 
@@ -376,23 +405,26 @@
           <p class="quote">DualCloudOps 的核心不是替客户省几块钱 GPU，而是让机器人策略训练从实验脚本变成可采购、可审计、可上板、可复用的商业交付流程。</p>
           <div class="source-links">
             <a href="https://huggingface.co/docs/lerobot/en/index">LeRobot Docs</a>
-            <a href="https://huggingface.co/docs/lerobot/en/il_robots">LeRobot Real Robots</a>
+            <a href="https://huggingface.co/blog/lerobot-release-v060">LeRobot v0.6</a>
             <a href="https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3">LeRobotDataset v3</a>
+            <a href="https://huggingface.co/docs/huggingface_hub/en/guides/jobs">HF Jobs</a>
             <a href="https://aihub.qualcomm.com/">Qualcomm AI Hub</a>
             <a href="https://workbench.aihub.qualcomm.com/docs/hub/compile_examples.html">AI Hub Compile</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/profile_examples.html">AI Hub Profile</a>
+            <a href="https://workbench.aihub.qualcomm.com/docs/hub/quantize_examples.html">AI Hub Quantize</a>
             <a href="https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html">ONNX QNN EP</a>
             <a href="https://www.qualcomm.com/developer/hardware/rb3-gen-2-development-kit">Qualcomm RB3</a>
-            <a href="https://aws.amazon.com/ec2/instance-types/p6/">AWS P6</a>
-            <a href="https://cloud.google.com/products/compute/pricing/accelerator-optimized">GCP GPU Pricing</a>
-            <a href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series">Azure ND H100</a>
+            <a href="https://cn.aliyun.com/product/egs">Alibaba Cloud GPU</a>
+            <a href="https://cloud.tencent.com/product/gpu">Tencent GPU</a>
+            <a href="https://www.huaweicloud.com/product/modelarts/ascend-cloud.html">Huawei Ascend</a>
+            <a href="https://cloud.baidu.com/product/gpu.html">Baidu GPU</a>
+            <a href="https://www.volcengine.com/product/ml-platform">Volcengine ML</a>
+            <a href="https://aws.amazon.com/ec2/capacityblocks/pricing/">AWS Capacity Blocks</a>
+            <a href="https://docs.cloud.google.com/compute/docs/gpus">GCP GPUs</a>
             <a href="https://lambda.ai/pricing">Lambda Pricing</a>
             <a href="https://www.runpod.io/product/cloud-gpus">RunPod GPUs</a>
             <a href="https://www.coreweave.com/pricing">CoreWeave Pricing</a>
             <a href="https://modal.com/pricing">Modal Pricing</a>
-            <a href="https://www.aliyun.com/product/ecs/gpu">Alibaba Cloud GPU</a>
-            <a href="https://cloud.tencent.com/document/product/560/19700">Tencent GPU Specs</a>
-            <a href="https://cloud.baidu.com/product/gpu.html">Baidu GPU</a>
-            <a href="https://www.huaweicloud.com/product/gpu.html">Huawei GPU</a>
             <a href="https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm">CAC Data Export</a>
             <a href="https://slsa.dev/">SLSA</a>
             <a href="https://docs.sigstore.dev/cosign/signing/signing_with_containers/">Sigstore Cosign</a>
